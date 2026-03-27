@@ -1,0 +1,10 @@
+[package]
+name = "vk-engine"
+version = "0.1.0"
+edition = "2024"
+description = "Ergonomic Vulkan 1.2 wrapper with from_raw_parts support"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+vk-sys = { path = "../vk-sys" }
+libloading = "0.8"

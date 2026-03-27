@@ -1,0 +1,6 @@
+[package]
+name = "vk-sys"
+version = "0.1.0"
+edition = "2024"
+description = "Raw Vulkan 1.2 FFI types generated from vk.xml"
+license = "MIT OR Apache-2.0"

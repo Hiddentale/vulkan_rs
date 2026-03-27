@@ -1,0 +1,12 @@
+[package]
+name = "generator"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+vk-parse = "0.13"
+nom = "8"
+quote = "1"
+proc-macro2 = "1"
+heck = "0.5"
