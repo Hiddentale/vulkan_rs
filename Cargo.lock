@@ -84,9 +84,9 @@ dependencies = [
 
 [[package]]
 name = "vk-parse"
-version = "0.13.0"
+version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4cf882fca8b9f8fe4a613dcb9f3c77d42c4d829dfdb45886c7da83928970f74c"
+checksum = "8bc287cfdff6c2df6a137b17880086f985e4c622b761c0e3bb8af981ed3593e0"
 dependencies = [
  "xml-rs",
 ]

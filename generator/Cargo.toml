@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-vk-parse = "0.13"
+vk-parse = "0.20"
 nom = "8"
 quote = "1"
 proc-macro2 = "1"

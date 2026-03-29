@@ -3,8 +3,8 @@
 use std::collections::HashMap;
 use vk_parse::{
     self, Command, CommandDefinition, CommandParam, Enum, EnumSpec, EnumsChild, Extension,
-    ExtensionChild, Feature, FeatureChild, InterfaceItem, RegistryChild, Type, TypeMember,
-    TypeMemberDefinition, TypeMemberMarkup, TypeSpec,
+    ExtensionChild, Feature, FeatureChild, InterfaceItem, Registry, RegistryChild, Type,
+    TypeMember, TypeMemberDefinition, TypeMemberMarkup, TypeSpec,
 };
 
 // ---------------------------------------------------------------------------
@@ -19,6 +19,9 @@ pub struct VkRegistry {
     pub bitmasks: Vec<BitmaskDef>,
     pub commands: Vec<CommandDef>,
     pub constants: Vec<ConstantDef>,
+    pub func_pointers: Vec<FuncPointerDef>,
+    pub extensions: Vec<ExtensionDef>,
+    pub platforms: Vec<PlatformDef>,
     pub aliases: HashMap<String, String>,
     pub base_types: HashMap<String, String>,
 }
@@ -28,6 +31,8 @@ pub struct HandleDef {
     pub name: String,
     pub dispatchable: bool,
     pub parent: Option<String>,
+    pub object_type: Option<String>,
+    pub provided_by: Option<String>,
 }
 
 #[derive(Debug)]
@@ -36,6 +41,8 @@ pub struct StructDef {
     pub members: Vec<MemberDef>,
     pub extends: Vec<String>,
     pub returned_only: bool,
+    pub is_union: bool,
+    pub provided_by: Option<String>,
 }
 
 #[derive(Debug)]
@@ -49,6 +56,7 @@ pub struct MemberDef {
     pub optional: bool,
     pub values: Option<String>,
     pub len: Option<String>,
+    pub extern_sync: Option<String>,
 }
 
 #[derive(Debug)]
@@ -97,6 +105,8 @@ pub struct CommandDef {
     pub params: Vec<ParamDef>,
     pub success_codes: Vec<String>,
     pub error_codes: Vec<String>,
+    pub dispatch_level: DispatchLevel,
+    pub provided_by: Option<String>,
 }
 
 #[derive(Debug)]
@@ -109,6 +119,7 @@ pub struct ParamDef {
     pub array_size: Option<String>,
     pub optional: bool,
     pub len: Option<String>,
+    pub extern_sync: Option<String>,
 }
 
 #[derive(Debug)]
@@ -117,6 +128,46 @@ pub struct ConstantDef {
     pub value: String,
     pub ty: Option<String>,
     pub comment: Option<String>,
+}
+
+#[derive(Debug)]
+pub struct FuncPointerDef {
+    pub name: String,
+    pub return_type: String,
+    pub is_return_pointer: bool,
+    pub params: Vec<ParamDef>,
+}
+
+#[derive(Debug, Clone)]
+pub struct ExtensionDef {
+    pub name: String,
+    pub number: i64,
+    pub ext_type: Option<String>,
+    pub platform: Option<String>,
+    pub depends: Option<String>,
+    pub promoted_to: Option<String>,
+    pub deprecated_by: Option<String>,
+    pub supported: String,
+    pub items: Vec<ExtensionItem>,
+}
+
+#[derive(Debug, Clone)]
+pub enum ExtensionItem {
+    Type(String),
+    Command(String),
+}
+
+#[derive(Debug, Clone)]
+pub struct PlatformDef {
+    pub name: String,
+    pub protect: String,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DispatchLevel {
+    Entry,
+    Instance,
+    Device,
 }
 
 // ---------------------------------------------------------------------------
@@ -140,6 +191,9 @@ pub fn parse_registry(path: &std::path::Path) -> VkRegistry {
         bitmasks: Vec::new(),
         commands: Vec::new(),
         constants: Vec::new(),
+        func_pointers: Vec::new(),
+        extensions: Vec::new(),
+        platforms: Vec::new(),
         aliases: HashMap::new(),
         base_types: HashMap::new(),
     };
@@ -228,6 +282,18 @@ pub fn parse_registry(path: &std::path::Path) -> VkRegistry {
         }
     }
 
+    // Funcpointers: vk-parse doesn't parse proto/param for these, so we
+    // parse them from the raw XML text in a separate pass.
+    let xml_text = std::fs::read_to_string(path).expect("failed to read vk.xml");
+    reg.func_pointers = parse_func_pointers(&xml_text);
+
+    // Collect platforms and extensions.
+    collect_platforms(&registry, &mut reg);
+    collect_extensions(&registry, &mut reg);
+
+    // Stamp provenance (which feature/extension introduced each type/command).
+    stamp_provenance(&registry, &mut reg);
+
     reg
 }
 
@@ -269,7 +335,8 @@ fn collect_types(
 
         match category {
             "handle" => collect_handle(ty, reg),
-            "struct" | "union" => collect_struct(ty, reg),
+            "struct" => collect_struct(ty, reg, false),
+            "union" => collect_struct(ty, reg, true),
             "bitmask" => collect_bitmask_type(ty, bitmask_meta, bitmask_enum_names, reg),
             "basetype" => collect_basetype(ty, reg),
             _ => {}
@@ -302,10 +369,12 @@ fn collect_handle(ty: &Type, reg: &mut VkRegistry) {
         name,
         dispatchable,
         parent: ty.parent.as_ref().map(|p| strip_vk(p)),
+        object_type: ty.objtypeenum.clone(),
+        provided_by: None,
     });
 }
 
-fn collect_struct(ty: &Type, reg: &mut VkRegistry) {
+fn collect_struct(ty: &Type, reg: &mut VkRegistry, is_union: bool) {
     let name = match ty.name {
         Some(ref n) => strip_vk(n),
         None => return,
@@ -329,6 +398,8 @@ fn collect_struct(ty: &Type, reg: &mut VkRegistry) {
         members,
         extends,
         returned_only,
+        is_union,
+        provided_by: None,
     });
 }
 
@@ -383,6 +454,7 @@ fn parse_member_def(def: &TypeMemberDefinition) -> MemberDef {
         optional: def.optional.as_deref().is_some_and(|o| o.contains("true")),
         values: def.values.clone(),
         len: def.len.clone(),
+        extern_sync: def.externsync.clone(),
     }
 }
 
@@ -404,12 +476,26 @@ fn collect_bitmask_type(
     bitmask_enum_names: &mut HashMap<String, ()>,
     reg: &mut VkRegistry,
 ) {
-    let flags_name = match ty.name {
-        Some(ref n) => strip_vk(n),
-        None => return,
+    // Name may be in ty.name (attribute) or inline in the code markup.
+    let flags_name = match &ty.name {
+        Some(n) => strip_vk(n),
+        None => match &ty.spec {
+            TypeSpec::Code(code) => match extract_markup_name(&code.markup) {
+                Some(n) => strip_vk(&n),
+                None => return,
+            },
+            _ => return,
+        },
+    };
+
+    // Detect 64-bit bitmasks from the underlying type (VkFlags vs VkFlags64).
+    let bitwidth = match &ty.spec {
+        TypeSpec::Code(code) if code.code.contains("VkFlags64") => 64,
+        _ => 32,
     };
 
     // The `requires` or `bitvalues` field points to the FlagBits enum.
+    // Also check code markup for the referenced type when bitvalues is absent.
     let enum_name = ty
         .requires
         .as_ref()
@@ -417,7 +503,7 @@ fn collect_bitmask_type(
         .map(|n| strip_vk(n));
 
     if let Some(ref enum_name) = enum_name {
-        bitmask_meta.insert(enum_name.clone(), (flags_name.clone(), 32));
+        bitmask_meta.insert(enum_name.clone(), (flags_name.clone(), bitwidth));
         bitmask_enum_names.insert(enum_name.clone(), ());
     }
 
@@ -679,7 +765,9 @@ fn parse_command(def: &CommandDefinition) -> Option<CommandDef> {
     let name = def.proto.name.clone();
     let return_type = def.proto.type_name.as_deref().unwrap_or("void").to_string();
 
-    let params = def.params.iter().map(parse_param).collect();
+    let params: Vec<ParamDef> = def.params.iter().map(parse_param).collect();
+
+    let dispatch_level = classify_dispatch_level(&params);
 
     let success_codes = def
         .successcodes
@@ -699,7 +787,21 @@ fn parse_command(def: &CommandDefinition) -> Option<CommandDef> {
         params,
         success_codes,
         error_codes,
+        dispatch_level,
+        provided_by: None,
     })
+}
+
+fn classify_dispatch_level(params: &[ParamDef]) -> DispatchLevel {
+    let first_type = match params.first() {
+        Some(p) => p.type_name.as_str(),
+        None => return DispatchLevel::Entry,
+    };
+    match first_type {
+        "VkDevice" | "VkCommandBuffer" | "VkQueue" => DispatchLevel::Device,
+        "VkInstance" | "VkPhysicalDevice" => DispatchLevel::Instance,
+        _ => DispatchLevel::Entry,
+    }
 }
 
 fn parse_param(p: &CommandParam) -> ParamDef {
@@ -716,6 +818,7 @@ fn parse_param(p: &CommandParam) -> ParamDef {
         array_size: None,
         optional: p.optional.as_deref().is_some_and(|o| o.contains("true")),
         len: p.len.clone(),
+        extern_sync: p.externsync.clone(),
     }
 }
 
@@ -757,6 +860,14 @@ fn collect_constants(enums: &vk_parse::Enums, reg: &mut VkRegistry) {
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
+
+/// Extract the name from TypeCodeMarkup (for types with inline `<name>`).
+fn extract_markup_name(markup: &[vk_parse::TypeCodeMarkup]) -> Option<String> {
+    markup.iter().find_map(|m| match m {
+        vk_parse::TypeCodeMarkup::Name(n) => Some(n.clone()),
+        _ => None,
+    })
+}
 
 /// Strip the `Vk` prefix from a Vulkan type name.
 pub fn strip_vk(name: &str) -> String {
@@ -815,4 +926,265 @@ fn is_vulkan_extension(ext: &Extension) -> bool {
         Some(s) => s.contains("vulkan"),
         None => true,
     }
+}
+
+// ---------------------------------------------------------------------------
+// Provenance stamping
+// ---------------------------------------------------------------------------
+
+fn stamp_provenance(registry: &Registry, reg: &mut VkRegistry) {
+    // Build a map: type/command name → provider string.
+    let mut provider_map: HashMap<String, String> = HashMap::new();
+
+    for child in &registry.0 {
+        match child {
+            RegistryChild::Feature(feature) => {
+                let provider = feature.name.clone();
+                for fc in &feature.children {
+                    let items = match fc {
+                        FeatureChild::Require { items, .. } => items,
+                        _ => continue,
+                    };
+                    for item in items {
+                        match item {
+                            InterfaceItem::Type { name, .. } => {
+                                provider_map
+                                    .entry(strip_vk(name))
+                                    .or_insert(provider.clone());
+                            }
+                            InterfaceItem::Command { name, .. } => {
+                                provider_map.entry(name.clone()).or_insert(provider.clone());
+                            }
+                            _ => {}
+                        }
+                    }
+                }
+            }
+            RegistryChild::Extensions(extensions) => {
+                for ext in &extensions.children {
+                    if !is_vulkan_extension(ext) {
+                        continue;
+                    }
+                    for ec in &ext.children {
+                        let items = match ec {
+                            ExtensionChild::Require { items, .. } => items,
+                            _ => continue,
+                        };
+                        for item in items {
+                            match item {
+                                InterfaceItem::Type { name, .. } => {
+                                    provider_map
+                                        .entry(strip_vk(name))
+                                        .or_insert(ext.name.clone());
+                                }
+                                InterfaceItem::Command { name, .. } => {
+                                    provider_map.entry(name.clone()).or_insert(ext.name.clone());
+                                }
+                                _ => {}
+                            }
+                        }
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+
+    // Apply to parsed types.
+    for h in &mut reg.handles {
+        h.provided_by = provider_map.get(&h.name).cloned();
+    }
+    for s in &mut reg.structs {
+        s.provided_by = provider_map.get(&s.name).cloned();
+    }
+    for c in &mut reg.commands {
+        c.provided_by = provider_map.get(&c.name).cloned();
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Platform and extension collection
+// ---------------------------------------------------------------------------
+
+fn collect_platforms(registry: &Registry, reg: &mut VkRegistry) {
+    for child in &registry.0 {
+        if let RegistryChild::Platforms(platforms) = child {
+            for p in &platforms.children {
+                reg.platforms.push(PlatformDef {
+                    name: p.name.clone(),
+                    protect: p.protect.clone(),
+                });
+            }
+        }
+    }
+}
+
+fn collect_extensions(registry: &Registry, reg: &mut VkRegistry) {
+    for child in &registry.0 {
+        let extensions = match child {
+            RegistryChild::Extensions(exts) => &exts.children,
+            _ => continue,
+        };
+        for ext in extensions {
+            if !is_vulkan_extension(ext) {
+                continue;
+            }
+
+            let mut ext_items = Vec::new();
+            for child in &ext.children {
+                let req_items = match child {
+                    ExtensionChild::Require { items, .. } => items,
+                    _ => continue,
+                };
+                for item in req_items {
+                    match item {
+                        InterfaceItem::Type { name, .. } => {
+                            ext_items.push(ExtensionItem::Type(name.clone()));
+                        }
+                        InterfaceItem::Command { name, .. } => {
+                            ext_items.push(ExtensionItem::Command(name.clone()));
+                        }
+                        _ => {}
+                    }
+                }
+            }
+
+            reg.extensions.push(ExtensionDef {
+                name: ext.name.clone(),
+                number: ext.number.unwrap_or(0),
+                ext_type: ext.ext_type.clone(),
+                platform: ext.platform.clone(),
+                depends: ext.depends.clone(),
+                promoted_to: ext.promotedto.clone(),
+                deprecated_by: ext.deprecatedby.clone(),
+                supported: ext.supported.clone().unwrap_or_default(),
+                items: ext_items,
+            });
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Funcpointer parsing (from raw XML, since vk-parse skips proto/param)
+// ---------------------------------------------------------------------------
+
+/// Extract content between `<tag>` and `</tag>` (non-greedy, first match).
+fn extract_tag<'a>(xml: &'a str, tag: &str) -> Option<&'a str> {
+    let open = format!("<{}", tag);
+    let close = format!("</{}>", tag);
+    let start = xml.find(&open)?;
+    let after_open = &xml[start..];
+    let content_start = after_open.find('>')? + 1;
+    let content = &xml[start + content_start..];
+    let end = content.find(&close)?;
+    Some(&content[..end])
+}
+
+fn parse_funcpointer_xml(block: &str) -> Option<FuncPointerDef> {
+    let proto = extract_tag(block, "proto")?;
+    let name = extract_tag(proto, "name")?.to_string();
+    let return_type = extract_tag(proto, "type")?.to_string();
+    let is_return_pointer = proto.contains('*');
+
+    let mut params = Vec::new();
+    let mut search = block;
+    while let Some(param_start) = search.find("<param") {
+        let rest = &search[param_start..];
+        let param_end = match rest.find("</param>") {
+            Some(e) => e + "</param>".len(),
+            None => break,
+        };
+        let param_xml = &rest[..param_end];
+
+        if let (Some(type_name), Some(param_name)) = (
+            extract_tag(param_xml, "type"),
+            extract_tag(param_xml, "name"),
+        ) {
+            let code = param_xml;
+            let pointer_count = code.matches('*').count();
+            let is_const = code.contains("const");
+
+            params.push(ParamDef {
+                name: param_name.to_string(),
+                type_name: type_name.to_string(),
+                is_pointer: pointer_count >= 1,
+                is_const,
+                is_double_pointer: pointer_count >= 2,
+                array_size: None,
+                optional: false,
+                len: None,
+                extern_sync: None,
+            });
+        }
+
+        search = &search[param_start + param_end..];
+    }
+
+    Some(FuncPointerDef {
+        name,
+        return_type,
+        is_return_pointer,
+        params,
+    })
+}
+
+pub fn parse_func_pointers(xml_text: &str) -> Vec<FuncPointerDef> {
+    let mut result = Vec::new();
+
+    // Split on funcpointer markers and extract each block.
+    let marker = "category=\"funcpointer\"";
+    let mut rest = xml_text;
+    while let Some(marker_pos) = rest.find(marker) {
+        // Walk back to find the opening `<type` for this block.
+        let before = &rest[..marker_pos];
+        let type_start = match before.rfind("<type") {
+            Some(s) => s,
+            None => {
+                rest = &rest[marker_pos + marker.len()..];
+                continue;
+            }
+        };
+
+        let from_block = &rest[type_start..];
+
+        // Find the outermost </type> by counting nested <type> / </type> pairs.
+        if let Some(block_end) = find_closing_type_tag(from_block) {
+            let block = &from_block[..block_end];
+            if let Some(fp) = parse_funcpointer_xml(block) {
+                result.push(fp);
+            }
+        }
+
+        rest = &rest[marker_pos + marker.len()..];
+    }
+
+    result
+}
+
+/// Find the position after the outermost `</type>` tag, handling nested `<type>`.
+fn find_closing_type_tag(xml: &str) -> Option<usize> {
+    let mut depth = 0i32;
+    let mut pos = 0;
+    while pos < xml.len() {
+        if xml[pos..].starts_with("</type>") {
+            depth -= 1;
+            if depth == 0 {
+                return Some(pos + "</type>".len());
+            }
+            pos += "</type>".len();
+        } else if xml[pos..].starts_with("<type") {
+            // Check it's actually a tag open (followed by space, > or /)
+            let after = pos + "<type".len();
+            if after < xml.len() {
+                let ch = xml.as_bytes()[after];
+                if ch == b' ' || ch == b'>' || ch == b'/' {
+                    depth += 1;
+                }
+            }
+            pos += 1;
+        } else {
+            pos += 1;
+        }
+    }
+    None
 }
