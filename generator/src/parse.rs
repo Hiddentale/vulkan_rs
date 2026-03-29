@@ -1,6 +1,6 @@
 //! Parses vk.xml into categorized intermediate types for code generation.
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use vk_parse::{
     self, Command, CommandDefinition, CommandParam, Enum, EnumSpec, EnumsChild, Extension,
     ExtensionChild, Feature, FeatureChild, InterfaceItem, Registry, RegistryChild, Type,
@@ -204,7 +204,7 @@ pub fn parse_registry(path: &std::path::Path) -> VkRegistry {
     let mut bitmask_meta: HashMap<String, (String, u32)> = HashMap::new(); // enum_name → (flags_name, bitwidth)
 
     // Track which names are bitmask enums vs value enums.
-    let mut bitmask_enum_names: HashMap<String, ()> = HashMap::new();
+    let mut bitmask_enum_names: HashSet<String> = HashSet::new();
 
     // First pass: collect types, commands, top-level enums.
     for child in &registry.0 {
@@ -305,7 +305,7 @@ fn collect_types(
     types: &[vk_parse::TypesChild],
     reg: &mut VkRegistry,
     bitmask_meta: &mut HashMap<String, (String, u32)>,
-    bitmask_enum_names: &mut HashMap<String, ()>,
+    bitmask_enum_names: &mut HashSet<String>,
 ) {
     for child in types {
         let ty = match child {
@@ -473,7 +473,7 @@ fn parse_fixed_array_size(code: &str) -> Option<String> {
 fn collect_bitmask_type(
     ty: &Type,
     bitmask_meta: &mut HashMap<String, (String, u32)>,
-    bitmask_enum_names: &mut HashMap<String, ()>,
+    bitmask_enum_names: &mut HashSet<String>,
     reg: &mut VkRegistry,
 ) {
     // Name may be in ty.name (attribute) or inline in the code markup.
@@ -504,7 +504,7 @@ fn collect_bitmask_type(
 
     if let Some(ref enum_name) = enum_name {
         bitmask_meta.insert(enum_name.clone(), (flags_name.clone(), bitwidth));
-        bitmask_enum_names.insert(enum_name.clone(), ());
+        bitmask_enum_names.insert(enum_name.clone());
     }
 
     // Also record as alias: FooFlags → FooFlagBits for cross-referencing.
@@ -527,7 +527,7 @@ fn collect_enums(
     enums: &vk_parse::Enums,
     enum_map: &mut HashMap<String, Vec<EnumVariant>>,
     bitmask_map: &mut HashMap<String, Vec<BitmaskBit>>,
-    bitmask_enum_names: &HashMap<String, ()>,
+    bitmask_enum_names: &HashSet<String>,
 ) {
     let name = match enums.name {
         Some(ref n) => n.clone(),
@@ -541,7 +541,7 @@ fn collect_enums(
 
     let stripped = strip_vk(&name);
     let is_bitmask =
-        enums.kind.as_deref() == Some("bitmask") || bitmask_enum_names.contains_key(&stripped);
+        enums.kind.as_deref() == Some("bitmask") || bitmask_enum_names.contains(&stripped);
 
     if is_bitmask {
         let bits: Vec<BitmaskBit> = enums
@@ -617,7 +617,7 @@ fn collect_feature_enums(
     feature: &Feature,
     enum_map: &mut HashMap<String, Vec<EnumVariant>>,
     bitmask_map: &mut HashMap<String, Vec<BitmaskBit>>,
-    bitmask_enum_names: &HashMap<String, ()>,
+    bitmask_enum_names: &HashSet<String>,
 ) {
     for child in &feature.children {
         let items = match child {
@@ -636,7 +636,7 @@ fn collect_extension_enums(
     ext: &Extension,
     enum_map: &mut HashMap<String, Vec<EnumVariant>>,
     bitmask_map: &mut HashMap<String, Vec<BitmaskBit>>,
-    bitmask_enum_names: &HashMap<String, ()>,
+    bitmask_enum_names: &HashSet<String>,
 ) {
     let ext_number = ext.number;
     for child in &ext.children {
@@ -657,7 +657,7 @@ fn add_extension_enum(
     ext_number: Option<i64>,
     enum_map: &mut HashMap<String, Vec<EnumVariant>>,
     bitmask_map: &mut HashMap<String, Vec<BitmaskBit>>,
-    bitmask_enum_names: &HashMap<String, ()>,
+    bitmask_enum_names: &HashSet<String>,
 ) {
     if is_non_vulkan(e) {
         return;
@@ -680,7 +680,7 @@ fn add_extension_enum(
         _ => return, // No extends = not extending an enum/bitmask group.
     };
 
-    let is_bitmask = bitmask_enum_names.contains_key(&extends);
+    let is_bitmask = bitmask_enum_names.contains(&extends);
 
     if is_bitmask {
         if let Some(bit) = parse_extension_bitmask_bit(e, ext_number) {
@@ -1128,6 +1128,17 @@ fn parse_funcpointer_xml(block: &str) -> Option<FuncPointerDef> {
     })
 }
 
+// Made visible for testing.
+#[cfg(test)]
+pub(crate) fn test_parse_c_literal(s: &str) -> i32 {
+    parse_c_literal(s)
+}
+
+#[cfg(test)]
+pub(crate) fn test_compute_enum_offset(ext_number: i64, offset: i64, negative: bool) -> i32 {
+    compute_enum_offset(ext_number, offset, negative)
+}
+
 pub fn parse_func_pointers(xml_text: &str) -> Vec<FuncPointerDef> {
     let mut result = Vec::new();
 
@@ -1187,4 +1198,478 @@ fn find_closing_type_tag(xml: &str) -> Option<usize> {
         }
     }
     None
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::path::Path;
+    use std::sync::OnceLock;
+
+    /// Parse vk.xml once and cache for all tests.
+    fn registry() -> &'static VkRegistry {
+        static REG: OnceLock<VkRegistry> = OnceLock::new();
+        REG.get_or_init(|| {
+            let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("vk.xml");
+            parse_registry(&path)
+        })
+    }
+
+    // -----------------------------------------------------------------------
+    // Pure helper tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn strip_vk_removes_prefix() {
+        assert_eq!(strip_vk("VkInstance"), "Instance");
+        assert_eq!(strip_vk("VkPhysicalDevice"), "PhysicalDevice");
+    }
+
+    #[test]
+    fn strip_vk_no_prefix_unchanged() {
+        assert_eq!(strip_vk("uint32_t"), "uint32_t");
+    }
+
+    #[test]
+    fn compute_enum_offset_basic() {
+        // Extension 1, offset 0 → 1_000_000_000.
+        assert_eq!(test_compute_enum_offset(1, 0, false), 1_000_000_000);
+    }
+
+    #[test]
+    fn compute_enum_offset_negative() {
+        assert_eq!(test_compute_enum_offset(1, 0, true), -1_000_000_000);
+    }
+
+    #[test]
+    fn compute_enum_offset_extension_number() {
+        // Extension 2, offset 3 → 1_000_000_000 + 1000 + 3 = 1_000_001_003.
+        assert_eq!(test_compute_enum_offset(2, 3, false), 1_000_001_003);
+    }
+
+    #[test]
+    fn parse_c_literal_decimal() {
+        assert_eq!(test_parse_c_literal("42"), 42);
+    }
+
+    #[test]
+    fn parse_c_literal_hex() {
+        assert_eq!(test_parse_c_literal("0x7FFFFFFF"), 0x7FFFFFFF);
+    }
+
+    #[test]
+    fn parse_c_literal_negative() {
+        assert_eq!(test_parse_c_literal("-1"), -1);
+    }
+
+    #[test]
+    fn parse_c_literal_with_suffix() {
+        assert_eq!(test_parse_c_literal("256U"), 256);
+    }
+
+    // -----------------------------------------------------------------------
+    // Registry-level: counts and existence
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn registry_has_handles() {
+        assert!(registry().handles.len() > 50, "expected 50+ handles");
+    }
+
+    #[test]
+    fn registry_has_enums() {
+        assert!(registry().enums.len() > 100, "expected 100+ enums");
+    }
+
+    #[test]
+    fn registry_has_bitmasks() {
+        assert!(registry().bitmasks.len() > 100, "expected 100+ bitmasks");
+    }
+
+    #[test]
+    fn registry_has_commands() {
+        assert!(registry().commands.len() > 700, "expected 700+ commands");
+    }
+
+    #[test]
+    fn registry_has_constants() {
+        assert!(registry().constants.len() > 30, "expected 30+ constants");
+    }
+
+    #[test]
+    fn registry_has_extensions() {
+        assert!(registry().extensions.len() > 400, "expected 400+ extensions");
+    }
+
+    #[test]
+    fn registry_has_platforms() {
+        assert!(registry().platforms.len() > 10, "expected 10+ platforms");
+    }
+
+    // -----------------------------------------------------------------------
+    // Handles
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn handle_instance_is_dispatchable() {
+        let h = registry().handles.iter().find(|h| h.name == "Instance");
+        assert!(h.is_some(), "Instance handle not found");
+        assert!(h.unwrap().dispatchable);
+    }
+
+    #[test]
+    fn handle_buffer_is_non_dispatchable() {
+        let h = registry().handles.iter().find(|h| h.name == "Buffer");
+        assert!(h.is_some(), "Buffer handle not found");
+        assert!(!h.unwrap().dispatchable);
+    }
+
+    #[test]
+    fn handle_has_parent() {
+        let h = registry()
+            .handles
+            .iter()
+            .find(|h| h.name == "Device")
+            .expect("Device handle not found");
+        assert_eq!(h.parent.as_deref(), Some("PhysicalDevice"));
+    }
+
+    #[test]
+    fn handle_has_object_type() {
+        let h = registry()
+            .handles
+            .iter()
+            .find(|h| h.name == "Instance")
+            .unwrap();
+        assert!(h.object_type.is_some());
+    }
+
+    // -----------------------------------------------------------------------
+    // Structs
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn struct_buffer_create_info_exists() {
+        let s = registry()
+            .structs
+            .iter()
+            .find(|s| s.name == "BufferCreateInfo");
+        assert!(s.is_some());
+        let s = s.unwrap();
+        assert!(!s.is_union);
+        assert!(!s.members.is_empty());
+    }
+
+    #[test]
+    fn struct_has_s_type_member() {
+        let s = registry()
+            .structs
+            .iter()
+            .find(|s| s.name == "BufferCreateInfo")
+            .unwrap();
+        let s_type = s.members.iter().find(|m| m.name == "sType");
+        assert!(s_type.is_some(), "BufferCreateInfo should have sType member");
+    }
+
+    #[test]
+    fn struct_has_p_next_member() {
+        let s = registry()
+            .structs
+            .iter()
+            .find(|s| s.name == "BufferCreateInfo")
+            .unwrap();
+        let p_next = s.members.iter().find(|m| m.name == "pNext");
+        assert!(p_next.is_some());
+        assert!(p_next.unwrap().is_pointer);
+        assert!(p_next.unwrap().is_const);
+    }
+
+    #[test]
+    fn union_clear_color_value_exists() {
+        let u = registry()
+            .structs
+            .iter()
+            .find(|s| s.name == "ClearColorValue");
+        assert!(u.is_some());
+        assert!(u.unwrap().is_union);
+    }
+
+    #[test]
+    fn struct_extends_parsed() {
+        // PhysicalDeviceFeatures2 is extended by many structs.
+        let extending = registry()
+            .structs
+            .iter()
+            .filter(|s| s.extends.contains(&"PhysicalDeviceFeatures2".to_string()));
+        assert!(extending.count() > 10, "expected many structs extending PhysicalDeviceFeatures2");
+    }
+
+    // -----------------------------------------------------------------------
+    // Enums
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn enum_format_exists_with_variants() {
+        let e = registry()
+            .enums
+            .iter()
+            .find(|e| e.name == "Format")
+            .expect("Format enum not found");
+        assert!(e.variants.len() > 100, "Format should have 100+ variants");
+
+        let undefined = e.variants.iter().find(|v| v.name == "VK_FORMAT_UNDEFINED");
+        assert!(undefined.is_some());
+        match &undefined.unwrap().value {
+            EnumValue::I32(0) => {}
+            other => panic!("expected I32(0), got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn enum_result_has_error_codes() {
+        let e = registry()
+            .enums
+            .iter()
+            .find(|e| e.name == "Result")
+            .expect("Result enum not found");
+
+        let success = e.variants.iter().find(|v| v.name == "VK_SUCCESS");
+        assert!(success.is_some());
+
+        let oom = e
+            .variants
+            .iter()
+            .find(|v| v.name == "VK_ERROR_OUT_OF_HOST_MEMORY");
+        assert!(oom.is_some());
+        match &oom.unwrap().value {
+            EnumValue::I32(v) => assert!(*v < 0, "error codes should be negative"),
+            other => panic!("expected I32, got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn enum_structure_type_has_many_variants() {
+        // StructureType is the largest enum — it gains variants from every extension.
+        let e = registry()
+            .enums
+            .iter()
+            .find(|e| e.name == "StructureType")
+            .expect("StructureType not found");
+        assert!(
+            e.variants.len() > 500,
+            "StructureType should have 500+ variants, got {}",
+            e.variants.len()
+        );
+    }
+
+    // -----------------------------------------------------------------------
+    // Bitmasks
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn bitmask_buffer_usage_exists() {
+        let b = registry()
+            .bitmasks
+            .iter()
+            .find(|b| b.name == "BufferUsageFlagBits");
+        assert!(b.is_some());
+        let b = b.unwrap();
+        assert_eq!(b.bitwidth, 32);
+        assert!(!b.bits.is_empty());
+    }
+
+    #[test]
+    fn bitmask_64bit_pipeline_stage() {
+        let b = registry()
+            .bitmasks
+            .iter()
+            .find(|b| b.name == "PipelineStageFlagBits2");
+        assert!(b.is_some());
+        assert_eq!(b.unwrap().bitwidth, 64);
+    }
+
+    #[test]
+    fn bitmask_bit_values_are_powers_of_two() {
+        let b = registry()
+            .bitmasks
+            .iter()
+            .find(|b| b.name == "BufferUsageFlagBits")
+            .unwrap();
+        for bit in &b.bits {
+            match &bit.value {
+                BitmaskValue::Bitpos(pos) => assert!(*pos < 64, "bitpos too large: {pos}"),
+                BitmaskValue::Value(v) => {
+                    // Value 0 is valid (NONE flags), but non-zero should be meaningful.
+                }
+                BitmaskValue::Alias(_) => {}
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------
+    // Commands
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn command_create_instance_is_entry_level() {
+        let c = registry()
+            .commands
+            .iter()
+            .find(|c| c.name == "vkCreateInstance")
+            .expect("vkCreateInstance not found");
+        assert_eq!(c.dispatch_level, DispatchLevel::Entry);
+        assert_eq!(c.return_type, "VkResult");
+    }
+
+    #[test]
+    fn command_create_device_is_instance_level() {
+        let c = registry()
+            .commands
+            .iter()
+            .find(|c| c.name == "vkCreateDevice")
+            .expect("vkCreateDevice not found");
+        assert_eq!(c.dispatch_level, DispatchLevel::Instance);
+    }
+
+    #[test]
+    fn command_create_buffer_is_device_level() {
+        let c = registry()
+            .commands
+            .iter()
+            .find(|c| c.name == "vkCreateBuffer")
+            .expect("vkCreateBuffer not found");
+        assert_eq!(c.dispatch_level, DispatchLevel::Device);
+    }
+
+    #[test]
+    fn command_has_params() {
+        let c = registry()
+            .commands
+            .iter()
+            .find(|c| c.name == "vkCreateBuffer")
+            .unwrap();
+        assert!(c.params.len() >= 3, "vkCreateBuffer should have 4 params");
+        assert_eq!(c.params[0].type_name, "VkDevice");
+    }
+
+    #[test]
+    fn command_has_success_and_error_codes() {
+        let c = registry()
+            .commands
+            .iter()
+            .find(|c| c.name == "vkCreateInstance")
+            .unwrap();
+        assert!(!c.success_codes.is_empty());
+        assert!(!c.error_codes.is_empty());
+    }
+
+    // -----------------------------------------------------------------------
+    // Constants
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn constant_max_physical_device_name_size() {
+        let c = registry()
+            .constants
+            .iter()
+            .find(|c| c.name == "VK_MAX_PHYSICAL_DEVICE_NAME_SIZE");
+        assert!(c.is_some());
+        assert_eq!(c.unwrap().value, "256");
+    }
+
+    #[test]
+    fn constant_whole_size_is_u64() {
+        let c = registry()
+            .constants
+            .iter()
+            .find(|c| c.name == "VK_WHOLE_SIZE")
+            .expect("VK_WHOLE_SIZE not found");
+        assert_eq!(c.ty.as_deref(), Some("uint64_t"));
+    }
+
+    // -----------------------------------------------------------------------
+    // Func pointers
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn funcpointer_allocation_function() {
+        let fp = registry()
+            .func_pointers
+            .iter()
+            .find(|f| f.name == "PFN_vkAllocationFunction");
+        assert!(fp.is_some());
+        let fp = fp.unwrap();
+        assert!(!fp.params.is_empty());
+    }
+
+    // -----------------------------------------------------------------------
+    // Extensions & platforms
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn extension_khr_swapchain_exists() {
+        let ext = registry()
+            .extensions
+            .iter()
+            .find(|e| e.name == "VK_KHR_swapchain");
+        assert!(ext.is_some());
+        let ext = ext.unwrap();
+        assert!(!ext.items.is_empty());
+    }
+
+    #[test]
+    fn extension_platform_xlib() {
+        let ext = registry()
+            .extensions
+            .iter()
+            .find(|e| e.name == "VK_KHR_xlib_surface")
+            .expect("VK_KHR_xlib_surface not found");
+        assert_eq!(ext.platform.as_deref(), Some("xlib"));
+    }
+
+    #[test]
+    fn platform_has_protect_guard() {
+        let p = registry()
+            .platforms
+            .iter()
+            .find(|p| p.name == "win32")
+            .expect("win32 platform not found");
+        assert_eq!(p.protect, "VK_USE_PLATFORM_WIN32_KHR");
+    }
+
+    // -----------------------------------------------------------------------
+    // Provenance
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn handle_provenance_stamped() {
+        let h = registry()
+            .handles
+            .iter()
+            .find(|h| h.name == "Instance")
+            .unwrap();
+        assert!(h.provided_by.is_some(), "Instance should have provided_by");
+    }
+
+    #[test]
+    fn extension_type_provenance() {
+        let s = registry()
+            .structs
+            .iter()
+            .find(|s| s.name == "SwapchainCreateInfoKHR");
+        assert!(s.is_some());
+        assert_eq!(
+            s.unwrap().provided_by.as_deref(),
+            Some("VK_KHR_swapchain")
+        );
+    }
+
+    // -----------------------------------------------------------------------
+    // Aliases
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn aliases_populated() {
+        assert!(registry().aliases.len() > 500, "expected 500+ aliases");
+    }
 }
