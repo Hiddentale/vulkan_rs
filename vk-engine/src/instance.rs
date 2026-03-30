@@ -311,6 +311,34 @@ mod tests {
         assert!(!families.is_empty(), "expected at least one queue family");
     }
 
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn get_physical_device_memory_properties_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let instance = create_real_instance();
+        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        let mem_props = unsafe { instance.get_physical_device_memory_properties(devices[0]) };
+        assert!(
+            mem_props.memory_type_count > 0,
+            "expected at least one memory type"
+        );
+        assert!(
+            mem_props.memory_heap_count > 0,
+            "expected at least one memory heap"
+        );
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn get_physical_device_features_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let instance = create_real_instance();
+        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        // Just verify the call completes without crashing; feature
+        // availability is driver-dependent.
+        let _features = unsafe { instance.get_physical_device_features(devices[0]) };
+    }
+
     fn create_real_instance() -> Instance {
         use crate::entry::Entry;
         use crate::loader::LibloadingLoader;

@@ -269,6 +269,52 @@ mod tests {
         assert!(matches!(result, Err(SurfaceError::UnsupportedPlatform)));
     }
 
+    #[test]
+    #[should_panic(expected = "VK_KHR_surface not loaded")]
+    fn destroy_surface_panics_when_extension_not_loaded() {
+        let instance = mock_instance();
+        unsafe {
+            instance.destroy_surface(vk::handles::SurfaceKHR::null(), None);
+        }
+    }
+
+    #[test]
+    fn surface_error_display_unsupported() {
+        let err = SurfaceError::UnsupportedPlatform;
+        assert_eq!(
+            err.to_string(),
+            "unsupported display/window handle combination for Vulkan surface"
+        );
+    }
+
+    #[test]
+    fn surface_error_display_vulkan() {
+        let err = SurfaceError::Vulkan(vk::enums::Result::ERROR_SURFACE_LOST);
+        let msg = err.to_string();
+        assert!(msg.contains("Vulkan surface creation failed"));
+    }
+
+    #[test]
+    fn surface_error_display_handle_error() {
+        let err = SurfaceError::HandleError(raw_window_handle::HandleError::Unavailable);
+        let msg = err.to_string();
+        assert!(msg.contains("raw-window-handle error"));
+    }
+
+    #[test]
+    fn surface_error_from_handle_error() {
+        let he = raw_window_handle::HandleError::Unavailable;
+        let se: SurfaceError = he.into();
+        assert!(matches!(se, SurfaceError::HandleError(_)));
+    }
+
+    #[test]
+    fn surface_error_from_vk_result() {
+        let vk_err = vk::enums::Result::ERROR_SURFACE_LOST;
+        let se: SurfaceError = vk_err.into();
+        assert!(matches!(se, SurfaceError::Vulkan(_)));
+    }
+
     fn mock_instance() -> Instance {
         use std::ffi::c_char;
 

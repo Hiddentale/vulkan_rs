@@ -205,6 +205,17 @@ mod tests {
         unsafe { instance.destroy_instance(None) };
     }
 
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn queue_wait_idle_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let (instance, device) = create_real_device();
+        let queue = unsafe { device.get_device_queue(0, 0) };
+        unsafe { device.queue_wait_idle(queue) }.expect("queue_wait_idle failed");
+        unsafe { device.destroy_device(None) };
+        unsafe { instance.destroy_instance(None) };
+    }
+
     fn create_real_device() -> (crate::instance::Instance, Device) {
         use crate::entry::Entry;
         use crate::loader::LibloadingLoader;

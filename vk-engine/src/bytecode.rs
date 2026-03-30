@@ -72,4 +72,13 @@ mod tests {
         let words = cast_to_u32(empty).unwrap();
         assert!(words.is_empty());
     }
+
+    #[test]
+    fn misaligned_pointer_display() {
+        let err = BytecodeError::MisalignedPointer;
+        assert_eq!(
+            err.to_string(),
+            "SPIR-V byte slice pointer is not 4-byte aligned"
+        );
+    }
 }
