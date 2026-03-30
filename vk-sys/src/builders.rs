@@ -3,94 +3,6 @@ use super::enums::*;
 use super::handles::*;
 use super::bitmasks::*;
 use super::constants::*;
-pub struct BaseOutStructureBuilder<'a> {
-    inner: BaseOutStructure,
-    _marker: std::marker::PhantomData<&'a ()>,
-}
-impl BaseOutStructure {
-    /// Returns a builder for this struct with sType pre-filled.
-    #[inline]
-    pub fn builder<'a>() -> BaseOutStructureBuilder<'a> {
-        BaseOutStructureBuilder {
-            inner: BaseOutStructure {
-                s_type: Default::default(),
-                ..Default::default()
-            },
-            _marker: std::marker::PhantomData,
-        }
-    }
-}
-impl<'a> BaseOutStructureBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
-    #[inline]
-    pub fn push_next<T: ExtendsBaseOutStructure>(mut self, next: &'a mut T) -> Self {
-        unsafe {
-            let next_ptr = <*mut T>::cast::<BaseOutStructure>(next);
-            (*next_ptr).p_next = self.inner.p_next as *mut _;
-            self.inner.p_next = <*mut BaseOutStructure>::cast::<
-                std::ffi::c_void,
-            >(next_ptr);
-        }
-        self
-    }
-}
-impl<'a> std::ops::Deref for BaseOutStructureBuilder<'a> {
-    type Target = BaseOutStructure;
-    #[inline]
-    fn deref(&self) -> &Self::Target {
-        &self.inner
-    }
-}
-impl<'a> std::ops::DerefMut for BaseOutStructureBuilder<'a> {
-    #[inline]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.inner
-    }
-}
-pub struct BaseInStructureBuilder<'a> {
-    inner: BaseInStructure,
-    _marker: std::marker::PhantomData<&'a ()>,
-}
-impl BaseInStructure {
-    /// Returns a builder for this struct with sType pre-filled.
-    #[inline]
-    pub fn builder<'a>() -> BaseInStructureBuilder<'a> {
-        BaseInStructureBuilder {
-            inner: BaseInStructure {
-                s_type: Default::default(),
-                ..Default::default()
-            },
-            _marker: std::marker::PhantomData,
-        }
-    }
-}
-impl<'a> BaseInStructureBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
-    #[inline]
-    pub fn push_next<T: ExtendsBaseInStructure>(mut self, next: &'a mut T) -> Self {
-        unsafe {
-            let next_ptr = <*mut T>::cast::<BaseOutStructure>(next);
-            (*next_ptr).p_next = self.inner.p_next as *mut _;
-            self.inner.p_next = <*mut BaseOutStructure>::cast::<
-                std::ffi::c_void,
-            >(next_ptr) as *const _;
-        }
-        self
-    }
-}
-impl<'a> std::ops::Deref for BaseInStructureBuilder<'a> {
-    type Target = BaseInStructure;
-    #[inline]
-    fn deref(&self) -> &Self::Target {
-        &self.inner
-    }
-}
-impl<'a> std::ops::DerefMut for BaseInStructureBuilder<'a> {
-    #[inline]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.inner
-    }
-}
 pub struct ApplicationInfoBuilder<'a> {
     inner: ApplicationInfo,
     _marker: std::marker::PhantomData<&'a ()>,
@@ -1747,11 +1659,6 @@ impl<'a> PipelineShaderStageCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: *const std::ffi::c_char) -> Self {
-        self.inner.p_name = value;
-        self
-    }
-    #[inline]
     pub fn p_specialization_info(mut self, value: *const SpecializationInfo) -> Self {
         self.inner.p_specialization_info = value;
         self
@@ -2669,12 +2576,6 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn stages(mut self, slice: &'a [PipelineShaderStageCreateInfo]) -> Self {
-        self.inner.stage_count = slice.len() as u32;
-        self.inner.p_stages = slice.as_ptr();
-        self
-    }
-    #[inline]
     pub fn p_vertex_input_state(
         mut self,
         value: *const PipelineVertexInputStateCreateInfo,
@@ -2825,7 +2726,7 @@ impl<'a> PipelineCacheCreateInfoBuilder<'a> {
     }
     #[inline]
     pub fn initial_data(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.initial_data_size = slice.len() as usize;
+        self.inner.initial_data_size = slice.len();
         self.inner.p_initial_data = slice.as_ptr();
         self
     }
@@ -5187,11 +5088,6 @@ impl<'a> SwapchainCreateInfoKHRBuilder<'a> {
         self.inner.old_swapchain = value;
         self
     }
-    #[inline]
-    pub fn old_swapchain(mut self, value: SwapchainKHR) -> Self {
-        self.inner.old_swapchain = value;
-        self
-    }
     /// Prepend a struct to the pNext chain.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainCreateInfoKHR>(
@@ -5739,7 +5635,7 @@ impl<'a> DebugMarkerObjectTagInfoEXTBuilder<'a> {
     }
     #[inline]
     pub fn tag(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.tag_size = slice.len() as usize;
+        self.inner.tag_size = slice.len();
         self.inner.p_tag = slice.as_ptr();
         self
     }
@@ -14325,7 +14221,7 @@ impl HdrVividDynamicMetadataHUAWEI {
 impl<'a> HdrVividDynamicMetadataHUAWEIBuilder<'a> {
     #[inline]
     pub fn dynamic_metadata(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.dynamic_metadata_size = slice.len() as usize;
+        self.inner.dynamic_metadata_size = slice.len();
         self.inner.p_dynamic_metadata = slice.as_ptr();
         self
     }
@@ -17871,7 +17767,7 @@ impl<'a> ValidationCacheCreateInfoEXTBuilder<'a> {
     }
     #[inline]
     pub fn initial_data(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.initial_data_size = slice.len() as usize;
+        self.inner.initial_data_size = slice.len();
         self.inner.p_initial_data = slice.as_ptr();
         self
     }
@@ -19674,7 +19570,7 @@ impl<'a> DebugUtilsObjectTagInfoEXTBuilder<'a> {
     }
     #[inline]
     pub fn tag(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.tag_size = slice.len() as usize;
+        self.inner.tag_size = slice.len();
         self.inner.p_tag = slice.as_ptr();
         self
     }
@@ -30809,7 +30705,7 @@ impl<'a> PipelineExecutableInternalRepresentationKHRBuilder<'a> {
     }
     #[inline]
     pub fn data(mut self, slice: &'a mut [std::ffi::c_void]) -> Self {
-        self.inner.data_size = slice.len() as usize;
+        self.inner.data_size = slice.len();
         self.inner.p_data = slice.as_mut_ptr();
         self
     }
@@ -50005,7 +49901,7 @@ impl CuModuleCreateInfoNVX {
 impl<'a> CuModuleCreateInfoNVXBuilder<'a> {
     #[inline]
     pub fn data(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.data_size = slice.len() as usize;
+        self.inner.data_size = slice.len();
         self.inner.p_data = slice.as_ptr();
         self
     }
@@ -52679,7 +52575,7 @@ impl CudaModuleCreateInfoNV {
 impl<'a> CudaModuleCreateInfoNVBuilder<'a> {
     #[inline]
     pub fn data(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.data_size = slice.len() as usize;
+        self.inner.data_size = slice.len();
         self.inner.p_data = slice.as_ptr();
         self
     }
@@ -59245,7 +59141,7 @@ impl<'a> FrameBoundaryEXTBuilder<'a> {
     }
     #[inline]
     pub fn tag(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.tag_size = slice.len() as usize;
+        self.inner.tag_size = slice.len();
         self.inner.p_tag = slice.as_ptr();
         self
     }
@@ -61081,7 +60977,7 @@ impl<'a> ShaderCreateInfoEXTBuilder<'a> {
     }
     #[inline]
     pub fn code(mut self, slice: &'a [std::ffi::c_void]) -> Self {
-        self.inner.code_size = slice.len() as usize;
+        self.inner.code_size = slice.len();
         self.inner.p_code = slice.as_ptr();
         self
     }
@@ -70139,7 +70035,7 @@ impl<'a> DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
     }
     #[inline]
     pub fn data(mut self, slice: &'a mut [std::ffi::c_void]) -> Self {
-        self.inner.data_size = slice.len() as usize;
+        self.inner.data_size = slice.len();
         self.inner.p_data = slice.as_mut_ptr();
         self
     }

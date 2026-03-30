@@ -6,8 +6,8 @@ use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
 use crate::emit_structs::{
-    build_stype_raw_map, build_stype_variant_set, has_stype_pnext, is_rust_keyword, member_name,
-    resolve_member_type, struct_stype_full,
+    build_stype_raw_map, build_stype_variant_set, has_stype_pnext, is_base_pnext_struct,
+    is_rust_keyword, member_name, resolve_member_type, struct_stype_full,
 };
 use crate::parse::{MemberDef, StructDef, VkRegistry};
 
@@ -18,7 +18,7 @@ pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
     let builders: Vec<TokenStream> = registry
         .structs
         .iter()
-        .filter(|s| has_stype_pnext(s))
+        .filter(|s| has_stype_pnext(s) && !is_base_pnext_struct(&s.name))
         .map(|s| emit_builder(s, &stype_variants, &stype_raw))
         .collect();
 
@@ -44,10 +44,16 @@ fn emit_builder(
     // Build the set of count fields that are paired with a pointer via `len`.
     let count_fields = collect_count_fields(def);
 
+    let mut seen_setters = std::collections::HashSet::new();
     let setters: Vec<TokenStream> = def
         .members
         .iter()
-        .filter(|m| m.name != "sType" && m.name != "pNext" && !count_fields.contains(&m.name))
+        .filter(|m| {
+            m.name != "sType"
+                && m.name != "pNext"
+                && !count_fields.contains(&m.name)
+                && seen_setters.insert(m.name.clone())
+        })
         .map(|m| emit_setter(m, def))
         .collect();
 
@@ -165,14 +171,20 @@ fn emit_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenS
     // The element type is the base type (without pointer wrapping).
     let elem_ty = crate::emit_structs::resolve_base_type(&ptr_member.type_name);
 
-    // Count field type (usually u32).
+    // Count field type (usually u32). Avoid redundant `as usize` casts.
     let count_ty = resolve_member_type(count_member);
+    let is_usize = count_member.type_name == "size_t";
+    let set_count = if is_usize {
+        quote! { self.inner.#count_field = slice.len(); }
+    } else {
+        quote! { self.inner.#count_field = slice.len() as #count_ty; }
+    };
 
     if ptr_member.is_const {
         quote! {
             #[inline]
             pub fn #setter_ident(mut self, slice: &'a [#elem_ty]) -> Self {
-                self.inner.#count_field = slice.len() as #count_ty;
+                #set_count
                 self.inner.#ptr_field = slice.as_ptr();
                 self
             }
@@ -181,7 +193,7 @@ fn emit_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenS
         quote! {
             #[inline]
             pub fn #setter_ident(mut self, slice: &'a mut [#elem_ty]) -> Self {
-                self.inner.#count_field = slice.len() as #count_ty;
+                #set_count
                 self.inner.#ptr_field = slice.as_mut_ptr();
                 self
             }
@@ -227,12 +239,6 @@ fn find_count_member<'a>(def: &'a StructDef, len: &str) -> Option<&'a MemberDef>
 // ---------------------------------------------------------------------------
 // Tests
 // ---------------------------------------------------------------------------
-
-#[cfg(test)]
-fn assert_valid_rust(tokens: &TokenStream) {
-    syn::parse2::<syn::File>(tokens.clone())
-        .unwrap_or_else(|e| panic!("generated code is not valid Rust: {e}\n\n{tokens}"));
-}
 
 #[cfg(test)]
 mod tests {

@@ -294,6 +294,9 @@ fn emit_marker_traits(registry: &VkRegistry) -> TokenStream {
             quote! {
                 /// Marker trait for structs that can appear in the pNext chain of
                 #[doc = concat!("[`", #vk_name, "`].")]
+                ///
+                /// # Safety
+                /// Implementors must be valid pNext chain members for the target struct.
                 pub unsafe trait #trait_ident {}
             }
         })
@@ -438,12 +441,18 @@ fn emit_flags_aliases(registry: &VkRegistry) -> TokenStream {
     let existing_bitmasks: BTreeSet<String> =
         registry.bitmasks.iter().map(|b| b.name.clone()).collect();
 
+    // Don't emit aliases that would conflict with struct/union names.
+    let struct_names: BTreeSet<String> = registry.structs.iter().map(|s| s.name.clone()).collect();
+
     let mut emitted = BTreeSet::new();
     let mut aliases = Vec::new();
 
     // For every bitmask with a flags_name, emit `pub type FooFlags = FooFlagBits;`
     for bm in &registry.bitmasks {
-        if bm.flags_name != bm.name && emitted.insert(bm.flags_name.clone()) {
+        if bm.flags_name != bm.name
+            && !struct_names.contains(&bm.flags_name)
+            && emitted.insert(bm.flags_name.clone())
+        {
             let flags = format_ident!("{}", &bm.flags_name);
             let bits = format_ident!("{}", &bm.name);
             aliases.push(quote! { pub type #flags = #bits; });
@@ -457,6 +466,7 @@ fn emit_flags_aliases(registry: &VkRegistry) -> TokenStream {
             let stripped = m.type_name.strip_prefix("Vk").unwrap_or(&m.type_name);
             if stripped.contains("Flags")
                 && !stripped.contains("FlagBits")
+                && !struct_names.contains(stripped)
                 && emitted.insert(stripped.to_string())
             {
                 let flag_bits = resolve_flags_alias(stripped);
@@ -503,7 +513,7 @@ fn emit_func_pointer_stubs(registry: &VkRegistry) -> TokenStream {
 
 const BASE_PNEXT_STRUCTS: &[&str] = &["BaseOutStructure", "BaseInStructure"];
 
-fn is_base_pnext_struct(name: &str) -> bool {
+pub fn is_base_pnext_struct(name: &str) -> bool {
     BASE_PNEXT_STRUCTS.contains(&name)
 }
 
