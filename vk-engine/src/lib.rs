@@ -7,5 +7,5 @@ mod loader;
 mod version;
 
 pub use error::{LoadError, VkResult};
-pub use loader::Loader;
+pub use loader::{LibloadingLoader, Loader};
 pub use version::Version;
