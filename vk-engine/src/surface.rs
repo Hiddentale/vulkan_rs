@@ -254,8 +254,8 @@ mod tests {
     #[test]
     fn unsupported_handle_returns_error() {
         use raw_window_handle::{
-            DisplayHandle, RawDisplayHandle, RawWindowHandle, WebDisplayHandle,
-            WebWindowHandle, WindowHandle,
+            DisplayHandle, RawDisplayHandle, RawWindowHandle, WebDisplayHandle, WebWindowHandle,
+            WindowHandle,
         };
 
         let raw_display = RawDisplayHandle::Web(WebDisplayHandle::new());

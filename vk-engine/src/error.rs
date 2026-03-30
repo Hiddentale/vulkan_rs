@@ -123,8 +123,8 @@ mod tests {
     #[test]
     fn load_error_display_library() {
         // Trigger a real libloading error by loading a nonexistent library.
-        let lib_err = unsafe { libloading::Library::new("nonexistent_vulkan_lib.dll") }
-            .unwrap_err();
+        let lib_err =
+            unsafe { libloading::Library::new("nonexistent_vulkan_lib.dll") }.unwrap_err();
         let err = LoadError::Library(lib_err);
         assert!(err.to_string().contains("failed to load Vulkan library"));
     }

@@ -1,12 +1,12 @@
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkScopeKHR")]
-pub struct ScopeKHR(i32);
-impl ScopeKHR {
-    pub const DEVICE: Self = Self(1i32);
-    pub const WORKGROUP: Self = Self(2i32);
-    pub const SUBGROUP: Self = Self(3i32);
-    pub const QUEUE_FAMILY: Self = Self(5i32);
+#[doc(alias = "VkFaultLevel")]
+pub struct FaultLevel(i32);
+impl FaultLevel {
+    pub const UNASSIGNED: Self = Self(0i32);
+    pub const CRITICAL: Self = Self(1i32);
+    pub const RECOVERABLE: Self = Self(2i32);
+    pub const WARNING: Self = Self(3i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -16,14 +16,413 @@ impl ScopeKHR {
         self.0
     }
 }
-impl core::fmt::Debug for ScopeKHR {
+impl core::fmt::Debug for FaultLevel {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            1i32 => f.write_str("DEVICE"),
-            2i32 => f.write_str("WORKGROUP"),
-            3i32 => f.write_str("SUBGROUP"),
-            5i32 => f.write_str("QUEUE_FAMILY"),
-            other => write!(f, "{}({})", stringify!(ScopeKHR), other),
+            0i32 => f.write_str("UNASSIGNED"),
+            1i32 => f.write_str("CRITICAL"),
+            2i32 => f.write_str("RECOVERABLE"),
+            3i32 => f.write_str("WARNING"),
+            other => write!(f, "{}({})", stringify!(FaultLevel), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkVertexInputRate")]
+pub struct VertexInputRate(i32);
+impl VertexInputRate {
+    pub const VERTEX: Self = Self(0i32);
+    pub const INSTANCE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for VertexInputRate {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("VERTEX"),
+            1i32 => f.write_str("INSTANCE"),
+            other => write!(f, "{}({})", stringify!(VertexInputRate), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPresentModeKHR")]
+pub struct PresentModeKHR(i32);
+impl PresentModeKHR {
+    pub const IMMEDIATE: Self = Self(0i32);
+    pub const MAILBOX: Self = Self(1i32);
+    pub const FIFO: Self = Self(2i32);
+    pub const FIFO_RELAXED: Self = Self(3i32);
+    pub const SHARED_DEMAND_REFRESH: Self = Self(1000111000i32);
+    pub const SHARED_CONTINUOUS_REFRESH: Self = Self(1000111001i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PresentModeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("IMMEDIATE"),
+            1i32 => f.write_str("MAILBOX"),
+            2i32 => f.write_str("FIFO"),
+            3i32 => f.write_str("FIFO_RELAXED"),
+            1000111000i32 => f.write_str("SHARED_DEMAND_REFRESH"),
+            1000111001i32 => f.write_str("SHARED_CONTINUOUS_REFRESH"),
+            other => write!(f, "{}({})", stringify!(PresentModeKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkIndirectCommandsTokenTypeNV")]
+pub struct IndirectCommandsTokenTypeNV(i32);
+impl IndirectCommandsTokenTypeNV {
+    pub const SHADER_GROUP: Self = Self(0i32);
+    pub const STATE_FLAGS: Self = Self(1i32);
+    pub const INDEX_BUFFER: Self = Self(2i32);
+    pub const VERTEX_BUFFER: Self = Self(3i32);
+    pub const PUSH_CONSTANT: Self = Self(4i32);
+    pub const DRAW_INDEXED: Self = Self(5i32);
+    pub const DRAW: Self = Self(6i32);
+    pub const DRAW_TASKS: Self = Self(7i32);
+    pub const PUSH_DATA: Self = Self(1000135000i32);
+    pub const DRAW_MESH_TASKS: Self = Self(1000328000i32);
+    pub const PIPELINE: Self = Self(1000428003i32);
+    pub const DISPATCH: Self = Self(1000428004i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for IndirectCommandsTokenTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("SHADER_GROUP"),
+            1i32 => f.write_str("STATE_FLAGS"),
+            2i32 => f.write_str("INDEX_BUFFER"),
+            3i32 => f.write_str("VERTEX_BUFFER"),
+            4i32 => f.write_str("PUSH_CONSTANT"),
+            5i32 => f.write_str("DRAW_INDEXED"),
+            6i32 => f.write_str("DRAW"),
+            7i32 => f.write_str("DRAW_TASKS"),
+            1000135000i32 => f.write_str("PUSH_DATA"),
+            1000328000i32 => f.write_str("DRAW_MESH_TASKS"),
+            1000428003i32 => f.write_str("PIPELINE"),
+            1000428004i32 => f.write_str("DISPATCH"),
+            other => write!(f, "{}({})", stringify!(IndirectCommandsTokenTypeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkCompareOp")]
+pub struct CompareOp(i32);
+impl CompareOp {
+    pub const NEVER: Self = Self(0i32);
+    pub const LESS: Self = Self(1i32);
+    pub const EQUAL: Self = Self(2i32);
+    pub const LESS_OR_EQUAL: Self = Self(3i32);
+    pub const GREATER: Self = Self(4i32);
+    pub const NOT_EQUAL: Self = Self(5i32);
+    pub const GREATER_OR_EQUAL: Self = Self(6i32);
+    pub const ALWAYS: Self = Self(7i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for CompareOp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NEVER"),
+            1i32 => f.write_str("LESS"),
+            2i32 => f.write_str("EQUAL"),
+            3i32 => f.write_str("LESS_OR_EQUAL"),
+            4i32 => f.write_str("GREATER"),
+            5i32 => f.write_str("NOT_EQUAL"),
+            6i32 => f.write_str("GREATER_OR_EQUAL"),
+            7i32 => f.write_str("ALWAYS"),
+            other => write!(f, "{}({})", stringify!(CompareOp), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkCoverageReductionModeNV")]
+pub struct CoverageReductionModeNV(i32);
+impl CoverageReductionModeNV {
+    pub const MERGE: Self = Self(0i32);
+    pub const TRUNCATE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for CoverageReductionModeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("MERGE"),
+            1i32 => f.write_str("TRUNCATE"),
+            other => write!(f, "{}({})", stringify!(CoverageReductionModeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkShaderGroupShaderKHR")]
+pub struct ShaderGroupShaderKHR(i32);
+impl ShaderGroupShaderKHR {
+    pub const GENERAL: Self = Self(0i32);
+    pub const CLOSEST_HIT: Self = Self(1i32);
+    pub const ANY_HIT: Self = Self(2i32);
+    pub const INTERSECTION: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ShaderGroupShaderKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("GENERAL"),
+            1i32 => f.write_str("CLOSEST_HIT"),
+            2i32 => f.write_str("ANY_HIT"),
+            3i32 => f.write_str("INTERSECTION"),
+            other => write!(f, "{}({})", stringify!(ShaderGroupShaderKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkLineRasterizationMode")]
+pub struct LineRasterizationMode(i32);
+impl LineRasterizationMode {
+    pub const DEFAULT: Self = Self(0i32);
+    pub const RECTANGULAR: Self = Self(1i32);
+    pub const BRESENHAM: Self = Self(2i32);
+    pub const RECTANGULAR_SMOOTH: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for LineRasterizationMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DEFAULT"),
+            1i32 => f.write_str("RECTANGULAR"),
+            2i32 => f.write_str("BRESENHAM"),
+            3i32 => f.write_str("RECTANGULAR_SMOOTH"),
+            other => write!(f, "{}({})", stringify!(LineRasterizationMode), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkSamplerMipmapMode")]
+pub struct SamplerMipmapMode(i32);
+impl SamplerMipmapMode {
+    pub const NEAREST: Self = Self(0i32);
+    pub const LINEAR: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for SamplerMipmapMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NEAREST"),
+            1i32 => f.write_str("LINEAR"),
+            other => write!(f, "{}({})", stringify!(SamplerMipmapMode), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkSciSyncClientTypeNV")]
+pub struct SciSyncClientTypeNV(i32);
+impl SciSyncClientTypeNV {
+    pub const SIGNALER: Self = Self(0i32);
+    pub const WAITER: Self = Self(1i32);
+    pub const SIGNALER_WAITER: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for SciSyncClientTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("SIGNALER"),
+            1i32 => f.write_str("WAITER"),
+            2i32 => f.write_str("SIGNALER_WAITER"),
+            other => write!(f, "{}({})", stringify!(SciSyncClientTypeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkMemoryOverallocationBehaviorAMD")]
+pub struct MemoryOverallocationBehaviorAMD(i32);
+impl MemoryOverallocationBehaviorAMD {
+    pub const DEFAULT: Self = Self(0i32);
+    pub const ALLOWED: Self = Self(1i32);
+    pub const DISALLOWED: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for MemoryOverallocationBehaviorAMD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DEFAULT"),
+            1i32 => f.write_str("ALLOWED"),
+            2i32 => f.write_str("DISALLOWED"),
+            other => {
+                write!(f, "{}({})", stringify!(MemoryOverallocationBehaviorAMD), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkImageType")]
+pub struct ImageType(i32);
+impl ImageType {
+    pub const _1D: Self = Self(0i32);
+    pub const _2D: Self = Self(1i32);
+    pub const _3D: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ImageType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("_1D"),
+            1i32 => f.write_str("_2D"),
+            2i32 => f.write_str("_3D"),
+            other => write!(f, "{}({})", stringify!(ImageType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkValidationFeatureDisableEXT")]
+pub struct ValidationFeatureDisableEXT(i32);
+impl ValidationFeatureDisableEXT {
+    pub const ALL: Self = Self(0i32);
+    pub const SHADERS: Self = Self(1i32);
+    pub const THREAD_SAFETY: Self = Self(2i32);
+    pub const API_PARAMETERS: Self = Self(3i32);
+    pub const OBJECT_LIFETIMES: Self = Self(4i32);
+    pub const CORE_CHECKS: Self = Self(5i32);
+    pub const UNIQUE_HANDLES: Self = Self(6i32);
+    pub const SHADER_VALIDATION_CACHE: Self = Self(7i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ValidationFeatureDisableEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("ALL"),
+            1i32 => f.write_str("SHADERS"),
+            2i32 => f.write_str("THREAD_SAFETY"),
+            3i32 => f.write_str("API_PARAMETERS"),
+            4i32 => f.write_str("OBJECT_LIFETIMES"),
+            5i32 => f.write_str("CORE_CHECKS"),
+            6i32 => f.write_str("UNIQUE_HANDLES"),
+            7i32 => f.write_str("SHADER_VALIDATION_CACHE"),
+            other => write!(f, "{}({})", stringify!(ValidationFeatureDisableEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPhysicalDeviceLayeredApiKHR")]
+pub struct PhysicalDeviceLayeredApiKHR(i32);
+impl PhysicalDeviceLayeredApiKHR {
+    pub const VULKAN: Self = Self(0i32);
+    pub const D3D12: Self = Self(1i32);
+    pub const METAL: Self = Self(2i32);
+    pub const OPENGL: Self = Self(3i32);
+    pub const OPENGLES: Self = Self(4i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PhysicalDeviceLayeredApiKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("VULKAN"),
+            1i32 => f.write_str("D3D12"),
+            2i32 => f.write_str("METAL"),
+            3i32 => f.write_str("OPENGL"),
+            4i32 => f.write_str("OPENGLES"),
+            other => write!(f, "{}({})", stringify!(PhysicalDeviceLayeredApiKHR), other),
         }
     }
 }
@@ -74,17 +473,12 @@ impl core::fmt::Debug for LatencyMarkerNV {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkLayerSettingTypeEXT")]
-pub struct LayerSettingTypeEXT(i32);
-impl LayerSettingTypeEXT {
-    pub const BOOL32: Self = Self(0i32);
-    pub const INT32: Self = Self(1i32);
-    pub const INT64: Self = Self(2i32);
-    pub const UINT32: Self = Self(3i32);
-    pub const UINT64: Self = Self(4i32);
-    pub const FLOAT32: Self = Self(5i32);
-    pub const FLOAT64: Self = Self(6i32);
-    pub const STRING: Self = Self(7i32);
+#[doc(alias = "VkVideoEncodeAV1RateControlGroupKHR")]
+pub struct VideoEncodeAV1RateControlGroupKHR(i32);
+impl VideoEncodeAV1RateControlGroupKHR {
+    pub const INTRA: Self = Self(0i32);
+    pub const PREDICTIVE: Self = Self(1i32);
+    pub const BIPREDICTIVE: Self = Self(2i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -94,30 +488,25 @@ impl LayerSettingTypeEXT {
         self.0
     }
 }
-impl core::fmt::Debug for LayerSettingTypeEXT {
+impl core::fmt::Debug for VideoEncodeAV1RateControlGroupKHR {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("BOOL32"),
-            1i32 => f.write_str("INT32"),
-            2i32 => f.write_str("INT64"),
-            3i32 => f.write_str("UINT32"),
-            4i32 => f.write_str("UINT64"),
-            5i32 => f.write_str("FLOAT32"),
-            6i32 => f.write_str("FLOAT64"),
-            7i32 => f.write_str("STRING"),
-            other => write!(f, "{}({})", stringify!(LayerSettingTypeEXT), other),
+            0i32 => f.write_str("INTRA"),
+            1i32 => f.write_str("PREDICTIVE"),
+            2i32 => f.write_str("BIPREDICTIVE"),
+            other => {
+                write!(f, "{}({})", stringify!(VideoEncodeAV1RateControlGroupKHR), other)
+            }
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCoverageModulationModeNV")]
-pub struct CoverageModulationModeNV(i32);
-impl CoverageModulationModeNV {
+#[doc(alias = "VkRayTracingInvocationReorderModeEXT")]
+pub struct RayTracingInvocationReorderModeEXT(i32);
+impl RayTracingInvocationReorderModeEXT {
     pub const NONE: Self = Self(0i32);
-    pub const RGB: Self = Self(1i32);
-    pub const ALPHA: Self = Self(2i32);
-    pub const RGBA: Self = Self(3i32);
+    pub const REORDER: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -127,410 +516,14 @@ impl CoverageModulationModeNV {
         self.0
     }
 }
-impl core::fmt::Debug for CoverageModulationModeNV {
+impl core::fmt::Debug for RayTracingInvocationReorderModeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
             0i32 => f.write_str("NONE"),
-            1i32 => f.write_str("RGB"),
-            2i32 => f.write_str("ALPHA"),
-            3i32 => f.write_str("RGBA"),
-            other => write!(f, "{}({})", stringify!(CoverageModulationModeNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFaultType")]
-pub struct FaultType(i32);
-impl FaultType {
-    pub const INVALID: Self = Self(0i32);
-    pub const UNASSIGNED: Self = Self(1i32);
-    pub const IMPLEMENTATION: Self = Self(2i32);
-    pub const SYSTEM: Self = Self(3i32);
-    pub const PHYSICAL_DEVICE: Self = Self(4i32);
-    pub const COMMAND_BUFFER_FULL: Self = Self(5i32);
-    pub const INVALID_API_USAGE: Self = Self(6i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for FaultType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("INVALID"),
-            1i32 => f.write_str("UNASSIGNED"),
-            2i32 => f.write_str("IMPLEMENTATION"),
-            3i32 => f.write_str("SYSTEM"),
-            4i32 => f.write_str("PHYSICAL_DEVICE"),
-            5i32 => f.write_str("COMMAND_BUFFER_FULL"),
-            6i32 => f.write_str("INVALID_API_USAGE"),
-            other => write!(f, "{}({})", stringify!(FaultType), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkQueueGlobalPriority")]
-pub struct QueueGlobalPriority(i32);
-impl QueueGlobalPriority {
-    pub const LOW: Self = Self(128i32);
-    pub const MEDIUM: Self = Self(256i32);
-    pub const HIGH: Self = Self(512i32);
-    pub const REALTIME: Self = Self(1024i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for QueueGlobalPriority {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            128i32 => f.write_str("LOW"),
-            256i32 => f.write_str("MEDIUM"),
-            512i32 => f.write_str("HIGH"),
-            1024i32 => f.write_str("REALTIME"),
-            other => write!(f, "{}({})", stringify!(QueueGlobalPriority), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkRayTracingShaderGroupTypeKHR")]
-pub struct RayTracingShaderGroupTypeKHR(i32);
-impl RayTracingShaderGroupTypeKHR {
-    pub const GENERAL: Self = Self(0i32);
-    pub const TRIANGLES_HIT_GROUP: Self = Self(1i32);
-    pub const PROCEDURAL_HIT_GROUP: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for RayTracingShaderGroupTypeKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("GENERAL"),
-            1i32 => f.write_str("TRIANGLES_HIT_GROUP"),
-            2i32 => f.write_str("PROCEDURAL_HIT_GROUP"),
-            other => write!(f, "{}({})", stringify!(RayTracingShaderGroupTypeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSamplerAddressMode")]
-pub struct SamplerAddressMode(i32);
-impl SamplerAddressMode {
-    pub const REPEAT: Self = Self(0i32);
-    pub const MIRRORED_REPEAT: Self = Self(1i32);
-    pub const CLAMP_TO_EDGE: Self = Self(2i32);
-    pub const CLAMP_TO_BORDER: Self = Self(3i32);
-    pub const MIRROR_CLAMP_TO_EDGE: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SamplerAddressMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("REPEAT"),
-            1i32 => f.write_str("MIRRORED_REPEAT"),
-            2i32 => f.write_str("CLAMP_TO_EDGE"),
-            3i32 => f.write_str("CLAMP_TO_BORDER"),
-            4i32 => f.write_str("MIRROR_CLAMP_TO_EDGE"),
-            other => write!(f, "{}({})", stringify!(SamplerAddressMode), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkVertexInputRate")]
-pub struct VertexInputRate(i32);
-impl VertexInputRate {
-    pub const VERTEX: Self = Self(0i32);
-    pub const INSTANCE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for VertexInputRate {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("VERTEX"),
-            1i32 => f.write_str("INSTANCE"),
-            other => write!(f, "{}({})", stringify!(VertexInputRate), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDiscardRectangleModeEXT")]
-pub struct DiscardRectangleModeEXT(i32);
-impl DiscardRectangleModeEXT {
-    pub const INCLUSIVE: Self = Self(0i32);
-    pub const EXCLUSIVE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DiscardRectangleModeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("INCLUSIVE"),
-            1i32 => f.write_str("EXCLUSIVE"),
-            other => write!(f, "{}({})", stringify!(DiscardRectangleModeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkLogicOp")]
-pub struct LogicOp(i32);
-impl LogicOp {
-    pub const CLEAR: Self = Self(0i32);
-    pub const AND: Self = Self(1i32);
-    pub const AND_REVERSE: Self = Self(2i32);
-    pub const COPY: Self = Self(3i32);
-    pub const AND_INVERTED: Self = Self(4i32);
-    pub const NO_OP: Self = Self(5i32);
-    pub const XOR: Self = Self(6i32);
-    pub const OR: Self = Self(7i32);
-    pub const NOR: Self = Self(8i32);
-    pub const EQUIVALENT: Self = Self(9i32);
-    pub const INVERT: Self = Self(10i32);
-    pub const OR_REVERSE: Self = Self(11i32);
-    pub const COPY_INVERTED: Self = Self(12i32);
-    pub const OR_INVERTED: Self = Self(13i32);
-    pub const NAND: Self = Self(14i32);
-    pub const SET: Self = Self(15i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for LogicOp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("CLEAR"),
-            1i32 => f.write_str("AND"),
-            2i32 => f.write_str("AND_REVERSE"),
-            3i32 => f.write_str("COPY"),
-            4i32 => f.write_str("AND_INVERTED"),
-            5i32 => f.write_str("NO_OP"),
-            6i32 => f.write_str("XOR"),
-            7i32 => f.write_str("OR"),
-            8i32 => f.write_str("NOR"),
-            9i32 => f.write_str("EQUIVALENT"),
-            10i32 => f.write_str("INVERT"),
-            11i32 => f.write_str("OR_REVERSE"),
-            12i32 => f.write_str("COPY_INVERTED"),
-            13i32 => f.write_str("OR_INVERTED"),
-            14i32 => f.write_str("NAND"),
-            15i32 => f.write_str("SET"),
-            other => write!(f, "{}({})", stringify!(LogicOp), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkOpticalFlowPerformanceLevelNV")]
-pub struct OpticalFlowPerformanceLevelNV(i32);
-impl OpticalFlowPerformanceLevelNV {
-    pub const UNKNOWN: Self = Self(0i32);
-    pub const SLOW: Self = Self(1i32);
-    pub const MEDIUM: Self = Self(2i32);
-    pub const FAST: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for OpticalFlowPerformanceLevelNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("UNKNOWN"),
-            1i32 => f.write_str("SLOW"),
-            2i32 => f.write_str("MEDIUM"),
-            3i32 => f.write_str("FAST"),
-            other => {
-                write!(f, "{}({})", stringify!(OpticalFlowPerformanceLevelNV), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkColorSpaceKHR")]
-pub struct ColorSpaceKHR(i32);
-impl ColorSpaceKHR {
-    pub const SRGB_NONLINEAR: Self = Self(0i32);
-    pub const COLORSPACE_SRGB_NONLINEAR: Self = Self::SRGB_NONLINEAR;
-    pub const DISPLAY_P3_NONLINEAR: Self = Self(1000104001i32);
-    pub const EXTENDED_SRGB_LINEAR: Self = Self(1000104002i32);
-    pub const DISPLAY_P3_LINEAR: Self = Self(1000104003i32);
-    pub const DCI_P3_NONLINEAR: Self = Self(1000104004i32);
-    pub const BT709_LINEAR: Self = Self(1000104005i32);
-    pub const BT709_NONLINEAR: Self = Self(1000104006i32);
-    pub const BT2020_LINEAR: Self = Self(1000104007i32);
-    pub const HDR10_ST2084: Self = Self(1000104008i32);
-    pub const DOLBYVISION: Self = Self(1000104009i32);
-    pub const HDR10_HLG: Self = Self(1000104010i32);
-    pub const ADOBERGB_LINEAR: Self = Self(1000104011i32);
-    pub const ADOBERGB_NONLINEAR: Self = Self(1000104012i32);
-    pub const PASS_THROUGH: Self = Self(1000104013i32);
-    pub const EXTENDED_SRGB_NONLINEAR: Self = Self(1000104014i32);
-    pub const DCI_P3_LINEAR: Self = Self::DISPLAY_P3_LINEAR;
-    pub const DISPLAY_NATIVE: Self = Self(1000213000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ColorSpaceKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("SRGB_NONLINEAR"),
-            1000104001i32 => f.write_str("DISPLAY_P3_NONLINEAR"),
-            1000104002i32 => f.write_str("EXTENDED_SRGB_LINEAR"),
-            1000104003i32 => f.write_str("DISPLAY_P3_LINEAR"),
-            1000104004i32 => f.write_str("DCI_P3_NONLINEAR"),
-            1000104005i32 => f.write_str("BT709_LINEAR"),
-            1000104006i32 => f.write_str("BT709_NONLINEAR"),
-            1000104007i32 => f.write_str("BT2020_LINEAR"),
-            1000104008i32 => f.write_str("HDR10_ST2084"),
-            1000104009i32 => f.write_str("DOLBYVISION"),
-            1000104010i32 => f.write_str("HDR10_HLG"),
-            1000104011i32 => f.write_str("ADOBERGB_LINEAR"),
-            1000104012i32 => f.write_str("ADOBERGB_NONLINEAR"),
-            1000104013i32 => f.write_str("PASS_THROUGH"),
-            1000104014i32 => f.write_str("EXTENDED_SRGB_NONLINEAR"),
-            1000213000i32 => f.write_str("DISPLAY_NATIVE"),
-            other => write!(f, "{}({})", stringify!(ColorSpaceKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPerformanceCounterStorageKHR")]
-pub struct PerformanceCounterStorageKHR(i32);
-impl PerformanceCounterStorageKHR {
-    pub const INT32: Self = Self(0i32);
-    pub const INT64: Self = Self(1i32);
-    pub const UINT32: Self = Self(2i32);
-    pub const UINT64: Self = Self(3i32);
-    pub const FLOAT32: Self = Self(4i32);
-    pub const FLOAT64: Self = Self(5i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PerformanceCounterStorageKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("INT32"),
-            1i32 => f.write_str("INT64"),
-            2i32 => f.write_str("UINT32"),
-            3i32 => f.write_str("UINT64"),
-            4i32 => f.write_str("FLOAT32"),
-            5i32 => f.write_str("FLOAT64"),
-            other => write!(f, "{}({})", stringify!(PerformanceCounterStorageKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkBlendOverlapEXT")]
-pub struct BlendOverlapEXT(i32);
-impl BlendOverlapEXT {
-    pub const UNCORRELATED: Self = Self(0i32);
-    pub const DISJOINT: Self = Self(1i32);
-    pub const CONJOINT: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for BlendOverlapEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("UNCORRELATED"),
-            1i32 => f.write_str("DISJOINT"),
-            2i32 => f.write_str("CONJOINT"),
-            other => write!(f, "{}({})", stringify!(BlendOverlapEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDataGraphPipelineSessionBindPointARM")]
-pub struct DataGraphPipelineSessionBindPointARM(i32);
-impl DataGraphPipelineSessionBindPointARM {
-    pub const TRANSIENT: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DataGraphPipelineSessionBindPointARM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("TRANSIENT"),
+            1i32 => f.write_str("REORDER"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(DataGraphPipelineSessionBindPointARM), other
+                    f, "{}({})", stringify!(RayTracingInvocationReorderModeEXT), other
                 )
             }
         }
@@ -538,15 +531,42 @@ impl core::fmt::Debug for DataGraphPipelineSessionBindPointARM {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPerformanceCounterScopeKHR")]
-pub struct PerformanceCounterScopeKHR(i32);
-impl PerformanceCounterScopeKHR {
-    pub const COMMAND_BUFFER: Self = Self(0i32);
-    pub const RENDER_PASS: Self = Self(1i32);
-    pub const COMMAND: Self = Self(2i32);
-    pub const QUERY_SCOPE_COMMAND_BUFFER: Self = Self::COMMAND_BUFFER;
-    pub const QUERY_SCOPE_RENDER_PASS: Self = Self::RENDER_PASS;
-    pub const QUERY_SCOPE_COMMAND: Self = Self::COMMAND;
+#[doc(alias = "VkImageLayout")]
+pub struct ImageLayout(i32);
+impl ImageLayout {
+    pub const UNDEFINED: Self = Self(0i32);
+    pub const GENERAL: Self = Self(1i32);
+    pub const COLOR_ATTACHMENT_OPTIMAL: Self = Self(2i32);
+    pub const DEPTH_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(3i32);
+    pub const DEPTH_STENCIL_READ_ONLY_OPTIMAL: Self = Self(4i32);
+    pub const SHADER_READ_ONLY_OPTIMAL: Self = Self(5i32);
+    pub const TRANSFER_SRC_OPTIMAL: Self = Self(6i32);
+    pub const TRANSFER_DST_OPTIMAL: Self = Self(7i32);
+    pub const PREINITIALIZED: Self = Self(8i32);
+    pub const DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(1000117000i32);
+    pub const DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL: Self = Self(1000117001i32);
+    pub const DEPTH_ATTACHMENT_OPTIMAL: Self = Self(1000241000i32);
+    pub const DEPTH_READ_ONLY_OPTIMAL: Self = Self(1000241001i32);
+    pub const STENCIL_ATTACHMENT_OPTIMAL: Self = Self(1000241002i32);
+    pub const STENCIL_READ_ONLY_OPTIMAL: Self = Self(1000241003i32);
+    pub const READ_ONLY_OPTIMAL: Self = Self(1000314000i32);
+    pub const ATTACHMENT_OPTIMAL: Self = Self(1000314001i32);
+    pub const RENDERING_LOCAL_READ: Self = Self(1000232000i32);
+    pub const PRESENT_SRC: Self = Self(1000001002i32);
+    pub const VIDEO_DECODE_DST: Self = Self(1000024000i32);
+    pub const VIDEO_DECODE_SRC: Self = Self(1000024001i32);
+    pub const VIDEO_DECODE_DPB: Self = Self(1000024002i32);
+    pub const SHARED_PRESENT: Self = Self(1000111000i32);
+    pub const SHADING_RATE_OPTIMAL: Self = Self::FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL;
+    pub const FRAGMENT_DENSITY_MAP_OPTIMAL: Self = Self(1000218000i32);
+    pub const FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL: Self = Self(1000164003i32);
+    pub const VIDEO_ENCODE_DST: Self = Self(1000299000i32);
+    pub const VIDEO_ENCODE_SRC: Self = Self(1000299001i32);
+    pub const VIDEO_ENCODE_DPB: Self = Self(1000299002i32);
+    pub const ATTACHMENT_FEEDBACK_LOOP_OPTIMAL: Self = Self(1000339000i32);
+    pub const TENSOR_ALIASING: Self = Self(1000460000i32);
+    pub const VIDEO_ENCODE_QUANTIZATION_MAP: Self = Self(1000553000i32);
+    pub const ZERO_INITIALIZED: Self = Self(1000620000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -556,426 +576,42 @@ impl PerformanceCounterScopeKHR {
         self.0
     }
 }
-impl core::fmt::Debug for PerformanceCounterScopeKHR {
+impl core::fmt::Debug for ImageLayout {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("COMMAND_BUFFER"),
-            1i32 => f.write_str("RENDER_PASS"),
-            2i32 => f.write_str("COMMAND"),
-            other => write!(f, "{}({})", stringify!(PerformanceCounterScopeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPipelineMatchControl")]
-pub struct PipelineMatchControl(i32);
-impl PipelineMatchControl {
-    pub const APPLICATION_UUID_EXACT_MATCH: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PipelineMatchControl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("APPLICATION_UUID_EXACT_MATCH"),
-            other => write!(f, "{}({})", stringify!(PipelineMatchControl), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkVideoEncodeTuningModeKHR")]
-pub struct VideoEncodeTuningModeKHR(i32);
-impl VideoEncodeTuningModeKHR {
-    pub const DEFAULT: Self = Self(0i32);
-    pub const HIGH_QUALITY: Self = Self(1i32);
-    pub const LOW_LATENCY: Self = Self(2i32);
-    pub const ULTRA_LOW_LATENCY: Self = Self(3i32);
-    pub const LOSSLESS: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for VideoEncodeTuningModeKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DEFAULT"),
-            1i32 => f.write_str("HIGH_QUALITY"),
-            2i32 => f.write_str("LOW_LATENCY"),
-            3i32 => f.write_str("ULTRA_LOW_LATENCY"),
-            4i32 => f.write_str("LOSSLESS"),
-            other => write!(f, "{}({})", stringify!(VideoEncodeTuningModeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSemaphoreType")]
-pub struct SemaphoreType(i32);
-impl SemaphoreType {
-    pub const BINARY: Self = Self(0i32);
-    pub const TIMELINE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SemaphoreType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("BINARY"),
-            1i32 => f.write_str("TIMELINE"),
-            other => write!(f, "{}({})", stringify!(SemaphoreType), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAccelerationStructureMemoryRequirementsTypeNV")]
-pub struct AccelerationStructureMemoryRequirementsTypeNV(i32);
-impl AccelerationStructureMemoryRequirementsTypeNV {
-    pub const OBJECT: Self = Self(0i32);
-    pub const BUILD_SCRATCH: Self = Self(1i32);
-    pub const UPDATE_SCRATCH: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for AccelerationStructureMemoryRequirementsTypeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("OBJECT"),
-            1i32 => f.write_str("BUILD_SCRATCH"),
-            2i32 => f.write_str("UPDATE_SCRATCH"),
-            other => {
-                write!(
-                    f, "{}({})",
-                    stringify!(AccelerationStructureMemoryRequirementsTypeNV), other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAccelerationStructureMotionInstanceTypeNV")]
-pub struct AccelerationStructureMotionInstanceTypeNV(i32);
-impl AccelerationStructureMotionInstanceTypeNV {
-    pub const STATIC: Self = Self(0i32);
-    pub const MATRIX_MOTION: Self = Self(1i32);
-    pub const SRT_MOTION: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for AccelerationStructureMotionInstanceTypeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("STATIC"),
-            1i32 => f.write_str("MATRIX_MOTION"),
-            2i32 => f.write_str("SRT_MOTION"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(AccelerationStructureMotionInstanceTypeNV),
-                    other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAntiLagStageAMD")]
-pub struct AntiLagStageAMD(i32);
-impl AntiLagStageAMD {
-    pub const INPUT: Self = Self(0i32);
-    pub const PRESENT: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for AntiLagStageAMD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("INPUT"),
-            1i32 => f.write_str("PRESENT"),
-            other => write!(f, "{}({})", stringify!(AntiLagStageAMD), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPipelineRobustnessImageBehavior")]
-pub struct PipelineRobustnessImageBehavior(i32);
-impl PipelineRobustnessImageBehavior {
-    pub const DEVICE_DEFAULT: Self = Self(0i32);
-    pub const DISABLED: Self = Self(1i32);
-    pub const ROBUST_IMAGE_ACCESS: Self = Self(2i32);
-    pub const ROBUST_IMAGE_ACCESS_2: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PipelineRobustnessImageBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DEVICE_DEFAULT"),
-            1i32 => f.write_str("DISABLED"),
-            2i32 => f.write_str("ROBUST_IMAGE_ACCESS"),
-            3i32 => f.write_str("ROBUST_IMAGE_ACCESS_2"),
-            other => {
-                write!(f, "{}({})", stringify!(PipelineRobustnessImageBehavior), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkShaderFloatControlsIndependence")]
-pub struct ShaderFloatControlsIndependence(i32);
-impl ShaderFloatControlsIndependence {
-    pub const _32_BIT_ONLY: Self = Self(0i32);
-    pub const ALL: Self = Self(1i32);
-    pub const NONE: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ShaderFloatControlsIndependence {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("_32_BIT_ONLY"),
-            1i32 => f.write_str("ALL"),
-            2i32 => f.write_str("NONE"),
-            other => {
-                write!(f, "{}({})", stringify!(ShaderFloatControlsIndependence), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkValidationFeatureEnableEXT")]
-pub struct ValidationFeatureEnableEXT(i32);
-impl ValidationFeatureEnableEXT {
-    pub const GPU_ASSISTED: Self = Self(0i32);
-    pub const GPU_ASSISTED_RESERVE_BINDING_SLOT: Self = Self(1i32);
-    pub const BEST_PRACTICES: Self = Self(2i32);
-    pub const DEBUG_PRINTF: Self = Self(3i32);
-    pub const SYNCHRONIZATION_VALIDATION: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ValidationFeatureEnableEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("GPU_ASSISTED"),
-            1i32 => f.write_str("GPU_ASSISTED_RESERVE_BINDING_SLOT"),
-            2i32 => f.write_str("BEST_PRACTICES"),
-            3i32 => f.write_str("DEBUG_PRINTF"),
-            4i32 => f.write_str("SYNCHRONIZATION_VALIDATION"),
-            other => write!(f, "{}({})", stringify!(ValidationFeatureEnableEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFilter")]
-pub struct Filter(i32);
-impl Filter {
-    pub const NEAREST: Self = Self(0i32);
-    pub const LINEAR: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for Filter {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NEAREST"),
-            1i32 => f.write_str("LINEAR"),
-            other => write!(f, "{}({})", stringify!(Filter), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDisplayEventTypeEXT")]
-pub struct DisplayEventTypeEXT(i32);
-impl DisplayEventTypeEXT {
-    pub const FIRST_PIXEL_OUT: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DisplayEventTypeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("FIRST_PIXEL_OUT"),
-            other => write!(f, "{}({})", stringify!(DisplayEventTypeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkQueryResultStatusKHR")]
-pub struct QueryResultStatusKHR(i32);
-impl QueryResultStatusKHR {
-    pub const ERROR: Self = Self(-1i32);
-    pub const NOT_READY: Self = Self(0i32);
-    pub const COMPLETE: Self = Self(1i32);
-    pub const INSUFFICIENT_BITSTREAM_BUFFER_RANGE: Self = Self(-1000299000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for QueryResultStatusKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            -1i32 => f.write_str("ERROR"),
-            0i32 => f.write_str("NOT_READY"),
-            1i32 => f.write_str("COMPLETE"),
-            -1000299000i32 => f.write_str("INSUFFICIENT_BITSTREAM_BUFFER_RANGE"),
-            other => write!(f, "{}({})", stringify!(QueryResultStatusKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPerformanceOverrideTypeINTEL")]
-pub struct PerformanceOverrideTypeINTEL(i32);
-impl PerformanceOverrideTypeINTEL {
-    pub const NULL_HARDWARE: Self = Self(0i32);
-    pub const FLUSH_GPU_CACHES: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PerformanceOverrideTypeINTEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NULL_HARDWARE"),
-            1i32 => f.write_str("FLUSH_GPU_CACHES"),
-            other => write!(f, "{}({})", stringify!(PerformanceOverrideTypeINTEL), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPerformanceParameterTypeINTEL")]
-pub struct PerformanceParameterTypeINTEL(i32);
-impl PerformanceParameterTypeINTEL {
-    pub const HW_COUNTERS_SUPPORTED: Self = Self(0i32);
-    pub const STREAM_MARKER_VALID_BITS: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PerformanceParameterTypeINTEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("HW_COUNTERS_SUPPORTED"),
-            1i32 => f.write_str("STREAM_MARKER_VALID_BITS"),
-            other => {
-                write!(f, "{}({})", stringify!(PerformanceParameterTypeINTEL), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkRasterizationOrderAMD")]
-pub struct RasterizationOrderAMD(i32);
-impl RasterizationOrderAMD {
-    pub const STRICT: Self = Self(0i32);
-    pub const RELAXED: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for RasterizationOrderAMD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("STRICT"),
-            1i32 => f.write_str("RELAXED"),
-            other => write!(f, "{}({})", stringify!(RasterizationOrderAMD), other),
+            0i32 => f.write_str("UNDEFINED"),
+            1i32 => f.write_str("GENERAL"),
+            2i32 => f.write_str("COLOR_ATTACHMENT_OPTIMAL"),
+            3i32 => f.write_str("DEPTH_STENCIL_ATTACHMENT_OPTIMAL"),
+            4i32 => f.write_str("DEPTH_STENCIL_READ_ONLY_OPTIMAL"),
+            5i32 => f.write_str("SHADER_READ_ONLY_OPTIMAL"),
+            6i32 => f.write_str("TRANSFER_SRC_OPTIMAL"),
+            7i32 => f.write_str("TRANSFER_DST_OPTIMAL"),
+            8i32 => f.write_str("PREINITIALIZED"),
+            1000117000i32 => f.write_str("DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL"),
+            1000117001i32 => f.write_str("DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL"),
+            1000241000i32 => f.write_str("DEPTH_ATTACHMENT_OPTIMAL"),
+            1000241001i32 => f.write_str("DEPTH_READ_ONLY_OPTIMAL"),
+            1000241002i32 => f.write_str("STENCIL_ATTACHMENT_OPTIMAL"),
+            1000241003i32 => f.write_str("STENCIL_READ_ONLY_OPTIMAL"),
+            1000314000i32 => f.write_str("READ_ONLY_OPTIMAL"),
+            1000314001i32 => f.write_str("ATTACHMENT_OPTIMAL"),
+            1000232000i32 => f.write_str("RENDERING_LOCAL_READ"),
+            1000001002i32 => f.write_str("PRESENT_SRC"),
+            1000024000i32 => f.write_str("VIDEO_DECODE_DST"),
+            1000024001i32 => f.write_str("VIDEO_DECODE_SRC"),
+            1000024002i32 => f.write_str("VIDEO_DECODE_DPB"),
+            1000111000i32 => f.write_str("SHARED_PRESENT"),
+            1000218000i32 => f.write_str("FRAGMENT_DENSITY_MAP_OPTIMAL"),
+            1000164003i32 => f.write_str("FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL"),
+            1000299000i32 => f.write_str("VIDEO_ENCODE_DST"),
+            1000299001i32 => f.write_str("VIDEO_ENCODE_SRC"),
+            1000299002i32 => f.write_str("VIDEO_ENCODE_DPB"),
+            1000339000i32 => f.write_str("ATTACHMENT_FEEDBACK_LOOP_OPTIMAL"),
+            1000460000i32 => f.write_str("TENSOR_ALIASING"),
+            1000553000i32 => f.write_str("VIDEO_ENCODE_QUANTIZATION_MAP"),
+            1000620000i32 => f.write_str("ZERO_INITIALIZED"),
+            other => write!(f, "{}({})", stringify!(ImageLayout), other),
         }
     }
 }
@@ -4317,6 +3953,1415 @@ impl core::fmt::Debug for StructureType {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDriverId")]
+pub struct DriverId(i32);
+impl DriverId {
+    pub const AMD_PROPRIETARY: Self = Self(1i32);
+    pub const AMD_OPEN_SOURCE: Self = Self(2i32);
+    pub const MESA_RADV: Self = Self(3i32);
+    pub const NVIDIA_PROPRIETARY: Self = Self(4i32);
+    pub const INTEL_PROPRIETARY_WINDOWS: Self = Self(5i32);
+    pub const INTEL_OPEN_SOURCE: Self = Self(6i32);
+    pub const IMAGINATION_PROPRIETARY: Self = Self(7i32);
+    pub const QUALCOMM_PROPRIETARY: Self = Self(8i32);
+    pub const ARM_PROPRIETARY: Self = Self(9i32);
+    pub const GOOGLE_SWIFTSHADER: Self = Self(10i32);
+    pub const GGP_PROPRIETARY: Self = Self(11i32);
+    pub const BROADCOM_PROPRIETARY: Self = Self(12i32);
+    pub const MESA_LLVMPIPE: Self = Self(13i32);
+    pub const MOLTENVK: Self = Self(14i32);
+    pub const COREAVI_PROPRIETARY: Self = Self(15i32);
+    pub const JUICE_PROPRIETARY: Self = Self(16i32);
+    pub const VERISILICON_PROPRIETARY: Self = Self(17i32);
+    pub const MESA_TURNIP: Self = Self(18i32);
+    pub const MESA_V3DV: Self = Self(19i32);
+    pub const MESA_PANVK: Self = Self(20i32);
+    pub const SAMSUNG_PROPRIETARY: Self = Self(21i32);
+    pub const MESA_VENUS: Self = Self(22i32);
+    pub const MESA_DOZEN: Self = Self(23i32);
+    pub const MESA_NVK: Self = Self(24i32);
+    pub const IMAGINATION_OPEN_SOURCE: Self = Self(25i32);
+    pub const MESA_HONEYKRISP: Self = Self(26i32);
+    pub const VULKAN_SC_EMULATION_ON_VULKAN: Self = Self(27i32);
+    pub const MESA_KOSMICKRISP: Self = Self(28i32);
+    pub const INTEL_OPEN_SOURCE_: Self = Self::INTEL_OPEN_SOURCE;
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DriverId {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            1i32 => f.write_str("AMD_PROPRIETARY"),
+            2i32 => f.write_str("AMD_OPEN_SOURCE"),
+            3i32 => f.write_str("MESA_RADV"),
+            4i32 => f.write_str("NVIDIA_PROPRIETARY"),
+            5i32 => f.write_str("INTEL_PROPRIETARY_WINDOWS"),
+            6i32 => f.write_str("INTEL_OPEN_SOURCE"),
+            7i32 => f.write_str("IMAGINATION_PROPRIETARY"),
+            8i32 => f.write_str("QUALCOMM_PROPRIETARY"),
+            9i32 => f.write_str("ARM_PROPRIETARY"),
+            10i32 => f.write_str("GOOGLE_SWIFTSHADER"),
+            11i32 => f.write_str("GGP_PROPRIETARY"),
+            12i32 => f.write_str("BROADCOM_PROPRIETARY"),
+            13i32 => f.write_str("MESA_LLVMPIPE"),
+            14i32 => f.write_str("MOLTENVK"),
+            15i32 => f.write_str("COREAVI_PROPRIETARY"),
+            16i32 => f.write_str("JUICE_PROPRIETARY"),
+            17i32 => f.write_str("VERISILICON_PROPRIETARY"),
+            18i32 => f.write_str("MESA_TURNIP"),
+            19i32 => f.write_str("MESA_V3DV"),
+            20i32 => f.write_str("MESA_PANVK"),
+            21i32 => f.write_str("SAMSUNG_PROPRIETARY"),
+            22i32 => f.write_str("MESA_VENUS"),
+            23i32 => f.write_str("MESA_DOZEN"),
+            24i32 => f.write_str("MESA_NVK"),
+            25i32 => f.write_str("IMAGINATION_OPEN_SOURCE"),
+            26i32 => f.write_str("MESA_HONEYKRISP"),
+            27i32 => f.write_str("VULKAN_SC_EMULATION_ON_VULKAN"),
+            28i32 => f.write_str("MESA_KOSMICKRISP"),
+            other => write!(f, "{}({})", stringify!(DriverId), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkBlockMatchWindowCompareModeQCOM")]
+pub struct BlockMatchWindowCompareModeQCOM(i32);
+impl BlockMatchWindowCompareModeQCOM {
+    pub const MIN: Self = Self(0i32);
+    pub const MAX: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for BlockMatchWindowCompareModeQCOM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("MIN"),
+            1i32 => f.write_str("MAX"),
+            other => {
+                write!(f, "{}({})", stringify!(BlockMatchWindowCompareModeQCOM), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkSciSyncPrimitiveTypeNV")]
+pub struct SciSyncPrimitiveTypeNV(i32);
+impl SciSyncPrimitiveTypeNV {
+    pub const FENCE: Self = Self(0i32);
+    pub const SEMAPHORE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for SciSyncPrimitiveTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("FENCE"),
+            1i32 => f.write_str("SEMAPHORE"),
+            other => write!(f, "{}({})", stringify!(SciSyncPrimitiveTypeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkOpticalFlowPerformanceLevelNV")]
+pub struct OpticalFlowPerformanceLevelNV(i32);
+impl OpticalFlowPerformanceLevelNV {
+    pub const UNKNOWN: Self = Self(0i32);
+    pub const SLOW: Self = Self(1i32);
+    pub const MEDIUM: Self = Self(2i32);
+    pub const FAST: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for OpticalFlowPerformanceLevelNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("UNKNOWN"),
+            1i32 => f.write_str("SLOW"),
+            2i32 => f.write_str("MEDIUM"),
+            3i32 => f.write_str("FAST"),
+            other => {
+                write!(f, "{}({})", stringify!(OpticalFlowPerformanceLevelNV), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDescriptorType")]
+pub struct DescriptorType(i32);
+impl DescriptorType {
+    pub const SAMPLER: Self = Self(0i32);
+    pub const COMBINED_IMAGE_SAMPLER: Self = Self(1i32);
+    pub const SAMPLED_IMAGE: Self = Self(2i32);
+    pub const STORAGE_IMAGE: Self = Self(3i32);
+    pub const UNIFORM_TEXEL_BUFFER: Self = Self(4i32);
+    pub const STORAGE_TEXEL_BUFFER: Self = Self(5i32);
+    pub const UNIFORM_BUFFER: Self = Self(6i32);
+    pub const STORAGE_BUFFER: Self = Self(7i32);
+    pub const UNIFORM_BUFFER_DYNAMIC: Self = Self(8i32);
+    pub const STORAGE_BUFFER_DYNAMIC: Self = Self(9i32);
+    pub const INPUT_ATTACHMENT: Self = Self(10i32);
+    pub const INLINE_UNIFORM_BLOCK: Self = Self(1000138000i32);
+    pub const ACCELERATION_STRUCTURE: Self = Self(1000150000i32);
+    pub const SAMPLE_WEIGHT_IMAGE: Self = Self(1000440000i32);
+    pub const BLOCK_MATCH_IMAGE: Self = Self(1000440001i32);
+    pub const TENSOR: Self = Self(1000460000i32);
+    pub const PARTITIONED_ACCELERATION_STRUCTURE: Self = Self(1000570000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DescriptorType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("SAMPLER"),
+            1i32 => f.write_str("COMBINED_IMAGE_SAMPLER"),
+            2i32 => f.write_str("SAMPLED_IMAGE"),
+            3i32 => f.write_str("STORAGE_IMAGE"),
+            4i32 => f.write_str("UNIFORM_TEXEL_BUFFER"),
+            5i32 => f.write_str("STORAGE_TEXEL_BUFFER"),
+            6i32 => f.write_str("UNIFORM_BUFFER"),
+            7i32 => f.write_str("STORAGE_BUFFER"),
+            8i32 => f.write_str("UNIFORM_BUFFER_DYNAMIC"),
+            9i32 => f.write_str("STORAGE_BUFFER_DYNAMIC"),
+            10i32 => f.write_str("INPUT_ATTACHMENT"),
+            1000138000i32 => f.write_str("INLINE_UNIFORM_BLOCK"),
+            1000150000i32 => f.write_str("ACCELERATION_STRUCTURE"),
+            1000440000i32 => f.write_str("SAMPLE_WEIGHT_IMAGE"),
+            1000440001i32 => f.write_str("BLOCK_MATCH_IMAGE"),
+            1000460000i32 => f.write_str("TENSOR"),
+            1000570000i32 => f.write_str("PARTITIONED_ACCELERATION_STRUCTURE"),
+            other => write!(f, "{}({})", stringify!(DescriptorType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkVideoEncodeAV1PredictionModeKHR")]
+pub struct VideoEncodeAV1PredictionModeKHR(i32);
+impl VideoEncodeAV1PredictionModeKHR {
+    pub const INTRA_ONLY: Self = Self(0i32);
+    pub const SINGLE_REFERENCE: Self = Self(1i32);
+    pub const UNIDIRECTIONAL_COMPOUND: Self = Self(2i32);
+    pub const BIDIRECTIONAL_COMPOUND: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for VideoEncodeAV1PredictionModeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("INTRA_ONLY"),
+            1i32 => f.write_str("SINGLE_REFERENCE"),
+            2i32 => f.write_str("UNIDIRECTIONAL_COMPOUND"),
+            3i32 => f.write_str("BIDIRECTIONAL_COMPOUND"),
+            other => {
+                write!(f, "{}({})", stringify!(VideoEncodeAV1PredictionModeKHR), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkSamplerYcbcrModelConversion")]
+pub struct SamplerYcbcrModelConversion(i32);
+impl SamplerYcbcrModelConversion {
+    pub const RGB_IDENTITY: Self = Self(0i32);
+    pub const YCBCR_IDENTITY: Self = Self(1i32);
+    pub const YCBCR_709: Self = Self(2i32);
+    pub const YCBCR_601: Self = Self(3i32);
+    pub const YCBCR_2020: Self = Self(4i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for SamplerYcbcrModelConversion {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("RGB_IDENTITY"),
+            1i32 => f.write_str("YCBCR_IDENTITY"),
+            2i32 => f.write_str("YCBCR_709"),
+            3i32 => f.write_str("YCBCR_601"),
+            4i32 => f.write_str("YCBCR_2020"),
+            other => write!(f, "{}({})", stringify!(SamplerYcbcrModelConversion), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDescriptorMappingSourceEXT")]
+pub struct DescriptorMappingSourceEXT(i32);
+impl DescriptorMappingSourceEXT {
+    pub const HEAP_WITH_CONSTANT_OFFSET: Self = Self(0i32);
+    pub const HEAP_WITH_PUSH_INDEX: Self = Self(1i32);
+    pub const HEAP_WITH_INDIRECT_INDEX: Self = Self(2i32);
+    pub const HEAP_WITH_INDIRECT_INDEX_ARRAY: Self = Self(3i32);
+    pub const RESOURCE_HEAP_DATA: Self = Self(4i32);
+    pub const PUSH_DATA: Self = Self(5i32);
+    pub const PUSH_ADDRESS: Self = Self(6i32);
+    pub const INDIRECT_ADDRESS: Self = Self(7i32);
+    pub const HEAP_WITH_SHADER_RECORD_INDEX: Self = Self(8i32);
+    pub const SHADER_RECORD_DATA: Self = Self(9i32);
+    pub const SHADER_RECORD_ADDRESS: Self = Self(10i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DescriptorMappingSourceEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("HEAP_WITH_CONSTANT_OFFSET"),
+            1i32 => f.write_str("HEAP_WITH_PUSH_INDEX"),
+            2i32 => f.write_str("HEAP_WITH_INDIRECT_INDEX"),
+            3i32 => f.write_str("HEAP_WITH_INDIRECT_INDEX_ARRAY"),
+            4i32 => f.write_str("RESOURCE_HEAP_DATA"),
+            5i32 => f.write_str("PUSH_DATA"),
+            6i32 => f.write_str("PUSH_ADDRESS"),
+            7i32 => f.write_str("INDIRECT_ADDRESS"),
+            8i32 => f.write_str("HEAP_WITH_SHADER_RECORD_INDEX"),
+            9i32 => f.write_str("SHADER_RECORD_DATA"),
+            10i32 => f.write_str("SHADER_RECORD_ADDRESS"),
+            other => write!(f, "{}({})", stringify!(DescriptorMappingSourceEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkViewportCoordinateSwizzleNV")]
+pub struct ViewportCoordinateSwizzleNV(i32);
+impl ViewportCoordinateSwizzleNV {
+    pub const POSITIVE_X: Self = Self(0i32);
+    pub const NEGATIVE_X: Self = Self(1i32);
+    pub const POSITIVE_Y: Self = Self(2i32);
+    pub const NEGATIVE_Y: Self = Self(3i32);
+    pub const POSITIVE_Z: Self = Self(4i32);
+    pub const NEGATIVE_Z: Self = Self(5i32);
+    pub const POSITIVE_W: Self = Self(6i32);
+    pub const NEGATIVE_W: Self = Self(7i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ViewportCoordinateSwizzleNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("POSITIVE_X"),
+            1i32 => f.write_str("NEGATIVE_X"),
+            2i32 => f.write_str("POSITIVE_Y"),
+            3i32 => f.write_str("NEGATIVE_Y"),
+            4i32 => f.write_str("POSITIVE_Z"),
+            5i32 => f.write_str("NEGATIVE_Z"),
+            6i32 => f.write_str("POSITIVE_W"),
+            7i32 => f.write_str("NEGATIVE_W"),
+            other => write!(f, "{}({})", stringify!(ViewportCoordinateSwizzleNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkShadingRatePaletteEntryNV")]
+pub struct ShadingRatePaletteEntryNV(i32);
+impl ShadingRatePaletteEntryNV {
+    pub const NO_INVOCATIONS: Self = Self(0i32);
+    pub const _16_INVOCATIONS_PER_PIXEL: Self = Self(1i32);
+    pub const _8_INVOCATIONS_PER_PIXEL: Self = Self(2i32);
+    pub const _4_INVOCATIONS_PER_PIXEL: Self = Self(3i32);
+    pub const _2_INVOCATIONS_PER_PIXEL: Self = Self(4i32);
+    pub const _1_INVOCATION_PER_PIXEL: Self = Self(5i32);
+    pub const _1_INVOCATION_PER_2X1_PIXELS: Self = Self(6i32);
+    pub const _1_INVOCATION_PER_1X2_PIXELS: Self = Self(7i32);
+    pub const _1_INVOCATION_PER_2X2_PIXELS: Self = Self(8i32);
+    pub const _1_INVOCATION_PER_4X2_PIXELS: Self = Self(9i32);
+    pub const _1_INVOCATION_PER_2X4_PIXELS: Self = Self(10i32);
+    pub const _1_INVOCATION_PER_4X4_PIXELS: Self = Self(11i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ShadingRatePaletteEntryNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NO_INVOCATIONS"),
+            1i32 => f.write_str("_16_INVOCATIONS_PER_PIXEL"),
+            2i32 => f.write_str("_8_INVOCATIONS_PER_PIXEL"),
+            3i32 => f.write_str("_4_INVOCATIONS_PER_PIXEL"),
+            4i32 => f.write_str("_2_INVOCATIONS_PER_PIXEL"),
+            5i32 => f.write_str("_1_INVOCATION_PER_PIXEL"),
+            6i32 => f.write_str("_1_INVOCATION_PER_2X1_PIXELS"),
+            7i32 => f.write_str("_1_INVOCATION_PER_1X2_PIXELS"),
+            8i32 => f.write_str("_1_INVOCATION_PER_2X2_PIXELS"),
+            9i32 => f.write_str("_1_INVOCATION_PER_4X2_PIXELS"),
+            10i32 => f.write_str("_1_INVOCATION_PER_2X4_PIXELS"),
+            11i32 => f.write_str("_1_INVOCATION_PER_4X4_PIXELS"),
+            other => write!(f, "{}({})", stringify!(ShadingRatePaletteEntryNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkCommandBufferLevel")]
+pub struct CommandBufferLevel(i32);
+impl CommandBufferLevel {
+    pub const PRIMARY: Self = Self(0i32);
+    pub const SECONDARY: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for CommandBufferLevel {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("PRIMARY"),
+            1i32 => f.write_str("SECONDARY"),
+            other => write!(f, "{}({})", stringify!(CommandBufferLevel), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkQueueGlobalPriority")]
+pub struct QueueGlobalPriority(i32);
+impl QueueGlobalPriority {
+    pub const LOW: Self = Self(128i32);
+    pub const MEDIUM: Self = Self(256i32);
+    pub const HIGH: Self = Self(512i32);
+    pub const REALTIME: Self = Self(1024i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for QueueGlobalPriority {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            128i32 => f.write_str("LOW"),
+            256i32 => f.write_str("MEDIUM"),
+            512i32 => f.write_str("HIGH"),
+            1024i32 => f.write_str("REALTIME"),
+            other => write!(f, "{}({})", stringify!(QueueGlobalPriority), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkBuildMicromapModeEXT")]
+pub struct BuildMicromapModeEXT(i32);
+impl BuildMicromapModeEXT {
+    pub const BUILD: Self = Self(0i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for BuildMicromapModeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("BUILD"),
+            other => write!(f, "{}({})", stringify!(BuildMicromapModeEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkBuildAccelerationStructureModeKHR")]
+pub struct BuildAccelerationStructureModeKHR(i32);
+impl BuildAccelerationStructureModeKHR {
+    pub const BUILD: Self = Self(0i32);
+    pub const UPDATE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for BuildAccelerationStructureModeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("BUILD"),
+            1i32 => f.write_str("UPDATE"),
+            other => {
+                write!(f, "{}({})", stringify!(BuildAccelerationStructureModeKHR), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDeviceAddressBindingTypeEXT")]
+pub struct DeviceAddressBindingTypeEXT(i32);
+impl DeviceAddressBindingTypeEXT {
+    pub const BIND: Self = Self(0i32);
+    pub const UNBIND: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DeviceAddressBindingTypeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("BIND"),
+            1i32 => f.write_str("UNBIND"),
+            other => write!(f, "{}({})", stringify!(DeviceAddressBindingTypeEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkImageViewType")]
+pub struct ImageViewType(i32);
+impl ImageViewType {
+    pub const _1D: Self = Self(0i32);
+    pub const _2D: Self = Self(1i32);
+    pub const _3D: Self = Self(2i32);
+    pub const CUBE: Self = Self(3i32);
+    pub const _1D_ARRAY: Self = Self(4i32);
+    pub const _2D_ARRAY: Self = Self(5i32);
+    pub const CUBE_ARRAY: Self = Self(6i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ImageViewType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("_1D"),
+            1i32 => f.write_str("_2D"),
+            2i32 => f.write_str("_3D"),
+            3i32 => f.write_str("CUBE"),
+            4i32 => f.write_str("_1D_ARRAY"),
+            5i32 => f.write_str("_2D_ARRAY"),
+            6i32 => f.write_str("CUBE_ARRAY"),
+            other => write!(f, "{}({})", stringify!(ImageViewType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkOutOfBandQueueTypeNV")]
+pub struct OutOfBandQueueTypeNV(i32);
+impl OutOfBandQueueTypeNV {
+    pub const RENDER: Self = Self(0i32);
+    pub const PRESENT: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for OutOfBandQueueTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("RENDER"),
+            1i32 => f.write_str("PRESENT"),
+            other => write!(f, "{}({})", stringify!(OutOfBandQueueTypeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPerformanceCounterScopeKHR")]
+pub struct PerformanceCounterScopeKHR(i32);
+impl PerformanceCounterScopeKHR {
+    pub const COMMAND_BUFFER: Self = Self(0i32);
+    pub const RENDER_PASS: Self = Self(1i32);
+    pub const COMMAND: Self = Self(2i32);
+    pub const QUERY_SCOPE_COMMAND_BUFFER: Self = Self::COMMAND_BUFFER;
+    pub const QUERY_SCOPE_RENDER_PASS: Self = Self::RENDER_PASS;
+    pub const QUERY_SCOPE_COMMAND: Self = Self::COMMAND;
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PerformanceCounterScopeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("COMMAND_BUFFER"),
+            1i32 => f.write_str("RENDER_PASS"),
+            2i32 => f.write_str("COMMAND"),
+            other => write!(f, "{}({})", stringify!(PerformanceCounterScopeKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkLogicOp")]
+pub struct LogicOp(i32);
+impl LogicOp {
+    pub const CLEAR: Self = Self(0i32);
+    pub const AND: Self = Self(1i32);
+    pub const AND_REVERSE: Self = Self(2i32);
+    pub const COPY: Self = Self(3i32);
+    pub const AND_INVERTED: Self = Self(4i32);
+    pub const NO_OP: Self = Self(5i32);
+    pub const XOR: Self = Self(6i32);
+    pub const OR: Self = Self(7i32);
+    pub const NOR: Self = Self(8i32);
+    pub const EQUIVALENT: Self = Self(9i32);
+    pub const INVERT: Self = Self(10i32);
+    pub const OR_REVERSE: Self = Self(11i32);
+    pub const COPY_INVERTED: Self = Self(12i32);
+    pub const OR_INVERTED: Self = Self(13i32);
+    pub const NAND: Self = Self(14i32);
+    pub const SET: Self = Self(15i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for LogicOp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("CLEAR"),
+            1i32 => f.write_str("AND"),
+            2i32 => f.write_str("AND_REVERSE"),
+            3i32 => f.write_str("COPY"),
+            4i32 => f.write_str("AND_INVERTED"),
+            5i32 => f.write_str("NO_OP"),
+            6i32 => f.write_str("XOR"),
+            7i32 => f.write_str("OR"),
+            8i32 => f.write_str("NOR"),
+            9i32 => f.write_str("EQUIVALENT"),
+            10i32 => f.write_str("INVERT"),
+            11i32 => f.write_str("OR_REVERSE"),
+            12i32 => f.write_str("COPY_INVERTED"),
+            13i32 => f.write_str("OR_INVERTED"),
+            14i32 => f.write_str("NAND"),
+            15i32 => f.write_str("SET"),
+            other => write!(f, "{}({})", stringify!(LogicOp), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDeviceFaultAddressTypeKHR")]
+pub struct DeviceFaultAddressTypeKHR(i32);
+impl DeviceFaultAddressTypeKHR {
+    pub const NONE: Self = Self(0i32);
+    pub const READ_INVALID: Self = Self(1i32);
+    pub const WRITE_INVALID: Self = Self(2i32);
+    pub const EXECUTE_INVALID: Self = Self(3i32);
+    pub const INSTRUCTION_POINTER_UNKNOWN: Self = Self(4i32);
+    pub const INSTRUCTION_POINTER_INVALID: Self = Self(5i32);
+    pub const INSTRUCTION_POINTER_FAULT: Self = Self(6i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DeviceFaultAddressTypeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NONE"),
+            1i32 => f.write_str("READ_INVALID"),
+            2i32 => f.write_str("WRITE_INVALID"),
+            3i32 => f.write_str("EXECUTE_INVALID"),
+            4i32 => f.write_str("INSTRUCTION_POINTER_UNKNOWN"),
+            5i32 => f.write_str("INSTRUCTION_POINTER_INVALID"),
+            6i32 => f.write_str("INSTRUCTION_POINTER_FAULT"),
+            other => write!(f, "{}({})", stringify!(DeviceFaultAddressTypeKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkCoarseSampleOrderTypeNV")]
+pub struct CoarseSampleOrderTypeNV(i32);
+impl CoarseSampleOrderTypeNV {
+    pub const DEFAULT: Self = Self(0i32);
+    pub const CUSTOM: Self = Self(1i32);
+    pub const PIXEL_MAJOR: Self = Self(2i32);
+    pub const SAMPLE_MAJOR: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for CoarseSampleOrderTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DEFAULT"),
+            1i32 => f.write_str("CUSTOM"),
+            2i32 => f.write_str("PIXEL_MAJOR"),
+            3i32 => f.write_str("SAMPLE_MAJOR"),
+            other => write!(f, "{}({})", stringify!(CoarseSampleOrderTypeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkAntiLagStageAMD")]
+pub struct AntiLagStageAMD(i32);
+impl AntiLagStageAMD {
+    pub const INPUT: Self = Self(0i32);
+    pub const PRESENT: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for AntiLagStageAMD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("INPUT"),
+            1i32 => f.write_str("PRESENT"),
+            other => write!(f, "{}({})", stringify!(AntiLagStageAMD), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkTensorTilingARM")]
+pub struct TensorTilingARM(i32);
+impl TensorTilingARM {
+    pub const OPTIMAL: Self = Self(0i32);
+    pub const LINEAR: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for TensorTilingARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("OPTIMAL"),
+            1i32 => f.write_str("LINEAR"),
+            other => write!(f, "{}({})", stringify!(TensorTilingARM), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkComponentTypeKHR")]
+pub struct ComponentTypeKHR(i32);
+impl ComponentTypeKHR {
+    pub const FLOAT16: Self = Self(0i32);
+    pub const FLOAT32: Self = Self(1i32);
+    pub const FLOAT64: Self = Self(2i32);
+    pub const SINT8: Self = Self(3i32);
+    pub const SINT16: Self = Self(4i32);
+    pub const SINT32: Self = Self(5i32);
+    pub const SINT64: Self = Self(6i32);
+    pub const UINT8: Self = Self(7i32);
+    pub const UINT16: Self = Self(8i32);
+    pub const UINT32: Self = Self(9i32);
+    pub const UINT64: Self = Self(10i32);
+    pub const BFLOAT16: Self = Self(1000141000i32);
+    pub const SINT8_PACKED: Self = Self(1000491000i32);
+    pub const UINT8_PACKED: Self = Self(1000491001i32);
+    pub const FLOAT_E4M3: Self = Self::FLOAT8_E4M3;
+    pub const FLOAT_E5M2: Self = Self::FLOAT8_E5M2;
+    pub const FLOAT8_E4M3: Self = Self(1000491002i32);
+    pub const FLOAT8_E5M2: Self = Self(1000491003i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ComponentTypeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("FLOAT16"),
+            1i32 => f.write_str("FLOAT32"),
+            2i32 => f.write_str("FLOAT64"),
+            3i32 => f.write_str("SINT8"),
+            4i32 => f.write_str("SINT16"),
+            5i32 => f.write_str("SINT32"),
+            6i32 => f.write_str("SINT64"),
+            7i32 => f.write_str("UINT8"),
+            8i32 => f.write_str("UINT16"),
+            9i32 => f.write_str("UINT32"),
+            10i32 => f.write_str("UINT64"),
+            1000141000i32 => f.write_str("BFLOAT16"),
+            1000491000i32 => f.write_str("SINT8_PACKED"),
+            1000491001i32 => f.write_str("UINT8_PACKED"),
+            1000491002i32 => f.write_str("FLOAT8_E4M3"),
+            1000491003i32 => f.write_str("FLOAT8_E5M2"),
+            other => write!(f, "{}({})", stringify!(ComponentTypeKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPipelineBindPoint")]
+pub struct PipelineBindPoint(i32);
+impl PipelineBindPoint {
+    pub const GRAPHICS: Self = Self(0i32);
+    pub const COMPUTE: Self = Self(1i32);
+    pub const EXECUTION_GRAPH: Self = Self(1000134000i32);
+    pub const RAY_TRACING: Self = Self(1000165000i32);
+    pub const SUBPASS_SHADING: Self = Self(1000369003i32);
+    pub const DATA_GRAPH: Self = Self(1000507000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PipelineBindPoint {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("GRAPHICS"),
+            1i32 => f.write_str("COMPUTE"),
+            1000134000i32 => f.write_str("EXECUTION_GRAPH"),
+            1000165000i32 => f.write_str("RAY_TRACING"),
+            1000369003i32 => f.write_str("SUBPASS_SHADING"),
+            1000507000i32 => f.write_str("DATA_GRAPH"),
+            other => write!(f, "{}({})", stringify!(PipelineBindPoint), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkAccelerationStructureMotionInstanceTypeNV")]
+pub struct AccelerationStructureMotionInstanceTypeNV(i32);
+impl AccelerationStructureMotionInstanceTypeNV {
+    pub const STATIC: Self = Self(0i32);
+    pub const MATRIX_MOTION: Self = Self(1i32);
+    pub const SRT_MOTION: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for AccelerationStructureMotionInstanceTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("STATIC"),
+            1i32 => f.write_str("MATRIX_MOTION"),
+            2i32 => f.write_str("SRT_MOTION"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(AccelerationStructureMotionInstanceTypeNV),
+                    other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkFrontFace")]
+pub struct FrontFace(i32);
+impl FrontFace {
+    pub const COUNTER_CLOCKWISE: Self = Self(0i32);
+    pub const CLOCKWISE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for FrontFace {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("COUNTER_CLOCKWISE"),
+            1i32 => f.write_str("CLOCKWISE"),
+            other => write!(f, "{}({})", stringify!(FrontFace), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDisplayEventTypeEXT")]
+pub struct DisplayEventTypeEXT(i32);
+impl DisplayEventTypeEXT {
+    pub const FIRST_PIXEL_OUT: Self = Self(0i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DisplayEventTypeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("FIRST_PIXEL_OUT"),
+            other => write!(f, "{}({})", stringify!(DisplayEventTypeEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDiscardRectangleModeEXT")]
+pub struct DiscardRectangleModeEXT(i32);
+impl DiscardRectangleModeEXT {
+    pub const INCLUSIVE: Self = Self(0i32);
+    pub const EXCLUSIVE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DiscardRectangleModeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("INCLUSIVE"),
+            1i32 => f.write_str("EXCLUSIVE"),
+            other => write!(f, "{}({})", stringify!(DiscardRectangleModeEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkChromaLocation")]
+pub struct ChromaLocation(i32);
+impl ChromaLocation {
+    pub const COSITED_EVEN: Self = Self(0i32);
+    pub const MIDPOINT: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ChromaLocation {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("COSITED_EVEN"),
+            1i32 => f.write_str("MIDPOINT"),
+            other => write!(f, "{}({})", stringify!(ChromaLocation), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkCopyAccelerationStructureModeKHR")]
+pub struct CopyAccelerationStructureModeKHR(i32);
+impl CopyAccelerationStructureModeKHR {
+    pub const CLONE: Self = Self(0i32);
+    pub const COMPACT: Self = Self(1i32);
+    pub const SERIALIZE: Self = Self(2i32);
+    pub const DESERIALIZE: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for CopyAccelerationStructureModeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("CLONE"),
+            1i32 => f.write_str("COMPACT"),
+            2i32 => f.write_str("SERIALIZE"),
+            3i32 => f.write_str("DESERIALIZE"),
+            other => {
+                write!(f, "{}({})", stringify!(CopyAccelerationStructureModeKHR), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPerformanceOverrideTypeINTEL")]
+pub struct PerformanceOverrideTypeINTEL(i32);
+impl PerformanceOverrideTypeINTEL {
+    pub const NULL_HARDWARE: Self = Self(0i32);
+    pub const FLUSH_GPU_CACHES: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PerformanceOverrideTypeINTEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NULL_HARDWARE"),
+            1i32 => f.write_str("FLUSH_GPU_CACHES"),
+            other => write!(f, "{}({})", stringify!(PerformanceOverrideTypeINTEL), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkRayTracingLssPrimitiveEndCapsModeNV")]
+pub struct RayTracingLssPrimitiveEndCapsModeNV(i32);
+impl RayTracingLssPrimitiveEndCapsModeNV {
+    pub const NONE: Self = Self(0i32);
+    pub const CHAINED: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for RayTracingLssPrimitiveEndCapsModeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NONE"),
+            1i32 => f.write_str("CHAINED"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(RayTracingLssPrimitiveEndCapsModeNV), other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkShaderFloatControlsIndependence")]
+pub struct ShaderFloatControlsIndependence(i32);
+impl ShaderFloatControlsIndependence {
+    pub const _32_BIT_ONLY: Self = Self(0i32);
+    pub const ALL: Self = Self(1i32);
+    pub const NONE: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ShaderFloatControlsIndependence {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("_32_BIT_ONLY"),
+            1i32 => f.write_str("ALL"),
+            2i32 => f.write_str("NONE"),
+            other => {
+                write!(f, "{}({})", stringify!(ShaderFloatControlsIndependence), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPipelineExecutableStatisticFormatKHR")]
+pub struct PipelineExecutableStatisticFormatKHR(i32);
+impl PipelineExecutableStatisticFormatKHR {
+    pub const BOOL32: Self = Self(0i32);
+    pub const INT64: Self = Self(1i32);
+    pub const UINT64: Self = Self(2i32);
+    pub const FLOAT64: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PipelineExecutableStatisticFormatKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("BOOL32"),
+            1i32 => f.write_str("INT64"),
+            2i32 => f.write_str("UINT64"),
+            3i32 => f.write_str("FLOAT64"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(PipelineExecutableStatisticFormatKHR), other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkIndexType")]
+pub struct IndexType(i32);
+impl IndexType {
+    pub const UINT16: Self = Self(0i32);
+    pub const UINT32: Self = Self(1i32);
+    pub const UINT8: Self = Self(1000265000i32);
+    pub const NONE: Self = Self(1000165000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for IndexType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("UINT16"),
+            1i32 => f.write_str("UINT32"),
+            1000265000i32 => f.write_str("UINT8"),
+            1000165000i32 => f.write_str("NONE"),
+            other => write!(f, "{}({})", stringify!(IndexType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkAccelerationStructureMemoryRequirementsTypeNV")]
+pub struct AccelerationStructureMemoryRequirementsTypeNV(i32);
+impl AccelerationStructureMemoryRequirementsTypeNV {
+    pub const OBJECT: Self = Self(0i32);
+    pub const BUILD_SCRATCH: Self = Self(1i32);
+    pub const UPDATE_SCRATCH: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for AccelerationStructureMemoryRequirementsTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("OBJECT"),
+            1i32 => f.write_str("BUILD_SCRATCH"),
+            2i32 => f.write_str("UPDATE_SCRATCH"),
+            other => {
+                write!(
+                    f, "{}({})",
+                    stringify!(AccelerationStructureMemoryRequirementsTypeNV), other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPipelineRobustnessImageBehavior")]
+pub struct PipelineRobustnessImageBehavior(i32);
+impl PipelineRobustnessImageBehavior {
+    pub const DEVICE_DEFAULT: Self = Self(0i32);
+    pub const DISABLED: Self = Self(1i32);
+    pub const ROBUST_IMAGE_ACCESS: Self = Self(2i32);
+    pub const ROBUST_IMAGE_ACCESS_2: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PipelineRobustnessImageBehavior {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DEVICE_DEFAULT"),
+            1i32 => f.write_str("DISABLED"),
+            2i32 => f.write_str("ROBUST_IMAGE_ACCESS"),
+            3i32 => f.write_str("ROBUST_IMAGE_ACCESS_2"),
+            other => {
+                write!(f, "{}({})", stringify!(PipelineRobustnessImageBehavior), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPrimitiveTopology")]
+pub struct PrimitiveTopology(i32);
+impl PrimitiveTopology {
+    pub const POINT_LIST: Self = Self(0i32);
+    pub const LINE_LIST: Self = Self(1i32);
+    pub const LINE_STRIP: Self = Self(2i32);
+    pub const TRIANGLE_LIST: Self = Self(3i32);
+    pub const TRIANGLE_STRIP: Self = Self(4i32);
+    pub const TRIANGLE_FAN: Self = Self(5i32);
+    pub const LINE_LIST_WITH_ADJACENCY: Self = Self(6i32);
+    pub const LINE_STRIP_WITH_ADJACENCY: Self = Self(7i32);
+    pub const TRIANGLE_LIST_WITH_ADJACENCY: Self = Self(8i32);
+    pub const TRIANGLE_STRIP_WITH_ADJACENCY: Self = Self(9i32);
+    pub const PATCH_LIST: Self = Self(10i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PrimitiveTopology {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("POINT_LIST"),
+            1i32 => f.write_str("LINE_LIST"),
+            2i32 => f.write_str("LINE_STRIP"),
+            3i32 => f.write_str("TRIANGLE_LIST"),
+            4i32 => f.write_str("TRIANGLE_STRIP"),
+            5i32 => f.write_str("TRIANGLE_FAN"),
+            6i32 => f.write_str("LINE_LIST_WITH_ADJACENCY"),
+            7i32 => f.write_str("LINE_STRIP_WITH_ADJACENCY"),
+            8i32 => f.write_str("TRIANGLE_LIST_WITH_ADJACENCY"),
+            9i32 => f.write_str("TRIANGLE_STRIP_WITH_ADJACENCY"),
+            10i32 => f.write_str("PATCH_LIST"),
+            other => write!(f, "{}({})", stringify!(PrimitiveTopology), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkQueryResultStatusKHR")]
+pub struct QueryResultStatusKHR(i32);
+impl QueryResultStatusKHR {
+    pub const ERROR: Self = Self(-1i32);
+    pub const NOT_READY: Self = Self(0i32);
+    pub const COMPLETE: Self = Self(1i32);
+    pub const INSUFFICIENT_BITSTREAM_BUFFER_RANGE: Self = Self(-1000299000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for QueryResultStatusKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            -1i32 => f.write_str("ERROR"),
+            0i32 => f.write_str("NOT_READY"),
+            1i32 => f.write_str("COMPLETE"),
+            -1000299000i32 => f.write_str("INSUFFICIENT_BITSTREAM_BUFFER_RANGE"),
+            other => write!(f, "{}({})", stringify!(QueryResultStatusKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkVideoEncodeTuningModeKHR")]
+pub struct VideoEncodeTuningModeKHR(i32);
+impl VideoEncodeTuningModeKHR {
+    pub const DEFAULT: Self = Self(0i32);
+    pub const HIGH_QUALITY: Self = Self(1i32);
+    pub const LOW_LATENCY: Self = Self(2i32);
+    pub const ULTRA_LOW_LATENCY: Self = Self(3i32);
+    pub const LOSSLESS: Self = Self(4i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for VideoEncodeTuningModeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DEFAULT"),
+            1i32 => f.write_str("HIGH_QUALITY"),
+            2i32 => f.write_str("LOW_LATENCY"),
+            3i32 => f.write_str("ULTRA_LOW_LATENCY"),
+            4i32 => f.write_str("LOSSLESS"),
+            other => write!(f, "{}({})", stringify!(VideoEncodeTuningModeKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkCompressedTriangleFormatAMDX")]
+pub struct CompressedTriangleFormatAMDX(i32);
+impl CompressedTriangleFormatAMDX {
+    pub const DGF1: Self = Self(0i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for CompressedTriangleFormatAMDX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DGF1"),
+            other => write!(f, "{}({})", stringify!(CompressedTriangleFormatAMDX), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkStencilOp")]
+pub struct StencilOp(i32);
+impl StencilOp {
+    pub const KEEP: Self = Self(0i32);
+    pub const ZERO: Self = Self(1i32);
+    pub const REPLACE: Self = Self(2i32);
+    pub const INCREMENT_AND_CLAMP: Self = Self(3i32);
+    pub const DECREMENT_AND_CLAMP: Self = Self(4i32);
+    pub const INVERT: Self = Self(5i32);
+    pub const INCREMENT_AND_WRAP: Self = Self(6i32);
+    pub const DECREMENT_AND_WRAP: Self = Self(7i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for StencilOp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("KEEP"),
+            1i32 => f.write_str("ZERO"),
+            2i32 => f.write_str("REPLACE"),
+            3i32 => f.write_str("INCREMENT_AND_CLAMP"),
+            4i32 => f.write_str("DECREMENT_AND_CLAMP"),
+            5i32 => f.write_str("INVERT"),
+            6i32 => f.write_str("INCREMENT_AND_WRAP"),
+            7i32 => f.write_str("DECREMENT_AND_WRAP"),
+            other => write!(f, "{}({})", stringify!(StencilOp), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDebugReportObjectTypeEXT")]
 pub struct DebugReportObjectTypeEXT(i32);
 impl DebugReportObjectTypeEXT {
@@ -4422,17 +5467,13 @@ impl core::fmt::Debug for DebugReportObjectTypeEXT {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkBorderColor")]
-pub struct BorderColor(i32);
-impl BorderColor {
-    pub const FLOAT_TRANSPARENT_BLACK: Self = Self(0i32);
-    pub const INT_TRANSPARENT_BLACK: Self = Self(1i32);
-    pub const FLOAT_OPAQUE_BLACK: Self = Self(2i32);
-    pub const INT_OPAQUE_BLACK: Self = Self(3i32);
-    pub const FLOAT_OPAQUE_WHITE: Self = Self(4i32);
-    pub const INT_OPAQUE_WHITE: Self = Self(5i32);
-    pub const FLOAT_CUSTOM: Self = Self(1000287003i32);
-    pub const INT_CUSTOM: Self = Self(1000287004i32);
+#[doc(alias = "VkSamplerReductionMode")]
+pub struct SamplerReductionMode(i32);
+impl SamplerReductionMode {
+    pub const WEIGHTED_AVERAGE: Self = Self(0i32);
+    pub const MIN: Self = Self(1i32);
+    pub const MAX: Self = Self(2i32);
+    pub const WEIGHTED_AVERAGE_RANGECLAMP: Self = Self(1000521000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4442,31 +5483,24 @@ impl BorderColor {
         self.0
     }
 }
-impl core::fmt::Debug for BorderColor {
+impl core::fmt::Debug for SamplerReductionMode {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("FLOAT_TRANSPARENT_BLACK"),
-            1i32 => f.write_str("INT_TRANSPARENT_BLACK"),
-            2i32 => f.write_str("FLOAT_OPAQUE_BLACK"),
-            3i32 => f.write_str("INT_OPAQUE_BLACK"),
-            4i32 => f.write_str("FLOAT_OPAQUE_WHITE"),
-            5i32 => f.write_str("INT_OPAQUE_WHITE"),
-            1000287003i32 => f.write_str("FLOAT_CUSTOM"),
-            1000287004i32 => f.write_str("INT_CUSTOM"),
-            other => write!(f, "{}({})", stringify!(BorderColor), other),
+            0i32 => f.write_str("WEIGHTED_AVERAGE"),
+            1i32 => f.write_str("MIN"),
+            2i32 => f.write_str("MAX"),
+            1000521000i32 => f.write_str("WEIGHTED_AVERAGE_RANGECLAMP"),
+            other => write!(f, "{}({})", stringify!(SamplerReductionMode), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSamplerYcbcrModelConversion")]
-pub struct SamplerYcbcrModelConversion(i32);
-impl SamplerYcbcrModelConversion {
-    pub const RGB_IDENTITY: Self = Self(0i32);
-    pub const YCBCR_IDENTITY: Self = Self(1i32);
-    pub const YCBCR_709: Self = Self(2i32);
-    pub const YCBCR_601: Self = Self(3i32);
-    pub const YCBCR_2020: Self = Self(4i32);
+#[doc(alias = "VkDepthClampModeEXT")]
+pub struct DepthClampModeEXT(i32);
+impl DepthClampModeEXT {
+    pub const VIEWPORT_RANGE: Self = Self(0i32);
+    pub const USER_DEFINED_RANGE: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4476,15 +5510,12 @@ impl SamplerYcbcrModelConversion {
         self.0
     }
 }
-impl core::fmt::Debug for SamplerYcbcrModelConversion {
+impl core::fmt::Debug for DepthClampModeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("RGB_IDENTITY"),
-            1i32 => f.write_str("YCBCR_IDENTITY"),
-            2i32 => f.write_str("YCBCR_709"),
-            3i32 => f.write_str("YCBCR_601"),
-            4i32 => f.write_str("YCBCR_2020"),
-            other => write!(f, "{}({})", stringify!(SamplerYcbcrModelConversion), other),
+            0i32 => f.write_str("VIEWPORT_RANGE"),
+            1i32 => f.write_str("USER_DEFINED_RANGE"),
+            other => write!(f, "{}({})", stringify!(DepthClampModeEXT), other),
         }
     }
 }
@@ -4521,14 +5552,16 @@ impl core::fmt::Debug for CooperativeVectorMatrixLayoutNV {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkOpacityMicromapSpecialIndexEXT")]
-pub struct OpacityMicromapSpecialIndexEXT(i32);
-impl OpacityMicromapSpecialIndexEXT {
-    pub const FULLY_TRANSPARENT: Self = Self(-1i32);
-    pub const FULLY_OPAQUE: Self = Self(-2i32);
-    pub const FULLY_UNKNOWN_TRANSPARENT: Self = Self(-3i32);
-    pub const FULLY_UNKNOWN_OPAQUE: Self = Self(-4i32);
-    pub const CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP: Self = Self(-5i32);
+#[doc(alias = "VkComponentSwizzle")]
+pub struct ComponentSwizzle(i32);
+impl ComponentSwizzle {
+    pub const IDENTITY: Self = Self(0i32);
+    pub const ZERO: Self = Self(1i32);
+    pub const ONE: Self = Self(2i32);
+    pub const R: Self = Self(3i32);
+    pub const G: Self = Self(4i32);
+    pub const B: Self = Self(5i32);
+    pub const A: Self = Self(6i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4538,17 +5571,373 @@ impl OpacityMicromapSpecialIndexEXT {
         self.0
     }
 }
-impl core::fmt::Debug for OpacityMicromapSpecialIndexEXT {
+impl core::fmt::Debug for ComponentSwizzle {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            -1i32 => f.write_str("FULLY_TRANSPARENT"),
-            -2i32 => f.write_str("FULLY_OPAQUE"),
-            -3i32 => f.write_str("FULLY_UNKNOWN_TRANSPARENT"),
-            -4i32 => f.write_str("FULLY_UNKNOWN_OPAQUE"),
-            -5i32 => f.write_str("CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP"),
-            other => {
-                write!(f, "{}({})", stringify!(OpacityMicromapSpecialIndexEXT), other)
+            0i32 => f.write_str("IDENTITY"),
+            1i32 => f.write_str("ZERO"),
+            2i32 => f.write_str("ONE"),
+            3i32 => f.write_str("R"),
+            4i32 => f.write_str("G"),
+            5i32 => f.write_str("B"),
+            6i32 => f.write_str("A"),
+            other => write!(f, "{}({})", stringify!(ComponentSwizzle), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkImageTiling")]
+pub struct ImageTiling(i32);
+impl ImageTiling {
+    pub const OPTIMAL: Self = Self(0i32);
+    pub const LINEAR: Self = Self(1i32);
+    pub const DRM_FORMAT_MODIFIER: Self = Self(1000158000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ImageTiling {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("OPTIMAL"),
+            1i32 => f.write_str("LINEAR"),
+            1000158000i32 => f.write_str("DRM_FORMAT_MODIFIER"),
+            other => write!(f, "{}({})", stringify!(ImageTiling), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkQueryType")]
+pub struct QueryType(i32);
+impl QueryType {
+    pub const OCCLUSION: Self = Self(0i32);
+    pub const PIPELINE_STATISTICS: Self = Self(1i32);
+    pub const TIMESTAMP: Self = Self(2i32);
+    pub const RESULT_STATUS_ONLY: Self = Self(1000023000i32);
+    pub const TRANSFORM_FEEDBACK_STREAM: Self = Self(1000028004i32);
+    pub const PERFORMANCE_QUERY: Self = Self(1000116000i32);
+    pub const ACCELERATION_STRUCTURE_COMPACTED_SIZE: Self = Self(1000150000i32);
+    pub const ACCELERATION_STRUCTURE_SERIALIZATION_SIZE: Self = Self(1000150001i32);
+    pub const VIDEO_ENCODE_FEEDBACK: Self = Self(1000299000i32);
+    pub const MESH_PRIMITIVES_GENERATED: Self = Self(1000328000i32);
+    pub const PRIMITIVES_GENERATED: Self = Self(1000382000i32);
+    pub const ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS: Self = Self(
+        1000386000i32,
+    );
+    pub const ACCELERATION_STRUCTURE_SIZE: Self = Self(1000386001i32);
+    pub const MICROMAP_SERIALIZATION_SIZE: Self = Self(1000396000i32);
+    pub const MICROMAP_COMPACTED_SIZE: Self = Self(1000396001i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for QueryType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("OCCLUSION"),
+            1i32 => f.write_str("PIPELINE_STATISTICS"),
+            2i32 => f.write_str("TIMESTAMP"),
+            1000023000i32 => f.write_str("RESULT_STATUS_ONLY"),
+            1000028004i32 => f.write_str("TRANSFORM_FEEDBACK_STREAM"),
+            1000116000i32 => f.write_str("PERFORMANCE_QUERY"),
+            1000150000i32 => f.write_str("ACCELERATION_STRUCTURE_COMPACTED_SIZE"),
+            1000150001i32 => f.write_str("ACCELERATION_STRUCTURE_SERIALIZATION_SIZE"),
+            1000299000i32 => f.write_str("VIDEO_ENCODE_FEEDBACK"),
+            1000328000i32 => f.write_str("MESH_PRIMITIVES_GENERATED"),
+            1000382000i32 => f.write_str("PRIMITIVES_GENERATED"),
+            1000386000i32 => {
+                f.write_str("ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS")
             }
+            1000386001i32 => f.write_str("ACCELERATION_STRUCTURE_SIZE"),
+            1000396000i32 => f.write_str("MICROMAP_SERIALIZATION_SIZE"),
+            1000396001i32 => f.write_str("MICROMAP_COMPACTED_SIZE"),
+            other => write!(f, "{}({})", stringify!(QueryType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkBlendOp")]
+pub struct BlendOp(i32);
+impl BlendOp {
+    pub const ADD: Self = Self(0i32);
+    pub const SUBTRACT: Self = Self(1i32);
+    pub const REVERSE_SUBTRACT: Self = Self(2i32);
+    pub const MIN: Self = Self(3i32);
+    pub const MAX: Self = Self(4i32);
+    pub const ZERO: Self = Self(1000148000i32);
+    pub const SRC: Self = Self(1000148001i32);
+    pub const DST: Self = Self(1000148002i32);
+    pub const SRC_OVER: Self = Self(1000148003i32);
+    pub const DST_OVER: Self = Self(1000148004i32);
+    pub const SRC_IN: Self = Self(1000148005i32);
+    pub const DST_IN: Self = Self(1000148006i32);
+    pub const SRC_OUT: Self = Self(1000148007i32);
+    pub const DST_OUT: Self = Self(1000148008i32);
+    pub const SRC_ATOP: Self = Self(1000148009i32);
+    pub const DST_ATOP: Self = Self(1000148010i32);
+    pub const XOR: Self = Self(1000148011i32);
+    pub const MULTIPLY: Self = Self(1000148012i32);
+    pub const SCREEN: Self = Self(1000148013i32);
+    pub const OVERLAY: Self = Self(1000148014i32);
+    pub const DARKEN: Self = Self(1000148015i32);
+    pub const LIGHTEN: Self = Self(1000148016i32);
+    pub const COLORDODGE: Self = Self(1000148017i32);
+    pub const COLORBURN: Self = Self(1000148018i32);
+    pub const HARDLIGHT: Self = Self(1000148019i32);
+    pub const SOFTLIGHT: Self = Self(1000148020i32);
+    pub const DIFFERENCE: Self = Self(1000148021i32);
+    pub const EXCLUSION: Self = Self(1000148022i32);
+    pub const INVERT: Self = Self(1000148023i32);
+    pub const INVERT_RGB: Self = Self(1000148024i32);
+    pub const LINEARDODGE: Self = Self(1000148025i32);
+    pub const LINEARBURN: Self = Self(1000148026i32);
+    pub const VIVIDLIGHT: Self = Self(1000148027i32);
+    pub const LINEARLIGHT: Self = Self(1000148028i32);
+    pub const PINLIGHT: Self = Self(1000148029i32);
+    pub const HARDMIX: Self = Self(1000148030i32);
+    pub const HSL_HUE: Self = Self(1000148031i32);
+    pub const HSL_SATURATION: Self = Self(1000148032i32);
+    pub const HSL_COLOR: Self = Self(1000148033i32);
+    pub const HSL_LUMINOSITY: Self = Self(1000148034i32);
+    pub const PLUS: Self = Self(1000148035i32);
+    pub const PLUS_CLAMPED: Self = Self(1000148036i32);
+    pub const PLUS_CLAMPED_ALPHA: Self = Self(1000148037i32);
+    pub const PLUS_DARKER: Self = Self(1000148038i32);
+    pub const MINUS: Self = Self(1000148039i32);
+    pub const MINUS_CLAMPED: Self = Self(1000148040i32);
+    pub const CONTRAST: Self = Self(1000148041i32);
+    pub const INVERT_OVG: Self = Self(1000148042i32);
+    pub const RED: Self = Self(1000148043i32);
+    pub const GREEN: Self = Self(1000148044i32);
+    pub const BLUE: Self = Self(1000148045i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for BlendOp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("ADD"),
+            1i32 => f.write_str("SUBTRACT"),
+            2i32 => f.write_str("REVERSE_SUBTRACT"),
+            3i32 => f.write_str("MIN"),
+            4i32 => f.write_str("MAX"),
+            1000148000i32 => f.write_str("ZERO"),
+            1000148001i32 => f.write_str("SRC"),
+            1000148002i32 => f.write_str("DST"),
+            1000148003i32 => f.write_str("SRC_OVER"),
+            1000148004i32 => f.write_str("DST_OVER"),
+            1000148005i32 => f.write_str("SRC_IN"),
+            1000148006i32 => f.write_str("DST_IN"),
+            1000148007i32 => f.write_str("SRC_OUT"),
+            1000148008i32 => f.write_str("DST_OUT"),
+            1000148009i32 => f.write_str("SRC_ATOP"),
+            1000148010i32 => f.write_str("DST_ATOP"),
+            1000148011i32 => f.write_str("XOR"),
+            1000148012i32 => f.write_str("MULTIPLY"),
+            1000148013i32 => f.write_str("SCREEN"),
+            1000148014i32 => f.write_str("OVERLAY"),
+            1000148015i32 => f.write_str("DARKEN"),
+            1000148016i32 => f.write_str("LIGHTEN"),
+            1000148017i32 => f.write_str("COLORDODGE"),
+            1000148018i32 => f.write_str("COLORBURN"),
+            1000148019i32 => f.write_str("HARDLIGHT"),
+            1000148020i32 => f.write_str("SOFTLIGHT"),
+            1000148021i32 => f.write_str("DIFFERENCE"),
+            1000148022i32 => f.write_str("EXCLUSION"),
+            1000148023i32 => f.write_str("INVERT"),
+            1000148024i32 => f.write_str("INVERT_RGB"),
+            1000148025i32 => f.write_str("LINEARDODGE"),
+            1000148026i32 => f.write_str("LINEARBURN"),
+            1000148027i32 => f.write_str("VIVIDLIGHT"),
+            1000148028i32 => f.write_str("LINEARLIGHT"),
+            1000148029i32 => f.write_str("PINLIGHT"),
+            1000148030i32 => f.write_str("HARDMIX"),
+            1000148031i32 => f.write_str("HSL_HUE"),
+            1000148032i32 => f.write_str("HSL_SATURATION"),
+            1000148033i32 => f.write_str("HSL_COLOR"),
+            1000148034i32 => f.write_str("HSL_LUMINOSITY"),
+            1000148035i32 => f.write_str("PLUS"),
+            1000148036i32 => f.write_str("PLUS_CLAMPED"),
+            1000148037i32 => f.write_str("PLUS_CLAMPED_ALPHA"),
+            1000148038i32 => f.write_str("PLUS_DARKER"),
+            1000148039i32 => f.write_str("MINUS"),
+            1000148040i32 => f.write_str("MINUS_CLAMPED"),
+            1000148041i32 => f.write_str("CONTRAST"),
+            1000148042i32 => f.write_str("INVERT_OVG"),
+            1000148043i32 => f.write_str("RED"),
+            1000148044i32 => f.write_str("GREEN"),
+            1000148045i32 => f.write_str("BLUE"),
+            other => write!(f, "{}({})", stringify!(BlendOp), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkFaultType")]
+pub struct FaultType(i32);
+impl FaultType {
+    pub const INVALID: Self = Self(0i32);
+    pub const UNASSIGNED: Self = Self(1i32);
+    pub const IMPLEMENTATION: Self = Self(2i32);
+    pub const SYSTEM: Self = Self(3i32);
+    pub const PHYSICAL_DEVICE: Self = Self(4i32);
+    pub const COMMAND_BUFFER_FULL: Self = Self(5i32);
+    pub const INVALID_API_USAGE: Self = Self(6i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for FaultType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("INVALID"),
+            1i32 => f.write_str("UNASSIGNED"),
+            2i32 => f.write_str("IMPLEMENTATION"),
+            3i32 => f.write_str("SYSTEM"),
+            4i32 => f.write_str("PHYSICAL_DEVICE"),
+            5i32 => f.write_str("COMMAND_BUFFER_FULL"),
+            6i32 => f.write_str("INVALID_API_USAGE"),
+            other => write!(f, "{}({})", stringify!(FaultType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkBlendOverlapEXT")]
+pub struct BlendOverlapEXT(i32);
+impl BlendOverlapEXT {
+    pub const UNCORRELATED: Self = Self(0i32);
+    pub const DISJOINT: Self = Self(1i32);
+    pub const CONJOINT: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for BlendOverlapEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("UNCORRELATED"),
+            1i32 => f.write_str("DISJOINT"),
+            2i32 => f.write_str("CONJOINT"),
+            other => write!(f, "{}({})", stringify!(BlendOverlapEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkClusterAccelerationStructureTypeNV")]
+pub struct ClusterAccelerationStructureTypeNV(i32);
+impl ClusterAccelerationStructureTypeNV {
+    pub const CLUSTERS_BOTTOM_LEVEL: Self = Self(0i32);
+    pub const TRIANGLE_CLUSTER: Self = Self(1i32);
+    pub const TRIANGLE_CLUSTER_TEMPLATE: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ClusterAccelerationStructureTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("CLUSTERS_BOTTOM_LEVEL"),
+            1i32 => f.write_str("TRIANGLE_CLUSTER"),
+            2i32 => f.write_str("TRIANGLE_CLUSTER_TEMPLATE"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(ClusterAccelerationStructureTypeNV), other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkAccelerationStructureCompatibilityKHR")]
+pub struct AccelerationStructureCompatibilityKHR(i32);
+impl AccelerationStructureCompatibilityKHR {
+    pub const COMPATIBLE: Self = Self(0i32);
+    pub const INCOMPATIBLE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for AccelerationStructureCompatibilityKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("COMPATIBLE"),
+            1i32 => f.write_str("INCOMPATIBLE"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(AccelerationStructureCompatibilityKHR), other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkFullScreenExclusiveEXT")]
+pub struct FullScreenExclusiveEXT(i32);
+impl FullScreenExclusiveEXT {
+    pub const DEFAULT: Self = Self(0i32);
+    pub const ALLOWED: Self = Self(1i32);
+    pub const DISALLOWED: Self = Self(2i32);
+    pub const APPLICATION_CONTROLLED: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for FullScreenExclusiveEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DEFAULT"),
+            1i32 => f.write_str("ALLOWED"),
+            2i32 => f.write_str("DISALLOWED"),
+            3i32 => f.write_str("APPLICATION_CONTROLLED"),
+            other => write!(f, "{}({})", stringify!(FullScreenExclusiveEXT), other),
         }
     }
 }
@@ -4582,11 +5971,15 @@ impl core::fmt::Debug for DeviceFaultVendorBinaryHeaderVersionKHR {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDirectDriverLoadingModeLUNARG")]
-pub struct DirectDriverLoadingModeLUNARG(i32);
-impl DirectDriverLoadingModeLUNARG {
-    pub const EXCLUSIVE: Self = Self(0i32);
-    pub const INCLUSIVE: Self = Self(1i32);
+#[doc(alias = "VkGeometryTypeKHR")]
+pub struct GeometryTypeKHR(i32);
+impl GeometryTypeKHR {
+    pub const TRIANGLES: Self = Self(0i32);
+    pub const AABBS: Self = Self(1i32);
+    pub const INSTANCES: Self = Self(2i32);
+    pub const SPHERES: Self = Self(1000429004i32);
+    pub const LINEAR_SWEPT_SPHERES: Self = Self(1000429005i32);
+    pub const DENSE_GEOMETRY_FORMAT_TRIANGLES: Self = Self(1000478000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4596,13 +5989,97 @@ impl DirectDriverLoadingModeLUNARG {
         self.0
     }
 }
-impl core::fmt::Debug for DirectDriverLoadingModeLUNARG {
+impl core::fmt::Debug for GeometryTypeKHR {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("EXCLUSIVE"),
-            1i32 => f.write_str("INCLUSIVE"),
+            0i32 => f.write_str("TRIANGLES"),
+            1i32 => f.write_str("AABBS"),
+            2i32 => f.write_str("INSTANCES"),
+            1000429004i32 => f.write_str("SPHERES"),
+            1000429005i32 => f.write_str("LINEAR_SWEPT_SPHERES"),
+            1000478000i32 => f.write_str("DENSE_GEOMETRY_FORMAT_TRIANGLES"),
+            other => write!(f, "{}({})", stringify!(GeometryTypeKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkColorSpaceKHR")]
+pub struct ColorSpaceKHR(i32);
+impl ColorSpaceKHR {
+    pub const SRGB_NONLINEAR: Self = Self(0i32);
+    pub const COLORSPACE_SRGB_NONLINEAR: Self = Self::SRGB_NONLINEAR;
+    pub const DISPLAY_P3_NONLINEAR: Self = Self(1000104001i32);
+    pub const EXTENDED_SRGB_LINEAR: Self = Self(1000104002i32);
+    pub const DISPLAY_P3_LINEAR: Self = Self(1000104003i32);
+    pub const DCI_P3_NONLINEAR: Self = Self(1000104004i32);
+    pub const BT709_LINEAR: Self = Self(1000104005i32);
+    pub const BT709_NONLINEAR: Self = Self(1000104006i32);
+    pub const BT2020_LINEAR: Self = Self(1000104007i32);
+    pub const HDR10_ST2084: Self = Self(1000104008i32);
+    pub const DOLBYVISION: Self = Self(1000104009i32);
+    pub const HDR10_HLG: Self = Self(1000104010i32);
+    pub const ADOBERGB_LINEAR: Self = Self(1000104011i32);
+    pub const ADOBERGB_NONLINEAR: Self = Self(1000104012i32);
+    pub const PASS_THROUGH: Self = Self(1000104013i32);
+    pub const EXTENDED_SRGB_NONLINEAR: Self = Self(1000104014i32);
+    pub const DCI_P3_LINEAR: Self = Self::DISPLAY_P3_LINEAR;
+    pub const DISPLAY_NATIVE: Self = Self(1000213000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ColorSpaceKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("SRGB_NONLINEAR"),
+            1000104001i32 => f.write_str("DISPLAY_P3_NONLINEAR"),
+            1000104002i32 => f.write_str("EXTENDED_SRGB_LINEAR"),
+            1000104003i32 => f.write_str("DISPLAY_P3_LINEAR"),
+            1000104004i32 => f.write_str("DCI_P3_NONLINEAR"),
+            1000104005i32 => f.write_str("BT709_LINEAR"),
+            1000104006i32 => f.write_str("BT709_NONLINEAR"),
+            1000104007i32 => f.write_str("BT2020_LINEAR"),
+            1000104008i32 => f.write_str("HDR10_ST2084"),
+            1000104009i32 => f.write_str("DOLBYVISION"),
+            1000104010i32 => f.write_str("HDR10_HLG"),
+            1000104011i32 => f.write_str("ADOBERGB_LINEAR"),
+            1000104012i32 => f.write_str("ADOBERGB_NONLINEAR"),
+            1000104013i32 => f.write_str("PASS_THROUGH"),
+            1000104014i32 => f.write_str("EXTENDED_SRGB_NONLINEAR"),
+            1000213000i32 => f.write_str("DISPLAY_NATIVE"),
+            other => write!(f, "{}({})", stringify!(ColorSpaceKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPerformanceParameterTypeINTEL")]
+pub struct PerformanceParameterTypeINTEL(i32);
+impl PerformanceParameterTypeINTEL {
+    pub const HW_COUNTERS_SUPPORTED: Self = Self(0i32);
+    pub const STREAM_MARKER_VALID_BITS: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PerformanceParameterTypeINTEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("HW_COUNTERS_SUPPORTED"),
+            1i32 => f.write_str("STREAM_MARKER_VALID_BITS"),
             other => {
-                write!(f, "{}({})", stringify!(DirectDriverLoadingModeLUNARG), other)
+                write!(f, "{}({})", stringify!(PerformanceParameterTypeINTEL), other)
             }
         }
     }
@@ -4642,11 +6119,23 @@ impl core::fmt::Debug for TimeDomainKHR {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkBuildAccelerationStructureModeKHR")]
-pub struct BuildAccelerationStructureModeKHR(i32);
-impl BuildAccelerationStructureModeKHR {
-    pub const BUILD: Self = Self(0i32);
-    pub const UPDATE: Self = Self(1i32);
+#[doc(alias = "VkSubpassMergeStatusEXT")]
+pub struct SubpassMergeStatusEXT(i32);
+impl SubpassMergeStatusEXT {
+    pub const MERGED: Self = Self(0i32);
+    pub const DISALLOWED: Self = Self(1i32);
+    pub const NOT_MERGED_SIDE_EFFECTS: Self = Self(2i32);
+    pub const NOT_MERGED_SAMPLES_MISMATCH: Self = Self(3i32);
+    pub const NOT_MERGED_VIEWS_MISMATCH: Self = Self(4i32);
+    pub const NOT_MERGED_ALIASING: Self = Self(5i32);
+    pub const NOT_MERGED_DEPENDENCIES: Self = Self(6i32);
+    pub const NOT_MERGED_INCOMPATIBLE_INPUT_ATTACHMENT: Self = Self(7i32);
+    pub const NOT_MERGED_TOO_MANY_ATTACHMENTS: Self = Self(8i32);
+    pub const NOT_MERGED_INSUFFICIENT_STORAGE: Self = Self(9i32);
+    pub const NOT_MERGED_DEPTH_STENCIL_COUNT: Self = Self(10i32);
+    pub const NOT_MERGED_RESOLVE_ATTACHMENT_REUSE: Self = Self(11i32);
+    pub const NOT_MERGED_SINGLE_SUBPASS: Self = Self(12i32);
+    pub const NOT_MERGED_UNSPECIFIED: Self = Self(13i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4656,24 +6145,69 @@ impl BuildAccelerationStructureModeKHR {
         self.0
     }
 }
-impl core::fmt::Debug for BuildAccelerationStructureModeKHR {
+impl core::fmt::Debug for SubpassMergeStatusEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("BUILD"),
-            1i32 => f.write_str("UPDATE"),
+            0i32 => f.write_str("MERGED"),
+            1i32 => f.write_str("DISALLOWED"),
+            2i32 => f.write_str("NOT_MERGED_SIDE_EFFECTS"),
+            3i32 => f.write_str("NOT_MERGED_SAMPLES_MISMATCH"),
+            4i32 => f.write_str("NOT_MERGED_VIEWS_MISMATCH"),
+            5i32 => f.write_str("NOT_MERGED_ALIASING"),
+            6i32 => f.write_str("NOT_MERGED_DEPENDENCIES"),
+            7i32 => f.write_str("NOT_MERGED_INCOMPATIBLE_INPUT_ATTACHMENT"),
+            8i32 => f.write_str("NOT_MERGED_TOO_MANY_ATTACHMENTS"),
+            9i32 => f.write_str("NOT_MERGED_INSUFFICIENT_STORAGE"),
+            10i32 => f.write_str("NOT_MERGED_DEPTH_STENCIL_COUNT"),
+            11i32 => f.write_str("NOT_MERGED_RESOLVE_ATTACHMENT_REUSE"),
+            12i32 => f.write_str("NOT_MERGED_SINGLE_SUBPASS"),
+            13i32 => f.write_str("NOT_MERGED_UNSPECIFIED"),
+            other => write!(f, "{}({})", stringify!(SubpassMergeStatusEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPartitionedAccelerationStructureOpTypeNV")]
+pub struct PartitionedAccelerationStructureOpTypeNV(i32);
+impl PartitionedAccelerationStructureOpTypeNV {
+    pub const WRITE_INSTANCE: Self = Self(0i32);
+    pub const UPDATE_INSTANCE: Self = Self(1i32);
+    pub const WRITE_PARTITION_TRANSLATION: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PartitionedAccelerationStructureOpTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("WRITE_INSTANCE"),
+            1i32 => f.write_str("UPDATE_INSTANCE"),
+            2i32 => f.write_str("WRITE_PARTITION_TRANSLATION"),
             other => {
-                write!(f, "{}({})", stringify!(BuildAccelerationStructureModeKHR), other)
+                write!(
+                    f, "{}({})", stringify!(PartitionedAccelerationStructureOpTypeNV),
+                    other
+                )
             }
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkOutOfBandQueueTypeNV")]
-pub struct OutOfBandQueueTypeNV(i32);
-impl OutOfBandQueueTypeNV {
-    pub const RENDER: Self = Self(0i32);
-    pub const PRESENT: Self = Self(1i32);
+#[doc(alias = "VkDeviceMemoryReportEventTypeEXT")]
+pub struct DeviceMemoryReportEventTypeEXT(i32);
+impl DeviceMemoryReportEventTypeEXT {
+    pub const ALLOCATE: Self = Self(0i32);
+    pub const FREE: Self = Self(1i32);
+    pub const IMPORT: Self = Self(2i32);
+    pub const UNIMPORT: Self = Self(3i32);
+    pub const ALLOCATION_FAILED: Self = Self(4i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4683,12 +6217,946 @@ impl OutOfBandQueueTypeNV {
         self.0
     }
 }
-impl core::fmt::Debug for OutOfBandQueueTypeNV {
+impl core::fmt::Debug for DeviceMemoryReportEventTypeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("RENDER"),
-            1i32 => f.write_str("PRESENT"),
-            other => write!(f, "{}({})", stringify!(OutOfBandQueueTypeNV), other),
+            0i32 => f.write_str("ALLOCATE"),
+            1i32 => f.write_str("FREE"),
+            2i32 => f.write_str("IMPORT"),
+            3i32 => f.write_str("UNIMPORT"),
+            4i32 => f.write_str("ALLOCATION_FAILED"),
+            other => {
+                write!(f, "{}({})", stringify!(DeviceMemoryReportEventTypeEXT), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkSystemAllocationScope")]
+pub struct SystemAllocationScope(i32);
+impl SystemAllocationScope {
+    pub const COMMAND: Self = Self(0i32);
+    pub const OBJECT: Self = Self(1i32);
+    pub const CACHE: Self = Self(2i32);
+    pub const DEVICE: Self = Self(3i32);
+    pub const INSTANCE: Self = Self(4i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for SystemAllocationScope {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("COMMAND"),
+            1i32 => f.write_str("OBJECT"),
+            2i32 => f.write_str("CACHE"),
+            3i32 => f.write_str("DEVICE"),
+            4i32 => f.write_str("INSTANCE"),
+            other => write!(f, "{}({})", stringify!(SystemAllocationScope), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkSemaphoreType")]
+pub struct SemaphoreType(i32);
+impl SemaphoreType {
+    pub const BINARY: Self = Self(0i32);
+    pub const TIMELINE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for SemaphoreType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("BINARY"),
+            1i32 => f.write_str("TIMELINE"),
+            other => write!(f, "{}({})", stringify!(SemaphoreType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkAttachmentLoadOp")]
+pub struct AttachmentLoadOp(i32);
+impl AttachmentLoadOp {
+    pub const LOAD: Self = Self(0i32);
+    pub const CLEAR: Self = Self(1i32);
+    pub const DONT_CARE: Self = Self(2i32);
+    pub const NONE: Self = Self(1000400000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for AttachmentLoadOp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("LOAD"),
+            1i32 => f.write_str("CLEAR"),
+            2i32 => f.write_str("DONT_CARE"),
+            1000400000i32 => f.write_str("NONE"),
+            other => write!(f, "{}({})", stringify!(AttachmentLoadOp), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkRasterizationOrderAMD")]
+pub struct RasterizationOrderAMD(i32);
+impl RasterizationOrderAMD {
+    pub const STRICT: Self = Self(0i32);
+    pub const RELAXED: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for RasterizationOrderAMD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("STRICT"),
+            1i32 => f.write_str("RELAXED"),
+            other => write!(f, "{}({})", stringify!(RasterizationOrderAMD), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkValidationCheckEXT")]
+pub struct ValidationCheckEXT(i32);
+impl ValidationCheckEXT {
+    pub const ALL: Self = Self(0i32);
+    pub const SHADERS: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ValidationCheckEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("ALL"),
+            1i32 => f.write_str("SHADERS"),
+            other => write!(f, "{}({})", stringify!(ValidationCheckEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkValidationFeatureEnableEXT")]
+pub struct ValidationFeatureEnableEXT(i32);
+impl ValidationFeatureEnableEXT {
+    pub const GPU_ASSISTED: Self = Self(0i32);
+    pub const GPU_ASSISTED_RESERVE_BINDING_SLOT: Self = Self(1i32);
+    pub const BEST_PRACTICES: Self = Self(2i32);
+    pub const DEBUG_PRINTF: Self = Self(3i32);
+    pub const SYNCHRONIZATION_VALIDATION: Self = Self(4i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ValidationFeatureEnableEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("GPU_ASSISTED"),
+            1i32 => f.write_str("GPU_ASSISTED_RESERVE_BINDING_SLOT"),
+            2i32 => f.write_str("BEST_PRACTICES"),
+            3i32 => f.write_str("DEBUG_PRINTF"),
+            4i32 => f.write_str("SYNCHRONIZATION_VALIDATION"),
+            other => write!(f, "{}({})", stringify!(ValidationFeatureEnableEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDeviceEventTypeEXT")]
+pub struct DeviceEventTypeEXT(i32);
+impl DeviceEventTypeEXT {
+    pub const DISPLAY_HOTPLUG: Self = Self(0i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DeviceEventTypeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DISPLAY_HOTPLUG"),
+            other => write!(f, "{}({})", stringify!(DeviceEventTypeEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPipelineCacheValidationVersion")]
+pub struct PipelineCacheValidationVersion(i32);
+impl PipelineCacheValidationVersion {
+    pub const SAFETY_CRITICAL_ONE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PipelineCacheValidationVersion {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            1i32 => f.write_str("SAFETY_CRITICAL_ONE"),
+            other => {
+                write!(f, "{}({})", stringify!(PipelineCacheValidationVersion), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkIndirectExecutionSetInfoTypeEXT")]
+pub struct IndirectExecutionSetInfoTypeEXT(i32);
+impl IndirectExecutionSetInfoTypeEXT {
+    pub const PIPELINES: Self = Self(0i32);
+    pub const SHADER_OBJECTS: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for IndirectExecutionSetInfoTypeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("PIPELINES"),
+            1i32 => f.write_str("SHADER_OBJECTS"),
+            other => {
+                write!(f, "{}({})", stringify!(IndirectExecutionSetInfoTypeEXT), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkShaderInfoTypeAMD")]
+pub struct ShaderInfoTypeAMD(i32);
+impl ShaderInfoTypeAMD {
+    pub const STATISTICS: Self = Self(0i32);
+    pub const BINARY: Self = Self(1i32);
+    pub const DISASSEMBLY: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ShaderInfoTypeAMD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("STATISTICS"),
+            1i32 => f.write_str("BINARY"),
+            2i32 => f.write_str("DISASSEMBLY"),
+            other => write!(f, "{}({})", stringify!(ShaderInfoTypeAMD), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkClusterAccelerationStructureOpModeNV")]
+pub struct ClusterAccelerationStructureOpModeNV(i32);
+impl ClusterAccelerationStructureOpModeNV {
+    pub const IMPLICIT_DESTINATIONS: Self = Self(0i32);
+    pub const EXPLICIT_DESTINATIONS: Self = Self(1i32);
+    pub const COMPUTE_SIZES: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ClusterAccelerationStructureOpModeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("IMPLICIT_DESTINATIONS"),
+            1i32 => f.write_str("EXPLICIT_DESTINATIONS"),
+            2i32 => f.write_str("COMPUTE_SIZES"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(ClusterAccelerationStructureOpModeNV), other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkBlendFactor")]
+pub struct BlendFactor(i32);
+impl BlendFactor {
+    pub const ZERO: Self = Self(0i32);
+    pub const ONE: Self = Self(1i32);
+    pub const SRC_COLOR: Self = Self(2i32);
+    pub const ONE_MINUS_SRC_COLOR: Self = Self(3i32);
+    pub const DST_COLOR: Self = Self(4i32);
+    pub const ONE_MINUS_DST_COLOR: Self = Self(5i32);
+    pub const SRC_ALPHA: Self = Self(6i32);
+    pub const ONE_MINUS_SRC_ALPHA: Self = Self(7i32);
+    pub const DST_ALPHA: Self = Self(8i32);
+    pub const ONE_MINUS_DST_ALPHA: Self = Self(9i32);
+    pub const CONSTANT_COLOR: Self = Self(10i32);
+    pub const ONE_MINUS_CONSTANT_COLOR: Self = Self(11i32);
+    pub const CONSTANT_ALPHA: Self = Self(12i32);
+    pub const ONE_MINUS_CONSTANT_ALPHA: Self = Self(13i32);
+    pub const SRC_ALPHA_SATURATE: Self = Self(14i32);
+    pub const SRC1_COLOR: Self = Self(15i32);
+    pub const ONE_MINUS_SRC1_COLOR: Self = Self(16i32);
+    pub const SRC1_ALPHA: Self = Self(17i32);
+    pub const ONE_MINUS_SRC1_ALPHA: Self = Self(18i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for BlendFactor {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("ZERO"),
+            1i32 => f.write_str("ONE"),
+            2i32 => f.write_str("SRC_COLOR"),
+            3i32 => f.write_str("ONE_MINUS_SRC_COLOR"),
+            4i32 => f.write_str("DST_COLOR"),
+            5i32 => f.write_str("ONE_MINUS_DST_COLOR"),
+            6i32 => f.write_str("SRC_ALPHA"),
+            7i32 => f.write_str("ONE_MINUS_SRC_ALPHA"),
+            8i32 => f.write_str("DST_ALPHA"),
+            9i32 => f.write_str("ONE_MINUS_DST_ALPHA"),
+            10i32 => f.write_str("CONSTANT_COLOR"),
+            11i32 => f.write_str("ONE_MINUS_CONSTANT_COLOR"),
+            12i32 => f.write_str("CONSTANT_ALPHA"),
+            13i32 => f.write_str("ONE_MINUS_CONSTANT_ALPHA"),
+            14i32 => f.write_str("SRC_ALPHA_SATURATE"),
+            15i32 => f.write_str("SRC1_COLOR"),
+            16i32 => f.write_str("ONE_MINUS_SRC1_COLOR"),
+            17i32 => f.write_str("SRC1_ALPHA"),
+            18i32 => f.write_str("ONE_MINUS_SRC1_ALPHA"),
+            other => write!(f, "{}({})", stringify!(BlendFactor), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDescriptorUpdateTemplateType")]
+pub struct DescriptorUpdateTemplateType(i32);
+impl DescriptorUpdateTemplateType {
+    pub const DESCRIPTOR_SET: Self = Self(0i32);
+    pub const PUSH_DESCRIPTORS: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DescriptorUpdateTemplateType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DESCRIPTOR_SET"),
+            1i32 => f.write_str("PUSH_DESCRIPTORS"),
+            other => write!(f, "{}({})", stringify!(DescriptorUpdateTemplateType), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkProvokingVertexModeEXT")]
+pub struct ProvokingVertexModeEXT(i32);
+impl ProvokingVertexModeEXT {
+    pub const FIRST_VERTEX: Self = Self(0i32);
+    pub const LAST_VERTEX: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ProvokingVertexModeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("FIRST_VERTEX"),
+            1i32 => f.write_str("LAST_VERTEX"),
+            other => write!(f, "{}({})", stringify!(ProvokingVertexModeEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDisplacementMicromapFormatNV")]
+pub struct DisplacementMicromapFormatNV(i32);
+impl DisplacementMicromapFormatNV {
+    pub const _64_TRIANGLES_64_BYTES: Self = Self(1i32);
+    pub const _256_TRIANGLES_128_BYTES: Self = Self(2i32);
+    pub const _1024_TRIANGLES_128_BYTES: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DisplacementMicromapFormatNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            1i32 => f.write_str("_64_TRIANGLES_64_BYTES"),
+            2i32 => f.write_str("_256_TRIANGLES_128_BYTES"),
+            3i32 => f.write_str("_1024_TRIANGLES_128_BYTES"),
+            other => write!(f, "{}({})", stringify!(DisplacementMicromapFormatNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkLayeredDriverUnderlyingApiMSFT")]
+pub struct LayeredDriverUnderlyingApiMSFT(i32);
+impl LayeredDriverUnderlyingApiMSFT {
+    pub const NONE: Self = Self(0i32);
+    pub const D3D12: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for LayeredDriverUnderlyingApiMSFT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NONE"),
+            1i32 => f.write_str("D3D12"),
+            other => {
+                write!(f, "{}({})", stringify!(LayeredDriverUnderlyingApiMSFT), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPhysicalDeviceDataGraphProcessingEngineTypeARM")]
+pub struct PhysicalDeviceDataGraphProcessingEngineTypeARM(i32);
+impl PhysicalDeviceDataGraphProcessingEngineTypeARM {
+    pub const DEFAULT: Self = Self(0i32);
+    pub const NEURAL: Self = Self(1000629000i32);
+    pub const COMPUTE: Self = Self(1000629001i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PhysicalDeviceDataGraphProcessingEngineTypeARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("DEFAULT"),
+            1000629000i32 => f.write_str("NEURAL"),
+            1000629001i32 => f.write_str("COMPUTE"),
+            other => {
+                write!(
+                    f, "{}({})",
+                    stringify!(PhysicalDeviceDataGraphProcessingEngineTypeARM), other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkRayTracingLssIndexingModeNV")]
+pub struct RayTracingLssIndexingModeNV(i32);
+impl RayTracingLssIndexingModeNV {
+    pub const LIST: Self = Self(0i32);
+    pub const SUCCESSIVE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for RayTracingLssIndexingModeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("LIST"),
+            1i32 => f.write_str("SUCCESSIVE"),
+            other => write!(f, "{}({})", stringify!(RayTracingLssIndexingModeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkSamplerAddressMode")]
+pub struct SamplerAddressMode(i32);
+impl SamplerAddressMode {
+    pub const REPEAT: Self = Self(0i32);
+    pub const MIRRORED_REPEAT: Self = Self(1i32);
+    pub const CLAMP_TO_EDGE: Self = Self(2i32);
+    pub const CLAMP_TO_BORDER: Self = Self(3i32);
+    pub const MIRROR_CLAMP_TO_EDGE: Self = Self(4i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for SamplerAddressMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("REPEAT"),
+            1i32 => f.write_str("MIRRORED_REPEAT"),
+            2i32 => f.write_str("CLAMP_TO_EDGE"),
+            3i32 => f.write_str("CLAMP_TO_BORDER"),
+            4i32 => f.write_str("MIRROR_CLAMP_TO_EDGE"),
+            other => write!(f, "{}({})", stringify!(SamplerAddressMode), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPerformanceCounterStorageKHR")]
+pub struct PerformanceCounterStorageKHR(i32);
+impl PerformanceCounterStorageKHR {
+    pub const INT32: Self = Self(0i32);
+    pub const INT64: Self = Self(1i32);
+    pub const UINT32: Self = Self(2i32);
+    pub const UINT64: Self = Self(3i32);
+    pub const FLOAT32: Self = Self(4i32);
+    pub const FLOAT64: Self = Self(5i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PerformanceCounterStorageKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("INT32"),
+            1i32 => f.write_str("INT64"),
+            2i32 => f.write_str("UINT32"),
+            3i32 => f.write_str("UINT64"),
+            4i32 => f.write_str("FLOAT32"),
+            5i32 => f.write_str("FLOAT64"),
+            other => write!(f, "{}({})", stringify!(PerformanceCounterStorageKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkAccelerationStructureTypeKHR")]
+pub struct AccelerationStructureTypeKHR(i32);
+impl AccelerationStructureTypeKHR {
+    pub const TOP_LEVEL: Self = Self(0i32);
+    pub const BOTTOM_LEVEL: Self = Self(1i32);
+    pub const GENERIC: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for AccelerationStructureTypeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("TOP_LEVEL"),
+            1i32 => f.write_str("BOTTOM_LEVEL"),
+            2i32 => f.write_str("GENERIC"),
+            other => write!(f, "{}({})", stringify!(AccelerationStructureTypeKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkFragmentShadingRateCombinerOpKHR")]
+pub struct FragmentShadingRateCombinerOpKHR(i32);
+impl FragmentShadingRateCombinerOpKHR {
+    pub const KEEP: Self = Self(0i32);
+    pub const REPLACE: Self = Self(1i32);
+    pub const MIN: Self = Self(2i32);
+    pub const MAX: Self = Self(3i32);
+    pub const MUL: Self = Self(4i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for FragmentShadingRateCombinerOpKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("KEEP"),
+            1i32 => f.write_str("REPLACE"),
+            2i32 => f.write_str("MIN"),
+            3i32 => f.write_str("MAX"),
+            4i32 => f.write_str("MUL"),
+            other => {
+                write!(f, "{}({})", stringify!(FragmentShadingRateCombinerOpKHR), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPerformanceCounterUnitKHR")]
+pub struct PerformanceCounterUnitKHR(i32);
+impl PerformanceCounterUnitKHR {
+    pub const GENERIC: Self = Self(0i32);
+    pub const PERCENTAGE: Self = Self(1i32);
+    pub const NANOSECONDS: Self = Self(2i32);
+    pub const BYTES: Self = Self(3i32);
+    pub const BYTES_PER_SECOND: Self = Self(4i32);
+    pub const KELVIN: Self = Self(5i32);
+    pub const WATTS: Self = Self(6i32);
+    pub const VOLTS: Self = Self(7i32);
+    pub const AMPS: Self = Self(8i32);
+    pub const HERTZ: Self = Self(9i32);
+    pub const CYCLES: Self = Self(10i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PerformanceCounterUnitKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("GENERIC"),
+            1i32 => f.write_str("PERCENTAGE"),
+            2i32 => f.write_str("NANOSECONDS"),
+            3i32 => f.write_str("BYTES"),
+            4i32 => f.write_str("BYTES_PER_SECOND"),
+            5i32 => f.write_str("KELVIN"),
+            6i32 => f.write_str("WATTS"),
+            7i32 => f.write_str("VOLTS"),
+            8i32 => f.write_str("AMPS"),
+            9i32 => f.write_str("HERTZ"),
+            10i32 => f.write_str("CYCLES"),
+            other => write!(f, "{}({})", stringify!(PerformanceCounterUnitKHR), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkIndirectCommandsTokenTypeEXT")]
+pub struct IndirectCommandsTokenTypeEXT(i32);
+impl IndirectCommandsTokenTypeEXT {
+    pub const EXECUTION_SET: Self = Self(0i32);
+    pub const PUSH_CONSTANT: Self = Self(1i32);
+    pub const SEQUENCE_INDEX: Self = Self(2i32);
+    pub const INDEX_BUFFER: Self = Self(3i32);
+    pub const VERTEX_BUFFER: Self = Self(4i32);
+    pub const DRAW_INDEXED: Self = Self(5i32);
+    pub const DRAW: Self = Self(6i32);
+    pub const DRAW_INDEXED_COUNT: Self = Self(7i32);
+    pub const DRAW_COUNT: Self = Self(8i32);
+    pub const DISPATCH: Self = Self(9i32);
+    pub const PUSH_DATA: Self = Self(1000135000i32);
+    pub const PUSH_DATA_SEQUENCE_INDEX: Self = Self(1000135001i32);
+    pub const DRAW_MESH_TASKS_: Self = Self(1000202002i32);
+    pub const DRAW_MESH_TASKS_COUNT_: Self = Self(1000202003i32);
+    pub const DRAW_MESH_TASKS: Self = Self(1000328000i32);
+    pub const DRAW_MESH_TASKS_COUNT: Self = Self(1000328001i32);
+    pub const TRACE_RAYS2: Self = Self(1000386004i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for IndirectCommandsTokenTypeEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("EXECUTION_SET"),
+            1i32 => f.write_str("PUSH_CONSTANT"),
+            2i32 => f.write_str("SEQUENCE_INDEX"),
+            3i32 => f.write_str("INDEX_BUFFER"),
+            4i32 => f.write_str("VERTEX_BUFFER"),
+            5i32 => f.write_str("DRAW_INDEXED"),
+            6i32 => f.write_str("DRAW"),
+            7i32 => f.write_str("DRAW_INDEXED_COUNT"),
+            8i32 => f.write_str("DRAW_COUNT"),
+            9i32 => f.write_str("DISPATCH"),
+            1000135000i32 => f.write_str("PUSH_DATA"),
+            1000135001i32 => f.write_str("PUSH_DATA_SEQUENCE_INDEX"),
+            1000202002i32 => f.write_str("DRAW_MESH_TASKS_"),
+            1000202003i32 => f.write_str("DRAW_MESH_TASKS_COUNT_"),
+            1000328000i32 => f.write_str("DRAW_MESH_TASKS"),
+            1000328001i32 => f.write_str("DRAW_MESH_TASKS_COUNT"),
+            1000386004i32 => f.write_str("TRACE_RAYS2"),
+            other => write!(f, "{}({})", stringify!(IndirectCommandsTokenTypeEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDisplaySurfaceStereoTypeNV")]
+pub struct DisplaySurfaceStereoTypeNV(i32);
+impl DisplaySurfaceStereoTypeNV {
+    pub const NONE: Self = Self(0i32);
+    pub const ONBOARD_DIN: Self = Self(1i32);
+    pub const HDMI_3D: Self = Self(2i32);
+    pub const INBAND_DISPLAYPORT: Self = Self(3i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DisplaySurfaceStereoTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("NONE"),
+            1i32 => f.write_str("ONBOARD_DIN"),
+            2i32 => f.write_str("HDMI_3D"),
+            3i32 => f.write_str("INBAND_DISPLAYPORT"),
+            other => write!(f, "{}({})", stringify!(DisplaySurfaceStereoTypeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkOpacityMicromapFormatEXT")]
+pub struct OpacityMicromapFormatEXT(i32);
+impl OpacityMicromapFormatEXT {
+    pub const _2_STATE: Self = Self(1i32);
+    pub const _4_STATE: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for OpacityMicromapFormatEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            1i32 => f.write_str("_2_STATE"),
+            2i32 => f.write_str("_4_STATE"),
+            other => write!(f, "{}({})", stringify!(OpacityMicromapFormatEXT), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDataGraphModelCacheTypeQCOM")]
+pub struct DataGraphModelCacheTypeQCOM(i32);
+impl DataGraphModelCacheTypeQCOM {
+    pub const GENERIC_BINARY: Self = Self(0i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DataGraphModelCacheTypeQCOM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("GENERIC_BINARY"),
+            other => write!(f, "{}({})", stringify!(DataGraphModelCacheTypeQCOM), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPhysicalDeviceDataGraphOperationTypeARM")]
+pub struct PhysicalDeviceDataGraphOperationTypeARM(i32);
+impl PhysicalDeviceDataGraphOperationTypeARM {
+    pub const SPIRV_EXTENDED_INSTRUCTION_SET: Self = Self(0i32);
+    pub const NEURAL_MODEL: Self = Self(1000629000i32);
+    pub const BUILTIN_MODEL: Self = Self(1000629001i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PhysicalDeviceDataGraphOperationTypeARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("SPIRV_EXTENDED_INSTRUCTION_SET"),
+            1000629000i32 => f.write_str("NEURAL_MODEL"),
+            1000629001i32 => f.write_str("BUILTIN_MODEL"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(PhysicalDeviceDataGraphOperationTypeARM),
+                    other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkValidationCacheHeaderVersionEXT")]
+pub struct ValidationCacheHeaderVersionEXT(i32);
+impl ValidationCacheHeaderVersionEXT {
+    pub const ONE: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ValidationCacheHeaderVersionEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            1i32 => f.write_str("ONE"),
+            other => {
+                write!(f, "{}({})", stringify!(ValidationCacheHeaderVersionEXT), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkAttachmentStoreOp")]
+pub struct AttachmentStoreOp(i32);
+impl AttachmentStoreOp {
+    pub const STORE: Self = Self(0i32);
+    pub const DONT_CARE: Self = Self(1i32);
+    pub const NONE: Self = Self(1000301000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for AttachmentStoreOp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("STORE"),
+            1i32 => f.write_str("DONT_CARE"),
+            1000301000i32 => f.write_str("NONE"),
+            other => write!(f, "{}({})", stringify!(AttachmentStoreOp), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkPipelineCacheHeaderVersion")]
+pub struct PipelineCacheHeaderVersion(i32);
+impl PipelineCacheHeaderVersion {
+    pub const ONE: Self = Self(1i32);
+    pub const SAFETY_CRITICAL_ONE: Self = Self(1000298001i32);
+    pub const DATA_GRAPH: Self = Self(1000629000i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for PipelineCacheHeaderVersion {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            1i32 => f.write_str("ONE"),
+            1000298001i32 => f.write_str("SAFETY_CRITICAL_ONE"),
+            1000629000i32 => f.write_str("DATA_GRAPH"),
+            other => write!(f, "{}({})", stringify!(PipelineCacheHeaderVersion), other),
         }
     }
 }
@@ -4723,12 +7191,13 @@ impl core::fmt::Debug for CubicFilterWeightsQCOM {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAccelerationStructureBuildTypeKHR")]
-pub struct AccelerationStructureBuildTypeKHR(i32);
-impl AccelerationStructureBuildTypeKHR {
-    pub const HOST: Self = Self(0i32);
-    pub const DEVICE: Self = Self(1i32);
-    pub const HOST_OR_DEVICE: Self = Self(2i32);
+#[doc(alias = "VkPipelineRobustnessBufferBehavior")]
+pub struct PipelineRobustnessBufferBehavior(i32);
+impl PipelineRobustnessBufferBehavior {
+    pub const DEVICE_DEFAULT: Self = Self(0i32);
+    pub const DISABLED: Self = Self(1i32);
+    pub const ROBUST_BUFFER_ACCESS: Self = Self(2i32);
+    pub const ROBUST_BUFFER_ACCESS_2: Self = Self(3i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4738,14 +7207,109 @@ impl AccelerationStructureBuildTypeKHR {
         self.0
     }
 }
-impl core::fmt::Debug for AccelerationStructureBuildTypeKHR {
+impl core::fmt::Debug for PipelineRobustnessBufferBehavior {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("HOST"),
-            1i32 => f.write_str("DEVICE"),
-            2i32 => f.write_str("HOST_OR_DEVICE"),
+            0i32 => f.write_str("DEVICE_DEFAULT"),
+            1i32 => f.write_str("DISABLED"),
+            2i32 => f.write_str("ROBUST_BUFFER_ACCESS"),
+            3i32 => f.write_str("ROBUST_BUFFER_ACCESS_2"),
             other => {
-                write!(f, "{}({})", stringify!(AccelerationStructureBuildTypeKHR), other)
+                write!(f, "{}({})", stringify!(PipelineRobustnessBufferBehavior), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDataGraphPipelineSessionBindPointTypeARM")]
+pub struct DataGraphPipelineSessionBindPointTypeARM(i32);
+impl DataGraphPipelineSessionBindPointTypeARM {
+    pub const MEMORY: Self = Self(0i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DataGraphPipelineSessionBindPointTypeARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("MEMORY"),
+            other => {
+                write!(
+                    f, "{}({})", stringify!(DataGraphPipelineSessionBindPointTypeARM),
+                    other
+                )
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkFragmentShadingRateTypeNV")]
+pub struct FragmentShadingRateTypeNV(i32);
+impl FragmentShadingRateTypeNV {
+    pub const FRAGMENT_SIZE: Self = Self(0i32);
+    pub const ENUMS: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for FragmentShadingRateTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("FRAGMENT_SIZE"),
+            1i32 => f.write_str("ENUMS"),
+            other => write!(f, "{}({})", stringify!(FragmentShadingRateTypeNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkOpticalFlowSessionBindingPointNV")]
+pub struct OpticalFlowSessionBindingPointNV(i32);
+impl OpticalFlowSessionBindingPointNV {
+    pub const UNKNOWN: Self = Self(0i32);
+    pub const INPUT: Self = Self(1i32);
+    pub const REFERENCE: Self = Self(2i32);
+    pub const HINT: Self = Self(3i32);
+    pub const FLOW_VECTOR: Self = Self(4i32);
+    pub const BACKWARD_FLOW_VECTOR: Self = Self(5i32);
+    pub const COST: Self = Self(6i32);
+    pub const BACKWARD_COST: Self = Self(7i32);
+    pub const GLOBAL_FLOW: Self = Self(8i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for OpticalFlowSessionBindingPointNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("UNKNOWN"),
+            1i32 => f.write_str("INPUT"),
+            2i32 => f.write_str("REFERENCE"),
+            3i32 => f.write_str("HINT"),
+            4i32 => f.write_str("FLOW_VECTOR"),
+            5i32 => f.write_str("BACKWARD_FLOW_VECTOR"),
+            6i32 => f.write_str("COST"),
+            7i32 => f.write_str("BACKWARD_COST"),
+            8i32 => f.write_str("GLOBAL_FLOW"),
+            other => {
+                write!(f, "{}({})", stringify!(OpticalFlowSessionBindingPointNV), other)
             }
         }
     }
@@ -4889,17 +7453,12 @@ impl core::fmt::Debug for ObjectType {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkValidationFeatureDisableEXT")]
-pub struct ValidationFeatureDisableEXT(i32);
-impl ValidationFeatureDisableEXT {
-    pub const ALL: Self = Self(0i32);
-    pub const SHADERS: Self = Self(1i32);
-    pub const THREAD_SAFETY: Self = Self(2i32);
-    pub const API_PARAMETERS: Self = Self(3i32);
-    pub const OBJECT_LIFETIMES: Self = Self(4i32);
-    pub const CORE_CHECKS: Self = Self(5i32);
-    pub const UNIQUE_HANDLES: Self = Self(6i32);
-    pub const SHADER_VALIDATION_CACHE: Self = Self(7i32);
+#[doc(alias = "VkConservativeRasterizationModeEXT")]
+pub struct ConservativeRasterizationModeEXT(i32);
+impl ConservativeRasterizationModeEXT {
+    pub const DISABLED: Self = Self(0i32);
+    pub const OVERESTIMATE: Self = Self(1i32);
+    pub const UNDERESTIMATE: Self = Self(2i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -4909,145 +7468,80 @@ impl ValidationFeatureDisableEXT {
         self.0
     }
 }
-impl core::fmt::Debug for ValidationFeatureDisableEXT {
+impl core::fmt::Debug for ConservativeRasterizationModeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("ALL"),
-            1i32 => f.write_str("SHADERS"),
-            2i32 => f.write_str("THREAD_SAFETY"),
-            3i32 => f.write_str("API_PARAMETERS"),
-            4i32 => f.write_str("OBJECT_LIFETIMES"),
-            5i32 => f.write_str("CORE_CHECKS"),
-            6i32 => f.write_str("UNIQUE_HANDLES"),
-            7i32 => f.write_str("SHADER_VALIDATION_CACHE"),
-            other => write!(f, "{}({})", stringify!(ValidationFeatureDisableEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAccelerationStructureTypeKHR")]
-pub struct AccelerationStructureTypeKHR(i32);
-impl AccelerationStructureTypeKHR {
-    pub const TOP_LEVEL: Self = Self(0i32);
-    pub const BOTTOM_LEVEL: Self = Self(1i32);
-    pub const GENERIC: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for AccelerationStructureTypeKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("TOP_LEVEL"),
-            1i32 => f.write_str("BOTTOM_LEVEL"),
-            2i32 => f.write_str("GENERIC"),
-            other => write!(f, "{}({})", stringify!(AccelerationStructureTypeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPresentModeKHR")]
-pub struct PresentModeKHR(i32);
-impl PresentModeKHR {
-    pub const IMMEDIATE: Self = Self(0i32);
-    pub const MAILBOX: Self = Self(1i32);
-    pub const FIFO: Self = Self(2i32);
-    pub const FIFO_RELAXED: Self = Self(3i32);
-    pub const SHARED_DEMAND_REFRESH: Self = Self(1000111000i32);
-    pub const SHARED_CONTINUOUS_REFRESH: Self = Self(1000111001i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PresentModeKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("IMMEDIATE"),
-            1i32 => f.write_str("MAILBOX"),
-            2i32 => f.write_str("FIFO"),
-            3i32 => f.write_str("FIFO_RELAXED"),
-            1000111000i32 => f.write_str("SHARED_DEMAND_REFRESH"),
-            1000111001i32 => f.write_str("SHARED_CONTINUOUS_REFRESH"),
-            other => write!(f, "{}({})", stringify!(PresentModeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkShaderGroupShaderKHR")]
-pub struct ShaderGroupShaderKHR(i32);
-impl ShaderGroupShaderKHR {
-    pub const GENERAL: Self = Self(0i32);
-    pub const CLOSEST_HIT: Self = Self(1i32);
-    pub const ANY_HIT: Self = Self(2i32);
-    pub const INTERSECTION: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ShaderGroupShaderKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("GENERAL"),
-            1i32 => f.write_str("CLOSEST_HIT"),
-            2i32 => f.write_str("ANY_HIT"),
-            3i32 => f.write_str("INTERSECTION"),
-            other => write!(f, "{}({})", stringify!(ShaderGroupShaderKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPerformanceConfigurationTypeINTEL")]
-pub struct PerformanceConfigurationTypeINTEL(i32);
-impl PerformanceConfigurationTypeINTEL {
-    pub const COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PerformanceConfigurationTypeINTEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED"),
+            0i32 => f.write_str("DISABLED"),
+            1i32 => f.write_str("OVERESTIMATE"),
+            2i32 => f.write_str("UNDERESTIMATE"),
             other => {
-                write!(f, "{}({})", stringify!(PerformanceConfigurationTypeINTEL), other)
+                write!(f, "{}({})", stringify!(ConservativeRasterizationModeEXT), other)
             }
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPhysicalDeviceType")]
-pub struct PhysicalDeviceType(i32);
-impl PhysicalDeviceType {
-    pub const OTHER: Self = Self(0i32);
-    pub const INTEGRATED_GPU: Self = Self(1i32);
-    pub const DISCRETE_GPU: Self = Self(2i32);
-    pub const VIRTUAL_GPU: Self = Self(3i32);
-    pub const CPU: Self = Self(4i32);
+#[doc(alias = "VkResult")]
+pub struct Result(i32);
+impl Result {
+    pub const SUCCESS: Self = Self(0i32);
+    pub const NOT_READY: Self = Self(1i32);
+    pub const TIMEOUT: Self = Self(2i32);
+    pub const EVENT_SET: Self = Self(3i32);
+    pub const EVENT_RESET: Self = Self(4i32);
+    pub const INCOMPLETE: Self = Self(5i32);
+    pub const ERROR_OUT_OF_HOST_MEMORY: Self = Self(-1i32);
+    pub const ERROR_OUT_OF_DEVICE_MEMORY: Self = Self(-2i32);
+    pub const ERROR_INITIALIZATION_FAILED: Self = Self(-3i32);
+    pub const ERROR_DEVICE_LOST: Self = Self(-4i32);
+    pub const ERROR_MEMORY_MAP_FAILED: Self = Self(-5i32);
+    pub const ERROR_LAYER_NOT_PRESENT: Self = Self(-6i32);
+    pub const ERROR_EXTENSION_NOT_PRESENT: Self = Self(-7i32);
+    pub const ERROR_FEATURE_NOT_PRESENT: Self = Self(-8i32);
+    pub const ERROR_INCOMPATIBLE_DRIVER: Self = Self(-9i32);
+    pub const ERROR_TOO_MANY_OBJECTS: Self = Self(-10i32);
+    pub const ERROR_FORMAT_NOT_SUPPORTED: Self = Self(-11i32);
+    pub const ERROR_FRAGMENTED_POOL: Self = Self(-12i32);
+    pub const ERROR_UNKNOWN: Self = Self(-13i32);
+    pub const ERROR_VALIDATION_FAILED: Self = Self(-1000011001i32);
+    pub const ERROR_OUT_OF_POOL_MEMORY: Self = Self(-1000069000i32);
+    pub const ERROR_INVALID_EXTERNAL_HANDLE: Self = Self(-1000072003i32);
+    pub const ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS: Self = Self(-1000257000i32);
+    pub const ERROR_FRAGMENTATION: Self = Self(-1000161000i32);
+    pub const PIPELINE_COMPILE_REQUIRED: Self = Self(1000297000i32);
+    pub const ERROR_NOT_PERMITTED: Self = Self(-1000174001i32);
+    pub const ERROR_INVALID_PIPELINE_CACHE_DATA: Self = Self(-1000298000i32);
+    pub const ERROR_NO_PIPELINE_MATCH: Self = Self(-1000298001i32);
+    pub const ERROR_SURFACE_LOST: Self = Self(-1000000000i32);
+    pub const ERROR_NATIVE_WINDOW_IN_USE: Self = Self(-1000000001i32);
+    pub const SUBOPTIMAL: Self = Self(1000001003i32);
+    pub const ERROR_OUT_OF_DATE: Self = Self(-1000001004i32);
+    pub const ERROR_INCOMPATIBLE_DISPLAY: Self = Self(-1000003001i32);
+    pub const ERROR_INVALID_SHADER: Self = Self(-1000012000i32);
+    pub const ERROR_IMAGE_USAGE_NOT_SUPPORTED: Self = Self(-1000023000i32);
+    pub const ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED: Self = Self(-1000023001i32);
+    pub const ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED: Self = Self(-1000023002i32);
+    pub const ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED: Self = Self(-1000023003i32);
+    pub const ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED: Self = Self(-1000023004i32);
+    pub const ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED: Self = Self(-1000023005i32);
+    pub const ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT: Self = Self(
+        -1000158000i32,
+    );
+    pub const ERROR_PRESENT_TIMING_QUEUE_FULL: Self = Self(-1000208000i32);
+    pub const ERROR_INVALID_DEVICE_ADDRESS: Self = Self::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS;
+    pub const ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST: Self = Self(-1000255000i32);
+    pub const THREAD_IDLE: Self = Self(1000268000i32);
+    pub const THREAD_DONE: Self = Self(1000268001i32);
+    pub const OPERATION_DEFERRED: Self = Self(1000268002i32);
+    pub const OPERATION_NOT_DEFERRED: Self = Self(1000268003i32);
+    pub const ERROR_PIPELINE_COMPILE_REQUIRED: Self = Self::PIPELINE_COMPILE_REQUIRED;
+    pub const ERROR_INVALID_VIDEO_STD_PARAMETERS: Self = Self(-1000299000i32);
+    pub const ERROR_COMPRESSION_EXHAUSTED: Self = Self(-1000338000i32);
+    pub const INCOMPATIBLE_SHADER_BINARY: Self = Self(1000482000i32);
+    pub const ERROR_INCOMPATIBLE_SHADER_BINARY: Self = Self::INCOMPATIBLE_SHADER_BINARY;
+    pub const PIPELINE_BINARY_MISSING: Self = Self(1000483000i32);
+    pub const ERROR_NOT_ENOUGH_SPACE: Self = Self(-1000483000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -5057,25 +7551,73 @@ impl PhysicalDeviceType {
         self.0
     }
 }
-impl core::fmt::Debug for PhysicalDeviceType {
+impl core::fmt::Debug for Result {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("OTHER"),
-            1i32 => f.write_str("INTEGRATED_GPU"),
-            2i32 => f.write_str("DISCRETE_GPU"),
-            3i32 => f.write_str("VIRTUAL_GPU"),
-            4i32 => f.write_str("CPU"),
-            other => write!(f, "{}({})", stringify!(PhysicalDeviceType), other),
+            0i32 => f.write_str("SUCCESS"),
+            1i32 => f.write_str("NOT_READY"),
+            2i32 => f.write_str("TIMEOUT"),
+            3i32 => f.write_str("EVENT_SET"),
+            4i32 => f.write_str("EVENT_RESET"),
+            5i32 => f.write_str("INCOMPLETE"),
+            -1i32 => f.write_str("ERROR_OUT_OF_HOST_MEMORY"),
+            -2i32 => f.write_str("ERROR_OUT_OF_DEVICE_MEMORY"),
+            -3i32 => f.write_str("ERROR_INITIALIZATION_FAILED"),
+            -4i32 => f.write_str("ERROR_DEVICE_LOST"),
+            -5i32 => f.write_str("ERROR_MEMORY_MAP_FAILED"),
+            -6i32 => f.write_str("ERROR_LAYER_NOT_PRESENT"),
+            -7i32 => f.write_str("ERROR_EXTENSION_NOT_PRESENT"),
+            -8i32 => f.write_str("ERROR_FEATURE_NOT_PRESENT"),
+            -9i32 => f.write_str("ERROR_INCOMPATIBLE_DRIVER"),
+            -10i32 => f.write_str("ERROR_TOO_MANY_OBJECTS"),
+            -11i32 => f.write_str("ERROR_FORMAT_NOT_SUPPORTED"),
+            -12i32 => f.write_str("ERROR_FRAGMENTED_POOL"),
+            -13i32 => f.write_str("ERROR_UNKNOWN"),
+            -1000011001i32 => f.write_str("ERROR_VALIDATION_FAILED"),
+            -1000069000i32 => f.write_str("ERROR_OUT_OF_POOL_MEMORY"),
+            -1000072003i32 => f.write_str("ERROR_INVALID_EXTERNAL_HANDLE"),
+            -1000257000i32 => f.write_str("ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS"),
+            -1000161000i32 => f.write_str("ERROR_FRAGMENTATION"),
+            1000297000i32 => f.write_str("PIPELINE_COMPILE_REQUIRED"),
+            -1000174001i32 => f.write_str("ERROR_NOT_PERMITTED"),
+            -1000298000i32 => f.write_str("ERROR_INVALID_PIPELINE_CACHE_DATA"),
+            -1000298001i32 => f.write_str("ERROR_NO_PIPELINE_MATCH"),
+            -1000000000i32 => f.write_str("ERROR_SURFACE_LOST"),
+            -1000000001i32 => f.write_str("ERROR_NATIVE_WINDOW_IN_USE"),
+            1000001003i32 => f.write_str("SUBOPTIMAL"),
+            -1000001004i32 => f.write_str("ERROR_OUT_OF_DATE"),
+            -1000003001i32 => f.write_str("ERROR_INCOMPATIBLE_DISPLAY"),
+            -1000012000i32 => f.write_str("ERROR_INVALID_SHADER"),
+            -1000023000i32 => f.write_str("ERROR_IMAGE_USAGE_NOT_SUPPORTED"),
+            -1000023001i32 => f.write_str("ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED"),
+            -1000023002i32 => f.write_str("ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED"),
+            -1000023003i32 => f.write_str("ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED"),
+            -1000023004i32 => f.write_str("ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED"),
+            -1000023005i32 => f.write_str("ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED"),
+            -1000158000i32 => {
+                f.write_str("ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT")
+            }
+            -1000208000i32 => f.write_str("ERROR_PRESENT_TIMING_QUEUE_FULL"),
+            -1000255000i32 => f.write_str("ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST"),
+            1000268000i32 => f.write_str("THREAD_IDLE"),
+            1000268001i32 => f.write_str("THREAD_DONE"),
+            1000268002i32 => f.write_str("OPERATION_DEFERRED"),
+            1000268003i32 => f.write_str("OPERATION_NOT_DEFERRED"),
+            -1000299000i32 => f.write_str("ERROR_INVALID_VIDEO_STD_PARAMETERS"),
+            -1000338000i32 => f.write_str("ERROR_COMPRESSION_EXHAUSTED"),
+            1000482000i32 => f.write_str("INCOMPATIBLE_SHADER_BINARY"),
+            1000483000i32 => f.write_str("PIPELINE_BINARY_MISSING"),
+            -1000483000i32 => f.write_str("ERROR_NOT_ENOUGH_SPACE"),
+            other => write!(f, "{}({})", stringify!(Result), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDeviceAddressBindingTypeEXT")]
-pub struct DeviceAddressBindingTypeEXT(i32);
-impl DeviceAddressBindingTypeEXT {
-    pub const BIND: Self = Self(0i32);
-    pub const UNBIND: Self = Self(1i32);
+#[doc(alias = "VkFaultQueryBehavior")]
+pub struct FaultQueryBehavior(i32);
+impl FaultQueryBehavior {
+    pub const GET_AND_CLEAR_ALL_FAULTS: Self = Self(0i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -5085,22 +7627,21 @@ impl DeviceAddressBindingTypeEXT {
         self.0
     }
 }
-impl core::fmt::Debug for DeviceAddressBindingTypeEXT {
+impl core::fmt::Debug for FaultQueryBehavior {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("BIND"),
-            1i32 => f.write_str("UNBIND"),
-            other => write!(f, "{}({})", stringify!(DeviceAddressBindingTypeEXT), other),
+            0i32 => f.write_str("GET_AND_CLEAR_ALL_FAULTS"),
+            other => write!(f, "{}({})", stringify!(FaultQueryBehavior), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkLayeredDriverUnderlyingApiMSFT")]
-pub struct LayeredDriverUnderlyingApiMSFT(i32);
-impl LayeredDriverUnderlyingApiMSFT {
-    pub const NONE: Self = Self(0i32);
-    pub const D3D12: Self = Self(1i32);
+#[doc(alias = "VkDirectDriverLoadingModeLUNARG")]
+pub struct DirectDriverLoadingModeLUNARG(i32);
+impl DirectDriverLoadingModeLUNARG {
+    pub const EXCLUSIVE: Self = Self(0i32);
+    pub const INCLUSIVE: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -5110,51 +7651,24 @@ impl LayeredDriverUnderlyingApiMSFT {
         self.0
     }
 }
-impl core::fmt::Debug for LayeredDriverUnderlyingApiMSFT {
+impl core::fmt::Debug for DirectDriverLoadingModeLUNARG {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("NONE"),
-            1i32 => f.write_str("D3D12"),
+            0i32 => f.write_str("EXCLUSIVE"),
+            1i32 => f.write_str("INCLUSIVE"),
             other => {
-                write!(f, "{}({})", stringify!(LayeredDriverUnderlyingApiMSFT), other)
+                write!(f, "{}({})", stringify!(DirectDriverLoadingModeLUNARG), other)
             }
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDriverId")]
-pub struct DriverId(i32);
-impl DriverId {
-    pub const AMD_PROPRIETARY: Self = Self(1i32);
-    pub const AMD_OPEN_SOURCE: Self = Self(2i32);
-    pub const MESA_RADV: Self = Self(3i32);
-    pub const NVIDIA_PROPRIETARY: Self = Self(4i32);
-    pub const INTEL_PROPRIETARY_WINDOWS: Self = Self(5i32);
-    pub const INTEL_OPEN_SOURCE: Self = Self(6i32);
-    pub const IMAGINATION_PROPRIETARY: Self = Self(7i32);
-    pub const QUALCOMM_PROPRIETARY: Self = Self(8i32);
-    pub const ARM_PROPRIETARY: Self = Self(9i32);
-    pub const GOOGLE_SWIFTSHADER: Self = Self(10i32);
-    pub const GGP_PROPRIETARY: Self = Self(11i32);
-    pub const BROADCOM_PROPRIETARY: Self = Self(12i32);
-    pub const MESA_LLVMPIPE: Self = Self(13i32);
-    pub const MOLTENVK: Self = Self(14i32);
-    pub const COREAVI_PROPRIETARY: Self = Self(15i32);
-    pub const JUICE_PROPRIETARY: Self = Self(16i32);
-    pub const VERISILICON_PROPRIETARY: Self = Self(17i32);
-    pub const MESA_TURNIP: Self = Self(18i32);
-    pub const MESA_V3DV: Self = Self(19i32);
-    pub const MESA_PANVK: Self = Self(20i32);
-    pub const SAMSUNG_PROPRIETARY: Self = Self(21i32);
-    pub const MESA_VENUS: Self = Self(22i32);
-    pub const MESA_DOZEN: Self = Self(23i32);
-    pub const MESA_NVK: Self = Self(24i32);
-    pub const IMAGINATION_OPEN_SOURCE: Self = Self(25i32);
-    pub const MESA_HONEYKRISP: Self = Self(26i32);
-    pub const VULKAN_SC_EMULATION_ON_VULKAN: Self = Self(27i32);
-    pub const MESA_KOSMICKRISP: Self = Self(28i32);
-    pub const INTEL_OPEN_SOURCE_: Self = Self::INTEL_OPEN_SOURCE;
+#[doc(alias = "VkShaderCodeTypeEXT")]
+pub struct ShaderCodeTypeEXT(i32);
+impl ShaderCodeTypeEXT {
+    pub const BINARY: Self = Self(0i32);
+    pub const SPIRV: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -5164,48 +7678,23 @@ impl DriverId {
         self.0
     }
 }
-impl core::fmt::Debug for DriverId {
+impl core::fmt::Debug for ShaderCodeTypeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            1i32 => f.write_str("AMD_PROPRIETARY"),
-            2i32 => f.write_str("AMD_OPEN_SOURCE"),
-            3i32 => f.write_str("MESA_RADV"),
-            4i32 => f.write_str("NVIDIA_PROPRIETARY"),
-            5i32 => f.write_str("INTEL_PROPRIETARY_WINDOWS"),
-            6i32 => f.write_str("INTEL_OPEN_SOURCE"),
-            7i32 => f.write_str("IMAGINATION_PROPRIETARY"),
-            8i32 => f.write_str("QUALCOMM_PROPRIETARY"),
-            9i32 => f.write_str("ARM_PROPRIETARY"),
-            10i32 => f.write_str("GOOGLE_SWIFTSHADER"),
-            11i32 => f.write_str("GGP_PROPRIETARY"),
-            12i32 => f.write_str("BROADCOM_PROPRIETARY"),
-            13i32 => f.write_str("MESA_LLVMPIPE"),
-            14i32 => f.write_str("MOLTENVK"),
-            15i32 => f.write_str("COREAVI_PROPRIETARY"),
-            16i32 => f.write_str("JUICE_PROPRIETARY"),
-            17i32 => f.write_str("VERISILICON_PROPRIETARY"),
-            18i32 => f.write_str("MESA_TURNIP"),
-            19i32 => f.write_str("MESA_V3DV"),
-            20i32 => f.write_str("MESA_PANVK"),
-            21i32 => f.write_str("SAMSUNG_PROPRIETARY"),
-            22i32 => f.write_str("MESA_VENUS"),
-            23i32 => f.write_str("MESA_DOZEN"),
-            24i32 => f.write_str("MESA_NVK"),
-            25i32 => f.write_str("IMAGINATION_OPEN_SOURCE"),
-            26i32 => f.write_str("MESA_HONEYKRISP"),
-            27i32 => f.write_str("VULKAN_SC_EMULATION_ON_VULKAN"),
-            28i32 => f.write_str("MESA_KOSMICKRISP"),
-            other => write!(f, "{}({})", stringify!(DriverId), other),
+            0i32 => f.write_str("BINARY"),
+            1i32 => f.write_str("SPIRV"),
+            other => write!(f, "{}({})", stringify!(ShaderCodeTypeEXT), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDefaultVertexAttributeValueKHR")]
-pub struct DefaultVertexAttributeValueKHR(i32);
-impl DefaultVertexAttributeValueKHR {
-    pub const ZERO_ZERO_ZERO_ZERO: Self = Self(0i32);
-    pub const ZERO_ZERO_ZERO_ONE: Self = Self(1i32);
+#[doc(alias = "VkDisplayPowerStateEXT")]
+pub struct DisplayPowerStateEXT(i32);
+impl DisplayPowerStateEXT {
+    pub const OFF: Self = Self(0i32);
+    pub const SUSPEND: Self = Self(1i32);
+    pub const ON: Self = Self(2i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -5215,673 +7704,23 @@ impl DefaultVertexAttributeValueKHR {
         self.0
     }
 }
-impl core::fmt::Debug for DefaultVertexAttributeValueKHR {
+impl core::fmt::Debug for DisplayPowerStateEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("ZERO_ZERO_ZERO_ZERO"),
-            1i32 => f.write_str("ZERO_ZERO_ZERO_ONE"),
-            other => {
-                write!(f, "{}({})", stringify!(DefaultVertexAttributeValueKHR), other)
-            }
+            0i32 => f.write_str("OFF"),
+            1i32 => f.write_str("SUSPEND"),
+            2i32 => f.write_str("ON"),
+            other => write!(f, "{}({})", stringify!(DisplayPowerStateEXT), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkViewportCoordinateSwizzleNV")]
-pub struct ViewportCoordinateSwizzleNV(i32);
-impl ViewportCoordinateSwizzleNV {
-    pub const POSITIVE_X: Self = Self(0i32);
-    pub const NEGATIVE_X: Self = Self(1i32);
-    pub const POSITIVE_Y: Self = Self(2i32);
-    pub const NEGATIVE_Y: Self = Self(3i32);
-    pub const POSITIVE_Z: Self = Self(4i32);
-    pub const NEGATIVE_Z: Self = Self(5i32);
-    pub const POSITIVE_W: Self = Self(6i32);
-    pub const NEGATIVE_W: Self = Self(7i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ViewportCoordinateSwizzleNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("POSITIVE_X"),
-            1i32 => f.write_str("NEGATIVE_X"),
-            2i32 => f.write_str("POSITIVE_Y"),
-            3i32 => f.write_str("NEGATIVE_Y"),
-            4i32 => f.write_str("POSITIVE_Z"),
-            5i32 => f.write_str("NEGATIVE_Z"),
-            6i32 => f.write_str("POSITIVE_W"),
-            7i32 => f.write_str("NEGATIVE_W"),
-            other => write!(f, "{}({})", stringify!(ViewportCoordinateSwizzleNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDataGraphPipelineSessionBindPointTypeARM")]
-pub struct DataGraphPipelineSessionBindPointTypeARM(i32);
-impl DataGraphPipelineSessionBindPointTypeARM {
-    pub const MEMORY: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DataGraphPipelineSessionBindPointTypeARM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("MEMORY"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(DataGraphPipelineSessionBindPointTypeARM),
-                    other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFragmentShadingRateCombinerOpKHR")]
-pub struct FragmentShadingRateCombinerOpKHR(i32);
-impl FragmentShadingRateCombinerOpKHR {
-    pub const KEEP: Self = Self(0i32);
-    pub const REPLACE: Self = Self(1i32);
-    pub const MIN: Self = Self(2i32);
-    pub const MAX: Self = Self(3i32);
-    pub const MUL: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for FragmentShadingRateCombinerOpKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("KEEP"),
-            1i32 => f.write_str("REPLACE"),
-            2i32 => f.write_str("MIN"),
-            3i32 => f.write_str("MAX"),
-            4i32 => f.write_str("MUL"),
-            other => {
-                write!(f, "{}({})", stringify!(FragmentShadingRateCombinerOpKHR), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSystemAllocationScope")]
-pub struct SystemAllocationScope(i32);
-impl SystemAllocationScope {
-    pub const COMMAND: Self = Self(0i32);
-    pub const OBJECT: Self = Self(1i32);
-    pub const CACHE: Self = Self(2i32);
-    pub const DEVICE: Self = Self(3i32);
-    pub const INSTANCE: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SystemAllocationScope {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("COMMAND"),
-            1i32 => f.write_str("OBJECT"),
-            2i32 => f.write_str("CACHE"),
-            3i32 => f.write_str("DEVICE"),
-            4i32 => f.write_str("INSTANCE"),
-            other => write!(f, "{}({})", stringify!(SystemAllocationScope), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCoarseSampleOrderTypeNV")]
-pub struct CoarseSampleOrderTypeNV(i32);
-impl CoarseSampleOrderTypeNV {
-    pub const DEFAULT: Self = Self(0i32);
-    pub const CUSTOM: Self = Self(1i32);
-    pub const PIXEL_MAJOR: Self = Self(2i32);
-    pub const SAMPLE_MAJOR: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for CoarseSampleOrderTypeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DEFAULT"),
-            1i32 => f.write_str("CUSTOM"),
-            2i32 => f.write_str("PIXEL_MAJOR"),
-            3i32 => f.write_str("SAMPLE_MAJOR"),
-            other => write!(f, "{}({})", stringify!(CoarseSampleOrderTypeNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPerformanceValueTypeINTEL")]
-pub struct PerformanceValueTypeINTEL(i32);
-impl PerformanceValueTypeINTEL {
-    pub const UINT32: Self = Self(0i32);
-    pub const UINT64: Self = Self(1i32);
-    pub const FLOAT: Self = Self(2i32);
-    pub const BOOL: Self = Self(3i32);
-    pub const STRING: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PerformanceValueTypeINTEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("UINT32"),
-            1i32 => f.write_str("UINT64"),
-            2i32 => f.write_str("FLOAT"),
-            3i32 => f.write_str("BOOL"),
-            4i32 => f.write_str("STRING"),
-            other => write!(f, "{}({})", stringify!(PerformanceValueTypeINTEL), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDataGraphModelCacheTypeQCOM")]
-pub struct DataGraphModelCacheTypeQCOM(i32);
-impl DataGraphModelCacheTypeQCOM {
-    pub const GENERIC_BINARY: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DataGraphModelCacheTypeQCOM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("GENERIC_BINARY"),
-            other => write!(f, "{}({})", stringify!(DataGraphModelCacheTypeQCOM), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkGeometryTypeKHR")]
-pub struct GeometryTypeKHR(i32);
-impl GeometryTypeKHR {
-    pub const TRIANGLES: Self = Self(0i32);
-    pub const AABBS: Self = Self(1i32);
-    pub const INSTANCES: Self = Self(2i32);
-    pub const SPHERES: Self = Self(1000429004i32);
-    pub const LINEAR_SWEPT_SPHERES: Self = Self(1000429005i32);
-    pub const DENSE_GEOMETRY_FORMAT_TRIANGLES: Self = Self(1000478000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for GeometryTypeKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("TRIANGLES"),
-            1i32 => f.write_str("AABBS"),
-            2i32 => f.write_str("INSTANCES"),
-            1000429004i32 => f.write_str("SPHERES"),
-            1000429005i32 => f.write_str("LINEAR_SWEPT_SPHERES"),
-            1000478000i32 => f.write_str("DENSE_GEOMETRY_FORMAT_TRIANGLES"),
-            other => write!(f, "{}({})", stringify!(GeometryTypeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkShaderInfoTypeAMD")]
-pub struct ShaderInfoTypeAMD(i32);
-impl ShaderInfoTypeAMD {
-    pub const STATISTICS: Self = Self(0i32);
-    pub const BINARY: Self = Self(1i32);
-    pub const DISASSEMBLY: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ShaderInfoTypeAMD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("STATISTICS"),
-            1i32 => f.write_str("BINARY"),
-            2i32 => f.write_str("DISASSEMBLY"),
-            other => write!(f, "{}({})", stringify!(ShaderInfoTypeAMD), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAttachmentStoreOp")]
-pub struct AttachmentStoreOp(i32);
-impl AttachmentStoreOp {
-    pub const STORE: Self = Self(0i32);
-    pub const DONT_CARE: Self = Self(1i32);
-    pub const NONE: Self = Self(1000301000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for AttachmentStoreOp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("STORE"),
-            1i32 => f.write_str("DONT_CARE"),
-            1000301000i32 => f.write_str("NONE"),
-            other => write!(f, "{}({})", stringify!(AttachmentStoreOp), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkLineRasterizationMode")]
-pub struct LineRasterizationMode(i32);
-impl LineRasterizationMode {
-    pub const DEFAULT: Self = Self(0i32);
-    pub const RECTANGULAR: Self = Self(1i32);
-    pub const BRESENHAM: Self = Self(2i32);
-    pub const RECTANGULAR_SMOOTH: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for LineRasterizationMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DEFAULT"),
-            1i32 => f.write_str("RECTANGULAR"),
-            2i32 => f.write_str("BRESENHAM"),
-            3i32 => f.write_str("RECTANGULAR_SMOOTH"),
-            other => write!(f, "{}({})", stringify!(LineRasterizationMode), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPipelineCacheValidationVersion")]
-pub struct PipelineCacheValidationVersion(i32);
-impl PipelineCacheValidationVersion {
-    pub const SAFETY_CRITICAL_ONE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PipelineCacheValidationVersion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            1i32 => f.write_str("SAFETY_CRITICAL_ONE"),
-            other => {
-                write!(f, "{}({})", stringify!(PipelineCacheValidationVersion), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkOpticalFlowSessionBindingPointNV")]
-pub struct OpticalFlowSessionBindingPointNV(i32);
-impl OpticalFlowSessionBindingPointNV {
-    pub const UNKNOWN: Self = Self(0i32);
-    pub const INPUT: Self = Self(1i32);
-    pub const REFERENCE: Self = Self(2i32);
-    pub const HINT: Self = Self(3i32);
-    pub const FLOW_VECTOR: Self = Self(4i32);
-    pub const BACKWARD_FLOW_VECTOR: Self = Self(5i32);
-    pub const COST: Self = Self(6i32);
-    pub const BACKWARD_COST: Self = Self(7i32);
-    pub const GLOBAL_FLOW: Self = Self(8i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for OpticalFlowSessionBindingPointNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("UNKNOWN"),
-            1i32 => f.write_str("INPUT"),
-            2i32 => f.write_str("REFERENCE"),
-            3i32 => f.write_str("HINT"),
-            4i32 => f.write_str("FLOW_VECTOR"),
-            5i32 => f.write_str("BACKWARD_FLOW_VECTOR"),
-            6i32 => f.write_str("COST"),
-            7i32 => f.write_str("BACKWARD_COST"),
-            8i32 => f.write_str("GLOBAL_FLOW"),
-            other => {
-                write!(f, "{}({})", stringify!(OpticalFlowSessionBindingPointNV), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCopyMicromapModeEXT")]
-pub struct CopyMicromapModeEXT(i32);
-impl CopyMicromapModeEXT {
-    pub const CLONE: Self = Self(0i32);
-    pub const SERIALIZE: Self = Self(1i32);
-    pub const DESERIALIZE: Self = Self(2i32);
-    pub const COMPACT: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for CopyMicromapModeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("CLONE"),
-            1i32 => f.write_str("SERIALIZE"),
-            2i32 => f.write_str("DESERIALIZE"),
-            3i32 => f.write_str("COMPACT"),
-            other => write!(f, "{}({})", stringify!(CopyMicromapModeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkOpacityMicromapFormatEXT")]
-pub struct OpacityMicromapFormatEXT(i32);
-impl OpacityMicromapFormatEXT {
-    pub const _2_STATE: Self = Self(1i32);
-    pub const _4_STATE: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for OpacityMicromapFormatEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            1i32 => f.write_str("_2_STATE"),
-            2i32 => f.write_str("_4_STATE"),
-            other => write!(f, "{}({})", stringify!(OpacityMicromapFormatEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkComponentTypeKHR")]
-pub struct ComponentTypeKHR(i32);
-impl ComponentTypeKHR {
-    pub const FLOAT16: Self = Self(0i32);
-    pub const FLOAT32: Self = Self(1i32);
-    pub const FLOAT64: Self = Self(2i32);
-    pub const SINT8: Self = Self(3i32);
-    pub const SINT16: Self = Self(4i32);
-    pub const SINT32: Self = Self(5i32);
-    pub const SINT64: Self = Self(6i32);
-    pub const UINT8: Self = Self(7i32);
-    pub const UINT16: Self = Self(8i32);
-    pub const UINT32: Self = Self(9i32);
-    pub const UINT64: Self = Self(10i32);
-    pub const BFLOAT16: Self = Self(1000141000i32);
-    pub const SINT8_PACKED: Self = Self(1000491000i32);
-    pub const UINT8_PACKED: Self = Self(1000491001i32);
-    pub const FLOAT_E4M3: Self = Self::FLOAT8_E4M3;
-    pub const FLOAT_E5M2: Self = Self::FLOAT8_E5M2;
-    pub const FLOAT8_E4M3: Self = Self(1000491002i32);
-    pub const FLOAT8_E5M2: Self = Self(1000491003i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ComponentTypeKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("FLOAT16"),
-            1i32 => f.write_str("FLOAT32"),
-            2i32 => f.write_str("FLOAT64"),
-            3i32 => f.write_str("SINT8"),
-            4i32 => f.write_str("SINT16"),
-            5i32 => f.write_str("SINT32"),
-            6i32 => f.write_str("SINT64"),
-            7i32 => f.write_str("UINT8"),
-            8i32 => f.write_str("UINT16"),
-            9i32 => f.write_str("UINT32"),
-            10i32 => f.write_str("UINT64"),
-            1000141000i32 => f.write_str("BFLOAT16"),
-            1000491000i32 => f.write_str("SINT8_PACKED"),
-            1000491001i32 => f.write_str("UINT8_PACKED"),
-            1000491002i32 => f.write_str("FLOAT8_E4M3"),
-            1000491003i32 => f.write_str("FLOAT8_E5M2"),
-            other => write!(f, "{}({})", stringify!(ComponentTypeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkImageViewType")]
-pub struct ImageViewType(i32);
-impl ImageViewType {
-    pub const _1D: Self = Self(0i32);
-    pub const _2D: Self = Self(1i32);
-    pub const _3D: Self = Self(2i32);
-    pub const CUBE: Self = Self(3i32);
-    pub const _1D_ARRAY: Self = Self(4i32);
-    pub const _2D_ARRAY: Self = Self(5i32);
-    pub const CUBE_ARRAY: Self = Self(6i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ImageViewType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("_1D"),
-            1i32 => f.write_str("_2D"),
-            2i32 => f.write_str("_3D"),
-            3i32 => f.write_str("CUBE"),
-            4i32 => f.write_str("_1D_ARRAY"),
-            5i32 => f.write_str("_2D_ARRAY"),
-            6i32 => f.write_str("CUBE_ARRAY"),
-            other => write!(f, "{}({})", stringify!(ImageViewType), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPipelineRobustnessBufferBehavior")]
-pub struct PipelineRobustnessBufferBehavior(i32);
-impl PipelineRobustnessBufferBehavior {
-    pub const DEVICE_DEFAULT: Self = Self(0i32);
-    pub const DISABLED: Self = Self(1i32);
-    pub const ROBUST_BUFFER_ACCESS: Self = Self(2i32);
-    pub const ROBUST_BUFFER_ACCESS_2: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PipelineRobustnessBufferBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DEVICE_DEFAULT"),
-            1i32 => f.write_str("DISABLED"),
-            2i32 => f.write_str("ROBUST_BUFFER_ACCESS"),
-            3i32 => f.write_str("ROBUST_BUFFER_ACCESS_2"),
-            other => {
-                write!(f, "{}({})", stringify!(PipelineRobustnessBufferBehavior), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkQueryPoolSamplingModeINTEL")]
-pub struct QueryPoolSamplingModeINTEL(i32);
-impl QueryPoolSamplingModeINTEL {
-    pub const MANUAL: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for QueryPoolSamplingModeINTEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("MANUAL"),
-            other => write!(f, "{}({})", stringify!(QueryPoolSamplingModeINTEL), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkImageType")]
-pub struct ImageType(i32);
-impl ImageType {
-    pub const _1D: Self = Self(0i32);
-    pub const _2D: Self = Self(1i32);
-    pub const _3D: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ImageType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("_1D"),
-            1i32 => f.write_str("_2D"),
-            2i32 => f.write_str("_3D"),
-            other => write!(f, "{}({})", stringify!(ImageType), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkVideoEncodeAV1RateControlGroupKHR")]
-pub struct VideoEncodeAV1RateControlGroupKHR(i32);
-impl VideoEncodeAV1RateControlGroupKHR {
-    pub const INTRA: Self = Self(0i32);
-    pub const PREDICTIVE: Self = Self(1i32);
-    pub const BIPREDICTIVE: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for VideoEncodeAV1RateControlGroupKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("INTRA"),
-            1i32 => f.write_str("PREDICTIVE"),
-            2i32 => f.write_str("BIPREDICTIVE"),
-            other => {
-                write!(f, "{}({})", stringify!(VideoEncodeAV1RateControlGroupKHR), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkImageTiling")]
-pub struct ImageTiling(i32);
-impl ImageTiling {
-    pub const OPTIMAL: Self = Self(0i32);
+#[doc(alias = "VkFilter")]
+pub struct Filter(i32);
+impl Filter {
+    pub const NEAREST: Self = Self(0i32);
     pub const LINEAR: Self = Self(1i32);
-    pub const DRM_FORMAT_MODIFIER: Self = Self(1000158000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -5891,109 +7730,12 @@ impl ImageTiling {
         self.0
     }
 }
-impl core::fmt::Debug for ImageTiling {
+impl core::fmt::Debug for Filter {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("OPTIMAL"),
+            0i32 => f.write_str("NEAREST"),
             1i32 => f.write_str("LINEAR"),
-            1000158000i32 => f.write_str("DRM_FORMAT_MODIFIER"),
-            other => write!(f, "{}({})", stringify!(ImageTiling), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCommandBufferLevel")]
-pub struct CommandBufferLevel(i32);
-impl CommandBufferLevel {
-    pub const PRIMARY: Self = Self(0i32);
-    pub const SECONDARY: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for CommandBufferLevel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("PRIMARY"),
-            1i32 => f.write_str("SECONDARY"),
-            other => write!(f, "{}({})", stringify!(CommandBufferLevel), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkBuildMicromapModeEXT")]
-pub struct BuildMicromapModeEXT(i32);
-impl BuildMicromapModeEXT {
-    pub const BUILD: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for BuildMicromapModeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("BUILD"),
-            other => write!(f, "{}({})", stringify!(BuildMicromapModeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkValidationCacheHeaderVersionEXT")]
-pub struct ValidationCacheHeaderVersionEXT(i32);
-impl ValidationCacheHeaderVersionEXT {
-    pub const ONE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ValidationCacheHeaderVersionEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            1i32 => f.write_str("ONE"),
-            other => {
-                write!(f, "{}({})", stringify!(ValidationCacheHeaderVersionEXT), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCompressedTriangleFormatAMDX")]
-pub struct CompressedTriangleFormatAMDX(i32);
-impl CompressedTriangleFormatAMDX {
-    pub const DGF1: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for CompressedTriangleFormatAMDX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DGF1"),
-            other => write!(f, "{}({})", stringify!(CompressedTriangleFormatAMDX), other),
+            other => write!(f, "{}({})", stringify!(Filter), other),
         }
     }
 }
@@ -6022,12 +7764,10 @@ impl core::fmt::Debug for InternalAllocationType {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkClusterAccelerationStructureOpModeNV")]
-pub struct ClusterAccelerationStructureOpModeNV(i32);
-impl ClusterAccelerationStructureOpModeNV {
-    pub const IMPLICIT_DESTINATIONS: Self = Self(0i32);
-    pub const EXPLICIT_DESTINATIONS: Self = Self(1i32);
-    pub const COMPUTE_SIZES: Self = Self(2i32);
+#[doc(alias = "VkQueryPoolSamplingModeINTEL")]
+pub struct QueryPoolSamplingModeINTEL(i32);
+impl QueryPoolSamplingModeINTEL {
+    pub const MANUAL: Self = Self(0i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6037,27 +7777,21 @@ impl ClusterAccelerationStructureOpModeNV {
         self.0
     }
 }
-impl core::fmt::Debug for ClusterAccelerationStructureOpModeNV {
+impl core::fmt::Debug for QueryPoolSamplingModeINTEL {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("IMPLICIT_DESTINATIONS"),
-            1i32 => f.write_str("EXPLICIT_DESTINATIONS"),
-            2i32 => f.write_str("COMPUTE_SIZES"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(ClusterAccelerationStructureOpModeNV), other
-                )
-            }
+            0i32 => f.write_str("MANUAL"),
+            other => write!(f, "{}({})", stringify!(QueryPoolSamplingModeINTEL), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkTessellationDomainOrigin")]
-pub struct TessellationDomainOrigin(i32);
-impl TessellationDomainOrigin {
-    pub const UPPER_LEFT: Self = Self(0i32);
-    pub const LOWER_LEFT: Self = Self(1i32);
+#[doc(alias = "VkSharingMode")]
+pub struct SharingMode(i32);
+impl SharingMode {
+    pub const EXCLUSIVE: Self = Self(0i32);
+    pub const CONCURRENT: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6067,24 +7801,22 @@ impl TessellationDomainOrigin {
         self.0
     }
 }
-impl core::fmt::Debug for TessellationDomainOrigin {
+impl core::fmt::Debug for SharingMode {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("UPPER_LEFT"),
-            1i32 => f.write_str("LOWER_LEFT"),
-            other => write!(f, "{}({})", stringify!(TessellationDomainOrigin), other),
+            0i32 => f.write_str("EXCLUSIVE"),
+            1i32 => f.write_str("CONCURRENT"),
+            other => write!(f, "{}({})", stringify!(SharingMode), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPolygonMode")]
-pub struct PolygonMode(i32);
-impl PolygonMode {
-    pub const FILL: Self = Self(0i32);
-    pub const LINE: Self = Self(1i32);
-    pub const POINT: Self = Self(2i32);
-    pub const FILL_RECTANGLE: Self = Self(1000153000i32);
+#[doc(alias = "VkPointClippingBehavior")]
+pub struct PointClippingBehavior(i32);
+impl PointClippingBehavior {
+    pub const ALL_CLIP_PLANES: Self = Self(0i32);
+    pub const USER_CLIP_PLANES_ONLY: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6094,14 +7826,12 @@ impl PolygonMode {
         self.0
     }
 }
-impl core::fmt::Debug for PolygonMode {
+impl core::fmt::Debug for PointClippingBehavior {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("FILL"),
-            1i32 => f.write_str("LINE"),
-            2i32 => f.write_str("POINT"),
-            1000153000i32 => f.write_str("FILL_RECTANGLE"),
-            other => write!(f, "{}({})", stringify!(PolygonMode), other),
+            0i32 => f.write_str("ALL_CLIP_PLANES"),
+            1i32 => f.write_str("USER_CLIP_PLANES_ONLY"),
+            other => write!(f, "{}({})", stringify!(PointClippingBehavior), other),
         }
     }
 }
@@ -6274,15 +8004,12 @@ impl core::fmt::Debug for DynamicState {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkClusterAccelerationStructureOpTypeNV")]
-pub struct ClusterAccelerationStructureOpTypeNV(i32);
-impl ClusterAccelerationStructureOpTypeNV {
-    pub const MOVE_OBJECTS: Self = Self(0i32);
-    pub const BUILD_CLUSTERS_BOTTOM_LEVEL: Self = Self(1i32);
-    pub const BUILD_TRIANGLE_CLUSTER: Self = Self(2i32);
-    pub const BUILD_TRIANGLE_CLUSTER_TEMPLATE: Self = Self(3i32);
-    pub const INSTANTIATE_TRIANGLE_CLUSTER: Self = Self(4i32);
-    pub const GET_CLUSTER_TEMPLATE_INDICES: Self = Self(5i32);
+#[doc(alias = "VkAccelerationStructureBuildTypeKHR")]
+pub struct AccelerationStructureBuildTypeKHR(i32);
+impl AccelerationStructureBuildTypeKHR {
+    pub const HOST: Self = Self(0i32);
+    pub const DEVICE: Self = Self(1i32);
+    pub const HOST_OR_DEVICE: Self = Self(2i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6292,29 +8019,25 @@ impl ClusterAccelerationStructureOpTypeNV {
         self.0
     }
 }
-impl core::fmt::Debug for ClusterAccelerationStructureOpTypeNV {
+impl core::fmt::Debug for AccelerationStructureBuildTypeKHR {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("MOVE_OBJECTS"),
-            1i32 => f.write_str("BUILD_CLUSTERS_BOTTOM_LEVEL"),
-            2i32 => f.write_str("BUILD_TRIANGLE_CLUSTER"),
-            3i32 => f.write_str("BUILD_TRIANGLE_CLUSTER_TEMPLATE"),
-            4i32 => f.write_str("INSTANTIATE_TRIANGLE_CLUSTER"),
-            5i32 => f.write_str("GET_CLUSTER_TEMPLATE_INDICES"),
+            0i32 => f.write_str("HOST"),
+            1i32 => f.write_str("DEVICE"),
+            2i32 => f.write_str("HOST_OR_DEVICE"),
             other => {
-                write!(
-                    f, "{}({})", stringify!(ClusterAccelerationStructureOpTypeNV), other
-                )
+                write!(f, "{}({})", stringify!(AccelerationStructureBuildTypeKHR), other)
             }
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFaultQueryBehavior")]
-pub struct FaultQueryBehavior(i32);
-impl FaultQueryBehavior {
-    pub const GET_AND_CLEAR_ALL_FAULTS: Self = Self(0i32);
+#[doc(alias = "VkSamplerYcbcrRange")]
+pub struct SamplerYcbcrRange(i32);
+impl SamplerYcbcrRange {
+    pub const ITU_FULL: Self = Self(0i32);
+    pub const ITU_NARROW: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6324,52 +8047,21 @@ impl FaultQueryBehavior {
         self.0
     }
 }
-impl core::fmt::Debug for FaultQueryBehavior {
+impl core::fmt::Debug for SamplerYcbcrRange {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("GET_AND_CLEAR_ALL_FAULTS"),
-            other => write!(f, "{}({})", stringify!(FaultQueryBehavior), other),
+            0i32 => f.write_str("ITU_FULL"),
+            1i32 => f.write_str("ITU_NARROW"),
+            other => write!(f, "{}({})", stringify!(SamplerYcbcrRange), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkImageLayout")]
-pub struct ImageLayout(i32);
-impl ImageLayout {
-    pub const UNDEFINED: Self = Self(0i32);
-    pub const GENERAL: Self = Self(1i32);
-    pub const COLOR_ATTACHMENT_OPTIMAL: Self = Self(2i32);
-    pub const DEPTH_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(3i32);
-    pub const DEPTH_STENCIL_READ_ONLY_OPTIMAL: Self = Self(4i32);
-    pub const SHADER_READ_ONLY_OPTIMAL: Self = Self(5i32);
-    pub const TRANSFER_SRC_OPTIMAL: Self = Self(6i32);
-    pub const TRANSFER_DST_OPTIMAL: Self = Self(7i32);
-    pub const PREINITIALIZED: Self = Self(8i32);
-    pub const DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(1000117000i32);
-    pub const DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL: Self = Self(1000117001i32);
-    pub const DEPTH_ATTACHMENT_OPTIMAL: Self = Self(1000241000i32);
-    pub const DEPTH_READ_ONLY_OPTIMAL: Self = Self(1000241001i32);
-    pub const STENCIL_ATTACHMENT_OPTIMAL: Self = Self(1000241002i32);
-    pub const STENCIL_READ_ONLY_OPTIMAL: Self = Self(1000241003i32);
-    pub const READ_ONLY_OPTIMAL: Self = Self(1000314000i32);
-    pub const ATTACHMENT_OPTIMAL: Self = Self(1000314001i32);
-    pub const RENDERING_LOCAL_READ: Self = Self(1000232000i32);
-    pub const PRESENT_SRC: Self = Self(1000001002i32);
-    pub const VIDEO_DECODE_DST: Self = Self(1000024000i32);
-    pub const VIDEO_DECODE_SRC: Self = Self(1000024001i32);
-    pub const VIDEO_DECODE_DPB: Self = Self(1000024002i32);
-    pub const SHARED_PRESENT: Self = Self(1000111000i32);
-    pub const SHADING_RATE_OPTIMAL: Self = Self::FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL;
-    pub const FRAGMENT_DENSITY_MAP_OPTIMAL: Self = Self(1000218000i32);
-    pub const FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL: Self = Self(1000164003i32);
-    pub const VIDEO_ENCODE_DST: Self = Self(1000299000i32);
-    pub const VIDEO_ENCODE_SRC: Self = Self(1000299001i32);
-    pub const VIDEO_ENCODE_DPB: Self = Self(1000299002i32);
-    pub const ATTACHMENT_FEEDBACK_LOOP_OPTIMAL: Self = Self(1000339000i32);
-    pub const TENSOR_ALIASING: Self = Self(1000460000i32);
-    pub const VIDEO_ENCODE_QUANTIZATION_MAP: Self = Self(1000553000i32);
-    pub const ZERO_INITIALIZED: Self = Self(1000620000i32);
+#[doc(alias = "VkPipelineMatchControl")]
+pub struct PipelineMatchControl(i32);
+impl PipelineMatchControl {
+    pub const APPLICATION_UUID_EXACT_MATCH: Self = Self(0i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6379,53 +8071,23 @@ impl ImageLayout {
         self.0
     }
 }
-impl core::fmt::Debug for ImageLayout {
+impl core::fmt::Debug for PipelineMatchControl {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("UNDEFINED"),
-            1i32 => f.write_str("GENERAL"),
-            2i32 => f.write_str("COLOR_ATTACHMENT_OPTIMAL"),
-            3i32 => f.write_str("DEPTH_STENCIL_ATTACHMENT_OPTIMAL"),
-            4i32 => f.write_str("DEPTH_STENCIL_READ_ONLY_OPTIMAL"),
-            5i32 => f.write_str("SHADER_READ_ONLY_OPTIMAL"),
-            6i32 => f.write_str("TRANSFER_SRC_OPTIMAL"),
-            7i32 => f.write_str("TRANSFER_DST_OPTIMAL"),
-            8i32 => f.write_str("PREINITIALIZED"),
-            1000117000i32 => f.write_str("DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL"),
-            1000117001i32 => f.write_str("DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL"),
-            1000241000i32 => f.write_str("DEPTH_ATTACHMENT_OPTIMAL"),
-            1000241001i32 => f.write_str("DEPTH_READ_ONLY_OPTIMAL"),
-            1000241002i32 => f.write_str("STENCIL_ATTACHMENT_OPTIMAL"),
-            1000241003i32 => f.write_str("STENCIL_READ_ONLY_OPTIMAL"),
-            1000314000i32 => f.write_str("READ_ONLY_OPTIMAL"),
-            1000314001i32 => f.write_str("ATTACHMENT_OPTIMAL"),
-            1000232000i32 => f.write_str("RENDERING_LOCAL_READ"),
-            1000001002i32 => f.write_str("PRESENT_SRC"),
-            1000024000i32 => f.write_str("VIDEO_DECODE_DST"),
-            1000024001i32 => f.write_str("VIDEO_DECODE_SRC"),
-            1000024002i32 => f.write_str("VIDEO_DECODE_DPB"),
-            1000111000i32 => f.write_str("SHARED_PRESENT"),
-            1000218000i32 => f.write_str("FRAGMENT_DENSITY_MAP_OPTIMAL"),
-            1000164003i32 => f.write_str("FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL"),
-            1000299000i32 => f.write_str("VIDEO_ENCODE_DST"),
-            1000299001i32 => f.write_str("VIDEO_ENCODE_SRC"),
-            1000299002i32 => f.write_str("VIDEO_ENCODE_DPB"),
-            1000339000i32 => f.write_str("ATTACHMENT_FEEDBACK_LOOP_OPTIMAL"),
-            1000460000i32 => f.write_str("TENSOR_ALIASING"),
-            1000553000i32 => f.write_str("VIDEO_ENCODE_QUANTIZATION_MAP"),
-            1000620000i32 => f.write_str("ZERO_INITIALIZED"),
-            other => write!(f, "{}({})", stringify!(ImageLayout), other),
+            0i32 => f.write_str("APPLICATION_UUID_EXACT_MATCH"),
+            other => write!(f, "{}({})", stringify!(PipelineMatchControl), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkMemoryOverallocationBehaviorAMD")]
-pub struct MemoryOverallocationBehaviorAMD(i32);
-impl MemoryOverallocationBehaviorAMD {
-    pub const DEFAULT: Self = Self(0i32);
-    pub const ALLOWED: Self = Self(1i32);
-    pub const DISALLOWED: Self = Self(2i32);
+#[doc(alias = "VkScopeKHR")]
+pub struct ScopeKHR(i32);
+impl ScopeKHR {
+    pub const DEVICE: Self = Self(1i32);
+    pub const WORKGROUP: Self = Self(2i32);
+    pub const SUBGROUP: Self = Self(3i32);
+    pub const QUEUE_FAMILY: Self = Self(5i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6435,26 +8097,29 @@ impl MemoryOverallocationBehaviorAMD {
         self.0
     }
 }
-impl core::fmt::Debug for MemoryOverallocationBehaviorAMD {
+impl core::fmt::Debug for ScopeKHR {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("DEFAULT"),
-            1i32 => f.write_str("ALLOWED"),
-            2i32 => f.write_str("DISALLOWED"),
-            other => {
-                write!(f, "{}({})", stringify!(MemoryOverallocationBehaviorAMD), other)
-            }
+            1i32 => f.write_str("DEVICE"),
+            2i32 => f.write_str("WORKGROUP"),
+            3i32 => f.write_str("SUBGROUP"),
+            5i32 => f.write_str("QUEUE_FAMILY"),
+            other => write!(f, "{}({})", stringify!(ScopeKHR), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkClusterAccelerationStructureTypeNV")]
-pub struct ClusterAccelerationStructureTypeNV(i32);
-impl ClusterAccelerationStructureTypeNV {
-    pub const CLUSTERS_BOTTOM_LEVEL: Self = Self(0i32);
-    pub const TRIANGLE_CLUSTER: Self = Self(1i32);
-    pub const TRIANGLE_CLUSTER_TEMPLATE: Self = Self(2i32);
+#[doc(alias = "VkVendorId")]
+pub struct VendorId(i32);
+impl VendorId {
+    pub const KHRONOS: Self = Self(65536i32);
+    pub const VIV: Self = Self(65537i32);
+    pub const VSI: Self = Self(65538i32);
+    pub const KAZAN: Self = Self(65539i32);
+    pub const CODEPLAY: Self = Self(65540i32);
+    pub const POCL: Self = Self(65542i32);
+    pub const MOBILEYE: Self = Self(65543i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6464,27 +8129,27 @@ impl ClusterAccelerationStructureTypeNV {
         self.0
     }
 }
-impl core::fmt::Debug for ClusterAccelerationStructureTypeNV {
+impl core::fmt::Debug for VendorId {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("CLUSTERS_BOTTOM_LEVEL"),
-            1i32 => f.write_str("TRIANGLE_CLUSTER"),
-            2i32 => f.write_str("TRIANGLE_CLUSTER_TEMPLATE"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(ClusterAccelerationStructureTypeNV), other
-                )
-            }
+            65536i32 => f.write_str("KHRONOS"),
+            65537i32 => f.write_str("VIV"),
+            65538i32 => f.write_str("VSI"),
+            65539i32 => f.write_str("KAZAN"),
+            65540i32 => f.write_str("CODEPLAY"),
+            65542i32 => f.write_str("POCL"),
+            65543i32 => f.write_str("MOBILEYE"),
+            other => write!(f, "{}({})", stringify!(VendorId), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFragmentShadingRateTypeNV")]
-pub struct FragmentShadingRateTypeNV(i32);
-impl FragmentShadingRateTypeNV {
-    pub const FRAGMENT_SIZE: Self = Self(0i32);
-    pub const ENUMS: Self = Self(1i32);
+#[doc(alias = "VkSubpassContents")]
+pub struct SubpassContents(i32);
+impl SubpassContents {
+    pub const INLINE: Self = Self(0i32);
+    pub const SECONDARY_COMMAND_BUFFERS: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6494,166 +8159,24 @@ impl FragmentShadingRateTypeNV {
         self.0
     }
 }
-impl core::fmt::Debug for FragmentShadingRateTypeNV {
+impl core::fmt::Debug for SubpassContents {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("FRAGMENT_SIZE"),
-            1i32 => f.write_str("ENUMS"),
-            other => write!(f, "{}({})", stringify!(FragmentShadingRateTypeNV), other),
+            0i32 => f.write_str("INLINE"),
+            1i32 => f.write_str("SECONDARY_COMMAND_BUFFERS"),
+            other => write!(f, "{}({})", stringify!(SubpassContents), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFragmentShadingRateNV")]
-pub struct FragmentShadingRateNV(i32);
-impl FragmentShadingRateNV {
-    pub const _1_INVOCATION_PER_PIXEL: Self = Self(0i32);
-    pub const _1_INVOCATION_PER_1X2_PIXELS: Self = Self(1i32);
-    pub const _1_INVOCATION_PER_2X1_PIXELS: Self = Self(4i32);
-    pub const _1_INVOCATION_PER_2X2_PIXELS: Self = Self(5i32);
-    pub const _1_INVOCATION_PER_2X4_PIXELS: Self = Self(6i32);
-    pub const _1_INVOCATION_PER_4X2_PIXELS: Self = Self(9i32);
-    pub const _1_INVOCATION_PER_4X4_PIXELS: Self = Self(10i32);
-    pub const _2_INVOCATIONS_PER_PIXEL: Self = Self(11i32);
-    pub const _4_INVOCATIONS_PER_PIXEL: Self = Self(12i32);
-    pub const _8_INVOCATIONS_PER_PIXEL: Self = Self(13i32);
-    pub const _16_INVOCATIONS_PER_PIXEL: Self = Self(14i32);
-    pub const NO_INVOCATIONS: Self = Self(15i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for FragmentShadingRateNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("_1_INVOCATION_PER_PIXEL"),
-            1i32 => f.write_str("_1_INVOCATION_PER_1X2_PIXELS"),
-            4i32 => f.write_str("_1_INVOCATION_PER_2X1_PIXELS"),
-            5i32 => f.write_str("_1_INVOCATION_PER_2X2_PIXELS"),
-            6i32 => f.write_str("_1_INVOCATION_PER_2X4_PIXELS"),
-            9i32 => f.write_str("_1_INVOCATION_PER_4X2_PIXELS"),
-            10i32 => f.write_str("_1_INVOCATION_PER_4X4_PIXELS"),
-            11i32 => f.write_str("_2_INVOCATIONS_PER_PIXEL"),
-            12i32 => f.write_str("_4_INVOCATIONS_PER_PIXEL"),
-            13i32 => f.write_str("_8_INVOCATIONS_PER_PIXEL"),
-            14i32 => f.write_str("_16_INVOCATIONS_PER_PIXEL"),
-            15i32 => f.write_str("NO_INVOCATIONS"),
-            other => write!(f, "{}({})", stringify!(FragmentShadingRateNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDisplacementMicromapFormatNV")]
-pub struct DisplacementMicromapFormatNV(i32);
-impl DisplacementMicromapFormatNV {
-    pub const _64_TRIANGLES_64_BYTES: Self = Self(1i32);
-    pub const _256_TRIANGLES_128_BYTES: Self = Self(2i32);
-    pub const _1024_TRIANGLES_128_BYTES: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DisplacementMicromapFormatNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            1i32 => f.write_str("_64_TRIANGLES_64_BYTES"),
-            2i32 => f.write_str("_256_TRIANGLES_128_BYTES"),
-            3i32 => f.write_str("_1024_TRIANGLES_128_BYTES"),
-            other => write!(f, "{}({})", stringify!(DisplacementMicromapFormatNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkIndexType")]
-pub struct IndexType(i32);
-impl IndexType {
-    pub const UINT16: Self = Self(0i32);
-    pub const UINT32: Self = Self(1i32);
-    pub const UINT8: Self = Self(1000265000i32);
-    pub const NONE: Self = Self(1000165000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for IndexType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("UINT16"),
-            1i32 => f.write_str("UINT32"),
-            1000265000i32 => f.write_str("UINT8"),
-            1000165000i32 => f.write_str("NONE"),
-            other => write!(f, "{}({})", stringify!(IndexType), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPrimitiveTopology")]
-pub struct PrimitiveTopology(i32);
-impl PrimitiveTopology {
-    pub const POINT_LIST: Self = Self(0i32);
-    pub const LINE_LIST: Self = Self(1i32);
-    pub const LINE_STRIP: Self = Self(2i32);
-    pub const TRIANGLE_LIST: Self = Self(3i32);
-    pub const TRIANGLE_STRIP: Self = Self(4i32);
-    pub const TRIANGLE_FAN: Self = Self(5i32);
-    pub const LINE_LIST_WITH_ADJACENCY: Self = Self(6i32);
-    pub const LINE_STRIP_WITH_ADJACENCY: Self = Self(7i32);
-    pub const TRIANGLE_LIST_WITH_ADJACENCY: Self = Self(8i32);
-    pub const TRIANGLE_STRIP_WITH_ADJACENCY: Self = Self(9i32);
-    pub const PATCH_LIST: Self = Self(10i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PrimitiveTopology {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("POINT_LIST"),
-            1i32 => f.write_str("LINE_LIST"),
-            2i32 => f.write_str("LINE_STRIP"),
-            3i32 => f.write_str("TRIANGLE_LIST"),
-            4i32 => f.write_str("TRIANGLE_STRIP"),
-            5i32 => f.write_str("TRIANGLE_FAN"),
-            6i32 => f.write_str("LINE_LIST_WITH_ADJACENCY"),
-            7i32 => f.write_str("LINE_STRIP_WITH_ADJACENCY"),
-            8i32 => f.write_str("TRIANGLE_LIST_WITH_ADJACENCY"),
-            9i32 => f.write_str("TRIANGLE_STRIP_WITH_ADJACENCY"),
-            10i32 => f.write_str("PATCH_LIST"),
-            other => write!(f, "{}({})", stringify!(PrimitiveTopology), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkRayTracingLssPrimitiveEndCapsModeNV")]
-pub struct RayTracingLssPrimitiveEndCapsModeNV(i32);
-impl RayTracingLssPrimitiveEndCapsModeNV {
+#[doc(alias = "VkCoverageModulationModeNV")]
+pub struct CoverageModulationModeNV(i32);
+impl CoverageModulationModeNV {
     pub const NONE: Self = Self(0i32);
-    pub const CHAINED: Self = Self(1i32);
+    pub const RGB: Self = Self(1i32);
+    pub const ALPHA: Self = Self(2i32);
+    pub const RGBA: Self = Self(3i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6663,26 +8186,24 @@ impl RayTracingLssPrimitiveEndCapsModeNV {
         self.0
     }
 }
-impl core::fmt::Debug for RayTracingLssPrimitiveEndCapsModeNV {
+impl core::fmt::Debug for CoverageModulationModeNV {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
             0i32 => f.write_str("NONE"),
-            1i32 => f.write_str("CHAINED"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(RayTracingLssPrimitiveEndCapsModeNV), other
-                )
-            }
+            1i32 => f.write_str("RGB"),
+            2i32 => f.write_str("ALPHA"),
+            3i32 => f.write_str("RGBA"),
+            other => write!(f, "{}({})", stringify!(CoverageModulationModeNV), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkMicromapTypeEXT")]
-pub struct MicromapTypeEXT(i32);
-impl MicromapTypeEXT {
-    pub const OPACITY_MICROMAP: Self = Self(0i32);
-    pub const DISPLACEMENT_MICROMAP: Self = Self(1000397000i32);
+#[doc(alias = "VkDefaultVertexAttributeValueKHR")]
+pub struct DefaultVertexAttributeValueKHR(i32);
+impl DefaultVertexAttributeValueKHR {
+    pub const ZERO_ZERO_ZERO_ZERO: Self = Self(0i32);
+    pub const ZERO_ZERO_ZERO_ONE: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -6692,12 +8213,99 @@ impl MicromapTypeEXT {
         self.0
     }
 }
-impl core::fmt::Debug for MicromapTypeEXT {
+impl core::fmt::Debug for DefaultVertexAttributeValueKHR {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("OPACITY_MICROMAP"),
-            1000397000i32 => f.write_str("DISPLACEMENT_MICROMAP"),
-            other => write!(f, "{}({})", stringify!(MicromapTypeEXT), other),
+            0i32 => f.write_str("ZERO_ZERO_ZERO_ZERO"),
+            1i32 => f.write_str("ZERO_ZERO_ZERO_ONE"),
+            other => {
+                write!(f, "{}({})", stringify!(DefaultVertexAttributeValueKHR), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkOpacityMicromapSpecialIndexEXT")]
+pub struct OpacityMicromapSpecialIndexEXT(i32);
+impl OpacityMicromapSpecialIndexEXT {
+    pub const FULLY_TRANSPARENT: Self = Self(-1i32);
+    pub const FULLY_OPAQUE: Self = Self(-2i32);
+    pub const FULLY_UNKNOWN_TRANSPARENT: Self = Self(-3i32);
+    pub const FULLY_UNKNOWN_OPAQUE: Self = Self(-4i32);
+    pub const CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP: Self = Self(-5i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for OpacityMicromapSpecialIndexEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            -1i32 => f.write_str("FULLY_TRANSPARENT"),
+            -2i32 => f.write_str("FULLY_OPAQUE"),
+            -3i32 => f.write_str("FULLY_UNKNOWN_TRANSPARENT"),
+            -4i32 => f.write_str("FULLY_UNKNOWN_OPAQUE"),
+            -5i32 => f.write_str("CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP"),
+            other => {
+                write!(f, "{}({})", stringify!(OpacityMicromapSpecialIndexEXT), other)
+            }
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkTessellationDomainOrigin")]
+pub struct TessellationDomainOrigin(i32);
+impl TessellationDomainOrigin {
+    pub const UPPER_LEFT: Self = Self(0i32);
+    pub const LOWER_LEFT: Self = Self(1i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for TessellationDomainOrigin {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("UPPER_LEFT"),
+            1i32 => f.write_str("LOWER_LEFT"),
+            other => write!(f, "{}({})", stringify!(TessellationDomainOrigin), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkDepthBiasRepresentationEXT")]
+pub struct DepthBiasRepresentationEXT(i32);
+impl DepthBiasRepresentationEXT {
+    pub const LEAST_REPRESENTABLE_VALUE_FORMAT: Self = Self(0i32);
+    pub const LEAST_REPRESENTABLE_VALUE_FORCE_UNORM: Self = Self(1i32);
+    pub const FLOAT: Self = Self(2i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for DepthBiasRepresentationEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("LEAST_REPRESENTABLE_VALUE_FORMAT"),
+            1i32 => f.write_str("LEAST_REPRESENTABLE_VALUE_FORCE_UNORM"),
+            2i32 => f.write_str("FLOAT"),
+            other => write!(f, "{}({})", stringify!(DepthBiasRepresentationEXT), other),
         }
     }
 }
@@ -7321,74 +8929,13 @@ impl core::fmt::Debug for Format {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAccelerationStructureCompatibilityKHR")]
-pub struct AccelerationStructureCompatibilityKHR(i32);
-impl AccelerationStructureCompatibilityKHR {
-    pub const COMPATIBLE: Self = Self(0i32);
-    pub const INCOMPATIBLE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for AccelerationStructureCompatibilityKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("COMPATIBLE"),
-            1i32 => f.write_str("INCOMPATIBLE"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(AccelerationStructureCompatibilityKHR), other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPhysicalDeviceDataGraphProcessingEngineTypeARM")]
-pub struct PhysicalDeviceDataGraphProcessingEngineTypeARM(i32);
-impl PhysicalDeviceDataGraphProcessingEngineTypeARM {
-    pub const DEFAULT: Self = Self(0i32);
-    pub const NEURAL: Self = Self(1000629000i32);
-    pub const COMPUTE: Self = Self(1000629001i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PhysicalDeviceDataGraphProcessingEngineTypeARM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DEFAULT"),
-            1000629000i32 => f.write_str("NEURAL"),
-            1000629001i32 => f.write_str("COMPUTE"),
-            other => {
-                write!(
-                    f, "{}({})",
-                    stringify!(PhysicalDeviceDataGraphProcessingEngineTypeARM), other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCopyAccelerationStructureModeKHR")]
-pub struct CopyAccelerationStructureModeKHR(i32);
-impl CopyAccelerationStructureModeKHR {
+#[doc(alias = "VkCopyMicromapModeEXT")]
+pub struct CopyMicromapModeEXT(i32);
+impl CopyMicromapModeEXT {
     pub const CLONE: Self = Self(0i32);
-    pub const COMPACT: Self = Self(1i32);
-    pub const SERIALIZE: Self = Self(2i32);
-    pub const DESERIALIZE: Self = Self(3i32);
+    pub const SERIALIZE: Self = Self(1i32);
+    pub const DESERIALIZE: Self = Self(2i32);
+    pub const COMPACT: Self = Self(3i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -7398,26 +8945,26 @@ impl CopyAccelerationStructureModeKHR {
         self.0
     }
 }
-impl core::fmt::Debug for CopyAccelerationStructureModeKHR {
+impl core::fmt::Debug for CopyMicromapModeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
             0i32 => f.write_str("CLONE"),
-            1i32 => f.write_str("COMPACT"),
-            2i32 => f.write_str("SERIALIZE"),
-            3i32 => f.write_str("DESERIALIZE"),
-            other => {
-                write!(f, "{}({})", stringify!(CopyAccelerationStructureModeKHR), other)
-            }
+            1i32 => f.write_str("SERIALIZE"),
+            2i32 => f.write_str("DESERIALIZE"),
+            3i32 => f.write_str("COMPACT"),
+            other => write!(f, "{}({})", stringify!(CopyMicromapModeEXT), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkChromaLocation")]
-pub struct ChromaLocation(i32);
-impl ChromaLocation {
-    pub const COSITED_EVEN: Self = Self(0i32);
-    pub const MIDPOINT: Self = Self(1i32);
+#[doc(alias = "VkPolygonMode")]
+pub struct PolygonMode(i32);
+impl PolygonMode {
+    pub const FILL: Self = Self(0i32);
+    pub const LINE: Self = Self(1i32);
+    pub const POINT: Self = Self(2i32);
+    pub const FILL_RECTANGLE: Self = Self(1000153000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -7427,1255 +8974,14 @@ impl ChromaLocation {
         self.0
     }
 }
-impl core::fmt::Debug for ChromaLocation {
+impl core::fmt::Debug for PolygonMode {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("COSITED_EVEN"),
-            1i32 => f.write_str("MIDPOINT"),
-            other => write!(f, "{}({})", stringify!(ChromaLocation), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPerformanceCounterUnitKHR")]
-pub struct PerformanceCounterUnitKHR(i32);
-impl PerformanceCounterUnitKHR {
-    pub const GENERIC: Self = Self(0i32);
-    pub const PERCENTAGE: Self = Self(1i32);
-    pub const NANOSECONDS: Self = Self(2i32);
-    pub const BYTES: Self = Self(3i32);
-    pub const BYTES_PER_SECOND: Self = Self(4i32);
-    pub const KELVIN: Self = Self(5i32);
-    pub const WATTS: Self = Self(6i32);
-    pub const VOLTS: Self = Self(7i32);
-    pub const AMPS: Self = Self(8i32);
-    pub const HERTZ: Self = Self(9i32);
-    pub const CYCLES: Self = Self(10i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PerformanceCounterUnitKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("GENERIC"),
-            1i32 => f.write_str("PERCENTAGE"),
-            2i32 => f.write_str("NANOSECONDS"),
-            3i32 => f.write_str("BYTES"),
-            4i32 => f.write_str("BYTES_PER_SECOND"),
-            5i32 => f.write_str("KELVIN"),
-            6i32 => f.write_str("WATTS"),
-            7i32 => f.write_str("VOLTS"),
-            8i32 => f.write_str("AMPS"),
-            9i32 => f.write_str("HERTZ"),
-            10i32 => f.write_str("CYCLES"),
-            other => write!(f, "{}({})", stringify!(PerformanceCounterUnitKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkBlockMatchWindowCompareModeQCOM")]
-pub struct BlockMatchWindowCompareModeQCOM(i32);
-impl BlockMatchWindowCompareModeQCOM {
-    pub const MIN: Self = Self(0i32);
-    pub const MAX: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for BlockMatchWindowCompareModeQCOM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("MIN"),
-            1i32 => f.write_str("MAX"),
-            other => {
-                write!(f, "{}({})", stringify!(BlockMatchWindowCompareModeQCOM), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPhysicalDeviceDataGraphOperationTypeARM")]
-pub struct PhysicalDeviceDataGraphOperationTypeARM(i32);
-impl PhysicalDeviceDataGraphOperationTypeARM {
-    pub const SPIRV_EXTENDED_INSTRUCTION_SET: Self = Self(0i32);
-    pub const NEURAL_MODEL: Self = Self(1000629000i32);
-    pub const BUILTIN_MODEL: Self = Self(1000629001i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PhysicalDeviceDataGraphOperationTypeARM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("SPIRV_EXTENDED_INSTRUCTION_SET"),
-            1000629000i32 => f.write_str("NEURAL_MODEL"),
-            1000629001i32 => f.write_str("BUILTIN_MODEL"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(PhysicalDeviceDataGraphOperationTypeARM),
-                    other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPointClippingBehavior")]
-pub struct PointClippingBehavior(i32);
-impl PointClippingBehavior {
-    pub const ALL_CLIP_PLANES: Self = Self(0i32);
-    pub const USER_CLIP_PLANES_ONLY: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PointClippingBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("ALL_CLIP_PLANES"),
-            1i32 => f.write_str("USER_CLIP_PLANES_ONLY"),
-            other => write!(f, "{}({})", stringify!(PointClippingBehavior), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSubpassMergeStatusEXT")]
-pub struct SubpassMergeStatusEXT(i32);
-impl SubpassMergeStatusEXT {
-    pub const MERGED: Self = Self(0i32);
-    pub const DISALLOWED: Self = Self(1i32);
-    pub const NOT_MERGED_SIDE_EFFECTS: Self = Self(2i32);
-    pub const NOT_MERGED_SAMPLES_MISMATCH: Self = Self(3i32);
-    pub const NOT_MERGED_VIEWS_MISMATCH: Self = Self(4i32);
-    pub const NOT_MERGED_ALIASING: Self = Self(5i32);
-    pub const NOT_MERGED_DEPENDENCIES: Self = Self(6i32);
-    pub const NOT_MERGED_INCOMPATIBLE_INPUT_ATTACHMENT: Self = Self(7i32);
-    pub const NOT_MERGED_TOO_MANY_ATTACHMENTS: Self = Self(8i32);
-    pub const NOT_MERGED_INSUFFICIENT_STORAGE: Self = Self(9i32);
-    pub const NOT_MERGED_DEPTH_STENCIL_COUNT: Self = Self(10i32);
-    pub const NOT_MERGED_RESOLVE_ATTACHMENT_REUSE: Self = Self(11i32);
-    pub const NOT_MERGED_SINGLE_SUBPASS: Self = Self(12i32);
-    pub const NOT_MERGED_UNSPECIFIED: Self = Self(13i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SubpassMergeStatusEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("MERGED"),
-            1i32 => f.write_str("DISALLOWED"),
-            2i32 => f.write_str("NOT_MERGED_SIDE_EFFECTS"),
-            3i32 => f.write_str("NOT_MERGED_SAMPLES_MISMATCH"),
-            4i32 => f.write_str("NOT_MERGED_VIEWS_MISMATCH"),
-            5i32 => f.write_str("NOT_MERGED_ALIASING"),
-            6i32 => f.write_str("NOT_MERGED_DEPENDENCIES"),
-            7i32 => f.write_str("NOT_MERGED_INCOMPATIBLE_INPUT_ATTACHMENT"),
-            8i32 => f.write_str("NOT_MERGED_TOO_MANY_ATTACHMENTS"),
-            9i32 => f.write_str("NOT_MERGED_INSUFFICIENT_STORAGE"),
-            10i32 => f.write_str("NOT_MERGED_DEPTH_STENCIL_COUNT"),
-            11i32 => f.write_str("NOT_MERGED_RESOLVE_ATTACHMENT_REUSE"),
-            12i32 => f.write_str("NOT_MERGED_SINGLE_SUBPASS"),
-            13i32 => f.write_str("NOT_MERGED_UNSPECIFIED"),
-            other => write!(f, "{}({})", stringify!(SubpassMergeStatusEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkBlendOp")]
-pub struct BlendOp(i32);
-impl BlendOp {
-    pub const ADD: Self = Self(0i32);
-    pub const SUBTRACT: Self = Self(1i32);
-    pub const REVERSE_SUBTRACT: Self = Self(2i32);
-    pub const MIN: Self = Self(3i32);
-    pub const MAX: Self = Self(4i32);
-    pub const ZERO: Self = Self(1000148000i32);
-    pub const SRC: Self = Self(1000148001i32);
-    pub const DST: Self = Self(1000148002i32);
-    pub const SRC_OVER: Self = Self(1000148003i32);
-    pub const DST_OVER: Self = Self(1000148004i32);
-    pub const SRC_IN: Self = Self(1000148005i32);
-    pub const DST_IN: Self = Self(1000148006i32);
-    pub const SRC_OUT: Self = Self(1000148007i32);
-    pub const DST_OUT: Self = Self(1000148008i32);
-    pub const SRC_ATOP: Self = Self(1000148009i32);
-    pub const DST_ATOP: Self = Self(1000148010i32);
-    pub const XOR: Self = Self(1000148011i32);
-    pub const MULTIPLY: Self = Self(1000148012i32);
-    pub const SCREEN: Self = Self(1000148013i32);
-    pub const OVERLAY: Self = Self(1000148014i32);
-    pub const DARKEN: Self = Self(1000148015i32);
-    pub const LIGHTEN: Self = Self(1000148016i32);
-    pub const COLORDODGE: Self = Self(1000148017i32);
-    pub const COLORBURN: Self = Self(1000148018i32);
-    pub const HARDLIGHT: Self = Self(1000148019i32);
-    pub const SOFTLIGHT: Self = Self(1000148020i32);
-    pub const DIFFERENCE: Self = Self(1000148021i32);
-    pub const EXCLUSION: Self = Self(1000148022i32);
-    pub const INVERT: Self = Self(1000148023i32);
-    pub const INVERT_RGB: Self = Self(1000148024i32);
-    pub const LINEARDODGE: Self = Self(1000148025i32);
-    pub const LINEARBURN: Self = Self(1000148026i32);
-    pub const VIVIDLIGHT: Self = Self(1000148027i32);
-    pub const LINEARLIGHT: Self = Self(1000148028i32);
-    pub const PINLIGHT: Self = Self(1000148029i32);
-    pub const HARDMIX: Self = Self(1000148030i32);
-    pub const HSL_HUE: Self = Self(1000148031i32);
-    pub const HSL_SATURATION: Self = Self(1000148032i32);
-    pub const HSL_COLOR: Self = Self(1000148033i32);
-    pub const HSL_LUMINOSITY: Self = Self(1000148034i32);
-    pub const PLUS: Self = Self(1000148035i32);
-    pub const PLUS_CLAMPED: Self = Self(1000148036i32);
-    pub const PLUS_CLAMPED_ALPHA: Self = Self(1000148037i32);
-    pub const PLUS_DARKER: Self = Self(1000148038i32);
-    pub const MINUS: Self = Self(1000148039i32);
-    pub const MINUS_CLAMPED: Self = Self(1000148040i32);
-    pub const CONTRAST: Self = Self(1000148041i32);
-    pub const INVERT_OVG: Self = Self(1000148042i32);
-    pub const RED: Self = Self(1000148043i32);
-    pub const GREEN: Self = Self(1000148044i32);
-    pub const BLUE: Self = Self(1000148045i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for BlendOp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("ADD"),
-            1i32 => f.write_str("SUBTRACT"),
-            2i32 => f.write_str("REVERSE_SUBTRACT"),
-            3i32 => f.write_str("MIN"),
-            4i32 => f.write_str("MAX"),
-            1000148000i32 => f.write_str("ZERO"),
-            1000148001i32 => f.write_str("SRC"),
-            1000148002i32 => f.write_str("DST"),
-            1000148003i32 => f.write_str("SRC_OVER"),
-            1000148004i32 => f.write_str("DST_OVER"),
-            1000148005i32 => f.write_str("SRC_IN"),
-            1000148006i32 => f.write_str("DST_IN"),
-            1000148007i32 => f.write_str("SRC_OUT"),
-            1000148008i32 => f.write_str("DST_OUT"),
-            1000148009i32 => f.write_str("SRC_ATOP"),
-            1000148010i32 => f.write_str("DST_ATOP"),
-            1000148011i32 => f.write_str("XOR"),
-            1000148012i32 => f.write_str("MULTIPLY"),
-            1000148013i32 => f.write_str("SCREEN"),
-            1000148014i32 => f.write_str("OVERLAY"),
-            1000148015i32 => f.write_str("DARKEN"),
-            1000148016i32 => f.write_str("LIGHTEN"),
-            1000148017i32 => f.write_str("COLORDODGE"),
-            1000148018i32 => f.write_str("COLORBURN"),
-            1000148019i32 => f.write_str("HARDLIGHT"),
-            1000148020i32 => f.write_str("SOFTLIGHT"),
-            1000148021i32 => f.write_str("DIFFERENCE"),
-            1000148022i32 => f.write_str("EXCLUSION"),
-            1000148023i32 => f.write_str("INVERT"),
-            1000148024i32 => f.write_str("INVERT_RGB"),
-            1000148025i32 => f.write_str("LINEARDODGE"),
-            1000148026i32 => f.write_str("LINEARBURN"),
-            1000148027i32 => f.write_str("VIVIDLIGHT"),
-            1000148028i32 => f.write_str("LINEARLIGHT"),
-            1000148029i32 => f.write_str("PINLIGHT"),
-            1000148030i32 => f.write_str("HARDMIX"),
-            1000148031i32 => f.write_str("HSL_HUE"),
-            1000148032i32 => f.write_str("HSL_SATURATION"),
-            1000148033i32 => f.write_str("HSL_COLOR"),
-            1000148034i32 => f.write_str("HSL_LUMINOSITY"),
-            1000148035i32 => f.write_str("PLUS"),
-            1000148036i32 => f.write_str("PLUS_CLAMPED"),
-            1000148037i32 => f.write_str("PLUS_CLAMPED_ALPHA"),
-            1000148038i32 => f.write_str("PLUS_DARKER"),
-            1000148039i32 => f.write_str("MINUS"),
-            1000148040i32 => f.write_str("MINUS_CLAMPED"),
-            1000148041i32 => f.write_str("CONTRAST"),
-            1000148042i32 => f.write_str("INVERT_OVG"),
-            1000148043i32 => f.write_str("RED"),
-            1000148044i32 => f.write_str("GREEN"),
-            1000148045i32 => f.write_str("BLUE"),
-            other => write!(f, "{}({})", stringify!(BlendOp), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkValidationCheckEXT")]
-pub struct ValidationCheckEXT(i32);
-impl ValidationCheckEXT {
-    pub const ALL: Self = Self(0i32);
-    pub const SHADERS: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ValidationCheckEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("ALL"),
-            1i32 => f.write_str("SHADERS"),
-            other => write!(f, "{}({})", stringify!(ValidationCheckEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkVendorId")]
-pub struct VendorId(i32);
-impl VendorId {
-    pub const KHRONOS: Self = Self(65536i32);
-    pub const VIV: Self = Self(65537i32);
-    pub const VSI: Self = Self(65538i32);
-    pub const KAZAN: Self = Self(65539i32);
-    pub const CODEPLAY: Self = Self(65540i32);
-    pub const POCL: Self = Self(65542i32);
-    pub const MOBILEYE: Self = Self(65543i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for VendorId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            65536i32 => f.write_str("KHRONOS"),
-            65537i32 => f.write_str("VIV"),
-            65538i32 => f.write_str("VSI"),
-            65539i32 => f.write_str("KAZAN"),
-            65540i32 => f.write_str("CODEPLAY"),
-            65542i32 => f.write_str("POCL"),
-            65543i32 => f.write_str("MOBILEYE"),
-            other => write!(f, "{}({})", stringify!(VendorId), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPipelineExecutableStatisticFormatKHR")]
-pub struct PipelineExecutableStatisticFormatKHR(i32);
-impl PipelineExecutableStatisticFormatKHR {
-    pub const BOOL32: Self = Self(0i32);
-    pub const INT64: Self = Self(1i32);
-    pub const UINT64: Self = Self(2i32);
-    pub const FLOAT64: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PipelineExecutableStatisticFormatKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("BOOL32"),
-            1i32 => f.write_str("INT64"),
-            2i32 => f.write_str("UINT64"),
-            3i32 => f.write_str("FLOAT64"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(PipelineExecutableStatisticFormatKHR), other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkStencilOp")]
-pub struct StencilOp(i32);
-impl StencilOp {
-    pub const KEEP: Self = Self(0i32);
-    pub const ZERO: Self = Self(1i32);
-    pub const REPLACE: Self = Self(2i32);
-    pub const INCREMENT_AND_CLAMP: Self = Self(3i32);
-    pub const DECREMENT_AND_CLAMP: Self = Self(4i32);
-    pub const INVERT: Self = Self(5i32);
-    pub const INCREMENT_AND_WRAP: Self = Self(6i32);
-    pub const DECREMENT_AND_WRAP: Self = Self(7i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for StencilOp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("KEEP"),
-            1i32 => f.write_str("ZERO"),
-            2i32 => f.write_str("REPLACE"),
-            3i32 => f.write_str("INCREMENT_AND_CLAMP"),
-            4i32 => f.write_str("DECREMENT_AND_CLAMP"),
-            5i32 => f.write_str("INVERT"),
-            6i32 => f.write_str("INCREMENT_AND_WRAP"),
-            7i32 => f.write_str("DECREMENT_AND_WRAP"),
-            other => write!(f, "{}({})", stringify!(StencilOp), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkComponentSwizzle")]
-pub struct ComponentSwizzle(i32);
-impl ComponentSwizzle {
-    pub const IDENTITY: Self = Self(0i32);
-    pub const ZERO: Self = Self(1i32);
-    pub const ONE: Self = Self(2i32);
-    pub const R: Self = Self(3i32);
-    pub const G: Self = Self(4i32);
-    pub const B: Self = Self(5i32);
-    pub const A: Self = Self(6i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ComponentSwizzle {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("IDENTITY"),
-            1i32 => f.write_str("ZERO"),
-            2i32 => f.write_str("ONE"),
-            3i32 => f.write_str("R"),
-            4i32 => f.write_str("G"),
-            5i32 => f.write_str("B"),
-            6i32 => f.write_str("A"),
-            other => write!(f, "{}({})", stringify!(ComponentSwizzle), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkRayTracingInvocationReorderModeEXT")]
-pub struct RayTracingInvocationReorderModeEXT(i32);
-impl RayTracingInvocationReorderModeEXT {
-    pub const NONE: Self = Self(0i32);
-    pub const REORDER: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for RayTracingInvocationReorderModeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NONE"),
-            1i32 => f.write_str("REORDER"),
-            other => {
-                write!(
-                    f, "{}({})", stringify!(RayTracingInvocationReorderModeEXT), other
-                )
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFrontFace")]
-pub struct FrontFace(i32);
-impl FrontFace {
-    pub const COUNTER_CLOCKWISE: Self = Self(0i32);
-    pub const CLOCKWISE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for FrontFace {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("COUNTER_CLOCKWISE"),
-            1i32 => f.write_str("CLOCKWISE"),
-            other => write!(f, "{}({})", stringify!(FrontFace), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDepthClampModeEXT")]
-pub struct DepthClampModeEXT(i32);
-impl DepthClampModeEXT {
-    pub const VIEWPORT_RANGE: Self = Self(0i32);
-    pub const USER_DEFINED_RANGE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DepthClampModeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("VIEWPORT_RANGE"),
-            1i32 => f.write_str("USER_DEFINED_RANGE"),
-            other => write!(f, "{}({})", stringify!(DepthClampModeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSubpassContents")]
-pub struct SubpassContents(i32);
-impl SubpassContents {
-    pub const INLINE: Self = Self(0i32);
-    pub const SECONDARY_COMMAND_BUFFERS: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SubpassContents {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("INLINE"),
-            1i32 => f.write_str("SECONDARY_COMMAND_BUFFERS"),
-            other => write!(f, "{}({})", stringify!(SubpassContents), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDisplayPowerStateEXT")]
-pub struct DisplayPowerStateEXT(i32);
-impl DisplayPowerStateEXT {
-    pub const OFF: Self = Self(0i32);
-    pub const SUSPEND: Self = Self(1i32);
-    pub const ON: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DisplayPowerStateEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("OFF"),
-            1i32 => f.write_str("SUSPEND"),
-            2i32 => f.write_str("ON"),
-            other => write!(f, "{}({})", stringify!(DisplayPowerStateEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkIndirectCommandsTokenTypeNV")]
-pub struct IndirectCommandsTokenTypeNV(i32);
-impl IndirectCommandsTokenTypeNV {
-    pub const SHADER_GROUP: Self = Self(0i32);
-    pub const STATE_FLAGS: Self = Self(1i32);
-    pub const INDEX_BUFFER: Self = Self(2i32);
-    pub const VERTEX_BUFFER: Self = Self(3i32);
-    pub const PUSH_CONSTANT: Self = Self(4i32);
-    pub const DRAW_INDEXED: Self = Self(5i32);
-    pub const DRAW: Self = Self(6i32);
-    pub const DRAW_TASKS: Self = Self(7i32);
-    pub const PUSH_DATA: Self = Self(1000135000i32);
-    pub const DRAW_MESH_TASKS: Self = Self(1000328000i32);
-    pub const PIPELINE: Self = Self(1000428003i32);
-    pub const DISPATCH: Self = Self(1000428004i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for IndirectCommandsTokenTypeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("SHADER_GROUP"),
-            1i32 => f.write_str("STATE_FLAGS"),
-            2i32 => f.write_str("INDEX_BUFFER"),
-            3i32 => f.write_str("VERTEX_BUFFER"),
-            4i32 => f.write_str("PUSH_CONSTANT"),
-            5i32 => f.write_str("DRAW_INDEXED"),
-            6i32 => f.write_str("DRAW"),
-            7i32 => f.write_str("DRAW_TASKS"),
-            1000135000i32 => f.write_str("PUSH_DATA"),
-            1000328000i32 => f.write_str("DRAW_MESH_TASKS"),
-            1000428003i32 => f.write_str("PIPELINE"),
-            1000428004i32 => f.write_str("DISPATCH"),
-            other => write!(f, "{}({})", stringify!(IndirectCommandsTokenTypeNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCompareOp")]
-pub struct CompareOp(i32);
-impl CompareOp {
-    pub const NEVER: Self = Self(0i32);
-    pub const LESS: Self = Self(1i32);
-    pub const EQUAL: Self = Self(2i32);
-    pub const LESS_OR_EQUAL: Self = Self(3i32);
-    pub const GREATER: Self = Self(4i32);
-    pub const NOT_EQUAL: Self = Self(5i32);
-    pub const GREATER_OR_EQUAL: Self = Self(6i32);
-    pub const ALWAYS: Self = Self(7i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for CompareOp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NEVER"),
-            1i32 => f.write_str("LESS"),
-            2i32 => f.write_str("EQUAL"),
-            3i32 => f.write_str("LESS_OR_EQUAL"),
-            4i32 => f.write_str("GREATER"),
-            5i32 => f.write_str("NOT_EQUAL"),
-            6i32 => f.write_str("GREATER_OR_EQUAL"),
-            7i32 => f.write_str("ALWAYS"),
-            other => write!(f, "{}({})", stringify!(CompareOp), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFaultLevel")]
-pub struct FaultLevel(i32);
-impl FaultLevel {
-    pub const UNASSIGNED: Self = Self(0i32);
-    pub const CRITICAL: Self = Self(1i32);
-    pub const RECOVERABLE: Self = Self(2i32);
-    pub const WARNING: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for FaultLevel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("UNASSIGNED"),
-            1i32 => f.write_str("CRITICAL"),
-            2i32 => f.write_str("RECOVERABLE"),
-            3i32 => f.write_str("WARNING"),
-            other => write!(f, "{}({})", stringify!(FaultLevel), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDisplaySurfaceStereoTypeNV")]
-pub struct DisplaySurfaceStereoTypeNV(i32);
-impl DisplaySurfaceStereoTypeNV {
-    pub const NONE: Self = Self(0i32);
-    pub const ONBOARD_DIN: Self = Self(1i32);
-    pub const HDMI_3D: Self = Self(2i32);
-    pub const INBAND_DISPLAYPORT: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DisplaySurfaceStereoTypeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NONE"),
-            1i32 => f.write_str("ONBOARD_DIN"),
-            2i32 => f.write_str("HDMI_3D"),
-            3i32 => f.write_str("INBAND_DISPLAYPORT"),
-            other => write!(f, "{}({})", stringify!(DisplaySurfaceStereoTypeNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSciSyncClientTypeNV")]
-pub struct SciSyncClientTypeNV(i32);
-impl SciSyncClientTypeNV {
-    pub const SIGNALER: Self = Self(0i32);
-    pub const WAITER: Self = Self(1i32);
-    pub const SIGNALER_WAITER: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SciSyncClientTypeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("SIGNALER"),
-            1i32 => f.write_str("WAITER"),
-            2i32 => f.write_str("SIGNALER_WAITER"),
-            other => write!(f, "{}({})", stringify!(SciSyncClientTypeNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSharingMode")]
-pub struct SharingMode(i32);
-impl SharingMode {
-    pub const EXCLUSIVE: Self = Self(0i32);
-    pub const CONCURRENT: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SharingMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("EXCLUSIVE"),
-            1i32 => f.write_str("CONCURRENT"),
-            other => write!(f, "{}({})", stringify!(SharingMode), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSamplerMipmapMode")]
-pub struct SamplerMipmapMode(i32);
-impl SamplerMipmapMode {
-    pub const NEAREST: Self = Self(0i32);
-    pub const LINEAR: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SamplerMipmapMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NEAREST"),
-            1i32 => f.write_str("LINEAR"),
-            other => write!(f, "{}({})", stringify!(SamplerMipmapMode), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPipelineCacheHeaderVersion")]
-pub struct PipelineCacheHeaderVersion(i32);
-impl PipelineCacheHeaderVersion {
-    pub const ONE: Self = Self(1i32);
-    pub const SAFETY_CRITICAL_ONE: Self = Self(1000298001i32);
-    pub const DATA_GRAPH: Self = Self(1000629000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PipelineCacheHeaderVersion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            1i32 => f.write_str("ONE"),
-            1000298001i32 => f.write_str("SAFETY_CRITICAL_ONE"),
-            1000629000i32 => f.write_str("DATA_GRAPH"),
-            other => write!(f, "{}({})", stringify!(PipelineCacheHeaderVersion), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSamplerYcbcrRange")]
-pub struct SamplerYcbcrRange(i32);
-impl SamplerYcbcrRange {
-    pub const ITU_FULL: Self = Self(0i32);
-    pub const ITU_NARROW: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SamplerYcbcrRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("ITU_FULL"),
-            1i32 => f.write_str("ITU_NARROW"),
-            other => write!(f, "{}({})", stringify!(SamplerYcbcrRange), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkQueryType")]
-pub struct QueryType(i32);
-impl QueryType {
-    pub const OCCLUSION: Self = Self(0i32);
-    pub const PIPELINE_STATISTICS: Self = Self(1i32);
-    pub const TIMESTAMP: Self = Self(2i32);
-    pub const RESULT_STATUS_ONLY: Self = Self(1000023000i32);
-    pub const TRANSFORM_FEEDBACK_STREAM: Self = Self(1000028004i32);
-    pub const PERFORMANCE_QUERY: Self = Self(1000116000i32);
-    pub const ACCELERATION_STRUCTURE_COMPACTED_SIZE: Self = Self(1000150000i32);
-    pub const ACCELERATION_STRUCTURE_SERIALIZATION_SIZE: Self = Self(1000150001i32);
-    pub const VIDEO_ENCODE_FEEDBACK: Self = Self(1000299000i32);
-    pub const MESH_PRIMITIVES_GENERATED: Self = Self(1000328000i32);
-    pub const PRIMITIVES_GENERATED: Self = Self(1000382000i32);
-    pub const ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS: Self = Self(
-        1000386000i32,
-    );
-    pub const ACCELERATION_STRUCTURE_SIZE: Self = Self(1000386001i32);
-    pub const MICROMAP_SERIALIZATION_SIZE: Self = Self(1000396000i32);
-    pub const MICROMAP_COMPACTED_SIZE: Self = Self(1000396001i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for QueryType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("OCCLUSION"),
-            1i32 => f.write_str("PIPELINE_STATISTICS"),
-            2i32 => f.write_str("TIMESTAMP"),
-            1000023000i32 => f.write_str("RESULT_STATUS_ONLY"),
-            1000028004i32 => f.write_str("TRANSFORM_FEEDBACK_STREAM"),
-            1000116000i32 => f.write_str("PERFORMANCE_QUERY"),
-            1000150000i32 => f.write_str("ACCELERATION_STRUCTURE_COMPACTED_SIZE"),
-            1000150001i32 => f.write_str("ACCELERATION_STRUCTURE_SERIALIZATION_SIZE"),
-            1000299000i32 => f.write_str("VIDEO_ENCODE_FEEDBACK"),
-            1000328000i32 => f.write_str("MESH_PRIMITIVES_GENERATED"),
-            1000382000i32 => f.write_str("PRIMITIVES_GENERATED"),
-            1000386000i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS")
-            }
-            1000386001i32 => f.write_str("ACCELERATION_STRUCTURE_SIZE"),
-            1000396000i32 => f.write_str("MICROMAP_SERIALIZATION_SIZE"),
-            1000396001i32 => f.write_str("MICROMAP_COMPACTED_SIZE"),
-            other => write!(f, "{}({})", stringify!(QueryType), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkAttachmentLoadOp")]
-pub struct AttachmentLoadOp(i32);
-impl AttachmentLoadOp {
-    pub const LOAD: Self = Self(0i32);
-    pub const CLEAR: Self = Self(1i32);
-    pub const DONT_CARE: Self = Self(2i32);
-    pub const NONE: Self = Self(1000400000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for AttachmentLoadOp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("LOAD"),
-            1i32 => f.write_str("CLEAR"),
-            2i32 => f.write_str("DONT_CARE"),
-            1000400000i32 => f.write_str("NONE"),
-            other => write!(f, "{}({})", stringify!(AttachmentLoadOp), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDescriptorType")]
-pub struct DescriptorType(i32);
-impl DescriptorType {
-    pub const SAMPLER: Self = Self(0i32);
-    pub const COMBINED_IMAGE_SAMPLER: Self = Self(1i32);
-    pub const SAMPLED_IMAGE: Self = Self(2i32);
-    pub const STORAGE_IMAGE: Self = Self(3i32);
-    pub const UNIFORM_TEXEL_BUFFER: Self = Self(4i32);
-    pub const STORAGE_TEXEL_BUFFER: Self = Self(5i32);
-    pub const UNIFORM_BUFFER: Self = Self(6i32);
-    pub const STORAGE_BUFFER: Self = Self(7i32);
-    pub const UNIFORM_BUFFER_DYNAMIC: Self = Self(8i32);
-    pub const STORAGE_BUFFER_DYNAMIC: Self = Self(9i32);
-    pub const INPUT_ATTACHMENT: Self = Self(10i32);
-    pub const INLINE_UNIFORM_BLOCK: Self = Self(1000138000i32);
-    pub const ACCELERATION_STRUCTURE: Self = Self(1000150000i32);
-    pub const SAMPLE_WEIGHT_IMAGE: Self = Self(1000440000i32);
-    pub const BLOCK_MATCH_IMAGE: Self = Self(1000440001i32);
-    pub const TENSOR: Self = Self(1000460000i32);
-    pub const PARTITIONED_ACCELERATION_STRUCTURE: Self = Self(1000570000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DescriptorType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("SAMPLER"),
-            1i32 => f.write_str("COMBINED_IMAGE_SAMPLER"),
-            2i32 => f.write_str("SAMPLED_IMAGE"),
-            3i32 => f.write_str("STORAGE_IMAGE"),
-            4i32 => f.write_str("UNIFORM_TEXEL_BUFFER"),
-            5i32 => f.write_str("STORAGE_TEXEL_BUFFER"),
-            6i32 => f.write_str("UNIFORM_BUFFER"),
-            7i32 => f.write_str("STORAGE_BUFFER"),
-            8i32 => f.write_str("UNIFORM_BUFFER_DYNAMIC"),
-            9i32 => f.write_str("STORAGE_BUFFER_DYNAMIC"),
-            10i32 => f.write_str("INPUT_ATTACHMENT"),
-            1000138000i32 => f.write_str("INLINE_UNIFORM_BLOCK"),
-            1000150000i32 => f.write_str("ACCELERATION_STRUCTURE"),
-            1000440000i32 => f.write_str("SAMPLE_WEIGHT_IMAGE"),
-            1000440001i32 => f.write_str("BLOCK_MATCH_IMAGE"),
-            1000460000i32 => f.write_str("TENSOR"),
-            1000570000i32 => f.write_str("PARTITIONED_ACCELERATION_STRUCTURE"),
-            other => write!(f, "{}({})", stringify!(DescriptorType), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkCoverageReductionModeNV")]
-pub struct CoverageReductionModeNV(i32);
-impl CoverageReductionModeNV {
-    pub const MERGE: Self = Self(0i32);
-    pub const TRUNCATE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for CoverageReductionModeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("MERGE"),
-            1i32 => f.write_str("TRUNCATE"),
-            other => write!(f, "{}({})", stringify!(CoverageReductionModeNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkFullScreenExclusiveEXT")]
-pub struct FullScreenExclusiveEXT(i32);
-impl FullScreenExclusiveEXT {
-    pub const DEFAULT: Self = Self(0i32);
-    pub const ALLOWED: Self = Self(1i32);
-    pub const DISALLOWED: Self = Self(2i32);
-    pub const APPLICATION_CONTROLLED: Self = Self(3i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for FullScreenExclusiveEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DEFAULT"),
-            1i32 => f.write_str("ALLOWED"),
-            2i32 => f.write_str("DISALLOWED"),
-            3i32 => f.write_str("APPLICATION_CONTROLLED"),
-            other => write!(f, "{}({})", stringify!(FullScreenExclusiveEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSciSyncPrimitiveTypeNV")]
-pub struct SciSyncPrimitiveTypeNV(i32);
-impl SciSyncPrimitiveTypeNV {
-    pub const FENCE: Self = Self(0i32);
-    pub const SEMAPHORE: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SciSyncPrimitiveTypeNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("FENCE"),
-            1i32 => f.write_str("SEMAPHORE"),
-            other => write!(f, "{}({})", stringify!(SciSyncPrimitiveTypeNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkProvokingVertexModeEXT")]
-pub struct ProvokingVertexModeEXT(i32);
-impl ProvokingVertexModeEXT {
-    pub const FIRST_VERTEX: Self = Self(0i32);
-    pub const LAST_VERTEX: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ProvokingVertexModeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("FIRST_VERTEX"),
-            1i32 => f.write_str("LAST_VERTEX"),
-            other => write!(f, "{}({})", stringify!(ProvokingVertexModeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDepthBiasRepresentationEXT")]
-pub struct DepthBiasRepresentationEXT(i32);
-impl DepthBiasRepresentationEXT {
-    pub const LEAST_REPRESENTABLE_VALUE_FORMAT: Self = Self(0i32);
-    pub const LEAST_REPRESENTABLE_VALUE_FORCE_UNORM: Self = Self(1i32);
-    pub const FLOAT: Self = Self(2i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DepthBiasRepresentationEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("LEAST_REPRESENTABLE_VALUE_FORMAT"),
-            1i32 => f.write_str("LEAST_REPRESENTABLE_VALUE_FORCE_UNORM"),
-            2i32 => f.write_str("FLOAT"),
-            other => write!(f, "{}({})", stringify!(DepthBiasRepresentationEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkIndirectExecutionSetInfoTypeEXT")]
-pub struct IndirectExecutionSetInfoTypeEXT(i32);
-impl IndirectExecutionSetInfoTypeEXT {
-    pub const PIPELINES: Self = Self(0i32);
-    pub const SHADER_OBJECTS: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for IndirectExecutionSetInfoTypeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("PIPELINES"),
-            1i32 => f.write_str("SHADER_OBJECTS"),
-            other => {
-                write!(f, "{}({})", stringify!(IndirectExecutionSetInfoTypeEXT), other)
-            }
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDeviceEventTypeEXT")]
-pub struct DeviceEventTypeEXT(i32);
-impl DeviceEventTypeEXT {
-    pub const DISPLAY_HOTPLUG: Self = Self(0i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DeviceEventTypeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DISPLAY_HOTPLUG"),
-            other => write!(f, "{}({})", stringify!(DeviceEventTypeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkBlendFactor")]
-pub struct BlendFactor(i32);
-impl BlendFactor {
-    pub const ZERO: Self = Self(0i32);
-    pub const ONE: Self = Self(1i32);
-    pub const SRC_COLOR: Self = Self(2i32);
-    pub const ONE_MINUS_SRC_COLOR: Self = Self(3i32);
-    pub const DST_COLOR: Self = Self(4i32);
-    pub const ONE_MINUS_DST_COLOR: Self = Self(5i32);
-    pub const SRC_ALPHA: Self = Self(6i32);
-    pub const ONE_MINUS_SRC_ALPHA: Self = Self(7i32);
-    pub const DST_ALPHA: Self = Self(8i32);
-    pub const ONE_MINUS_DST_ALPHA: Self = Self(9i32);
-    pub const CONSTANT_COLOR: Self = Self(10i32);
-    pub const ONE_MINUS_CONSTANT_COLOR: Self = Self(11i32);
-    pub const CONSTANT_ALPHA: Self = Self(12i32);
-    pub const ONE_MINUS_CONSTANT_ALPHA: Self = Self(13i32);
-    pub const SRC_ALPHA_SATURATE: Self = Self(14i32);
-    pub const SRC1_COLOR: Self = Self(15i32);
-    pub const ONE_MINUS_SRC1_COLOR: Self = Self(16i32);
-    pub const SRC1_ALPHA: Self = Self(17i32);
-    pub const ONE_MINUS_SRC1_ALPHA: Self = Self(18i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for BlendFactor {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("ZERO"),
-            1i32 => f.write_str("ONE"),
-            2i32 => f.write_str("SRC_COLOR"),
-            3i32 => f.write_str("ONE_MINUS_SRC_COLOR"),
-            4i32 => f.write_str("DST_COLOR"),
-            5i32 => f.write_str("ONE_MINUS_DST_COLOR"),
-            6i32 => f.write_str("SRC_ALPHA"),
-            7i32 => f.write_str("ONE_MINUS_SRC_ALPHA"),
-            8i32 => f.write_str("DST_ALPHA"),
-            9i32 => f.write_str("ONE_MINUS_DST_ALPHA"),
-            10i32 => f.write_str("CONSTANT_COLOR"),
-            11i32 => f.write_str("ONE_MINUS_CONSTANT_COLOR"),
-            12i32 => f.write_str("CONSTANT_ALPHA"),
-            13i32 => f.write_str("ONE_MINUS_CONSTANT_ALPHA"),
-            14i32 => f.write_str("SRC_ALPHA_SATURATE"),
-            15i32 => f.write_str("SRC1_COLOR"),
-            16i32 => f.write_str("ONE_MINUS_SRC1_COLOR"),
-            17i32 => f.write_str("SRC1_ALPHA"),
-            18i32 => f.write_str("ONE_MINUS_SRC1_ALPHA"),
-            other => write!(f, "{}({})", stringify!(BlendFactor), other),
+            0i32 => f.write_str("FILL"),
+            1i32 => f.write_str("LINE"),
+            2i32 => f.write_str("POINT"),
+            1000153000i32 => f.write_str("FILL_RECTANGLE"),
+            other => write!(f, "{}({})", stringify!(PolygonMode), other),
         }
     }
 }
@@ -8706,66 +9012,14 @@ impl core::fmt::Debug for DataGraphPipelinePropertyARM {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkResult")]
-pub struct Result(i32);
-impl Result {
-    pub const SUCCESS: Self = Self(0i32);
-    pub const NOT_READY: Self = Self(1i32);
-    pub const TIMEOUT: Self = Self(2i32);
-    pub const EVENT_SET: Self = Self(3i32);
-    pub const EVENT_RESET: Self = Self(4i32);
-    pub const INCOMPLETE: Self = Self(5i32);
-    pub const ERROR_OUT_OF_HOST_MEMORY: Self = Self(-1i32);
-    pub const ERROR_OUT_OF_DEVICE_MEMORY: Self = Self(-2i32);
-    pub const ERROR_INITIALIZATION_FAILED: Self = Self(-3i32);
-    pub const ERROR_DEVICE_LOST: Self = Self(-4i32);
-    pub const ERROR_MEMORY_MAP_FAILED: Self = Self(-5i32);
-    pub const ERROR_LAYER_NOT_PRESENT: Self = Self(-6i32);
-    pub const ERROR_EXTENSION_NOT_PRESENT: Self = Self(-7i32);
-    pub const ERROR_FEATURE_NOT_PRESENT: Self = Self(-8i32);
-    pub const ERROR_INCOMPATIBLE_DRIVER: Self = Self(-9i32);
-    pub const ERROR_TOO_MANY_OBJECTS: Self = Self(-10i32);
-    pub const ERROR_FORMAT_NOT_SUPPORTED: Self = Self(-11i32);
-    pub const ERROR_FRAGMENTED_POOL: Self = Self(-12i32);
-    pub const ERROR_UNKNOWN: Self = Self(-13i32);
-    pub const ERROR_VALIDATION_FAILED: Self = Self(-1000011001i32);
-    pub const ERROR_OUT_OF_POOL_MEMORY: Self = Self(-1000069000i32);
-    pub const ERROR_INVALID_EXTERNAL_HANDLE: Self = Self(-1000072003i32);
-    pub const ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS: Self = Self(-1000257000i32);
-    pub const ERROR_FRAGMENTATION: Self = Self(-1000161000i32);
-    pub const PIPELINE_COMPILE_REQUIRED: Self = Self(1000297000i32);
-    pub const ERROR_NOT_PERMITTED: Self = Self(-1000174001i32);
-    pub const ERROR_INVALID_PIPELINE_CACHE_DATA: Self = Self(-1000298000i32);
-    pub const ERROR_NO_PIPELINE_MATCH: Self = Self(-1000298001i32);
-    pub const ERROR_SURFACE_LOST: Self = Self(-1000000000i32);
-    pub const ERROR_NATIVE_WINDOW_IN_USE: Self = Self(-1000000001i32);
-    pub const SUBOPTIMAL: Self = Self(1000001003i32);
-    pub const ERROR_OUT_OF_DATE: Self = Self(-1000001004i32);
-    pub const ERROR_INCOMPATIBLE_DISPLAY: Self = Self(-1000003001i32);
-    pub const ERROR_INVALID_SHADER: Self = Self(-1000012000i32);
-    pub const ERROR_IMAGE_USAGE_NOT_SUPPORTED: Self = Self(-1000023000i32);
-    pub const ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED: Self = Self(-1000023001i32);
-    pub const ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED: Self = Self(-1000023002i32);
-    pub const ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED: Self = Self(-1000023003i32);
-    pub const ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED: Self = Self(-1000023004i32);
-    pub const ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED: Self = Self(-1000023005i32);
-    pub const ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT: Self = Self(
-        -1000158000i32,
-    );
-    pub const ERROR_PRESENT_TIMING_QUEUE_FULL: Self = Self(-1000208000i32);
-    pub const ERROR_INVALID_DEVICE_ADDRESS: Self = Self::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS;
-    pub const ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST: Self = Self(-1000255000i32);
-    pub const THREAD_IDLE: Self = Self(1000268000i32);
-    pub const THREAD_DONE: Self = Self(1000268001i32);
-    pub const OPERATION_DEFERRED: Self = Self(1000268002i32);
-    pub const OPERATION_NOT_DEFERRED: Self = Self(1000268003i32);
-    pub const ERROR_PIPELINE_COMPILE_REQUIRED: Self = Self::PIPELINE_COMPILE_REQUIRED;
-    pub const ERROR_INVALID_VIDEO_STD_PARAMETERS: Self = Self(-1000299000i32);
-    pub const ERROR_COMPRESSION_EXHAUSTED: Self = Self(-1000338000i32);
-    pub const INCOMPATIBLE_SHADER_BINARY: Self = Self(1000482000i32);
-    pub const ERROR_INCOMPATIBLE_SHADER_BINARY: Self = Self::INCOMPATIBLE_SHADER_BINARY;
-    pub const PIPELINE_BINARY_MISSING: Self = Self(1000483000i32);
-    pub const ERROR_NOT_ENOUGH_SPACE: Self = Self(-1000483000i32);
+#[doc(alias = "VkPhysicalDeviceType")]
+pub struct PhysicalDeviceType(i32);
+impl PhysicalDeviceType {
+    pub const OTHER: Self = Self(0i32);
+    pub const INTEGRATED_GPU: Self = Self(1i32);
+    pub const DISCRETE_GPU: Self = Self(2i32);
+    pub const VIRTUAL_GPU: Self = Self(3i32);
+    pub const CPU: Self = Self(4i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -8775,76 +9029,24 @@ impl Result {
         self.0
     }
 }
-impl core::fmt::Debug for Result {
+impl core::fmt::Debug for PhysicalDeviceType {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("SUCCESS"),
-            1i32 => f.write_str("NOT_READY"),
-            2i32 => f.write_str("TIMEOUT"),
-            3i32 => f.write_str("EVENT_SET"),
-            4i32 => f.write_str("EVENT_RESET"),
-            5i32 => f.write_str("INCOMPLETE"),
-            -1i32 => f.write_str("ERROR_OUT_OF_HOST_MEMORY"),
-            -2i32 => f.write_str("ERROR_OUT_OF_DEVICE_MEMORY"),
-            -3i32 => f.write_str("ERROR_INITIALIZATION_FAILED"),
-            -4i32 => f.write_str("ERROR_DEVICE_LOST"),
-            -5i32 => f.write_str("ERROR_MEMORY_MAP_FAILED"),
-            -6i32 => f.write_str("ERROR_LAYER_NOT_PRESENT"),
-            -7i32 => f.write_str("ERROR_EXTENSION_NOT_PRESENT"),
-            -8i32 => f.write_str("ERROR_FEATURE_NOT_PRESENT"),
-            -9i32 => f.write_str("ERROR_INCOMPATIBLE_DRIVER"),
-            -10i32 => f.write_str("ERROR_TOO_MANY_OBJECTS"),
-            -11i32 => f.write_str("ERROR_FORMAT_NOT_SUPPORTED"),
-            -12i32 => f.write_str("ERROR_FRAGMENTED_POOL"),
-            -13i32 => f.write_str("ERROR_UNKNOWN"),
-            -1000011001i32 => f.write_str("ERROR_VALIDATION_FAILED"),
-            -1000069000i32 => f.write_str("ERROR_OUT_OF_POOL_MEMORY"),
-            -1000072003i32 => f.write_str("ERROR_INVALID_EXTERNAL_HANDLE"),
-            -1000257000i32 => f.write_str("ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS"),
-            -1000161000i32 => f.write_str("ERROR_FRAGMENTATION"),
-            1000297000i32 => f.write_str("PIPELINE_COMPILE_REQUIRED"),
-            -1000174001i32 => f.write_str("ERROR_NOT_PERMITTED"),
-            -1000298000i32 => f.write_str("ERROR_INVALID_PIPELINE_CACHE_DATA"),
-            -1000298001i32 => f.write_str("ERROR_NO_PIPELINE_MATCH"),
-            -1000000000i32 => f.write_str("ERROR_SURFACE_LOST"),
-            -1000000001i32 => f.write_str("ERROR_NATIVE_WINDOW_IN_USE"),
-            1000001003i32 => f.write_str("SUBOPTIMAL"),
-            -1000001004i32 => f.write_str("ERROR_OUT_OF_DATE"),
-            -1000003001i32 => f.write_str("ERROR_INCOMPATIBLE_DISPLAY"),
-            -1000012000i32 => f.write_str("ERROR_INVALID_SHADER"),
-            -1000023000i32 => f.write_str("ERROR_IMAGE_USAGE_NOT_SUPPORTED"),
-            -1000023001i32 => f.write_str("ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED"),
-            -1000023002i32 => f.write_str("ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED"),
-            -1000023003i32 => f.write_str("ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED"),
-            -1000023004i32 => f.write_str("ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED"),
-            -1000023005i32 => f.write_str("ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED"),
-            -1000158000i32 => {
-                f.write_str("ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT")
-            }
-            -1000208000i32 => f.write_str("ERROR_PRESENT_TIMING_QUEUE_FULL"),
-            -1000255000i32 => f.write_str("ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST"),
-            1000268000i32 => f.write_str("THREAD_IDLE"),
-            1000268001i32 => f.write_str("THREAD_DONE"),
-            1000268002i32 => f.write_str("OPERATION_DEFERRED"),
-            1000268003i32 => f.write_str("OPERATION_NOT_DEFERRED"),
-            -1000299000i32 => f.write_str("ERROR_INVALID_VIDEO_STD_PARAMETERS"),
-            -1000338000i32 => f.write_str("ERROR_COMPRESSION_EXHAUSTED"),
-            1000482000i32 => f.write_str("INCOMPATIBLE_SHADER_BINARY"),
-            1000483000i32 => f.write_str("PIPELINE_BINARY_MISSING"),
-            -1000483000i32 => f.write_str("ERROR_NOT_ENOUGH_SPACE"),
-            other => write!(f, "{}({})", stringify!(Result), other),
+            0i32 => f.write_str("OTHER"),
+            1i32 => f.write_str("INTEGRATED_GPU"),
+            2i32 => f.write_str("DISCRETE_GPU"),
+            3i32 => f.write_str("VIRTUAL_GPU"),
+            4i32 => f.write_str("CPU"),
+            other => write!(f, "{}({})", stringify!(PhysicalDeviceType), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkVideoEncodeAV1PredictionModeKHR")]
-pub struct VideoEncodeAV1PredictionModeKHR(i32);
-impl VideoEncodeAV1PredictionModeKHR {
-    pub const INTRA_ONLY: Self = Self(0i32);
-    pub const SINGLE_REFERENCE: Self = Self(1i32);
-    pub const UNIDIRECTIONAL_COMPOUND: Self = Self(2i32);
-    pub const BIDIRECTIONAL_COMPOUND: Self = Self(3i32);
+#[doc(alias = "VkPerformanceConfigurationTypeINTEL")]
+pub struct PerformanceConfigurationTypeINTEL(i32);
+impl PerformanceConfigurationTypeINTEL {
+    pub const COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED: Self = Self(0i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -8854,41 +9056,23 @@ impl VideoEncodeAV1PredictionModeKHR {
         self.0
     }
 }
-impl core::fmt::Debug for VideoEncodeAV1PredictionModeKHR {
+impl core::fmt::Debug for PerformanceConfigurationTypeINTEL {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("INTRA_ONLY"),
-            1i32 => f.write_str("SINGLE_REFERENCE"),
-            2i32 => f.write_str("UNIDIRECTIONAL_COMPOUND"),
-            3i32 => f.write_str("BIDIRECTIONAL_COMPOUND"),
+            0i32 => f.write_str("COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED"),
             other => {
-                write!(f, "{}({})", stringify!(VideoEncodeAV1PredictionModeKHR), other)
+                write!(f, "{}({})", stringify!(PerformanceConfigurationTypeINTEL), other)
             }
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkIndirectCommandsTokenTypeEXT")]
-pub struct IndirectCommandsTokenTypeEXT(i32);
-impl IndirectCommandsTokenTypeEXT {
-    pub const EXECUTION_SET: Self = Self(0i32);
-    pub const PUSH_CONSTANT: Self = Self(1i32);
-    pub const SEQUENCE_INDEX: Self = Self(2i32);
-    pub const INDEX_BUFFER: Self = Self(3i32);
-    pub const VERTEX_BUFFER: Self = Self(4i32);
-    pub const DRAW_INDEXED: Self = Self(5i32);
-    pub const DRAW: Self = Self(6i32);
-    pub const DRAW_INDEXED_COUNT: Self = Self(7i32);
-    pub const DRAW_COUNT: Self = Self(8i32);
-    pub const DISPATCH: Self = Self(9i32);
-    pub const PUSH_DATA: Self = Self(1000135000i32);
-    pub const PUSH_DATA_SEQUENCE_INDEX: Self = Self(1000135001i32);
-    pub const DRAW_MESH_TASKS_: Self = Self(1000202002i32);
-    pub const DRAW_MESH_TASKS_COUNT_: Self = Self(1000202003i32);
-    pub const DRAW_MESH_TASKS: Self = Self(1000328000i32);
-    pub const DRAW_MESH_TASKS_COUNT: Self = Self(1000328001i32);
-    pub const TRACE_RAYS2: Self = Self(1000386004i32);
+#[doc(alias = "VkMicromapTypeEXT")]
+pub struct MicromapTypeEXT(i32);
+impl MicromapTypeEXT {
+    pub const OPACITY_MICROMAP: Self = Self(0i32);
+    pub const DISPLACEMENT_MICROMAP: Self = Self(1000397000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -8898,38 +9082,28 @@ impl IndirectCommandsTokenTypeEXT {
         self.0
     }
 }
-impl core::fmt::Debug for IndirectCommandsTokenTypeEXT {
+impl core::fmt::Debug for MicromapTypeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("EXECUTION_SET"),
-            1i32 => f.write_str("PUSH_CONSTANT"),
-            2i32 => f.write_str("SEQUENCE_INDEX"),
-            3i32 => f.write_str("INDEX_BUFFER"),
-            4i32 => f.write_str("VERTEX_BUFFER"),
-            5i32 => f.write_str("DRAW_INDEXED"),
-            6i32 => f.write_str("DRAW"),
-            7i32 => f.write_str("DRAW_INDEXED_COUNT"),
-            8i32 => f.write_str("DRAW_COUNT"),
-            9i32 => f.write_str("DISPATCH"),
-            1000135000i32 => f.write_str("PUSH_DATA"),
-            1000135001i32 => f.write_str("PUSH_DATA_SEQUENCE_INDEX"),
-            1000202002i32 => f.write_str("DRAW_MESH_TASKS_"),
-            1000202003i32 => f.write_str("DRAW_MESH_TASKS_COUNT_"),
-            1000328000i32 => f.write_str("DRAW_MESH_TASKS"),
-            1000328001i32 => f.write_str("DRAW_MESH_TASKS_COUNT"),
-            1000386004i32 => f.write_str("TRACE_RAYS2"),
-            other => write!(f, "{}({})", stringify!(IndirectCommandsTokenTypeEXT), other),
+            0i32 => f.write_str("OPACITY_MICROMAP"),
+            1000397000i32 => f.write_str("DISPLACEMENT_MICROMAP"),
+            other => write!(f, "{}({})", stringify!(MicromapTypeEXT), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkConservativeRasterizationModeEXT")]
-pub struct ConservativeRasterizationModeEXT(i32);
-impl ConservativeRasterizationModeEXT {
-    pub const DISABLED: Self = Self(0i32);
-    pub const OVERESTIMATE: Self = Self(1i32);
-    pub const UNDERESTIMATE: Self = Self(2i32);
+#[doc(alias = "VkBorderColor")]
+pub struct BorderColor(i32);
+impl BorderColor {
+    pub const FLOAT_TRANSPARENT_BLACK: Self = Self(0i32);
+    pub const INT_TRANSPARENT_BLACK: Self = Self(1i32);
+    pub const FLOAT_OPAQUE_BLACK: Self = Self(2i32);
+    pub const INT_OPAQUE_BLACK: Self = Self(3i32);
+    pub const FLOAT_OPAQUE_WHITE: Self = Self(4i32);
+    pub const INT_OPAQUE_WHITE: Self = Self(5i32);
+    pub const FLOAT_CUSTOM: Self = Self(1000287003i32);
+    pub const INT_CUSTOM: Self = Self(1000287004i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -8939,25 +9113,34 @@ impl ConservativeRasterizationModeEXT {
         self.0
     }
 }
-impl core::fmt::Debug for ConservativeRasterizationModeEXT {
+impl core::fmt::Debug for BorderColor {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("DISABLED"),
-            1i32 => f.write_str("OVERESTIMATE"),
-            2i32 => f.write_str("UNDERESTIMATE"),
-            other => {
-                write!(f, "{}({})", stringify!(ConservativeRasterizationModeEXT), other)
-            }
+            0i32 => f.write_str("FLOAT_TRANSPARENT_BLACK"),
+            1i32 => f.write_str("INT_TRANSPARENT_BLACK"),
+            2i32 => f.write_str("FLOAT_OPAQUE_BLACK"),
+            3i32 => f.write_str("INT_OPAQUE_BLACK"),
+            4i32 => f.write_str("FLOAT_OPAQUE_WHITE"),
+            5i32 => f.write_str("INT_OPAQUE_WHITE"),
+            1000287003i32 => f.write_str("FLOAT_CUSTOM"),
+            1000287004i32 => f.write_str("INT_CUSTOM"),
+            other => write!(f, "{}({})", stringify!(BorderColor), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkRayTracingLssIndexingModeNV")]
-pub struct RayTracingLssIndexingModeNV(i32);
-impl RayTracingLssIndexingModeNV {
-    pub const LIST: Self = Self(0i32);
-    pub const SUCCESSIVE: Self = Self(1i32);
+#[doc(alias = "VkLayerSettingTypeEXT")]
+pub struct LayerSettingTypeEXT(i32);
+impl LayerSettingTypeEXT {
+    pub const BOOL32: Self = Self(0i32);
+    pub const INT32: Self = Self(1i32);
+    pub const INT64: Self = Self(2i32);
+    pub const UINT32: Self = Self(3i32);
+    pub const UINT64: Self = Self(4i32);
+    pub const FLOAT32: Self = Self(5i32);
+    pub const FLOAT64: Self = Self(6i32);
+    pub const STRING: Self = Self(7i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -8967,23 +9150,38 @@ impl RayTracingLssIndexingModeNV {
         self.0
     }
 }
-impl core::fmt::Debug for RayTracingLssIndexingModeNV {
+impl core::fmt::Debug for LayerSettingTypeEXT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("LIST"),
-            1i32 => f.write_str("SUCCESSIVE"),
-            other => write!(f, "{}({})", stringify!(RayTracingLssIndexingModeNV), other),
+            0i32 => f.write_str("BOOL32"),
+            1i32 => f.write_str("INT32"),
+            2i32 => f.write_str("INT64"),
+            3i32 => f.write_str("UINT32"),
+            4i32 => f.write_str("UINT64"),
+            5i32 => f.write_str("FLOAT32"),
+            6i32 => f.write_str("FLOAT64"),
+            7i32 => f.write_str("STRING"),
+            other => write!(f, "{}({})", stringify!(LayerSettingTypeEXT), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPartitionedAccelerationStructureOpTypeNV")]
-pub struct PartitionedAccelerationStructureOpTypeNV(i32);
-impl PartitionedAccelerationStructureOpTypeNV {
-    pub const WRITE_INSTANCE: Self = Self(0i32);
-    pub const UPDATE_INSTANCE: Self = Self(1i32);
-    pub const WRITE_PARTITION_TRANSLATION: Self = Self(2i32);
+#[doc(alias = "VkFragmentShadingRateNV")]
+pub struct FragmentShadingRateNV(i32);
+impl FragmentShadingRateNV {
+    pub const _1_INVOCATION_PER_PIXEL: Self = Self(0i32);
+    pub const _1_INVOCATION_PER_1X2_PIXELS: Self = Self(1i32);
+    pub const _1_INVOCATION_PER_2X1_PIXELS: Self = Self(4i32);
+    pub const _1_INVOCATION_PER_2X2_PIXELS: Self = Self(5i32);
+    pub const _1_INVOCATION_PER_2X4_PIXELS: Self = Self(6i32);
+    pub const _1_INVOCATION_PER_4X2_PIXELS: Self = Self(9i32);
+    pub const _1_INVOCATION_PER_4X4_PIXELS: Self = Self(10i32);
+    pub const _2_INVOCATIONS_PER_PIXEL: Self = Self(11i32);
+    pub const _4_INVOCATIONS_PER_PIXEL: Self = Self(12i32);
+    pub const _8_INVOCATIONS_PER_PIXEL: Self = Self(13i32);
+    pub const _16_INVOCATIONS_PER_PIXEL: Self = Self(14i32);
+    pub const NO_INVOCATIONS: Self = Self(15i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -8993,16 +9191,57 @@ impl PartitionedAccelerationStructureOpTypeNV {
         self.0
     }
 }
-impl core::fmt::Debug for PartitionedAccelerationStructureOpTypeNV {
+impl core::fmt::Debug for FragmentShadingRateNV {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("WRITE_INSTANCE"),
-            1i32 => f.write_str("UPDATE_INSTANCE"),
-            2i32 => f.write_str("WRITE_PARTITION_TRANSLATION"),
+            0i32 => f.write_str("_1_INVOCATION_PER_PIXEL"),
+            1i32 => f.write_str("_1_INVOCATION_PER_1X2_PIXELS"),
+            4i32 => f.write_str("_1_INVOCATION_PER_2X1_PIXELS"),
+            5i32 => f.write_str("_1_INVOCATION_PER_2X2_PIXELS"),
+            6i32 => f.write_str("_1_INVOCATION_PER_2X4_PIXELS"),
+            9i32 => f.write_str("_1_INVOCATION_PER_4X2_PIXELS"),
+            10i32 => f.write_str("_1_INVOCATION_PER_4X4_PIXELS"),
+            11i32 => f.write_str("_2_INVOCATIONS_PER_PIXEL"),
+            12i32 => f.write_str("_4_INVOCATIONS_PER_PIXEL"),
+            13i32 => f.write_str("_8_INVOCATIONS_PER_PIXEL"),
+            14i32 => f.write_str("_16_INVOCATIONS_PER_PIXEL"),
+            15i32 => f.write_str("NO_INVOCATIONS"),
+            other => write!(f, "{}({})", stringify!(FragmentShadingRateNV), other),
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[doc(alias = "VkClusterAccelerationStructureOpTypeNV")]
+pub struct ClusterAccelerationStructureOpTypeNV(i32);
+impl ClusterAccelerationStructureOpTypeNV {
+    pub const MOVE_OBJECTS: Self = Self(0i32);
+    pub const BUILD_CLUSTERS_BOTTOM_LEVEL: Self = Self(1i32);
+    pub const BUILD_TRIANGLE_CLUSTER: Self = Self(2i32);
+    pub const BUILD_TRIANGLE_CLUSTER_TEMPLATE: Self = Self(3i32);
+    pub const INSTANTIATE_TRIANGLE_CLUSTER: Self = Self(4i32);
+    pub const GET_CLUSTER_TEMPLATE_INDICES: Self = Self(5i32);
+    #[inline]
+    pub const fn from_raw(value: i32) -> Self {
+        Self(value)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl core::fmt::Debug for ClusterAccelerationStructureOpTypeNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        match self.0 {
+            0i32 => f.write_str("MOVE_OBJECTS"),
+            1i32 => f.write_str("BUILD_CLUSTERS_BOTTOM_LEVEL"),
+            2i32 => f.write_str("BUILD_TRIANGLE_CLUSTER"),
+            3i32 => f.write_str("BUILD_TRIANGLE_CLUSTER_TEMPLATE"),
+            4i32 => f.write_str("INSTANTIATE_TRIANGLE_CLUSTER"),
+            5i32 => f.write_str("GET_CLUSTER_TEMPLATE_INDICES"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(PartitionedAccelerationStructureOpTypeNV),
-                    other
+                    f, "{}({})", stringify!(ClusterAccelerationStructureOpTypeNV), other
                 )
             }
         }
@@ -9010,20 +9249,14 @@ impl core::fmt::Debug for PartitionedAccelerationStructureOpTypeNV {
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDescriptorMappingSourceEXT")]
-pub struct DescriptorMappingSourceEXT(i32);
-impl DescriptorMappingSourceEXT {
-    pub const HEAP_WITH_CONSTANT_OFFSET: Self = Self(0i32);
-    pub const HEAP_WITH_PUSH_INDEX: Self = Self(1i32);
-    pub const HEAP_WITH_INDIRECT_INDEX: Self = Self(2i32);
-    pub const HEAP_WITH_INDIRECT_INDEX_ARRAY: Self = Self(3i32);
-    pub const RESOURCE_HEAP_DATA: Self = Self(4i32);
-    pub const PUSH_DATA: Self = Self(5i32);
-    pub const PUSH_ADDRESS: Self = Self(6i32);
-    pub const INDIRECT_ADDRESS: Self = Self(7i32);
-    pub const HEAP_WITH_SHADER_RECORD_INDEX: Self = Self(8i32);
-    pub const SHADER_RECORD_DATA: Self = Self(9i32);
-    pub const SHADER_RECORD_ADDRESS: Self = Self(10i32);
+#[doc(alias = "VkPerformanceValueTypeINTEL")]
+pub struct PerformanceValueTypeINTEL(i32);
+impl PerformanceValueTypeINTEL {
+    pub const UINT32: Self = Self(0i32);
+    pub const UINT64: Self = Self(1i32);
+    pub const FLOAT: Self = Self(2i32);
+    pub const BOOL: Self = Self(3i32);
+    pub const STRING: Self = Self(4i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -9033,31 +9266,26 @@ impl DescriptorMappingSourceEXT {
         self.0
     }
 }
-impl core::fmt::Debug for DescriptorMappingSourceEXT {
+impl core::fmt::Debug for PerformanceValueTypeINTEL {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("HEAP_WITH_CONSTANT_OFFSET"),
-            1i32 => f.write_str("HEAP_WITH_PUSH_INDEX"),
-            2i32 => f.write_str("HEAP_WITH_INDIRECT_INDEX"),
-            3i32 => f.write_str("HEAP_WITH_INDIRECT_INDEX_ARRAY"),
-            4i32 => f.write_str("RESOURCE_HEAP_DATA"),
-            5i32 => f.write_str("PUSH_DATA"),
-            6i32 => f.write_str("PUSH_ADDRESS"),
-            7i32 => f.write_str("INDIRECT_ADDRESS"),
-            8i32 => f.write_str("HEAP_WITH_SHADER_RECORD_INDEX"),
-            9i32 => f.write_str("SHADER_RECORD_DATA"),
-            10i32 => f.write_str("SHADER_RECORD_ADDRESS"),
-            other => write!(f, "{}({})", stringify!(DescriptorMappingSourceEXT), other),
+            0i32 => f.write_str("UINT32"),
+            1i32 => f.write_str("UINT64"),
+            2i32 => f.write_str("FLOAT"),
+            3i32 => f.write_str("BOOL"),
+            4i32 => f.write_str("STRING"),
+            other => write!(f, "{}({})", stringify!(PerformanceValueTypeINTEL), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkTensorTilingARM")]
-pub struct TensorTilingARM(i32);
-impl TensorTilingARM {
-    pub const OPTIMAL: Self = Self(0i32);
-    pub const LINEAR: Self = Self(1i32);
+#[doc(alias = "VkRayTracingShaderGroupTypeKHR")]
+pub struct RayTracingShaderGroupTypeKHR(i32);
+impl RayTracingShaderGroupTypeKHR {
+    pub const GENERAL: Self = Self(0i32);
+    pub const TRIANGLES_HIT_GROUP: Self = Self(1i32);
+    pub const PROCEDURAL_HIT_GROUP: Self = Self(2i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -9067,22 +9295,22 @@ impl TensorTilingARM {
         self.0
     }
 }
-impl core::fmt::Debug for TensorTilingARM {
+impl core::fmt::Debug for RayTracingShaderGroupTypeKHR {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("OPTIMAL"),
-            1i32 => f.write_str("LINEAR"),
-            other => write!(f, "{}({})", stringify!(TensorTilingARM), other),
+            0i32 => f.write_str("GENERAL"),
+            1i32 => f.write_str("TRIANGLES_HIT_GROUP"),
+            2i32 => f.write_str("PROCEDURAL_HIT_GROUP"),
+            other => write!(f, "{}({})", stringify!(RayTracingShaderGroupTypeKHR), other),
         }
     }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkShaderCodeTypeEXT")]
-pub struct ShaderCodeTypeEXT(i32);
-impl ShaderCodeTypeEXT {
-    pub const BINARY: Self = Self(0i32);
-    pub const SPIRV: Self = Self(1i32);
+#[doc(alias = "VkDataGraphPipelineSessionBindPointARM")]
+pub struct DataGraphPipelineSessionBindPointARM(i32);
+impl DataGraphPipelineSessionBindPointARM {
+    pub const TRANSIENT: Self = Self(0i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -9092,44 +9320,14 @@ impl ShaderCodeTypeEXT {
         self.0
     }
 }
-impl core::fmt::Debug for ShaderCodeTypeEXT {
+impl core::fmt::Debug for DataGraphPipelineSessionBindPointARM {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self.0 {
-            0i32 => f.write_str("BINARY"),
-            1i32 => f.write_str("SPIRV"),
-            other => write!(f, "{}({})", stringify!(ShaderCodeTypeEXT), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDeviceMemoryReportEventTypeEXT")]
-pub struct DeviceMemoryReportEventTypeEXT(i32);
-impl DeviceMemoryReportEventTypeEXT {
-    pub const ALLOCATE: Self = Self(0i32);
-    pub const FREE: Self = Self(1i32);
-    pub const IMPORT: Self = Self(2i32);
-    pub const UNIMPORT: Self = Self(3i32);
-    pub const ALLOCATION_FAILED: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DeviceMemoryReportEventTypeEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("ALLOCATE"),
-            1i32 => f.write_str("FREE"),
-            2i32 => f.write_str("IMPORT"),
-            3i32 => f.write_str("UNIMPORT"),
-            4i32 => f.write_str("ALLOCATION_FAILED"),
+            0i32 => f.write_str("TRANSIENT"),
             other => {
-                write!(f, "{}({})", stringify!(DeviceMemoryReportEventTypeEXT), other)
+                write!(
+                    f, "{}({})", stringify!(DataGraphPipelineSessionBindPointARM), other
+                )
             }
         }
     }
@@ -9158,204 +9356,6 @@ impl core::fmt::Debug for AntiLagModeAMD {
             1i32 => f.write_str("ON"),
             2i32 => f.write_str("OFF"),
             other => write!(f, "{}({})", stringify!(AntiLagModeAMD), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPipelineBindPoint")]
-pub struct PipelineBindPoint(i32);
-impl PipelineBindPoint {
-    pub const GRAPHICS: Self = Self(0i32);
-    pub const COMPUTE: Self = Self(1i32);
-    pub const EXECUTION_GRAPH: Self = Self(1000134000i32);
-    pub const RAY_TRACING: Self = Self(1000165000i32);
-    pub const SUBPASS_SHADING: Self = Self(1000369003i32);
-    pub const DATA_GRAPH: Self = Self(1000507000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PipelineBindPoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("GRAPHICS"),
-            1i32 => f.write_str("COMPUTE"),
-            1000134000i32 => f.write_str("EXECUTION_GRAPH"),
-            1000165000i32 => f.write_str("RAY_TRACING"),
-            1000369003i32 => f.write_str("SUBPASS_SHADING"),
-            1000507000i32 => f.write_str("DATA_GRAPH"),
-            other => write!(f, "{}({})", stringify!(PipelineBindPoint), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkSamplerReductionMode")]
-pub struct SamplerReductionMode(i32);
-impl SamplerReductionMode {
-    pub const WEIGHTED_AVERAGE: Self = Self(0i32);
-    pub const MIN: Self = Self(1i32);
-    pub const MAX: Self = Self(2i32);
-    pub const WEIGHTED_AVERAGE_RANGECLAMP: Self = Self(1000521000i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for SamplerReductionMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("WEIGHTED_AVERAGE"),
-            1i32 => f.write_str("MIN"),
-            2i32 => f.write_str("MAX"),
-            1000521000i32 => f.write_str("WEIGHTED_AVERAGE_RANGECLAMP"),
-            other => write!(f, "{}({})", stringify!(SamplerReductionMode), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkPhysicalDeviceLayeredApiKHR")]
-pub struct PhysicalDeviceLayeredApiKHR(i32);
-impl PhysicalDeviceLayeredApiKHR {
-    pub const VULKAN: Self = Self(0i32);
-    pub const D3D12: Self = Self(1i32);
-    pub const METAL: Self = Self(2i32);
-    pub const OPENGL: Self = Self(3i32);
-    pub const OPENGLES: Self = Self(4i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for PhysicalDeviceLayeredApiKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("VULKAN"),
-            1i32 => f.write_str("D3D12"),
-            2i32 => f.write_str("METAL"),
-            3i32 => f.write_str("OPENGL"),
-            4i32 => f.write_str("OPENGLES"),
-            other => write!(f, "{}({})", stringify!(PhysicalDeviceLayeredApiKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkShadingRatePaletteEntryNV")]
-pub struct ShadingRatePaletteEntryNV(i32);
-impl ShadingRatePaletteEntryNV {
-    pub const NO_INVOCATIONS: Self = Self(0i32);
-    pub const _16_INVOCATIONS_PER_PIXEL: Self = Self(1i32);
-    pub const _8_INVOCATIONS_PER_PIXEL: Self = Self(2i32);
-    pub const _4_INVOCATIONS_PER_PIXEL: Self = Self(3i32);
-    pub const _2_INVOCATIONS_PER_PIXEL: Self = Self(4i32);
-    pub const _1_INVOCATION_PER_PIXEL: Self = Self(5i32);
-    pub const _1_INVOCATION_PER_2X1_PIXELS: Self = Self(6i32);
-    pub const _1_INVOCATION_PER_1X2_PIXELS: Self = Self(7i32);
-    pub const _1_INVOCATION_PER_2X2_PIXELS: Self = Self(8i32);
-    pub const _1_INVOCATION_PER_4X2_PIXELS: Self = Self(9i32);
-    pub const _1_INVOCATION_PER_2X4_PIXELS: Self = Self(10i32);
-    pub const _1_INVOCATION_PER_4X4_PIXELS: Self = Self(11i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for ShadingRatePaletteEntryNV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NO_INVOCATIONS"),
-            1i32 => f.write_str("_16_INVOCATIONS_PER_PIXEL"),
-            2i32 => f.write_str("_8_INVOCATIONS_PER_PIXEL"),
-            3i32 => f.write_str("_4_INVOCATIONS_PER_PIXEL"),
-            4i32 => f.write_str("_2_INVOCATIONS_PER_PIXEL"),
-            5i32 => f.write_str("_1_INVOCATION_PER_PIXEL"),
-            6i32 => f.write_str("_1_INVOCATION_PER_2X1_PIXELS"),
-            7i32 => f.write_str("_1_INVOCATION_PER_1X2_PIXELS"),
-            8i32 => f.write_str("_1_INVOCATION_PER_2X2_PIXELS"),
-            9i32 => f.write_str("_1_INVOCATION_PER_4X2_PIXELS"),
-            10i32 => f.write_str("_1_INVOCATION_PER_2X4_PIXELS"),
-            11i32 => f.write_str("_1_INVOCATION_PER_4X4_PIXELS"),
-            other => write!(f, "{}({})", stringify!(ShadingRatePaletteEntryNV), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDeviceFaultAddressTypeKHR")]
-pub struct DeviceFaultAddressTypeKHR(i32);
-impl DeviceFaultAddressTypeKHR {
-    pub const NONE: Self = Self(0i32);
-    pub const READ_INVALID: Self = Self(1i32);
-    pub const WRITE_INVALID: Self = Self(2i32);
-    pub const EXECUTE_INVALID: Self = Self(3i32);
-    pub const INSTRUCTION_POINTER_UNKNOWN: Self = Self(4i32);
-    pub const INSTRUCTION_POINTER_INVALID: Self = Self(5i32);
-    pub const INSTRUCTION_POINTER_FAULT: Self = Self(6i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DeviceFaultAddressTypeKHR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("NONE"),
-            1i32 => f.write_str("READ_INVALID"),
-            2i32 => f.write_str("WRITE_INVALID"),
-            3i32 => f.write_str("EXECUTE_INVALID"),
-            4i32 => f.write_str("INSTRUCTION_POINTER_UNKNOWN"),
-            5i32 => f.write_str("INSTRUCTION_POINTER_INVALID"),
-            6i32 => f.write_str("INSTRUCTION_POINTER_FAULT"),
-            other => write!(f, "{}({})", stringify!(DeviceFaultAddressTypeKHR), other),
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[doc(alias = "VkDescriptorUpdateTemplateType")]
-pub struct DescriptorUpdateTemplateType(i32);
-impl DescriptorUpdateTemplateType {
-    pub const DESCRIPTOR_SET: Self = Self(0i32);
-    pub const PUSH_DESCRIPTORS: Self = Self(1i32);
-    #[inline]
-    pub const fn from_raw(value: i32) -> Self {
-        Self(value)
-    }
-    #[inline]
-    pub const fn as_raw(self) -> i32 {
-        self.0
-    }
-}
-impl core::fmt::Debug for DescriptorUpdateTemplateType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self.0 {
-            0i32 => f.write_str("DESCRIPTOR_SET"),
-            1i32 => f.write_str("PUSH_DESCRIPTORS"),
-            other => write!(f, "{}({})", stringify!(DescriptorUpdateTemplateType), other),
         }
     }
 }

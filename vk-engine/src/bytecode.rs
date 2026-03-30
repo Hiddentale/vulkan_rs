@@ -35,10 +35,10 @@ pub fn cast_to_u32(bytes: &[u8]) -> Result<&[u32], BytecodeError> {
     if bytes.is_empty() {
         return Ok(&[]);
     }
-    if bytes.len() % 4 != 0 {
+    if !bytes.len().is_multiple_of(4) {
         return Err(BytecodeError::InvalidLength(bytes.len()));
     }
-    if (bytes.as_ptr() as usize) % 4 != 0 {
+    if !(bytes.as_ptr() as usize).is_multiple_of(4) {
         return Err(BytecodeError::MisalignedPointer);
     }
     Ok(unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u32, bytes.len() / 4) })
