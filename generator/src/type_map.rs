@@ -24,6 +24,7 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "VkFlags" => "u32",
         "VkFlags64" => "u64",
         "VkSampleMask" => "u32",
+        "VkRemoteAddressNV" => "*mut std::ffi::c_void",
 
         // Platform types — Win32
         "HINSTANCE" => "isize",

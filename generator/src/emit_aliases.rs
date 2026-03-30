@@ -30,26 +30,36 @@ pub fn emit_flags_aliases(registry: &VkRegistry) -> TokenStream {
         }
     }
 
-    for s in &registry.structs {
-        for m in &s.members {
-            let stripped = m.type_name.strip_prefix("Vk").unwrap_or(&m.type_name);
-            if stripped.contains("Flags")
-                && !stripped.contains("FlagBits")
-                && !struct_names.contains(stripped)
-                && emitted.insert(stripped.to_string())
-            {
-                let flag_bits = resolve_flags_alias(stripped);
-                let flags_ident = format_ident!("{}", stripped);
-                if existing_bitmasks.contains(&flag_bits) || emitted.contains(&flag_bits) {
-                    let bits_ident = format_ident!("{}", flag_bits);
-                    aliases.push(quote! { pub type #flags_ident = #bits_ident; });
+    // Collect all type names referenced by struct members and command params.
+    let referenced_types = registry
+        .structs
+        .iter()
+        .flat_map(|s| s.members.iter().map(|m| m.type_name.as_str()))
+        .chain(
+            registry
+                .commands
+                .iter()
+                .flat_map(|c| c.params.iter().map(|p| p.type_name.as_str())),
+        );
+
+    for type_name in referenced_types {
+        let stripped = type_name.strip_prefix("Vk").unwrap_or(type_name);
+        if stripped.contains("Flags")
+            && !stripped.contains("FlagBits")
+            && !struct_names.contains(stripped)
+            && emitted.insert(stripped.to_string())
+        {
+            let flag_bits = resolve_flags_alias(stripped);
+            let flags_ident = format_ident!("{}", stripped);
+            if existing_bitmasks.contains(&flag_bits) || emitted.contains(&flag_bits) {
+                let bits_ident = format_ident!("{}", flag_bits);
+                aliases.push(quote! { pub type #flags_ident = #bits_ident; });
+            } else {
+                let is_64 = stripped.contains("Flags2") || stripped.contains("Flags3");
+                if is_64 {
+                    aliases.push(quote! { pub type #flags_ident = u64; });
                 } else {
-                    let is_64 = stripped.contains("Flags2") || stripped.contains("Flags3");
-                    if is_64 {
-                        aliases.push(quote! { pub type #flags_ident = u64; });
-                    } else {
-                        aliases.push(quote! { pub type #flags_ident = u32; });
-                    }
+                    aliases.push(quote! { pub type #flags_ident = u32; });
                 }
             }
         }

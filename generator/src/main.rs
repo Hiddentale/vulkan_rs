@@ -50,6 +50,11 @@ fn main() {
         "builders.rs",
         emit_builders::emit_builders(&registry),
     );
+    write_module(
+        &out_dir,
+        "commands.rs",
+        emit_commands::emit_commands(&registry),
+    );
 
     update_lib_rs(&out_dir);
 
@@ -87,6 +92,7 @@ pub mod bitmasks;
 pub mod constants;
 pub mod structs;
 pub mod builders;
+pub mod commands;
 ";
     let path = out_dir.join("lib.rs");
     fs::write(&path, content).unwrap_or_else(|e| {
