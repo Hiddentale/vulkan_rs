@@ -5,7 +5,9 @@
 #![allow(non_camel_case_types)]
 #![allow(non_upper_case_globals)]
 
+pub mod handles;
+pub mod enums;
 pub mod bitmasks;
 pub mod constants;
-pub mod enums;
-pub mod handles;
+pub mod structs;
+pub mod builders;

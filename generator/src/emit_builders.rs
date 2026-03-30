@@ -5,16 +5,21 @@ use std::collections::HashSet;
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
-use crate::emit_structs::{is_rust_keyword, member_name, resolve_member_type, struct_stype};
+use crate::emit_structs::{
+    build_stype_raw_map, build_stype_variant_set, has_stype_pnext, is_rust_keyword, member_name,
+    resolve_member_type, struct_stype_full,
+};
 use crate::parse::{MemberDef, StructDef, VkRegistry};
 
 /// Emit builders for all extensible structs.
 pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
+    let stype_variants = build_stype_variant_set(registry);
+    let stype_raw = build_stype_raw_map(registry);
     let builders: Vec<TokenStream> = registry
         .structs
         .iter()
         .filter(|s| has_stype_pnext(s))
-        .map(emit_builder)
+        .map(|s| emit_builder(s, &stype_variants, &stype_raw))
         .collect();
 
     quote! {
@@ -28,11 +33,11 @@ pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
     }
 }
 
-fn has_stype_pnext(def: &StructDef) -> bool {
-    def.members.iter().any(|m| m.name == "sType") && def.members.iter().any(|m| m.name == "pNext")
-}
-
-fn emit_builder(def: &StructDef) -> TokenStream {
+fn emit_builder(
+    def: &StructDef,
+    stype_variants: &std::collections::HashSet<String>,
+    stype_raw: &std::collections::HashMap<String, i32>,
+) -> TokenStream {
     let struct_name = format_ident!("{}", &def.name);
     let builder_name = format_ident!("{}Builder", &def.name);
 
@@ -46,12 +51,18 @@ fn emit_builder(def: &StructDef) -> TokenStream {
         .map(|m| emit_setter(m, def))
         .collect();
 
-    let stype_val = struct_stype(def);
+    let stype_val = struct_stype_full(def, stype_variants, stype_raw);
     let default_stype = stype_val.unwrap_or_else(|| quote! { Default::default() });
 
     // push_next: only if any struct extends this one.
     let extends_trait = format_ident!("Extends{}", &def.name);
+    let pnext_is_mut = def.members.iter().any(|m| m.name == "pNext" && !m.is_const);
     let push_next = if !def.returned_only {
+        let assign_pnext = if pnext_is_mut {
+            quote! { self.inner.p_next = <*mut BaseOutStructure>::cast::<std::ffi::c_void>(next_ptr); }
+        } else {
+            quote! { self.inner.p_next = <*mut BaseOutStructure>::cast::<std::ffi::c_void>(next_ptr) as *const _; }
+        };
         quote! {
             /// Prepend a struct to the pNext chain.
             #[inline]
@@ -59,7 +70,7 @@ fn emit_builder(def: &StructDef) -> TokenStream {
                 unsafe {
                     let next_ptr = <*mut T>::cast::<BaseOutStructure>(next);
                     (*next_ptr).p_next = self.inner.p_next as *mut _;
-                    self.inner.p_next = <*mut BaseOutStructure>::cast::<std::ffi::c_void>(next_ptr);
+                    #assign_pnext
                 }
                 self
             }
@@ -81,7 +92,6 @@ fn emit_builder(def: &StructDef) -> TokenStream {
                 #builder_name {
                     inner: #struct_name {
                         s_type: #default_stype,
-                        p_next: std::ptr::null_mut(),
                         ..Default::default()
                     },
                     _marker: std::marker::PhantomData,
@@ -158,12 +168,23 @@ fn emit_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenS
     // Count field type (usually u32).
     let count_ty = resolve_member_type(count_member);
 
-    quote! {
-        #[inline]
-        pub fn #setter_ident(mut self, slice: &'a [#elem_ty]) -> Self {
-            self.inner.#count_field = slice.len() as #count_ty;
-            self.inner.#ptr_field = slice.as_ptr();
-            self
+    if ptr_member.is_const {
+        quote! {
+            #[inline]
+            pub fn #setter_ident(mut self, slice: &'a [#elem_ty]) -> Self {
+                self.inner.#count_field = slice.len() as #count_ty;
+                self.inner.#ptr_field = slice.as_ptr();
+                self
+            }
+        }
+    } else {
+        quote! {
+            #[inline]
+            pub fn #setter_ident(mut self, slice: &'a mut [#elem_ty]) -> Self {
+                self.inner.#count_field = slice.len() as #count_ty;
+                self.inner.#ptr_field = slice.as_mut_ptr();
+                self
+            }
         }
     }
 }
@@ -284,7 +305,12 @@ mod tests {
     #[test]
     fn builder_struct_emitted() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(code.contains("pub struct BufferCreateInfoBuilder"));
         assert!(code.contains("PhantomData"));
     }
@@ -292,16 +318,23 @@ mod tests {
     #[test]
     fn builder_has_builder_fn_on_struct() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let mut raw = std::collections::HashMap::new();
+        raw.insert("VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO".to_string(), 12i32);
+        let code = emit_builder(&def, &std::collections::HashSet::new(), &raw).to_string();
         assert!(code.contains("impl BufferCreateInfo"));
         assert!(code.contains("fn builder"));
-        assert!(code.contains("BUFFER_CREATE_INFO"));
+        assert!(code.contains("from_raw"));
     }
 
     #[test]
     fn builder_skips_stype_and_pnext_setters() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         // Should NOT have a setter named s_type or p_next.
         assert!(!code.contains("fn s_type"), "should skip sType setter");
         assert!(!code.contains("fn p_next"), "should skip pNext setter");
@@ -310,7 +343,12 @@ mod tests {
     #[test]
     fn builder_has_simple_setters() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(code.contains("fn flags"), "missing flags setter");
         assert!(code.contains("fn size"), "missing size setter");
         assert!(code.contains("fn usage"), "missing usage setter");
@@ -323,7 +361,12 @@ mod tests {
     #[test]
     fn builder_has_slice_setter_for_pointer_count_pair() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(
             code.contains("fn queue_family_indices"),
             "missing slice setter"
@@ -341,7 +384,12 @@ mod tests {
     #[test]
     fn builder_skips_count_field_setter() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(
             !code.contains("fn queue_family_index_count"),
             "count field should not have its own setter"
@@ -351,7 +399,12 @@ mod tests {
     #[test]
     fn builder_has_push_next() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(code.contains("fn push_next"), "missing push_next");
         assert!(
             code.contains("ExtendsBufferCreateInfo"),
@@ -362,7 +415,12 @@ mod tests {
     #[test]
     fn builder_has_deref() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(code.contains("impl < 'a > std :: ops :: Deref for BufferCreateInfoBuilder"));
         assert!(code.contains("type Target = BufferCreateInfo"));
     }
@@ -370,7 +428,12 @@ mod tests {
     #[test]
     fn builder_has_deref_mut() {
         let def = make_buffer_create_info();
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(code.contains("DerefMut for BufferCreateInfoBuilder"));
     }
 
@@ -384,7 +447,12 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_builder(&def).to_string();
+        let code = emit_builder(
+            &def,
+            &std::collections::HashSet::new(),
+            &std::collections::HashMap::new(),
+        )
+        .to_string();
         assert!(
             !code.contains("fn push_next"),
             "returned_only structs should not have push_next"

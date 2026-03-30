@@ -55,6 +55,12 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
 
         // Platform types — Metal/macOS/iOS
         "CAMetalLayer" => "std::ffi::c_void",
+        "MTLDevice_id" => "std::ffi::c_void",
+        "MTLCommandQueue_id" => "std::ffi::c_void",
+        "MTLBuffer_id" => "std::ffi::c_void",
+        "MTLTexture_id" => "std::ffi::c_void",
+        "MTLSharedEvent_id" => "std::ffi::c_void",
+        "IOSurfaceRef" => "std::ffi::c_void",
 
         // Platform types — DirectFB
         "IDirectFB" => "std::ffi::c_void",
@@ -78,6 +84,15 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "NvSciBufObj" => "std::ffi::c_void",
         "NvSciSyncAttrList" => "std::ffi::c_void",
         "NvSciBufAttrList" => "std::ffi::c_void",
+
+        // Platform types — OHOS (OpenHarmony)
+        "OHNativeWindow" => "std::ffi::c_void",
+        "OH_NativeBuffer" => "std::ffi::c_void",
+        "OHBufferHandle" => "std::ffi::c_void",
+
+        // Platform types — UBM (Samsung)
+        "ubm_device" => "std::ffi::c_void",
+        "ubm_surface" => "std::ffi::c_void",
 
         // Vk-prefixed or unknown types are not primitives — caller handles them.
         _ => return None,

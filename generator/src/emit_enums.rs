@@ -116,7 +116,7 @@ fn emit_debug_arm(variant: &EnumVariant, prefix: &str) -> Option<TokenStream> {
 ///
 /// Extension suffixes (KHR, EXT, etc.) are removed from the prefix
 /// so both core and extension variants match.
-fn enum_variant_prefix(rust_type_name: &str) -> String {
+pub fn enum_variant_prefix(rust_type_name: &str) -> String {
     let base = strip_extension_suffix(rust_type_name);
     format!("VK_{}_", base.to_shouty_snake_case())
 }
@@ -125,7 +125,7 @@ fn enum_variant_prefix(rust_type_name: &str) -> String {
 /// Returns the Rust constant name like `R8G8B8A8_SRGB`.
 ///
 /// Also strips trailing extension suffixes from the result if present.
-fn strip_variant_prefix(c_name: &str, prefix: &str) -> Option<String> {
+pub fn strip_variant_prefix(c_name: &str, prefix: &str) -> Option<String> {
     let stripped = if let Some(s) = c_name.strip_prefix(prefix) {
         s
     } else {
@@ -160,7 +160,7 @@ fn strip_variant_prefix(c_name: &str, prefix: &str) -> Option<String> {
 pub const EXTENSION_SUFFIXES: &[&str] = &[
     "KHR", "EXT", "NV", "AMD", "INTEL", "ARM", "QCOM", "HUAWEI", "MESA", "VALVE", "GOOGLE",
     "FUCHSIA", "GGP", "MVK", "NN", "NVX", "AMDX", "SEC", "MSFT", "IMG", "LUNARG", "QNX", "ANDROID",
-    "KDAB",
+    "KDAB", "OHOS",
 ];
 
 pub fn strip_extension_suffix(name: &str) -> String {
