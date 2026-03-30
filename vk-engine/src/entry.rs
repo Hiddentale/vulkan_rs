@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use std::ffi::CStr;
 
-use crate::error::{check, LoadError, VkResult};
+use crate::error::{LoadError, VkResult, check};
 use crate::loader::Loader;
 use crate::version::Version;
 use crate::vk;
@@ -48,9 +48,8 @@ impl Entry {
         let get_instance_proc_addr_fn = get_instance_proc_addr.unwrap();
         let null_instance = vk::handles::Instance::null();
 
-        let get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr = unsafe {
-            std::mem::transmute(loader.load(c"vkGetDeviceProcAddr"))
-        };
+        let get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr =
+            unsafe { std::mem::transmute(loader.load(c"vkGetDeviceProcAddr")) };
 
         let commands = unsafe {
             vk::commands::EntryCommands::load(|name| {
@@ -92,7 +91,13 @@ impl Entry {
     pub fn version(&self) -> VkResult<Version> {
         let fp = match self.commands.enumerate_instance_version {
             Some(fp) => fp,
-            None => return Ok(Version { major: 1, minor: 0, patch: 0 }),
+            None => {
+                return Ok(Version {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                });
+            }
         };
         let mut raw = 0u32;
         check(unsafe { fp(&mut raw) })?;
@@ -114,7 +119,10 @@ impl Entry {
         create_info: &vk::structs::InstanceCreateInfo,
         allocator: Option<&vk::structs::AllocationCallbacks>,
     ) -> VkResult<vk::handles::Instance> {
-        let fp = self.commands.create_instance.expect("vkCreateInstance not loaded");
+        let fp = self
+            .commands
+            .create_instance
+            .expect("vkCreateInstance not loaded");
         let mut instance = vk::handles::Instance::null();
         let result = unsafe {
             fp(
@@ -168,9 +176,7 @@ impl Entry {
 ///
 /// First call with null data pointer to get the count, allocate, then
 /// call again to fill the buffer.
-fn enumerate_two_call<T>(
-    call: impl Fn(*mut u32, *mut T) -> vk::enums::Result,
-) -> VkResult<Vec<T>> {
+fn enumerate_two_call<T>(call: impl Fn(*mut u32, *mut T) -> vk::enums::Result) -> VkResult<Vec<T>> {
     let mut count = 0u32;
     check(call(&mut count, std::ptr::null_mut()))?;
     let mut data = Vec::with_capacity(count as usize);
@@ -183,7 +189,7 @@ fn enumerate_two_call<T>(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::ffi::{c_void, CStr};
+    use std::ffi::{CStr, c_void};
 
     /// Mock loader that returns null for everything — simulates missing library.
     struct NullLoader;
@@ -207,8 +213,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn new_succeeds_with_real_loader() {
-        let loader =
-            crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
+        let loader = crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
         let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
         assert!(entry.get_instance_proc_addr().is_some());
         assert!(entry.get_device_proc_addr().is_some());
@@ -244,8 +249,7 @@ mod tests {
 
     /// Helper to create an Entry for integration tests.
     fn create_entry() -> Entry {
-        let loader =
-            crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
+        let loader = crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
         unsafe { Entry::new(loader) }.expect("failed to create Entry")
     }
 }
