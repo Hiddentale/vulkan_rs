@@ -3,6 +3,7 @@ use std::sync::Arc;
 use std::ffi::CStr;
 
 use crate::error::{LoadError, VkResult, check};
+use crate::instance::Instance;
 use crate::loader::Loader;
 use crate::version::Version;
 use crate::vk;
@@ -106,15 +107,35 @@ impl Entry {
 
     /// Create a Vulkan instance.
     ///
-    /// Returns the raw `VkInstance` handle. The `Instance` wrapper is
-    /// introduced in Phase 8.
+    /// # Safety
+    ///
+    /// `create_info` must be a valid, fully populated `InstanceCreateInfo`.
+    /// The caller is responsible for calling `instance.destroy_instance`
+    /// when done.
+    pub unsafe fn create_instance(
+        &self,
+        create_info: &vk::structs::InstanceCreateInfo,
+        allocator: Option<&vk::structs::AllocationCallbacks>,
+    ) -> VkResult<Instance> {
+        let raw = unsafe { self.create_instance_raw(create_info, allocator) }?;
+        let instance = unsafe {
+            Instance::load(raw, self.get_instance_proc_addr, self.get_device_proc_addr)
+        };
+        Ok(instance)
+    }
+
+    /// Create a Vulkan instance and return the raw handle.
+    ///
+    /// Use this when you need the `VkInstance` handle without the wrapper,
+    /// for example when passing it to OpenXR which manages the instance
+    /// lifetime externally.
     ///
     /// # Safety
     ///
     /// `create_info` must be a valid, fully populated `InstanceCreateInfo`.
     /// The caller is responsible for destroying the instance with
     /// `vkDestroyInstance` when done.
-    pub unsafe fn create_instance(
+    pub unsafe fn create_instance_raw(
         &self,
         create_info: &vk::structs::InstanceCreateInfo,
         allocator: Option<&vk::structs::AllocationCallbacks>,
