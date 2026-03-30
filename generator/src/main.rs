@@ -1,6 +1,7 @@
 mod emit_aliases;
 mod emit_bitmasks;
 mod emit_builders;
+mod emit_commands;
 mod emit_constants;
 mod emit_enums;
 mod emit_handles;
