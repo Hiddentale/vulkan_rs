@@ -45,3 +45,70 @@ fn generated_output_compiles() {
         "vk-sys failed to compile:\n{stderr}"
     );
 }
+
+/// Running the generator twice must produce byte-identical output.
+///
+/// Catches non-determinism (HashMap iteration order leaking into output).
+/// Runs two sequential generator invocations and compares their output,
+/// making the test self-contained regardless of parallel test execution.
+#[test]
+fn generator_output_is_deterministic() {
+    let root = workspace_root();
+
+    let generated_files: Vec<std::path::PathBuf> = vec![
+        // vk-sys
+        root.join("vk-sys/src/handles.rs"),
+        root.join("vk-sys/src/enums.rs"),
+        root.join("vk-sys/src/bitmasks.rs"),
+        root.join("vk-sys/src/constants.rs"),
+        root.join("vk-sys/src/structs.rs"),
+        root.join("vk-sys/src/builders.rs"),
+        root.join("vk-sys/src/commands.rs"),
+        root.join("vk-sys/src/lib.rs"),
+        // vk-engine wrappers
+        root.join("vk-engine/src/generated/entry_wrappers.rs"),
+        root.join("vk-engine/src/generated/instance_wrappers.rs"),
+        root.join("vk-engine/src/generated/device_wrappers.rs"),
+        root.join("vk-engine/src/generated/mod.rs"),
+    ];
+
+    // Run 1.
+    let run1 = cargo()
+        .args(["run", "-p", "generator"])
+        .output()
+        .expect("failed to launch generator (run 1)");
+    assert!(run1.status.success(), "generator run 1 failed");
+
+    // Snapshot after run 1.
+    let snapshot: Vec<(&std::path::Path, Vec<u8>)> = generated_files
+        .iter()
+        .map(|p| {
+            let content = std::fs::read(p)
+                .unwrap_or_else(|e| panic!("failed to read {}: {e}", p.display()));
+            (p.as_path(), content)
+        })
+        .collect();
+
+    // Run 2.
+    let run2 = cargo()
+        .args(["run", "-p", "generator"])
+        .output()
+        .expect("failed to launch generator (run 2)");
+    assert!(run2.status.success(), "generator run 2 failed");
+
+    // Compare run 1 vs run 2.
+    let mut mismatches = Vec::new();
+    for (path, original) in &snapshot {
+        let regenerated = std::fs::read(path)
+            .unwrap_or_else(|e| panic!("failed to read {}: {e}", path.display()));
+        if *original != regenerated {
+            mismatches.push(path.display().to_string());
+        }
+    }
+
+    assert!(
+        mismatches.is_empty(),
+        "Generator output is non-deterministic — these files changed between run 1 and run 2:\n  {}",
+        mismatches.join("\n  ")
+    );
+}

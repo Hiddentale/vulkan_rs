@@ -1059,4 +1059,181 @@ mod tests {
         let total = entry + instance + device;
         assert!(total >= 650, "total methods too low: {total}");
     }
+
+    // -- Audit report -------------------------------------------------------
+
+    /// Generates `docs/wrapper_audit.md` with every command's classification.
+    ///
+    /// Run with: `cargo test -p generator -- generate_wrapper_audit --ignored --nocapture`
+    #[test]
+    #[ignore] // expensive, writes to docs/
+    fn generate_wrapper_audit() {
+        use std::fmt::Write;
+
+        let vk_xml = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("vk.xml");
+        let registry = crate::parse::parse_registry(&vk_xml);
+        let pnext = build_pnext_struct_set(&registry);
+        let exclusions = super::exclusion_set();
+
+        let mut report = String::new();
+        writeln!(report, "# Wrapper Audit Report\n").unwrap();
+        writeln!(
+            report,
+            "Auto-generated. Run `cargo test -p generator -- generate_wrapper_audit --ignored` to regenerate.\n"
+        )
+        .unwrap();
+
+        let mut pattern_counts: std::collections::HashMap<&str, usize> =
+            std::collections::HashMap::new();
+        let mut raw_forward_commands = Vec::new();
+
+        for (level_name, level) in [
+            ("Entry", DispatchLevel::Entry),
+            ("Instance", DispatchLevel::Instance),
+            ("Device", DispatchLevel::Device),
+        ] {
+            let cmds: Vec<&CommandDef> = registry
+                .commands
+                .iter()
+                .filter(|c| c.dispatch_level == level)
+                .collect();
+
+            writeln!(report, "## {level_name} ({} commands)\n", cmds.len()).unwrap();
+            writeln!(
+                report,
+                "| Command | Pattern | Params | Transforms |"
+            )
+            .unwrap();
+            writeln!(report, "|---------|---------|--------|------------|").unwrap();
+
+            for cmd in &cmds {
+                let excluded = exclusions.contains(&cmd.name);
+                let roles = classify_params(cmd, &pnext);
+                let pattern = classify_command(cmd, &roles);
+                let pattern_name = match pattern {
+                    CommandPattern::Create => "Create",
+                    CommandPattern::Destroy => "Destroy",
+                    CommandPattern::Enumerate => "Enumerate",
+                    CommandPattern::Fill => "Fill",
+                    CommandPattern::Query => "Query",
+                    CommandPattern::ResultOnly => "ResultOnly",
+                    CommandPattern::VoidForward => "VoidForward",
+                };
+
+                if !excluded {
+                    *pattern_counts.entry(pattern_name).or_default() += 1;
+                }
+
+                let mut transforms = Vec::new();
+                for (param, role) in cmd.params.iter().zip(roles.iter()) {
+                    match role {
+                        ParamRole::SelfHandle => {
+                            transforms.push(format!("{} → self", param.name));
+                        }
+                        ParamRole::Output => {
+                            transforms.push(format!("{} → return", param.name));
+                        }
+                        ParamRole::OutputCount { .. } => {
+                            transforms.push(format!("{} → two-call count", param.name));
+                        }
+                        ParamRole::OutputArray { .. } => {
+                            transforms.push(format!("{} → two-call data", param.name));
+                        }
+                        ParamRole::InputCount { partner } => {
+                            transforms.push(format!(
+                                "{} → {}.len()",
+                                param.name, cmd.params[*partner].name
+                            ));
+                        }
+                        ParamRole::InputArray { .. } => {
+                            transforms.push(format!("{} → &[T]", param.name));
+                        }
+                        ParamRole::Allocator => {
+                            transforms.push(format!("{} → Option", param.name));
+                        }
+                        ParamRole::Regular => {}
+                    }
+                }
+
+                let raw_params: Vec<String> = cmd
+                    .params
+                    .iter()
+                    .zip(roles.iter())
+                    .filter(|(_, r)| matches!(r, ParamRole::Regular))
+                    .filter(|(p, _)| p.is_pointer)
+                    .map(|(p, _)| p.name.clone())
+                    .collect();
+
+                let status = if excluded {
+                    "**EXCLUDED**"
+                } else {
+                    pattern_name
+                };
+
+                let transform_str = if transforms.is_empty() {
+                    "—".to_string()
+                } else {
+                    transforms.join(", ")
+                };
+
+                writeln!(
+                    report,
+                    "| `{}` | {} | {} | {} |",
+                    cmd.name,
+                    status,
+                    cmd.params.len(),
+                    transform_str,
+                )
+                .unwrap();
+
+                // Track commands with raw pointer params that stayed Regular.
+                if !excluded && !raw_params.is_empty() {
+                    raw_forward_commands.push((cmd.name.clone(), pattern_name, raw_params));
+                }
+            }
+
+            writeln!(report).unwrap();
+        }
+
+        // Summary section.
+        writeln!(report, "## Summary\n").unwrap();
+        writeln!(report, "| Pattern | Count |").unwrap();
+        writeln!(report, "|---------|-------|").unwrap();
+        let mut sorted_patterns: Vec<_> = pattern_counts.into_iter().collect();
+        sorted_patterns.sort_by_key(|(_, count)| std::cmp::Reverse(*count));
+        for (name, count) in &sorted_patterns {
+            writeln!(report, "| {name} | {count} |").unwrap();
+        }
+        let total: usize = sorted_patterns.iter().map(|(_, c)| c).sum();
+        writeln!(report, "| **Total** | **{total}** |").unwrap();
+
+        // Raw pointer warnings.
+        writeln!(
+            report,
+            "\n## Commands with raw pointer params ({} total)\n",
+            raw_forward_commands.len()
+        )
+        .unwrap();
+        writeln!(
+            report,
+            "These commands have parameters that passed through as raw pointers"
+        )
+        .unwrap();
+        writeln!(
+            report,
+            "because they didn't match any ergonomic transform rule.\n"
+        )
+        .unwrap();
+        writeln!(report, "| Command | Pattern | Raw params |").unwrap();
+        writeln!(report, "|---------|---------|------------|").unwrap();
+        for (name, pattern, params) in &raw_forward_commands {
+            writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", ")).unwrap();
+        }
+
+        let out_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("../docs/wrapper_audit.md");
+        std::fs::write(&out_path, &report)
+            .unwrap_or_else(|e| panic!("failed to write {}: {e}", out_path.display()));
+        println!("Wrote audit report to {}", out_path.display());
+    }
 }

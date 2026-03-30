@@ -1,7 +1,7 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::missing_safety_doc)]
-use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
+use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
 use crate::vk::enums::*;
@@ -16,18 +16,16 @@ impl crate::Device {
         unsafe { fp(self.handle(), p_name) };
     }
     pub unsafe fn destroy_device(&self, allocator: Option<&AllocationCallbacks>) {
-        let fp = self
-            .commands()
-            .destroy_device
-            .expect("vkDestroyDevice not loaded");
+        let fp = self.commands().destroy_device.expect("vkDestroyDevice not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), alloc_ptr) };
     }
-    pub unsafe fn get_device_queue(&self, queue_family_index: u32, queue_index: u32) -> Queue {
-        let fp = self
-            .commands()
-            .get_device_queue
-            .expect("vkGetDeviceQueue not loaded");
+    pub unsafe fn get_device_queue(
+        &self,
+        queue_family_index: u32,
+        queue_index: u32,
+    ) -> Queue {
+        let fp = self.commands().get_device_queue.expect("vkGetDeviceQueue not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         unsafe { fp(self.handle(), queue_family_index, queue_index, &mut out) };
         out
@@ -38,24 +36,15 @@ impl crate::Device {
         p_submits: &[SubmitInfo],
         fence: Fence,
     ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .queue_submit
-            .expect("vkQueueSubmit not loaded");
+        let fp = self.commands().queue_submit.expect("vkQueueSubmit not loaded");
         check(unsafe { fp(queue, p_submits.len() as u32, p_submits.as_ptr(), fence) })
     }
     pub unsafe fn queue_wait_idle(&self, queue: Queue) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .queue_wait_idle
-            .expect("vkQueueWaitIdle not loaded");
+        let fp = self.commands().queue_wait_idle.expect("vkQueueWaitIdle not loaded");
         check(unsafe { fp(queue) })
     }
     pub unsafe fn device_wait_idle(&self) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .device_wait_idle
-            .expect("vkDeviceWaitIdle not loaded");
+        let fp = self.commands().device_wait_idle.expect("vkDeviceWaitIdle not loaded");
         check(unsafe { fp(self.handle()) })
     }
     pub unsafe fn allocate_memory(
@@ -63,10 +52,7 @@ impl crate::Device {
         p_allocate_info: &MemoryAllocateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<DeviceMemory> {
-        let fp = self
-            .commands()
-            .allocate_memory
-            .expect("vkAllocateMemory not loaded");
+        let fp = self.commands().allocate_memory.expect("vkAllocateMemory not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_allocate_info, alloc_ptr, &mut out) })?;
@@ -77,10 +63,7 @@ impl crate::Device {
         memory: DeviceMemory,
         allocator: Option<&AllocationCallbacks>,
     ) {
-        let fp = self
-            .commands()
-            .free_memory
-            .expect("vkFreeMemory not loaded");
+        let fp = self.commands().free_memory.expect("vkFreeMemory not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), memory, alloc_ptr) };
     }
@@ -96,10 +79,7 @@ impl crate::Device {
         check(unsafe { fp(self.handle(), memory, offset, size, flags, pp_data) })
     }
     pub unsafe fn unmap_memory(&self, memory: DeviceMemory) {
-        let fp = self
-            .commands()
-            .unmap_memory
-            .expect("vkUnmapMemory not loaded");
+        let fp = self.commands().unmap_memory.expect("vkUnmapMemory not loaded");
         unsafe { fp(self.handle(), memory) };
     }
     pub unsafe fn flush_mapped_memory_ranges(
@@ -111,11 +91,7 @@ impl crate::Device {
             .flush_mapped_memory_ranges
             .expect("vkFlushMappedMemoryRanges not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_memory_ranges.len() as u32,
-                p_memory_ranges.as_ptr(),
-            )
+            fp(self.handle(), p_memory_ranges.len() as u32, p_memory_ranges.as_ptr())
         })
     }
     pub unsafe fn invalidate_mapped_memory_ranges(
@@ -127,11 +103,7 @@ impl crate::Device {
             .invalidate_mapped_memory_ranges
             .expect("vkInvalidateMappedMemoryRanges not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_memory_ranges.len() as u32,
-                p_memory_ranges.as_ptr(),
-            )
+            fp(self.handle(), p_memory_ranges.len() as u32, p_memory_ranges.as_ptr())
         })
     }
     pub unsafe fn get_device_memory_commitment(&self, memory: DeviceMemory) -> u64 {
@@ -143,7 +115,10 @@ impl crate::Device {
         unsafe { fp(self.handle(), memory, &mut out) };
         out
     }
-    pub unsafe fn get_buffer_memory_requirements(&self, buffer: Buffer) -> MemoryRequirements {
+    pub unsafe fn get_buffer_memory_requirements(
+        &self,
+        buffer: Buffer,
+    ) -> MemoryRequirements {
         let fp = self
             .commands()
             .get_buffer_memory_requirements
@@ -164,7 +139,10 @@ impl crate::Device {
             .expect("vkBindBufferMemory not loaded");
         check(unsafe { fp(self.handle(), buffer, memory, memory_offset) })
     }
-    pub unsafe fn get_image_memory_requirements(&self, image: Image) -> MemoryRequirements {
+    pub unsafe fn get_image_memory_requirements(
+        &self,
+        image: Image,
+    ) -> MemoryRequirements {
         let fp = self
             .commands()
             .get_image_memory_requirements
@@ -205,42 +183,36 @@ impl crate::Device {
             .commands()
             .queue_bind_sparse
             .expect("vkQueueBindSparse not loaded");
-        check(unsafe { fp(queue, p_bind_info.len() as u32, p_bind_info.as_ptr(), fence) })
+        check(unsafe {
+            fp(queue, p_bind_info.len() as u32, p_bind_info.as_ptr(), fence)
+        })
     }
     pub unsafe fn create_fence(
         &self,
         p_create_info: &FenceCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Fence> {
-        let fp = self
-            .commands()
-            .create_fence
-            .expect("vkCreateFence not loaded");
+        let fp = self.commands().create_fence.expect("vkCreateFence not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
-    pub unsafe fn destroy_fence(&self, fence: Fence, allocator: Option<&AllocationCallbacks>) {
-        let fp = self
-            .commands()
-            .destroy_fence
-            .expect("vkDestroyFence not loaded");
+    pub unsafe fn destroy_fence(
+        &self,
+        fence: Fence,
+        allocator: Option<&AllocationCallbacks>,
+    ) {
+        let fp = self.commands().destroy_fence.expect("vkDestroyFence not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), fence, alloc_ptr) };
     }
     pub unsafe fn reset_fences(&self, p_fences: &[Fence]) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .reset_fences
-            .expect("vkResetFences not loaded");
+        let fp = self.commands().reset_fences.expect("vkResetFences not loaded");
         check(unsafe { fp(self.handle(), p_fences.len() as u32, p_fences.as_ptr()) })
     }
     pub unsafe fn get_fence_status(&self, fence: Fence) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .get_fence_status
-            .expect("vkGetFenceStatus not loaded");
+        let fp = self.commands().get_fence_status.expect("vkGetFenceStatus not loaded");
         check(unsafe { fp(self.handle(), fence) })
     }
     pub unsafe fn wait_for_fences(
@@ -249,10 +221,7 @@ impl crate::Device {
         wait_all: u32,
         timeout: u64,
     ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .wait_for_fences
-            .expect("vkWaitForFences not loaded");
+        let fp = self.commands().wait_for_fences.expect("vkWaitForFences not loaded");
         check(unsafe {
             fp(
                 self.handle(),
@@ -268,10 +237,7 @@ impl crate::Device {
         p_create_info: &SemaphoreCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Semaphore> {
-        let fp = self
-            .commands()
-            .create_semaphore
-            .expect("vkCreateSemaphore not loaded");
+        let fp = self.commands().create_semaphore.expect("vkCreateSemaphore not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -294,28 +260,23 @@ impl crate::Device {
         p_create_info: &EventCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Event> {
-        let fp = self
-            .commands()
-            .create_event
-            .expect("vkCreateEvent not loaded");
+        let fp = self.commands().create_event.expect("vkCreateEvent not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
-    pub unsafe fn destroy_event(&self, event: Event, allocator: Option<&AllocationCallbacks>) {
-        let fp = self
-            .commands()
-            .destroy_event
-            .expect("vkDestroyEvent not loaded");
+    pub unsafe fn destroy_event(
+        &self,
+        event: Event,
+        allocator: Option<&AllocationCallbacks>,
+    ) {
+        let fp = self.commands().destroy_event.expect("vkDestroyEvent not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), event, alloc_ptr) };
     }
     pub unsafe fn get_event_status(&self, event: Event) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .get_event_status
-            .expect("vkGetEventStatus not loaded");
+        let fp = self.commands().get_event_status.expect("vkGetEventStatus not loaded");
         check(unsafe { fp(self.handle(), event) })
     }
     pub unsafe fn set_event(&self, event: Event) -> VkResult<()> {
@@ -323,10 +284,7 @@ impl crate::Device {
         check(unsafe { fp(self.handle(), event) })
     }
     pub unsafe fn reset_event(&self, event: Event) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .reset_event
-            .expect("vkResetEvent not loaded");
+        let fp = self.commands().reset_event.expect("vkResetEvent not loaded");
         check(unsafe { fp(self.handle(), event) })
     }
     pub unsafe fn create_query_pool(
@@ -388,10 +346,7 @@ impl crate::Device {
         first_query: u32,
         query_count: u32,
     ) {
-        let fp = self
-            .commands()
-            .reset_query_pool
-            .expect("vkResetQueryPool not loaded");
+        let fp = self.commands().reset_query_pool.expect("vkResetQueryPool not loaded");
         unsafe { fp(self.handle(), query_pool, first_query, query_count) };
     }
     pub unsafe fn create_buffer(
@@ -399,20 +354,18 @@ impl crate::Device {
         p_create_info: &BufferCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Buffer> {
-        let fp = self
-            .commands()
-            .create_buffer
-            .expect("vkCreateBuffer not loaded");
+        let fp = self.commands().create_buffer.expect("vkCreateBuffer not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
-    pub unsafe fn destroy_buffer(&self, buffer: Buffer, allocator: Option<&AllocationCallbacks>) {
-        let fp = self
-            .commands()
-            .destroy_buffer
-            .expect("vkDestroyBuffer not loaded");
+    pub unsafe fn destroy_buffer(
+        &self,
+        buffer: Buffer,
+        allocator: Option<&AllocationCallbacks>,
+    ) {
+        let fp = self.commands().destroy_buffer.expect("vkDestroyBuffer not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), buffer, alloc_ptr) };
     }
@@ -447,20 +400,18 @@ impl crate::Device {
         p_create_info: &ImageCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Image> {
-        let fp = self
-            .commands()
-            .create_image
-            .expect("vkCreateImage not loaded");
+        let fp = self.commands().create_image.expect("vkCreateImage not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
-    pub unsafe fn destroy_image(&self, image: Image, allocator: Option<&AllocationCallbacks>) {
-        let fp = self
-            .commands()
-            .destroy_image
-            .expect("vkDestroyImage not loaded");
+    pub unsafe fn destroy_image(
+        &self,
+        image: Image,
+        allocator: Option<&AllocationCallbacks>,
+    ) {
+        let fp = self.commands().destroy_image.expect("vkDestroyImage not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), image, alloc_ptr) };
     }
@@ -620,8 +571,8 @@ impl crate::Device {
             .commands()
             .get_pipeline_key_khr
             .expect("vkGetPipelineKeyKHR not loaded");
-        let p_pipeline_create_info_ptr =
-            p_pipeline_create_info.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_pipeline_create_info_ptr = p_pipeline_create_info
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         check(unsafe { fp(self.handle(), p_pipeline_create_info_ptr, p_pipeline_key) })
     }
     pub unsafe fn get_pipeline_binary_data_khr(
@@ -720,10 +671,7 @@ impl crate::Device {
         pipeline: Pipeline,
         allocator: Option<&AllocationCallbacks>,
     ) {
-        let fp = self
-            .commands()
-            .destroy_pipeline
-            .expect("vkDestroyPipeline not loaded");
+        let fp = self.commands().destroy_pipeline.expect("vkDestroyPipeline not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), pipeline, alloc_ptr) };
     }
@@ -758,10 +706,7 @@ impl crate::Device {
         p_create_info: &SamplerCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Sampler> {
-        let fp = self
-            .commands()
-            .create_sampler
-            .expect("vkCreateSampler not loaded");
+        let fp = self.commands().create_sampler.expect("vkCreateSampler not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -772,10 +717,7 @@ impl crate::Device {
         sampler: Sampler,
         allocator: Option<&AllocationCallbacks>,
     ) {
-        let fp = self
-            .commands()
-            .destroy_sampler
-            .expect("vkDestroySampler not loaded");
+        let fp = self.commands().destroy_sampler.expect("vkDestroySampler not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), sampler, alloc_ptr) };
     }
@@ -942,7 +884,10 @@ impl crate::Device {
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), render_pass, alloc_ptr) };
     }
-    pub unsafe fn get_render_area_granularity(&self, render_pass: RenderPass) -> Extent2D {
+    pub unsafe fn get_render_area_granularity(
+        &self,
+        render_pass: RenderPass,
+    ) -> Extent2D {
         let fp = self
             .commands()
             .get_render_area_granularity
@@ -1040,7 +985,10 @@ impl crate::Device {
             .expect("vkBeginCommandBuffer not loaded");
         check(unsafe { fp(command_buffer, p_begin_info) })
     }
-    pub unsafe fn end_command_buffer(&self, command_buffer: CommandBuffer) -> VkResult<()> {
+    pub unsafe fn end_command_buffer(
+        &self,
+        command_buffer: CommandBuffer,
+    ) -> VkResult<()> {
         let fp = self
             .commands()
             .end_command_buffer
@@ -1087,10 +1035,7 @@ impl crate::Device {
         first_viewport: u32,
         p_viewports: &[Viewport],
     ) {
-        let fp = self
-            .commands()
-            .cmd_set_viewport
-            .expect("vkCmdSetViewport not loaded");
+        let fp = self.commands().cmd_set_viewport.expect("vkCmdSetViewport not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -1106,10 +1051,7 @@ impl crate::Device {
         first_scissor: u32,
         p_scissors: &[Rect2D],
     ) {
-        let fp = self
-            .commands()
-            .cmd_set_scissor
-            .expect("vkCmdSetScissor not loaded");
+        let fp = self.commands().cmd_set_scissor.expect("vkCmdSetScissor not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -1119,7 +1061,11 @@ impl crate::Device {
             )
         };
     }
-    pub unsafe fn cmd_set_line_width(&self, command_buffer: CommandBuffer, line_width: f32) {
+    pub unsafe fn cmd_set_line_width(
+        &self,
+        command_buffer: CommandBuffer,
+        line_width: f32,
+    ) {
         let fp = self
             .commands()
             .cmd_set_line_width
@@ -1293,10 +1239,7 @@ impl crate::Device {
         vertex_offset: i32,
         first_instance: u32,
     ) {
-        let fp = self
-            .commands()
-            .cmd_draw_indexed
-            .expect("vkCmdDrawIndexed not loaded");
+        let fp = self.commands().cmd_draw_indexed.expect("vkCmdDrawIndexed not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -1391,10 +1334,7 @@ impl crate::Device {
         group_count_y: u32,
         group_count_z: u32,
     ) {
-        let fp = self
-            .commands()
-            .cmd_dispatch
-            .expect("vkCmdDispatch not loaded");
+        let fp = self.commands().cmd_dispatch.expect("vkCmdDispatch not loaded");
         unsafe { fp(command_buffer, group_count_x, group_count_y, group_count_z) };
     }
     pub unsafe fn cmd_dispatch_indirect(
@@ -1460,10 +1400,7 @@ impl crate::Device {
         dst_buffer: Buffer,
         p_regions: &[BufferCopy],
     ) {
-        let fp = self
-            .commands()
-            .cmd_copy_buffer
-            .expect("vkCmdCopyBuffer not loaded");
+        let fp = self.commands().cmd_copy_buffer.expect("vkCmdCopyBuffer not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -1483,10 +1420,7 @@ impl crate::Device {
         dst_image_layout: ImageLayout,
         p_regions: &[ImageCopy],
     ) {
-        let fp = self
-            .commands()
-            .cmd_copy_image
-            .expect("vkCmdCopyImage not loaded");
+        let fp = self.commands().cmd_copy_image.expect("vkCmdCopyImage not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -1509,10 +1443,7 @@ impl crate::Device {
         p_regions: &[ImageBlit],
         filter: Filter,
     ) {
-        let fp = self
-            .commands()
-            .cmd_blit_image
-            .expect("vkCmdBlitImage not loaded");
+        let fp = self.commands().cmd_blit_image.expect("vkCmdBlitImage not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -1654,10 +1585,7 @@ impl crate::Device {
         size: u64,
         data: u32,
     ) {
-        let fp = self
-            .commands()
-            .cmd_fill_buffer
-            .expect("vkCmdFillBuffer not loaded");
+        let fp = self.commands().cmd_fill_buffer.expect("vkCmdFillBuffer not loaded");
         unsafe { fp(command_buffer, dst_buffer, dst_offset, size, data) };
     }
     pub unsafe fn cmd_clear_color_image(
@@ -1757,10 +1685,7 @@ impl crate::Device {
         event: Event,
         stage_mask: PipelineStageFlags,
     ) {
-        let fp = self
-            .commands()
-            .cmd_set_event
-            .expect("vkCmdSetEvent not loaded");
+        let fp = self.commands().cmd_set_event.expect("vkCmdSetEvent not loaded");
         unsafe { fp(command_buffer, event, stage_mask) };
     }
     pub unsafe fn cmd_reset_event(
@@ -1769,10 +1694,7 @@ impl crate::Device {
         event: Event,
         stage_mask: PipelineStageFlags,
     ) {
-        let fp = self
-            .commands()
-            .cmd_reset_event
-            .expect("vkCmdResetEvent not loaded");
+        let fp = self.commands().cmd_reset_event.expect("vkCmdResetEvent not loaded");
         unsafe { fp(command_buffer, event, stage_mask) };
     }
     pub unsafe fn cmd_wait_events(
@@ -1785,10 +1707,7 @@ impl crate::Device {
         p_buffer_memory_barriers: &[BufferMemoryBarrier],
         p_image_memory_barriers: &[ImageMemoryBarrier],
     ) {
-        let fp = self
-            .commands()
-            .cmd_wait_events
-            .expect("vkCmdWaitEvents not loaded");
+        let fp = self.commands().cmd_wait_events.expect("vkCmdWaitEvents not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -1841,10 +1760,7 @@ impl crate::Device {
         query: u32,
         flags: QueryControlFlags,
     ) {
-        let fp = self
-            .commands()
-            .cmd_begin_query
-            .expect("vkCmdBeginQuery not loaded");
+        let fp = self.commands().cmd_begin_query.expect("vkCmdBeginQuery not loaded");
         unsafe { fp(command_buffer, query_pool, query, flags) };
     }
     pub unsafe fn cmd_end_query(
@@ -1853,10 +1769,7 @@ impl crate::Device {
         query_pool: QueryPool,
         query: u32,
     ) {
-        let fp = self
-            .commands()
-            .cmd_end_query
-            .expect("vkCmdEndQuery not loaded");
+        let fp = self.commands().cmd_end_query.expect("vkCmdEndQuery not loaded");
         unsafe { fp(command_buffer, query_pool, query) };
     }
     pub unsafe fn cmd_begin_conditional_rendering_ext(
@@ -1870,7 +1783,10 @@ impl crate::Device {
             .expect("vkCmdBeginConditionalRenderingEXT not loaded");
         unsafe { fp(command_buffer, p_conditional_rendering_begin) };
     }
-    pub unsafe fn cmd_end_conditional_rendering_ext(&self, command_buffer: CommandBuffer) {
+    pub unsafe fn cmd_end_conditional_rendering_ext(
+        &self,
+        command_buffer: CommandBuffer,
+    ) {
         let fp = self
             .commands()
             .cmd_end_conditional_rendering_ext
@@ -1886,8 +1802,8 @@ impl crate::Device {
             .commands()
             .cmd_begin_custom_resolve_ext
             .expect("vkCmdBeginCustomResolveEXT not loaded");
-        let p_begin_custom_resolve_info_ptr =
-            p_begin_custom_resolve_info.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_begin_custom_resolve_info_ptr = p_begin_custom_resolve_info
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_begin_custom_resolve_info_ptr) };
     }
     pub unsafe fn cmd_reset_query_pool(
@@ -1984,10 +1900,7 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         contents: SubpassContents,
     ) {
-        let fp = self
-            .commands()
-            .cmd_next_subpass
-            .expect("vkCmdNextSubpass not loaded");
+        let fp = self.commands().cmd_next_subpass.expect("vkCmdNextSubpass not loaded");
         unsafe { fp(command_buffer, contents) };
     }
     pub unsafe fn cmd_end_render_pass(&self, command_buffer: CommandBuffer) {
@@ -2061,12 +1974,17 @@ impl crate::Device {
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), swapchain, alloc_ptr) };
     }
-    pub unsafe fn get_swapchain_images_khr(&self, swapchain: SwapchainKHR) -> VkResult<Vec<Image>> {
+    pub unsafe fn get_swapchain_images_khr(
+        &self,
+        swapchain: SwapchainKHR,
+    ) -> VkResult<Vec<Image>> {
         let fp = self
             .commands()
             .get_swapchain_images_khr
             .expect("vkGetSwapchainImagesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), swapchain, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), swapchain, count, data)
+        })
     }
     pub unsafe fn acquire_next_image_khr(
         &self,
@@ -2081,14 +1999,7 @@ impl crate::Device {
             .expect("vkAcquireNextImageKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(
-                self.handle(),
-                swapchain,
-                timeout,
-                semaphore,
-                fence,
-                &mut out,
-            )
+            fp(self.handle(), swapchain, timeout, semaphore, fence, &mut out)
         })?;
         Ok(out)
     }
@@ -2260,13 +2171,7 @@ impl crate::Device {
             .commands()
             .cmd_preprocess_generated_commands_ext
             .expect("vkCmdPreprocessGeneratedCommandsEXT not loaded");
-        unsafe {
-            fp(
-                command_buffer,
-                p_generated_commands_info,
-                state_command_buffer,
-            )
-        };
+        unsafe { fp(command_buffer, p_generated_commands_info, state_command_buffer) };
     }
     pub unsafe fn get_generated_commands_memory_requirements_ext(
         &self,
@@ -2390,7 +2295,11 @@ impl crate::Device {
             )
         };
     }
-    pub unsafe fn trim_command_pool(&self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
+    pub unsafe fn trim_command_pool(
+        &self,
+        command_pool: CommandPool,
+        flags: CommandPoolTrimFlags,
+    ) {
         let fp = self
             .commands()
             .trim_command_pool
@@ -2420,22 +2329,14 @@ impl crate::Device {
             .get_memory_win32_handle_properties_khr
             .expect("vkGetMemoryWin32HandlePropertiesKHR not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                handle_type,
-                handle,
-                p_memory_win32_handle_properties,
-            )
+            fp(self.handle(), handle_type, handle, p_memory_win32_handle_properties)
         })
     }
     pub unsafe fn get_memory_fd_khr(
         &self,
         p_get_fd_info: &MemoryGetFdInfoKHR,
     ) -> VkResult<core::ffi::c_int> {
-        let fp = self
-            .commands()
-            .get_memory_fd_khr
-            .expect("vkGetMemoryFdKHR not loaded");
+        let fp = self.commands().get_memory_fd_khr.expect("vkGetMemoryFdKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_get_fd_info, &mut out) })?;
         Ok(out)
@@ -2599,10 +2500,7 @@ impl crate::Device {
         &self,
         p_get_fd_info: &FenceGetFdInfoKHR,
     ) -> VkResult<core::ffi::c_int> {
-        let fp = self
-            .commands()
-            .get_fence_fd_khr
-            .expect("vkGetFenceFdKHR not loaded");
+        let fp = self.commands().get_fence_fd_khr.expect("vkGetFenceFdKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_get_fd_info, &mut out) })?;
         Ok(out)
@@ -2747,13 +2645,7 @@ impl crate::Device {
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(
-                self.handle(),
-                display,
-                p_display_event_info,
-                alloc_ptr,
-                &mut out,
-            )
+            fp(self.handle(), display, p_display_event_info, alloc_ptr, &mut out)
         })?;
         Ok(out)
     }
@@ -2801,27 +2693,26 @@ impl crate::Device {
             .bind_buffer_memory2
             .expect("vkBindBufferMemory2 not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_bind_infos.len() as u32,
-                p_bind_infos.as_ptr(),
-            )
+            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
         })
     }
-    pub unsafe fn bind_image_memory2(&self, p_bind_infos: &[BindImageMemoryInfo]) -> VkResult<()> {
+    pub unsafe fn bind_image_memory2(
+        &self,
+        p_bind_infos: &[BindImageMemoryInfo],
+    ) -> VkResult<()> {
         let fp = self
             .commands()
             .bind_image_memory2
             .expect("vkBindImageMemory2 not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_bind_infos.len() as u32,
-                p_bind_infos.as_ptr(),
-            )
+            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
         })
     }
-    pub unsafe fn cmd_set_device_mask(&self, command_buffer: CommandBuffer, device_mask: u32) {
+    pub unsafe fn cmd_set_device_mask(
+        &self,
+        command_buffer: CommandBuffer,
+        device_mask: u32,
+    ) {
         let fp = self
             .commands()
             .cmd_set_device_mask
@@ -2924,14 +2815,7 @@ impl crate::Device {
             .commands()
             .update_descriptor_set_with_template
             .expect("vkUpdateDescriptorSetWithTemplate not loaded");
-        unsafe {
-            fp(
-                self.handle(),
-                descriptor_set,
-                descriptor_update_template,
-                p_data,
-            )
-        };
+        unsafe { fp(self.handle(), descriptor_set, descriptor_update_template, p_data) };
     }
     pub unsafe fn cmd_push_descriptor_set_with_template(
         &self,
@@ -2945,15 +2829,7 @@ impl crate::Device {
             .commands()
             .cmd_push_descriptor_set_with_template
             .expect("vkCmdPushDescriptorSetWithTemplate not loaded");
-        unsafe {
-            fp(
-                command_buffer,
-                descriptor_update_template,
-                layout,
-                set,
-                p_data,
-            )
-        };
+        unsafe { fp(command_buffer, descriptor_update_template, layout, set, p_data) };
     }
     pub unsafe fn set_hdr_metadata_ext(
         &self,
@@ -2973,7 +2849,10 @@ impl crate::Device {
             )
         };
     }
-    pub unsafe fn get_swapchain_status_khr(&self, swapchain: SwapchainKHR) -> VkResult<()> {
+    pub unsafe fn get_swapchain_status_khr(
+        &self,
+        swapchain: SwapchainKHR,
+    ) -> VkResult<()> {
         let fp = self
             .commands()
             .get_swapchain_status_khr
@@ -3000,7 +2879,9 @@ impl crate::Device {
             .commands()
             .get_past_presentation_timing_google
             .expect("vkGetPastPresentationTimingGOOGLE not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), swapchain, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), swapchain, count, data)
+        })
     }
     pub unsafe fn cmd_set_viewport_w_scaling_nv(
         &self,
@@ -3325,14 +3206,7 @@ impl crate::Device {
             .expect("vkGetShaderInfoAMD not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(
-                self.handle(),
-                pipeline,
-                shader_stage,
-                info_type,
-                &mut out,
-                p_info,
-            )
+            fp(self.handle(), pipeline, shader_stage, info_type, &mut out, p_info)
         })?;
         Ok(out)
     }
@@ -3477,15 +3351,7 @@ impl crate::Device {
             .commands()
             .cmd_write_buffer_marker_amd
             .expect("vkCmdWriteBufferMarkerAMD not loaded");
-        unsafe {
-            fp(
-                command_buffer,
-                pipeline_stage,
-                dst_buffer,
-                dst_offset,
-                marker,
-            )
-        };
+        unsafe { fp(command_buffer, pipeline_stage, dst_buffer, dst_offset, marker) };
     }
     pub unsafe fn create_render_pass2(
         &self,
@@ -3536,7 +3402,10 @@ impl crate::Device {
             .expect("vkCmdEndRenderPass2 not loaded");
         unsafe { fp(command_buffer, p_subpass_end_info) };
     }
-    pub unsafe fn get_semaphore_counter_value(&self, semaphore: Semaphore) -> VkResult<u64> {
+    pub unsafe fn get_semaphore_counter_value(
+        &self,
+        semaphore: Semaphore,
+    ) -> VkResult<u64> {
         let fp = self
             .commands()
             .get_semaphore_counter_value
@@ -3550,17 +3419,14 @@ impl crate::Device {
         p_wait_info: &SemaphoreWaitInfo,
         timeout: u64,
     ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .wait_semaphores
-            .expect("vkWaitSemaphores not loaded");
+        let fp = self.commands().wait_semaphores.expect("vkWaitSemaphores not loaded");
         check(unsafe { fp(self.handle(), p_wait_info, timeout) })
     }
-    pub unsafe fn signal_semaphore(&self, p_signal_info: &SemaphoreSignalInfo) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .signal_semaphore
-            .expect("vkSignalSemaphore not loaded");
+    pub unsafe fn signal_semaphore(
+        &self,
+        p_signal_info: &SemaphoreSignalInfo,
+    ) -> VkResult<()> {
+        let fp = self.commands().signal_semaphore.expect("vkSignalSemaphore not loaded");
         check(unsafe { fp(self.handle(), p_signal_info) })
     }
     pub unsafe fn get_android_hardware_buffer_properties_android(
@@ -3648,7 +3514,10 @@ impl crate::Device {
             .expect("vkCmdSetCheckpointNV not loaded");
         unsafe { fp(command_buffer, p_checkpoint_marker) };
     }
-    pub unsafe fn get_queue_checkpoint_data_nv(&self, queue: Queue) -> Vec<CheckpointDataNV> {
+    pub unsafe fn get_queue_checkpoint_data_nv(
+        &self,
+        queue: Queue,
+    ) -> Vec<CheckpointDataNV> {
         let fp = self
             .commands()
             .get_queue_checkpoint_data_nv
@@ -3690,8 +3559,8 @@ impl crate::Device {
             .commands()
             .cmd_begin_transform_feedback_ext
             .expect("vkCmdBeginTransformFeedbackEXT not loaded");
-        let p_counter_buffer_offsets_ptr =
-            p_counter_buffer_offsets.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_counter_buffer_offsets_ptr = p_counter_buffer_offsets
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
@@ -3713,8 +3582,8 @@ impl crate::Device {
             .commands()
             .cmd_end_transform_feedback_ext
             .expect("vkCmdEndTransformFeedbackEXT not loaded");
-        let p_counter_buffer_offsets_ptr =
-            p_counter_buffer_offsets.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_counter_buffer_offsets_ptr = p_counter_buffer_offsets
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
@@ -3971,7 +3840,11 @@ impl crate::Device {
             )
         };
     }
-    pub unsafe fn compile_deferred_nv(&self, pipeline: Pipeline, shader: u32) -> VkResult<()> {
+    pub unsafe fn compile_deferred_nv(
+        &self,
+        pipeline: Pipeline,
+        shader: u32,
+    ) -> VkResult<()> {
         let fp = self
             .commands()
             .compile_deferred_nv
@@ -4049,11 +3922,7 @@ impl crate::Device {
             .bind_acceleration_structure_memory_nv
             .expect("vkBindAccelerationStructureMemoryNV not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_bind_infos.len() as u32,
-                p_bind_infos.as_ptr(),
-            )
+            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
         })
     }
     pub unsafe fn cmd_copy_acceleration_structure_nv(
@@ -4281,10 +4150,7 @@ impl crate::Device {
         height: u32,
         depth: u32,
     ) {
-        let fp = self
-            .commands()
-            .cmd_trace_rays_nv
-            .expect("vkCmdTraceRaysNV not loaded");
+        let fp = self.commands().cmd_trace_rays_nv.expect("vkCmdTraceRaysNV not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -4318,14 +4184,7 @@ impl crate::Device {
             .get_ray_tracing_shader_group_handles_khr
             .expect("vkGetRayTracingShaderGroupHandlesKHR not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                pipeline,
-                first_group,
-                group_count,
-                data_size,
-                p_data,
-            )
+            fp(self.handle(), pipeline, first_group, group_count, data_size, p_data)
         })
     }
     pub unsafe fn get_ray_tracing_capture_replay_shader_group_handles_khr(
@@ -4341,14 +4200,7 @@ impl crate::Device {
             .get_ray_tracing_capture_replay_shader_group_handles_khr
             .expect("vkGetRayTracingCaptureReplayShaderGroupHandlesKHR not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                pipeline,
-                first_group,
-                group_count,
-                data_size,
-                p_data,
-            )
+            fp(self.handle(), pipeline, first_group, group_count, data_size, p_data)
         })
     }
     pub unsafe fn get_acceleration_structure_handle_nv(
@@ -4599,7 +4451,10 @@ impl crate::Device {
             .expect("vkGetImageDrmFormatModifierPropertiesEXT not loaded");
         check(unsafe { fp(self.handle(), image, p_properties) })
     }
-    pub unsafe fn get_buffer_opaque_capture_address(&self, p_info: &BufferDeviceAddressInfo) {
+    pub unsafe fn get_buffer_opaque_capture_address(
+        &self,
+        p_info: &BufferDeviceAddressInfo,
+    ) {
         let fp = self
             .commands()
             .get_buffer_opaque_capture_address
@@ -4726,7 +4581,9 @@ impl crate::Device {
             .commands()
             .get_pipeline_executable_properties_khr
             .expect("vkGetPipelineExecutablePropertiesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), p_pipeline_info, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), p_pipeline_info, count, data)
+        })
     }
     pub unsafe fn get_pipeline_executable_statistics_khr(
         &self,
@@ -4769,18 +4626,9 @@ impl crate::Device {
         fault_query_behavior: FaultQueryBehavior,
         p_unrecorded_faults: *mut u32,
     ) -> VkResult<Vec<FaultData>> {
-        let fp = self
-            .commands()
-            .get_fault_data
-            .expect("vkGetFaultData not loaded");
+        let fp = self.commands().get_fault_data.expect("vkGetFaultData not loaded");
         enumerate_two_call(|count, data| unsafe {
-            fp(
-                self.handle(),
-                fault_query_behavior,
-                p_unrecorded_faults,
-                count,
-                data,
-            )
+            fp(self.handle(), fault_query_behavior, p_unrecorded_faults, count, data)
         })
     }
     pub unsafe fn create_acceleration_structure_khr(
@@ -4957,13 +4805,14 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         cull_mode: CullModeFlags,
     ) {
-        let fp = self
-            .commands()
-            .cmd_set_cull_mode
-            .expect("vkCmdSetCullMode not loaded");
+        let fp = self.commands().cmd_set_cull_mode.expect("vkCmdSetCullMode not loaded");
         unsafe { fp(command_buffer, cull_mode) };
     }
-    pub unsafe fn cmd_set_front_face(&self, command_buffer: CommandBuffer, front_face: FrontFace) {
+    pub unsafe fn cmd_set_front_face(
+        &self,
+        command_buffer: CommandBuffer,
+        front_face: FrontFace,
+    ) {
         let fp = self
             .commands()
             .cmd_set_front_face
@@ -4990,13 +4839,7 @@ impl crate::Device {
             .commands()
             .cmd_set_viewport_with_count
             .expect("vkCmdSetViewportWithCount not loaded");
-        unsafe {
-            fp(
-                command_buffer,
-                p_viewports.len() as u32,
-                p_viewports.as_ptr(),
-            )
-        };
+        unsafe { fp(command_buffer, p_viewports.len() as u32, p_viewports.as_ptr()) };
     }
     pub unsafe fn cmd_set_scissor_with_count(
         &self,
@@ -5119,14 +4962,7 @@ impl crate::Device {
             .cmd_set_stencil_op
             .expect("vkCmdSetStencilOp not loaded");
         unsafe {
-            fp(
-                command_buffer,
-                face_mask,
-                fail_op,
-                pass_op,
-                depth_fail_op,
-                compare_op,
-            )
+            fp(command_buffer, face_mask, fail_op, pass_op, depth_fail_op, compare_op)
         };
     }
     pub unsafe fn cmd_set_patch_control_points_ext(
@@ -5162,7 +4998,11 @@ impl crate::Device {
             .expect("vkCmdSetDepthBiasEnable not loaded");
         unsafe { fp(command_buffer, depth_bias_enable) };
     }
-    pub unsafe fn cmd_set_logic_op_ext(&self, command_buffer: CommandBuffer, logic_op: LogicOp) {
+    pub unsafe fn cmd_set_logic_op_ext(
+        &self,
+        command_buffer: CommandBuffer,
+        logic_op: LogicOp,
+    ) {
         let fp = self
             .commands()
             .cmd_set_logic_op_ext
@@ -5234,7 +5074,8 @@ impl crate::Device {
             .commands()
             .cmd_set_sample_mask_ext
             .expect("vkCmdSetSampleMaskEXT not loaded");
-        let p_sample_mask_ptr = p_sample_mask.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_sample_mask_ptr = p_sample_mask
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, samples, p_sample_mask_ptr) };
     }
     pub unsafe fn cmd_set_alpha_to_coverage_enable_ext(
@@ -5602,18 +5443,9 @@ impl crate::Device {
         private_data_slot: PrivateDataSlot,
         data: u64,
     ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .set_private_data
-            .expect("vkSetPrivateData not loaded");
+        let fp = self.commands().set_private_data.expect("vkSetPrivateData not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                object_type,
-                object_handle,
-                private_data_slot,
-                data,
-            )
+            fp(self.handle(), object_type, object_handle, private_data_slot, data)
         })
     }
     pub unsafe fn get_private_data(
@@ -5622,19 +5454,10 @@ impl crate::Device {
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
     ) -> u64 {
-        let fp = self
-            .commands()
-            .get_private_data
-            .expect("vkGetPrivateData not loaded");
+        let fp = self.commands().get_private_data.expect("vkGetPrivateData not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         unsafe {
-            fp(
-                self.handle(),
-                object_type,
-                object_handle,
-                private_data_slot,
-                &mut out,
-            )
+            fp(self.handle(), object_type, object_handle, private_data_slot, &mut out)
         };
         out
     }
@@ -5643,10 +5466,7 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         p_copy_buffer_info: &CopyBufferInfo2,
     ) {
-        let fp = self
-            .commands()
-            .cmd_copy_buffer2
-            .expect("vkCmdCopyBuffer2 not loaded");
+        let fp = self.commands().cmd_copy_buffer2.expect("vkCmdCopyBuffer2 not loaded");
         unsafe { fp(command_buffer, p_copy_buffer_info) };
     }
     pub unsafe fn cmd_copy_image2(
@@ -5654,10 +5474,7 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         p_copy_image_info: &CopyImageInfo2,
     ) {
-        let fp = self
-            .commands()
-            .cmd_copy_image2
-            .expect("vkCmdCopyImage2 not loaded");
+        let fp = self.commands().cmd_copy_image2.expect("vkCmdCopyImage2 not loaded");
         unsafe { fp(command_buffer, p_copy_image_info) };
     }
     pub unsafe fn cmd_blit_image2(
@@ -5665,10 +5482,7 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         p_blit_image_info: &BlitImageInfo2,
     ) {
-        let fp = self
-            .commands()
-            .cmd_blit_image2
-            .expect("vkCmdBlitImage2 not loaded");
+        let fp = self.commands().cmd_blit_image2.expect("vkCmdBlitImage2 not loaded");
         unsafe { fp(command_buffer, p_blit_image_info) };
     }
     pub unsafe fn cmd_copy_buffer_to_image2(
@@ -5803,10 +5617,7 @@ impl crate::Device {
         event: Event,
         p_dependency_info: &DependencyInfo,
     ) {
-        let fp = self
-            .commands()
-            .cmd_set_event2
-            .expect("vkCmdSetEvent2 not loaded");
+        let fp = self.commands().cmd_set_event2.expect("vkCmdSetEvent2 not loaded");
         unsafe { fp(command_buffer, event, p_dependency_info) };
     }
     pub unsafe fn cmd_reset_event2(
@@ -5815,10 +5626,7 @@ impl crate::Device {
         event: Event,
         stage_mask: PipelineStageFlags2,
     ) {
-        let fp = self
-            .commands()
-            .cmd_reset_event2
-            .expect("vkCmdResetEvent2 not loaded");
+        let fp = self.commands().cmd_reset_event2.expect("vkCmdResetEvent2 not loaded");
         unsafe { fp(command_buffer, event, stage_mask) };
     }
     pub unsafe fn cmd_wait_events2(
@@ -5827,10 +5635,7 @@ impl crate::Device {
         p_events: &[Event],
         p_dependency_infos: &DependencyInfo,
     ) {
-        let fp = self
-            .commands()
-            .cmd_wait_events2
-            .expect("vkCmdWaitEvents2 not loaded");
+        let fp = self.commands().cmd_wait_events2.expect("vkCmdWaitEvents2 not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -5857,10 +5662,7 @@ impl crate::Device {
         p_submits: &[SubmitInfo2],
         fence: Fence,
     ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .queue_submit2
-            .expect("vkQueueSubmit2 not loaded");
+        let fp = self.commands().queue_submit2.expect("vkQueueSubmit2 not loaded");
         check(unsafe { fp(queue, p_submits.len() as u32, p_submits.as_ptr(), fence) })
     }
     pub unsafe fn cmd_write_timestamp2(
@@ -5890,7 +5692,10 @@ impl crate::Device {
             .expect("vkCmdWriteBufferMarker2AMD not loaded");
         unsafe { fp(command_buffer, stage, dst_buffer, dst_offset, marker) };
     }
-    pub unsafe fn get_queue_checkpoint_data2_nv(&self, queue: Queue) -> Vec<CheckpointData2NV> {
+    pub unsafe fn get_queue_checkpoint_data2_nv(
+        &self,
+        queue: Queue,
+    ) -> Vec<CheckpointData2NV> {
         let fp = self
             .commands()
             .get_queue_checkpoint_data2_nv
@@ -5936,11 +5741,7 @@ impl crate::Device {
             .transition_image_layout
             .expect("vkTransitionImageLayout not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_transitions.len() as u32,
-                p_transitions.as_ptr(),
-            )
+            fp(self.handle(), p_transitions.len() as u32, p_transitions.as_ptr())
         })
     }
     pub unsafe fn get_command_pool_memory_consumption(
@@ -6048,7 +5849,9 @@ impl crate::Device {
             .commands()
             .get_video_session_memory_requirements_khr
             .expect("vkGetVideoSessionMemoryRequirementsKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), video_session, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), video_session, count, data)
+        })
     }
     pub unsafe fn bind_video_session_memory_khr(
         &self,
@@ -6280,7 +6083,10 @@ impl crate::Device {
             .expect("vkCmdCuLaunchKernelNVX not loaded");
         unsafe { fp(command_buffer, p_launch_info) };
     }
-    pub unsafe fn get_descriptor_set_layout_size_ext(&self, layout: DescriptorSetLayout) -> u64 {
+    pub unsafe fn get_descriptor_set_layout_size_ext(
+        &self,
+        layout: DescriptorSetLayout,
+    ) -> u64 {
         let fp = self
             .commands()
             .get_descriptor_set_layout_size_ext
@@ -6324,11 +6130,7 @@ impl crate::Device {
             .cmd_bind_descriptor_buffers_ext
             .expect("vkCmdBindDescriptorBuffersEXT not loaded");
         unsafe {
-            fp(
-                command_buffer,
-                p_binding_infos.len() as u32,
-                p_binding_infos.as_ptr(),
-            )
+            fp(command_buffer, p_binding_infos.len() as u32, p_binding_infos.as_ptr())
         };
     }
     pub unsafe fn cmd_set_descriptor_buffer_offsets_ext(
@@ -6424,12 +6226,18 @@ impl crate::Device {
         let fp = self
             .commands()
             .get_acceleration_structure_opaque_capture_descriptor_data_ext
-            .expect("vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT not loaded");
+            .expect(
+                "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT not loaded",
+            );
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_info, &mut out) })?;
         Ok(out)
     }
-    pub unsafe fn set_device_memory_priority_ext(&self, memory: DeviceMemory, priority: f32) {
+    pub unsafe fn set_device_memory_priority_ext(
+        &self,
+        memory: DeviceMemory,
+        priority: f32,
+    ) {
         let fp = self
             .commands()
             .set_device_memory_priority_ext
@@ -6621,8 +6429,8 @@ impl crate::Device {
             .commands()
             .cmd_end_rendering2_khr
             .expect("vkCmdEndRendering2KHR not loaded");
-        let p_rendering_end_info_ptr =
-            p_rendering_end_info.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_rendering_end_info_ptr = p_rendering_end_info
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_rendering_end_info_ptr) };
     }
     pub unsafe fn get_descriptor_set_layout_host_mapping_info_valve(
@@ -6682,12 +6490,7 @@ impl crate::Device {
             .build_micromaps_ext
             .expect("vkBuildMicromapsEXT not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                deferred_operation,
-                p_infos.len() as u32,
-                p_infos.as_ptr(),
-            )
+            fp(self.handle(), deferred_operation, p_infos.len() as u32, p_infos.as_ptr())
         })
     }
     pub unsafe fn destroy_micromap_ext(
@@ -6903,8 +6706,8 @@ impl crate::Device {
             .commands()
             .cmd_bind_tile_memory_qcom
             .expect("vkCmdBindTileMemoryQCOM not loaded");
-        let p_tile_memory_bind_info_ptr =
-            p_tile_memory_bind_info.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_tile_memory_bind_info_ptr = p_tile_memory_bind_info
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_tile_memory_bind_info_ptr) };
     }
     pub unsafe fn get_framebuffer_tile_properties_qcom(
@@ -6915,7 +6718,9 @@ impl crate::Device {
             .commands()
             .get_framebuffer_tile_properties_qcom
             .expect("vkGetFramebufferTilePropertiesQCOM not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), framebuffer, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), framebuffer, count, data)
+        })
     }
     pub unsafe fn get_dynamic_rendering_tile_properties_qcom(
         &self,
@@ -6998,7 +6803,9 @@ impl crate::Device {
             .commands()
             .get_device_fault_reports_khr
             .expect("vkGetDeviceFaultReportsKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), timeout, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), timeout, count, data)
+        })
     }
     pub unsafe fn get_device_fault_debug_info_khr(
         &self,
@@ -7047,17 +6854,14 @@ impl crate::Device {
         p_memory_map_info: &MemoryMapInfo,
         pp_data: *mut *mut core::ffi::c_void,
     ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .map_memory2
-            .expect("vkMapMemory2 not loaded");
+        let fp = self.commands().map_memory2.expect("vkMapMemory2 not loaded");
         check(unsafe { fp(self.handle(), p_memory_map_info, pp_data) })
     }
-    pub unsafe fn unmap_memory2(&self, p_memory_unmap_info: &MemoryUnmapInfo) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .unmap_memory2
-            .expect("vkUnmapMemory2 not loaded");
+    pub unsafe fn unmap_memory2(
+        &self,
+        p_memory_unmap_info: &MemoryUnmapInfo,
+    ) -> VkResult<()> {
+        let fp = self.commands().unmap_memory2.expect("vkUnmapMemory2 not loaded");
         check(unsafe { fp(self.handle(), p_memory_unmap_info) })
     }
     pub unsafe fn create_shaders_ext(
@@ -7118,12 +6922,7 @@ impl crate::Device {
             .expect("vkCmdBindShadersEXT not loaded");
         let p_shaders_ptr = p_shaders.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
-            fp(
-                command_buffer,
-                p_stages.len() as u32,
-                p_stages.as_ptr(),
-                p_shaders_ptr,
-            )
+            fp(command_buffer, p_stages.len() as u32, p_stages.as_ptr(), p_shaders_ptr)
         };
     }
     pub unsafe fn set_swapchain_present_timing_queue_size_ext(
@@ -7148,12 +6947,7 @@ impl crate::Device {
             .expect("vkGetSwapchainTimingPropertiesEXT not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(
-                self.handle(),
-                swapchain,
-                p_swapchain_timing_properties,
-                &mut out,
-            )
+            fp(self.handle(), swapchain, p_swapchain_timing_properties, &mut out)
         })?;
         Ok(out)
     }
@@ -7168,12 +6962,7 @@ impl crate::Device {
             .expect("vkGetSwapchainTimeDomainPropertiesEXT not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(
-                self.handle(),
-                swapchain,
-                p_swapchain_time_domain_properties,
-                &mut out,
-            )
+            fp(self.handle(), swapchain, p_swapchain_time_domain_properties, &mut out)
         })?;
         Ok(out)
     }
@@ -7368,12 +7157,7 @@ impl crate::Device {
             .commands()
             .cmd_bind_descriptor_buffer_embedded_samplers2_ext
             .expect("vkCmdBindDescriptorBufferEmbeddedSamplers2EXT not loaded");
-        unsafe {
-            fp(
-                command_buffer,
-                p_bind_descriptor_buffer_embedded_samplers_info,
-            )
-        };
+        unsafe { fp(command_buffer, p_bind_descriptor_buffer_embedded_samplers_info) };
     }
     pub unsafe fn set_latency_sleep_mode_nv(
         &self,
@@ -7391,10 +7175,7 @@ impl crate::Device {
         swapchain: SwapchainKHR,
         p_sleep_info: &LatencySleepInfoNV,
     ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .latency_sleep_nv
-            .expect("vkLatencySleepNV not loaded");
+        let fp = self.commands().latency_sleep_nv.expect("vkLatencySleepNV not loaded");
         check(unsafe { fp(self.handle(), swapchain, p_sleep_info) })
     }
     pub unsafe fn set_latency_marker_nv(
@@ -7462,8 +7243,8 @@ impl crate::Device {
             .commands()
             .cmd_set_depth_clamp_range_ext
             .expect("vkCmdSetDepthClampRangeEXT not loaded");
-        let p_depth_clamp_range_ptr =
-            p_depth_clamp_range.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_depth_clamp_range_ptr = p_depth_clamp_range
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, depth_clamp_mode, p_depth_clamp_range_ptr) };
     }
     pub unsafe fn get_memory_metal_handle_ext(
@@ -7488,12 +7269,7 @@ impl crate::Device {
             .get_memory_metal_handle_properties_ext
             .expect("vkGetMemoryMetalHandlePropertiesEXT not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                handle_type,
-                p_handle,
-                p_memory_metal_handle_properties,
-            )
+            fp(self.handle(), handle_type, p_handle, p_memory_metal_handle_properties)
         })
     }
     pub unsafe fn convert_cooperative_vector_matrix_nv(
@@ -7613,7 +7389,10 @@ impl crate::Device {
             .expect("vkCmdBeginShaderInstrumentationARM not loaded");
         unsafe { fp(command_buffer, instrumentation) };
     }
-    pub unsafe fn cmd_end_shader_instrumentation_arm(&self, command_buffer: CommandBuffer) {
+    pub unsafe fn cmd_end_shader_instrumentation_arm(
+        &self,
+        command_buffer: CommandBuffer,
+    ) {
         let fp = self
             .commands()
             .cmd_end_shader_instrumentation_arm
@@ -7632,13 +7411,7 @@ impl crate::Device {
             .expect("vkGetShaderInstrumentationValuesARM not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(
-                self.handle(),
-                instrumentation,
-                p_metric_block_count,
-                &mut out,
-                flags,
-            )
+            fp(self.handle(), instrumentation, p_metric_block_count, &mut out, flags)
         })?;
         Ok(out)
     }
@@ -7724,11 +7497,7 @@ impl crate::Device {
             .bind_tensor_memory_arm
             .expect("vkBindTensorMemoryARM not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_bind_infos.len() as u32,
-                p_bind_infos.as_ptr(),
-            )
+            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
         })
     }
     pub unsafe fn get_device_tensor_memory_requirements_arm(
@@ -7824,7 +7593,9 @@ impl crate::Device {
             .commands()
             .get_data_graph_pipeline_session_bind_point_requirements_arm
             .expect("vkGetDataGraphPipelineSessionBindPointRequirementsARM not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), p_info, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), p_info, count, data)
+        })
     }
     pub unsafe fn get_data_graph_pipeline_session_memory_requirements_arm(
         &self,
@@ -7846,11 +7617,7 @@ impl crate::Device {
             .bind_data_graph_pipeline_session_memory_arm
             .expect("vkBindDataGraphPipelineSessionMemoryARM not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_bind_infos.len() as u32,
-                p_bind_infos.as_ptr(),
-            )
+            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
         })
     }
     pub unsafe fn destroy_data_graph_pipeline_session_arm(
@@ -7886,7 +7653,9 @@ impl crate::Device {
             .commands()
             .get_data_graph_pipeline_available_properties_arm
             .expect("vkGetDataGraphPipelineAvailablePropertiesARM not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle(), p_pipeline_info, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(self.handle(), p_pipeline_info, count, data)
+        })
     }
     pub unsafe fn get_data_graph_pipeline_properties_arm(
         &self,
@@ -7899,12 +7668,7 @@ impl crate::Device {
             .get_data_graph_pipeline_properties_arm
             .expect("vkGetDataGraphPipelinePropertiesARM not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_pipeline_info,
-                properties_count,
-                p_properties,
-            )
+            fp(self.handle(), p_pipeline_info, properties_count, p_properties)
         })
     }
     pub unsafe fn get_native_buffer_properties_ohos(
@@ -8051,10 +7815,7 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         p_push_data_info: &PushDataInfoEXT,
     ) {
-        let fp = self
-            .commands()
-            .cmd_push_data_ext
-            .expect("vkCmdPushDataEXT not loaded");
+        let fp = self.commands().cmd_push_data_ext.expect("vkCmdPushDataEXT not loaded");
         unsafe { fp(command_buffer, p_push_data_info) };
     }
     pub unsafe fn register_custom_border_color_ext(
@@ -8087,12 +7848,7 @@ impl crate::Device {
             .get_image_opaque_capture_data_ext
             .expect("vkGetImageOpaqueCaptureDataEXT not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_images.len() as u32,
-                p_images.as_ptr(),
-                p_datas,
-            )
+            fp(self.handle(), p_images.len() as u32, p_images.as_ptr(), p_datas)
         })
     }
     pub unsafe fn get_tensor_opaque_capture_data_arm(
@@ -8105,12 +7861,7 @@ impl crate::Device {
             .get_tensor_opaque_capture_data_arm
             .expect("vkGetTensorOpaqueCaptureDataARM not loaded");
         check(unsafe {
-            fp(
-                self.handle(),
-                p_tensors.len() as u32,
-                p_tensors.as_ptr(),
-                p_datas,
-            )
+            fp(self.handle(), p_tensors.len() as u32, p_tensors.as_ptr(), p_datas)
         })
     }
     pub unsafe fn cmd_copy_memory_khr(
@@ -8122,8 +7873,8 @@ impl crate::Device {
             .commands()
             .cmd_copy_memory_khr
             .expect("vkCmdCopyMemoryKHR not loaded");
-        let p_copy_memory_info_ptr =
-            p_copy_memory_info.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_copy_memory_info_ptr = p_copy_memory_info
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_copy_memory_info_ptr) };
     }
     pub unsafe fn cmd_copy_memory_to_image_khr(
@@ -8135,8 +7886,8 @@ impl crate::Device {
             .commands()
             .cmd_copy_memory_to_image_khr
             .expect("vkCmdCopyMemoryToImageKHR not loaded");
-        let p_copy_memory_info_ptr =
-            p_copy_memory_info.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_copy_memory_info_ptr = p_copy_memory_info
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_copy_memory_info_ptr) };
     }
     pub unsafe fn cmd_copy_image_to_memory_khr(
@@ -8148,8 +7899,8 @@ impl crate::Device {
             .commands()
             .cmd_copy_image_to_memory_khr
             .expect("vkCmdCopyImageToMemoryKHR not loaded");
-        let p_copy_memory_info_ptr =
-            p_copy_memory_info.map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_copy_memory_info_ptr = p_copy_memory_info
+            .map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_copy_memory_info_ptr) };
     }
     pub unsafe fn cmd_update_memory_khr(
