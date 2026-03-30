@@ -2,18 +2,24 @@
 
 pub use vk_sys as vk;
 
+pub mod bytecode;
 mod device;
 mod entry;
 mod error;
 mod instance;
 mod loader;
+#[cfg(feature = "surface")]
+mod surface;
 mod version;
 
+pub use bytecode::{BytecodeError, cast_to_u32};
 pub use device::Device;
 pub use entry::Entry;
 pub use error::{LoadError, VkResult};
 pub use instance::Instance;
 pub use loader::{LibloadingLoader, Loader};
+#[cfg(feature = "surface")]
+pub use surface::{SurfaceError, required_extensions};
 pub use version::Version;
 
 /// Shared mutex for Vulkan runtime tests.

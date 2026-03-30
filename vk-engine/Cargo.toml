@@ -5,6 +5,11 @@ edition = "2024"
 description = "Ergonomic Vulkan 1.2 wrapper with from_raw_parts support"
 license = "MIT OR Apache-2.0"
 
+[features]
+default = ["surface"]
+surface = ["dep:raw-window-handle"]
+
 [dependencies]
 vk-sys = { path = "../vk-sys" }
 libloading = "0.8"
+raw-window-handle = { version = "0.6", optional = true }
