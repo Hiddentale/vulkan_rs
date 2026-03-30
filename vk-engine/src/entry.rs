@@ -80,6 +80,7 @@ impl Entry {
     }
 
     /// Returns a reference to the loaded entry-level commands.
+    #[allow(dead_code)] // used in Phase 8
     pub(crate) fn commands(&self) -> &vk::commands::EntryCommands {
         &self.commands
     }

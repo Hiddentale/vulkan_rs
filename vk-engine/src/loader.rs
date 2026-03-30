@@ -13,6 +13,11 @@ pub unsafe trait Loader: Send + Sync {
     /// Load a function by name from the Vulkan library.
     ///
     /// Returns a raw function pointer, or null if the symbol is not found.
+    ///
+    /// # Safety
+    ///
+    /// The caller must only transmute the returned pointer to a function
+    /// type matching the Vulkan command identified by `name`.
     unsafe fn load(&self, name: &CStr) -> *const c_void;
 }
 
