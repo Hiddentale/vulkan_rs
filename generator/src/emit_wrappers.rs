@@ -1099,11 +1099,7 @@ mod tests {
                 .collect();
 
             writeln!(report, "## {level_name} ({} commands)\n", cmds.len()).unwrap();
-            writeln!(
-                report,
-                "| Command | Pattern | Params | Transforms |"
-            )
-            .unwrap();
+            writeln!(report, "| Command | Pattern | Params | Transforms |").unwrap();
             writeln!(report, "|---------|---------|--------|------------|").unwrap();
 
             for cmd in &cmds {
@@ -1230,8 +1226,8 @@ mod tests {
             writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", ")).unwrap();
         }
 
-        let out_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../docs/wrapper_audit.md");
+        let out_path =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../docs/wrapper_audit.md");
         std::fs::write(&out_path, &report)
             .unwrap_or_else(|e| panic!("failed to write {}: {e}", out_path.display()));
         println!("Wrote audit report to {}", out_path.display());

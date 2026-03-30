@@ -83,8 +83,8 @@ fn generator_output_is_deterministic() {
     let snapshot: Vec<(&std::path::Path, Vec<u8>)> = generated_files
         .iter()
         .map(|p| {
-            let content = std::fs::read(p)
-                .unwrap_or_else(|e| panic!("failed to read {}: {e}", p.display()));
+            let content =
+                std::fs::read(p).unwrap_or_else(|e| panic!("failed to read {}: {e}", p.display()));
             (p.as_path(), content)
         })
         .collect();

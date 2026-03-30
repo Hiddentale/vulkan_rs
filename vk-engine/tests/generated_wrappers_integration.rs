@@ -124,13 +124,15 @@ fn enumerate_device_extension_properties() {
     let (_entry, instance) = create_instance();
     let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
 
-    let extensions = unsafe {
-        instance.enumerate_device_extension_properties(devices[0], std::ptr::null())
-    }
-    .expect("enumerate_device_extension_properties failed");
+    let extensions =
+        unsafe { instance.enumerate_device_extension_properties(devices[0], std::ptr::null()) }
+            .expect("enumerate_device_extension_properties failed");
 
     println!("Device extensions: {}", extensions.len());
-    assert!(!extensions.is_empty(), "expected at least one device extension");
+    assert!(
+        !extensions.is_empty(),
+        "expected at least one device extension"
+    );
 
     unsafe { instance.destroy_instance(None) };
 }
@@ -143,8 +145,14 @@ fn get_physical_device_memory_properties() {
 
     let mem_props = unsafe { instance.get_physical_device_memory_properties(devices[0]) };
 
-    assert!(mem_props.memory_type_count > 0, "expected at least one memory type");
-    assert!(mem_props.memory_heap_count > 0, "expected at least one memory heap");
+    assert!(
+        mem_props.memory_type_count > 0,
+        "expected at least one memory type"
+    );
+    assert!(
+        mem_props.memory_heap_count > 0,
+        "expected at least one memory heap"
+    );
     println!(
         "Memory: {} types, {} heaps",
         mem_props.memory_type_count, mem_props.memory_heap_count
@@ -226,8 +234,10 @@ fn get_buffer_memory_requirements() {
 fn allocate_and_free_memory() {
     let t = TestDevice::new();
 
-    let mem_props =
-        unsafe { t.instance.get_physical_device_memory_properties(t.physical_device) };
+    let mem_props = unsafe {
+        t.instance
+            .get_physical_device_memory_properties(t.physical_device)
+    };
 
     // Find a host-visible memory type.
     let memory_type_index = (0..mem_props.memory_type_count)
@@ -263,8 +273,7 @@ fn create_and_destroy_fence() {
         flags: vk::bitmasks::FenceCreateFlagBits::SIGNALED,
     };
 
-    let fence =
-        unsafe { t.device.create_fence(&fence_info, None) }.expect("create_fence failed");
+    let fence = unsafe { t.device.create_fence(&fence_info, None) }.expect("create_fence failed");
     assert!(!fence.is_null());
 
     // Wait for signaled fence should succeed immediately.
@@ -288,8 +297,8 @@ fn create_and_destroy_semaphore() {
         flags: vk::bitmasks::SemaphoreCreateFlagBits::empty(),
     };
 
-    let semaphore = unsafe { t.device.create_semaphore(&sem_info, None) }
-        .expect("create_semaphore failed");
+    let semaphore =
+        unsafe { t.device.create_semaphore(&sem_info, None) }.expect("create_semaphore failed");
     assert!(!semaphore.is_null());
 
     unsafe { t.device.destroy_semaphore(semaphore, None) };
@@ -307,8 +316,8 @@ fn create_command_pool_and_submit_empty_buffer() {
         flags: vk::bitmasks::CommandPoolCreateFlagBits::RESET_COMMAND_BUFFER,
         queue_family_index: t.queue_family,
     };
-    let pool =
-        unsafe { t.device.create_command_pool(&pool_info, None) }.expect("create_command_pool failed");
+    let pool = unsafe { t.device.create_command_pool(&pool_info, None) }
+        .expect("create_command_pool failed");
 
     // Allocate command buffer (uses raw forward — count is inside the struct).
     let alloc_info = vk::structs::CommandBufferAllocateInfo {
@@ -366,12 +375,10 @@ fn create_command_pool_and_submit_empty_buffer() {
     };
     let fence = unsafe { t.device.create_fence(&fence_info, None) }.unwrap();
 
-    unsafe { t.device.queue_submit(queue, &[submit_info], fence) }
-        .expect("queue_submit failed");
+    unsafe { t.device.queue_submit(queue, &[submit_info], fence) }.expect("queue_submit failed");
 
     // Wait for completion.
-    unsafe { t.device.wait_for_fences(&[fence], 1, u64::MAX) }
-        .expect("wait_for_fences failed");
+    unsafe { t.device.wait_for_fences(&[fence], 1, u64::MAX) }.expect("wait_for_fences failed");
 
     // Cleanup.
     unsafe {
@@ -408,12 +415,14 @@ fn create_and_destroy_image() {
         initial_layout: vk::enums::ImageLayout::UNDEFINED,
     };
 
-    let image =
-        unsafe { t.device.create_image(&image_info, None) }.expect("create_image failed");
+    let image = unsafe { t.device.create_image(&image_info, None) }.expect("create_image failed");
     assert!(!image.is_null());
 
     let mem_reqs = unsafe { t.device.get_image_memory_requirements(image) };
-    assert!(mem_reqs.size > 0, "image memory requirements size must be > 0");
+    assert!(
+        mem_reqs.size > 0,
+        "image memory requirements size must be > 0"
+    );
 
     unsafe { t.device.destroy_image(image, None) };
 }
