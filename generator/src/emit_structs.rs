@@ -80,13 +80,13 @@ fn emit_base_pnext_structs() -> TokenStream {
             fn default() -> Self {
                 Self {
                     s_type: StructureType::from_raw(0),
-                    p_next: std::ptr::null_mut(),
+                    p_next: core::ptr::null_mut(),
                 }
             }
         }
 
-        impl std::fmt::Debug for BaseOutStructure {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        impl core::fmt::Debug for BaseOutStructure {
+            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                 f.debug_struct("BaseOutStructure")
                     .field("s_type", &self.s_type)
                     .field("p_next", &self.p_next)
@@ -108,13 +108,13 @@ fn emit_base_pnext_structs() -> TokenStream {
             fn default() -> Self {
                 Self {
                     s_type: StructureType::from_raw(0),
-                    p_next: std::ptr::null(),
+                    p_next: core::ptr::null(),
                 }
             }
         }
 
-        impl std::fmt::Debug for BaseInStructure {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        impl core::fmt::Debug for BaseInStructure {
+            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                 f.debug_struct("BaseInStructure")
                     .field("s_type", &self.s_type)
                     .field("p_next", &self.p_next)
@@ -170,12 +170,12 @@ fn emit_union(def: &StructDef) -> TokenStream {
         impl Default for #name {
             #[inline]
             fn default() -> Self {
-                unsafe { std::mem::zeroed() }
+                unsafe { core::mem::zeroed() }
             }
         }
 
-        impl std::fmt::Debug for #name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        impl core::fmt::Debug for #name {
+            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                 f.write_str(stringify!(#name))
             }
         }
@@ -248,7 +248,7 @@ fn emit_default(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStrea
             impl Default for #name {
                 #[inline]
                 fn default() -> Self {
-                    unsafe { std::mem::zeroed() }
+                    unsafe { core::mem::zeroed() }
                 }
             }
         }
@@ -258,14 +258,14 @@ fn emit_default(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStrea
 fn default_value_for(member: &MemberDef) -> TokenStream {
     if member.is_pointer || member.is_double_pointer {
         if member.is_const {
-            return quote! { std::ptr::null() };
+            return quote! { core::ptr::null() };
         } else {
-            return quote! { std::ptr::null_mut() };
+            return quote! { core::ptr::null_mut() };
         }
     }
 
     if member.array_size.is_some() {
-        return quote! { unsafe { std::mem::zeroed() } };
+        return quote! { unsafe { core::mem::zeroed() } };
     }
 
     quote! { Default::default() }
@@ -448,7 +448,7 @@ mod tests {
             provided_by: None,
         };
         let code = emit_struct(&def, &HashMap::new()).to_string();
-        assert!(code.contains("std :: mem :: zeroed ()"));
+        assert!(code.contains("core :: mem :: zeroed ()"));
     }
 
     #[test]
@@ -471,7 +471,7 @@ mod tests {
         let raw = make_stype_raw_map();
         let code = emit_struct(&def, &raw).to_string();
         assert!(code.contains("from_raw"));
-        assert!(code.contains("std :: ptr :: null ()"));
+        assert!(code.contains("core :: ptr :: null ()"));
     }
 
     #[test]
@@ -520,7 +520,7 @@ mod tests {
         let code = emit_union(&def).to_string();
         assert!(code.contains("pub union ClearColorValue"));
         assert!(!code.contains("Debug ,"), "union should not derive Debug");
-        assert!(code.contains("impl std :: fmt :: Debug"));
+        assert!(code.contains("impl core :: fmt :: Debug"));
     }
 
     #[test]
@@ -534,7 +534,7 @@ mod tests {
             provided_by: None,
         };
         let code = emit_union(&def).to_string();
-        assert!(code.contains("std :: mem :: zeroed ()"));
+        assert!(code.contains("core :: mem :: zeroed ()"));
     }
 
     // --- Marker traits ---

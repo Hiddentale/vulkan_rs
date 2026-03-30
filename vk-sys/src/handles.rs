@@ -1,5 +1,5 @@
 /// Trait implemented by all Vulkan handle types.
-pub trait Handle: Copy + Eq + std::hash::Hash {
+pub trait Handle: Copy + Eq + core::hash::Hash {
     /// The raw representation type (`usize` for dispatchable, `u64` for non-dispatchable).
     type Repr;
     /// Returns the null handle.
@@ -40,8 +40,8 @@ impl Default for Instance {
         Self::null()
     }
 }
-impl std::fmt::Debug for Instance {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Instance {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Instance), self.0)
     }
 }
@@ -74,8 +74,8 @@ impl Default for PhysicalDevice {
         Self::null()
     }
 }
-impl std::fmt::Debug for PhysicalDevice {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for PhysicalDevice {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(PhysicalDevice), self.0)
     }
 }
@@ -108,8 +108,8 @@ impl Default for Device {
         Self::null()
     }
 }
-impl std::fmt::Debug for Device {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Device {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Device), self.0)
     }
 }
@@ -142,8 +142,8 @@ impl Default for Queue {
         Self::null()
     }
 }
-impl std::fmt::Debug for Queue {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Queue {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Queue), self.0)
     }
 }
@@ -176,8 +176,8 @@ impl Default for CommandBuffer {
         Self::null()
     }
 }
-impl std::fmt::Debug for CommandBuffer {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for CommandBuffer {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(CommandBuffer), self.0)
     }
 }
@@ -210,8 +210,8 @@ impl Default for DeviceMemory {
         Self::null()
     }
 }
-impl std::fmt::Debug for DeviceMemory {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DeviceMemory {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DeviceMemory), self.0)
     }
 }
@@ -244,8 +244,8 @@ impl Default for CommandPool {
         Self::null()
     }
 }
-impl std::fmt::Debug for CommandPool {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for CommandPool {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(CommandPool), self.0)
     }
 }
@@ -278,8 +278,8 @@ impl Default for Buffer {
         Self::null()
     }
 }
-impl std::fmt::Debug for Buffer {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Buffer {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Buffer), self.0)
     }
 }
@@ -312,8 +312,8 @@ impl Default for BufferView {
         Self::null()
     }
 }
-impl std::fmt::Debug for BufferView {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for BufferView {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(BufferView), self.0)
     }
 }
@@ -346,8 +346,8 @@ impl Default for Image {
         Self::null()
     }
 }
-impl std::fmt::Debug for Image {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Image {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Image), self.0)
     }
 }
@@ -380,8 +380,8 @@ impl Default for ImageView {
         Self::null()
     }
 }
-impl std::fmt::Debug for ImageView {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for ImageView {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(ImageView), self.0)
     }
 }
@@ -414,8 +414,8 @@ impl Default for ShaderModule {
         Self::null()
     }
 }
-impl std::fmt::Debug for ShaderModule {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for ShaderModule {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(ShaderModule), self.0)
     }
 }
@@ -448,8 +448,8 @@ impl Default for Pipeline {
         Self::null()
     }
 }
-impl std::fmt::Debug for Pipeline {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Pipeline {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Pipeline), self.0)
     }
 }
@@ -482,8 +482,8 @@ impl Default for PipelineLayout {
         Self::null()
     }
 }
-impl std::fmt::Debug for PipelineLayout {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for PipelineLayout {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(PipelineLayout), self.0)
     }
 }
@@ -516,8 +516,8 @@ impl Default for Sampler {
         Self::null()
     }
 }
-impl std::fmt::Debug for Sampler {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Sampler {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Sampler), self.0)
     }
 }
@@ -550,8 +550,8 @@ impl Default for DescriptorSet {
         Self::null()
     }
 }
-impl std::fmt::Debug for DescriptorSet {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DescriptorSet {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DescriptorSet), self.0)
     }
 }
@@ -584,8 +584,8 @@ impl Default for DescriptorSetLayout {
         Self::null()
     }
 }
-impl std::fmt::Debug for DescriptorSetLayout {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DescriptorSetLayout {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DescriptorSetLayout), self.0)
     }
 }
@@ -618,8 +618,8 @@ impl Default for DescriptorPool {
         Self::null()
     }
 }
-impl std::fmt::Debug for DescriptorPool {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DescriptorPool {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DescriptorPool), self.0)
     }
 }
@@ -652,8 +652,8 @@ impl Default for Fence {
         Self::null()
     }
 }
-impl std::fmt::Debug for Fence {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Fence {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Fence), self.0)
     }
 }
@@ -686,8 +686,8 @@ impl Default for Semaphore {
         Self::null()
     }
 }
-impl std::fmt::Debug for Semaphore {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Semaphore {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Semaphore), self.0)
     }
 }
@@ -720,8 +720,8 @@ impl Default for Event {
         Self::null()
     }
 }
-impl std::fmt::Debug for Event {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Event {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Event), self.0)
     }
 }
@@ -754,8 +754,8 @@ impl Default for QueryPool {
         Self::null()
     }
 }
-impl std::fmt::Debug for QueryPool {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for QueryPool {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(QueryPool), self.0)
     }
 }
@@ -788,8 +788,8 @@ impl Default for Framebuffer {
         Self::null()
     }
 }
-impl std::fmt::Debug for Framebuffer {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Framebuffer {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(Framebuffer), self.0)
     }
 }
@@ -822,8 +822,8 @@ impl Default for RenderPass {
         Self::null()
     }
 }
-impl std::fmt::Debug for RenderPass {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for RenderPass {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(RenderPass), self.0)
     }
 }
@@ -856,8 +856,8 @@ impl Default for PipelineCache {
         Self::null()
     }
 }
-impl std::fmt::Debug for PipelineCache {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for PipelineCache {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(PipelineCache), self.0)
     }
 }
@@ -890,8 +890,8 @@ impl Default for PipelineBinaryKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for PipelineBinaryKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for PipelineBinaryKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(PipelineBinaryKHR), self.0)
     }
 }
@@ -924,8 +924,8 @@ impl Default for IndirectCommandsLayoutNV {
         Self::null()
     }
 }
-impl std::fmt::Debug for IndirectCommandsLayoutNV {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IndirectCommandsLayoutNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(IndirectCommandsLayoutNV), self.0)
     }
 }
@@ -958,8 +958,8 @@ impl Default for IndirectCommandsLayoutEXT {
         Self::null()
     }
 }
-impl std::fmt::Debug for IndirectCommandsLayoutEXT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IndirectCommandsLayoutEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(IndirectCommandsLayoutEXT), self.0)
     }
 }
@@ -992,8 +992,8 @@ impl Default for IndirectExecutionSetEXT {
         Self::null()
     }
 }
-impl std::fmt::Debug for IndirectExecutionSetEXT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IndirectExecutionSetEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(IndirectExecutionSetEXT), self.0)
     }
 }
@@ -1026,8 +1026,8 @@ impl Default for DescriptorUpdateTemplate {
         Self::null()
     }
 }
-impl std::fmt::Debug for DescriptorUpdateTemplate {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DescriptorUpdateTemplate {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DescriptorUpdateTemplate), self.0)
     }
 }
@@ -1060,8 +1060,8 @@ impl Default for SamplerYcbcrConversion {
         Self::null()
     }
 }
-impl std::fmt::Debug for SamplerYcbcrConversion {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for SamplerYcbcrConversion {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(SamplerYcbcrConversion), self.0)
     }
 }
@@ -1094,8 +1094,8 @@ impl Default for ValidationCacheEXT {
         Self::null()
     }
 }
-impl std::fmt::Debug for ValidationCacheEXT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for ValidationCacheEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(ValidationCacheEXT), self.0)
     }
 }
@@ -1128,8 +1128,8 @@ impl Default for AccelerationStructureKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for AccelerationStructureKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for AccelerationStructureKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(AccelerationStructureKHR), self.0)
     }
 }
@@ -1162,8 +1162,8 @@ impl Default for AccelerationStructureNV {
         Self::null()
     }
 }
-impl std::fmt::Debug for AccelerationStructureNV {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for AccelerationStructureNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(AccelerationStructureNV), self.0)
     }
 }
@@ -1196,8 +1196,8 @@ impl Default for PerformanceConfigurationINTEL {
         Self::null()
     }
 }
-impl std::fmt::Debug for PerformanceConfigurationINTEL {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for PerformanceConfigurationINTEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(PerformanceConfigurationINTEL), self.0)
     }
 }
@@ -1230,8 +1230,8 @@ impl Default for BufferCollectionFUCHSIA {
         Self::null()
     }
 }
-impl std::fmt::Debug for BufferCollectionFUCHSIA {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for BufferCollectionFUCHSIA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(BufferCollectionFUCHSIA), self.0)
     }
 }
@@ -1264,8 +1264,8 @@ impl Default for DeferredOperationKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for DeferredOperationKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DeferredOperationKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DeferredOperationKHR), self.0)
     }
 }
@@ -1298,8 +1298,8 @@ impl Default for PrivateDataSlot {
         Self::null()
     }
 }
-impl std::fmt::Debug for PrivateDataSlot {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for PrivateDataSlot {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(PrivateDataSlot), self.0)
     }
 }
@@ -1332,8 +1332,8 @@ impl Default for CuModuleNVX {
         Self::null()
     }
 }
-impl std::fmt::Debug for CuModuleNVX {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for CuModuleNVX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(CuModuleNVX), self.0)
     }
 }
@@ -1366,8 +1366,8 @@ impl Default for CuFunctionNVX {
         Self::null()
     }
 }
-impl std::fmt::Debug for CuFunctionNVX {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for CuFunctionNVX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(CuFunctionNVX), self.0)
     }
 }
@@ -1400,8 +1400,8 @@ impl Default for OpticalFlowSessionNV {
         Self::null()
     }
 }
-impl std::fmt::Debug for OpticalFlowSessionNV {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for OpticalFlowSessionNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(OpticalFlowSessionNV), self.0)
     }
 }
@@ -1434,8 +1434,8 @@ impl Default for MicromapEXT {
         Self::null()
     }
 }
-impl std::fmt::Debug for MicromapEXT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for MicromapEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(MicromapEXT), self.0)
     }
 }
@@ -1468,8 +1468,8 @@ impl Default for ShaderEXT {
         Self::null()
     }
 }
-impl std::fmt::Debug for ShaderEXT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for ShaderEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(ShaderEXT), self.0)
     }
 }
@@ -1502,8 +1502,8 @@ impl Default for TensorARM {
         Self::null()
     }
 }
-impl std::fmt::Debug for TensorARM {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for TensorARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(TensorARM), self.0)
     }
 }
@@ -1536,8 +1536,8 @@ impl Default for TensorViewARM {
         Self::null()
     }
 }
-impl std::fmt::Debug for TensorViewARM {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for TensorViewARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(TensorViewARM), self.0)
     }
 }
@@ -1570,8 +1570,8 @@ impl Default for DataGraphPipelineSessionARM {
         Self::null()
     }
 }
-impl std::fmt::Debug for DataGraphPipelineSessionARM {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DataGraphPipelineSessionARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DataGraphPipelineSessionARM), self.0)
     }
 }
@@ -1604,8 +1604,8 @@ impl Default for ShaderInstrumentationARM {
         Self::null()
     }
 }
-impl std::fmt::Debug for ShaderInstrumentationARM {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for ShaderInstrumentationARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(ShaderInstrumentationARM), self.0)
     }
 }
@@ -1638,8 +1638,8 @@ impl Default for DisplayKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for DisplayKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DisplayKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DisplayKHR), self.0)
     }
 }
@@ -1672,8 +1672,8 @@ impl Default for DisplayModeKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for DisplayModeKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DisplayModeKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DisplayModeKHR), self.0)
     }
 }
@@ -1706,8 +1706,8 @@ impl Default for SurfaceKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for SurfaceKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for SurfaceKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(SurfaceKHR), self.0)
     }
 }
@@ -1740,8 +1740,8 @@ impl Default for SwapchainKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for SwapchainKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for SwapchainKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(SwapchainKHR), self.0)
     }
 }
@@ -1774,8 +1774,8 @@ impl Default for DebugReportCallbackEXT {
         Self::null()
     }
 }
-impl std::fmt::Debug for DebugReportCallbackEXT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DebugReportCallbackEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DebugReportCallbackEXT), self.0)
     }
 }
@@ -1808,8 +1808,8 @@ impl Default for DebugUtilsMessengerEXT {
         Self::null()
     }
 }
-impl std::fmt::Debug for DebugUtilsMessengerEXT {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for DebugUtilsMessengerEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(DebugUtilsMessengerEXT), self.0)
     }
 }
@@ -1842,8 +1842,8 @@ impl Default for VideoSessionKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for VideoSessionKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for VideoSessionKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(VideoSessionKHR), self.0)
     }
 }
@@ -1876,8 +1876,8 @@ impl Default for VideoSessionParametersKHR {
         Self::null()
     }
 }
-impl std::fmt::Debug for VideoSessionParametersKHR {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for VideoSessionParametersKHR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(VideoSessionParametersKHR), self.0)
     }
 }
@@ -1910,8 +1910,8 @@ impl Default for SemaphoreSciSyncPoolNV {
         Self::null()
     }
 }
-impl std::fmt::Debug for SemaphoreSciSyncPoolNV {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for SemaphoreSciSyncPoolNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(SemaphoreSciSyncPoolNV), self.0)
     }
 }
@@ -1944,8 +1944,8 @@ impl Default for CudaModuleNV {
         Self::null()
     }
 }
-impl std::fmt::Debug for CudaModuleNV {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for CudaModuleNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(CudaModuleNV), self.0)
     }
 }
@@ -1978,8 +1978,8 @@ impl Default for CudaFunctionNV {
         Self::null()
     }
 }
-impl std::fmt::Debug for CudaFunctionNV {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for CudaFunctionNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(CudaFunctionNV), self.0)
     }
 }
@@ -2012,8 +2012,8 @@ impl Default for ExternalComputeQueueNV {
         Self::null()
     }
 }
-impl std::fmt::Debug for ExternalComputeQueueNV {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for ExternalComputeQueueNV {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}({:#x})", stringify!(ExternalComputeQueueNV), self.0)
     }
 }

@@ -81,48 +81,48 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
             #(#constants)*
         }
 
-        impl std::ops::BitOr for #name {
+        impl core::ops::BitOr for #name {
             type Output = Self;
             #[inline]
             fn bitor(self, rhs: Self) -> Self { Self(self.0 | rhs.0) }
         }
 
-        impl std::ops::BitOrAssign for #name {
+        impl core::ops::BitOrAssign for #name {
             #[inline]
             fn bitor_assign(&mut self, rhs: Self) { self.0 |= rhs.0; }
         }
 
-        impl std::ops::BitAnd for #name {
+        impl core::ops::BitAnd for #name {
             type Output = Self;
             #[inline]
             fn bitand(self, rhs: Self) -> Self { Self(self.0 & rhs.0) }
         }
 
-        impl std::ops::BitAndAssign for #name {
+        impl core::ops::BitAndAssign for #name {
             #[inline]
             fn bitand_assign(&mut self, rhs: Self) { self.0 &= rhs.0; }
         }
 
-        impl std::ops::BitXor for #name {
+        impl core::ops::BitXor for #name {
             type Output = Self;
             #[inline]
             fn bitxor(self, rhs: Self) -> Self { Self(self.0 ^ rhs.0) }
         }
 
-        impl std::ops::BitXorAssign for #name {
+        impl core::ops::BitXorAssign for #name {
             #[inline]
             fn bitxor_assign(&mut self, rhs: Self) { self.0 ^= rhs.0; }
         }
 
-        impl std::ops::Not for #name {
+        impl core::ops::Not for #name {
             type Output = Self;
             #[inline]
             fn not(self) -> Self { Self(!self.0) }
         }
 
-        impl std::fmt::Debug for #name {
+        impl core::fmt::Debug for #name {
             #[allow(unused_mut, unused_variables)]
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                 let mut first = true;
                 let mut remaining = self.0;
                 #(#debug_arms)*
@@ -313,11 +313,11 @@ mod tests {
     fn bitmask_has_bitwise_operators() {
         let def = make_bitmask("CullModeFlagBits", 32, vec![("VK_CULL_MODE_FRONT_BIT", 0)]);
         let code = emit_bitmask(&def).to_string();
-        assert!(code.contains("impl std :: ops :: BitOr for"));
-        assert!(code.contains("impl std :: ops :: BitAnd for"));
-        assert!(code.contains("impl std :: ops :: BitXor for"));
-        assert!(code.contains("impl std :: ops :: Not for"));
-        assert!(code.contains("impl std :: ops :: BitOrAssign for"));
+        assert!(code.contains("impl core :: ops :: BitOr for"));
+        assert!(code.contains("impl core :: ops :: BitAnd for"));
+        assert!(code.contains("impl core :: ops :: BitXor for"));
+        assert!(code.contains("impl core :: ops :: Not for"));
+        assert!(code.contains("impl core :: ops :: BitOrAssign for"));
     }
 
     #[test]

@@ -26,7 +26,7 @@ pub fn emit_handles(registry: &VkRegistry) -> TokenStream {
 fn emit_handle_trait() -> TokenStream {
     quote! {
         /// Trait implemented by all Vulkan handle types.
-        pub trait Handle: Copy + Eq + std::hash::Hash {
+        pub trait Handle: Copy + Eq + core::hash::Hash {
             /// The raw representation type (`usize` for dispatchable, `u64` for non-dispatchable).
             type Repr;
 
@@ -82,8 +82,8 @@ fn emit_handle(handle: &HandleDef) -> TokenStream {
             fn default() -> Self { Self::null() }
         }
 
-        impl std::fmt::Debug for #name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        impl core::fmt::Debug for #name {
+            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                 write!(f, "{}({:#x})", stringify!(#name), self.0)
             }
         }
@@ -152,6 +152,6 @@ mod tests {
         let tokens = emit_handle(&make_handle("Semaphore", false));
         let code = tokens.to_string();
         assert!(code.contains("impl Default for Semaphore"));
-        assert!(code.contains("impl std :: fmt :: Debug for Semaphore"));
+        assert!(code.contains("impl core :: fmt :: Debug for Semaphore"));
     }
 }

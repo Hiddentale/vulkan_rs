@@ -13,9 +13,9 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         // C primitives
         "float" => "f32",
         "double" => "f64",
-        "char" => "std::ffi::c_char",
-        "void" => "std::ffi::c_void",
-        "int" => "std::ffi::c_int",
+        "char" => "core::ffi::c_char",
+        "void" => "core::ffi::c_void",
+        "int" => "core::ffi::c_int",
 
         // Vulkan typedefs
         "VkBool32" => "u32",
@@ -24,7 +24,7 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "VkFlags" => "u32",
         "VkFlags64" => "u64",
         "VkSampleMask" => "u32",
-        "VkRemoteAddressNV" => "*mut std::ffi::c_void",
+        "VkRemoteAddressNV" => "*mut core::ffi::c_void",
 
         // Platform types — Win32
         "HINSTANCE" => "isize",
@@ -33,67 +33,67 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "HANDLE" => "isize",
         "DWORD" => "u32",
         "LPCWSTR" => "*const u16",
-        "SECURITY_ATTRIBUTES" => "std::ffi::c_void",
+        "SECURITY_ATTRIBUTES" => "core::ffi::c_void",
 
         // Platform types — X11/Xlib
-        "Display" => "std::ffi::c_void",
-        "Window" => "std::ffi::c_ulong",
-        "VisualID" => "std::ffi::c_ulong",
-        "RROutput" => "std::ffi::c_ulong",
+        "Display" => "core::ffi::c_void",
+        "Window" => "core::ffi::c_ulong",
+        "VisualID" => "core::ffi::c_ulong",
+        "RROutput" => "core::ffi::c_ulong",
 
         // Platform types — XCB
-        "xcb_connection_t" => "std::ffi::c_void",
+        "xcb_connection_t" => "core::ffi::c_void",
         "xcb_window_t" => "u32",
         "xcb_visualid_t" => "u32",
 
         // Platform types — Wayland
-        "wl_display" => "std::ffi::c_void",
-        "wl_surface" => "std::ffi::c_void",
+        "wl_display" => "core::ffi::c_void",
+        "wl_surface" => "core::ffi::c_void",
 
         // Platform types — Android
-        "ANativeWindow" => "std::ffi::c_void",
-        "AHardwareBuffer" => "std::ffi::c_void",
+        "ANativeWindow" => "core::ffi::c_void",
+        "AHardwareBuffer" => "core::ffi::c_void",
 
         // Platform types — Metal/macOS/iOS
-        "CAMetalLayer" => "std::ffi::c_void",
-        "MTLDevice_id" => "std::ffi::c_void",
-        "MTLCommandQueue_id" => "std::ffi::c_void",
-        "MTLBuffer_id" => "std::ffi::c_void",
-        "MTLTexture_id" => "std::ffi::c_void",
-        "MTLSharedEvent_id" => "std::ffi::c_void",
-        "IOSurfaceRef" => "std::ffi::c_void",
+        "CAMetalLayer" => "core::ffi::c_void",
+        "MTLDevice_id" => "core::ffi::c_void",
+        "MTLCommandQueue_id" => "core::ffi::c_void",
+        "MTLBuffer_id" => "core::ffi::c_void",
+        "MTLTexture_id" => "core::ffi::c_void",
+        "MTLSharedEvent_id" => "core::ffi::c_void",
+        "IOSurfaceRef" => "core::ffi::c_void",
 
         // Platform types — DirectFB
-        "IDirectFB" => "std::ffi::c_void",
-        "IDirectFBSurface" => "std::ffi::c_void",
+        "IDirectFB" => "core::ffi::c_void",
+        "IDirectFBSurface" => "core::ffi::c_void",
 
         // Platform types — Fuchsia
         "zx_handle_t" => "u32",
 
         // Platform types — QNX Screen
-        "_screen_window" => "std::ffi::c_void",
-        "_screen_context" => "std::ffi::c_void",
-        "_screen_buffer" => "std::ffi::c_void",
+        "_screen_window" => "core::ffi::c_void",
+        "_screen_context" => "core::ffi::c_void",
+        "_screen_buffer" => "core::ffi::c_void",
 
         // Platform types — GGP (Stadia)
         "GgpStreamDescriptor" => "u32",
         "GgpFrameToken" => "u32",
 
         // Platform types — NvSci
-        "NvSciSyncObj" => "std::ffi::c_void",
-        "NvSciSyncFence" => "std::ffi::c_void",
-        "NvSciBufObj" => "std::ffi::c_void",
-        "NvSciSyncAttrList" => "std::ffi::c_void",
-        "NvSciBufAttrList" => "std::ffi::c_void",
+        "NvSciSyncObj" => "core::ffi::c_void",
+        "NvSciSyncFence" => "core::ffi::c_void",
+        "NvSciBufObj" => "core::ffi::c_void",
+        "NvSciSyncAttrList" => "core::ffi::c_void",
+        "NvSciBufAttrList" => "core::ffi::c_void",
 
         // Platform types — OHOS (OpenHarmony)
-        "OHNativeWindow" => "std::ffi::c_void",
-        "OH_NativeBuffer" => "std::ffi::c_void",
-        "OHBufferHandle" => "std::ffi::c_void",
+        "OHNativeWindow" => "core::ffi::c_void",
+        "OH_NativeBuffer" => "core::ffi::c_void",
+        "OHBufferHandle" => "core::ffi::c_void",
 
         // Platform types — UBM (Samsung)
-        "ubm_device" => "std::ffi::c_void",
-        "ubm_surface" => "std::ffi::c_void",
+        "ubm_device" => "core::ffi::c_void",
+        "ubm_surface" => "core::ffi::c_void",
 
         // Vk-prefixed or unknown types are not primitives — caller handles them.
         _ => return None,
@@ -125,7 +125,7 @@ mod tests {
     #[test]
     fn maps_platform_types() {
         assert_eq!(c_type_to_rust("HWND"), Some("isize"));
-        assert_eq!(c_type_to_rust("ANativeWindow"), Some("std::ffi::c_void"));
+        assert_eq!(c_type_to_rust("ANativeWindow"), Some("core::ffi::c_void"));
     }
 
     #[test]

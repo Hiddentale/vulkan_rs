@@ -49,16 +49,16 @@ fn resolve_type_fields(
     array_size: Option<&str>,
 ) -> TokenStream {
     if type_name == "void" && !is_pointer {
-        return quote! { std::ffi::c_void };
+        return quote! { core::ffi::c_void };
     }
 
     // Opaque platform types that map to c_void but aren't marked as pointers.
     if !is_pointer
         && let Some(rust) = type_map::c_type_to_rust(type_name)
-        && rust == "std::ffi::c_void"
+        && rust == "core::ffi::c_void"
         && type_name != "void"
     {
-        return quote! { *const std::ffi::c_void };
+        return quote! { *const core::ffi::c_void };
     }
 
     let base = resolve_base_type(type_name);
@@ -233,7 +233,7 @@ mod tests {
         let m = make_pointer_member("pNext", "void", true);
         assert_eq!(
             resolve_member_type(&m).to_string(),
-            "* const std :: ffi :: c_void"
+            "* const core :: ffi :: c_void"
         );
     }
 
@@ -242,7 +242,7 @@ mod tests {
         let m = make_pointer_member("pNext", "void", false);
         assert_eq!(
             resolve_member_type(&m).to_string(),
-            "* mut std :: ffi :: c_void"
+            "* mut core :: ffi :: c_void"
         );
     }
 
@@ -260,7 +260,7 @@ mod tests {
         let m = make_double_pointer_member("ppData", "void", false);
         assert_eq!(
             resolve_member_type(&m).to_string(),
-            "* mut * mut std :: ffi :: c_void"
+            "* mut * mut core :: ffi :: c_void"
         );
     }
 
@@ -269,7 +269,7 @@ mod tests {
         let m = make_double_pointer_member("ppEnabledLayerNames", "char", true);
         assert_eq!(
             resolve_member_type(&m).to_string(),
-            "* const * const std :: ffi :: c_char"
+            "* const * const core :: ffi :: c_char"
         );
     }
 
@@ -284,7 +284,7 @@ mod tests {
         let m = make_array_member("deviceName", "char", "VK_MAX_PHYSICAL_DEVICE_NAME_SIZE");
         assert_eq!(
             resolve_member_type(&m).to_string(),
-            "[std :: ffi :: c_char ; MAX_PHYSICAL_DEVICE_NAME_SIZE as usize]"
+            "[core :: ffi :: c_char ; MAX_PHYSICAL_DEVICE_NAME_SIZE as usize]"
         );
     }
 
@@ -382,7 +382,7 @@ mod tests {
         };
         assert_eq!(
             resolve_param_type(&p).to_string(),
-            "* mut * mut std :: ffi :: c_void"
+            "* mut * mut core :: ffi :: c_void"
         );
     }
 

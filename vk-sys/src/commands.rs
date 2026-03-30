@@ -28,13 +28,13 @@ pub type PFN_vkEnumeratePhysicalDevices = Option<
 pub type PFN_vkGetDeviceProcAddr = Option<
     unsafe extern "system" fn(
         device: Device,
-        p_name: *const std::ffi::c_char,
+        p_name: *const core::ffi::c_char,
     ) -> PFN_vkVoidFunction,
 >;
 pub type PFN_vkGetInstanceProcAddr = Option<
     unsafe extern "system" fn(
         instance: Instance,
-        p_name: *const std::ffi::c_char,
+        p_name: *const core::ffi::c_char,
     ) -> PFN_vkVoidFunction,
 >;
 pub type PFN_vkGetPhysicalDeviceProperties = Option<
@@ -102,7 +102,7 @@ pub type PFN_vkEnumerateInstanceLayerProperties = Option<
 >;
 pub type PFN_vkEnumerateInstanceExtensionProperties = Option<
     unsafe extern "system" fn(
-        p_layer_name: *const std::ffi::c_char,
+        p_layer_name: *const core::ffi::c_char,
         p_property_count: *mut u32,
         p_properties: *mut ExtensionProperties,
     ) -> Result,
@@ -117,7 +117,7 @@ pub type PFN_vkEnumerateDeviceLayerProperties = Option<
 pub type PFN_vkEnumerateDeviceExtensionProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
-        p_layer_name: *const std::ffi::c_char,
+        p_layer_name: *const core::ffi::c_char,
         p_property_count: *mut u32,
         p_properties: *mut ExtensionProperties,
     ) -> Result,
@@ -164,7 +164,7 @@ pub type PFN_vkMapMemory = Option<
         offset: u64,
         size: u64,
         flags: MemoryMapFlags,
-        pp_data: *mut *mut std::ffi::c_void,
+        pp_data: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkUnmapMemory = Option<
@@ -344,7 +344,7 @@ pub type PFN_vkGetQueryPoolResults = Option<
         first_query: u32,
         query_count: u32,
         data_size: usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
         stride: u64,
         flags: QueryResultFlags,
     ) -> Result,
@@ -460,7 +460,7 @@ pub type PFN_vkGetPipelineCacheData = Option<
         device: Device,
         pipeline_cache: PipelineCache,
         p_data_size: *mut usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkMergePipelineCaches = Option<
@@ -499,7 +499,7 @@ pub type PFN_vkGetPipelineBinaryDataKHR = Option<
         p_info: *const PipelineBinaryDataInfoKHR,
         p_pipeline_binary_key: *mut PipelineBinaryKeyKHR,
         p_pipeline_binary_data_size: *mut usize,
-        p_pipeline_binary_data: *mut std::ffi::c_void,
+        p_pipeline_binary_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkReleaseCapturedPipelineDataKHR = Option<
@@ -1009,7 +1009,7 @@ pub type PFN_vkCmdUpdateBuffer = Option<
         dst_buffer: Buffer,
         dst_offset: u64,
         data_size: u64,
-        p_data: *const std::ffi::c_void,
+        p_data: *const core::ffi::c_void,
     ),
 >;
 pub type PFN_vkCmdFillBuffer = Option<
@@ -1169,7 +1169,7 @@ pub type PFN_vkCmdPushConstants = Option<
         stage_flags: ShaderStageFlags,
         offset: u32,
         size: u32,
-        p_values: *const std::ffi::c_void,
+        p_values: *const core::ffi::c_void,
     ),
 >;
 pub type PFN_vkCmdBeginRenderPass = Option<
@@ -1371,7 +1371,7 @@ pub type PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         queue_family_index: u32,
-        display: *mut std::ffi::c_void,
+        display: *mut core::ffi::c_void,
     ) -> u32,
 >;
 pub type PFN_vkCreateUbmSurfaceSEC = Option<
@@ -1386,7 +1386,7 @@ pub type PFN_vkGetPhysicalDeviceUbmPresentationSupportSEC = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         queue_family_index: u32,
-        device: *mut std::ffi::c_void,
+        device: *mut core::ffi::c_void,
     ) -> u32,
 >;
 pub type PFN_vkCreateWin32SurfaceKHR = Option<
@@ -1415,8 +1415,8 @@ pub type PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         queue_family_index: u32,
-        dpy: *mut std::ffi::c_void,
-        visual_id: std::ffi::c_ulong,
+        dpy: *mut core::ffi::c_void,
+        visual_id: core::ffi::c_ulong,
     ) -> u32,
 >;
 pub type PFN_vkCreateXcbSurfaceKHR = Option<
@@ -1431,7 +1431,7 @@ pub type PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         queue_family_index: u32,
-        connection: *mut std::ffi::c_void,
+        connection: *mut core::ffi::c_void,
         visual_id: u32,
     ) -> u32,
 >;
@@ -1447,7 +1447,7 @@ pub type PFN_vkGetPhysicalDeviceDirectFBPresentationSupportEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         queue_family_index: u32,
-        dfb: *mut std::ffi::c_void,
+        dfb: *mut core::ffi::c_void,
     ) -> u32,
 >;
 pub type PFN_vkCreateImagePipeSurfaceFUCHSIA = Option<
@@ -1478,7 +1478,7 @@ pub type PFN_vkGetPhysicalDeviceScreenPresentationSupportQNX = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         queue_family_index: u32,
-        window: *mut std::ffi::c_void,
+        window: *mut core::ffi::c_void,
     ) -> u32,
 >;
 pub type PFN_vkCreateDebugReportCallbackEXT = Option<
@@ -1504,8 +1504,8 @@ pub type PFN_vkDebugReportMessageEXT = Option<
         object: u64,
         location: usize,
         message_code: i32,
-        p_layer_prefix: *const std::ffi::c_char,
-        p_message: *const std::ffi::c_char,
+        p_layer_prefix: *const core::ffi::c_char,
+        p_message: *const core::ffi::c_char,
     ),
 >;
 pub type PFN_vkDebugMarkerSetObjectNameEXT = Option<
@@ -1755,14 +1755,14 @@ pub type PFN_vkGetMemoryFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_fd_info: *const MemoryGetFdInfoKHR,
-        p_fd: *mut std::ffi::c_int,
+        p_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
 pub type PFN_vkGetMemoryFdPropertiesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         handle_type: ExternalMemoryHandleTypeFlagBits,
-        fd: std::ffi::c_int,
+        fd: core::ffi::c_int,
         p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
     ) -> Result,
 >;
@@ -1785,28 +1785,28 @@ pub type PFN_vkGetMemoryRemoteAddressNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_memory_get_remote_address_info: *const MemoryGetRemoteAddressInfoNV,
-        p_address: *mut *mut std::ffi::c_void,
+        p_address: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetMemorySciBufNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_sci_buf_info: *const MemoryGetSciBufInfoNV,
-        p_handle: *mut std::ffi::c_void,
+        p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         handle_type: ExternalMemoryHandleTypeFlagBits,
-        handle: *const std::ffi::c_void,
+        handle: *const core::ffi::c_void,
         p_memory_sci_buf_properties: *mut MemorySciBufPropertiesNV,
     ) -> Result,
 >;
 pub type PFN_vkGetPhysicalDeviceSciBufAttributesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
-        p_attributes: *const std::ffi::c_void,
+        p_attributes: *const core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetPhysicalDeviceExternalSemaphoreProperties = Option<
@@ -1833,7 +1833,7 @@ pub type PFN_vkGetSemaphoreFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_fd_info: *const SemaphoreGetFdInfoKHR,
-        p_fd: *mut std::ffi::c_int,
+        p_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
 pub type PFN_vkImportSemaphoreFdKHR = Option<
@@ -1879,7 +1879,7 @@ pub type PFN_vkGetFenceFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_fd_info: *const FenceGetFdInfoKHR,
-        p_fd: *mut std::ffi::c_int,
+        p_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
 pub type PFN_vkImportFenceFdKHR = Option<
@@ -1892,14 +1892,14 @@ pub type PFN_vkGetFenceSciSyncFenceNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_sci_sync_handle_info: *const FenceGetSciSyncInfoNV,
-        p_handle: *mut std::ffi::c_void,
+        p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetFenceSciSyncObjNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_sci_sync_handle_info: *const FenceGetSciSyncInfoNV,
-        p_handle: *mut std::ffi::c_void,
+        p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkImportFenceSciSyncFenceNV = Option<
@@ -1918,7 +1918,7 @@ pub type PFN_vkGetSemaphoreSciSyncObjNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_sci_sync_info: *const SemaphoreGetSciSyncInfoNV,
-        p_handle: *mut std::ffi::c_void,
+        p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkImportSemaphoreSciSyncObjNV = Option<
@@ -1931,7 +1931,7 @@ pub type PFN_vkGetPhysicalDeviceSciSyncAttributesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_sci_sync_attributes_info: *const SciSyncAttributesInfoNV,
-        p_attributes: *const std::ffi::c_void,
+        p_attributes: *const core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkCreateSemaphoreSciSyncPoolNV = Option<
@@ -1958,15 +1958,15 @@ pub type PFN_vkReleaseDisplayEXT = Option<
 pub type PFN_vkAcquireXlibDisplayEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
-        dpy: *mut std::ffi::c_void,
+        dpy: *mut core::ffi::c_void,
         display: DisplayKHR,
     ) -> Result,
 >;
 pub type PFN_vkGetRandROutputDisplayEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
-        dpy: *mut std::ffi::c_void,
-        rr_output: std::ffi::c_ulong,
+        dpy: *mut core::ffi::c_void,
+        rr_output: core::ffi::c_ulong,
         p_display: *mut DisplayKHR,
     ) -> Result,
 >;
@@ -2114,7 +2114,7 @@ pub type PFN_vkUpdateDescriptorSetWithTemplate = Option<
         device: Device,
         descriptor_set: DescriptorSet,
         descriptor_update_template: DescriptorUpdateTemplate,
-        p_data: *const std::ffi::c_void,
+        p_data: *const core::ffi::c_void,
     ),
 >;
 pub type PFN_vkCmdPushDescriptorSetWithTemplate = Option<
@@ -2123,7 +2123,7 @@ pub type PFN_vkCmdPushDescriptorSetWithTemplate = Option<
         descriptor_update_template: DescriptorUpdateTemplate,
         layout: PipelineLayout,
         set: u32,
-        p_data: *const std::ffi::c_void,
+        p_data: *const core::ffi::c_void,
     ),
 >;
 pub type PFN_vkSetHdrMetadataEXT = Option<
@@ -2347,7 +2347,7 @@ pub type PFN_vkGetValidationCacheDataEXT = Option<
         device: Device,
         validation_cache: ValidationCacheEXT,
         p_data_size: *mut usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkMergeValidationCachesEXT = Option<
@@ -2370,7 +2370,7 @@ pub type PFN_vkGetSwapchainGrallocUsageANDROID = Option<
         device: Device,
         format: Format,
         image_usage: ImageUsageFlags,
-        gralloc_usage: *mut std::ffi::c_int,
+        gralloc_usage: *mut core::ffi::c_int,
     ) -> Result,
 >;
 pub type PFN_vkGetSwapchainGrallocUsage2ANDROID = Option<
@@ -2387,7 +2387,7 @@ pub type PFN_vkAcquireImageANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
         image: Image,
-        native_fence_fd: std::ffi::c_int,
+        native_fence_fd: core::ffi::c_int,
         semaphore: Semaphore,
         fence: Fence,
     ) -> Result,
@@ -2398,7 +2398,7 @@ pub type PFN_vkQueueSignalReleaseImageANDROID = Option<
         wait_semaphore_count: u32,
         p_wait_semaphores: *const Semaphore,
         image: Image,
-        p_native_fence_fd: *mut std::ffi::c_int,
+        p_native_fence_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
 pub type PFN_vkGetShaderInfoAMD = Option<
@@ -2408,7 +2408,7 @@ pub type PFN_vkGetShaderInfoAMD = Option<
         shader_stage: ShaderStageFlagBits,
         info_type: ShaderInfoTypeAMD,
         p_info_size: *mut usize,
-        p_info: *mut std::ffi::c_void,
+        p_info: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkSetLocalDimmingAMD = Option<
@@ -2497,7 +2497,7 @@ pub type PFN_vkGetMemoryHostPointerPropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         handle_type: ExternalMemoryHandleTypeFlagBits,
-        p_host_pointer: *const std::ffi::c_void,
+        p_host_pointer: *const core::ffi::c_void,
         p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
     ) -> Result,
 >;
@@ -2561,7 +2561,7 @@ pub type PFN_vkSignalSemaphore = Option<
 pub type PFN_vkGetAndroidHardwareBufferPropertiesANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
-        buffer: *const std::ffi::c_void,
+        buffer: *const core::ffi::c_void,
         p_properties: *mut AndroidHardwareBufferPropertiesANDROID,
     ) -> Result,
 >;
@@ -2569,7 +2569,7 @@ pub type PFN_vkGetMemoryAndroidHardwareBufferANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const MemoryGetAndroidHardwareBufferInfoANDROID,
-        p_buffer: *mut *mut std::ffi::c_void,
+        p_buffer: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkCmdDrawIndirectCount = Option<
@@ -2597,7 +2597,7 @@ pub type PFN_vkCmdDrawIndexedIndirectCount = Option<
 pub type PFN_vkCmdSetCheckpointNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
-        p_checkpoint_marker: *const std::ffi::c_void,
+        p_checkpoint_marker: *const core::ffi::c_void,
     ),
 >;
 pub type PFN_vkGetQueueCheckpointDataNV = Option<
@@ -2890,7 +2890,7 @@ pub type PFN_vkWriteAccelerationStructuresPropertiesKHR = Option<
         p_acceleration_structures: *const AccelerationStructureKHR,
         query_type: QueryType,
         data_size: usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
         stride: usize,
     ) -> Result,
 >;
@@ -2932,7 +2932,7 @@ pub type PFN_vkGetRayTracingShaderGroupHandlesKHR = Option<
         first_group: u32,
         group_count: u32,
         data_size: usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR = Option<
@@ -2942,7 +2942,7 @@ pub type PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR = Option<
         first_group: u32,
         group_count: u32,
         data_size: usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetAccelerationStructureHandleNV = Option<
@@ -2950,7 +2950,7 @@ pub type PFN_vkGetAccelerationStructureHandleNV = Option<
         device: Device,
         acceleration_structure: AccelerationStructureNV,
         data_size: usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkCreateRayTracingPipelinesNV = Option<
@@ -3868,7 +3868,7 @@ pub type PFN_vkGetEncodedVideoSessionParametersKHR = Option<
         p_video_session_parameters_info: *const VideoEncodeSessionParametersGetInfoKHR,
         p_feedback_info: *mut VideoEncodeSessionParametersFeedbackInfoKHR,
         p_data_size: *mut usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkDestroyVideoSessionParametersKHR = Option<
@@ -4024,7 +4024,7 @@ pub type PFN_vkGetDescriptorEXT = Option<
         device: Device,
         p_descriptor_info: *const DescriptorGetInfoEXT,
         data_size: usize,
-        p_descriptor: *mut std::ffi::c_void,
+        p_descriptor: *mut core::ffi::c_void,
     ),
 >;
 pub type PFN_vkCmdBindDescriptorBuffersEXT = Option<
@@ -4057,35 +4057,35 @@ pub type PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const BufferCaptureDescriptorDataInfoEXT,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetImageOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const ImageCaptureDescriptorDataInfoEXT,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const ImageViewCaptureDescriptorDataInfoEXT,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const SamplerCaptureDescriptorDataInfoEXT,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const AccelerationStructureCaptureDescriptorDataInfoEXT,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkSetDeviceMemoryPriorityEXT = Option<
@@ -4170,7 +4170,7 @@ pub type PFN_vkGetCudaModuleCacheNV = Option<
         device: Device,
         module: CudaModuleNV,
         p_cache_size: *mut usize,
-        p_cache_data: *mut std::ffi::c_void,
+        p_cache_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkCreateCudaFunctionNV = Option<
@@ -4227,7 +4227,7 @@ pub type PFN_vkGetDescriptorSetHostMappingVALVE = Option<
     unsafe extern "system" fn(
         device: Device,
         descriptor_set: DescriptorSet,
-        pp_data: *mut *mut std::ffi::c_void,
+        pp_data: *mut *mut core::ffi::c_void,
     ),
 >;
 pub type PFN_vkCreateMicromapEXT = Option<
@@ -4316,7 +4316,7 @@ pub type PFN_vkWriteMicromapsPropertiesEXT = Option<
         p_micromaps: *const MicromapEXT,
         query_type: QueryType,
         data_size: usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
         stride: usize,
     ) -> Result,
 >;
@@ -4474,7 +4474,7 @@ pub type PFN_vkMapMemory2 = Option<
     unsafe extern "system" fn(
         device: Device,
         p_memory_map_info: *const MemoryMapInfo,
-        pp_data: *mut *mut std::ffi::c_void,
+        pp_data: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkUnmapMemory2 = Option<
@@ -4504,7 +4504,7 @@ pub type PFN_vkGetShaderBinaryDataEXT = Option<
         device: Device,
         shader: ShaderEXT,
         p_data_size: *mut usize,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkCmdBindShadersEXT = Option<
@@ -4548,7 +4548,7 @@ pub type PFN_vkGetPastPresentationTimingEXT = Option<
 pub type PFN_vkGetScreenBufferPropertiesQNX = Option<
     unsafe extern "system" fn(
         device: Device,
-        buffer: *const std::ffi::c_void,
+        buffer: *const core::ffi::c_void,
         p_properties: *mut ScreenBufferPropertiesQNX,
     ) -> Result,
 >;
@@ -4716,14 +4716,14 @@ pub type PFN_vkGetMemoryMetalHandleEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_get_metal_handle_info: *const MemoryGetMetalHandleInfoEXT,
-        p_handle: *mut *mut std::ffi::c_void,
+        p_handle: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetMemoryMetalHandlePropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         handle_type: ExternalMemoryHandleTypeFlagBits,
-        p_handle: *const std::ffi::c_void,
+        p_handle: *const core::ffi::c_void,
         p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
     ) -> Result,
 >;
@@ -4784,7 +4784,7 @@ pub type PFN_vkGetExternalComputeQueueDataNV = Option<
     unsafe extern "system" fn(
         external_queue: ExternalComputeQueueNV,
         params: *mut ExternalComputeQueueDataParamsNV,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ),
 >;
 pub type PFN_vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM = Option<
@@ -4823,7 +4823,7 @@ pub type PFN_vkGetShaderInstrumentationValuesARM = Option<
         device: Device,
         instrumentation: ShaderInstrumentationARM,
         p_metric_block_count: *mut u32,
-        p_metric_values: *mut std::ffi::c_void,
+        p_metric_values: *mut core::ffi::c_void,
         flags: ShaderInstrumentationValuesFlagsARM,
     ) -> Result,
 >;
@@ -4891,14 +4891,14 @@ pub type PFN_vkGetTensorOpaqueCaptureDescriptorDataARM = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const TensorCaptureDescriptorDataInfoARM,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const TensorViewCaptureDescriptorDataInfoARM,
-        p_data: *mut std::ffi::c_void,
+        p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetPhysicalDeviceExternalTensorPropertiesARM = Option<
@@ -4997,7 +4997,7 @@ pub type PFN_vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesAR
 pub type PFN_vkGetNativeBufferPropertiesOHOS = Option<
     unsafe extern "system" fn(
         device: Device,
-        buffer: *const std::ffi::c_void,
+        buffer: *const core::ffi::c_void,
         p_properties: *mut NativeBufferPropertiesOHOS,
     ) -> Result,
 >;
@@ -5005,7 +5005,7 @@ pub type PFN_vkGetMemoryNativeBufferOHOS = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const MemoryGetNativeBufferInfoOHOS,
-        p_buffer: *mut *mut std::ffi::c_void,
+        p_buffer: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
 pub type PFN_vkGetSwapchainGrallocUsageOHOS = Option<
@@ -5140,7 +5140,7 @@ pub type PFN_vkCmdUpdateMemoryKHR = Option<
         p_dst_range: *const DeviceAddressRangeKHR,
         dst_flags: AddressCommandFlagsKHR,
         data_size: u64,
-        p_data: *const std::ffi::c_void,
+        p_data: *const core::ffi::c_void,
     ),
 >;
 pub type PFN_vkCmdFillMemoryKHR = Option<
@@ -5387,7 +5387,7 @@ pub struct EntryCommands {
 impl Default for EntryCommands {
     #[inline]
     fn default() -> Self {
-        unsafe { std::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 impl EntryCommands {
@@ -5400,37 +5400,37 @@ impl EntryCommands {
     /// The loader must return valid function pointers compatible with
     /// each command's signature, or null for unavailable commands.
     pub unsafe fn load(
-        mut f: impl FnMut(&std::ffi::CStr) -> *const std::ffi::c_void,
+        mut f: impl FnMut(&core::ffi::CStr) -> *const core::ffi::c_void,
     ) -> Self {
         unsafe {
             let mut cmd = Self::default();
-            cmd.create_instance = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateInstance\0")),
+            cmd.create_instance = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateInstance\0")),
             );
-            cmd.enumerate_instance_version = std::mem::transmute(
+            cmd.enumerate_instance_version = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumerateInstanceVersion\0",
                     ),
                 ),
             );
-            cmd.enumerate_instance_layer_properties = std::mem::transmute(
+            cmd.enumerate_instance_layer_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumerateInstanceLayerProperties\0",
                     ),
                 ),
             );
-            cmd.enumerate_instance_extension_properties = std::mem::transmute(
+            cmd.enumerate_instance_extension_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumerateInstanceExtensionProperties\0",
                     ),
                 ),
             );
-            cmd.get_external_compute_queue_data_nv = std::mem::transmute(
+            cmd.get_external_compute_queue_data_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetExternalComputeQueueDataNV\0",
                     ),
                 ),
@@ -5551,7 +5551,7 @@ pub struct InstanceCommands {
 impl Default for InstanceCommands {
     #[inline]
     fn default() -> Self {
-        unsafe { std::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 impl InstanceCommands {
@@ -5564,864 +5564,868 @@ impl InstanceCommands {
     /// The loader must return valid function pointers compatible with
     /// each command's signature, or null for unavailable commands.
     pub unsafe fn load(
-        mut f: impl FnMut(&std::ffi::CStr) -> *const std::ffi::c_void,
+        mut f: impl FnMut(&core::ffi::CStr) -> *const core::ffi::c_void,
     ) -> Self {
         unsafe {
             let mut cmd = Self::default();
-            cmd.destroy_instance = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyInstance\0")),
+            cmd.destroy_instance = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyInstance\0")),
             );
-            cmd.enumerate_physical_devices = std::mem::transmute(
+            cmd.enumerate_physical_devices = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumeratePhysicalDevices\0",
                     ),
                 ),
             );
-            cmd.get_instance_proc_addr = std::mem::transmute(
+            cmd.get_instance_proc_addr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetInstanceProcAddr\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_properties = std::mem::transmute(
+            cmd.get_physical_device_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceProperties\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_queue_family_properties = std::mem::transmute(
+            cmd.get_physical_device_queue_family_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceQueueFamilyProperties\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_memory_properties = std::mem::transmute(
+            cmd.get_physical_device_memory_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceMemoryProperties\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_features = std::mem::transmute(
+            cmd.get_physical_device_features = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceFeatures\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_format_properties = std::mem::transmute(
+            cmd.get_physical_device_format_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceFormatProperties\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_image_format_properties = std::mem::transmute(
+            cmd.get_physical_device_image_format_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceImageFormatProperties\0",
                     ),
                 ),
             );
-            cmd.create_device = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateDevice\0")),
+            cmd.create_device = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateDevice\0")),
             );
-            cmd.enumerate_device_layer_properties = std::mem::transmute(
+            cmd.enumerate_device_layer_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumerateDeviceLayerProperties\0",
                     ),
                 ),
             );
-            cmd.enumerate_device_extension_properties = std::mem::transmute(
+            cmd.enumerate_device_extension_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumerateDeviceExtensionProperties\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_sparse_image_format_properties = std::mem::transmute(
+            cmd.get_physical_device_sparse_image_format_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSparseImageFormatProperties\0",
                     ),
                 ),
             );
-            cmd.create_android_surface_khr = std::mem::transmute(
+            cmd.create_android_surface_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateAndroidSurfaceKHR\0",
                     ),
                 ),
             );
-            cmd.create_surface_ohos = std::mem::transmute(
+            cmd.create_surface_ohos = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateSurfaceOHOS\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_display_properties_khr = std::mem::transmute(
+            cmd.get_physical_device_display_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceDisplayPropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_display_plane_properties_khr = std::mem::transmute(
+            cmd.get_physical_device_display_plane_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceDisplayPlanePropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_display_plane_supported_displays_khr = std::mem::transmute(
+            cmd.get_display_plane_supported_displays_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDisplayPlaneSupportedDisplaysKHR\0",
                     ),
                 ),
             );
-            cmd.get_display_mode_properties_khr = std::mem::transmute(
+            cmd.get_display_mode_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDisplayModePropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.create_display_mode_khr = std::mem::transmute(
+            cmd.create_display_mode_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDisplayModeKHR\0",
                     ),
                 ),
             );
-            cmd.get_display_plane_capabilities_khr = std::mem::transmute(
+            cmd.get_display_plane_capabilities_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDisplayPlaneCapabilitiesKHR\0",
                     ),
                 ),
             );
-            cmd.create_display_plane_surface_khr = std::mem::transmute(
+            cmd.create_display_plane_surface_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDisplayPlaneSurfaceKHR\0",
                     ),
                 ),
             );
-            cmd.destroy_surface_khr = std::mem::transmute(
+            cmd.destroy_surface_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroySurfaceKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_support_khr = std::mem::transmute(
+            cmd.get_physical_device_surface_support_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfaceSupportKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_capabilities_khr = std::mem::transmute(
+            cmd.get_physical_device_surface_capabilities_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfaceCapabilitiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_formats_khr = std::mem::transmute(
+            cmd.get_physical_device_surface_formats_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfaceFormatsKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_present_modes_khr = std::mem::transmute(
+            cmd.get_physical_device_surface_present_modes_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfacePresentModesKHR\0",
                     ),
                 ),
             );
-            cmd.create_vi_surface_nn = std::mem::transmute(
+            cmd.create_vi_surface_nn = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateViSurfaceNN\0",
                     ),
                 ),
             );
-            cmd.create_wayland_surface_khr = std::mem::transmute(
+            cmd.create_wayland_surface_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateWaylandSurfaceKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_wayland_presentation_support_khr = std::mem::transmute(
+            cmd.get_physical_device_wayland_presentation_support_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceWaylandPresentationSupportKHR\0",
                     ),
                 ),
             );
-            cmd.create_ubm_surface_sec = std::mem::transmute(
+            cmd.create_ubm_surface_sec = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateUbmSurfaceSEC\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_ubm_presentation_support_sec = std::mem::transmute(
+            cmd.get_physical_device_ubm_presentation_support_sec = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceUbmPresentationSupportSEC\0",
                     ),
                 ),
             );
-            cmd.create_win32_surface_khr = std::mem::transmute(
+            cmd.create_win32_surface_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateWin32SurfaceKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_win32_presentation_support_khr = std::mem::transmute(
+            cmd.get_physical_device_win32_presentation_support_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceWin32PresentationSupportKHR\0",
                     ),
                 ),
             );
-            cmd.create_xlib_surface_khr = std::mem::transmute(
+            cmd.create_xlib_surface_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateXlibSurfaceKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_xlib_presentation_support_khr = std::mem::transmute(
+            cmd.get_physical_device_xlib_presentation_support_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceXlibPresentationSupportKHR\0",
                     ),
                 ),
             );
-            cmd.create_xcb_surface_khr = std::mem::transmute(
+            cmd.create_xcb_surface_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateXcbSurfaceKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_xcb_presentation_support_khr = std::mem::transmute(
+            cmd.get_physical_device_xcb_presentation_support_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceXcbPresentationSupportKHR\0",
                     ),
                 ),
             );
-            cmd.create_direct_fb_surface_ext = std::mem::transmute(
+            cmd.create_direct_fb_surface_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDirectFBSurfaceEXT\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_direct_fb_presentation_support_ext = std::mem::transmute(
+            cmd.get_physical_device_direct_fb_presentation_support_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceDirectFBPresentationSupportEXT\0",
                     ),
                 ),
             );
-            cmd.create_image_pipe_surface_fuchsia = std::mem::transmute(
+            cmd.create_image_pipe_surface_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateImagePipeSurfaceFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.create_stream_descriptor_surface_ggp = std::mem::transmute(
+            cmd.create_stream_descriptor_surface_ggp = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateStreamDescriptorSurfaceGGP\0",
                     ),
                 ),
             );
-            cmd.create_screen_surface_qnx = std::mem::transmute(
+            cmd.create_screen_surface_qnx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateScreenSurfaceQNX\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_screen_presentation_support_qnx = std::mem::transmute(
+            cmd.get_physical_device_screen_presentation_support_qnx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceScreenPresentationSupportQNX\0",
                     ),
                 ),
             );
-            cmd.create_debug_report_callback_ext = std::mem::transmute(
+            cmd.create_debug_report_callback_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDebugReportCallbackEXT\0",
                     ),
                 ),
             );
-            cmd.destroy_debug_report_callback_ext = std::mem::transmute(
+            cmd.destroy_debug_report_callback_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyDebugReportCallbackEXT\0",
                     ),
                 ),
             );
-            cmd.debug_report_message_ext = std::mem::transmute(
+            cmd.debug_report_message_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDebugReportMessageEXT\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_external_image_format_properties_nv = std::mem::transmute(
+            cmd.get_physical_device_external_image_format_properties_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceExternalImageFormatPropertiesNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_features2 = std::mem::transmute(
+            cmd.get_physical_device_features2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceFeatures2\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_features2.is_none() {
-                cmd.get_physical_device_features2 = std::mem::transmute(
+                cmd.get_physical_device_features2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceFeatures2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_properties2 = std::mem::transmute(
+            cmd.get_physical_device_properties2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceProperties2\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_properties2.is_none() {
-                cmd.get_physical_device_properties2 = std::mem::transmute(
+                cmd.get_physical_device_properties2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceProperties2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_format_properties2 = std::mem::transmute(
+            cmd.get_physical_device_format_properties2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceFormatProperties2\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_format_properties2.is_none() {
-                cmd.get_physical_device_format_properties2 = std::mem::transmute(
+                cmd.get_physical_device_format_properties2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceFormatProperties2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_image_format_properties2 = std::mem::transmute(
+            cmd.get_physical_device_image_format_properties2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceImageFormatProperties2\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_image_format_properties2.is_none() {
-                cmd.get_physical_device_image_format_properties2 = std::mem::transmute(
+                cmd.get_physical_device_image_format_properties2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceImageFormatProperties2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_queue_family_properties2 = std::mem::transmute(
+            cmd.get_physical_device_queue_family_properties2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceQueueFamilyProperties2\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_queue_family_properties2.is_none() {
-                cmd.get_physical_device_queue_family_properties2 = std::mem::transmute(
+                cmd.get_physical_device_queue_family_properties2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceQueueFamilyProperties2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_memory_properties2 = std::mem::transmute(
+            cmd.get_physical_device_memory_properties2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceMemoryProperties2\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_memory_properties2.is_none() {
-                cmd.get_physical_device_memory_properties2 = std::mem::transmute(
+                cmd.get_physical_device_memory_properties2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceMemoryProperties2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_sparse_image_format_properties2 = std::mem::transmute(
+            cmd.get_physical_device_sparse_image_format_properties2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSparseImageFormatProperties2\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_sparse_image_format_properties2.is_none() {
-                cmd.get_physical_device_sparse_image_format_properties2 = std::mem::transmute(
+                cmd.get_physical_device_sparse_image_format_properties2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceSparseImageFormatProperties2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_external_buffer_properties = std::mem::transmute(
+            cmd.get_physical_device_external_buffer_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceExternalBufferProperties\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_external_buffer_properties.is_none() {
-                cmd.get_physical_device_external_buffer_properties = std::mem::transmute(
+                cmd.get_physical_device_external_buffer_properties = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceExternalBufferPropertiesKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_external_memory_sci_buf_properties_nv = std::mem::transmute(
+            cmd.get_physical_device_external_memory_sci_buf_properties_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_sci_buf_attributes_nv = std::mem::transmute(
+            cmd.get_physical_device_sci_buf_attributes_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSciBufAttributesNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_external_semaphore_properties = std::mem::transmute(
+            cmd.get_physical_device_external_semaphore_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceExternalSemaphoreProperties\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_external_semaphore_properties.is_none() {
-                cmd.get_physical_device_external_semaphore_properties = std::mem::transmute(
+                cmd.get_physical_device_external_semaphore_properties = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceExternalSemaphorePropertiesKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_external_fence_properties = std::mem::transmute(
+            cmd.get_physical_device_external_fence_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceExternalFenceProperties\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_external_fence_properties.is_none() {
-                cmd.get_physical_device_external_fence_properties = std::mem::transmute(
+                cmd.get_physical_device_external_fence_properties = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceExternalFencePropertiesKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_sci_sync_attributes_nv = std::mem::transmute(
+            cmd.get_physical_device_sci_sync_attributes_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSciSyncAttributesNV\0",
                     ),
                 ),
             );
-            cmd.release_display_ext = std::mem::transmute(
+            cmd.release_display_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkReleaseDisplayEXT\0",
                     ),
                 ),
             );
-            cmd.acquire_xlib_display_ext = std::mem::transmute(
+            cmd.acquire_xlib_display_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireXlibDisplayEXT\0",
                     ),
                 ),
             );
-            cmd.get_rand_r_output_display_ext = std::mem::transmute(
+            cmd.get_rand_r_output_display_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetRandROutputDisplayEXT\0",
                     ),
                 ),
             );
-            cmd.acquire_winrt_display_nv = std::mem::transmute(
+            cmd.acquire_winrt_display_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireWinrtDisplayNV\0",
                     ),
                 ),
             );
-            cmd.get_winrt_display_nv = std::mem::transmute(
+            cmd.get_winrt_display_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetWinrtDisplayNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_capabilities2_ext = std::mem::transmute(
+            cmd.get_physical_device_surface_capabilities2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfaceCapabilities2EXT\0",
                     ),
                 ),
             );
-            cmd.enumerate_physical_device_groups = std::mem::transmute(
+            cmd.enumerate_physical_device_groups = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumeratePhysicalDeviceGroups\0",
                     ),
                 ),
             );
             if cmd.enumerate_physical_device_groups.is_none() {
-                cmd.enumerate_physical_device_groups = std::mem::transmute(
+                cmd.enumerate_physical_device_groups = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkEnumeratePhysicalDeviceGroupsKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_present_rectangles_khr = std::mem::transmute(
+            cmd.get_physical_device_present_rectangles_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDevicePresentRectanglesKHR\0",
                     ),
                 ),
             );
-            cmd.create_ios_surface_mvk = std::mem::transmute(
+            cmd.create_ios_surface_mvk = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateIOSSurfaceMVK\0",
                     ),
                 ),
             );
-            cmd.create_mac_os_surface_mvk = std::mem::transmute(
+            cmd.create_mac_os_surface_mvk = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateMacOSSurfaceMVK\0",
                     ),
                 ),
             );
-            cmd.create_metal_surface_ext = std::mem::transmute(
+            cmd.create_metal_surface_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateMetalSurfaceEXT\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_multisample_properties_ext = std::mem::transmute(
+            cmd.get_physical_device_multisample_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceMultisamplePropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_capabilities2_khr = std::mem::transmute(
+            cmd.get_physical_device_surface_capabilities2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfaceCapabilities2KHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_formats2_khr = std::mem::transmute(
+            cmd.get_physical_device_surface_formats2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfaceFormats2KHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_display_properties2_khr = std::mem::transmute(
+            cmd.get_physical_device_display_properties2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceDisplayProperties2KHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_display_plane_properties2_khr = std::mem::transmute(
+            cmd.get_physical_device_display_plane_properties2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceDisplayPlaneProperties2KHR\0",
                     ),
                 ),
             );
-            cmd.get_display_mode_properties2_khr = std::mem::transmute(
+            cmd.get_display_mode_properties2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDisplayModeProperties2KHR\0",
                     ),
                 ),
             );
-            cmd.get_display_plane_capabilities2_khr = std::mem::transmute(
+            cmd.get_display_plane_capabilities2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDisplayPlaneCapabilities2KHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_calibrateable_time_domains_khr = std::mem::transmute(
+            cmd.get_physical_device_calibrateable_time_domains_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceCalibrateableTimeDomainsKHR\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_calibrateable_time_domains_khr.is_none() {
-                cmd.get_physical_device_calibrateable_time_domains_khr = std::mem::transmute(
+                cmd.get_physical_device_calibrateable_time_domains_khr = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.create_debug_utils_messenger_ext = std::mem::transmute(
+            cmd.create_debug_utils_messenger_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDebugUtilsMessengerEXT\0",
                     ),
                 ),
             );
-            cmd.destroy_debug_utils_messenger_ext = std::mem::transmute(
+            cmd.destroy_debug_utils_messenger_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyDebugUtilsMessengerEXT\0",
                     ),
                 ),
             );
-            cmd.submit_debug_utils_message_ext = std::mem::transmute(
+            cmd.submit_debug_utils_message_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSubmitDebugUtilsMessageEXT\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_cooperative_matrix_properties_nv = std::mem::transmute(
+            cmd.get_physical_device_cooperative_matrix_properties_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_surface_present_modes2_ext = std::mem::transmute(
+            cmd.get_physical_device_surface_present_modes2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSurfacePresentModes2EXT\0",
                     ),
                 ),
             );
-            cmd.enumerate_physical_device_queue_family_performance_query_counters_khr = std::mem::transmute(
+            cmd.enumerate_physical_device_queue_family_performance_query_counters_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_queue_family_performance_query_passes_khr = std::mem::transmute(
+            cmd.get_physical_device_queue_family_performance_query_passes_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR\0",
                     ),
                 ),
             );
-            cmd.create_headless_surface_ext = std::mem::transmute(
+            cmd.create_headless_surface_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateHeadlessSurfaceEXT\0",
                     ),
                 ),
             );
             cmd
-                .get_physical_device_supported_framebuffer_mixed_samples_combinations_nv = std::mem::transmute(
+                .get_physical_device_supported_framebuffer_mixed_samples_combinations_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_tool_properties = std::mem::transmute(
+            cmd.get_physical_device_tool_properties = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceToolProperties\0",
                     ),
                 ),
             );
             if cmd.get_physical_device_tool_properties.is_none() {
-                cmd.get_physical_device_tool_properties = std::mem::transmute(
+                cmd.get_physical_device_tool_properties = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPhysicalDeviceToolPropertiesEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.get_physical_device_refreshable_object_types_khr = std::mem::transmute(
+            cmd.get_physical_device_refreshable_object_types_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceRefreshableObjectTypesKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_fragment_shading_rates_khr = std::mem::transmute(
+            cmd.get_physical_device_fragment_shading_rates_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceFragmentShadingRatesKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_video_capabilities_khr = std::mem::transmute(
+            cmd.get_physical_device_video_capabilities_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceVideoCapabilitiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_video_format_properties_khr = std::mem::transmute(
+            cmd.get_physical_device_video_format_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceVideoFormatPropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_video_encode_quality_level_properties_khr = std::mem::transmute(
+            cmd.get_physical_device_video_encode_quality_level_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.acquire_drm_display_ext = std::mem::transmute(
+            cmd.acquire_drm_display_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireDrmDisplayEXT\0",
                     ),
                 ),
             );
-            cmd.get_drm_display_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetDrmDisplayEXT\0")),
-            );
-            cmd.get_physical_device_optical_flow_image_formats_nv = std::mem::transmute(
+            cmd.get_drm_display_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkGetDrmDisplayEXT\0",
+                    ),
+                ),
+            );
+            cmd.get_physical_device_optical_flow_image_formats_nv = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceOpticalFlowImageFormatsNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_cooperative_matrix_properties_khr = std::mem::transmute(
+            cmd.get_physical_device_cooperative_matrix_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR\0",
                     ),
                 ),
             );
             cmd
-                .get_physical_device_cooperative_matrix_flexible_dimensions_properties_nv = std::mem::transmute(
+                .get_physical_device_cooperative_matrix_flexible_dimensions_properties_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_cooperative_vector_properties_nv = std::mem::transmute(
+            cmd.get_physical_device_cooperative_vector_properties_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceCooperativeVectorPropertiesNV\0",
                     ),
                 ),
             );
-            cmd.enumerate_physical_device_shader_instrumentation_metrics_arm = std::mem::transmute(
+            cmd.enumerate_physical_device_shader_instrumentation_metrics_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_external_tensor_properties_arm = std::mem::transmute(
+            cmd.get_physical_device_external_tensor_properties_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceExternalTensorPropertiesARM\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_queue_family_data_graph_properties_arm = std::mem::transmute(
+            cmd.get_physical_device_queue_family_data_graph_properties_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM\0",
                     ),
                 ),
             );
             cmd
-                .get_physical_device_queue_family_data_graph_processing_engine_properties_arm = std::mem::transmute(
+                .get_physical_device_queue_family_data_graph_processing_engine_properties_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM\0",
                     ),
                 ),
             );
             cmd
-                .enumerate_physical_device_queue_family_performance_counters_by_region_arm = std::mem::transmute(
+                .enumerate_physical_device_queue_family_performance_counters_by_region_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM\0",
                     ),
                 ),
             );
-            cmd.get_physical_device_descriptor_size_ext = std::mem::transmute(
+            cmd.get_physical_device_descriptor_size_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPhysicalDeviceDescriptorSizeEXT\0",
                     ),
                 ),
@@ -7058,7 +7062,7 @@ pub struct DeviceCommands {
 impl Default for DeviceCommands {
     #[inline]
     fn default() -> Self {
-        unsafe { std::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 impl DeviceCommands {
@@ -7071,4751 +7075,4855 @@ impl DeviceCommands {
     /// The loader must return valid function pointers compatible with
     /// each command's signature, or null for unavailable commands.
     pub unsafe fn load(
-        mut f: impl FnMut(&std::ffi::CStr) -> *const std::ffi::c_void,
+        mut f: impl FnMut(&core::ffi::CStr) -> *const core::ffi::c_void,
     ) -> Self {
         unsafe {
             let mut cmd = Self::default();
-            cmd.get_device_proc_addr = std::mem::transmute(
+            cmd.get_device_proc_addr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceProcAddr\0",
                     ),
                 ),
             );
-            cmd.destroy_device = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyDevice\0")),
+            cmd.destroy_device = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyDevice\0")),
             );
-            cmd.get_device_queue = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetDeviceQueue\0")),
+            cmd.get_device_queue = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetDeviceQueue\0")),
             );
-            cmd.queue_submit = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueSubmit\0")),
+            cmd.queue_submit = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueSubmit\0")),
             );
-            cmd.queue_wait_idle = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueWaitIdle\0")),
+            cmd.queue_wait_idle = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueWaitIdle\0")),
             );
-            cmd.device_wait_idle = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDeviceWaitIdle\0")),
+            cmd.device_wait_idle = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDeviceWaitIdle\0")),
             );
-            cmd.allocate_memory = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkAllocateMemory\0")),
+            cmd.allocate_memory = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkAllocateMemory\0")),
             );
-            cmd.free_memory = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkFreeMemory\0")),
+            cmd.free_memory = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkFreeMemory\0")),
             );
-            cmd.map_memory = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkMapMemory\0")),
+            cmd.map_memory = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkMapMemory\0")),
             );
-            cmd.unmap_memory = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkUnmapMemory\0")),
+            cmd.unmap_memory = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkUnmapMemory\0")),
             );
-            cmd.flush_mapped_memory_ranges = std::mem::transmute(
+            cmd.flush_mapped_memory_ranges = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkFlushMappedMemoryRanges\0",
                     ),
                 ),
             );
-            cmd.invalidate_mapped_memory_ranges = std::mem::transmute(
+            cmd.invalidate_mapped_memory_ranges = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkInvalidateMappedMemoryRanges\0",
                     ),
                 ),
             );
-            cmd.get_device_memory_commitment = std::mem::transmute(
+            cmd.get_device_memory_commitment = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceMemoryCommitment\0",
                     ),
                 ),
             );
-            cmd.get_buffer_memory_requirements = std::mem::transmute(
+            cmd.get_buffer_memory_requirements = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetBufferMemoryRequirements\0",
                     ),
                 ),
             );
-            cmd.bind_buffer_memory = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkBindBufferMemory\0")),
-            );
-            cmd.get_image_memory_requirements = std::mem::transmute(
+            cmd.bind_buffer_memory = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkBindBufferMemory\0",
+                    ),
+                ),
+            );
+            cmd.get_image_memory_requirements = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageMemoryRequirements\0",
                     ),
                 ),
             );
-            cmd.bind_image_memory = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkBindImageMemory\0")),
+            cmd.bind_image_memory = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkBindImageMemory\0")),
             );
-            cmd.get_image_sparse_memory_requirements = std::mem::transmute(
+            cmd.get_image_sparse_memory_requirements = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageSparseMemoryRequirements\0",
                     ),
                 ),
             );
-            cmd.queue_bind_sparse = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueBindSparse\0")),
+            cmd.queue_bind_sparse = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueBindSparse\0")),
             );
-            cmd.create_fence = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateFence\0")),
+            cmd.create_fence = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateFence\0")),
             );
-            cmd.destroy_fence = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyFence\0")),
+            cmd.destroy_fence = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyFence\0")),
             );
-            cmd.reset_fences = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkResetFences\0")),
+            cmd.reset_fences = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkResetFences\0")),
             );
-            cmd.get_fence_status = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetFenceStatus\0")),
+            cmd.get_fence_status = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetFenceStatus\0")),
             );
-            cmd.wait_for_fences = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkWaitForFences\0")),
+            cmd.wait_for_fences = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkWaitForFences\0")),
             );
-            cmd.create_semaphore = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateSemaphore\0")),
+            cmd.create_semaphore = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateSemaphore\0")),
             );
-            cmd.destroy_semaphore = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroySemaphore\0")),
-            );
-            cmd.create_event = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateEvent\0")),
-            );
-            cmd.destroy_event = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyEvent\0")),
-            );
-            cmd.get_event_status = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetEventStatus\0")),
-            );
-            cmd.set_event = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkSetEvent\0")),
-            );
-            cmd.reset_event = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkResetEvent\0")),
-            );
-            cmd.create_query_pool = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateQueryPool\0")),
-            );
-            cmd.destroy_query_pool = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyQueryPool\0")),
-            );
-            cmd.get_query_pool_results = std::mem::transmute(
+            cmd.destroy_semaphore = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkDestroySemaphore\0",
+                    ),
+                ),
+            );
+            cmd.create_event = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateEvent\0")),
+            );
+            cmd.destroy_event = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyEvent\0")),
+            );
+            cmd.get_event_status = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetEventStatus\0")),
+            );
+            cmd.set_event = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkSetEvent\0")),
+            );
+            cmd.reset_event = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkResetEvent\0")),
+            );
+            cmd.create_query_pool = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateQueryPool\0")),
+            );
+            cmd.destroy_query_pool = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkDestroyQueryPool\0",
+                    ),
+                ),
+            );
+            cmd.get_query_pool_results = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetQueryPoolResults\0",
                     ),
                 ),
             );
-            cmd.reset_query_pool = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkResetQueryPool\0")),
+            cmd.reset_query_pool = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkResetQueryPool\0")),
             );
             if cmd.reset_query_pool.is_none() {
-                cmd.reset_query_pool = std::mem::transmute(
+                cmd.reset_query_pool = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkResetQueryPoolEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.create_buffer = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateBuffer\0")),
+            cmd.create_buffer = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateBuffer\0")),
             );
-            cmd.destroy_buffer = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyBuffer\0")),
+            cmd.destroy_buffer = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyBuffer\0")),
             );
-            cmd.create_buffer_view = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateBufferView\0")),
-            );
-            cmd.destroy_buffer_view = std::mem::transmute(
+            cmd.create_buffer_view = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCreateBufferView\0",
+                    ),
+                ),
+            );
+            cmd.destroy_buffer_view = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyBufferView\0",
                     ),
                 ),
             );
-            cmd.create_image = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateImage\0")),
+            cmd.create_image = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateImage\0")),
             );
-            cmd.destroy_image = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyImage\0")),
+            cmd.destroy_image = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyImage\0")),
             );
-            cmd.get_image_subresource_layout = std::mem::transmute(
+            cmd.get_image_subresource_layout = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageSubresourceLayout\0",
                     ),
                 ),
             );
-            cmd.create_image_view = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateImageView\0")),
+            cmd.create_image_view = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateImageView\0")),
             );
-            cmd.destroy_image_view = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyImageView\0")),
-            );
-            cmd.create_shader_module = std::mem::transmute(
+            cmd.destroy_image_view = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkDestroyImageView\0",
+                    ),
+                ),
+            );
+            cmd.create_shader_module = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateShaderModule\0",
                     ),
                 ),
             );
-            cmd.destroy_shader_module = std::mem::transmute(
+            cmd.destroy_shader_module = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyShaderModule\0",
                     ),
                 ),
             );
-            cmd.create_pipeline_cache = std::mem::transmute(
+            cmd.create_pipeline_cache = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreatePipelineCache\0",
                     ),
                 ),
             );
-            cmd.destroy_pipeline_cache = std::mem::transmute(
+            cmd.destroy_pipeline_cache = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyPipelineCache\0",
                     ),
                 ),
             );
-            cmd.get_pipeline_cache_data = std::mem::transmute(
+            cmd.get_pipeline_cache_data = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineCacheData\0",
                     ),
                 ),
             );
-            cmd.merge_pipeline_caches = std::mem::transmute(
+            cmd.merge_pipeline_caches = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkMergePipelineCaches\0",
                     ),
                 ),
             );
-            cmd.create_pipeline_binaries_khr = std::mem::transmute(
+            cmd.create_pipeline_binaries_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreatePipelineBinariesKHR\0",
                     ),
                 ),
             );
-            cmd.destroy_pipeline_binary_khr = std::mem::transmute(
+            cmd.destroy_pipeline_binary_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyPipelineBinaryKHR\0",
                     ),
                 ),
             );
-            cmd.get_pipeline_key_khr = std::mem::transmute(
+            cmd.get_pipeline_key_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineKeyKHR\0",
                     ),
                 ),
             );
-            cmd.get_pipeline_binary_data_khr = std::mem::transmute(
+            cmd.get_pipeline_binary_data_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineBinaryDataKHR\0",
                     ),
                 ),
             );
-            cmd.release_captured_pipeline_data_khr = std::mem::transmute(
+            cmd.release_captured_pipeline_data_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkReleaseCapturedPipelineDataKHR\0",
                     ),
                 ),
             );
-            cmd.create_graphics_pipelines = std::mem::transmute(
+            cmd.create_graphics_pipelines = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateGraphicsPipelines\0",
                     ),
                 ),
             );
-            cmd.create_compute_pipelines = std::mem::transmute(
+            cmd.create_compute_pipelines = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateComputePipelines\0",
                     ),
                 ),
             );
-            cmd.get_device_subpass_shading_max_workgroup_size_huawei = std::mem::transmute(
+            cmd.get_device_subpass_shading_max_workgroup_size_huawei = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI\0",
                     ),
                 ),
             );
-            cmd.destroy_pipeline = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyPipeline\0")),
+            cmd.destroy_pipeline = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyPipeline\0")),
             );
-            cmd.create_pipeline_layout = std::mem::transmute(
+            cmd.create_pipeline_layout = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreatePipelineLayout\0",
                     ),
                 ),
             );
-            cmd.destroy_pipeline_layout = std::mem::transmute(
+            cmd.destroy_pipeline_layout = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyPipelineLayout\0",
                     ),
                 ),
             );
-            cmd.create_sampler = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateSampler\0")),
+            cmd.create_sampler = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateSampler\0")),
             );
-            cmd.destroy_sampler = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroySampler\0")),
+            cmd.destroy_sampler = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroySampler\0")),
             );
-            cmd.create_descriptor_set_layout = std::mem::transmute(
+            cmd.create_descriptor_set_layout = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDescriptorSetLayout\0",
                     ),
                 ),
             );
-            cmd.destroy_descriptor_set_layout = std::mem::transmute(
+            cmd.destroy_descriptor_set_layout = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyDescriptorSetLayout\0",
                     ),
                 ),
             );
-            cmd.create_descriptor_pool = std::mem::transmute(
+            cmd.create_descriptor_pool = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDescriptorPool\0",
                     ),
                 ),
             );
-            cmd.destroy_descriptor_pool = std::mem::transmute(
+            cmd.destroy_descriptor_pool = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyDescriptorPool\0",
                     ),
                 ),
             );
-            cmd.reset_descriptor_pool = std::mem::transmute(
+            cmd.reset_descriptor_pool = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkResetDescriptorPool\0",
                     ),
                 ),
             );
-            cmd.allocate_descriptor_sets = std::mem::transmute(
+            cmd.allocate_descriptor_sets = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAllocateDescriptorSets\0",
                     ),
                 ),
             );
-            cmd.free_descriptor_sets = std::mem::transmute(
+            cmd.free_descriptor_sets = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkFreeDescriptorSets\0",
                     ),
                 ),
             );
-            cmd.update_descriptor_sets = std::mem::transmute(
+            cmd.update_descriptor_sets = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkUpdateDescriptorSets\0",
                     ),
                 ),
             );
-            cmd.create_framebuffer = std::mem::transmute(
+            cmd.create_framebuffer = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateFramebuffer\0",
                     ),
                 ),
             );
-            cmd.destroy_framebuffer = std::mem::transmute(
+            cmd.destroy_framebuffer = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyFramebuffer\0",
                     ),
                 ),
             );
-            cmd.create_render_pass = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateRenderPass\0")),
-            );
-            cmd.destroy_render_pass = std::mem::transmute(
+            cmd.create_render_pass = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCreateRenderPass\0",
+                    ),
+                ),
+            );
+            cmd.destroy_render_pass = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyRenderPass\0",
                     ),
                 ),
             );
-            cmd.get_render_area_granularity = std::mem::transmute(
+            cmd.get_render_area_granularity = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetRenderAreaGranularity\0",
                     ),
                 ),
             );
-            cmd.get_rendering_area_granularity = std::mem::transmute(
+            cmd.get_rendering_area_granularity = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetRenderingAreaGranularity\0",
                     ),
                 ),
             );
             if cmd.get_rendering_area_granularity.is_none() {
-                cmd.get_rendering_area_granularity = std::mem::transmute(
+                cmd.get_rendering_area_granularity = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetRenderingAreaGranularityKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.create_command_pool = std::mem::transmute(
+            cmd.create_command_pool = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateCommandPool\0",
                     ),
                 ),
             );
-            cmd.destroy_command_pool = std::mem::transmute(
+            cmd.destroy_command_pool = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyCommandPool\0",
                     ),
                 ),
             );
-            cmd.reset_command_pool = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkResetCommandPool\0")),
-            );
-            cmd.allocate_command_buffers = std::mem::transmute(
+            cmd.reset_command_pool = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkResetCommandPool\0",
+                    ),
+                ),
+            );
+            cmd.allocate_command_buffers = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAllocateCommandBuffers\0",
                     ),
                 ),
             );
-            cmd.free_command_buffers = std::mem::transmute(
+            cmd.free_command_buffers = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkFreeCommandBuffers\0",
                     ),
                 ),
             );
-            cmd.begin_command_buffer = std::mem::transmute(
+            cmd.begin_command_buffer = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBeginCommandBuffer\0",
                     ),
                 ),
             );
-            cmd.end_command_buffer = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkEndCommandBuffer\0")),
-            );
-            cmd.reset_command_buffer = std::mem::transmute(
+            cmd.end_command_buffer = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkEndCommandBuffer\0",
+                    ),
+                ),
+            );
+            cmd.reset_command_buffer = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkResetCommandBuffer\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_pipeline = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBindPipeline\0")),
+            cmd.cmd_bind_pipeline = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBindPipeline\0")),
             );
-            cmd.cmd_set_attachment_feedback_loop_enable_ext = std::mem::transmute(
+            cmd.cmd_set_attachment_feedback_loop_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetAttachmentFeedbackLoopEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_viewport = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetViewport\0")),
+            cmd.cmd_set_viewport = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetViewport\0")),
             );
-            cmd.cmd_set_scissor = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetScissor\0")),
+            cmd.cmd_set_scissor = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetScissor\0")),
             );
-            cmd.cmd_set_line_width = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetLineWidth\0")),
+            cmd.cmd_set_line_width = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetLineWidth\0")),
             );
-            cmd.cmd_set_depth_bias = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetDepthBias\0")),
+            cmd.cmd_set_depth_bias = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetDepthBias\0")),
             );
-            cmd.cmd_set_blend_constants = std::mem::transmute(
+            cmd.cmd_set_blend_constants = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetBlendConstants\0",
                     ),
                 ),
             );
-            cmd.cmd_set_depth_bounds = std::mem::transmute(
+            cmd.cmd_set_depth_bounds = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthBounds\0",
                     ),
                 ),
             );
-            cmd.cmd_set_stencil_compare_mask = std::mem::transmute(
+            cmd.cmd_set_stencil_compare_mask = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetStencilCompareMask\0",
                     ),
                 ),
             );
-            cmd.cmd_set_stencil_write_mask = std::mem::transmute(
+            cmd.cmd_set_stencil_write_mask = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetStencilWriteMask\0",
                     ),
                 ),
             );
-            cmd.cmd_set_stencil_reference = std::mem::transmute(
+            cmd.cmd_set_stencil_reference = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetStencilReference\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_descriptor_sets = std::mem::transmute(
+            cmd.cmd_bind_descriptor_sets = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindDescriptorSets\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_index_buffer = std::mem::transmute(
+            cmd.cmd_bind_index_buffer = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindIndexBuffer\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_vertex_buffers = std::mem::transmute(
+            cmd.cmd_bind_vertex_buffers = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindVertexBuffers\0",
                     ),
                 ),
             );
-            cmd.cmd_draw = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDraw\0")),
+            cmd.cmd_draw = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDraw\0")),
             );
-            cmd.cmd_draw_indexed = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDrawIndexed\0")),
+            cmd.cmd_draw_indexed = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDrawIndexed\0")),
             );
-            cmd.cmd_draw_multi_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDrawMultiEXT\0")),
+            cmd.cmd_draw_multi_ext = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDrawMultiEXT\0")),
             );
-            cmd.cmd_draw_multi_indexed_ext = std::mem::transmute(
+            cmd.cmd_draw_multi_indexed_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMultiIndexedEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indirect = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDrawIndirect\0")),
+            cmd.cmd_draw_indirect = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDrawIndirect\0")),
             );
-            cmd.cmd_draw_indexed_indirect = std::mem::transmute(
+            cmd.cmd_draw_indexed_indirect = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndexedIndirect\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDispatch\0")),
+            cmd.cmd_dispatch = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDispatch\0")),
             );
-            cmd.cmd_dispatch_indirect = std::mem::transmute(
+            cmd.cmd_dispatch_indirect = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDispatchIndirect\0",
                     ),
                 ),
             );
-            cmd.cmd_subpass_shading_huawei = std::mem::transmute(
+            cmd.cmd_subpass_shading_huawei = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSubpassShadingHUAWEI\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_cluster_huawei = std::mem::transmute(
+            cmd.cmd_draw_cluster_huawei = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawClusterHUAWEI\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_cluster_indirect_huawei = std::mem::transmute(
+            cmd.cmd_draw_cluster_indirect_huawei = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawClusterIndirectHUAWEI\0",
                     ),
                 ),
             );
-            cmd.cmd_update_pipeline_indirect_buffer_nv = std::mem::transmute(
+            cmd.cmd_update_pipeline_indirect_buffer_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdUpdatePipelineIndirectBufferNV\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_buffer = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyBuffer\0")),
+            cmd.cmd_copy_buffer = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyBuffer\0")),
             );
-            cmd.cmd_copy_image = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyImage\0")),
+            cmd.cmd_copy_image = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyImage\0")),
             );
-            cmd.cmd_blit_image = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBlitImage\0")),
+            cmd.cmd_blit_image = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBlitImage\0")),
             );
-            cmd.cmd_copy_buffer_to_image = std::mem::transmute(
+            cmd.cmd_copy_buffer_to_image = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyBufferToImage\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_image_to_buffer = std::mem::transmute(
+            cmd.cmd_copy_image_to_buffer = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyImageToBuffer\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_memory_indirect_nv = std::mem::transmute(
+            cmd.cmd_copy_memory_indirect_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMemoryIndirectNV\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_memory_indirect_khr = std::mem::transmute(
+            cmd.cmd_copy_memory_indirect_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMemoryIndirectKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_memory_to_image_indirect_nv = std::mem::transmute(
+            cmd.cmd_copy_memory_to_image_indirect_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMemoryToImageIndirectNV\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_memory_to_image_indirect_khr = std::mem::transmute(
+            cmd.cmd_copy_memory_to_image_indirect_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMemoryToImageIndirectKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_update_buffer = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdUpdateBuffer\0")),
+            cmd.cmd_update_buffer = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdUpdateBuffer\0")),
             );
-            cmd.cmd_fill_buffer = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdFillBuffer\0")),
+            cmd.cmd_fill_buffer = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdFillBuffer\0")),
             );
-            cmd.cmd_clear_color_image = std::mem::transmute(
+            cmd.cmd_clear_color_image = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdClearColorImage\0",
                     ),
                 ),
             );
-            cmd.cmd_clear_depth_stencil_image = std::mem::transmute(
+            cmd.cmd_clear_depth_stencil_image = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdClearDepthStencilImage\0",
                     ),
                 ),
             );
-            cmd.cmd_clear_attachments = std::mem::transmute(
+            cmd.cmd_clear_attachments = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdClearAttachments\0",
                     ),
                 ),
             );
-            cmd.cmd_resolve_image = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdResolveImage\0")),
+            cmd.cmd_resolve_image = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdResolveImage\0")),
             );
-            cmd.cmd_set_event = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetEvent\0")),
+            cmd.cmd_set_event = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetEvent\0")),
             );
-            cmd.cmd_reset_event = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdResetEvent\0")),
+            cmd.cmd_reset_event = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdResetEvent\0")),
             );
-            cmd.cmd_wait_events = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdWaitEvents\0")),
+            cmd.cmd_wait_events = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdWaitEvents\0")),
             );
-            cmd.cmd_pipeline_barrier = std::mem::transmute(
+            cmd.cmd_pipeline_barrier = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPipelineBarrier\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_query = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBeginQuery\0")),
+            cmd.cmd_begin_query = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBeginQuery\0")),
             );
-            cmd.cmd_end_query = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdEndQuery\0")),
+            cmd.cmd_end_query = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdEndQuery\0")),
             );
-            cmd.cmd_begin_conditional_rendering_ext = std::mem::transmute(
+            cmd.cmd_begin_conditional_rendering_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginConditionalRenderingEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_end_conditional_rendering_ext = std::mem::transmute(
+            cmd.cmd_end_conditional_rendering_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndConditionalRenderingEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_custom_resolve_ext = std::mem::transmute(
+            cmd.cmd_begin_custom_resolve_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginCustomResolveEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_reset_query_pool = std::mem::transmute(
+            cmd.cmd_reset_query_pool = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdResetQueryPool\0",
                     ),
                 ),
             );
-            cmd.cmd_write_timestamp = std::mem::transmute(
+            cmd.cmd_write_timestamp = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteTimestamp\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_query_pool_results = std::mem::transmute(
+            cmd.cmd_copy_query_pool_results = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyQueryPoolResults\0",
                     ),
                 ),
             );
-            cmd.cmd_push_constants = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdPushConstants\0")),
-            );
-            cmd.cmd_begin_render_pass = std::mem::transmute(
+            cmd.cmd_push_constants = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdPushConstants\0",
+                    ),
+                ),
+            );
+            cmd.cmd_begin_render_pass = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginRenderPass\0",
                     ),
                 ),
             );
-            cmd.cmd_next_subpass = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdNextSubpass\0")),
+            cmd.cmd_next_subpass = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdNextSubpass\0")),
             );
-            cmd.cmd_end_render_pass = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdEndRenderPass\0")),
-            );
-            cmd.cmd_execute_commands = std::mem::transmute(
+            cmd.cmd_end_render_pass = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdEndRenderPass\0",
+                    ),
+                ),
+            );
+            cmd.cmd_execute_commands = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdExecuteCommands\0",
                     ),
                 ),
             );
-            cmd.create_shared_swapchains_khr = std::mem::transmute(
+            cmd.create_shared_swapchains_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateSharedSwapchainsKHR\0",
                     ),
                 ),
             );
-            cmd.create_swapchain_khr = std::mem::transmute(
+            cmd.create_swapchain_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateSwapchainKHR\0",
                     ),
                 ),
             );
-            cmd.destroy_swapchain_khr = std::mem::transmute(
+            cmd.destroy_swapchain_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroySwapchainKHR\0",
                     ),
                 ),
             );
-            cmd.get_swapchain_images_khr = std::mem::transmute(
+            cmd.get_swapchain_images_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainImagesKHR\0",
                     ),
                 ),
             );
-            cmd.acquire_next_image_khr = std::mem::transmute(
+            cmd.acquire_next_image_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireNextImageKHR\0",
                     ),
                 ),
             );
-            cmd.queue_present_khr = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueuePresentKHR\0")),
+            cmd.queue_present_khr = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueuePresentKHR\0")),
             );
-            cmd.debug_marker_set_object_name_ext = std::mem::transmute(
+            cmd.debug_marker_set_object_name_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDebugMarkerSetObjectNameEXT\0",
                     ),
                 ),
             );
-            cmd.debug_marker_set_object_tag_ext = std::mem::transmute(
+            cmd.debug_marker_set_object_tag_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDebugMarkerSetObjectTagEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_debug_marker_begin_ext = std::mem::transmute(
+            cmd.cmd_debug_marker_begin_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDebugMarkerBeginEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_debug_marker_end_ext = std::mem::transmute(
+            cmd.cmd_debug_marker_end_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDebugMarkerEndEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_debug_marker_insert_ext = std::mem::transmute(
+            cmd.cmd_debug_marker_insert_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDebugMarkerInsertEXT\0",
                     ),
                 ),
             );
-            cmd.get_memory_win32_handle_nv = std::mem::transmute(
+            cmd.get_memory_win32_handle_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryWin32HandleNV\0",
                     ),
                 ),
             );
-            cmd.cmd_execute_generated_commands_nv = std::mem::transmute(
+            cmd.cmd_execute_generated_commands_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdExecuteGeneratedCommandsNV\0",
                     ),
                 ),
             );
-            cmd.cmd_preprocess_generated_commands_nv = std::mem::transmute(
+            cmd.cmd_preprocess_generated_commands_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPreprocessGeneratedCommandsNV\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_pipeline_shader_group_nv = std::mem::transmute(
+            cmd.cmd_bind_pipeline_shader_group_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindPipelineShaderGroupNV\0",
                     ),
                 ),
             );
-            cmd.get_generated_commands_memory_requirements_nv = std::mem::transmute(
+            cmd.get_generated_commands_memory_requirements_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetGeneratedCommandsMemoryRequirementsNV\0",
                     ),
                 ),
             );
-            cmd.create_indirect_commands_layout_nv = std::mem::transmute(
+            cmd.create_indirect_commands_layout_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateIndirectCommandsLayoutNV\0",
                     ),
                 ),
             );
-            cmd.destroy_indirect_commands_layout_nv = std::mem::transmute(
+            cmd.destroy_indirect_commands_layout_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyIndirectCommandsLayoutNV\0",
                     ),
                 ),
             );
-            cmd.cmd_execute_generated_commands_ext = std::mem::transmute(
+            cmd.cmd_execute_generated_commands_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdExecuteGeneratedCommandsEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_preprocess_generated_commands_ext = std::mem::transmute(
+            cmd.cmd_preprocess_generated_commands_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPreprocessGeneratedCommandsEXT\0",
                     ),
                 ),
             );
-            cmd.get_generated_commands_memory_requirements_ext = std::mem::transmute(
+            cmd.get_generated_commands_memory_requirements_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetGeneratedCommandsMemoryRequirementsEXT\0",
                     ),
                 ),
             );
-            cmd.create_indirect_commands_layout_ext = std::mem::transmute(
+            cmd.create_indirect_commands_layout_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateIndirectCommandsLayoutEXT\0",
                     ),
                 ),
             );
-            cmd.destroy_indirect_commands_layout_ext = std::mem::transmute(
+            cmd.destroy_indirect_commands_layout_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyIndirectCommandsLayoutEXT\0",
                     ),
                 ),
             );
-            cmd.create_indirect_execution_set_ext = std::mem::transmute(
+            cmd.create_indirect_execution_set_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateIndirectExecutionSetEXT\0",
                     ),
                 ),
             );
-            cmd.destroy_indirect_execution_set_ext = std::mem::transmute(
+            cmd.destroy_indirect_execution_set_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyIndirectExecutionSetEXT\0",
                     ),
                 ),
             );
-            cmd.update_indirect_execution_set_pipeline_ext = std::mem::transmute(
+            cmd.update_indirect_execution_set_pipeline_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkUpdateIndirectExecutionSetPipelineEXT\0",
                     ),
                 ),
             );
-            cmd.update_indirect_execution_set_shader_ext = std::mem::transmute(
+            cmd.update_indirect_execution_set_shader_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkUpdateIndirectExecutionSetShaderEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_push_descriptor_set = std::mem::transmute(
+            cmd.cmd_push_descriptor_set = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPushDescriptorSet\0",
                     ),
                 ),
             );
             if cmd.cmd_push_descriptor_set.is_none() {
-                cmd.cmd_push_descriptor_set = std::mem::transmute(
+                cmd.cmd_push_descriptor_set = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdPushDescriptorSetKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.trim_command_pool = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkTrimCommandPool\0")),
+            cmd.trim_command_pool = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkTrimCommandPool\0")),
             );
             if cmd.trim_command_pool.is_none() {
-                cmd.trim_command_pool = std::mem::transmute(
+                cmd.trim_command_pool = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkTrimCommandPoolKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_memory_win32_handle_khr = std::mem::transmute(
+            cmd.get_memory_win32_handle_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryWin32HandleKHR\0",
                     ),
                 ),
             );
-            cmd.get_memory_win32_handle_properties_khr = std::mem::transmute(
+            cmd.get_memory_win32_handle_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryWin32HandlePropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_memory_fd_khr = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetMemoryFdKHR\0")),
+            cmd.get_memory_fd_khr = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetMemoryFdKHR\0")),
             );
-            cmd.get_memory_fd_properties_khr = std::mem::transmute(
+            cmd.get_memory_fd_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryFdPropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_memory_zircon_handle_fuchsia = std::mem::transmute(
+            cmd.get_memory_zircon_handle_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryZirconHandleFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.get_memory_zircon_handle_properties_fuchsia = std::mem::transmute(
+            cmd.get_memory_zircon_handle_properties_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryZirconHandlePropertiesFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.get_memory_remote_address_nv = std::mem::transmute(
+            cmd.get_memory_remote_address_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryRemoteAddressNV\0",
                     ),
                 ),
             );
-            cmd.get_memory_sci_buf_nv = std::mem::transmute(
+            cmd.get_memory_sci_buf_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemorySciBufNV\0",
                     ),
                 ),
             );
-            cmd.get_semaphore_win32_handle_khr = std::mem::transmute(
+            cmd.get_semaphore_win32_handle_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSemaphoreWin32HandleKHR\0",
                     ),
                 ),
             );
-            cmd.import_semaphore_win32_handle_khr = std::mem::transmute(
+            cmd.import_semaphore_win32_handle_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkImportSemaphoreWin32HandleKHR\0",
                     ),
                 ),
             );
-            cmd.get_semaphore_fd_khr = std::mem::transmute(
+            cmd.get_semaphore_fd_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSemaphoreFdKHR\0",
                     ),
                 ),
             );
-            cmd.import_semaphore_fd_khr = std::mem::transmute(
+            cmd.import_semaphore_fd_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkImportSemaphoreFdKHR\0",
                     ),
                 ),
             );
-            cmd.get_semaphore_zircon_handle_fuchsia = std::mem::transmute(
+            cmd.get_semaphore_zircon_handle_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSemaphoreZirconHandleFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.import_semaphore_zircon_handle_fuchsia = std::mem::transmute(
+            cmd.import_semaphore_zircon_handle_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkImportSemaphoreZirconHandleFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.get_fence_win32_handle_khr = std::mem::transmute(
+            cmd.get_fence_win32_handle_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetFenceWin32HandleKHR\0",
                     ),
                 ),
             );
-            cmd.import_fence_win32_handle_khr = std::mem::transmute(
+            cmd.import_fence_win32_handle_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkImportFenceWin32HandleKHR\0",
                     ),
                 ),
             );
-            cmd.get_fence_fd_khr = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetFenceFdKHR\0")),
+            cmd.get_fence_fd_khr = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetFenceFdKHR\0")),
             );
-            cmd.import_fence_fd_khr = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkImportFenceFdKHR\0")),
-            );
-            cmd.get_fence_sci_sync_fence_nv = std::mem::transmute(
+            cmd.import_fence_fd_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkImportFenceFdKHR\0",
+                    ),
+                ),
+            );
+            cmd.get_fence_sci_sync_fence_nv = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetFenceSciSyncFenceNV\0",
                     ),
                 ),
             );
-            cmd.get_fence_sci_sync_obj_nv = std::mem::transmute(
+            cmd.get_fence_sci_sync_obj_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetFenceSciSyncObjNV\0",
                     ),
                 ),
             );
-            cmd.import_fence_sci_sync_fence_nv = std::mem::transmute(
+            cmd.import_fence_sci_sync_fence_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkImportFenceSciSyncFenceNV\0",
                     ),
                 ),
             );
-            cmd.import_fence_sci_sync_obj_nv = std::mem::transmute(
+            cmd.import_fence_sci_sync_obj_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkImportFenceSciSyncObjNV\0",
                     ),
                 ),
             );
-            cmd.get_semaphore_sci_sync_obj_nv = std::mem::transmute(
+            cmd.get_semaphore_sci_sync_obj_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSemaphoreSciSyncObjNV\0",
                     ),
                 ),
             );
-            cmd.import_semaphore_sci_sync_obj_nv = std::mem::transmute(
+            cmd.import_semaphore_sci_sync_obj_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkImportSemaphoreSciSyncObjNV\0",
                     ),
                 ),
             );
-            cmd.create_semaphore_sci_sync_pool_nv = std::mem::transmute(
+            cmd.create_semaphore_sci_sync_pool_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateSemaphoreSciSyncPoolNV\0",
                     ),
                 ),
             );
-            cmd.destroy_semaphore_sci_sync_pool_nv = std::mem::transmute(
+            cmd.destroy_semaphore_sci_sync_pool_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroySemaphoreSciSyncPoolNV\0",
                     ),
                 ),
             );
-            cmd.display_power_control_ext = std::mem::transmute(
+            cmd.display_power_control_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDisplayPowerControlEXT\0",
                     ),
                 ),
             );
-            cmd.register_device_event_ext = std::mem::transmute(
+            cmd.register_device_event_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkRegisterDeviceEventEXT\0",
                     ),
                 ),
             );
-            cmd.register_display_event_ext = std::mem::transmute(
+            cmd.register_display_event_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkRegisterDisplayEventEXT\0",
                     ),
                 ),
             );
-            cmd.get_swapchain_counter_ext = std::mem::transmute(
+            cmd.get_swapchain_counter_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainCounterEXT\0",
                     ),
                 ),
             );
-            cmd.get_device_group_peer_memory_features = std::mem::transmute(
+            cmd.get_device_group_peer_memory_features = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceGroupPeerMemoryFeatures\0",
                     ),
                 ),
             );
             if cmd.get_device_group_peer_memory_features.is_none() {
-                cmd.get_device_group_peer_memory_features = std::mem::transmute(
+                cmd.get_device_group_peer_memory_features = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetDeviceGroupPeerMemoryFeaturesKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.bind_buffer_memory2 = std::mem::transmute(
+            cmd.bind_buffer_memory2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBindBufferMemory2\0",
                     ),
                 ),
             );
             if cmd.bind_buffer_memory2.is_none() {
-                cmd.bind_buffer_memory2 = std::mem::transmute(
+                cmd.bind_buffer_memory2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkBindBufferMemory2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.bind_image_memory2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkBindImageMemory2\0")),
+            cmd.bind_image_memory2 = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkBindImageMemory2\0",
+                    ),
+                ),
             );
             if cmd.bind_image_memory2.is_none() {
-                cmd.bind_image_memory2 = std::mem::transmute(
+                cmd.bind_image_memory2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkBindImageMemory2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_device_mask = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetDeviceMask\0")),
+            cmd.cmd_set_device_mask = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdSetDeviceMask\0",
+                    ),
+                ),
             );
             if cmd.cmd_set_device_mask.is_none() {
-                cmd.cmd_set_device_mask = std::mem::transmute(
+                cmd.cmd_set_device_mask = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetDeviceMaskKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_device_group_present_capabilities_khr = std::mem::transmute(
+            cmd.get_device_group_present_capabilities_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceGroupPresentCapabilitiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_device_group_surface_present_modes_khr = std::mem::transmute(
+            cmd.get_device_group_surface_present_modes_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceGroupSurfacePresentModesKHR\0",
                     ),
                 ),
             );
-            cmd.acquire_next_image2_khr = std::mem::transmute(
+            cmd.acquire_next_image2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireNextImage2KHR\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch_base = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDispatchBase\0")),
+            cmd.cmd_dispatch_base = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdDispatchBase\0")),
             );
             if cmd.cmd_dispatch_base.is_none() {
-                cmd.cmd_dispatch_base = std::mem::transmute(
+                cmd.cmd_dispatch_base = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdDispatchBaseKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.create_descriptor_update_template = std::mem::transmute(
+            cmd.create_descriptor_update_template = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDescriptorUpdateTemplate\0",
                     ),
                 ),
             );
             if cmd.create_descriptor_update_template.is_none() {
-                cmd.create_descriptor_update_template = std::mem::transmute(
+                cmd.create_descriptor_update_template = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCreateDescriptorUpdateTemplateKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.destroy_descriptor_update_template = std::mem::transmute(
+            cmd.destroy_descriptor_update_template = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyDescriptorUpdateTemplate\0",
                     ),
                 ),
             );
             if cmd.destroy_descriptor_update_template.is_none() {
-                cmd.destroy_descriptor_update_template = std::mem::transmute(
+                cmd.destroy_descriptor_update_template = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkDestroyDescriptorUpdateTemplateKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.update_descriptor_set_with_template = std::mem::transmute(
+            cmd.update_descriptor_set_with_template = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkUpdateDescriptorSetWithTemplate\0",
                     ),
                 ),
             );
             if cmd.update_descriptor_set_with_template.is_none() {
-                cmd.update_descriptor_set_with_template = std::mem::transmute(
+                cmd.update_descriptor_set_with_template = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkUpdateDescriptorSetWithTemplateKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_push_descriptor_set_with_template = std::mem::transmute(
+            cmd.cmd_push_descriptor_set_with_template = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPushDescriptorSetWithTemplate\0",
                     ),
                 ),
             );
             if cmd.cmd_push_descriptor_set_with_template.is_none() {
-                cmd.cmd_push_descriptor_set_with_template = std::mem::transmute(
+                cmd.cmd_push_descriptor_set_with_template = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdPushDescriptorSetWithTemplateKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.set_hdr_metadata_ext = std::mem::transmute(
+            cmd.set_hdr_metadata_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetHdrMetadataEXT\0",
                     ),
                 ),
             );
-            cmd.get_swapchain_status_khr = std::mem::transmute(
+            cmd.get_swapchain_status_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainStatusKHR\0",
                     ),
                 ),
             );
-            cmd.get_refresh_cycle_duration_google = std::mem::transmute(
+            cmd.get_refresh_cycle_duration_google = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetRefreshCycleDurationGOOGLE\0",
                     ),
                 ),
             );
-            cmd.get_past_presentation_timing_google = std::mem::transmute(
+            cmd.get_past_presentation_timing_google = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPastPresentationTimingGOOGLE\0",
                     ),
                 ),
             );
-            cmd.cmd_set_viewport_w_scaling_nv = std::mem::transmute(
+            cmd.cmd_set_viewport_w_scaling_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetViewportWScalingNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_discard_rectangle_ext = std::mem::transmute(
+            cmd.cmd_set_discard_rectangle_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDiscardRectangleEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_discard_rectangle_enable_ext = std::mem::transmute(
+            cmd.cmd_set_discard_rectangle_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDiscardRectangleEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_discard_rectangle_mode_ext = std::mem::transmute(
+            cmd.cmd_set_discard_rectangle_mode_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDiscardRectangleModeEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_sample_locations_ext = std::mem::transmute(
+            cmd.cmd_set_sample_locations_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetSampleLocationsEXT\0",
                     ),
                 ),
             );
-            cmd.get_buffer_memory_requirements2 = std::mem::transmute(
+            cmd.get_buffer_memory_requirements2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetBufferMemoryRequirements2\0",
                     ),
                 ),
             );
             if cmd.get_buffer_memory_requirements2.is_none() {
-                cmd.get_buffer_memory_requirements2 = std::mem::transmute(
+                cmd.get_buffer_memory_requirements2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetBufferMemoryRequirements2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_image_memory_requirements2 = std::mem::transmute(
+            cmd.get_image_memory_requirements2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageMemoryRequirements2\0",
                     ),
                 ),
             );
             if cmd.get_image_memory_requirements2.is_none() {
-                cmd.get_image_memory_requirements2 = std::mem::transmute(
+                cmd.get_image_memory_requirements2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetImageMemoryRequirements2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_image_sparse_memory_requirements2 = std::mem::transmute(
+            cmd.get_image_sparse_memory_requirements2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageSparseMemoryRequirements2\0",
                     ),
                 ),
             );
             if cmd.get_image_sparse_memory_requirements2.is_none() {
-                cmd.get_image_sparse_memory_requirements2 = std::mem::transmute(
+                cmd.get_image_sparse_memory_requirements2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetImageSparseMemoryRequirements2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_device_buffer_memory_requirements = std::mem::transmute(
+            cmd.get_device_buffer_memory_requirements = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceBufferMemoryRequirements\0",
                     ),
                 ),
             );
             if cmd.get_device_buffer_memory_requirements.is_none() {
-                cmd.get_device_buffer_memory_requirements = std::mem::transmute(
+                cmd.get_device_buffer_memory_requirements = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetDeviceBufferMemoryRequirementsKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_device_image_memory_requirements = std::mem::transmute(
+            cmd.get_device_image_memory_requirements = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceImageMemoryRequirements\0",
                     ),
                 ),
             );
             if cmd.get_device_image_memory_requirements.is_none() {
-                cmd.get_device_image_memory_requirements = std::mem::transmute(
+                cmd.get_device_image_memory_requirements = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetDeviceImageMemoryRequirementsKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_device_image_sparse_memory_requirements = std::mem::transmute(
+            cmd.get_device_image_sparse_memory_requirements = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceImageSparseMemoryRequirements\0",
                     ),
                 ),
             );
             if cmd.get_device_image_sparse_memory_requirements.is_none() {
-                cmd.get_device_image_sparse_memory_requirements = std::mem::transmute(
+                cmd.get_device_image_sparse_memory_requirements = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetDeviceImageSparseMemoryRequirementsKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.create_sampler_ycbcr_conversion = std::mem::transmute(
+            cmd.create_sampler_ycbcr_conversion = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateSamplerYcbcrConversion\0",
                     ),
                 ),
             );
             if cmd.create_sampler_ycbcr_conversion.is_none() {
-                cmd.create_sampler_ycbcr_conversion = std::mem::transmute(
+                cmd.create_sampler_ycbcr_conversion = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCreateSamplerYcbcrConversionKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.destroy_sampler_ycbcr_conversion = std::mem::transmute(
+            cmd.destroy_sampler_ycbcr_conversion = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroySamplerYcbcrConversion\0",
                     ),
                 ),
             );
             if cmd.destroy_sampler_ycbcr_conversion.is_none() {
-                cmd.destroy_sampler_ycbcr_conversion = std::mem::transmute(
+                cmd.destroy_sampler_ycbcr_conversion = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkDestroySamplerYcbcrConversionKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_device_queue2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetDeviceQueue2\0")),
+            cmd.get_device_queue2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetDeviceQueue2\0")),
             );
-            cmd.create_validation_cache_ext = std::mem::transmute(
+            cmd.create_validation_cache_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateValidationCacheEXT\0",
                     ),
                 ),
             );
-            cmd.destroy_validation_cache_ext = std::mem::transmute(
+            cmd.destroy_validation_cache_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyValidationCacheEXT\0",
                     ),
                 ),
             );
-            cmd.get_validation_cache_data_ext = std::mem::transmute(
+            cmd.get_validation_cache_data_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetValidationCacheDataEXT\0",
                     ),
                 ),
             );
-            cmd.merge_validation_caches_ext = std::mem::transmute(
+            cmd.merge_validation_caches_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkMergeValidationCachesEXT\0",
                     ),
                 ),
             );
-            cmd.get_descriptor_set_layout_support = std::mem::transmute(
+            cmd.get_descriptor_set_layout_support = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDescriptorSetLayoutSupport\0",
                     ),
                 ),
             );
             if cmd.get_descriptor_set_layout_support.is_none() {
-                cmd.get_descriptor_set_layout_support = std::mem::transmute(
+                cmd.get_descriptor_set_layout_support = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetDescriptorSetLayoutSupportKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_swapchain_gralloc_usage_android = std::mem::transmute(
+            cmd.get_swapchain_gralloc_usage_android = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainGrallocUsageANDROID\0",
                     ),
                 ),
             );
-            cmd.get_swapchain_gralloc_usage2_android = std::mem::transmute(
+            cmd.get_swapchain_gralloc_usage2_android = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainGrallocUsage2ANDROID\0",
                     ),
                 ),
             );
-            cmd.acquire_image_android = std::mem::transmute(
+            cmd.acquire_image_android = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireImageANDROID\0",
                     ),
                 ),
             );
-            cmd.queue_signal_release_image_android = std::mem::transmute(
+            cmd.queue_signal_release_image_android = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkQueueSignalReleaseImageANDROID\0",
                     ),
                 ),
             );
-            cmd.get_shader_info_amd = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetShaderInfoAMD\0")),
-            );
-            cmd.set_local_dimming_amd = std::mem::transmute(
+            cmd.get_shader_info_amd = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkGetShaderInfoAMD\0",
+                    ),
+                ),
+            );
+            cmd.set_local_dimming_amd = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetLocalDimmingAMD\0",
                     ),
                 ),
             );
-            cmd.get_calibrated_timestamps_khr = std::mem::transmute(
+            cmd.get_calibrated_timestamps_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetCalibratedTimestampsKHR\0",
                     ),
                 ),
             );
             if cmd.get_calibrated_timestamps_khr.is_none() {
-                cmd.get_calibrated_timestamps_khr = std::mem::transmute(
+                cmd.get_calibrated_timestamps_khr = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetCalibratedTimestampsEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.set_debug_utils_object_name_ext = std::mem::transmute(
+            cmd.set_debug_utils_object_name_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetDebugUtilsObjectNameEXT\0",
                     ),
                 ),
             );
-            cmd.set_debug_utils_object_tag_ext = std::mem::transmute(
+            cmd.set_debug_utils_object_tag_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetDebugUtilsObjectTagEXT\0",
                     ),
                 ),
             );
-            cmd.queue_begin_debug_utils_label_ext = std::mem::transmute(
+            cmd.queue_begin_debug_utils_label_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkQueueBeginDebugUtilsLabelEXT\0",
                     ),
                 ),
             );
-            cmd.queue_end_debug_utils_label_ext = std::mem::transmute(
+            cmd.queue_end_debug_utils_label_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkQueueEndDebugUtilsLabelEXT\0",
                     ),
                 ),
             );
-            cmd.queue_insert_debug_utils_label_ext = std::mem::transmute(
+            cmd.queue_insert_debug_utils_label_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkQueueInsertDebugUtilsLabelEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_debug_utils_label_ext = std::mem::transmute(
+            cmd.cmd_begin_debug_utils_label_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginDebugUtilsLabelEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_end_debug_utils_label_ext = std::mem::transmute(
+            cmd.cmd_end_debug_utils_label_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndDebugUtilsLabelEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_insert_debug_utils_label_ext = std::mem::transmute(
+            cmd.cmd_insert_debug_utils_label_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdInsertDebugUtilsLabelEXT\0",
                     ),
                 ),
             );
-            cmd.get_memory_host_pointer_properties_ext = std::mem::transmute(
+            cmd.get_memory_host_pointer_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryHostPointerPropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_write_buffer_marker_amd = std::mem::transmute(
+            cmd.cmd_write_buffer_marker_amd = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteBufferMarkerAMD\0",
                     ),
                 ),
             );
-            cmd.create_render_pass2 = std::mem::transmute(
+            cmd.create_render_pass2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateRenderPass2\0",
                     ),
                 ),
             );
             if cmd.create_render_pass2.is_none() {
-                cmd.create_render_pass2 = std::mem::transmute(
+                cmd.create_render_pass2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCreateRenderPass2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_begin_render_pass2 = std::mem::transmute(
+            cmd.cmd_begin_render_pass2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginRenderPass2\0",
                     ),
                 ),
             );
             if cmd.cmd_begin_render_pass2.is_none() {
-                cmd.cmd_begin_render_pass2 = std::mem::transmute(
+                cmd.cmd_begin_render_pass2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdBeginRenderPass2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_next_subpass2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdNextSubpass2\0")),
+            cmd.cmd_next_subpass2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdNextSubpass2\0")),
             );
             if cmd.cmd_next_subpass2.is_none() {
-                cmd.cmd_next_subpass2 = std::mem::transmute(
+                cmd.cmd_next_subpass2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdNextSubpass2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_end_render_pass2 = std::mem::transmute(
+            cmd.cmd_end_render_pass2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndRenderPass2\0",
                     ),
                 ),
             );
             if cmd.cmd_end_render_pass2.is_none() {
-                cmd.cmd_end_render_pass2 = std::mem::transmute(
+                cmd.cmd_end_render_pass2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdEndRenderPass2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_semaphore_counter_value = std::mem::transmute(
+            cmd.get_semaphore_counter_value = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSemaphoreCounterValue\0",
                     ),
                 ),
             );
             if cmd.get_semaphore_counter_value.is_none() {
-                cmd.get_semaphore_counter_value = std::mem::transmute(
+                cmd.get_semaphore_counter_value = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetSemaphoreCounterValueKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.wait_semaphores = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkWaitSemaphores\0")),
+            cmd.wait_semaphores = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkWaitSemaphores\0")),
             );
             if cmd.wait_semaphores.is_none() {
-                cmd.wait_semaphores = std::mem::transmute(
+                cmd.wait_semaphores = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkWaitSemaphoresKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.signal_semaphore = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkSignalSemaphore\0")),
+            cmd.signal_semaphore = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkSignalSemaphore\0")),
             );
             if cmd.signal_semaphore.is_none() {
-                cmd.signal_semaphore = std::mem::transmute(
+                cmd.signal_semaphore = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkSignalSemaphoreKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_android_hardware_buffer_properties_android = std::mem::transmute(
+            cmd.get_android_hardware_buffer_properties_android = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetAndroidHardwareBufferPropertiesANDROID\0",
                     ),
                 ),
             );
-            cmd.get_memory_android_hardware_buffer_android = std::mem::transmute(
+            cmd.get_memory_android_hardware_buffer_android = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryAndroidHardwareBufferANDROID\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indirect_count = std::mem::transmute(
+            cmd.cmd_draw_indirect_count = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndirectCount\0",
                     ),
                 ),
             );
             if cmd.cmd_draw_indirect_count.is_none() {
-                cmd.cmd_draw_indirect_count = std::mem::transmute(
+                cmd.cmd_draw_indirect_count = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdDrawIndirectCountKHR\0",
                         ),
                     ),
                 );
             }
             if cmd.cmd_draw_indirect_count.is_none() {
-                cmd.cmd_draw_indirect_count = std::mem::transmute(
+                cmd.cmd_draw_indirect_count = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdDrawIndirectCountAMD\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_draw_indexed_indirect_count = std::mem::transmute(
+            cmd.cmd_draw_indexed_indirect_count = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndexedIndirectCount\0",
                     ),
                 ),
             );
             if cmd.cmd_draw_indexed_indirect_count.is_none() {
-                cmd.cmd_draw_indexed_indirect_count = std::mem::transmute(
+                cmd.cmd_draw_indexed_indirect_count = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdDrawIndexedIndirectCountKHR\0",
                         ),
                     ),
                 );
             }
             if cmd.cmd_draw_indexed_indirect_count.is_none() {
-                cmd.cmd_draw_indexed_indirect_count = std::mem::transmute(
+                cmd.cmd_draw_indexed_indirect_count = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdDrawIndexedIndirectCountAMD\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_checkpoint_nv = std::mem::transmute(
+            cmd.cmd_set_checkpoint_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCheckpointNV\0",
                     ),
                 ),
             );
-            cmd.get_queue_checkpoint_data_nv = std::mem::transmute(
+            cmd.get_queue_checkpoint_data_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetQueueCheckpointDataNV\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_transform_feedback_buffers_ext = std::mem::transmute(
+            cmd.cmd_bind_transform_feedback_buffers_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindTransformFeedbackBuffersEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_transform_feedback_ext = std::mem::transmute(
+            cmd.cmd_begin_transform_feedback_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginTransformFeedbackEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_end_transform_feedback_ext = std::mem::transmute(
+            cmd.cmd_end_transform_feedback_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndTransformFeedbackEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_query_indexed_ext = std::mem::transmute(
+            cmd.cmd_begin_query_indexed_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginQueryIndexedEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_end_query_indexed_ext = std::mem::transmute(
+            cmd.cmd_end_query_indexed_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndQueryIndexedEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indirect_byte_count_ext = std::mem::transmute(
+            cmd.cmd_draw_indirect_byte_count_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndirectByteCountEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_exclusive_scissor_nv = std::mem::transmute(
+            cmd.cmd_set_exclusive_scissor_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetExclusiveScissorNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_exclusive_scissor_enable_nv = std::mem::transmute(
+            cmd.cmd_set_exclusive_scissor_enable_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetExclusiveScissorEnableNV\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_shading_rate_image_nv = std::mem::transmute(
+            cmd.cmd_bind_shading_rate_image_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindShadingRateImageNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_viewport_shading_rate_palette_nv = std::mem::transmute(
+            cmd.cmd_set_viewport_shading_rate_palette_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetViewportShadingRatePaletteNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_coarse_sample_order_nv = std::mem::transmute(
+            cmd.cmd_set_coarse_sample_order_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCoarseSampleOrderNV\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_nv = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksNV\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_indirect_nv = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_indirect_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksIndirectNV\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_indirect_count_nv = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_indirect_count_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksIndirectCountNV\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_ext = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_indirect_ext = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_indirect_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksIndirectEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_indirect_count_ext = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_indirect_count_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksIndirectCountEXT\0",
                     ),
                 ),
             );
-            cmd.compile_deferred_nv = std::mem::transmute(
+            cmd.compile_deferred_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCompileDeferredNV\0",
                     ),
                 ),
             );
-            cmd.create_acceleration_structure_nv = std::mem::transmute(
+            cmd.create_acceleration_structure_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateAccelerationStructureNV\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_invocation_mask_huawei = std::mem::transmute(
+            cmd.cmd_bind_invocation_mask_huawei = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindInvocationMaskHUAWEI\0",
                     ),
                 ),
             );
-            cmd.destroy_acceleration_structure_khr = std::mem::transmute(
+            cmd.destroy_acceleration_structure_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyAccelerationStructureKHR\0",
                     ),
                 ),
             );
-            cmd.destroy_acceleration_structure_nv = std::mem::transmute(
+            cmd.destroy_acceleration_structure_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyAccelerationStructureNV\0",
                     ),
                 ),
             );
-            cmd.get_acceleration_structure_memory_requirements_nv = std::mem::transmute(
+            cmd.get_acceleration_structure_memory_requirements_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetAccelerationStructureMemoryRequirementsNV\0",
                     ),
                 ),
             );
-            cmd.bind_acceleration_structure_memory_nv = std::mem::transmute(
+            cmd.bind_acceleration_structure_memory_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBindAccelerationStructureMemoryNV\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_acceleration_structure_nv = std::mem::transmute(
+            cmd.cmd_copy_acceleration_structure_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyAccelerationStructureNV\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_acceleration_structure_khr = std::mem::transmute(
+            cmd.cmd_copy_acceleration_structure_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyAccelerationStructureKHR\0",
                     ),
                 ),
             );
-            cmd.copy_acceleration_structure_khr = std::mem::transmute(
+            cmd.copy_acceleration_structure_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCopyAccelerationStructureKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_acceleration_structure_to_memory_khr = std::mem::transmute(
+            cmd.cmd_copy_acceleration_structure_to_memory_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyAccelerationStructureToMemoryKHR\0",
                     ),
                 ),
             );
-            cmd.copy_acceleration_structure_to_memory_khr = std::mem::transmute(
+            cmd.copy_acceleration_structure_to_memory_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCopyAccelerationStructureToMemoryKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_memory_to_acceleration_structure_khr = std::mem::transmute(
+            cmd.cmd_copy_memory_to_acceleration_structure_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMemoryToAccelerationStructureKHR\0",
                     ),
                 ),
             );
-            cmd.copy_memory_to_acceleration_structure_khr = std::mem::transmute(
+            cmd.copy_memory_to_acceleration_structure_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCopyMemoryToAccelerationStructureKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_write_acceleration_structures_properties_khr = std::mem::transmute(
+            cmd.cmd_write_acceleration_structures_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteAccelerationStructuresPropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_write_acceleration_structures_properties_nv = std::mem::transmute(
+            cmd.cmd_write_acceleration_structures_properties_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteAccelerationStructuresPropertiesNV\0",
                     ),
                 ),
             );
-            cmd.cmd_build_acceleration_structure_nv = std::mem::transmute(
+            cmd.cmd_build_acceleration_structure_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBuildAccelerationStructureNV\0",
                     ),
                 ),
             );
-            cmd.write_acceleration_structures_properties_khr = std::mem::transmute(
+            cmd.write_acceleration_structures_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkWriteAccelerationStructuresPropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_trace_rays_khr = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdTraceRaysKHR\0")),
+            cmd.cmd_trace_rays_khr = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdTraceRaysKHR\0")),
             );
-            cmd.cmd_trace_rays_nv = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdTraceRaysNV\0")),
+            cmd.cmd_trace_rays_nv = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdTraceRaysNV\0")),
             );
-            cmd.get_ray_tracing_shader_group_handles_khr = std::mem::transmute(
+            cmd.get_ray_tracing_shader_group_handles_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetRayTracingShaderGroupHandlesKHR\0",
                     ),
                 ),
             );
             if cmd.get_ray_tracing_shader_group_handles_khr.is_none() {
-                cmd.get_ray_tracing_shader_group_handles_khr = std::mem::transmute(
+                cmd.get_ray_tracing_shader_group_handles_khr = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetRayTracingShaderGroupHandlesNV\0",
                         ),
                     ),
                 );
             }
-            cmd.get_ray_tracing_capture_replay_shader_group_handles_khr = std::mem::transmute(
+            cmd.get_ray_tracing_capture_replay_shader_group_handles_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\0",
                     ),
                 ),
             );
-            cmd.get_acceleration_structure_handle_nv = std::mem::transmute(
+            cmd.get_acceleration_structure_handle_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetAccelerationStructureHandleNV\0",
                     ),
                 ),
             );
-            cmd.create_ray_tracing_pipelines_nv = std::mem::transmute(
+            cmd.create_ray_tracing_pipelines_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateRayTracingPipelinesNV\0",
                     ),
                 ),
             );
-            cmd.create_ray_tracing_pipelines_khr = std::mem::transmute(
+            cmd.create_ray_tracing_pipelines_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateRayTracingPipelinesKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_trace_rays_indirect_khr = std::mem::transmute(
+            cmd.cmd_trace_rays_indirect_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdTraceRaysIndirectKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_trace_rays_indirect2_khr = std::mem::transmute(
+            cmd.cmd_trace_rays_indirect2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdTraceRaysIndirect2KHR\0",
                     ),
                 ),
             );
-            cmd.get_cluster_acceleration_structure_build_sizes_nv = std::mem::transmute(
+            cmd.get_cluster_acceleration_structure_build_sizes_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetClusterAccelerationStructureBuildSizesNV\0",
                     ),
                 ),
             );
-            cmd.cmd_build_cluster_acceleration_structure_indirect_nv = std::mem::transmute(
+            cmd.cmd_build_cluster_acceleration_structure_indirect_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBuildClusterAccelerationStructureIndirectNV\0",
                     ),
                 ),
             );
-            cmd.get_device_acceleration_structure_compatibility_khr = std::mem::transmute(
+            cmd.get_device_acceleration_structure_compatibility_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceAccelerationStructureCompatibilityKHR\0",
                     ),
                 ),
             );
-            cmd.get_ray_tracing_shader_group_stack_size_khr = std::mem::transmute(
+            cmd.get_ray_tracing_shader_group_stack_size_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetRayTracingShaderGroupStackSizeKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_set_ray_tracing_pipeline_stack_size_khr = std::mem::transmute(
+            cmd.cmd_set_ray_tracing_pipeline_stack_size_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetRayTracingPipelineStackSizeKHR\0",
                     ),
                 ),
             );
-            cmd.get_image_view_handle_nvx = std::mem::transmute(
+            cmd.get_image_view_handle_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageViewHandleNVX\0",
                     ),
                 ),
             );
-            cmd.get_image_view_handle64_nvx = std::mem::transmute(
+            cmd.get_image_view_handle64_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageViewHandle64NVX\0",
                     ),
                 ),
             );
-            cmd.get_image_view_address_nvx = std::mem::transmute(
+            cmd.get_image_view_address_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageViewAddressNVX\0",
                     ),
                 ),
             );
-            cmd.get_device_combined_image_sampler_index_nvx = std::mem::transmute(
+            cmd.get_device_combined_image_sampler_index_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceCombinedImageSamplerIndexNVX\0",
                     ),
                 ),
             );
-            cmd.get_device_group_surface_present_modes2_ext = std::mem::transmute(
+            cmd.get_device_group_surface_present_modes2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceGroupSurfacePresentModes2EXT\0",
                     ),
                 ),
             );
-            cmd.acquire_full_screen_exclusive_mode_ext = std::mem::transmute(
+            cmd.acquire_full_screen_exclusive_mode_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireFullScreenExclusiveModeEXT\0",
                     ),
                 ),
             );
-            cmd.release_full_screen_exclusive_mode_ext = std::mem::transmute(
+            cmd.release_full_screen_exclusive_mode_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkReleaseFullScreenExclusiveModeEXT\0",
                     ),
                 ),
             );
-            cmd.acquire_profiling_lock_khr = std::mem::transmute(
+            cmd.acquire_profiling_lock_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquireProfilingLockKHR\0",
                     ),
                 ),
             );
-            cmd.release_profiling_lock_khr = std::mem::transmute(
+            cmd.release_profiling_lock_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkReleaseProfilingLockKHR\0",
                     ),
                 ),
             );
-            cmd.get_image_drm_format_modifier_properties_ext = std::mem::transmute(
+            cmd.get_image_drm_format_modifier_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageDrmFormatModifierPropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.get_buffer_opaque_capture_address = std::mem::transmute(
+            cmd.get_buffer_opaque_capture_address = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetBufferOpaqueCaptureAddress\0",
                     ),
                 ),
             );
             if cmd.get_buffer_opaque_capture_address.is_none() {
-                cmd.get_buffer_opaque_capture_address = std::mem::transmute(
+                cmd.get_buffer_opaque_capture_address = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetBufferOpaqueCaptureAddressKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_buffer_device_address = std::mem::transmute(
+            cmd.get_buffer_device_address = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetBufferDeviceAddress\0",
                     ),
                 ),
             );
             if cmd.get_buffer_device_address.is_none() {
-                cmd.get_buffer_device_address = std::mem::transmute(
+                cmd.get_buffer_device_address = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetBufferDeviceAddressKHR\0",
                         ),
                     ),
                 );
             }
             if cmd.get_buffer_device_address.is_none() {
-                cmd.get_buffer_device_address = std::mem::transmute(
+                cmd.get_buffer_device_address = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetBufferDeviceAddressEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.initialize_performance_api_intel = std::mem::transmute(
+            cmd.initialize_performance_api_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkInitializePerformanceApiINTEL\0",
                     ),
                 ),
             );
-            cmd.uninitialize_performance_api_intel = std::mem::transmute(
+            cmd.uninitialize_performance_api_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkUninitializePerformanceApiINTEL\0",
                     ),
                 ),
             );
-            cmd.cmd_set_performance_marker_intel = std::mem::transmute(
+            cmd.cmd_set_performance_marker_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetPerformanceMarkerINTEL\0",
                     ),
                 ),
             );
-            cmd.cmd_set_performance_stream_marker_intel = std::mem::transmute(
+            cmd.cmd_set_performance_stream_marker_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetPerformanceStreamMarkerINTEL\0",
                     ),
                 ),
             );
-            cmd.cmd_set_performance_override_intel = std::mem::transmute(
+            cmd.cmd_set_performance_override_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetPerformanceOverrideINTEL\0",
                     ),
                 ),
             );
-            cmd.acquire_performance_configuration_intel = std::mem::transmute(
+            cmd.acquire_performance_configuration_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkAcquirePerformanceConfigurationINTEL\0",
                     ),
                 ),
             );
-            cmd.release_performance_configuration_intel = std::mem::transmute(
+            cmd.release_performance_configuration_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkReleasePerformanceConfigurationINTEL\0",
                     ),
                 ),
             );
-            cmd.queue_set_performance_configuration_intel = std::mem::transmute(
+            cmd.queue_set_performance_configuration_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkQueueSetPerformanceConfigurationINTEL\0",
                     ),
                 ),
             );
-            cmd.get_performance_parameter_intel = std::mem::transmute(
+            cmd.get_performance_parameter_intel = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPerformanceParameterINTEL\0",
                     ),
                 ),
             );
-            cmd.get_device_memory_opaque_capture_address = std::mem::transmute(
+            cmd.get_device_memory_opaque_capture_address = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceMemoryOpaqueCaptureAddress\0",
                     ),
                 ),
             );
             if cmd.get_device_memory_opaque_capture_address.is_none() {
-                cmd.get_device_memory_opaque_capture_address = std::mem::transmute(
+                cmd.get_device_memory_opaque_capture_address = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetDeviceMemoryOpaqueCaptureAddressKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.get_pipeline_executable_properties_khr = std::mem::transmute(
+            cmd.get_pipeline_executable_properties_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineExecutablePropertiesKHR\0",
                     ),
                 ),
             );
-            cmd.get_pipeline_executable_statistics_khr = std::mem::transmute(
+            cmd.get_pipeline_executable_statistics_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineExecutableStatisticsKHR\0",
                     ),
                 ),
             );
-            cmd.get_pipeline_executable_internal_representations_khr = std::mem::transmute(
+            cmd.get_pipeline_executable_internal_representations_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineExecutableInternalRepresentationsKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_set_line_stipple = std::mem::transmute(
+            cmd.cmd_set_line_stipple = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetLineStipple\0",
                     ),
                 ),
             );
             if cmd.cmd_set_line_stipple.is_none() {
-                cmd.cmd_set_line_stipple = std::mem::transmute(
+                cmd.cmd_set_line_stipple = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetLineStippleKHR\0",
                         ),
                     ),
                 );
             }
             if cmd.cmd_set_line_stipple.is_none() {
-                cmd.cmd_set_line_stipple = std::mem::transmute(
+                cmd.cmd_set_line_stipple = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetLineStippleEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.get_fault_data = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetFaultData\0")),
+            cmd.get_fault_data = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetFaultData\0")),
             );
-            cmd.create_acceleration_structure_khr = std::mem::transmute(
+            cmd.create_acceleration_structure_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateAccelerationStructureKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_build_acceleration_structures_khr = std::mem::transmute(
+            cmd.cmd_build_acceleration_structures_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBuildAccelerationStructuresKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_build_acceleration_structures_indirect_khr = std::mem::transmute(
+            cmd.cmd_build_acceleration_structures_indirect_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBuildAccelerationStructuresIndirectKHR\0",
                     ),
                 ),
             );
-            cmd.build_acceleration_structures_khr = std::mem::transmute(
+            cmd.build_acceleration_structures_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBuildAccelerationStructuresKHR\0",
                     ),
                 ),
             );
-            cmd.get_acceleration_structure_device_address_khr = std::mem::transmute(
+            cmd.get_acceleration_structure_device_address_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetAccelerationStructureDeviceAddressKHR\0",
                     ),
                 ),
             );
-            cmd.create_deferred_operation_khr = std::mem::transmute(
+            cmd.create_deferred_operation_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDeferredOperationKHR\0",
                     ),
                 ),
             );
-            cmd.destroy_deferred_operation_khr = std::mem::transmute(
+            cmd.destroy_deferred_operation_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyDeferredOperationKHR\0",
                     ),
                 ),
             );
-            cmd.get_deferred_operation_max_concurrency_khr = std::mem::transmute(
+            cmd.get_deferred_operation_max_concurrency_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeferredOperationMaxConcurrencyKHR\0",
                     ),
                 ),
             );
-            cmd.get_deferred_operation_result_khr = std::mem::transmute(
+            cmd.get_deferred_operation_result_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeferredOperationResultKHR\0",
                     ),
                 ),
             );
-            cmd.deferred_operation_join_khr = std::mem::transmute(
+            cmd.deferred_operation_join_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDeferredOperationJoinKHR\0",
                     ),
                 ),
             );
-            cmd.get_pipeline_indirect_memory_requirements_nv = std::mem::transmute(
+            cmd.get_pipeline_indirect_memory_requirements_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineIndirectMemoryRequirementsNV\0",
                     ),
                 ),
             );
-            cmd.get_pipeline_indirect_device_address_nv = std::mem::transmute(
+            cmd.get_pipeline_indirect_device_address_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelineIndirectDeviceAddressNV\0",
                     ),
                 ),
             );
-            cmd.anti_lag_update_amd = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkAntiLagUpdateAMD\0")),
+            cmd.anti_lag_update_amd = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkAntiLagUpdateAMD\0",
+                    ),
+                ),
             );
-            cmd.cmd_set_cull_mode = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetCullMode\0")),
+            cmd.cmd_set_cull_mode = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetCullMode\0")),
             );
             if cmd.cmd_set_cull_mode.is_none() {
-                cmd.cmd_set_cull_mode = std::mem::transmute(
+                cmd.cmd_set_cull_mode = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetCullModeEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_front_face = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetFrontFace\0")),
+            cmd.cmd_set_front_face = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetFrontFace\0")),
             );
             if cmd.cmd_set_front_face.is_none() {
-                cmd.cmd_set_front_face = std::mem::transmute(
+                cmd.cmd_set_front_face = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetFrontFaceEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_primitive_topology = std::mem::transmute(
+            cmd.cmd_set_primitive_topology = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetPrimitiveTopology\0",
                     ),
                 ),
             );
             if cmd.cmd_set_primitive_topology.is_none() {
-                cmd.cmd_set_primitive_topology = std::mem::transmute(
+                cmd.cmd_set_primitive_topology = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetPrimitiveTopologyEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_viewport_with_count = std::mem::transmute(
+            cmd.cmd_set_viewport_with_count = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetViewportWithCount\0",
                     ),
                 ),
             );
             if cmd.cmd_set_viewport_with_count.is_none() {
-                cmd.cmd_set_viewport_with_count = std::mem::transmute(
+                cmd.cmd_set_viewport_with_count = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetViewportWithCountEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_scissor_with_count = std::mem::transmute(
+            cmd.cmd_set_scissor_with_count = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetScissorWithCount\0",
                     ),
                 ),
             );
             if cmd.cmd_set_scissor_with_count.is_none() {
-                cmd.cmd_set_scissor_with_count = std::mem::transmute(
+                cmd.cmd_set_scissor_with_count = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetScissorWithCountEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_bind_index_buffer2 = std::mem::transmute(
+            cmd.cmd_bind_index_buffer2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindIndexBuffer2\0",
                     ),
                 ),
             );
             if cmd.cmd_bind_index_buffer2.is_none() {
-                cmd.cmd_bind_index_buffer2 = std::mem::transmute(
+                cmd.cmd_bind_index_buffer2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdBindIndexBuffer2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_bind_vertex_buffers2 = std::mem::transmute(
+            cmd.cmd_bind_vertex_buffers2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindVertexBuffers2\0",
                     ),
                 ),
             );
             if cmd.cmd_bind_vertex_buffers2.is_none() {
-                cmd.cmd_bind_vertex_buffers2 = std::mem::transmute(
+                cmd.cmd_bind_vertex_buffers2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdBindVertexBuffers2EXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_depth_test_enable = std::mem::transmute(
+            cmd.cmd_set_depth_test_enable = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthTestEnable\0",
                     ),
                 ),
             );
             if cmd.cmd_set_depth_test_enable.is_none() {
-                cmd.cmd_set_depth_test_enable = std::mem::transmute(
+                cmd.cmd_set_depth_test_enable = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetDepthTestEnableEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_depth_write_enable = std::mem::transmute(
+            cmd.cmd_set_depth_write_enable = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthWriteEnable\0",
                     ),
                 ),
             );
             if cmd.cmd_set_depth_write_enable.is_none() {
-                cmd.cmd_set_depth_write_enable = std::mem::transmute(
+                cmd.cmd_set_depth_write_enable = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetDepthWriteEnableEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_depth_compare_op = std::mem::transmute(
+            cmd.cmd_set_depth_compare_op = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthCompareOp\0",
                     ),
                 ),
             );
             if cmd.cmd_set_depth_compare_op.is_none() {
-                cmd.cmd_set_depth_compare_op = std::mem::transmute(
+                cmd.cmd_set_depth_compare_op = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetDepthCompareOpEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_depth_bounds_test_enable = std::mem::transmute(
+            cmd.cmd_set_depth_bounds_test_enable = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthBoundsTestEnable\0",
                     ),
                 ),
             );
             if cmd.cmd_set_depth_bounds_test_enable.is_none() {
-                cmd.cmd_set_depth_bounds_test_enable = std::mem::transmute(
+                cmd.cmd_set_depth_bounds_test_enable = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetDepthBoundsTestEnableEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_stencil_test_enable = std::mem::transmute(
+            cmd.cmd_set_stencil_test_enable = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetStencilTestEnable\0",
                     ),
                 ),
             );
             if cmd.cmd_set_stencil_test_enable.is_none() {
-                cmd.cmd_set_stencil_test_enable = std::mem::transmute(
+                cmd.cmd_set_stencil_test_enable = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetStencilTestEnableEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_stencil_op = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetStencilOp\0")),
+            cmd.cmd_set_stencil_op = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetStencilOp\0")),
             );
             if cmd.cmd_set_stencil_op.is_none() {
-                cmd.cmd_set_stencil_op = std::mem::transmute(
+                cmd.cmd_set_stencil_op = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetStencilOpEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_patch_control_points_ext = std::mem::transmute(
+            cmd.cmd_set_patch_control_points_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetPatchControlPointsEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_rasterizer_discard_enable = std::mem::transmute(
+            cmd.cmd_set_rasterizer_discard_enable = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetRasterizerDiscardEnable\0",
                     ),
                 ),
             );
             if cmd.cmd_set_rasterizer_discard_enable.is_none() {
-                cmd.cmd_set_rasterizer_discard_enable = std::mem::transmute(
+                cmd.cmd_set_rasterizer_discard_enable = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetRasterizerDiscardEnableEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_depth_bias_enable = std::mem::transmute(
+            cmd.cmd_set_depth_bias_enable = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthBiasEnable\0",
                     ),
                 ),
             );
             if cmd.cmd_set_depth_bias_enable.is_none() {
-                cmd.cmd_set_depth_bias_enable = std::mem::transmute(
+                cmd.cmd_set_depth_bias_enable = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetDepthBiasEnableEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_logic_op_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetLogicOpEXT\0")),
-            );
-            cmd.cmd_set_primitive_restart_enable = std::mem::transmute(
+            cmd.cmd_set_logic_op_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdSetLogicOpEXT\0",
+                    ),
+                ),
+            );
+            cmd.cmd_set_primitive_restart_enable = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetPrimitiveRestartEnable\0",
                     ),
                 ),
             );
             if cmd.cmd_set_primitive_restart_enable.is_none() {
-                cmd.cmd_set_primitive_restart_enable = std::mem::transmute(
+                cmd.cmd_set_primitive_restart_enable = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetPrimitiveRestartEnableEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_tessellation_domain_origin_ext = std::mem::transmute(
+            cmd.cmd_set_tessellation_domain_origin_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetTessellationDomainOriginEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_depth_clamp_enable_ext = std::mem::transmute(
+            cmd.cmd_set_depth_clamp_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthClampEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_polygon_mode_ext = std::mem::transmute(
+            cmd.cmd_set_polygon_mode_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetPolygonModeEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_rasterization_samples_ext = std::mem::transmute(
+            cmd.cmd_set_rasterization_samples_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetRasterizationSamplesEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_sample_mask_ext = std::mem::transmute(
+            cmd.cmd_set_sample_mask_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetSampleMaskEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_alpha_to_coverage_enable_ext = std::mem::transmute(
+            cmd.cmd_set_alpha_to_coverage_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetAlphaToCoverageEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_alpha_to_one_enable_ext = std::mem::transmute(
+            cmd.cmd_set_alpha_to_one_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetAlphaToOneEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_logic_op_enable_ext = std::mem::transmute(
+            cmd.cmd_set_logic_op_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetLogicOpEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_color_blend_enable_ext = std::mem::transmute(
+            cmd.cmd_set_color_blend_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetColorBlendEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_color_blend_equation_ext = std::mem::transmute(
+            cmd.cmd_set_color_blend_equation_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetColorBlendEquationEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_color_write_mask_ext = std::mem::transmute(
+            cmd.cmd_set_color_write_mask_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetColorWriteMaskEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_rasterization_stream_ext = std::mem::transmute(
+            cmd.cmd_set_rasterization_stream_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetRasterizationStreamEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_conservative_rasterization_mode_ext = std::mem::transmute(
+            cmd.cmd_set_conservative_rasterization_mode_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetConservativeRasterizationModeEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_extra_primitive_overestimation_size_ext = std::mem::transmute(
+            cmd.cmd_set_extra_primitive_overestimation_size_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetExtraPrimitiveOverestimationSizeEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_depth_clip_enable_ext = std::mem::transmute(
+            cmd.cmd_set_depth_clip_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthClipEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_sample_locations_enable_ext = std::mem::transmute(
+            cmd.cmd_set_sample_locations_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetSampleLocationsEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_color_blend_advanced_ext = std::mem::transmute(
+            cmd.cmd_set_color_blend_advanced_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetColorBlendAdvancedEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_provoking_vertex_mode_ext = std::mem::transmute(
+            cmd.cmd_set_provoking_vertex_mode_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetProvokingVertexModeEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_line_rasterization_mode_ext = std::mem::transmute(
+            cmd.cmd_set_line_rasterization_mode_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetLineRasterizationModeEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_line_stipple_enable_ext = std::mem::transmute(
+            cmd.cmd_set_line_stipple_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetLineStippleEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_depth_clip_negative_one_to_one_ext = std::mem::transmute(
+            cmd.cmd_set_depth_clip_negative_one_to_one_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthClipNegativeOneToOneEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_viewport_w_scaling_enable_nv = std::mem::transmute(
+            cmd.cmd_set_viewport_w_scaling_enable_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetViewportWScalingEnableNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_viewport_swizzle_nv = std::mem::transmute(
+            cmd.cmd_set_viewport_swizzle_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetViewportSwizzleNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_coverage_to_color_enable_nv = std::mem::transmute(
+            cmd.cmd_set_coverage_to_color_enable_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCoverageToColorEnableNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_coverage_to_color_location_nv = std::mem::transmute(
+            cmd.cmd_set_coverage_to_color_location_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCoverageToColorLocationNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_coverage_modulation_mode_nv = std::mem::transmute(
+            cmd.cmd_set_coverage_modulation_mode_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCoverageModulationModeNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_coverage_modulation_table_enable_nv = std::mem::transmute(
+            cmd.cmd_set_coverage_modulation_table_enable_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCoverageModulationTableEnableNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_coverage_modulation_table_nv = std::mem::transmute(
+            cmd.cmd_set_coverage_modulation_table_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCoverageModulationTableNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_shading_rate_image_enable_nv = std::mem::transmute(
+            cmd.cmd_set_shading_rate_image_enable_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetShadingRateImageEnableNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_coverage_reduction_mode_nv = std::mem::transmute(
+            cmd.cmd_set_coverage_reduction_mode_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetCoverageReductionModeNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_representative_fragment_test_enable_nv = std::mem::transmute(
+            cmd.cmd_set_representative_fragment_test_enable_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetRepresentativeFragmentTestEnableNV\0",
                     ),
                 ),
             );
-            cmd.create_private_data_slot = std::mem::transmute(
+            cmd.create_private_data_slot = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreatePrivateDataSlot\0",
                     ),
                 ),
             );
             if cmd.create_private_data_slot.is_none() {
-                cmd.create_private_data_slot = std::mem::transmute(
+                cmd.create_private_data_slot = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCreatePrivateDataSlotEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.destroy_private_data_slot = std::mem::transmute(
+            cmd.destroy_private_data_slot = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyPrivateDataSlot\0",
                     ),
                 ),
             );
             if cmd.destroy_private_data_slot.is_none() {
-                cmd.destroy_private_data_slot = std::mem::transmute(
+                cmd.destroy_private_data_slot = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkDestroyPrivateDataSlotEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.set_private_data = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkSetPrivateData\0")),
+            cmd.set_private_data = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkSetPrivateData\0")),
             );
             if cmd.set_private_data.is_none() {
-                cmd.set_private_data = std::mem::transmute(
+                cmd.set_private_data = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkSetPrivateDataEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.get_private_data = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetPrivateData\0")),
+            cmd.get_private_data = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetPrivateData\0")),
             );
             if cmd.get_private_data.is_none() {
-                cmd.get_private_data = std::mem::transmute(
+                cmd.get_private_data = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetPrivateDataEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_copy_buffer2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyBuffer2\0")),
+            cmd.cmd_copy_buffer2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyBuffer2\0")),
             );
             if cmd.cmd_copy_buffer2.is_none() {
-                cmd.cmd_copy_buffer2 = std::mem::transmute(
+                cmd.cmd_copy_buffer2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdCopyBuffer2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_copy_image2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyImage2\0")),
+            cmd.cmd_copy_image2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyImage2\0")),
             );
             if cmd.cmd_copy_image2.is_none() {
-                cmd.cmd_copy_image2 = std::mem::transmute(
+                cmd.cmd_copy_image2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdCopyImage2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_blit_image2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBlitImage2\0")),
+            cmd.cmd_blit_image2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdBlitImage2\0")),
             );
             if cmd.cmd_blit_image2.is_none() {
-                cmd.cmd_blit_image2 = std::mem::transmute(
+                cmd.cmd_blit_image2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdBlitImage2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_copy_buffer_to_image2 = std::mem::transmute(
+            cmd.cmd_copy_buffer_to_image2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyBufferToImage2\0",
                     ),
                 ),
             );
             if cmd.cmd_copy_buffer_to_image2.is_none() {
-                cmd.cmd_copy_buffer_to_image2 = std::mem::transmute(
+                cmd.cmd_copy_buffer_to_image2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdCopyBufferToImage2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_copy_image_to_buffer2 = std::mem::transmute(
+            cmd.cmd_copy_image_to_buffer2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyImageToBuffer2\0",
                     ),
                 ),
             );
             if cmd.cmd_copy_image_to_buffer2.is_none() {
-                cmd.cmd_copy_image_to_buffer2 = std::mem::transmute(
+                cmd.cmd_copy_image_to_buffer2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdCopyImageToBuffer2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_resolve_image2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdResolveImage2\0")),
+            cmd.cmd_resolve_image2 = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdResolveImage2\0",
+                    ),
+                ),
             );
             if cmd.cmd_resolve_image2.is_none() {
-                cmd.cmd_resolve_image2 = std::mem::transmute(
+                cmd.cmd_resolve_image2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdResolveImage2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_refresh_objects_khr = std::mem::transmute(
+            cmd.cmd_refresh_objects_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdRefreshObjectsKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_set_fragment_shading_rate_khr = std::mem::transmute(
+            cmd.cmd_set_fragment_shading_rate_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetFragmentShadingRateKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_set_fragment_shading_rate_enum_nv = std::mem::transmute(
+            cmd.cmd_set_fragment_shading_rate_enum_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetFragmentShadingRateEnumNV\0",
                     ),
                 ),
             );
-            cmd.get_acceleration_structure_build_sizes_khr = std::mem::transmute(
+            cmd.get_acceleration_structure_build_sizes_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetAccelerationStructureBuildSizesKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_set_vertex_input_ext = std::mem::transmute(
+            cmd.cmd_set_vertex_input_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetVertexInputEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_color_write_enable_ext = std::mem::transmute(
+            cmd.cmd_set_color_write_enable_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetColorWriteEnableEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_event2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetEvent2\0")),
+            cmd.cmd_set_event2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdSetEvent2\0")),
             );
             if cmd.cmd_set_event2.is_none() {
-                cmd.cmd_set_event2 = std::mem::transmute(
+                cmd.cmd_set_event2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetEvent2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_reset_event2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdResetEvent2\0")),
+            cmd.cmd_reset_event2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdResetEvent2\0")),
             );
             if cmd.cmd_reset_event2.is_none() {
-                cmd.cmd_reset_event2 = std::mem::transmute(
+                cmd.cmd_reset_event2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdResetEvent2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_wait_events2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdWaitEvents2\0")),
+            cmd.cmd_wait_events2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdWaitEvents2\0")),
             );
             if cmd.cmd_wait_events2.is_none() {
-                cmd.cmd_wait_events2 = std::mem::transmute(
+                cmd.cmd_wait_events2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdWaitEvents2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_pipeline_barrier2 = std::mem::transmute(
+            cmd.cmd_pipeline_barrier2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPipelineBarrier2\0",
                     ),
                 ),
             );
             if cmd.cmd_pipeline_barrier2.is_none() {
-                cmd.cmd_pipeline_barrier2 = std::mem::transmute(
+                cmd.cmd_pipeline_barrier2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdPipelineBarrier2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.queue_submit2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueSubmit2\0")),
+            cmd.queue_submit2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkQueueSubmit2\0")),
             );
             if cmd.queue_submit2.is_none() {
-                cmd.queue_submit2 = std::mem::transmute(
+                cmd.queue_submit2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkQueueSubmit2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_write_timestamp2 = std::mem::transmute(
+            cmd.cmd_write_timestamp2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteTimestamp2\0",
                     ),
                 ),
             );
             if cmd.cmd_write_timestamp2.is_none() {
-                cmd.cmd_write_timestamp2 = std::mem::transmute(
+                cmd.cmd_write_timestamp2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdWriteTimestamp2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_write_buffer_marker2_amd = std::mem::transmute(
+            cmd.cmd_write_buffer_marker2_amd = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteBufferMarker2AMD\0",
                     ),
                 ),
             );
-            cmd.get_queue_checkpoint_data2_nv = std::mem::transmute(
+            cmd.get_queue_checkpoint_data2_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetQueueCheckpointData2NV\0",
                     ),
                 ),
             );
-            cmd.copy_memory_to_image = std::mem::transmute(
+            cmd.copy_memory_to_image = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCopyMemoryToImage\0",
                     ),
                 ),
             );
             if cmd.copy_memory_to_image.is_none() {
-                cmd.copy_memory_to_image = std::mem::transmute(
+                cmd.copy_memory_to_image = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCopyMemoryToImageEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.copy_image_to_memory = std::mem::transmute(
+            cmd.copy_image_to_memory = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCopyImageToMemory\0",
                     ),
                 ),
             );
             if cmd.copy_image_to_memory.is_none() {
-                cmd.copy_image_to_memory = std::mem::transmute(
+                cmd.copy_image_to_memory = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCopyImageToMemoryEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.copy_image_to_image = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCopyImageToImage\0")),
+            cmd.copy_image_to_image = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCopyImageToImage\0",
+                    ),
+                ),
             );
             if cmd.copy_image_to_image.is_none() {
-                cmd.copy_image_to_image = std::mem::transmute(
+                cmd.copy_image_to_image = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCopyImageToImageEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.transition_image_layout = std::mem::transmute(
+            cmd.transition_image_layout = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkTransitionImageLayout\0",
                     ),
                 ),
             );
             if cmd.transition_image_layout.is_none() {
-                cmd.transition_image_layout = std::mem::transmute(
+                cmd.transition_image_layout = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkTransitionImageLayoutEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.get_command_pool_memory_consumption = std::mem::transmute(
+            cmd.get_command_pool_memory_consumption = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetCommandPoolMemoryConsumption\0",
                     ),
                 ),
             );
-            cmd.create_video_session_khr = std::mem::transmute(
+            cmd.create_video_session_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateVideoSessionKHR\0",
                     ),
                 ),
             );
-            cmd.destroy_video_session_khr = std::mem::transmute(
+            cmd.destroy_video_session_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyVideoSessionKHR\0",
                     ),
                 ),
             );
-            cmd.create_video_session_parameters_khr = std::mem::transmute(
+            cmd.create_video_session_parameters_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateVideoSessionParametersKHR\0",
                     ),
                 ),
             );
-            cmd.update_video_session_parameters_khr = std::mem::transmute(
+            cmd.update_video_session_parameters_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkUpdateVideoSessionParametersKHR\0",
                     ),
                 ),
             );
-            cmd.get_encoded_video_session_parameters_khr = std::mem::transmute(
+            cmd.get_encoded_video_session_parameters_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetEncodedVideoSessionParametersKHR\0",
                     ),
                 ),
             );
-            cmd.destroy_video_session_parameters_khr = std::mem::transmute(
+            cmd.destroy_video_session_parameters_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyVideoSessionParametersKHR\0",
                     ),
                 ),
             );
-            cmd.get_video_session_memory_requirements_khr = std::mem::transmute(
+            cmd.get_video_session_memory_requirements_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetVideoSessionMemoryRequirementsKHR\0",
                     ),
                 ),
             );
-            cmd.bind_video_session_memory_khr = std::mem::transmute(
+            cmd.bind_video_session_memory_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBindVideoSessionMemoryKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_decode_video_khr = std::mem::transmute(
+            cmd.cmd_decode_video_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDecodeVideoKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_video_coding_khr = std::mem::transmute(
+            cmd.cmd_begin_video_coding_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginVideoCodingKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_control_video_coding_khr = std::mem::transmute(
+            cmd.cmd_control_video_coding_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdControlVideoCodingKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_end_video_coding_khr = std::mem::transmute(
+            cmd.cmd_end_video_coding_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndVideoCodingKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_encode_video_khr = std::mem::transmute(
+            cmd.cmd_encode_video_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEncodeVideoKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_decompress_memory_nv = std::mem::transmute(
+            cmd.cmd_decompress_memory_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDecompressMemoryNV\0",
                     ),
                 ),
             );
-            cmd.cmd_decompress_memory_indirect_count_nv = std::mem::transmute(
+            cmd.cmd_decompress_memory_indirect_count_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDecompressMemoryIndirectCountNV\0",
                     ),
                 ),
             );
-            cmd.get_partitioned_acceleration_structures_build_sizes_nv = std::mem::transmute(
+            cmd.get_partitioned_acceleration_structures_build_sizes_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPartitionedAccelerationStructuresBuildSizesNV\0",
                     ),
                 ),
             );
-            cmd.cmd_build_partitioned_acceleration_structures_nv = std::mem::transmute(
+            cmd.cmd_build_partitioned_acceleration_structures_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBuildPartitionedAccelerationStructuresNV\0",
                     ),
                 ),
             );
-            cmd.cmd_decompress_memory_ext = std::mem::transmute(
+            cmd.cmd_decompress_memory_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDecompressMemoryEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_decompress_memory_indirect_count_ext = std::mem::transmute(
+            cmd.cmd_decompress_memory_indirect_count_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDecompressMemoryIndirectCountEXT\0",
                     ),
                 ),
             );
-            cmd.create_cu_module_nvx = std::mem::transmute(
+            cmd.create_cu_module_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateCuModuleNVX\0",
                     ),
                 ),
             );
-            cmd.create_cu_function_nvx = std::mem::transmute(
+            cmd.create_cu_function_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateCuFunctionNVX\0",
                     ),
                 ),
             );
-            cmd.destroy_cu_module_nvx = std::mem::transmute(
+            cmd.destroy_cu_module_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyCuModuleNVX\0",
                     ),
                 ),
             );
-            cmd.destroy_cu_function_nvx = std::mem::transmute(
+            cmd.destroy_cu_function_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyCuFunctionNVX\0",
                     ),
                 ),
             );
-            cmd.cmd_cu_launch_kernel_nvx = std::mem::transmute(
+            cmd.cmd_cu_launch_kernel_nvx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCuLaunchKernelNVX\0",
                     ),
                 ),
             );
-            cmd.get_descriptor_set_layout_size_ext = std::mem::transmute(
+            cmd.get_descriptor_set_layout_size_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDescriptorSetLayoutSizeEXT\0",
                     ),
                 ),
             );
-            cmd.get_descriptor_set_layout_binding_offset_ext = std::mem::transmute(
+            cmd.get_descriptor_set_layout_binding_offset_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDescriptorSetLayoutBindingOffsetEXT\0",
                     ),
                 ),
             );
-            cmd.get_descriptor_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkGetDescriptorEXT\0")),
-            );
-            cmd.cmd_bind_descriptor_buffers_ext = std::mem::transmute(
+            cmd.get_descriptor_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkGetDescriptorEXT\0",
+                    ),
+                ),
+            );
+            cmd.cmd_bind_descriptor_buffers_ext = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindDescriptorBuffersEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_set_descriptor_buffer_offsets_ext = std::mem::transmute(
+            cmd.cmd_set_descriptor_buffer_offsets_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDescriptorBufferOffsetsEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_descriptor_buffer_embedded_samplers_ext = std::mem::transmute(
+            cmd.cmd_bind_descriptor_buffer_embedded_samplers_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindDescriptorBufferEmbeddedSamplersEXT\0",
                     ),
                 ),
             );
-            cmd.get_buffer_opaque_capture_descriptor_data_ext = std::mem::transmute(
+            cmd.get_buffer_opaque_capture_descriptor_data_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetBufferOpaqueCaptureDescriptorDataEXT\0",
                     ),
                 ),
             );
-            cmd.get_image_opaque_capture_descriptor_data_ext = std::mem::transmute(
+            cmd.get_image_opaque_capture_descriptor_data_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageOpaqueCaptureDescriptorDataEXT\0",
                     ),
                 ),
             );
-            cmd.get_image_view_opaque_capture_descriptor_data_ext = std::mem::transmute(
+            cmd.get_image_view_opaque_capture_descriptor_data_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageViewOpaqueCaptureDescriptorDataEXT\0",
                     ),
                 ),
             );
-            cmd.get_sampler_opaque_capture_descriptor_data_ext = std::mem::transmute(
+            cmd.get_sampler_opaque_capture_descriptor_data_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSamplerOpaqueCaptureDescriptorDataEXT\0",
                     ),
                 ),
             );
-            cmd.get_acceleration_structure_opaque_capture_descriptor_data_ext = std::mem::transmute(
+            cmd.get_acceleration_structure_opaque_capture_descriptor_data_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT\0",
                     ),
                 ),
             );
-            cmd.set_device_memory_priority_ext = std::mem::transmute(
+            cmd.set_device_memory_priority_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetDeviceMemoryPriorityEXT\0",
                     ),
                 ),
             );
-            cmd.wait_for_present2_khr = std::mem::transmute(
+            cmd.wait_for_present2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkWaitForPresent2KHR\0",
                     ),
                 ),
             );
-            cmd.wait_for_present_khr = std::mem::transmute(
+            cmd.wait_for_present_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkWaitForPresentKHR\0",
                     ),
                 ),
             );
-            cmd.create_buffer_collection_fuchsia = std::mem::transmute(
+            cmd.create_buffer_collection_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateBufferCollectionFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.set_buffer_collection_buffer_constraints_fuchsia = std::mem::transmute(
+            cmd.set_buffer_collection_buffer_constraints_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetBufferCollectionBufferConstraintsFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.set_buffer_collection_image_constraints_fuchsia = std::mem::transmute(
+            cmd.set_buffer_collection_image_constraints_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetBufferCollectionImageConstraintsFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.destroy_buffer_collection_fuchsia = std::mem::transmute(
+            cmd.destroy_buffer_collection_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyBufferCollectionFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.get_buffer_collection_properties_fuchsia = std::mem::transmute(
+            cmd.get_buffer_collection_properties_fuchsia = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetBufferCollectionPropertiesFUCHSIA\0",
                     ),
                 ),
             );
-            cmd.create_cuda_module_nv = std::mem::transmute(
+            cmd.create_cuda_module_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateCudaModuleNV\0",
                     ),
                 ),
             );
-            cmd.get_cuda_module_cache_nv = std::mem::transmute(
+            cmd.get_cuda_module_cache_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetCudaModuleCacheNV\0",
                     ),
                 ),
             );
-            cmd.create_cuda_function_nv = std::mem::transmute(
+            cmd.create_cuda_function_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateCudaFunctionNV\0",
                     ),
                 ),
             );
-            cmd.destroy_cuda_module_nv = std::mem::transmute(
+            cmd.destroy_cuda_module_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyCudaModuleNV\0",
                     ),
                 ),
             );
-            cmd.destroy_cuda_function_nv = std::mem::transmute(
+            cmd.destroy_cuda_function_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyCudaFunctionNV\0",
                     ),
                 ),
             );
-            cmd.cmd_cuda_launch_kernel_nv = std::mem::transmute(
+            cmd.cmd_cuda_launch_kernel_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCudaLaunchKernelNV\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_rendering = std::mem::transmute(
+            cmd.cmd_begin_rendering = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginRendering\0",
                     ),
                 ),
             );
             if cmd.cmd_begin_rendering.is_none() {
-                cmd.cmd_begin_rendering = std::mem::transmute(
+                cmd.cmd_begin_rendering = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdBeginRenderingKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_end_rendering = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdEndRendering\0")),
+            cmd.cmd_end_rendering = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdEndRendering\0")),
             );
             if cmd.cmd_end_rendering.is_none() {
-                cmd.cmd_end_rendering = std::mem::transmute(
+                cmd.cmd_end_rendering = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdEndRenderingKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_end_rendering2_khr = std::mem::transmute(
+            cmd.cmd_end_rendering2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndRendering2KHR\0",
                     ),
                 ),
             );
             if cmd.cmd_end_rendering2_khr.is_none() {
-                cmd.cmd_end_rendering2_khr = std::mem::transmute(
+                cmd.cmd_end_rendering2_khr = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdEndRendering2EXT\0",
                         ),
                     ),
                 );
             }
-            cmd.get_descriptor_set_layout_host_mapping_info_valve = std::mem::transmute(
+            cmd.get_descriptor_set_layout_host_mapping_info_valve = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDescriptorSetLayoutHostMappingInfoVALVE\0",
                     ),
                 ),
             );
-            cmd.get_descriptor_set_host_mapping_valve = std::mem::transmute(
+            cmd.get_descriptor_set_host_mapping_valve = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDescriptorSetHostMappingVALVE\0",
                     ),
                 ),
             );
-            cmd.create_micromap_ext = std::mem::transmute(
+            cmd.create_micromap_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateMicromapEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_build_micromaps_ext = std::mem::transmute(
+            cmd.cmd_build_micromaps_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBuildMicromapsEXT\0",
                     ),
                 ),
             );
-            cmd.build_micromaps_ext = std::mem::transmute(
+            cmd.build_micromaps_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBuildMicromapsEXT\0",
                     ),
                 ),
             );
-            cmd.destroy_micromap_ext = std::mem::transmute(
+            cmd.destroy_micromap_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyMicromapEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_micromap_ext = std::mem::transmute(
+            cmd.cmd_copy_micromap_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMicromapEXT\0",
                     ),
                 ),
             );
-            cmd.copy_micromap_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCopyMicromapEXT\0")),
+            cmd.copy_micromap_ext = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCopyMicromapEXT\0")),
             );
-            cmd.cmd_copy_micromap_to_memory_ext = std::mem::transmute(
+            cmd.cmd_copy_micromap_to_memory_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMicromapToMemoryEXT\0",
                     ),
                 ),
             );
-            cmd.copy_micromap_to_memory_ext = std::mem::transmute(
+            cmd.copy_micromap_to_memory_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCopyMicromapToMemoryEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_memory_to_micromap_ext = std::mem::transmute(
+            cmd.cmd_copy_memory_to_micromap_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMemoryToMicromapEXT\0",
                     ),
                 ),
             );
-            cmd.copy_memory_to_micromap_ext = std::mem::transmute(
+            cmd.copy_memory_to_micromap_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCopyMemoryToMicromapEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_write_micromaps_properties_ext = std::mem::transmute(
+            cmd.cmd_write_micromaps_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteMicromapsPropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.write_micromaps_properties_ext = std::mem::transmute(
+            cmd.write_micromaps_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkWriteMicromapsPropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.get_device_micromap_compatibility_ext = std::mem::transmute(
+            cmd.get_device_micromap_compatibility_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceMicromapCompatibilityEXT\0",
                     ),
                 ),
             );
-            cmd.get_micromap_build_sizes_ext = std::mem::transmute(
+            cmd.get_micromap_build_sizes_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMicromapBuildSizesEXT\0",
                     ),
                 ),
             );
-            cmd.get_shader_module_identifier_ext = std::mem::transmute(
+            cmd.get_shader_module_identifier_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetShaderModuleIdentifierEXT\0",
                     ),
                 ),
             );
-            cmd.get_shader_module_create_info_identifier_ext = std::mem::transmute(
+            cmd.get_shader_module_create_info_identifier_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetShaderModuleCreateInfoIdentifierEXT\0",
                     ),
                 ),
             );
-            cmd.get_image_subresource_layout2 = std::mem::transmute(
+            cmd.get_image_subresource_layout2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageSubresourceLayout2\0",
                     ),
                 ),
             );
             if cmd.get_image_subresource_layout2.is_none() {
-                cmd.get_image_subresource_layout2 = std::mem::transmute(
+                cmd.get_image_subresource_layout2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetImageSubresourceLayout2KHR\0",
                         ),
                     ),
                 );
             }
             if cmd.get_image_subresource_layout2.is_none() {
-                cmd.get_image_subresource_layout2 = std::mem::transmute(
+                cmd.get_image_subresource_layout2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetImageSubresourceLayout2EXT\0",
                         ),
                     ),
                 );
             }
-            cmd.get_pipeline_properties_ext = std::mem::transmute(
+            cmd.get_pipeline_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPipelinePropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.export_metal_objects_ext = std::mem::transmute(
+            cmd.export_metal_objects_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkExportMetalObjectsEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_tile_memory_qcom = std::mem::transmute(
+            cmd.cmd_bind_tile_memory_qcom = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindTileMemoryQCOM\0",
                     ),
                 ),
             );
-            cmd.get_framebuffer_tile_properties_qcom = std::mem::transmute(
+            cmd.get_framebuffer_tile_properties_qcom = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetFramebufferTilePropertiesQCOM\0",
                     ),
                 ),
             );
-            cmd.get_dynamic_rendering_tile_properties_qcom = std::mem::transmute(
+            cmd.get_dynamic_rendering_tile_properties_qcom = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDynamicRenderingTilePropertiesQCOM\0",
                     ),
                 ),
             );
-            cmd.create_optical_flow_session_nv = std::mem::transmute(
+            cmd.create_optical_flow_session_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateOpticalFlowSessionNV\0",
                     ),
                 ),
             );
-            cmd.destroy_optical_flow_session_nv = std::mem::transmute(
+            cmd.destroy_optical_flow_session_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyOpticalFlowSessionNV\0",
                     ),
                 ),
             );
-            cmd.bind_optical_flow_session_image_nv = std::mem::transmute(
+            cmd.bind_optical_flow_session_image_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBindOpticalFlowSessionImageNV\0",
                     ),
                 ),
             );
-            cmd.cmd_optical_flow_execute_nv = std::mem::transmute(
+            cmd.cmd_optical_flow_execute_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdOpticalFlowExecuteNV\0",
                     ),
                 ),
             );
-            cmd.get_device_fault_info_ext = std::mem::transmute(
+            cmd.get_device_fault_info_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceFaultInfoEXT\0",
                     ),
                 ),
             );
-            cmd.get_device_fault_reports_khr = std::mem::transmute(
+            cmd.get_device_fault_reports_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceFaultReportsKHR\0",
                     ),
                 ),
             );
-            cmd.get_device_fault_debug_info_khr = std::mem::transmute(
+            cmd.get_device_fault_debug_info_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceFaultDebugInfoKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_set_depth_bias2_ext = std::mem::transmute(
+            cmd.cmd_set_depth_bias2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthBias2EXT\0",
                     ),
                 ),
             );
-            cmd.release_swapchain_images_khr = std::mem::transmute(
+            cmd.release_swapchain_images_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkReleaseSwapchainImagesKHR\0",
                     ),
                 ),
             );
             if cmd.release_swapchain_images_khr.is_none() {
-                cmd.release_swapchain_images_khr = std::mem::transmute(
+                cmd.release_swapchain_images_khr = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkReleaseSwapchainImagesEXT\0",
                         ),
                     ),
                 );
             }
-            cmd.get_device_image_subresource_layout = std::mem::transmute(
+            cmd.get_device_image_subresource_layout = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceImageSubresourceLayout\0",
                     ),
                 ),
             );
             if cmd.get_device_image_subresource_layout.is_none() {
-                cmd.get_device_image_subresource_layout = std::mem::transmute(
+                cmd.get_device_image_subresource_layout = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkGetDeviceImageSubresourceLayoutKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.map_memory2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkMapMemory2\0")),
+            cmd.map_memory2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkMapMemory2\0")),
             );
             if cmd.map_memory2.is_none() {
-                cmd.map_memory2 = std::mem::transmute(
+                cmd.map_memory2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkMapMemory2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.unmap_memory2 = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkUnmapMemory2\0")),
+            cmd.unmap_memory2 = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkUnmapMemory2\0")),
             );
             if cmd.unmap_memory2.is_none() {
-                cmd.unmap_memory2 = std::mem::transmute(
+                cmd.unmap_memory2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkUnmapMemory2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.create_shaders_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateShadersEXT\0")),
-            );
-            cmd.destroy_shader_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyShaderEXT\0")),
-            );
-            cmd.get_shader_binary_data_ext = std::mem::transmute(
+            cmd.create_shaders_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCreateShadersEXT\0",
+                    ),
+                ),
+            );
+            cmd.destroy_shader_ext = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkDestroyShaderEXT\0",
+                    ),
+                ),
+            );
+            cmd.get_shader_binary_data_ext = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetShaderBinaryDataEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_shaders_ext = std::mem::transmute(
+            cmd.cmd_bind_shaders_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindShadersEXT\0",
                     ),
                 ),
             );
-            cmd.set_swapchain_present_timing_queue_size_ext = std::mem::transmute(
+            cmd.set_swapchain_present_timing_queue_size_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetSwapchainPresentTimingQueueSizeEXT\0",
                     ),
                 ),
             );
-            cmd.get_swapchain_timing_properties_ext = std::mem::transmute(
+            cmd.get_swapchain_timing_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainTimingPropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.get_swapchain_time_domain_properties_ext = std::mem::transmute(
+            cmd.get_swapchain_time_domain_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainTimeDomainPropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.get_past_presentation_timing_ext = std::mem::transmute(
+            cmd.get_past_presentation_timing_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetPastPresentationTimingEXT\0",
                     ),
                 ),
             );
-            cmd.get_screen_buffer_properties_qnx = std::mem::transmute(
+            cmd.get_screen_buffer_properties_qnx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetScreenBufferPropertiesQNX\0",
                     ),
                 ),
             );
-            cmd.get_execution_graph_pipeline_scratch_size_amdx = std::mem::transmute(
+            cmd.get_execution_graph_pipeline_scratch_size_amdx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetExecutionGraphPipelineScratchSizeAMDX\0",
                     ),
                 ),
             );
-            cmd.get_execution_graph_pipeline_node_index_amdx = std::mem::transmute(
+            cmd.get_execution_graph_pipeline_node_index_amdx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetExecutionGraphPipelineNodeIndexAMDX\0",
                     ),
                 ),
             );
-            cmd.create_execution_graph_pipelines_amdx = std::mem::transmute(
+            cmd.create_execution_graph_pipelines_amdx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateExecutionGraphPipelinesAMDX\0",
                     ),
                 ),
             );
-            cmd.cmd_initialize_graph_scratch_memory_amdx = std::mem::transmute(
+            cmd.cmd_initialize_graph_scratch_memory_amdx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdInitializeGraphScratchMemoryAMDX\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch_graph_amdx = std::mem::transmute(
+            cmd.cmd_dispatch_graph_amdx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDispatchGraphAMDX\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch_graph_indirect_amdx = std::mem::transmute(
+            cmd.cmd_dispatch_graph_indirect_amdx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDispatchGraphIndirectAMDX\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch_graph_indirect_count_amdx = std::mem::transmute(
+            cmd.cmd_dispatch_graph_indirect_count_amdx = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDispatchGraphIndirectCountAMDX\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_descriptor_sets2 = std::mem::transmute(
+            cmd.cmd_bind_descriptor_sets2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindDescriptorSets2\0",
                     ),
                 ),
             );
             if cmd.cmd_bind_descriptor_sets2.is_none() {
-                cmd.cmd_bind_descriptor_sets2 = std::mem::transmute(
+                cmd.cmd_bind_descriptor_sets2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdBindDescriptorSets2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_push_constants2 = std::mem::transmute(
+            cmd.cmd_push_constants2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPushConstants2\0",
                     ),
                 ),
             );
             if cmd.cmd_push_constants2.is_none() {
-                cmd.cmd_push_constants2 = std::mem::transmute(
+                cmd.cmd_push_constants2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdPushConstants2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_push_descriptor_set2 = std::mem::transmute(
+            cmd.cmd_push_descriptor_set2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPushDescriptorSet2\0",
                     ),
                 ),
             );
             if cmd.cmd_push_descriptor_set2.is_none() {
-                cmd.cmd_push_descriptor_set2 = std::mem::transmute(
+                cmd.cmd_push_descriptor_set2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdPushDescriptorSet2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_push_descriptor_set_with_template2 = std::mem::transmute(
+            cmd.cmd_push_descriptor_set_with_template2 = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdPushDescriptorSetWithTemplate2\0",
                     ),
                 ),
             );
             if cmd.cmd_push_descriptor_set_with_template2.is_none() {
-                cmd.cmd_push_descriptor_set_with_template2 = std::mem::transmute(
+                cmd.cmd_push_descriptor_set_with_template2 = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdPushDescriptorSetWithTemplate2KHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_descriptor_buffer_offsets2_ext = std::mem::transmute(
+            cmd.cmd_set_descriptor_buffer_offsets2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDescriptorBufferOffsets2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_descriptor_buffer_embedded_samplers2_ext = std::mem::transmute(
+            cmd.cmd_bind_descriptor_buffer_embedded_samplers2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindDescriptorBufferEmbeddedSamplers2EXT\0",
                     ),
                 ),
             );
-            cmd.set_latency_sleep_mode_nv = std::mem::transmute(
+            cmd.set_latency_sleep_mode_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetLatencySleepModeNV\0",
                     ),
                 ),
             );
-            cmd.latency_sleep_nv = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkLatencySleepNV\0")),
+            cmd.latency_sleep_nv = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkLatencySleepNV\0")),
             );
-            cmd.set_latency_marker_nv = std::mem::transmute(
+            cmd.set_latency_marker_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkSetLatencyMarkerNV\0",
                     ),
                 ),
             );
-            cmd.get_latency_timings_nv = std::mem::transmute(
+            cmd.get_latency_timings_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetLatencyTimingsNV\0",
                     ),
                 ),
             );
-            cmd.queue_notify_out_of_band_nv = std::mem::transmute(
+            cmd.queue_notify_out_of_band_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkQueueNotifyOutOfBandNV\0",
                     ),
                 ),
             );
-            cmd.cmd_set_rendering_attachment_locations = std::mem::transmute(
+            cmd.cmd_set_rendering_attachment_locations = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetRenderingAttachmentLocations\0",
                     ),
                 ),
             );
             if cmd.cmd_set_rendering_attachment_locations.is_none() {
-                cmd.cmd_set_rendering_attachment_locations = std::mem::transmute(
+                cmd.cmd_set_rendering_attachment_locations = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetRenderingAttachmentLocationsKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_rendering_input_attachment_indices = std::mem::transmute(
+            cmd.cmd_set_rendering_input_attachment_indices = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetRenderingInputAttachmentIndices\0",
                     ),
                 ),
             );
             if cmd.cmd_set_rendering_input_attachment_indices.is_none() {
-                cmd.cmd_set_rendering_input_attachment_indices = std::mem::transmute(
+                cmd.cmd_set_rendering_input_attachment_indices = core::mem::transmute(
                     f(
-                        std::ffi::CStr::from_bytes_with_nul_unchecked(
+                        core::ffi::CStr::from_bytes_with_nul_unchecked(
                             b"vkCmdSetRenderingInputAttachmentIndicesKHR\0",
                         ),
                     ),
                 );
             }
-            cmd.cmd_set_depth_clamp_range_ext = std::mem::transmute(
+            cmd.cmd_set_depth_clamp_range_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetDepthClampRangeEXT\0",
                     ),
                 ),
             );
-            cmd.get_memory_metal_handle_ext = std::mem::transmute(
+            cmd.get_memory_metal_handle_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryMetalHandleEXT\0",
                     ),
                 ),
             );
-            cmd.get_memory_metal_handle_properties_ext = std::mem::transmute(
+            cmd.get_memory_metal_handle_properties_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryMetalHandlePropertiesEXT\0",
                     ),
                 ),
             );
-            cmd.convert_cooperative_vector_matrix_nv = std::mem::transmute(
+            cmd.convert_cooperative_vector_matrix_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkConvertCooperativeVectorMatrixNV\0",
                     ),
                 ),
             );
-            cmd.cmd_convert_cooperative_vector_matrix_nv = std::mem::transmute(
+            cmd.cmd_convert_cooperative_vector_matrix_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdConvertCooperativeVectorMatrixNV\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch_tile_qcom = std::mem::transmute(
+            cmd.cmd_dispatch_tile_qcom = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDispatchTileQCOM\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_per_tile_execution_qcom = std::mem::transmute(
+            cmd.cmd_begin_per_tile_execution_qcom = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginPerTileExecutionQCOM\0",
                     ),
                 ),
             );
-            cmd.cmd_end_per_tile_execution_qcom = std::mem::transmute(
+            cmd.cmd_end_per_tile_execution_qcom = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndPerTileExecutionQCOM\0",
                     ),
                 ),
             );
-            cmd.create_external_compute_queue_nv = std::mem::transmute(
+            cmd.create_external_compute_queue_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateExternalComputeQueueNV\0",
                     ),
                 ),
             );
-            cmd.destroy_external_compute_queue_nv = std::mem::transmute(
+            cmd.destroy_external_compute_queue_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyExternalComputeQueueNV\0",
                     ),
                 ),
             );
-            cmd.create_shader_instrumentation_arm = std::mem::transmute(
+            cmd.create_shader_instrumentation_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateShaderInstrumentationARM\0",
                     ),
                 ),
             );
-            cmd.destroy_shader_instrumentation_arm = std::mem::transmute(
+            cmd.destroy_shader_instrumentation_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyShaderInstrumentationARM\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_shader_instrumentation_arm = std::mem::transmute(
+            cmd.cmd_begin_shader_instrumentation_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginShaderInstrumentationARM\0",
                     ),
                 ),
             );
-            cmd.cmd_end_shader_instrumentation_arm = std::mem::transmute(
+            cmd.cmd_end_shader_instrumentation_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndShaderInstrumentationARM\0",
                     ),
                 ),
             );
-            cmd.get_shader_instrumentation_values_arm = std::mem::transmute(
+            cmd.get_shader_instrumentation_values_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetShaderInstrumentationValuesARM\0",
                     ),
                 ),
             );
-            cmd.clear_shader_instrumentation_metrics_arm = std::mem::transmute(
+            cmd.clear_shader_instrumentation_metrics_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkClearShaderInstrumentationMetricsARM\0",
                     ),
                 ),
             );
-            cmd.create_tensor_arm = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateTensorARM\0")),
+            cmd.create_tensor_arm = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCreateTensorARM\0")),
             );
-            cmd.destroy_tensor_arm = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkDestroyTensorARM\0")),
-            );
-            cmd.create_tensor_view_arm = std::mem::transmute(
+            cmd.destroy_tensor_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkDestroyTensorARM\0",
+                    ),
+                ),
+            );
+            cmd.create_tensor_view_arm = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateTensorViewARM\0",
                     ),
                 ),
             );
-            cmd.destroy_tensor_view_arm = std::mem::transmute(
+            cmd.destroy_tensor_view_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyTensorViewARM\0",
                     ),
                 ),
             );
-            cmd.get_tensor_memory_requirements_arm = std::mem::transmute(
+            cmd.get_tensor_memory_requirements_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetTensorMemoryRequirementsARM\0",
                     ),
                 ),
             );
-            cmd.bind_tensor_memory_arm = std::mem::transmute(
+            cmd.bind_tensor_memory_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBindTensorMemoryARM\0",
                     ),
                 ),
             );
-            cmd.get_device_tensor_memory_requirements_arm = std::mem::transmute(
+            cmd.get_device_tensor_memory_requirements_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDeviceTensorMemoryRequirementsARM\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_tensor_arm = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyTensorARM\0")),
-            );
-            cmd.get_tensor_opaque_capture_descriptor_data_arm = std::mem::transmute(
+            cmd.cmd_copy_tensor_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdCopyTensorARM\0",
+                    ),
+                ),
+            );
+            cmd.get_tensor_opaque_capture_descriptor_data_arm = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetTensorOpaqueCaptureDescriptorDataARM\0",
                     ),
                 ),
             );
-            cmd.get_tensor_view_opaque_capture_descriptor_data_arm = std::mem::transmute(
+            cmd.get_tensor_view_opaque_capture_descriptor_data_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetTensorViewOpaqueCaptureDescriptorDataARM\0",
                     ),
                 ),
             );
-            cmd.create_data_graph_pipelines_arm = std::mem::transmute(
+            cmd.create_data_graph_pipelines_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDataGraphPipelinesARM\0",
                     ),
                 ),
             );
-            cmd.create_data_graph_pipeline_session_arm = std::mem::transmute(
+            cmd.create_data_graph_pipeline_session_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateDataGraphPipelineSessionARM\0",
                     ),
                 ),
             );
-            cmd.get_data_graph_pipeline_session_bind_point_requirements_arm = std::mem::transmute(
+            cmd.get_data_graph_pipeline_session_bind_point_requirements_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDataGraphPipelineSessionBindPointRequirementsARM\0",
                     ),
                 ),
             );
-            cmd.get_data_graph_pipeline_session_memory_requirements_arm = std::mem::transmute(
+            cmd.get_data_graph_pipeline_session_memory_requirements_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDataGraphPipelineSessionMemoryRequirementsARM\0",
                     ),
                 ),
             );
-            cmd.bind_data_graph_pipeline_session_memory_arm = std::mem::transmute(
+            cmd.bind_data_graph_pipeline_session_memory_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkBindDataGraphPipelineSessionMemoryARM\0",
                     ),
                 ),
             );
-            cmd.destroy_data_graph_pipeline_session_arm = std::mem::transmute(
+            cmd.destroy_data_graph_pipeline_session_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkDestroyDataGraphPipelineSessionARM\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch_data_graph_arm = std::mem::transmute(
+            cmd.cmd_dispatch_data_graph_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDispatchDataGraphARM\0",
                     ),
                 ),
             );
-            cmd.get_data_graph_pipeline_available_properties_arm = std::mem::transmute(
+            cmd.get_data_graph_pipeline_available_properties_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDataGraphPipelineAvailablePropertiesARM\0",
                     ),
                 ),
             );
-            cmd.get_data_graph_pipeline_properties_arm = std::mem::transmute(
+            cmd.get_data_graph_pipeline_properties_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetDataGraphPipelinePropertiesARM\0",
                     ),
                 ),
             );
-            cmd.get_native_buffer_properties_ohos = std::mem::transmute(
+            cmd.get_native_buffer_properties_ohos = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetNativeBufferPropertiesOHOS\0",
                     ),
                 ),
             );
-            cmd.get_memory_native_buffer_ohos = std::mem::transmute(
+            cmd.get_memory_native_buffer_ohos = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetMemoryNativeBufferOHOS\0",
                     ),
                 ),
             );
-            cmd.get_swapchain_gralloc_usage_ohos = std::mem::transmute(
+            cmd.get_swapchain_gralloc_usage_ohos = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetSwapchainGrallocUsageOHOS\0",
                     ),
                 ),
             );
-            cmd.acquire_image_ohos = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkAcquireImageOHOS\0")),
-            );
-            cmd.queue_signal_release_image_ohos = std::mem::transmute(
+            cmd.acquire_image_ohos = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkAcquireImageOHOS\0",
+                    ),
+                ),
+            );
+            cmd.queue_signal_release_image_ohos = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkQueueSignalReleaseImageOHOS\0",
                     ),
                 ),
             );
-            cmd.cmd_set_compute_occupancy_priority_nv = std::mem::transmute(
+            cmd.cmd_set_compute_occupancy_priority_nv = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdSetComputeOccupancyPriorityNV\0",
                     ),
                 ),
             );
-            cmd.write_sampler_descriptors_ext = std::mem::transmute(
+            cmd.write_sampler_descriptors_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkWriteSamplerDescriptorsEXT\0",
                     ),
                 ),
             );
-            cmd.write_resource_descriptors_ext = std::mem::transmute(
+            cmd.write_resource_descriptors_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkWriteResourceDescriptorsEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_sampler_heap_ext = std::mem::transmute(
+            cmd.cmd_bind_sampler_heap_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindSamplerHeapEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_resource_heap_ext = std::mem::transmute(
+            cmd.cmd_bind_resource_heap_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindResourceHeapEXT\0",
                     ),
                 ),
             );
-            cmd.cmd_push_data_ext = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdPushDataEXT\0")),
+            cmd.cmd_push_data_ext = core::mem::transmute(
+                f(core::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdPushDataEXT\0")),
             );
-            cmd.register_custom_border_color_ext = std::mem::transmute(
+            cmd.register_custom_border_color_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkRegisterCustomBorderColorEXT\0",
                     ),
                 ),
             );
-            cmd.unregister_custom_border_color_ext = std::mem::transmute(
+            cmd.unregister_custom_border_color_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkUnregisterCustomBorderColorEXT\0",
                     ),
                 ),
             );
-            cmd.get_image_opaque_capture_data_ext = std::mem::transmute(
+            cmd.get_image_opaque_capture_data_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetImageOpaqueCaptureDataEXT\0",
                     ),
                 ),
             );
-            cmd.get_tensor_opaque_capture_data_arm = std::mem::transmute(
+            cmd.get_tensor_opaque_capture_data_arm = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkGetTensorOpaqueCaptureDataARM\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_memory_khr = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdCopyMemoryKHR\0")),
-            );
-            cmd.cmd_copy_memory_to_image_khr = std::mem::transmute(
+            cmd.cmd_copy_memory_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdCopyMemoryKHR\0",
+                    ),
+                ),
+            );
+            cmd.cmd_copy_memory_to_image_khr = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyMemoryToImageKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_copy_image_to_memory_khr = std::mem::transmute(
+            cmd.cmd_copy_image_to_memory_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyImageToMemoryKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_update_memory_khr = std::mem::transmute(
+            cmd.cmd_update_memory_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdUpdateMemoryKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_fill_memory_khr = std::mem::transmute(
-                f(std::ffi::CStr::from_bytes_with_nul_unchecked(b"vkCmdFillMemoryKHR\0")),
-            );
-            cmd.cmd_copy_query_pool_results_to_memory_khr = std::mem::transmute(
+            cmd.cmd_fill_memory_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
+                        b"vkCmdFillMemoryKHR\0",
+                    ),
+                ),
+            );
+            cmd.cmd_copy_query_pool_results_to_memory_khr = core::mem::transmute(
+                f(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdCopyQueryPoolResultsToMemoryKHR\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_conditional_rendering2_ext = std::mem::transmute(
+            cmd.cmd_begin_conditional_rendering2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginConditionalRendering2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_transform_feedback_buffers2_ext = std::mem::transmute(
+            cmd.cmd_bind_transform_feedback_buffers2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindTransformFeedbackBuffers2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_begin_transform_feedback2_ext = std::mem::transmute(
+            cmd.cmd_begin_transform_feedback2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBeginTransformFeedback2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_end_transform_feedback2_ext = std::mem::transmute(
+            cmd.cmd_end_transform_feedback2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdEndTransformFeedback2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indirect_byte_count2_ext = std::mem::transmute(
+            cmd.cmd_draw_indirect_byte_count2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndirectByteCount2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_write_marker_to_memory_amd = std::mem::transmute(
+            cmd.cmd_write_marker_to_memory_amd = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdWriteMarkerToMemoryAMD\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_index_buffer3_khr = std::mem::transmute(
+            cmd.cmd_bind_index_buffer3_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindIndexBuffer3KHR\0",
                     ),
                 ),
             );
-            cmd.cmd_bind_vertex_buffers3_khr = std::mem::transmute(
+            cmd.cmd_bind_vertex_buffers3_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdBindVertexBuffers3KHR\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indirect2_khr = std::mem::transmute(
+            cmd.cmd_draw_indirect2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndirect2KHR\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indexed_indirect2_khr = std::mem::transmute(
+            cmd.cmd_draw_indexed_indirect2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndexedIndirect2KHR\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indirect_count2_khr = std::mem::transmute(
+            cmd.cmd_draw_indirect_count2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndirectCount2KHR\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_indexed_indirect_count2_khr = std::mem::transmute(
+            cmd.cmd_draw_indexed_indirect_count2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawIndexedIndirectCount2KHR\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_indirect2_ext = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_indirect2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksIndirect2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_draw_mesh_tasks_indirect_count2_ext = std::mem::transmute(
+            cmd.cmd_draw_mesh_tasks_indirect_count2_ext = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDrawMeshTasksIndirectCount2EXT\0",
                     ),
                 ),
             );
-            cmd.cmd_dispatch_indirect2_khr = std::mem::transmute(
+            cmd.cmd_dispatch_indirect2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCmdDispatchIndirect2KHR\0",
                     ),
                 ),
             );
-            cmd.create_acceleration_structure2_khr = std::mem::transmute(
+            cmd.create_acceleration_structure2_khr = core::mem::transmute(
                 f(
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(
+                    core::ffi::CStr::from_bytes_with_nul_unchecked(
                         b"vkCreateAccelerationStructure2KHR\0",
                     ),
                 ),

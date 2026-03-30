@@ -62,9 +62,9 @@ fn emit_builder(
     let pnext_is_mut = def.members.iter().any(|m| m.name == "pNext" && !m.is_const);
     let push_next = if !def.returned_only {
         let assign_pnext = if pnext_is_mut {
-            quote! { self.inner.p_next = <*mut BaseOutStructure>::cast::<std::ffi::c_void>(next_ptr); }
+            quote! { self.inner.p_next = <*mut BaseOutStructure>::cast::<core::ffi::c_void>(next_ptr); }
         } else {
-            quote! { self.inner.p_next = <*mut BaseOutStructure>::cast::<std::ffi::c_void>(next_ptr) as *const _; }
+            quote! { self.inner.p_next = <*mut BaseOutStructure>::cast::<core::ffi::c_void>(next_ptr) as *const _; }
         };
         quote! {
             /// Prepend a struct to the pNext chain.
@@ -85,7 +85,7 @@ fn emit_builder(
     quote! {
         pub struct #builder_name<'a> {
             inner: #struct_name,
-            _marker: std::marker::PhantomData<&'a ()>,
+            _marker: core::marker::PhantomData<&'a ()>,
         }
 
         impl #struct_name {
@@ -97,7 +97,7 @@ fn emit_builder(
                         s_type: #default_stype,
                         ..Default::default()
                     },
-                    _marker: std::marker::PhantomData,
+                    _marker: core::marker::PhantomData,
                 }
             }
         }
@@ -107,13 +107,13 @@ fn emit_builder(
             #push_next
         }
 
-        impl<'a> std::ops::Deref for #builder_name<'a> {
+        impl<'a> core::ops::Deref for #builder_name<'a> {
             type Target = #struct_name;
             #[inline]
             fn deref(&self) -> &Self::Target { &self.inner }
         }
 
-        impl<'a> std::ops::DerefMut for #builder_name<'a> {
+        impl<'a> core::ops::DerefMut for #builder_name<'a> {
             #[inline]
             fn deref_mut(&mut self) -> &mut Self::Target { &mut self.inner }
         }
@@ -417,7 +417,7 @@ mod tests {
             &std::collections::HashMap::new(),
         )
         .to_string();
-        assert!(code.contains("impl < 'a > std :: ops :: Deref for BufferCreateInfoBuilder"));
+        assert!(code.contains("impl < 'a > core :: ops :: Deref for BufferCreateInfoBuilder"));
         assert!(code.contains("type Target = BufferCreateInfo"));
     }
 

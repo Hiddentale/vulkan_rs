@@ -150,7 +150,7 @@ fn emit_dispatch_struct(
         impl Default for #struct_name {
             #[inline]
             fn default() -> Self {
-                unsafe { std::mem::zeroed() }
+                unsafe { core::mem::zeroed() }
             }
         }
 
@@ -164,7 +164,7 @@ fn emit_dispatch_struct(
             /// The loader must return valid function pointers compatible with
             /// each command's signature, or null for unavailable commands.
             pub unsafe fn load(
-                mut f: impl FnMut(&std::ffi::CStr) -> *const std::ffi::c_void,
+                mut f: impl FnMut(&core::ffi::CStr) -> *const core::ffi::c_void,
             ) -> Self {
                 unsafe {
                     let mut cmd = Self::default();
@@ -178,7 +178,7 @@ fn emit_dispatch_struct(
 
 fn cstr_literal(name: &str) -> TokenStream {
     let bytes = proc_macro2::Literal::byte_string(format!("{name}\0").as_bytes());
-    quote! { std::ffi::CStr::from_bytes_with_nul_unchecked(#bytes) }
+    quote! { core::ffi::CStr::from_bytes_with_nul_unchecked(#bytes) }
 }
 
 fn emit_load_stmt(cmd: &CommandDef, alias_map: &HashMap<String, Vec<String>>) -> TokenStream {
@@ -187,7 +187,7 @@ fn emit_load_stmt(cmd: &CommandDef, alias_map: &HashMap<String, Vec<String>>) ->
 
     // Primary load: try the canonical name.
     let primary = quote! {
-        cmd.#field = std::mem::transmute(f(#c_name_expr));
+        cmd.#field = core::mem::transmute(f(#c_name_expr));
     };
 
     // Fallback loads: try alias names if the primary returned None.
@@ -199,7 +199,7 @@ fn emit_load_stmt(cmd: &CommandDef, alias_map: &HashMap<String, Vec<String>>) ->
             let alias_expr = cstr_literal(alias);
             quote! {
                 if cmd.#field.is_none() {
-                    cmd.#field = std::mem::transmute(f(#alias_expr));
+                    cmd.#field = core::mem::transmute(f(#alias_expr));
                 }
             }
         })

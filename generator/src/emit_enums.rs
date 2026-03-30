@@ -61,8 +61,8 @@ fn emit_enum(def: &EnumDef) -> TokenStream {
             pub const fn as_raw(self) -> i32 { self.0 }
         }
 
-        impl std::fmt::Debug for #name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        impl core::fmt::Debug for #name {
+            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                 match self.0 {
                     #(#debug_arms)*
                     other => write!(f, "{}({})", stringify!(#name), other),
