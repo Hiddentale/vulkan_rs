@@ -1268,7 +1268,6 @@ pub type PFN_vkCreateSharedSwapchainsKHR = Option<
         device: Device,
         swapchain_count: u32,
         p_create_infos: *const SwapchainCreateInfoKHR,
-        p_create_infos: *const SwapchainCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_swapchains: *mut SwapchainKHR,
     ) -> Result,
@@ -1314,7 +1313,6 @@ pub type PFN_vkGetPhysicalDeviceSurfacePresentModesKHR = Option<
 pub type PFN_vkCreateSwapchainKHR = Option<
     unsafe extern "system" fn(
         device: Device,
-        p_create_info: *const SwapchainCreateInfoKHR,
         p_create_info: *const SwapchainCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_swapchain: *mut SwapchainKHR,

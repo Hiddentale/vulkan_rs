@@ -12,6 +12,7 @@ mod resolve_types;
 mod stype;
 #[allow(dead_code)]
 mod type_map;
+mod emit_wrappers;
 mod validate;
 mod wrapper_utils;
 
@@ -61,8 +62,27 @@ fn main() {
 
     update_lib_rs(&out_dir);
 
+    // Generate ergonomic wrapper methods for vk-engine.
+    let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-engine/src/generated");
+    fs::create_dir_all(&engine_dir).unwrap_or_else(|e| {
+        panic!("failed to create {}: {e}", engine_dir.display());
+    });
+
+    let (entry_wrappers, instance_wrappers, device_wrappers) =
+        emit_wrappers::emit_wrappers(&registry);
+
+    write_module(&engine_dir, "entry_wrappers.rs", entry_wrappers);
+    write_module(
+        &engine_dir,
+        "instance_wrappers.rs",
+        instance_wrappers,
+    );
+    write_module(&engine_dir, "device_wrappers.rs", device_wrappers);
+    write_engine_mod_rs(&engine_dir);
+
     println!("\n=== generation complete ===");
-    println!("  output: {}", out_dir.display());
+    println!("  vk-sys output:   {}", out_dir.display());
+    println!("  vk-engine output: {}", engine_dir.display());
 }
 
 fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream) {
@@ -99,6 +119,22 @@ pub mod builders;
 pub mod commands;
 ";
     let path = out_dir.join("lib.rs");
+    fs::write(&path, content).unwrap_or_else(|e| {
+        panic!("failed to write {}: {e}", path.display());
+    });
+}
+
+fn write_engine_mod_rs(out_dir: &Path) {
+    let content = "\
+//! Generated wrapper methods for Entry, Instance, and Device.
+//!
+//! Do not edit by hand — regenerate with the `generator` crate.
+
+mod entry_wrappers;
+mod instance_wrappers;
+mod device_wrappers;
+";
+    let path = out_dir.join("mod.rs");
     fs::write(&path, content).unwrap_or_else(|e| {
         panic!("failed to write {}: {e}", path.display());
     });

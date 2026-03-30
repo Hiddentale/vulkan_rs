@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use crate::device::Device;
-use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
+use crate::error::{VkResult, check};
 use crate::loader::Loader;
 use crate::vk;
 use vk::handles::Handle;
@@ -100,104 +100,6 @@ impl Instance {
     /// including those without hand-written ergonomic wrappers.
     pub fn commands(&self) -> &vk::commands::InstanceCommands {
         &self.commands
-    }
-
-    /// Destroy this instance.
-    ///
-    /// # Safety
-    ///
-    /// All child objects (surfaces, devices, etc.) derived from this instance
-    /// must be destroyed before calling this. After this call, `self` must not
-    /// be used.
-    pub unsafe fn destroy_instance(&self, allocator: Option<&vk::structs::AllocationCallbacks>) {
-        let fp = self
-            .commands
-            .destroy_instance
-            .expect("vkDestroyInstance not loaded");
-        unsafe { fp(self.handle, allocator.map_or(std::ptr::null(), |a| a)) };
-    }
-
-    /// Enumerate the physical devices accessible to this instance.
-    ///
-    /// # Safety
-    ///
-    /// The instance must be valid.
-    pub unsafe fn enumerate_physical_devices(&self) -> VkResult<Vec<vk::handles::PhysicalDevice>> {
-        let fp = self
-            .commands
-            .enumerate_physical_devices
-            .expect("vkEnumeratePhysicalDevices not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(self.handle, count, data) })
-    }
-
-    /// Query the properties of a physical device.
-    ///
-    /// # Safety
-    ///
-    /// `physical_device` must be a valid handle obtained from this instance.
-    pub unsafe fn get_physical_device_properties(
-        &self,
-        physical_device: vk::handles::PhysicalDevice,
-    ) -> vk::structs::PhysicalDeviceProperties {
-        let fp = self
-            .commands
-            .get_physical_device_properties
-            .expect("vkGetPhysicalDeviceProperties not loaded");
-        let mut props = vk::structs::PhysicalDeviceProperties::default();
-        unsafe { fp(physical_device, &mut props) };
-        props
-    }
-
-    /// Query the queue family properties of a physical device.
-    ///
-    /// # Safety
-    ///
-    /// `physical_device` must be a valid handle obtained from this instance.
-    pub unsafe fn get_physical_device_queue_family_properties(
-        &self,
-        physical_device: vk::handles::PhysicalDevice,
-    ) -> Vec<vk::structs::QueueFamilyProperties> {
-        let fp = self
-            .commands
-            .get_physical_device_queue_family_properties
-            .expect("vkGetPhysicalDeviceQueueFamilyProperties not loaded");
-        fill_two_call(|count, data| unsafe { fp(physical_device, count, data) })
-    }
-
-    /// Query the memory properties of a physical device.
-    ///
-    /// # Safety
-    ///
-    /// `physical_device` must be a valid handle obtained from this instance.
-    pub unsafe fn get_physical_device_memory_properties(
-        &self,
-        physical_device: vk::handles::PhysicalDevice,
-    ) -> vk::structs::PhysicalDeviceMemoryProperties {
-        let fp = self
-            .commands
-            .get_physical_device_memory_properties
-            .expect("vkGetPhysicalDeviceMemoryProperties not loaded");
-        let mut props = vk::structs::PhysicalDeviceMemoryProperties::default();
-        unsafe { fp(physical_device, &mut props) };
-        props
-    }
-
-    /// Query the features supported by a physical device.
-    ///
-    /// # Safety
-    ///
-    /// `physical_device` must be a valid handle obtained from this instance.
-    pub unsafe fn get_physical_device_features(
-        &self,
-        physical_device: vk::handles::PhysicalDevice,
-    ) -> vk::structs::PhysicalDeviceFeatures {
-        let fp = self
-            .commands
-            .get_physical_device_features
-            .expect("vkGetPhysicalDeviceFeatures not loaded");
-        let mut features = vk::structs::PhysicalDeviceFeatures::default();
-        unsafe { fp(physical_device, &mut features) };
-        features
     }
 
     /// Create a logical device for the given physical device.

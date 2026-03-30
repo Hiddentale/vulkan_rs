@@ -376,7 +376,9 @@ fn is_non_vulkan(e: &Enum) -> bool {
 
 fn is_non_vulkan_api(api: Option<&str>) -> bool {
     match api {
-        Some(a) => !a.contains("vulkan"),
+        Some(a) => !a
+            .split(',')
+            .any(|part| matches!(part.trim(), "vulkan" | "vulkanbase")),
         None => false,
     }
 }

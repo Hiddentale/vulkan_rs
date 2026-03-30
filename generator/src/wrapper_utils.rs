@@ -140,6 +140,12 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
             None => continue,
         };
 
+        // If the count param is already classified (e.g., another array already
+        // claimed it), skip — dual-output-array commands fall to raw forward.
+        if roles[count_idx] != ParamRole::Regular {
+            continue;
+        }
+
         let count_param = &params[count_idx];
 
         // Output pair: count is *mut uint32_t, array is *mut T (non-const).
