@@ -135,10 +135,68 @@ fn is_rust_keyword(name: &str) -> bool {
 }
 
 // ---------------------------------------------------------------------------
+// Marker traits for pNext chains (subtask 6)
+// ---------------------------------------------------------------------------
+
+/// Emit marker trait definitions and implementations for type-safe pNext chains.
+///
+/// For each struct that appears as a `structextends` target, we emit:
+///   `pub unsafe trait ExtendsFoo {}`
+///
+/// For each struct that declares `structextends="VkFoo,VkBar"`, we emit:
+///   `unsafe impl ExtendsFoo for ThisStruct {}`
+///   `unsafe impl ExtendsBar for ThisStruct {}`
+fn emit_marker_traits(registry: &VkRegistry) -> TokenStream {
+    use std::collections::BTreeSet;
+
+    // Collect all unique trait names (the targets of structextends).
+    let mut trait_names: BTreeSet<String> = BTreeSet::new();
+    for s in &registry.structs {
+        for extends in &s.extends {
+            trait_names.insert(extends.clone());
+        }
+    }
+
+    // Emit trait definitions.
+    let trait_defs: Vec<TokenStream> = trait_names
+        .iter()
+        .map(|name| {
+            let trait_ident = format_ident!("Extends{}", name);
+            let vk_name = format!("Vk{}", name);
+            quote! {
+                /// Marker trait for structs that can appear in the pNext chain of
+                #[doc = concat!("[`", #vk_name, "`].")]
+                pub unsafe trait #trait_ident {}
+            }
+        })
+        .collect();
+
+    // Emit trait implementations.
+    let trait_impls: Vec<TokenStream> = registry
+        .structs
+        .iter()
+        .flat_map(|s| {
+            let struct_ident = format_ident!("{}", &s.name);
+            s.extends.iter().map(move |extends| {
+                let trait_ident = format_ident!("Extends{}", extends);
+                quote! {
+                    unsafe impl #trait_ident for #struct_ident {}
+                }
+            })
+        })
+        .collect();
+
+    quote! {
+        #(#trait_defs)*
+        #(#trait_impls)*
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Public entry point
 // ---------------------------------------------------------------------------
 
-/// Emit all struct and union definitions.
+/// Emit all struct and union definitions plus pNext marker traits.
 pub fn emit_structs(registry: &VkRegistry) -> TokenStream {
     let base_structs = emit_base_pnext_structs();
 
@@ -149,6 +207,8 @@ pub fn emit_structs(registry: &VkRegistry) -> TokenStream {
         .map(emit_struct_or_union)
         .collect();
 
+    let marker_traits = emit_marker_traits(registry);
+
     quote! {
         use super::enums::*;
         use super::handles::*;
@@ -157,6 +217,7 @@ pub fn emit_structs(registry: &VkRegistry) -> TokenStream {
 
         #base_structs
         #(#structs)*
+        #marker_traits
     }
 }
 
@@ -391,7 +452,24 @@ fn assert_valid_rust(tokens: &TokenStream) {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::parse::{MemberDef, StructDef};
+    use crate::parse::{MemberDef, StructDef, VkRegistry};
+    use std::collections::HashMap;
+
+    fn empty_registry() -> VkRegistry {
+        VkRegistry {
+            handles: vec![],
+            structs: vec![],
+            enums: vec![],
+            bitmasks: vec![],
+            commands: vec![],
+            constants: vec![],
+            func_pointers: vec![],
+            extensions: vec![],
+            platforms: vec![],
+            aliases: HashMap::new(),
+            base_types: HashMap::new(),
+        }
+    }
 
     fn make_member(name: &str, type_name: &str) -> MemberDef {
         MemberDef {
@@ -727,6 +805,89 @@ mod tests {
         assert!(!code.contains("Debug ,"), "union should not derive Debug");
         assert!(code.contains("impl std :: fmt :: Debug"));
     }
+
+    // --- Marker traits ---
+
+    #[test]
+    fn marker_trait_defs_emitted_for_extends_targets() {
+        let registry = VkRegistry {
+            structs: vec![StructDef {
+                name: "PhysicalDeviceVulkan12Features".to_string(),
+                members: vec![],
+                extends: vec![
+                    "PhysicalDeviceFeatures2".to_string(),
+                    "DeviceCreateInfo".to_string(),
+                ],
+                returned_only: false,
+                is_union: false,
+                provided_by: None,
+            }],
+            ..empty_registry()
+        };
+        let code = emit_marker_traits(&registry).to_string();
+        assert!(
+            code.contains("pub unsafe trait ExtendsPhysicalDeviceFeatures2"),
+            "missing trait def for PhysicalDeviceFeatures2"
+        );
+        assert!(
+            code.contains("pub unsafe trait ExtendsDeviceCreateInfo"),
+            "missing trait def for DeviceCreateInfo"
+        );
+    }
+
+    #[test]
+    fn marker_trait_impls_emitted() {
+        let registry = VkRegistry {
+            structs: vec![StructDef {
+                name: "PhysicalDeviceVulkan12Features".to_string(),
+                members: vec![],
+                extends: vec!["DeviceCreateInfo".to_string()],
+                returned_only: false,
+                is_union: false,
+                provided_by: None,
+            }],
+            ..empty_registry()
+        };
+        let code = emit_marker_traits(&registry).to_string();
+        assert!(
+            code.contains("impl ExtendsDeviceCreateInfo for PhysicalDeviceVulkan12Features"),
+            "missing trait impl"
+        );
+    }
+
+    #[test]
+    fn marker_traits_deduplicate() {
+        let registry = VkRegistry {
+            structs: vec![
+                StructDef {
+                    name: "A".to_string(),
+                    members: vec![],
+                    extends: vec!["Foo".to_string()],
+                    returned_only: false,
+                    is_union: false,
+                    provided_by: None,
+                },
+                StructDef {
+                    name: "B".to_string(),
+                    members: vec![],
+                    extends: vec!["Foo".to_string()],
+                    returned_only: false,
+                    is_union: false,
+                    provided_by: None,
+                },
+            ],
+            ..empty_registry()
+        };
+        let code = emit_marker_traits(&registry).to_string();
+        // Trait def should appear exactly once.
+        let count = code.matches("pub unsafe trait ExtendsFoo").count();
+        assert_eq!(count, 1, "trait ExtendsFoo should be defined exactly once");
+        // But two impls.
+        let impl_count = code.matches("impl ExtendsFoo for").count();
+        assert_eq!(impl_count, 2, "expected two impls of ExtendsFoo");
+    }
+
+    // --- Union emission ---
 
     #[test]
     fn union_has_zeroed_default() {
