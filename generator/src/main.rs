@@ -3,6 +3,8 @@ mod emit_constants;
 mod emit_enums;
 mod emit_handles;
 #[allow(dead_code)]
+mod emit_structs;
+#[allow(dead_code)]
 mod parse;
 #[allow(dead_code)]
 mod type_map;
