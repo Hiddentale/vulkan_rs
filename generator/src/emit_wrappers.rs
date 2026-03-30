@@ -45,6 +45,27 @@ pub fn emit_wrappers(registry: &VkRegistry) -> (TokenStream, TokenStream, TokenS
     )
 }
 
+/// Count how many wrapper methods would be generated per dispatch level.
+/// Used by tests to catch regressions where commands silently get dropped.
+pub fn wrapper_counts(registry: &VkRegistry) -> (usize, usize, usize) {
+    let pnext = build_pnext_struct_set(registry);
+    let exclusions = exclusion_set();
+
+    let count = |level: DispatchLevel| -> usize {
+        registry
+            .commands
+            .iter()
+            .filter(|c| c.dispatch_level == level && !exclusions.contains(&c.name))
+            .count()
+    };
+
+    (
+        count(DispatchLevel::Entry),
+        count(DispatchLevel::Instance),
+        count(DispatchLevel::Device),
+    )
+}
+
 // ---------------------------------------------------------------------------
 // Exclusion set
 // ---------------------------------------------------------------------------
@@ -990,5 +1011,30 @@ mod tests {
         // Double pointer passed through as raw
         assert!(method.contains("pp_data"));
         assert!(method.contains("check (unsafe { fp (self . handle ()"));
+    }
+
+    // -- Method count verification ------------------------------------------
+
+    #[test]
+    fn method_counts_match_expected_range() {
+        let vk_xml = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("vk.xml");
+        let registry = crate::parse::parse_registry(&vk_xml);
+        let (entry, instance, device) = super::wrapper_counts(&registry);
+
+        // Entry: 5 total commands minus 4 excluded = 1+
+        assert!(entry >= 1, "entry methods too low: {entry}");
+        assert!(entry <= 15, "entry methods unexpectedly high: {entry}");
+
+        // Instance: ~109 total minus ~7 excluded = ~99-105
+        assert!(instance >= 80, "instance methods too low: {instance}");
+        assert!(instance <= 130, "instance methods unexpectedly high: {instance}");
+
+        // Device: ~628 total minus ~0 excluded = ~620-640
+        assert!(device >= 550, "device methods too low: {device}");
+        assert!(device <= 700, "device methods unexpectedly high: {device}");
+
+        // Total should be close to the full command count minus exclusions
+        let total = entry + instance + device;
+        assert!(total >= 650, "total methods too low: {total}");
     }
 }
