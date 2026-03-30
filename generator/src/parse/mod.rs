@@ -656,6 +656,30 @@ mod tests {
     }
 
     #[test]
+    fn enum_result_promoted_error_codes_are_negative() {
+        let e = registry()
+            .enums
+            .iter()
+            .find(|e| e.name == "Result")
+            .expect("Result enum not found");
+
+        // ERROR_OUT_OF_POOL_MEMORY is promoted from VK_KHR_maintenance1 (ext 70)
+        // In vk.xml it has dir="-", so the value should be -1000069000.
+        let oom_pool = e
+            .variants
+            .iter()
+            .find(|v| v.name == "VK_ERROR_OUT_OF_POOL_MEMORY");
+        assert!(oom_pool.is_some(), "VK_ERROR_OUT_OF_POOL_MEMORY not found");
+        match &oom_pool.unwrap().value {
+            EnumValue::I32(v) => assert!(
+                *v < 0,
+                "VK_ERROR_OUT_OF_POOL_MEMORY should be negative, got {v}"
+            ),
+            other => panic!("expected I32, got {other:?}"),
+        }
+    }
+
+    #[test]
     fn enum_structure_type_has_many_variants() {
         // StructureType is the largest enum — it gains variants from every extension.
         let e = registry()

@@ -585,7 +585,7 @@ impl BufferUsageFlags2CreateInfo {
     pub fn builder<'a>() -> BufferUsageFlags2CreateInfoBuilder<'a> {
         BufferUsageFlags2CreateInfoBuilder {
             inner: BufferUsageFlags2CreateInfo {
-                s_type: StructureType::from_raw(-1000470006i32),
+                s_type: StructureType::from_raw(1000470006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -1249,7 +1249,7 @@ impl CopyMemoryIndirectInfoKHR {
     pub fn builder<'a>() -> CopyMemoryIndirectInfoKHRBuilder<'a> {
         CopyMemoryIndirectInfoKHRBuilder {
             inner: CopyMemoryIndirectInfoKHR {
-                s_type: StructureType::from_raw(-1000549002i32),
+                s_type: StructureType::from_raw(1000549002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -1316,7 +1316,7 @@ impl CopyMemoryToImageIndirectInfoKHR {
     pub fn builder<'a>() -> CopyMemoryToImageIndirectInfoKHRBuilder<'a> {
         CopyMemoryToImageIndirectInfoKHRBuilder {
             inner: CopyMemoryToImageIndirectInfoKHR {
-                s_type: StructureType::from_raw(-1000549003i32),
+                s_type: StructureType::from_raw(1000549003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -1774,7 +1774,7 @@ impl ComputePipelineIndirectBufferInfoNV {
     pub fn builder<'a>() -> ComputePipelineIndirectBufferInfoNVBuilder<'a> {
         ComputePipelineIndirectBufferInfoNVBuilder {
             inner: ComputePipelineIndirectBufferInfoNV {
-                s_type: StructureType::from_raw(-1000428001i32),
+                s_type: StructureType::from_raw(1000428001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -1836,7 +1836,7 @@ impl PipelineCreateFlags2CreateInfo {
     pub fn builder<'a>() -> PipelineCreateFlags2CreateInfoBuilder<'a> {
         PipelineCreateFlags2CreateInfoBuilder {
             inner: PipelineCreateFlags2CreateInfo {
-                s_type: StructureType::from_raw(-1000470005i32),
+                s_type: StructureType::from_raw(1000470005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -2769,7 +2769,7 @@ impl PipelineBinaryCreateInfoKHR {
     pub fn builder<'a>() -> PipelineBinaryCreateInfoKHRBuilder<'a> {
         PipelineBinaryCreateInfoKHRBuilder {
             inner: PipelineBinaryCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000483001i32),
+                s_type: StructureType::from_raw(1000483001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -2837,7 +2837,7 @@ impl PipelineBinaryHandlesInfoKHR {
     pub fn builder<'a>() -> PipelineBinaryHandlesInfoKHRBuilder<'a> {
         PipelineBinaryHandlesInfoKHRBuilder {
             inner: PipelineBinaryHandlesInfoKHR {
-                s_type: StructureType::from_raw(-1000483009i32),
+                s_type: StructureType::from_raw(1000483009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -2890,7 +2890,7 @@ impl PipelineBinaryKeyKHR {
     pub fn builder<'a>() -> PipelineBinaryKeyKHRBuilder<'a> {
         PipelineBinaryKeyKHRBuilder {
             inner: PipelineBinaryKeyKHR {
-                s_type: StructureType::from_raw(-1000483003i32),
+                s_type: StructureType::from_raw(1000483003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -2947,7 +2947,7 @@ impl PipelineBinaryInfoKHR {
     pub fn builder<'a>() -> PipelineBinaryInfoKHRBuilder<'a> {
         PipelineBinaryInfoKHRBuilder {
             inner: PipelineBinaryInfoKHR {
-                s_type: StructureType::from_raw(-1000483002i32),
+                s_type: StructureType::from_raw(1000483002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -3000,7 +3000,7 @@ impl ReleaseCapturedPipelineDataInfoKHR {
     pub fn builder<'a>() -> ReleaseCapturedPipelineDataInfoKHRBuilder<'a> {
         ReleaseCapturedPipelineDataInfoKHRBuilder {
             inner: ReleaseCapturedPipelineDataInfoKHR {
-                s_type: StructureType::from_raw(-1000483005i32),
+                s_type: StructureType::from_raw(1000483005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -3052,7 +3052,7 @@ impl PipelineBinaryDataInfoKHR {
     pub fn builder<'a>() -> PipelineBinaryDataInfoKHRBuilder<'a> {
         PipelineBinaryDataInfoKHRBuilder {
             inner: PipelineBinaryDataInfoKHR {
-                s_type: StructureType::from_raw(-1000483006i32),
+                s_type: StructureType::from_raw(1000483006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -3104,7 +3104,7 @@ impl PipelineCreateInfoKHR {
     pub fn builder<'a>() -> PipelineCreateInfoKHRBuilder<'a> {
         PipelineCreateInfoKHRBuilder {
             inner: PipelineCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000483007i32),
+                s_type: StructureType::from_raw(1000483007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4084,7 +4084,7 @@ impl DisplayModeCreateInfoKHR {
     pub fn builder<'a>() -> DisplayModeCreateInfoKHRBuilder<'a> {
         DisplayModeCreateInfoKHRBuilder {
             inner: DisplayModeCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000002000i32),
+                s_type: StructureType::from_raw(1000002000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4141,7 +4141,7 @@ impl DisplaySurfaceCreateInfoKHR {
     pub fn builder<'a>() -> DisplaySurfaceCreateInfoKHRBuilder<'a> {
         DisplaySurfaceCreateInfoKHRBuilder {
             inner: DisplaySurfaceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000002001i32),
+                s_type: StructureType::from_raw(1000002001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4228,7 +4228,7 @@ impl DisplaySurfaceStereoCreateInfoNV {
     pub fn builder<'a>() -> DisplaySurfaceStereoCreateInfoNVBuilder<'a> {
         DisplaySurfaceStereoCreateInfoNVBuilder {
             inner: DisplaySurfaceStereoCreateInfoNV {
-                s_type: StructureType::from_raw(-1000551000i32),
+                s_type: StructureType::from_raw(1000551000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4280,7 +4280,7 @@ impl DisplayPresentInfoKHR {
     pub fn builder<'a>() -> DisplayPresentInfoKHRBuilder<'a> {
         DisplayPresentInfoKHRBuilder {
             inner: DisplayPresentInfoKHR {
-                s_type: StructureType::from_raw(-1000003000i32),
+                s_type: StructureType::from_raw(1000003000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4342,7 +4342,7 @@ impl AndroidSurfaceCreateInfoKHR {
     pub fn builder<'a>() -> AndroidSurfaceCreateInfoKHRBuilder<'a> {
         AndroidSurfaceCreateInfoKHRBuilder {
             inner: AndroidSurfaceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000008000i32),
+                s_type: StructureType::from_raw(1000008000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4399,7 +4399,7 @@ impl ViSurfaceCreateInfoNN {
     pub fn builder<'a>() -> ViSurfaceCreateInfoNNBuilder<'a> {
         ViSurfaceCreateInfoNNBuilder {
             inner: ViSurfaceCreateInfoNN {
-                s_type: StructureType::from_raw(-1000062000i32),
+                s_type: StructureType::from_raw(1000062000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4456,7 +4456,7 @@ impl WaylandSurfaceCreateInfoKHR {
     pub fn builder<'a>() -> WaylandSurfaceCreateInfoKHRBuilder<'a> {
         WaylandSurfaceCreateInfoKHRBuilder {
             inner: WaylandSurfaceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000006000i32),
+                s_type: StructureType::from_raw(1000006000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4518,7 +4518,7 @@ impl UbmSurfaceCreateInfoSEC {
     pub fn builder<'a>() -> UbmSurfaceCreateInfoSECBuilder<'a> {
         UbmSurfaceCreateInfoSECBuilder {
             inner: UbmSurfaceCreateInfoSEC {
-                s_type: StructureType::from_raw(-1000664000i32),
+                s_type: StructureType::from_raw(1000664000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4580,7 +4580,7 @@ impl Win32SurfaceCreateInfoKHR {
     pub fn builder<'a>() -> Win32SurfaceCreateInfoKHRBuilder<'a> {
         Win32SurfaceCreateInfoKHRBuilder {
             inner: Win32SurfaceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000009000i32),
+                s_type: StructureType::from_raw(1000009000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4642,7 +4642,7 @@ impl XlibSurfaceCreateInfoKHR {
     pub fn builder<'a>() -> XlibSurfaceCreateInfoKHRBuilder<'a> {
         XlibSurfaceCreateInfoKHRBuilder {
             inner: XlibSurfaceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000004000i32),
+                s_type: StructureType::from_raw(1000004000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4704,7 +4704,7 @@ impl XcbSurfaceCreateInfoKHR {
     pub fn builder<'a>() -> XcbSurfaceCreateInfoKHRBuilder<'a> {
         XcbSurfaceCreateInfoKHRBuilder {
             inner: XcbSurfaceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000005000i32),
+                s_type: StructureType::from_raw(1000005000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4766,7 +4766,7 @@ impl DirectFBSurfaceCreateInfoEXT {
     pub fn builder<'a>() -> DirectFBSurfaceCreateInfoEXTBuilder<'a> {
         DirectFBSurfaceCreateInfoEXTBuilder {
             inner: DirectFBSurfaceCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000346000i32),
+                s_type: StructureType::from_raw(1000346000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4828,7 +4828,7 @@ impl ImagePipeSurfaceCreateInfoFUCHSIA {
     pub fn builder<'a>() -> ImagePipeSurfaceCreateInfoFUCHSIABuilder<'a> {
         ImagePipeSurfaceCreateInfoFUCHSIABuilder {
             inner: ImagePipeSurfaceCreateInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000214000i32),
+                s_type: StructureType::from_raw(1000214000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4885,7 +4885,7 @@ impl StreamDescriptorSurfaceCreateInfoGGP {
     pub fn builder<'a>() -> StreamDescriptorSurfaceCreateInfoGGPBuilder<'a> {
         StreamDescriptorSurfaceCreateInfoGGPBuilder {
             inner: StreamDescriptorSurfaceCreateInfoGGP {
-                s_type: StructureType::from_raw(-1000049000i32),
+                s_type: StructureType::from_raw(1000049000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -4942,7 +4942,7 @@ impl ScreenSurfaceCreateInfoQNX {
     pub fn builder<'a>() -> ScreenSurfaceCreateInfoQNXBuilder<'a> {
         ScreenSurfaceCreateInfoQNXBuilder {
             inner: ScreenSurfaceCreateInfoQNX {
-                s_type: StructureType::from_raw(-1000378000i32),
+                s_type: StructureType::from_raw(1000378000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5004,7 +5004,7 @@ impl SwapchainCreateInfoKHR {
     pub fn builder<'a>() -> SwapchainCreateInfoKHRBuilder<'a> {
         SwapchainCreateInfoKHRBuilder {
             inner: SwapchainCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000001000i32),
+                s_type: StructureType::from_raw(1000001000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5127,7 +5127,7 @@ impl PresentInfoKHR {
     pub fn builder<'a>() -> PresentInfoKHRBuilder<'a> {
         PresentInfoKHRBuilder {
             inner: PresentInfoKHR {
-                s_type: StructureType::from_raw(-1000001001i32),
+                s_type: StructureType::from_raw(1000001001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5195,7 +5195,7 @@ impl DebugReportCallbackCreateInfoEXT {
     pub fn builder<'a>() -> DebugReportCallbackCreateInfoEXTBuilder<'a> {
         DebugReportCallbackCreateInfoEXTBuilder {
             inner: DebugReportCallbackCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000011000i32),
+                s_type: StructureType::from_raw(1000011000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5257,7 +5257,7 @@ impl ValidationFlagsEXT {
     pub fn builder<'a>() -> ValidationFlagsEXTBuilder<'a> {
         ValidationFlagsEXTBuilder {
             inner: ValidationFlagsEXT {
-                s_type: StructureType::from_raw(-1000061000i32),
+                s_type: StructureType::from_raw(1000061000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5310,7 +5310,7 @@ impl ValidationFeaturesEXT {
     pub fn builder<'a>() -> ValidationFeaturesEXTBuilder<'a> {
         ValidationFeaturesEXTBuilder {
             inner: ValidationFeaturesEXT {
-                s_type: StructureType::from_raw(-1000247000i32),
+                s_type: StructureType::from_raw(1000247000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5375,7 +5375,7 @@ impl LayerSettingsCreateInfoEXT {
     pub fn builder<'a>() -> LayerSettingsCreateInfoEXTBuilder<'a> {
         LayerSettingsCreateInfoEXTBuilder {
             inner: LayerSettingsCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000496000i32),
+                s_type: StructureType::from_raw(1000496000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5428,7 +5428,7 @@ impl ApplicationParametersEXT {
     pub fn builder<'a>() -> ApplicationParametersEXTBuilder<'a> {
         ApplicationParametersEXTBuilder {
             inner: ApplicationParametersEXT {
-                s_type: StructureType::from_raw(-1000435000i32),
+                s_type: StructureType::from_raw(1000435000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5495,7 +5495,7 @@ impl PipelineRasterizationStateRasterizationOrderAMD {
     pub fn builder<'a>() -> PipelineRasterizationStateRasterizationOrderAMDBuilder<'a> {
         PipelineRasterizationStateRasterizationOrderAMDBuilder {
             inner: PipelineRasterizationStateRasterizationOrderAMD {
-                s_type: StructureType::from_raw(-1000018000i32),
+                s_type: StructureType::from_raw(1000018000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5549,7 +5549,7 @@ impl DebugMarkerObjectNameInfoEXT {
     pub fn builder<'a>() -> DebugMarkerObjectNameInfoEXTBuilder<'a> {
         DebugMarkerObjectNameInfoEXTBuilder {
             inner: DebugMarkerObjectNameInfoEXT {
-                s_type: StructureType::from_raw(-1000022000i32),
+                s_type: StructureType::from_raw(1000022000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5611,7 +5611,7 @@ impl DebugMarkerObjectTagInfoEXT {
     pub fn builder<'a>() -> DebugMarkerObjectTagInfoEXTBuilder<'a> {
         DebugMarkerObjectTagInfoEXTBuilder {
             inner: DebugMarkerObjectTagInfoEXT {
-                s_type: StructureType::from_raw(-1000022001i32),
+                s_type: StructureType::from_raw(1000022001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5679,7 +5679,7 @@ impl DebugMarkerMarkerInfoEXT {
     pub fn builder<'a>() -> DebugMarkerMarkerInfoEXTBuilder<'a> {
         DebugMarkerMarkerInfoEXTBuilder {
             inner: DebugMarkerMarkerInfoEXT {
-                s_type: StructureType::from_raw(-1000022002i32),
+                s_type: StructureType::from_raw(1000022002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5736,7 +5736,7 @@ impl DedicatedAllocationImageCreateInfoNV {
     pub fn builder<'a>() -> DedicatedAllocationImageCreateInfoNVBuilder<'a> {
         DedicatedAllocationImageCreateInfoNVBuilder {
             inner: DedicatedAllocationImageCreateInfoNV {
-                s_type: StructureType::from_raw(-1000026000i32),
+                s_type: StructureType::from_raw(1000026000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5788,7 +5788,7 @@ impl DedicatedAllocationBufferCreateInfoNV {
     pub fn builder<'a>() -> DedicatedAllocationBufferCreateInfoNVBuilder<'a> {
         DedicatedAllocationBufferCreateInfoNVBuilder {
             inner: DedicatedAllocationBufferCreateInfoNV {
-                s_type: StructureType::from_raw(-1000026001i32),
+                s_type: StructureType::from_raw(1000026001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5840,7 +5840,7 @@ impl DedicatedAllocationMemoryAllocateInfoNV {
     pub fn builder<'a>() -> DedicatedAllocationMemoryAllocateInfoNVBuilder<'a> {
         DedicatedAllocationMemoryAllocateInfoNVBuilder {
             inner: DedicatedAllocationMemoryAllocateInfoNV {
-                s_type: StructureType::from_raw(-1000026002i32),
+                s_type: StructureType::from_raw(1000026002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5897,7 +5897,7 @@ impl ExternalMemoryImageCreateInfoNV {
     pub fn builder<'a>() -> ExternalMemoryImageCreateInfoNVBuilder<'a> {
         ExternalMemoryImageCreateInfoNVBuilder {
             inner: ExternalMemoryImageCreateInfoNV {
-                s_type: StructureType::from_raw(-1000056000i32),
+                s_type: StructureType::from_raw(1000056000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -5949,7 +5949,7 @@ impl ExportMemoryAllocateInfoNV {
     pub fn builder<'a>() -> ExportMemoryAllocateInfoNVBuilder<'a> {
         ExportMemoryAllocateInfoNVBuilder {
             inner: ExportMemoryAllocateInfoNV {
-                s_type: StructureType::from_raw(-1000056001i32),
+                s_type: StructureType::from_raw(1000056001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6001,7 +6001,7 @@ impl ImportMemoryWin32HandleInfoNV {
     pub fn builder<'a>() -> ImportMemoryWin32HandleInfoNVBuilder<'a> {
         ImportMemoryWin32HandleInfoNVBuilder {
             inner: ImportMemoryWin32HandleInfoNV {
-                s_type: StructureType::from_raw(-1000057000i32),
+                s_type: StructureType::from_raw(1000057000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6058,7 +6058,7 @@ impl ExportMemoryWin32HandleInfoNV {
     pub fn builder<'a>() -> ExportMemoryWin32HandleInfoNVBuilder<'a> {
         ExportMemoryWin32HandleInfoNVBuilder {
             inner: ExportMemoryWin32HandleInfoNV {
-                s_type: StructureType::from_raw(-1000057001i32),
+                s_type: StructureType::from_raw(1000057001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6115,7 +6115,7 @@ impl ExportMemorySciBufInfoNV {
     pub fn builder<'a>() -> ExportMemorySciBufInfoNVBuilder<'a> {
         ExportMemorySciBufInfoNVBuilder {
             inner: ExportMemorySciBufInfoNV {
-                s_type: StructureType::from_raw(-1000374001i32),
+                s_type: StructureType::from_raw(1000374001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6167,7 +6167,7 @@ impl ImportMemorySciBufInfoNV {
     pub fn builder<'a>() -> ImportMemorySciBufInfoNVBuilder<'a> {
         ImportMemorySciBufInfoNVBuilder {
             inner: ImportMemorySciBufInfoNV {
-                s_type: StructureType::from_raw(-1000374000i32),
+                s_type: StructureType::from_raw(1000374000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6224,7 +6224,7 @@ impl MemoryGetSciBufInfoNV {
     pub fn builder<'a>() -> MemoryGetSciBufInfoNVBuilder<'a> {
         MemoryGetSciBufInfoNVBuilder {
             inner: MemoryGetSciBufInfoNV {
-                s_type: StructureType::from_raw(-1000374002i32),
+                s_type: StructureType::from_raw(1000374002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6281,7 +6281,7 @@ impl MemorySciBufPropertiesNV {
     pub fn builder<'a>() -> MemorySciBufPropertiesNVBuilder<'a> {
         MemorySciBufPropertiesNVBuilder {
             inner: MemorySciBufPropertiesNV {
-                s_type: StructureType::from_raw(-1000374003i32),
+                s_type: StructureType::from_raw(1000374003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6333,7 +6333,7 @@ impl PhysicalDeviceExternalMemorySciBufFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder {
             inner: PhysicalDeviceExternalMemorySciBufFeaturesNV {
-                s_type: StructureType::from_raw(-1000374004i32),
+                s_type: StructureType::from_raw(1000374004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6391,7 +6391,7 @@ impl Win32KeyedMutexAcquireReleaseInfoNV {
     pub fn builder<'a>() -> Win32KeyedMutexAcquireReleaseInfoNVBuilder<'a> {
         Win32KeyedMutexAcquireReleaseInfoNVBuilder {
             inner: Win32KeyedMutexAcquireReleaseInfoNV {
-                s_type: StructureType::from_raw(-1000058000i32),
+                s_type: StructureType::from_raw(1000058000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6468,7 +6468,7 @@ impl PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder<'a> {
         PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder {
             inner: PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
-                s_type: StructureType::from_raw(-1000277007i32),
+                s_type: StructureType::from_raw(1000277007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6522,7 +6522,7 @@ impl PushConstantBankInfoNV {
     pub fn builder<'a>() -> PushConstantBankInfoNVBuilder<'a> {
         PushConstantBankInfoNVBuilder {
             inner: PushConstantBankInfoNV {
-                s_type: StructureType::from_raw(-1000580000i32),
+                s_type: StructureType::from_raw(1000580000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6574,7 +6574,7 @@ impl PhysicalDevicePushConstantBankFeaturesNV {
     pub fn builder<'a>() -> PhysicalDevicePushConstantBankFeaturesNVBuilder<'a> {
         PhysicalDevicePushConstantBankFeaturesNVBuilder {
             inner: PhysicalDevicePushConstantBankFeaturesNV {
-                s_type: StructureType::from_raw(-1000580001i32),
+                s_type: StructureType::from_raw(1000580001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6626,7 +6626,7 @@ impl PhysicalDevicePushConstantBankPropertiesNV {
     pub fn builder<'a>() -> PhysicalDevicePushConstantBankPropertiesNVBuilder<'a> {
         PhysicalDevicePushConstantBankPropertiesNVBuilder {
             inner: PhysicalDevicePushConstantBankPropertiesNV {
-                s_type: StructureType::from_raw(-1000580002i32),
+                s_type: StructureType::from_raw(1000580002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6680,7 +6680,7 @@ impl PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
     > {
         PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVBuilder {
             inner: PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
-                s_type: StructureType::from_raw(-1000428000i32),
+                s_type: StructureType::from_raw(1000428000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6744,7 +6744,7 @@ impl DevicePrivateDataCreateInfo {
     pub fn builder<'a>() -> DevicePrivateDataCreateInfoBuilder<'a> {
         DevicePrivateDataCreateInfoBuilder {
             inner: DevicePrivateDataCreateInfo {
-                s_type: StructureType::from_raw(-1000295001i32),
+                s_type: StructureType::from_raw(1000295001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6796,7 +6796,7 @@ impl PrivateDataSlotCreateInfo {
     pub fn builder<'a>() -> PrivateDataSlotCreateInfoBuilder<'a> {
         PrivateDataSlotCreateInfoBuilder {
             inner: PrivateDataSlotCreateInfo {
-                s_type: StructureType::from_raw(-1000295002i32),
+                s_type: StructureType::from_raw(1000295002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6848,7 +6848,7 @@ impl PhysicalDevicePrivateDataFeatures {
     pub fn builder<'a>() -> PhysicalDevicePrivateDataFeaturesBuilder<'a> {
         PhysicalDevicePrivateDataFeaturesBuilder {
             inner: PhysicalDevicePrivateDataFeatures {
-                s_type: StructureType::from_raw(-1000295000i32),
+                s_type: StructureType::from_raw(1000295000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6902,7 +6902,7 @@ impl PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
     > {
         PhysicalDeviceDeviceGeneratedCommandsPropertiesNVBuilder {
             inner: PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
-                s_type: StructureType::from_raw(-1000277000i32),
+                s_type: StructureType::from_raw(1000277000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6983,7 +6983,7 @@ impl PhysicalDeviceClusterAccelerationStructureFeaturesNV {
     > {
         PhysicalDeviceClusterAccelerationStructureFeaturesNVBuilder {
             inner: PhysicalDeviceClusterAccelerationStructureFeaturesNV {
-                s_type: StructureType::from_raw(-1000569000i32),
+                s_type: StructureType::from_raw(1000569000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7039,7 +7039,7 @@ impl PhysicalDeviceClusterAccelerationStructurePropertiesNV {
     > {
         PhysicalDeviceClusterAccelerationStructurePropertiesNVBuilder {
             inner: PhysicalDeviceClusterAccelerationStructurePropertiesNV {
-                s_type: StructureType::from_raw(-1000569001i32),
+                s_type: StructureType::from_raw(1000569001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7115,7 +7115,7 @@ impl RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
     > {
         RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder {
             inner: RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
-                s_type: StructureType::from_raw(-1000569007i32),
+                s_type: StructureType::from_raw(1000569007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7170,7 +7170,7 @@ impl ClusterAccelerationStructureClustersBottomLevelInputNV {
     > {
         ClusterAccelerationStructureClustersBottomLevelInputNVBuilder {
             inner: ClusterAccelerationStructureClustersBottomLevelInputNV {
-                s_type: StructureType::from_raw(-1000569002i32),
+                s_type: StructureType::from_raw(1000569002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7231,7 +7231,7 @@ impl ClusterAccelerationStructureTriangleClusterInputNV {
     > {
         ClusterAccelerationStructureTriangleClusterInputNVBuilder {
             inner: ClusterAccelerationStructureTriangleClusterInputNV {
-                s_type: StructureType::from_raw(-1000569003i32),
+                s_type: StructureType::from_raw(1000569003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7320,7 +7320,7 @@ impl ClusterAccelerationStructureMoveObjectsInputNV {
     pub fn builder<'a>() -> ClusterAccelerationStructureMoveObjectsInputNVBuilder<'a> {
         ClusterAccelerationStructureMoveObjectsInputNVBuilder {
             inner: ClusterAccelerationStructureMoveObjectsInputNV {
-                s_type: StructureType::from_raw(-1000569004i32),
+                s_type: StructureType::from_raw(1000569004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7383,7 +7383,7 @@ impl ClusterAccelerationStructureInputInfoNV {
     pub fn builder<'a>() -> ClusterAccelerationStructureInputInfoNVBuilder<'a> {
         ClusterAccelerationStructureInputInfoNVBuilder {
             inner: ClusterAccelerationStructureInputInfoNV {
-                s_type: StructureType::from_raw(-1000569005i32),
+                s_type: StructureType::from_raw(1000569005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7455,7 +7455,7 @@ impl ClusterAccelerationStructureCommandsInfoNV {
     pub fn builder<'a>() -> ClusterAccelerationStructureCommandsInfoNVBuilder<'a> {
         ClusterAccelerationStructureCommandsInfoNVBuilder {
             inner: ClusterAccelerationStructureCommandsInfoNV {
-                s_type: StructureType::from_raw(-1000569006i32),
+                s_type: StructureType::from_raw(1000569006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7545,7 +7545,7 @@ impl PhysicalDeviceMultiDrawPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMultiDrawPropertiesEXTBuilder<'a> {
         PhysicalDeviceMultiDrawPropertiesEXTBuilder {
             inner: PhysicalDeviceMultiDrawPropertiesEXT {
-                s_type: StructureType::from_raw(-1000392001i32),
+                s_type: StructureType::from_raw(1000392001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7582,7 +7582,7 @@ impl GraphicsShaderGroupCreateInfoNV {
     pub fn builder<'a>() -> GraphicsShaderGroupCreateInfoNVBuilder<'a> {
         GraphicsShaderGroupCreateInfoNVBuilder {
             inner: GraphicsShaderGroupCreateInfoNV {
-                s_type: StructureType::from_raw(-1000277001i32),
+                s_type: StructureType::from_raw(1000277001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7651,7 +7651,7 @@ impl GraphicsPipelineShaderGroupsCreateInfoNV {
     pub fn builder<'a>() -> GraphicsPipelineShaderGroupsCreateInfoNVBuilder<'a> {
         GraphicsPipelineShaderGroupsCreateInfoNVBuilder {
             inner: GraphicsPipelineShaderGroupsCreateInfoNV {
-                s_type: StructureType::from_raw(-1000277002i32),
+                s_type: StructureType::from_raw(1000277002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7710,7 +7710,7 @@ impl IndirectCommandsLayoutTokenNV {
     pub fn builder<'a>() -> IndirectCommandsLayoutTokenNVBuilder<'a> {
         IndirectCommandsLayoutTokenNVBuilder {
             inner: IndirectCommandsLayoutTokenNV {
-                s_type: StructureType::from_raw(-1000277003i32),
+                s_type: StructureType::from_raw(1000277003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7819,7 +7819,7 @@ impl IndirectCommandsLayoutCreateInfoNV {
     pub fn builder<'a>() -> IndirectCommandsLayoutCreateInfoNVBuilder<'a> {
         IndirectCommandsLayoutCreateInfoNVBuilder {
             inner: IndirectCommandsLayoutCreateInfoNV {
-                s_type: StructureType::from_raw(-1000277004i32),
+                s_type: StructureType::from_raw(1000277004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7888,7 +7888,7 @@ impl GeneratedCommandsInfoNV {
     pub fn builder<'a>() -> GeneratedCommandsInfoNVBuilder<'a> {
         GeneratedCommandsInfoNVBuilder {
             inner: GeneratedCommandsInfoNV {
-                s_type: StructureType::from_raw(-1000277005i32),
+                s_type: StructureType::from_raw(1000277005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -7996,7 +7996,7 @@ impl GeneratedCommandsMemoryRequirementsInfoNV {
     pub fn builder<'a>() -> GeneratedCommandsMemoryRequirementsInfoNVBuilder<'a> {
         GeneratedCommandsMemoryRequirementsInfoNVBuilder {
             inner: GeneratedCommandsMemoryRequirementsInfoNV {
-                s_type: StructureType::from_raw(-1000277006i32),
+                s_type: StructureType::from_raw(1000277006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8063,7 +8063,7 @@ impl PipelineIndirectDeviceAddressInfoNV {
     pub fn builder<'a>() -> PipelineIndirectDeviceAddressInfoNVBuilder<'a> {
         PipelineIndirectDeviceAddressInfoNVBuilder {
             inner: PipelineIndirectDeviceAddressInfoNV {
-                s_type: StructureType::from_raw(-1000428002i32),
+                s_type: StructureType::from_raw(1000428002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8120,7 +8120,7 @@ impl PhysicalDeviceFeatures2 {
     pub fn builder<'a>() -> PhysicalDeviceFeatures2Builder<'a> {
         PhysicalDeviceFeatures2Builder {
             inner: PhysicalDeviceFeatures2 {
-                s_type: StructureType::from_raw(-1000059000i32),
+                s_type: StructureType::from_raw(1000059000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8172,7 +8172,7 @@ impl PhysicalDeviceProperties2 {
     pub fn builder<'a>() -> PhysicalDeviceProperties2Builder<'a> {
         PhysicalDeviceProperties2Builder {
             inner: PhysicalDeviceProperties2 {
-                s_type: StructureType::from_raw(-1000059001i32),
+                s_type: StructureType::from_raw(1000059001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8209,7 +8209,7 @@ impl FormatProperties2 {
     pub fn builder<'a>() -> FormatProperties2Builder<'a> {
         FormatProperties2Builder {
             inner: FormatProperties2 {
-                s_type: StructureType::from_raw(-1000059002i32),
+                s_type: StructureType::from_raw(1000059002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8246,7 +8246,7 @@ impl ImageFormatProperties2 {
     pub fn builder<'a>() -> ImageFormatProperties2Builder<'a> {
         ImageFormatProperties2Builder {
             inner: ImageFormatProperties2 {
-                s_type: StructureType::from_raw(-1000059003i32),
+                s_type: StructureType::from_raw(1000059003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8283,7 +8283,7 @@ impl PhysicalDeviceImageFormatInfo2 {
     pub fn builder<'a>() -> PhysicalDeviceImageFormatInfo2Builder<'a> {
         PhysicalDeviceImageFormatInfo2Builder {
             inner: PhysicalDeviceImageFormatInfo2 {
-                s_type: StructureType::from_raw(-1000059004i32),
+                s_type: StructureType::from_raw(1000059004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8355,7 +8355,7 @@ impl QueueFamilyProperties2 {
     pub fn builder<'a>() -> QueueFamilyProperties2Builder<'a> {
         QueueFamilyProperties2Builder {
             inner: QueueFamilyProperties2 {
-                s_type: StructureType::from_raw(-1000059005i32),
+                s_type: StructureType::from_raw(1000059005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8392,7 +8392,7 @@ impl PhysicalDeviceMemoryProperties2 {
     pub fn builder<'a>() -> PhysicalDeviceMemoryProperties2Builder<'a> {
         PhysicalDeviceMemoryProperties2Builder {
             inner: PhysicalDeviceMemoryProperties2 {
-                s_type: StructureType::from_raw(-1000059006i32),
+                s_type: StructureType::from_raw(1000059006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8429,7 +8429,7 @@ impl SparseImageFormatProperties2 {
     pub fn builder<'a>() -> SparseImageFormatProperties2Builder<'a> {
         SparseImageFormatProperties2Builder {
             inner: SparseImageFormatProperties2 {
-                s_type: StructureType::from_raw(-1000059007i32),
+                s_type: StructureType::from_raw(1000059007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8466,7 +8466,7 @@ impl PhysicalDeviceSparseImageFormatInfo2 {
     pub fn builder<'a>() -> PhysicalDeviceSparseImageFormatInfo2Builder<'a> {
         PhysicalDeviceSparseImageFormatInfo2Builder {
             inner: PhysicalDeviceSparseImageFormatInfo2 {
-                s_type: StructureType::from_raw(-1000059008i32),
+                s_type: StructureType::from_raw(1000059008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8538,7 +8538,7 @@ impl PhysicalDevicePushDescriptorProperties {
     pub fn builder<'a>() -> PhysicalDevicePushDescriptorPropertiesBuilder<'a> {
         PhysicalDevicePushDescriptorPropertiesBuilder {
             inner: PhysicalDevicePushDescriptorProperties {
-                s_type: StructureType::from_raw(-1000080000i32),
+                s_type: StructureType::from_raw(1000080000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8575,7 +8575,7 @@ impl PhysicalDeviceDriverProperties {
     pub fn builder<'a>() -> PhysicalDeviceDriverPropertiesBuilder<'a> {
         PhysicalDeviceDriverPropertiesBuilder {
             inner: PhysicalDeviceDriverProperties {
-                s_type: StructureType::from_raw(-1000196000i32),
+                s_type: StructureType::from_raw(1000196000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8633,7 +8633,7 @@ impl PresentRegionsKHR {
     pub fn builder<'a>() -> PresentRegionsKHRBuilder<'a> {
         PresentRegionsKHRBuilder {
             inner: PresentRegionsKHR {
-                s_type: StructureType::from_raw(-1000084000i32),
+                s_type: StructureType::from_raw(1000084000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8683,7 +8683,7 @@ impl PhysicalDeviceVariablePointersFeatures {
     pub fn builder<'a>() -> PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
         PhysicalDeviceVariablePointersFeaturesBuilder {
             inner: PhysicalDeviceVariablePointersFeatures {
-                s_type: StructureType::from_raw(-1000120000i32),
+                s_type: StructureType::from_raw(1000120000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8740,7 +8740,7 @@ impl PhysicalDeviceExternalImageFormatInfo {
     pub fn builder<'a>() -> PhysicalDeviceExternalImageFormatInfoBuilder<'a> {
         PhysicalDeviceExternalImageFormatInfoBuilder {
             inner: PhysicalDeviceExternalImageFormatInfo {
-                s_type: StructureType::from_raw(-1000071000i32),
+                s_type: StructureType::from_raw(1000071000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8792,7 +8792,7 @@ impl ExternalImageFormatProperties {
     pub fn builder<'a>() -> ExternalImageFormatPropertiesBuilder<'a> {
         ExternalImageFormatPropertiesBuilder {
             inner: ExternalImageFormatProperties {
-                s_type: StructureType::from_raw(-1000071001i32),
+                s_type: StructureType::from_raw(1000071001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8832,7 +8832,7 @@ impl PhysicalDeviceExternalBufferInfo {
     pub fn builder<'a>() -> PhysicalDeviceExternalBufferInfoBuilder<'a> {
         PhysicalDeviceExternalBufferInfoBuilder {
             inner: PhysicalDeviceExternalBufferInfo {
-                s_type: StructureType::from_raw(-1000071002i32),
+                s_type: StructureType::from_raw(1000071002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8894,7 +8894,7 @@ impl ExternalBufferProperties {
     pub fn builder<'a>() -> ExternalBufferPropertiesBuilder<'a> {
         ExternalBufferPropertiesBuilder {
             inner: ExternalBufferProperties {
-                s_type: StructureType::from_raw(-1000071003i32),
+                s_type: StructureType::from_raw(1000071003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8934,7 +8934,7 @@ impl PhysicalDeviceIDProperties {
     pub fn builder<'a>() -> PhysicalDeviceIDPropertiesBuilder<'a> {
         PhysicalDeviceIDPropertiesBuilder {
             inner: PhysicalDeviceIDProperties {
-                s_type: StructureType::from_raw(-1000071004i32),
+                s_type: StructureType::from_raw(1000071004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -8991,7 +8991,7 @@ impl ExternalMemoryImageCreateInfo {
     pub fn builder<'a>() -> ExternalMemoryImageCreateInfoBuilder<'a> {
         ExternalMemoryImageCreateInfoBuilder {
             inner: ExternalMemoryImageCreateInfo {
-                s_type: StructureType::from_raw(-1000072001i32),
+                s_type: StructureType::from_raw(1000072001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9043,7 +9043,7 @@ impl ExternalMemoryBufferCreateInfo {
     pub fn builder<'a>() -> ExternalMemoryBufferCreateInfoBuilder<'a> {
         ExternalMemoryBufferCreateInfoBuilder {
             inner: ExternalMemoryBufferCreateInfo {
-                s_type: StructureType::from_raw(-1000072000i32),
+                s_type: StructureType::from_raw(1000072000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9095,7 +9095,7 @@ impl ExportMemoryAllocateInfo {
     pub fn builder<'a>() -> ExportMemoryAllocateInfoBuilder<'a> {
         ExportMemoryAllocateInfoBuilder {
             inner: ExportMemoryAllocateInfo {
-                s_type: StructureType::from_raw(-1000072002i32),
+                s_type: StructureType::from_raw(1000072002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9147,7 +9147,7 @@ impl ImportMemoryWin32HandleInfoKHR {
     pub fn builder<'a>() -> ImportMemoryWin32HandleInfoKHRBuilder<'a> {
         ImportMemoryWin32HandleInfoKHRBuilder {
             inner: ImportMemoryWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000073000i32),
+                s_type: StructureType::from_raw(1000073000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9209,7 +9209,7 @@ impl ExportMemoryWin32HandleInfoKHR {
     pub fn builder<'a>() -> ExportMemoryWin32HandleInfoKHRBuilder<'a> {
         ExportMemoryWin32HandleInfoKHRBuilder {
             inner: ExportMemoryWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000073001i32),
+                s_type: StructureType::from_raw(1000073001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9271,7 +9271,7 @@ impl ImportMemoryZirconHandleInfoFUCHSIA {
     pub fn builder<'a>() -> ImportMemoryZirconHandleInfoFUCHSIABuilder<'a> {
         ImportMemoryZirconHandleInfoFUCHSIABuilder {
             inner: ImportMemoryZirconHandleInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000364000i32),
+                s_type: StructureType::from_raw(1000364000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9328,7 +9328,7 @@ impl MemoryZirconHandlePropertiesFUCHSIA {
     pub fn builder<'a>() -> MemoryZirconHandlePropertiesFUCHSIABuilder<'a> {
         MemoryZirconHandlePropertiesFUCHSIABuilder {
             inner: MemoryZirconHandlePropertiesFUCHSIA {
-                s_type: StructureType::from_raw(-1000364001i32),
+                s_type: StructureType::from_raw(1000364001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9365,7 +9365,7 @@ impl MemoryGetZirconHandleInfoFUCHSIA {
     pub fn builder<'a>() -> MemoryGetZirconHandleInfoFUCHSIABuilder<'a> {
         MemoryGetZirconHandleInfoFUCHSIABuilder {
             inner: MemoryGetZirconHandleInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000364002i32),
+                s_type: StructureType::from_raw(1000364002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9422,7 +9422,7 @@ impl MemoryWin32HandlePropertiesKHR {
     pub fn builder<'a>() -> MemoryWin32HandlePropertiesKHRBuilder<'a> {
         MemoryWin32HandlePropertiesKHRBuilder {
             inner: MemoryWin32HandlePropertiesKHR {
-                s_type: StructureType::from_raw(-1000073002i32),
+                s_type: StructureType::from_raw(1000073002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9459,7 +9459,7 @@ impl MemoryGetWin32HandleInfoKHR {
     pub fn builder<'a>() -> MemoryGetWin32HandleInfoKHRBuilder<'a> {
         MemoryGetWin32HandleInfoKHRBuilder {
             inner: MemoryGetWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000073003i32),
+                s_type: StructureType::from_raw(1000073003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9516,7 +9516,7 @@ impl ImportMemoryFdInfoKHR {
     pub fn builder<'a>() -> ImportMemoryFdInfoKHRBuilder<'a> {
         ImportMemoryFdInfoKHRBuilder {
             inner: ImportMemoryFdInfoKHR {
-                s_type: StructureType::from_raw(-1000074000i32),
+                s_type: StructureType::from_raw(1000074000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9573,7 +9573,7 @@ impl MemoryFdPropertiesKHR {
     pub fn builder<'a>() -> MemoryFdPropertiesKHRBuilder<'a> {
         MemoryFdPropertiesKHRBuilder {
             inner: MemoryFdPropertiesKHR {
-                s_type: StructureType::from_raw(-1000074001i32),
+                s_type: StructureType::from_raw(1000074001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9610,7 +9610,7 @@ impl MemoryGetFdInfoKHR {
     pub fn builder<'a>() -> MemoryGetFdInfoKHRBuilder<'a> {
         MemoryGetFdInfoKHRBuilder {
             inner: MemoryGetFdInfoKHR {
-                s_type: StructureType::from_raw(-1000074002i32),
+                s_type: StructureType::from_raw(1000074002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9664,7 +9664,7 @@ impl Win32KeyedMutexAcquireReleaseInfoKHR {
     pub fn builder<'a>() -> Win32KeyedMutexAcquireReleaseInfoKHRBuilder<'a> {
         Win32KeyedMutexAcquireReleaseInfoKHRBuilder {
             inner: Win32KeyedMutexAcquireReleaseInfoKHR {
-                s_type: StructureType::from_raw(-1000075000i32),
+                s_type: StructureType::from_raw(1000075000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9741,7 +9741,7 @@ impl ImportMemoryMetalHandleInfoEXT {
     pub fn builder<'a>() -> ImportMemoryMetalHandleInfoEXTBuilder<'a> {
         ImportMemoryMetalHandleInfoEXTBuilder {
             inner: ImportMemoryMetalHandleInfoEXT {
-                s_type: StructureType::from_raw(-1000602000i32),
+                s_type: StructureType::from_raw(1000602000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9798,7 +9798,7 @@ impl MemoryMetalHandlePropertiesEXT {
     pub fn builder<'a>() -> MemoryMetalHandlePropertiesEXTBuilder<'a> {
         MemoryMetalHandlePropertiesEXTBuilder {
             inner: MemoryMetalHandlePropertiesEXT {
-                s_type: StructureType::from_raw(-1000602001i32),
+                s_type: StructureType::from_raw(1000602001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9835,7 +9835,7 @@ impl MemoryGetMetalHandleInfoEXT {
     pub fn builder<'a>() -> MemoryGetMetalHandleInfoEXTBuilder<'a> {
         MemoryGetMetalHandleInfoEXTBuilder {
             inner: MemoryGetMetalHandleInfoEXT {
-                s_type: StructureType::from_raw(-1000602002i32),
+                s_type: StructureType::from_raw(1000602002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9892,7 +9892,7 @@ impl PhysicalDeviceExternalSemaphoreInfo {
     pub fn builder<'a>() -> PhysicalDeviceExternalSemaphoreInfoBuilder<'a> {
         PhysicalDeviceExternalSemaphoreInfoBuilder {
             inner: PhysicalDeviceExternalSemaphoreInfo {
-                s_type: StructureType::from_raw(-1000076000i32),
+                s_type: StructureType::from_raw(1000076000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -9944,7 +9944,7 @@ impl ExternalSemaphoreProperties {
     pub fn builder<'a>() -> ExternalSemaphorePropertiesBuilder<'a> {
         ExternalSemaphorePropertiesBuilder {
             inner: ExternalSemaphoreProperties {
-                s_type: StructureType::from_raw(-1000076001i32),
+                s_type: StructureType::from_raw(1000076001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10000,7 +10000,7 @@ impl ExportSemaphoreCreateInfo {
     pub fn builder<'a>() -> ExportSemaphoreCreateInfoBuilder<'a> {
         ExportSemaphoreCreateInfoBuilder {
             inner: ExportSemaphoreCreateInfo {
-                s_type: StructureType::from_raw(-1000077000i32),
+                s_type: StructureType::from_raw(1000077000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10052,7 +10052,7 @@ impl ImportSemaphoreWin32HandleInfoKHR {
     pub fn builder<'a>() -> ImportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         ImportSemaphoreWin32HandleInfoKHRBuilder {
             inner: ImportSemaphoreWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000078000i32),
+                s_type: StructureType::from_raw(1000078000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10124,7 +10124,7 @@ impl ExportSemaphoreWin32HandleInfoKHR {
     pub fn builder<'a>() -> ExportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         ExportSemaphoreWin32HandleInfoKHRBuilder {
             inner: ExportSemaphoreWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000078001i32),
+                s_type: StructureType::from_raw(1000078001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10186,7 +10186,7 @@ impl D3D12FenceSubmitInfoKHR {
     pub fn builder<'a>() -> D3D12FenceSubmitInfoKHRBuilder<'a> {
         D3D12FenceSubmitInfoKHRBuilder {
             inner: D3D12FenceSubmitInfoKHR {
-                s_type: StructureType::from_raw(-1000078002i32),
+                s_type: StructureType::from_raw(1000078002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10245,7 +10245,7 @@ impl SemaphoreGetWin32HandleInfoKHR {
     pub fn builder<'a>() -> SemaphoreGetWin32HandleInfoKHRBuilder<'a> {
         SemaphoreGetWin32HandleInfoKHRBuilder {
             inner: SemaphoreGetWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000078003i32),
+                s_type: StructureType::from_raw(1000078003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10302,7 +10302,7 @@ impl ImportSemaphoreFdInfoKHR {
     pub fn builder<'a>() -> ImportSemaphoreFdInfoKHRBuilder<'a> {
         ImportSemaphoreFdInfoKHRBuilder {
             inner: ImportSemaphoreFdInfoKHR {
-                s_type: StructureType::from_raw(-1000079000i32),
+                s_type: StructureType::from_raw(1000079000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10369,7 +10369,7 @@ impl SemaphoreGetFdInfoKHR {
     pub fn builder<'a>() -> SemaphoreGetFdInfoKHRBuilder<'a> {
         SemaphoreGetFdInfoKHRBuilder {
             inner: SemaphoreGetFdInfoKHR {
-                s_type: StructureType::from_raw(-1000079001i32),
+                s_type: StructureType::from_raw(1000079001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10426,7 +10426,7 @@ impl ImportSemaphoreZirconHandleInfoFUCHSIA {
     pub fn builder<'a>() -> ImportSemaphoreZirconHandleInfoFUCHSIABuilder<'a> {
         ImportSemaphoreZirconHandleInfoFUCHSIABuilder {
             inner: ImportSemaphoreZirconHandleInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000365000i32),
+                s_type: StructureType::from_raw(1000365000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10493,7 +10493,7 @@ impl SemaphoreGetZirconHandleInfoFUCHSIA {
     pub fn builder<'a>() -> SemaphoreGetZirconHandleInfoFUCHSIABuilder<'a> {
         SemaphoreGetZirconHandleInfoFUCHSIABuilder {
             inner: SemaphoreGetZirconHandleInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000365001i32),
+                s_type: StructureType::from_raw(1000365001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10550,7 +10550,7 @@ impl PhysicalDeviceExternalFenceInfo {
     pub fn builder<'a>() -> PhysicalDeviceExternalFenceInfoBuilder<'a> {
         PhysicalDeviceExternalFenceInfoBuilder {
             inner: PhysicalDeviceExternalFenceInfo {
-                s_type: StructureType::from_raw(-1000112000i32),
+                s_type: StructureType::from_raw(1000112000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10602,7 +10602,7 @@ impl ExternalFenceProperties {
     pub fn builder<'a>() -> ExternalFencePropertiesBuilder<'a> {
         ExternalFencePropertiesBuilder {
             inner: ExternalFenceProperties {
-                s_type: StructureType::from_raw(-1000112001i32),
+                s_type: StructureType::from_raw(1000112001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10655,7 +10655,7 @@ impl ExportFenceCreateInfo {
     pub fn builder<'a>() -> ExportFenceCreateInfoBuilder<'a> {
         ExportFenceCreateInfoBuilder {
             inner: ExportFenceCreateInfo {
-                s_type: StructureType::from_raw(-1000113000i32),
+                s_type: StructureType::from_raw(1000113000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10707,7 +10707,7 @@ impl ImportFenceWin32HandleInfoKHR {
     pub fn builder<'a>() -> ImportFenceWin32HandleInfoKHRBuilder<'a> {
         ImportFenceWin32HandleInfoKHRBuilder {
             inner: ImportFenceWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000114000i32),
+                s_type: StructureType::from_raw(1000114000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10779,7 +10779,7 @@ impl ExportFenceWin32HandleInfoKHR {
     pub fn builder<'a>() -> ExportFenceWin32HandleInfoKHRBuilder<'a> {
         ExportFenceWin32HandleInfoKHRBuilder {
             inner: ExportFenceWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000114001i32),
+                s_type: StructureType::from_raw(1000114001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10841,7 +10841,7 @@ impl FenceGetWin32HandleInfoKHR {
     pub fn builder<'a>() -> FenceGetWin32HandleInfoKHRBuilder<'a> {
         FenceGetWin32HandleInfoKHRBuilder {
             inner: FenceGetWin32HandleInfoKHR {
-                s_type: StructureType::from_raw(-1000114002i32),
+                s_type: StructureType::from_raw(1000114002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10898,7 +10898,7 @@ impl ImportFenceFdInfoKHR {
     pub fn builder<'a>() -> ImportFenceFdInfoKHRBuilder<'a> {
         ImportFenceFdInfoKHRBuilder {
             inner: ImportFenceFdInfoKHR {
-                s_type: StructureType::from_raw(-1000115000i32),
+                s_type: StructureType::from_raw(1000115000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -10962,7 +10962,7 @@ impl FenceGetFdInfoKHR {
     pub fn builder<'a>() -> FenceGetFdInfoKHRBuilder<'a> {
         FenceGetFdInfoKHRBuilder {
             inner: FenceGetFdInfoKHR {
-                s_type: StructureType::from_raw(-1000115001i32),
+                s_type: StructureType::from_raw(1000115001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11016,7 +11016,7 @@ impl ExportFenceSciSyncInfoNV {
     pub fn builder<'a>() -> ExportFenceSciSyncInfoNVBuilder<'a> {
         ExportFenceSciSyncInfoNVBuilder {
             inner: ExportFenceSciSyncInfoNV {
-                s_type: StructureType::from_raw(-1000373001i32),
+                s_type: StructureType::from_raw(1000373001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11068,7 +11068,7 @@ impl ImportFenceSciSyncInfoNV {
     pub fn builder<'a>() -> ImportFenceSciSyncInfoNVBuilder<'a> {
         ImportFenceSciSyncInfoNVBuilder {
             inner: ImportFenceSciSyncInfoNV {
-                s_type: StructureType::from_raw(-1000373000i32),
+                s_type: StructureType::from_raw(1000373000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11130,7 +11130,7 @@ impl FenceGetSciSyncInfoNV {
     pub fn builder<'a>() -> FenceGetSciSyncInfoNVBuilder<'a> {
         FenceGetSciSyncInfoNVBuilder {
             inner: FenceGetSciSyncInfoNV {
-                s_type: StructureType::from_raw(-1000373002i32),
+                s_type: StructureType::from_raw(1000373002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11187,7 +11187,7 @@ impl ExportSemaphoreSciSyncInfoNV {
     pub fn builder<'a>() -> ExportSemaphoreSciSyncInfoNVBuilder<'a> {
         ExportSemaphoreSciSyncInfoNVBuilder {
             inner: ExportSemaphoreSciSyncInfoNV {
-                s_type: StructureType::from_raw(-1000373005i32),
+                s_type: StructureType::from_raw(1000373005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11239,7 +11239,7 @@ impl ImportSemaphoreSciSyncInfoNV {
     pub fn builder<'a>() -> ImportSemaphoreSciSyncInfoNVBuilder<'a> {
         ImportSemaphoreSciSyncInfoNVBuilder {
             inner: ImportSemaphoreSciSyncInfoNV {
-                s_type: StructureType::from_raw(-1000373004i32),
+                s_type: StructureType::from_raw(1000373004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11301,7 +11301,7 @@ impl SemaphoreGetSciSyncInfoNV {
     pub fn builder<'a>() -> SemaphoreGetSciSyncInfoNVBuilder<'a> {
         SemaphoreGetSciSyncInfoNVBuilder {
             inner: SemaphoreGetSciSyncInfoNV {
-                s_type: StructureType::from_raw(-1000373006i32),
+                s_type: StructureType::from_raw(1000373006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11358,7 +11358,7 @@ impl SciSyncAttributesInfoNV {
     pub fn builder<'a>() -> SciSyncAttributesInfoNVBuilder<'a> {
         SciSyncAttributesInfoNVBuilder {
             inner: SciSyncAttributesInfoNV {
-                s_type: StructureType::from_raw(-1000373003i32),
+                s_type: StructureType::from_raw(1000373003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11415,7 +11415,7 @@ impl PhysicalDeviceExternalSciSyncFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalSciSyncFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalSciSyncFeaturesNVBuilder {
             inner: PhysicalDeviceExternalSciSyncFeaturesNV {
-                s_type: StructureType::from_raw(-1000373007i32),
+                s_type: StructureType::from_raw(1000373007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11482,7 +11482,7 @@ impl PhysicalDeviceExternalSciSync2FeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalSciSync2FeaturesNVBuilder<'a> {
         PhysicalDeviceExternalSciSync2FeaturesNVBuilder {
             inner: PhysicalDeviceExternalSciSync2FeaturesNV {
-                s_type: StructureType::from_raw(-1000489002i32),
+                s_type: StructureType::from_raw(1000489002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11549,7 +11549,7 @@ impl SemaphoreSciSyncPoolCreateInfoNV {
     pub fn builder<'a>() -> SemaphoreSciSyncPoolCreateInfoNVBuilder<'a> {
         SemaphoreSciSyncPoolCreateInfoNVBuilder {
             inner: SemaphoreSciSyncPoolCreateInfoNV {
-                s_type: StructureType::from_raw(-1000489000i32),
+                s_type: StructureType::from_raw(1000489000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11601,7 +11601,7 @@ impl SemaphoreSciSyncCreateInfoNV {
     pub fn builder<'a>() -> SemaphoreSciSyncCreateInfoNVBuilder<'a> {
         SemaphoreSciSyncCreateInfoNVBuilder {
             inner: SemaphoreSciSyncCreateInfoNV {
-                s_type: StructureType::from_raw(-1000489001i32),
+                s_type: StructureType::from_raw(1000489001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11660,7 +11660,7 @@ impl DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
     > {
         DeviceSemaphoreSciSyncPoolReservationCreateInfoNVBuilder {
             inner: DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
-                s_type: StructureType::from_raw(-1000489003i32),
+                s_type: StructureType::from_raw(1000489003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11714,7 +11714,7 @@ impl PhysicalDeviceMultiviewFeatures {
     pub fn builder<'a>() -> PhysicalDeviceMultiviewFeaturesBuilder<'a> {
         PhysicalDeviceMultiviewFeaturesBuilder {
             inner: PhysicalDeviceMultiviewFeatures {
-                s_type: StructureType::from_raw(-1000053001i32),
+                s_type: StructureType::from_raw(1000053001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11776,7 +11776,7 @@ impl PhysicalDeviceMultiviewProperties {
     pub fn builder<'a>() -> PhysicalDeviceMultiviewPropertiesBuilder<'a> {
         PhysicalDeviceMultiviewPropertiesBuilder {
             inner: PhysicalDeviceMultiviewProperties {
-                s_type: StructureType::from_raw(-1000053002i32),
+                s_type: StructureType::from_raw(1000053002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11818,7 +11818,7 @@ impl RenderPassMultiviewCreateInfo {
     pub fn builder<'a>() -> RenderPassMultiviewCreateInfoBuilder<'a> {
         RenderPassMultiviewCreateInfoBuilder {
             inner: RenderPassMultiviewCreateInfo {
-                s_type: StructureType::from_raw(-1000053000i32),
+                s_type: StructureType::from_raw(1000053000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11883,7 +11883,7 @@ impl SurfaceCapabilities2EXT {
     pub fn builder<'a>() -> SurfaceCapabilities2EXTBuilder<'a> {
         SurfaceCapabilities2EXTBuilder {
             inner: SurfaceCapabilities2EXT {
-                s_type: StructureType::from_raw(-1000090000i32),
+                s_type: StructureType::from_raw(1000090000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11970,7 +11970,7 @@ impl DisplayPowerInfoEXT {
     pub fn builder<'a>() -> DisplayPowerInfoEXTBuilder<'a> {
         DisplayPowerInfoEXTBuilder {
             inner: DisplayPowerInfoEXT {
-                s_type: StructureType::from_raw(-1000091000i32),
+                s_type: StructureType::from_raw(1000091000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12019,7 +12019,7 @@ impl DeviceEventInfoEXT {
     pub fn builder<'a>() -> DeviceEventInfoEXTBuilder<'a> {
         DeviceEventInfoEXTBuilder {
             inner: DeviceEventInfoEXT {
-                s_type: StructureType::from_raw(-1000091001i32),
+                s_type: StructureType::from_raw(1000091001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12068,7 +12068,7 @@ impl DisplayEventInfoEXT {
     pub fn builder<'a>() -> DisplayEventInfoEXTBuilder<'a> {
         DisplayEventInfoEXTBuilder {
             inner: DisplayEventInfoEXT {
-                s_type: StructureType::from_raw(-1000091002i32),
+                s_type: StructureType::from_raw(1000091002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12117,7 +12117,7 @@ impl SwapchainCounterCreateInfoEXT {
     pub fn builder<'a>() -> SwapchainCounterCreateInfoEXTBuilder<'a> {
         SwapchainCounterCreateInfoEXTBuilder {
             inner: SwapchainCounterCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000091003i32),
+                s_type: StructureType::from_raw(1000091003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12169,7 +12169,7 @@ impl PhysicalDeviceGroupProperties {
     pub fn builder<'a>() -> PhysicalDeviceGroupPropertiesBuilder<'a> {
         PhysicalDeviceGroupPropertiesBuilder {
             inner: PhysicalDeviceGroupProperties {
-                s_type: StructureType::from_raw(-1000070000i32),
+                s_type: StructureType::from_raw(1000070000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12219,7 +12219,7 @@ impl MemoryAllocateFlagsInfo {
     pub fn builder<'a>() -> MemoryAllocateFlagsInfoBuilder<'a> {
         MemoryAllocateFlagsInfoBuilder {
             inner: MemoryAllocateFlagsInfo {
-                s_type: StructureType::from_raw(-1000060000i32),
+                s_type: StructureType::from_raw(1000060000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12276,7 +12276,7 @@ impl BindBufferMemoryInfo {
     pub fn builder<'a>() -> BindBufferMemoryInfoBuilder<'a> {
         BindBufferMemoryInfoBuilder {
             inner: BindBufferMemoryInfo {
-                s_type: StructureType::from_raw(-1000157000i32),
+                s_type: StructureType::from_raw(1000157000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12335,7 +12335,7 @@ impl BindBufferMemoryDeviceGroupInfo {
     pub fn builder<'a>() -> BindBufferMemoryDeviceGroupInfoBuilder<'a> {
         BindBufferMemoryDeviceGroupInfoBuilder {
             inner: BindBufferMemoryDeviceGroupInfo {
-                s_type: StructureType::from_raw(-1000060013i32),
+                s_type: StructureType::from_raw(1000060013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12388,7 +12388,7 @@ impl BindImageMemoryInfo {
     pub fn builder<'a>() -> BindImageMemoryInfoBuilder<'a> {
         BindImageMemoryInfoBuilder {
             inner: BindImageMemoryInfo {
-                s_type: StructureType::from_raw(-1000157001i32),
+                s_type: StructureType::from_raw(1000157001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12447,7 +12447,7 @@ impl BindImageMemoryDeviceGroupInfo {
     pub fn builder<'a>() -> BindImageMemoryDeviceGroupInfoBuilder<'a> {
         BindImageMemoryDeviceGroupInfoBuilder {
             inner: BindImageMemoryDeviceGroupInfo {
-                s_type: StructureType::from_raw(-1000060014i32),
+                s_type: StructureType::from_raw(1000060014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12506,7 +12506,7 @@ impl DeviceGroupRenderPassBeginInfo {
     pub fn builder<'a>() -> DeviceGroupRenderPassBeginInfoBuilder<'a> {
         DeviceGroupRenderPassBeginInfoBuilder {
             inner: DeviceGroupRenderPassBeginInfo {
-                s_type: StructureType::from_raw(-1000060003i32),
+                s_type: StructureType::from_raw(1000060003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12564,7 +12564,7 @@ impl DeviceGroupCommandBufferBeginInfo {
     pub fn builder<'a>() -> DeviceGroupCommandBufferBeginInfoBuilder<'a> {
         DeviceGroupCommandBufferBeginInfoBuilder {
             inner: DeviceGroupCommandBufferBeginInfo {
-                s_type: StructureType::from_raw(-1000060004i32),
+                s_type: StructureType::from_raw(1000060004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12616,7 +12616,7 @@ impl DeviceGroupSubmitInfo {
     pub fn builder<'a>() -> DeviceGroupSubmitInfoBuilder<'a> {
         DeviceGroupSubmitInfoBuilder {
             inner: DeviceGroupSubmitInfo {
-                s_type: StructureType::from_raw(-1000060005i32),
+                s_type: StructureType::from_raw(1000060005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12681,7 +12681,7 @@ impl DeviceGroupBindSparseInfo {
     pub fn builder<'a>() -> DeviceGroupBindSparseInfoBuilder<'a> {
         DeviceGroupBindSparseInfoBuilder {
             inner: DeviceGroupBindSparseInfo {
-                s_type: StructureType::from_raw(-1000060006i32),
+                s_type: StructureType::from_raw(1000060006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12738,7 +12738,7 @@ impl DeviceGroupPresentCapabilitiesKHR {
     pub fn builder<'a>() -> DeviceGroupPresentCapabilitiesKHRBuilder<'a> {
         DeviceGroupPresentCapabilitiesKHRBuilder {
             inner: DeviceGroupPresentCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000060007i32),
+                s_type: StructureType::from_raw(1000060007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12780,7 +12780,7 @@ impl ImageSwapchainCreateInfoKHR {
     pub fn builder<'a>() -> ImageSwapchainCreateInfoKHRBuilder<'a> {
         ImageSwapchainCreateInfoKHRBuilder {
             inner: ImageSwapchainCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000060008i32),
+                s_type: StructureType::from_raw(1000060008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12832,7 +12832,7 @@ impl BindImageMemorySwapchainInfoKHR {
     pub fn builder<'a>() -> BindImageMemorySwapchainInfoKHRBuilder<'a> {
         BindImageMemorySwapchainInfoKHRBuilder {
             inner: BindImageMemorySwapchainInfoKHR {
-                s_type: StructureType::from_raw(-1000060009i32),
+                s_type: StructureType::from_raw(1000060009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12889,7 +12889,7 @@ impl AcquireNextImageInfoKHR {
     pub fn builder<'a>() -> AcquireNextImageInfoKHRBuilder<'a> {
         AcquireNextImageInfoKHRBuilder {
             inner: AcquireNextImageInfoKHR {
-                s_type: StructureType::from_raw(-1000060010i32),
+                s_type: StructureType::from_raw(1000060010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -12961,7 +12961,7 @@ impl DeviceGroupPresentInfoKHR {
     pub fn builder<'a>() -> DeviceGroupPresentInfoKHRBuilder<'a> {
         DeviceGroupPresentInfoKHRBuilder {
             inner: DeviceGroupPresentInfoKHR {
-                s_type: StructureType::from_raw(-1000060011i32),
+                s_type: StructureType::from_raw(1000060011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13019,7 +13019,7 @@ impl DeviceGroupDeviceCreateInfo {
     pub fn builder<'a>() -> DeviceGroupDeviceCreateInfoBuilder<'a> {
         DeviceGroupDeviceCreateInfoBuilder {
             inner: DeviceGroupDeviceCreateInfo {
-                s_type: StructureType::from_raw(-1000070001i32),
+                s_type: StructureType::from_raw(1000070001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13072,7 +13072,7 @@ impl DeviceGroupSwapchainCreateInfoKHR {
     pub fn builder<'a>() -> DeviceGroupSwapchainCreateInfoKHRBuilder<'a> {
         DeviceGroupSwapchainCreateInfoKHRBuilder {
             inner: DeviceGroupSwapchainCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000060012i32),
+                s_type: StructureType::from_raw(1000060012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13124,7 +13124,7 @@ impl DescriptorUpdateTemplateCreateInfo {
     pub fn builder<'a>() -> DescriptorUpdateTemplateCreateInfoBuilder<'a> {
         DescriptorUpdateTemplateCreateInfoBuilder {
             inner: DescriptorUpdateTemplateCreateInfo {
-                s_type: StructureType::from_raw(-1000085000i32),
+                s_type: StructureType::from_raw(1000085000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13210,7 +13210,7 @@ impl PhysicalDevicePresentIdFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDevicePresentIdFeaturesKHRBuilder<'a> {
         PhysicalDevicePresentIdFeaturesKHRBuilder {
             inner: PhysicalDevicePresentIdFeaturesKHR {
-                s_type: StructureType::from_raw(-1000294001i32),
+                s_type: StructureType::from_raw(1000294001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13262,7 +13262,7 @@ impl PresentIdKHR {
     pub fn builder<'a>() -> PresentIdKHRBuilder<'a> {
         PresentIdKHRBuilder {
             inner: PresentIdKHR {
-                s_type: StructureType::from_raw(-1000294000i32),
+                s_type: StructureType::from_raw(1000294000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13312,7 +13312,7 @@ impl PhysicalDevicePresentId2FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDevicePresentId2FeaturesKHRBuilder<'a> {
         PhysicalDevicePresentId2FeaturesKHRBuilder {
             inner: PhysicalDevicePresentId2FeaturesKHR {
-                s_type: StructureType::from_raw(-1000479002i32),
+                s_type: StructureType::from_raw(1000479002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13364,7 +13364,7 @@ impl PresentId2KHR {
     pub fn builder<'a>() -> PresentId2KHRBuilder<'a> {
         PresentId2KHRBuilder {
             inner: PresentId2KHR {
-                s_type: StructureType::from_raw(-1000479001i32),
+                s_type: StructureType::from_raw(1000479001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13414,7 +13414,7 @@ impl PresentWait2InfoKHR {
     pub fn builder<'a>() -> PresentWait2InfoKHRBuilder<'a> {
         PresentWait2InfoKHRBuilder {
             inner: PresentWait2InfoKHR {
-                s_type: StructureType::from_raw(-1000480002i32),
+                s_type: StructureType::from_raw(1000480002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13468,7 +13468,7 @@ impl PhysicalDevicePresentWaitFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDevicePresentWaitFeaturesKHRBuilder<'a> {
         PhysicalDevicePresentWaitFeaturesKHRBuilder {
             inner: PhysicalDevicePresentWaitFeaturesKHR {
-                s_type: StructureType::from_raw(-1000248000i32),
+                s_type: StructureType::from_raw(1000248000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13520,7 +13520,7 @@ impl PhysicalDevicePresentWait2FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDevicePresentWait2FeaturesKHRBuilder<'a> {
         PhysicalDevicePresentWait2FeaturesKHRBuilder {
             inner: PhysicalDevicePresentWait2FeaturesKHR {
-                s_type: StructureType::from_raw(-1000480001i32),
+                s_type: StructureType::from_raw(1000480001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13572,7 +13572,7 @@ impl PhysicalDevicePresentTimingFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDevicePresentTimingFeaturesEXTBuilder<'a> {
         PhysicalDevicePresentTimingFeaturesEXTBuilder {
             inner: PhysicalDevicePresentTimingFeaturesEXT {
-                s_type: StructureType::from_raw(-1000208000i32),
+                s_type: StructureType::from_raw(1000208000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13634,7 +13634,7 @@ impl PresentTimingSurfaceCapabilitiesEXT {
     pub fn builder<'a>() -> PresentTimingSurfaceCapabilitiesEXTBuilder<'a> {
         PresentTimingSurfaceCapabilitiesEXTBuilder {
             inner: PresentTimingSurfaceCapabilitiesEXT {
-                s_type: StructureType::from_raw(-1000208008i32),
+                s_type: StructureType::from_raw(1000208008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13686,7 +13686,7 @@ impl SwapchainTimingPropertiesEXT {
     pub fn builder<'a>() -> SwapchainTimingPropertiesEXTBuilder<'a> {
         SwapchainTimingPropertiesEXTBuilder {
             inner: SwapchainTimingPropertiesEXT {
-                s_type: StructureType::from_raw(-1000208001i32),
+                s_type: StructureType::from_raw(1000208001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13728,7 +13728,7 @@ impl SwapchainTimeDomainPropertiesEXT {
     pub fn builder<'a>() -> SwapchainTimeDomainPropertiesEXTBuilder<'a> {
         SwapchainTimeDomainPropertiesEXTBuilder {
             inner: SwapchainTimeDomainPropertiesEXT {
-                s_type: StructureType::from_raw(-1000208002i32),
+                s_type: StructureType::from_raw(1000208002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13772,7 +13772,7 @@ impl PastPresentationTimingInfoEXT {
     pub fn builder<'a>() -> PastPresentationTimingInfoEXTBuilder<'a> {
         PastPresentationTimingInfoEXTBuilder {
             inner: PastPresentationTimingInfoEXT {
-                s_type: StructureType::from_raw(-1000208005i32),
+                s_type: StructureType::from_raw(1000208005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13829,7 +13829,7 @@ impl PastPresentationTimingPropertiesEXT {
     pub fn builder<'a>() -> PastPresentationTimingPropertiesEXTBuilder<'a> {
         PastPresentationTimingPropertiesEXTBuilder {
             inner: PastPresentationTimingPropertiesEXT {
-                s_type: StructureType::from_raw(-1000208006i32),
+                s_type: StructureType::from_raw(1000208006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13880,7 +13880,7 @@ impl PastPresentationTimingEXT {
     pub fn builder<'a>() -> PastPresentationTimingEXTBuilder<'a> {
         PastPresentationTimingEXTBuilder {
             inner: PastPresentationTimingEXT {
-                s_type: StructureType::from_raw(-1000208007i32),
+                s_type: StructureType::from_raw(1000208007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13943,7 +13943,7 @@ impl PresentTimingsInfoEXT {
     pub fn builder<'a>() -> PresentTimingsInfoEXTBuilder<'a> {
         PresentTimingsInfoEXTBuilder {
             inner: PresentTimingsInfoEXT {
-                s_type: StructureType::from_raw(-1000208003i32),
+                s_type: StructureType::from_raw(1000208003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -13996,7 +13996,7 @@ impl PresentTimingInfoEXT {
     pub fn builder<'a>() -> PresentTimingInfoEXTBuilder<'a> {
         PresentTimingInfoEXTBuilder {
             inner: PresentTimingInfoEXT {
-                s_type: StructureType::from_raw(-1000208004i32),
+                s_type: StructureType::from_raw(1000208004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14068,7 +14068,7 @@ impl SwapchainCalibratedTimestampInfoEXT {
     pub fn builder<'a>() -> SwapchainCalibratedTimestampInfoEXTBuilder<'a> {
         SwapchainCalibratedTimestampInfoEXTBuilder {
             inner: SwapchainCalibratedTimestampInfoEXT {
-                s_type: StructureType::from_raw(-1000208009i32),
+                s_type: StructureType::from_raw(1000208009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14130,7 +14130,7 @@ impl HdrMetadataEXT {
     pub fn builder<'a>() -> HdrMetadataEXTBuilder<'a> {
         HdrMetadataEXTBuilder {
             inner: HdrMetadataEXT {
-                s_type: StructureType::from_raw(-1000105000i32),
+                s_type: StructureType::from_raw(1000105000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14214,7 +14214,7 @@ impl HdrVividDynamicMetadataHUAWEI {
     pub fn builder<'a>() -> HdrVividDynamicMetadataHUAWEIBuilder<'a> {
         HdrVividDynamicMetadataHUAWEIBuilder {
             inner: HdrVividDynamicMetadataHUAWEI {
-                s_type: StructureType::from_raw(-1000590001i32),
+                s_type: StructureType::from_raw(1000590001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14267,7 +14267,7 @@ impl DisplayNativeHdrSurfaceCapabilitiesAMD {
     pub fn builder<'a>() -> DisplayNativeHdrSurfaceCapabilitiesAMDBuilder<'a> {
         DisplayNativeHdrSurfaceCapabilitiesAMDBuilder {
             inner: DisplayNativeHdrSurfaceCapabilitiesAMD {
-                s_type: StructureType::from_raw(-1000213000i32),
+                s_type: StructureType::from_raw(1000213000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14304,7 +14304,7 @@ impl SwapchainDisplayNativeHdrCreateInfoAMD {
     pub fn builder<'a>() -> SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'a> {
         SwapchainDisplayNativeHdrCreateInfoAMDBuilder {
             inner: SwapchainDisplayNativeHdrCreateInfoAMD {
-                s_type: StructureType::from_raw(-1000213001i32),
+                s_type: StructureType::from_raw(1000213001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14356,7 +14356,7 @@ impl PresentTimesInfoGOOGLE {
     pub fn builder<'a>() -> PresentTimesInfoGOOGLEBuilder<'a> {
         PresentTimesInfoGOOGLEBuilder {
             inner: PresentTimesInfoGOOGLE {
-                s_type: StructureType::from_raw(-1000092000i32),
+                s_type: StructureType::from_raw(1000092000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14409,7 +14409,7 @@ impl IOSSurfaceCreateInfoMVK {
     pub fn builder<'a>() -> IOSSurfaceCreateInfoMVKBuilder<'a> {
         IOSSurfaceCreateInfoMVKBuilder {
             inner: IOSSurfaceCreateInfoMVK {
-                s_type: StructureType::from_raw(-1000122000i32),
+                s_type: StructureType::from_raw(1000122000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14466,7 +14466,7 @@ impl MacOSSurfaceCreateInfoMVK {
     pub fn builder<'a>() -> MacOSSurfaceCreateInfoMVKBuilder<'a> {
         MacOSSurfaceCreateInfoMVKBuilder {
             inner: MacOSSurfaceCreateInfoMVK {
-                s_type: StructureType::from_raw(-1000123000i32),
+                s_type: StructureType::from_raw(1000123000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14523,7 +14523,7 @@ impl MetalSurfaceCreateInfoEXT {
     pub fn builder<'a>() -> MetalSurfaceCreateInfoEXTBuilder<'a> {
         MetalSurfaceCreateInfoEXTBuilder {
             inner: MetalSurfaceCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000217000i32),
+                s_type: StructureType::from_raw(1000217000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14580,7 +14580,7 @@ impl PipelineViewportWScalingStateCreateInfoNV {
     pub fn builder<'a>() -> PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
         PipelineViewportWScalingStateCreateInfoNVBuilder {
             inner: PipelineViewportWScalingStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000087000i32),
+                s_type: StructureType::from_raw(1000087000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14638,7 +14638,7 @@ impl PipelineViewportSwizzleStateCreateInfoNV {
     pub fn builder<'a>() -> PipelineViewportSwizzleStateCreateInfoNVBuilder<'a> {
         PipelineViewportSwizzleStateCreateInfoNVBuilder {
             inner: PipelineViewportSwizzleStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000098000i32),
+                s_type: StructureType::from_raw(1000098000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14696,7 +14696,7 @@ impl PhysicalDeviceDiscardRectanglePropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDiscardRectanglePropertiesEXTBuilder<'a> {
         PhysicalDeviceDiscardRectanglePropertiesEXTBuilder {
             inner: PhysicalDeviceDiscardRectanglePropertiesEXT {
-                s_type: StructureType::from_raw(-1000099000i32),
+                s_type: StructureType::from_raw(1000099000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14733,7 +14733,7 @@ impl PipelineDiscardRectangleStateCreateInfoEXT {
     pub fn builder<'a>() -> PipelineDiscardRectangleStateCreateInfoEXTBuilder<'a> {
         PipelineDiscardRectangleStateCreateInfoEXTBuilder {
             inner: PipelineDiscardRectangleStateCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000099001i32),
+                s_type: StructureType::from_raw(1000099001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14798,7 +14798,7 @@ impl PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     > {
         PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder {
             inner: PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
-                s_type: StructureType::from_raw(-1000097000i32),
+                s_type: StructureType::from_raw(1000097000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14837,7 +14837,7 @@ impl RenderPassInputAttachmentAspectCreateInfo {
     pub fn builder<'a>() -> RenderPassInputAttachmentAspectCreateInfoBuilder<'a> {
         RenderPassInputAttachmentAspectCreateInfoBuilder {
             inner: RenderPassInputAttachmentAspectCreateInfo {
-                s_type: StructureType::from_raw(-1000117001i32),
+                s_type: StructureType::from_raw(1000117001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14893,7 +14893,7 @@ impl PhysicalDeviceSurfaceInfo2KHR {
     pub fn builder<'a>() -> PhysicalDeviceSurfaceInfo2KHRBuilder<'a> {
         PhysicalDeviceSurfaceInfo2KHRBuilder {
             inner: PhysicalDeviceSurfaceInfo2KHR {
-                s_type: StructureType::from_raw(-1000119000i32),
+                s_type: StructureType::from_raw(1000119000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14945,7 +14945,7 @@ impl SurfaceCapabilities2KHR {
     pub fn builder<'a>() -> SurfaceCapabilities2KHRBuilder<'a> {
         SurfaceCapabilities2KHRBuilder {
             inner: SurfaceCapabilities2KHR {
-                s_type: StructureType::from_raw(-1000119001i32),
+                s_type: StructureType::from_raw(1000119001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -14982,7 +14982,7 @@ impl SurfaceFormat2KHR {
     pub fn builder<'a>() -> SurfaceFormat2KHRBuilder<'a> {
         SurfaceFormat2KHRBuilder {
             inner: SurfaceFormat2KHR {
-                s_type: StructureType::from_raw(-1000119002i32),
+                s_type: StructureType::from_raw(1000119002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15019,7 +15019,7 @@ impl DisplayProperties2KHR {
     pub fn builder<'a>() -> DisplayProperties2KHRBuilder<'a> {
         DisplayProperties2KHRBuilder {
             inner: DisplayProperties2KHR {
-                s_type: StructureType::from_raw(-1000121000i32),
+                s_type: StructureType::from_raw(1000121000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15056,7 +15056,7 @@ impl DisplayPlaneProperties2KHR {
     pub fn builder<'a>() -> DisplayPlaneProperties2KHRBuilder<'a> {
         DisplayPlaneProperties2KHRBuilder {
             inner: DisplayPlaneProperties2KHR {
-                s_type: StructureType::from_raw(-1000121001i32),
+                s_type: StructureType::from_raw(1000121001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15093,7 +15093,7 @@ impl DisplayModeProperties2KHR {
     pub fn builder<'a>() -> DisplayModeProperties2KHRBuilder<'a> {
         DisplayModeProperties2KHRBuilder {
             inner: DisplayModeProperties2KHR {
-                s_type: StructureType::from_raw(-1000121002i32),
+                s_type: StructureType::from_raw(1000121002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15130,7 +15130,7 @@ impl DisplayModeStereoPropertiesNV {
     pub fn builder<'a>() -> DisplayModeStereoPropertiesNVBuilder<'a> {
         DisplayModeStereoPropertiesNVBuilder {
             inner: DisplayModeStereoPropertiesNV {
-                s_type: StructureType::from_raw(-1000551001i32),
+                s_type: StructureType::from_raw(1000551001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15167,7 +15167,7 @@ impl DisplayPlaneInfo2KHR {
     pub fn builder<'a>() -> DisplayPlaneInfo2KHRBuilder<'a> {
         DisplayPlaneInfo2KHRBuilder {
             inner: DisplayPlaneInfo2KHR {
-                s_type: StructureType::from_raw(-1000121003i32),
+                s_type: StructureType::from_raw(1000121003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15221,7 +15221,7 @@ impl DisplayPlaneCapabilities2KHR {
     pub fn builder<'a>() -> DisplayPlaneCapabilities2KHRBuilder<'a> {
         DisplayPlaneCapabilities2KHRBuilder {
             inner: DisplayPlaneCapabilities2KHR {
-                s_type: StructureType::from_raw(-1000121004i32),
+                s_type: StructureType::from_raw(1000121004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15258,7 +15258,7 @@ impl SharedPresentSurfaceCapabilitiesKHR {
     pub fn builder<'a>() -> SharedPresentSurfaceCapabilitiesKHRBuilder<'a> {
         SharedPresentSurfaceCapabilitiesKHRBuilder {
             inner: SharedPresentSurfaceCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000111000i32),
+                s_type: StructureType::from_raw(1000111000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15298,7 +15298,7 @@ impl PhysicalDevice16BitStorageFeatures {
     pub fn builder<'a>() -> PhysicalDevice16BitStorageFeaturesBuilder<'a> {
         PhysicalDevice16BitStorageFeaturesBuilder {
             inner: PhysicalDevice16BitStorageFeatures {
-                s_type: StructureType::from_raw(-1000083000i32),
+                s_type: StructureType::from_raw(1000083000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15365,7 +15365,7 @@ impl PhysicalDeviceSubgroupProperties {
     pub fn builder<'a>() -> PhysicalDeviceSubgroupPropertiesBuilder<'a> {
         PhysicalDeviceSubgroupPropertiesBuilder {
             inner: PhysicalDeviceSubgroupProperties {
-                s_type: StructureType::from_raw(-1000094000i32),
+                s_type: StructureType::from_raw(1000094000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15419,7 +15419,7 @@ impl PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
     > {
         PhysicalDeviceShaderSubgroupExtendedTypesFeaturesBuilder {
             inner: PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
-                s_type: StructureType::from_raw(-1000175000i32),
+                s_type: StructureType::from_raw(1000175000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15473,7 +15473,7 @@ impl BufferMemoryRequirementsInfo2 {
     pub fn builder<'a>() -> BufferMemoryRequirementsInfo2Builder<'a> {
         BufferMemoryRequirementsInfo2Builder {
             inner: BufferMemoryRequirementsInfo2 {
-                s_type: StructureType::from_raw(-1000146000i32),
+                s_type: StructureType::from_raw(1000146000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15525,7 +15525,7 @@ impl DeviceBufferMemoryRequirements {
     pub fn builder<'a>() -> DeviceBufferMemoryRequirementsBuilder<'a> {
         DeviceBufferMemoryRequirementsBuilder {
             inner: DeviceBufferMemoryRequirements {
-                s_type: StructureType::from_raw(-1000413002i32),
+                s_type: StructureType::from_raw(1000413002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15577,7 +15577,7 @@ impl ImageMemoryRequirementsInfo2 {
     pub fn builder<'a>() -> ImageMemoryRequirementsInfo2Builder<'a> {
         ImageMemoryRequirementsInfo2Builder {
             inner: ImageMemoryRequirementsInfo2 {
-                s_type: StructureType::from_raw(-1000146001i32),
+                s_type: StructureType::from_raw(1000146001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15629,7 +15629,7 @@ impl ImageSparseMemoryRequirementsInfo2 {
     pub fn builder<'a>() -> ImageSparseMemoryRequirementsInfo2Builder<'a> {
         ImageSparseMemoryRequirementsInfo2Builder {
             inner: ImageSparseMemoryRequirementsInfo2 {
-                s_type: StructureType::from_raw(-1000146002i32),
+                s_type: StructureType::from_raw(1000146002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15681,7 +15681,7 @@ impl DeviceImageMemoryRequirements {
     pub fn builder<'a>() -> DeviceImageMemoryRequirementsBuilder<'a> {
         DeviceImageMemoryRequirementsBuilder {
             inner: DeviceImageMemoryRequirements {
-                s_type: StructureType::from_raw(-1000413003i32),
+                s_type: StructureType::from_raw(1000413003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15738,7 +15738,7 @@ impl MemoryRequirements2 {
     pub fn builder<'a>() -> MemoryRequirements2Builder<'a> {
         MemoryRequirements2Builder {
             inner: MemoryRequirements2 {
-                s_type: StructureType::from_raw(-1000146003i32),
+                s_type: StructureType::from_raw(1000146003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15775,7 +15775,7 @@ impl SparseImageMemoryRequirements2 {
     pub fn builder<'a>() -> SparseImageMemoryRequirements2Builder<'a> {
         SparseImageMemoryRequirements2Builder {
             inner: SparseImageMemoryRequirements2 {
-                s_type: StructureType::from_raw(-1000146004i32),
+                s_type: StructureType::from_raw(1000146004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15812,7 +15812,7 @@ impl PhysicalDevicePointClippingProperties {
     pub fn builder<'a>() -> PhysicalDevicePointClippingPropertiesBuilder<'a> {
         PhysicalDevicePointClippingPropertiesBuilder {
             inner: PhysicalDevicePointClippingProperties {
-                s_type: StructureType::from_raw(-1000117000i32),
+                s_type: StructureType::from_raw(1000117000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15849,7 +15849,7 @@ impl MemoryDedicatedRequirements {
     pub fn builder<'a>() -> MemoryDedicatedRequirementsBuilder<'a> {
         MemoryDedicatedRequirementsBuilder {
             inner: MemoryDedicatedRequirements {
-                s_type: StructureType::from_raw(-1000127000i32),
+                s_type: StructureType::from_raw(1000127000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15891,7 +15891,7 @@ impl MemoryDedicatedAllocateInfo {
     pub fn builder<'a>() -> MemoryDedicatedAllocateInfoBuilder<'a> {
         MemoryDedicatedAllocateInfoBuilder {
             inner: MemoryDedicatedAllocateInfo {
-                s_type: StructureType::from_raw(-1000127001i32),
+                s_type: StructureType::from_raw(1000127001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -15948,7 +15948,7 @@ impl ImageViewUsageCreateInfo {
     pub fn builder<'a>() -> ImageViewUsageCreateInfoBuilder<'a> {
         ImageViewUsageCreateInfoBuilder {
             inner: ImageViewUsageCreateInfo {
-                s_type: StructureType::from_raw(-1000117002i32),
+                s_type: StructureType::from_raw(1000117002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16000,7 +16000,7 @@ impl ImageViewSlicedCreateInfoEXT {
     pub fn builder<'a>() -> ImageViewSlicedCreateInfoEXTBuilder<'a> {
         ImageViewSlicedCreateInfoEXTBuilder {
             inner: ImageViewSlicedCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000418001i32),
+                s_type: StructureType::from_raw(1000418001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16057,7 +16057,7 @@ impl PipelineTessellationDomainOriginStateCreateInfo {
     pub fn builder<'a>() -> PipelineTessellationDomainOriginStateCreateInfoBuilder<'a> {
         PipelineTessellationDomainOriginStateCreateInfoBuilder {
             inner: PipelineTessellationDomainOriginStateCreateInfo {
-                s_type: StructureType::from_raw(-1000117003i32),
+                s_type: StructureType::from_raw(1000117003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16111,7 +16111,7 @@ impl SamplerYcbcrConversionInfo {
     pub fn builder<'a>() -> SamplerYcbcrConversionInfoBuilder<'a> {
         SamplerYcbcrConversionInfoBuilder {
             inner: SamplerYcbcrConversionInfo {
-                s_type: StructureType::from_raw(-1000156001i32),
+                s_type: StructureType::from_raw(1000156001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16163,7 +16163,7 @@ impl SamplerYcbcrConversionCreateInfo {
     pub fn builder<'a>() -> SamplerYcbcrConversionCreateInfoBuilder<'a> {
         SamplerYcbcrConversionCreateInfoBuilder {
             inner: SamplerYcbcrConversionCreateInfo {
-                s_type: StructureType::from_raw(-1000156000i32),
+                s_type: StructureType::from_raw(1000156000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16250,7 +16250,7 @@ impl BindImagePlaneMemoryInfo {
     pub fn builder<'a>() -> BindImagePlaneMemoryInfoBuilder<'a> {
         BindImagePlaneMemoryInfoBuilder {
             inner: BindImagePlaneMemoryInfo {
-                s_type: StructureType::from_raw(-1000156002i32),
+                s_type: StructureType::from_raw(1000156002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16302,7 +16302,7 @@ impl ImagePlaneMemoryRequirementsInfo {
     pub fn builder<'a>() -> ImagePlaneMemoryRequirementsInfoBuilder<'a> {
         ImagePlaneMemoryRequirementsInfoBuilder {
             inner: ImagePlaneMemoryRequirementsInfo {
-                s_type: StructureType::from_raw(-1000156003i32),
+                s_type: StructureType::from_raw(1000156003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16354,7 +16354,7 @@ impl PhysicalDeviceSamplerYcbcrConversionFeatures {
     pub fn builder<'a>() -> PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder<'a> {
         PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder {
             inner: PhysicalDeviceSamplerYcbcrConversionFeatures {
-                s_type: StructureType::from_raw(-1000156004i32),
+                s_type: StructureType::from_raw(1000156004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16407,7 +16407,7 @@ impl SamplerYcbcrConversionImageFormatProperties {
     pub fn builder<'a>() -> SamplerYcbcrConversionImageFormatPropertiesBuilder<'a> {
         SamplerYcbcrConversionImageFormatPropertiesBuilder {
             inner: SamplerYcbcrConversionImageFormatProperties {
-                s_type: StructureType::from_raw(-1000156005i32),
+                s_type: StructureType::from_raw(1000156005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16444,7 +16444,7 @@ impl TextureLODGatherFormatPropertiesAMD {
     pub fn builder<'a>() -> TextureLODGatherFormatPropertiesAMDBuilder<'a> {
         TextureLODGatherFormatPropertiesAMDBuilder {
             inner: TextureLODGatherFormatPropertiesAMD {
-                s_type: StructureType::from_raw(-1000041000i32),
+                s_type: StructureType::from_raw(1000041000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16481,7 +16481,7 @@ impl ConditionalRenderingBeginInfoEXT {
     pub fn builder<'a>() -> ConditionalRenderingBeginInfoEXTBuilder<'a> {
         ConditionalRenderingBeginInfoEXTBuilder {
             inner: ConditionalRenderingBeginInfoEXT {
-                s_type: StructureType::from_raw(-1000081002i32),
+                s_type: StructureType::from_raw(1000081002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16543,7 +16543,7 @@ impl ProtectedSubmitInfo {
     pub fn builder<'a>() -> ProtectedSubmitInfoBuilder<'a> {
         ProtectedSubmitInfoBuilder {
             inner: ProtectedSubmitInfo {
-                s_type: StructureType::from_raw(-1000145000i32),
+                s_type: StructureType::from_raw(1000145000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16592,7 +16592,7 @@ impl PhysicalDeviceProtectedMemoryFeatures {
     pub fn builder<'a>() -> PhysicalDeviceProtectedMemoryFeaturesBuilder<'a> {
         PhysicalDeviceProtectedMemoryFeaturesBuilder {
             inner: PhysicalDeviceProtectedMemoryFeatures {
-                s_type: StructureType::from_raw(-1000145001i32),
+                s_type: StructureType::from_raw(1000145001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16644,7 +16644,7 @@ impl PhysicalDeviceProtectedMemoryProperties {
     pub fn builder<'a>() -> PhysicalDeviceProtectedMemoryPropertiesBuilder<'a> {
         PhysicalDeviceProtectedMemoryPropertiesBuilder {
             inner: PhysicalDeviceProtectedMemoryProperties {
-                s_type: StructureType::from_raw(-1000145002i32),
+                s_type: StructureType::from_raw(1000145002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16681,7 +16681,7 @@ impl DeviceQueueInfo2 {
     pub fn builder<'a>() -> DeviceQueueInfo2Builder<'a> {
         DeviceQueueInfo2Builder {
             inner: DeviceQueueInfo2 {
-                s_type: StructureType::from_raw(-1000145003i32),
+                s_type: StructureType::from_raw(1000145003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16740,7 +16740,7 @@ impl PipelineCoverageToColorStateCreateInfoNV {
     pub fn builder<'a>() -> PipelineCoverageToColorStateCreateInfoNVBuilder<'a> {
         PipelineCoverageToColorStateCreateInfoNVBuilder {
             inner: PipelineCoverageToColorStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000149000i32),
+                s_type: StructureType::from_raw(1000149000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16802,7 +16802,7 @@ impl PhysicalDeviceSamplerFilterMinmaxProperties {
     pub fn builder<'a>() -> PhysicalDeviceSamplerFilterMinmaxPropertiesBuilder<'a> {
         PhysicalDeviceSamplerFilterMinmaxPropertiesBuilder {
             inner: PhysicalDeviceSamplerFilterMinmaxProperties {
-                s_type: StructureType::from_raw(-1000130000i32),
+                s_type: StructureType::from_raw(1000130000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16844,7 +16844,7 @@ impl SampleLocationsInfoEXT {
     pub fn builder<'a>() -> SampleLocationsInfoEXTBuilder<'a> {
         SampleLocationsInfoEXTBuilder {
             inner: SampleLocationsInfoEXT {
-                s_type: StructureType::from_raw(-1000143000i32),
+                s_type: StructureType::from_raw(1000143000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16907,7 +16907,7 @@ impl RenderPassSampleLocationsBeginInfoEXT {
     pub fn builder<'a>() -> RenderPassSampleLocationsBeginInfoEXTBuilder<'a> {
         RenderPassSampleLocationsBeginInfoEXTBuilder {
             inner: RenderPassSampleLocationsBeginInfoEXT {
-                s_type: StructureType::from_raw(-1000143001i32),
+                s_type: StructureType::from_raw(1000143001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -16972,7 +16972,7 @@ impl PipelineSampleLocationsStateCreateInfoEXT {
     pub fn builder<'a>() -> PipelineSampleLocationsStateCreateInfoEXTBuilder<'a> {
         PipelineSampleLocationsStateCreateInfoEXTBuilder {
             inner: PipelineSampleLocationsStateCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000143002i32),
+                s_type: StructureType::from_raw(1000143002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17029,7 +17029,7 @@ impl PhysicalDeviceSampleLocationsPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceSampleLocationsPropertiesEXTBuilder<'a> {
         PhysicalDeviceSampleLocationsPropertiesEXTBuilder {
             inner: PhysicalDeviceSampleLocationsPropertiesEXT {
-                s_type: StructureType::from_raw(-1000143003i32),
+                s_type: StructureType::from_raw(1000143003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17086,7 +17086,7 @@ impl MultisamplePropertiesEXT {
     pub fn builder<'a>() -> MultisamplePropertiesEXTBuilder<'a> {
         MultisamplePropertiesEXTBuilder {
             inner: MultisamplePropertiesEXT {
-                s_type: StructureType::from_raw(-1000143004i32),
+                s_type: StructureType::from_raw(1000143004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17123,7 +17123,7 @@ impl SamplerReductionModeCreateInfo {
     pub fn builder<'a>() -> SamplerReductionModeCreateInfoBuilder<'a> {
         SamplerReductionModeCreateInfoBuilder {
             inner: SamplerReductionModeCreateInfo {
-                s_type: StructureType::from_raw(-1000130001i32),
+                s_type: StructureType::from_raw(1000130001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17175,7 +17175,7 @@ impl PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder<'a> {
         PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder {
             inner: PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
-                s_type: StructureType::from_raw(-1000148000i32),
+                s_type: StructureType::from_raw(1000148000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17229,7 +17229,7 @@ impl PhysicalDeviceMultiDrawFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMultiDrawFeaturesEXTBuilder<'a> {
         PhysicalDeviceMultiDrawFeaturesEXTBuilder {
             inner: PhysicalDeviceMultiDrawFeaturesEXT {
-                s_type: StructureType::from_raw(-1000392000i32),
+                s_type: StructureType::from_raw(1000392000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17283,7 +17283,7 @@ impl PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     > {
         PhysicalDeviceBlendOperationAdvancedPropertiesEXTBuilder {
             inner: PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
-                s_type: StructureType::from_raw(-1000148001i32),
+                s_type: StructureType::from_raw(1000148001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17347,7 +17347,7 @@ impl PipelineColorBlendAdvancedStateCreateInfoEXT {
     pub fn builder<'a>() -> PipelineColorBlendAdvancedStateCreateInfoEXTBuilder<'a> {
         PipelineColorBlendAdvancedStateCreateInfoEXTBuilder {
             inner: PipelineColorBlendAdvancedStateCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000148002i32),
+                s_type: StructureType::from_raw(1000148002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17410,7 +17410,7 @@ impl PhysicalDeviceInlineUniformBlockFeatures {
     pub fn builder<'a>() -> PhysicalDeviceInlineUniformBlockFeaturesBuilder<'a> {
         PhysicalDeviceInlineUniformBlockFeaturesBuilder {
             inner: PhysicalDeviceInlineUniformBlockFeatures {
-                s_type: StructureType::from_raw(-1000138000i32),
+                s_type: StructureType::from_raw(1000138000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17470,7 +17470,7 @@ impl PhysicalDeviceInlineUniformBlockProperties {
     pub fn builder<'a>() -> PhysicalDeviceInlineUniformBlockPropertiesBuilder<'a> {
         PhysicalDeviceInlineUniformBlockPropertiesBuilder {
             inner: PhysicalDeviceInlineUniformBlockProperties {
-                s_type: StructureType::from_raw(-1000138001i32),
+                s_type: StructureType::from_raw(1000138001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17533,7 +17533,7 @@ impl WriteDescriptorSetInlineUniformBlock {
     pub fn builder<'a>() -> WriteDescriptorSetInlineUniformBlockBuilder<'a> {
         WriteDescriptorSetInlineUniformBlockBuilder {
             inner: WriteDescriptorSetInlineUniformBlock {
-                s_type: StructureType::from_raw(-1000138002i32),
+                s_type: StructureType::from_raw(1000138002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17586,7 +17586,7 @@ impl DescriptorPoolInlineUniformBlockCreateInfo {
     pub fn builder<'a>() -> DescriptorPoolInlineUniformBlockCreateInfoBuilder<'a> {
         DescriptorPoolInlineUniformBlockCreateInfoBuilder {
             inner: DescriptorPoolInlineUniformBlockCreateInfo {
-                s_type: StructureType::from_raw(-1000138003i32),
+                s_type: StructureType::from_raw(1000138003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17638,7 +17638,7 @@ impl PipelineCoverageModulationStateCreateInfoNV {
     pub fn builder<'a>() -> PipelineCoverageModulationStateCreateInfoNVBuilder<'a> {
         PipelineCoverageModulationStateCreateInfoNVBuilder {
             inner: PipelineCoverageModulationStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000152000i32),
+                s_type: StructureType::from_raw(1000152000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17706,7 +17706,7 @@ impl ImageFormatListCreateInfo {
     pub fn builder<'a>() -> ImageFormatListCreateInfoBuilder<'a> {
         ImageFormatListCreateInfoBuilder {
             inner: ImageFormatListCreateInfo {
-                s_type: StructureType::from_raw(-1000147000i32),
+                s_type: StructureType::from_raw(1000147000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17759,7 +17759,7 @@ impl ValidationCacheCreateInfoEXT {
     pub fn builder<'a>() -> ValidationCacheCreateInfoEXTBuilder<'a> {
         ValidationCacheCreateInfoEXTBuilder {
             inner: ValidationCacheCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000160000i32),
+                s_type: StructureType::from_raw(1000160000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17817,7 +17817,7 @@ impl ShaderModuleValidationCacheCreateInfoEXT {
     pub fn builder<'a>() -> ShaderModuleValidationCacheCreateInfoEXTBuilder<'a> {
         ShaderModuleValidationCacheCreateInfoEXTBuilder {
             inner: ShaderModuleValidationCacheCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000160001i32),
+                s_type: StructureType::from_raw(1000160001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17869,7 +17869,7 @@ impl PhysicalDeviceMaintenance3Properties {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance3PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance3PropertiesBuilder {
             inner: PhysicalDeviceMaintenance3Properties {
-                s_type: StructureType::from_raw(-1000168000i32),
+                s_type: StructureType::from_raw(1000168000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17911,7 +17911,7 @@ impl PhysicalDeviceMaintenance4Features {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance4FeaturesBuilder<'a> {
         PhysicalDeviceMaintenance4FeaturesBuilder {
             inner: PhysicalDeviceMaintenance4Features {
-                s_type: StructureType::from_raw(-1000413000i32),
+                s_type: StructureType::from_raw(1000413000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -17963,7 +17963,7 @@ impl PhysicalDeviceMaintenance4Properties {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance4PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance4PropertiesBuilder {
             inner: PhysicalDeviceMaintenance4Properties {
-                s_type: StructureType::from_raw(-1000413001i32),
+                s_type: StructureType::from_raw(1000413001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18000,7 +18000,7 @@ impl PhysicalDeviceMaintenance5Features {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance5FeaturesBuilder<'a> {
         PhysicalDeviceMaintenance5FeaturesBuilder {
             inner: PhysicalDeviceMaintenance5Features {
-                s_type: StructureType::from_raw(-1000470000i32),
+                s_type: StructureType::from_raw(1000470000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18052,7 +18052,7 @@ impl PhysicalDeviceMaintenance5Properties {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance5PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance5PropertiesBuilder {
             inner: PhysicalDeviceMaintenance5Properties {
-                s_type: StructureType::from_raw(-1000470001i32),
+                s_type: StructureType::from_raw(1000470001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18123,7 +18123,7 @@ impl PhysicalDeviceMaintenance6Features {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance6FeaturesBuilder<'a> {
         PhysicalDeviceMaintenance6FeaturesBuilder {
             inner: PhysicalDeviceMaintenance6Features {
-                s_type: StructureType::from_raw(-1000545000i32),
+                s_type: StructureType::from_raw(1000545000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18175,7 +18175,7 @@ impl PhysicalDeviceMaintenance6Properties {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance6PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance6PropertiesBuilder {
             inner: PhysicalDeviceMaintenance6Properties {
-                s_type: StructureType::from_raw(-1000545001i32),
+                s_type: StructureType::from_raw(1000545001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18222,7 +18222,7 @@ impl PhysicalDeviceMaintenance7FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance7FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance7FeaturesKHRBuilder {
             inner: PhysicalDeviceMaintenance7FeaturesKHR {
-                s_type: StructureType::from_raw(-1000562000i32),
+                s_type: StructureType::from_raw(1000562000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18274,7 +18274,7 @@ impl PhysicalDeviceMaintenance7PropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance7PropertiesKHRBuilder<'a> {
         PhysicalDeviceMaintenance7PropertiesKHRBuilder {
             inner: PhysicalDeviceMaintenance7PropertiesKHR {
-                s_type: StructureType::from_raw(-1000562001i32),
+                s_type: StructureType::from_raw(1000562001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18361,7 +18361,7 @@ impl PhysicalDeviceLayeredApiPropertiesListKHR {
     pub fn builder<'a>() -> PhysicalDeviceLayeredApiPropertiesListKHRBuilder<'a> {
         PhysicalDeviceLayeredApiPropertiesListKHRBuilder {
             inner: PhysicalDeviceLayeredApiPropertiesListKHR {
-                s_type: StructureType::from_raw(-1000562002i32),
+                s_type: StructureType::from_raw(1000562002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18417,7 +18417,7 @@ impl PhysicalDeviceLayeredApiPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceLayeredApiPropertiesKHRBuilder<'a> {
         PhysicalDeviceLayeredApiPropertiesKHRBuilder {
             inner: PhysicalDeviceLayeredApiPropertiesKHR {
-                s_type: StructureType::from_raw(-1000562003i32),
+                s_type: StructureType::from_raw(1000562003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18472,7 +18472,7 @@ impl PhysicalDeviceLayeredApiVulkanPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceLayeredApiVulkanPropertiesKHRBuilder<'a> {
         PhysicalDeviceLayeredApiVulkanPropertiesKHRBuilder {
             inner: PhysicalDeviceLayeredApiVulkanPropertiesKHR {
-                s_type: StructureType::from_raw(-1000562004i32),
+                s_type: StructureType::from_raw(1000562004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18509,7 +18509,7 @@ impl PhysicalDeviceMaintenance8FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance8FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance8FeaturesKHRBuilder {
             inner: PhysicalDeviceMaintenance8FeaturesKHR {
-                s_type: StructureType::from_raw(-1000574000i32),
+                s_type: StructureType::from_raw(1000574000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18561,7 +18561,7 @@ impl PhysicalDeviceMaintenance9FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance9FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance9FeaturesKHRBuilder {
             inner: PhysicalDeviceMaintenance9FeaturesKHR {
-                s_type: StructureType::from_raw(-1000584000i32),
+                s_type: StructureType::from_raw(1000584000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18613,7 +18613,7 @@ impl PhysicalDeviceMaintenance9PropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance9PropertiesKHRBuilder<'a> {
         PhysicalDeviceMaintenance9PropertiesKHRBuilder {
             inner: PhysicalDeviceMaintenance9PropertiesKHR {
-                s_type: StructureType::from_raw(-1000584001i32),
+                s_type: StructureType::from_raw(1000584001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18658,7 +18658,7 @@ impl PhysicalDeviceMaintenance10PropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance10PropertiesKHRBuilder<'a> {
         PhysicalDeviceMaintenance10PropertiesKHRBuilder {
             inner: PhysicalDeviceMaintenance10PropertiesKHR {
-                s_type: StructureType::from_raw(-1000630001i32),
+                s_type: StructureType::from_raw(1000630001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18708,7 +18708,7 @@ impl PhysicalDeviceMaintenance10FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceMaintenance10FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance10FeaturesKHRBuilder {
             inner: PhysicalDeviceMaintenance10FeaturesKHR {
-                s_type: StructureType::from_raw(-1000630000i32),
+                s_type: StructureType::from_raw(1000630000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18760,7 +18760,7 @@ impl QueueFamilyOwnershipTransferPropertiesKHR {
     pub fn builder<'a>() -> QueueFamilyOwnershipTransferPropertiesKHRBuilder<'a> {
         QueueFamilyOwnershipTransferPropertiesKHRBuilder {
             inner: QueueFamilyOwnershipTransferPropertiesKHR {
-                s_type: StructureType::from_raw(-1000584002i32),
+                s_type: StructureType::from_raw(1000584002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18797,7 +18797,7 @@ impl RenderingAreaInfo {
     pub fn builder<'a>() -> RenderingAreaInfoBuilder<'a> {
         RenderingAreaInfoBuilder {
             inner: RenderingAreaInfo {
-                s_type: StructureType::from_raw(-1000470003i32),
+                s_type: StructureType::from_raw(1000470003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18862,7 +18862,7 @@ impl DescriptorSetLayoutSupport {
     pub fn builder<'a>() -> DescriptorSetLayoutSupportBuilder<'a> {
         DescriptorSetLayoutSupportBuilder {
             inner: DescriptorSetLayoutSupport {
-                s_type: StructureType::from_raw(-1000168001i32),
+                s_type: StructureType::from_raw(1000168001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18899,7 +18899,7 @@ impl PhysicalDeviceShaderDrawParametersFeatures {
     pub fn builder<'a>() -> PhysicalDeviceShaderDrawParametersFeaturesBuilder<'a> {
         PhysicalDeviceShaderDrawParametersFeaturesBuilder {
             inner: PhysicalDeviceShaderDrawParametersFeatures {
-                s_type: StructureType::from_raw(-1000063000i32),
+                s_type: StructureType::from_raw(1000063000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -18951,7 +18951,7 @@ impl PhysicalDeviceShaderFloat16Int8Features {
     pub fn builder<'a>() -> PhysicalDeviceShaderFloat16Int8FeaturesBuilder<'a> {
         PhysicalDeviceShaderFloat16Int8FeaturesBuilder {
             inner: PhysicalDeviceShaderFloat16Int8Features {
-                s_type: StructureType::from_raw(-1000082000i32),
+                s_type: StructureType::from_raw(1000082000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19008,7 +19008,7 @@ impl PhysicalDeviceFloatControlsProperties {
     pub fn builder<'a>() -> PhysicalDeviceFloatControlsPropertiesBuilder<'a> {
         PhysicalDeviceFloatControlsPropertiesBuilder {
             inner: PhysicalDeviceFloatControlsProperties {
-                s_type: StructureType::from_raw(-1000197000i32),
+                s_type: StructureType::from_raw(1000197000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19131,7 +19131,7 @@ impl PhysicalDeviceHostQueryResetFeatures {
     pub fn builder<'a>() -> PhysicalDeviceHostQueryResetFeaturesBuilder<'a> {
         PhysicalDeviceHostQueryResetFeaturesBuilder {
             inner: PhysicalDeviceHostQueryResetFeatures {
-                s_type: StructureType::from_raw(-1000261000i32),
+                s_type: StructureType::from_raw(1000261000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19341,7 +19341,7 @@ impl DeviceQueueGlobalPriorityCreateInfo {
     pub fn builder<'a>() -> DeviceQueueGlobalPriorityCreateInfoBuilder<'a> {
         DeviceQueueGlobalPriorityCreateInfoBuilder {
             inner: DeviceQueueGlobalPriorityCreateInfo {
-                s_type: StructureType::from_raw(-1000174000i32),
+                s_type: StructureType::from_raw(1000174000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19393,7 +19393,7 @@ impl PhysicalDeviceGlobalPriorityQueryFeatures {
     pub fn builder<'a>() -> PhysicalDeviceGlobalPriorityQueryFeaturesBuilder<'a> {
         PhysicalDeviceGlobalPriorityQueryFeaturesBuilder {
             inner: PhysicalDeviceGlobalPriorityQueryFeatures {
-                s_type: StructureType::from_raw(-1000388000i32),
+                s_type: StructureType::from_raw(1000388000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19445,7 +19445,7 @@ impl QueueFamilyGlobalPriorityProperties {
     pub fn builder<'a>() -> QueueFamilyGlobalPriorityPropertiesBuilder<'a> {
         QueueFamilyGlobalPriorityPropertiesBuilder {
             inner: QueueFamilyGlobalPriorityProperties {
-                s_type: StructureType::from_raw(-1000388001i32),
+                s_type: StructureType::from_raw(1000388001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19490,7 +19490,7 @@ impl DebugUtilsObjectNameInfoEXT {
     pub fn builder<'a>() -> DebugUtilsObjectNameInfoEXTBuilder<'a> {
         DebugUtilsObjectNameInfoEXTBuilder {
             inner: DebugUtilsObjectNameInfoEXT {
-                s_type: StructureType::from_raw(-1000128000i32),
+                s_type: StructureType::from_raw(1000128000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19552,7 +19552,7 @@ impl DebugUtilsObjectTagInfoEXT {
     pub fn builder<'a>() -> DebugUtilsObjectTagInfoEXTBuilder<'a> {
         DebugUtilsObjectTagInfoEXTBuilder {
             inner: DebugUtilsObjectTagInfoEXT {
-                s_type: StructureType::from_raw(-1000128001i32),
+                s_type: StructureType::from_raw(1000128001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19620,7 +19620,7 @@ impl DebugUtilsLabelEXT {
     pub fn builder<'a>() -> DebugUtilsLabelEXTBuilder<'a> {
         DebugUtilsLabelEXTBuilder {
             inner: DebugUtilsLabelEXT {
-                s_type: StructureType::from_raw(-1000128002i32),
+                s_type: StructureType::from_raw(1000128002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19674,7 +19674,7 @@ impl DebugUtilsMessengerCreateInfoEXT {
     pub fn builder<'a>() -> DebugUtilsMessengerCreateInfoEXTBuilder<'a> {
         DebugUtilsMessengerCreateInfoEXTBuilder {
             inner: DebugUtilsMessengerCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000128004i32),
+                s_type: StructureType::from_raw(1000128004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19749,7 +19749,7 @@ impl DebugUtilsMessengerCallbackDataEXT {
     pub fn builder<'a>() -> DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         DebugUtilsMessengerCallbackDataEXTBuilder {
             inner: DebugUtilsMessengerCallbackDataEXT {
-                s_type: StructureType::from_raw(-1000128003i32),
+                s_type: StructureType::from_raw(1000128003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19834,7 +19834,7 @@ impl PhysicalDeviceDeviceMemoryReportFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder<'a> {
         PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder {
             inner: PhysicalDeviceDeviceMemoryReportFeaturesEXT {
-                s_type: StructureType::from_raw(-1000284000i32),
+                s_type: StructureType::from_raw(1000284000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19886,7 +19886,7 @@ impl DeviceDeviceMemoryReportCreateInfoEXT {
     pub fn builder<'a>() -> DeviceDeviceMemoryReportCreateInfoEXTBuilder<'a> {
         DeviceDeviceMemoryReportCreateInfoEXTBuilder {
             inner: DeviceDeviceMemoryReportCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000284001i32),
+                s_type: StructureType::from_raw(1000284001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -19951,7 +19951,7 @@ impl DeviceMemoryReportCallbackDataEXT {
     pub fn builder<'a>() -> DeviceMemoryReportCallbackDataEXTBuilder<'a> {
         DeviceMemoryReportCallbackDataEXTBuilder {
             inner: DeviceMemoryReportCallbackDataEXT {
-                s_type: StructureType::from_raw(-1000284002i32),
+                s_type: StructureType::from_raw(1000284002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20018,7 +20018,7 @@ impl ImportMemoryHostPointerInfoEXT {
     pub fn builder<'a>() -> ImportMemoryHostPointerInfoEXTBuilder<'a> {
         ImportMemoryHostPointerInfoEXTBuilder {
             inner: ImportMemoryHostPointerInfoEXT {
-                s_type: StructureType::from_raw(-1000178000i32),
+                s_type: StructureType::from_raw(1000178000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20075,7 +20075,7 @@ impl MemoryHostPointerPropertiesEXT {
     pub fn builder<'a>() -> MemoryHostPointerPropertiesEXTBuilder<'a> {
         MemoryHostPointerPropertiesEXTBuilder {
             inner: MemoryHostPointerPropertiesEXT {
-                s_type: StructureType::from_raw(-1000178001i32),
+                s_type: StructureType::from_raw(1000178001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20112,7 +20112,7 @@ impl PhysicalDeviceExternalMemoryHostPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceExternalMemoryHostPropertiesEXTBuilder<'a> {
         PhysicalDeviceExternalMemoryHostPropertiesEXTBuilder {
             inner: PhysicalDeviceExternalMemoryHostPropertiesEXT {
-                s_type: StructureType::from_raw(-1000178002i32),
+                s_type: StructureType::from_raw(1000178002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20152,7 +20152,7 @@ impl PhysicalDeviceConservativeRasterizationPropertiesEXT {
     > {
         PhysicalDeviceConservativeRasterizationPropertiesEXTBuilder {
             inner: PhysicalDeviceConservativeRasterizationPropertiesEXT {
-                s_type: StructureType::from_raw(-1000101000i32),
+                s_type: StructureType::from_raw(1000101000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20234,7 +20234,7 @@ impl CalibratedTimestampInfoKHR {
     pub fn builder<'a>() -> CalibratedTimestampInfoKHRBuilder<'a> {
         CalibratedTimestampInfoKHRBuilder {
             inner: CalibratedTimestampInfoKHR {
-                s_type: StructureType::from_raw(-1000184000i32),
+                s_type: StructureType::from_raw(1000184000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20286,7 +20286,7 @@ impl PhysicalDeviceShaderCorePropertiesAMD {
     pub fn builder<'a>() -> PhysicalDeviceShaderCorePropertiesAMDBuilder<'a> {
         PhysicalDeviceShaderCorePropertiesAMDBuilder {
             inner: PhysicalDeviceShaderCorePropertiesAMD {
-                s_type: StructureType::from_raw(-1000185000i32),
+                s_type: StructureType::from_raw(1000185000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20388,7 +20388,7 @@ impl PhysicalDeviceShaderCoreProperties2AMD {
     pub fn builder<'a>() -> PhysicalDeviceShaderCoreProperties2AMDBuilder<'a> {
         PhysicalDeviceShaderCoreProperties2AMDBuilder {
             inner: PhysicalDeviceShaderCoreProperties2AMD {
-                s_type: StructureType::from_raw(-1000227000i32),
+                s_type: StructureType::from_raw(1000227000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20432,7 +20432,7 @@ impl PipelineRasterizationConservativeStateCreateInfoEXT {
     > {
         PipelineRasterizationConservativeStateCreateInfoEXTBuilder {
             inner: PipelineRasterizationConservativeStateCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000101001i32),
+                s_type: StructureType::from_raw(1000101001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20502,7 +20502,7 @@ impl PhysicalDeviceDescriptorIndexingFeatures {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorIndexingFeaturesBuilder<'a> {
         PhysicalDeviceDescriptorIndexingFeaturesBuilder {
             inner: PhysicalDeviceDescriptorIndexingFeatures {
-                s_type: StructureType::from_raw(-1000161001i32),
+                s_type: StructureType::from_raw(1000161001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20694,7 +20694,7 @@ impl PhysicalDeviceDescriptorIndexingProperties {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorIndexingPropertiesBuilder<'a> {
         PhysicalDeviceDescriptorIndexingPropertiesBuilder {
             inner: PhysicalDeviceDescriptorIndexingProperties {
-                s_type: StructureType::from_raw(-1000161002i32),
+                s_type: StructureType::from_raw(1000161002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20895,7 +20895,7 @@ impl DescriptorSetLayoutBindingFlagsCreateInfo {
     pub fn builder<'a>() -> DescriptorSetLayoutBindingFlagsCreateInfoBuilder<'a> {
         DescriptorSetLayoutBindingFlagsCreateInfoBuilder {
             inner: DescriptorSetLayoutBindingFlagsCreateInfo {
-                s_type: StructureType::from_raw(-1000161000i32),
+                s_type: StructureType::from_raw(1000161000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -20948,7 +20948,7 @@ impl DescriptorSetVariableDescriptorCountAllocateInfo {
     pub fn builder<'a>() -> DescriptorSetVariableDescriptorCountAllocateInfoBuilder<'a> {
         DescriptorSetVariableDescriptorCountAllocateInfoBuilder {
             inner: DescriptorSetVariableDescriptorCountAllocateInfo {
-                s_type: StructureType::from_raw(-1000161003i32),
+                s_type: StructureType::from_raw(1000161003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21005,7 +21005,7 @@ impl DescriptorSetVariableDescriptorCountLayoutSupport {
     > {
         DescriptorSetVariableDescriptorCountLayoutSupportBuilder {
             inner: DescriptorSetVariableDescriptorCountLayoutSupport {
-                s_type: StructureType::from_raw(-1000161004i32),
+                s_type: StructureType::from_raw(1000161004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21044,7 +21044,7 @@ impl AttachmentDescription2 {
     pub fn builder<'a>() -> AttachmentDescription2Builder<'a> {
         AttachmentDescription2Builder {
             inner: AttachmentDescription2 {
-                s_type: StructureType::from_raw(-1000109000i32),
+                s_type: StructureType::from_raw(1000109000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21136,7 +21136,7 @@ impl AttachmentReference2 {
     pub fn builder<'a>() -> AttachmentReference2Builder<'a> {
         AttachmentReference2Builder {
             inner: AttachmentReference2 {
-                s_type: StructureType::from_raw(-1000109001i32),
+                s_type: StructureType::from_raw(1000109001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21195,7 +21195,7 @@ impl SubpassDescription2 {
     pub fn builder<'a>() -> SubpassDescription2Builder<'a> {
         SubpassDescription2Builder {
             inner: SubpassDescription2 {
-                s_type: StructureType::from_raw(-1000109002i32),
+                s_type: StructureType::from_raw(1000109002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21286,7 +21286,7 @@ impl SubpassDependency2 {
     pub fn builder<'a>() -> SubpassDependency2Builder<'a> {
         SubpassDependency2Builder {
             inner: SubpassDependency2 {
-                s_type: StructureType::from_raw(-1000109003i32),
+                s_type: StructureType::from_raw(1000109003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21370,7 +21370,7 @@ impl RenderPassCreateInfo2 {
     pub fn builder<'a>() -> RenderPassCreateInfo2Builder<'a> {
         RenderPassCreateInfo2Builder {
             inner: RenderPassCreateInfo2 {
-                s_type: StructureType::from_raw(-1000109004i32),
+                s_type: StructureType::from_raw(1000109004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21446,7 +21446,7 @@ impl SubpassBeginInfo {
     pub fn builder<'a>() -> SubpassBeginInfoBuilder<'a> {
         SubpassBeginInfoBuilder {
             inner: SubpassBeginInfo {
-                s_type: StructureType::from_raw(-1000109005i32),
+                s_type: StructureType::from_raw(1000109005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21495,7 +21495,7 @@ impl SubpassEndInfo {
     pub fn builder<'a>() -> SubpassEndInfoBuilder<'a> {
         SubpassEndInfoBuilder {
             inner: SubpassEndInfo {
-                s_type: StructureType::from_raw(-1000109006i32),
+                s_type: StructureType::from_raw(1000109006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21539,7 +21539,7 @@ impl PhysicalDeviceTimelineSemaphoreFeatures {
     pub fn builder<'a>() -> PhysicalDeviceTimelineSemaphoreFeaturesBuilder<'a> {
         PhysicalDeviceTimelineSemaphoreFeaturesBuilder {
             inner: PhysicalDeviceTimelineSemaphoreFeatures {
-                s_type: StructureType::from_raw(-1000207000i32),
+                s_type: StructureType::from_raw(1000207000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21591,7 +21591,7 @@ impl PhysicalDeviceTimelineSemaphoreProperties {
     pub fn builder<'a>() -> PhysicalDeviceTimelineSemaphorePropertiesBuilder<'a> {
         PhysicalDeviceTimelineSemaphorePropertiesBuilder {
             inner: PhysicalDeviceTimelineSemaphoreProperties {
-                s_type: StructureType::from_raw(-1000207001i32),
+                s_type: StructureType::from_raw(1000207001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21628,7 +21628,7 @@ impl SemaphoreTypeCreateInfo {
     pub fn builder<'a>() -> SemaphoreTypeCreateInfoBuilder<'a> {
         SemaphoreTypeCreateInfoBuilder {
             inner: SemaphoreTypeCreateInfo {
-                s_type: StructureType::from_raw(-1000207002i32),
+                s_type: StructureType::from_raw(1000207002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21685,7 +21685,7 @@ impl TimelineSemaphoreSubmitInfo {
     pub fn builder<'a>() -> TimelineSemaphoreSubmitInfoBuilder<'a> {
         TimelineSemaphoreSubmitInfoBuilder {
             inner: TimelineSemaphoreSubmitInfo {
-                s_type: StructureType::from_raw(-1000207003i32),
+                s_type: StructureType::from_raw(1000207003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21744,7 +21744,7 @@ impl SemaphoreWaitInfo {
     pub fn builder<'a>() -> SemaphoreWaitInfoBuilder<'a> {
         SemaphoreWaitInfoBuilder {
             inner: SemaphoreWaitInfo {
-                s_type: StructureType::from_raw(-1000207004i32),
+                s_type: StructureType::from_raw(1000207004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21805,7 +21805,7 @@ impl SemaphoreSignalInfo {
     pub fn builder<'a>() -> SemaphoreSignalInfoBuilder<'a> {
         SemaphoreSignalInfoBuilder {
             inner: SemaphoreSignalInfo {
-                s_type: StructureType::from_raw(-1000207005i32),
+                s_type: StructureType::from_raw(1000207005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21859,7 +21859,7 @@ impl PipelineVertexInputDivisorStateCreateInfo {
     pub fn builder<'a>() -> PipelineVertexInputDivisorStateCreateInfoBuilder<'a> {
         PipelineVertexInputDivisorStateCreateInfoBuilder {
             inner: PipelineVertexInputDivisorStateCreateInfo {
-                s_type: StructureType::from_raw(-1000190001i32),
+                s_type: StructureType::from_raw(1000190001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21917,7 +21917,7 @@ impl PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
     > {
         PhysicalDeviceVertexAttributeDivisorPropertiesEXTBuilder {
             inner: PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
-                s_type: StructureType::from_raw(-1000190000i32),
+                s_type: StructureType::from_raw(1000190000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21956,7 +21956,7 @@ impl PhysicalDeviceVertexAttributeDivisorProperties {
     pub fn builder<'a>() -> PhysicalDeviceVertexAttributeDivisorPropertiesBuilder<'a> {
         PhysicalDeviceVertexAttributeDivisorPropertiesBuilder {
             inner: PhysicalDeviceVertexAttributeDivisorProperties {
-                s_type: StructureType::from_raw(-1000525000i32),
+                s_type: StructureType::from_raw(1000525000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -21999,7 +21999,7 @@ impl PhysicalDevicePCIBusInfoPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDevicePCIBusInfoPropertiesEXTBuilder<'a> {
         PhysicalDevicePCIBusInfoPropertiesEXTBuilder {
             inner: PhysicalDevicePCIBusInfoPropertiesEXT {
-                s_type: StructureType::from_raw(-1000212000i32),
+                s_type: StructureType::from_raw(1000212000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22051,7 +22051,7 @@ impl ImportAndroidHardwareBufferInfoANDROID {
     pub fn builder<'a>() -> ImportAndroidHardwareBufferInfoANDROIDBuilder<'a> {
         ImportAndroidHardwareBufferInfoANDROIDBuilder {
             inner: ImportAndroidHardwareBufferInfoANDROID {
-                s_type: StructureType::from_raw(-1000129003i32),
+                s_type: StructureType::from_raw(1000129003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22103,7 +22103,7 @@ impl AndroidHardwareBufferUsageANDROID {
     pub fn builder<'a>() -> AndroidHardwareBufferUsageANDROIDBuilder<'a> {
         AndroidHardwareBufferUsageANDROIDBuilder {
             inner: AndroidHardwareBufferUsageANDROID {
-                s_type: StructureType::from_raw(-1000129000i32),
+                s_type: StructureType::from_raw(1000129000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22140,7 +22140,7 @@ impl AndroidHardwareBufferPropertiesANDROID {
     pub fn builder<'a>() -> AndroidHardwareBufferPropertiesANDROIDBuilder<'a> {
         AndroidHardwareBufferPropertiesANDROIDBuilder {
             inner: AndroidHardwareBufferPropertiesANDROID {
-                s_type: StructureType::from_raw(-1000129001i32),
+                s_type: StructureType::from_raw(1000129001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22182,7 +22182,7 @@ impl MemoryGetAndroidHardwareBufferInfoANDROID {
     pub fn builder<'a>() -> MemoryGetAndroidHardwareBufferInfoANDROIDBuilder<'a> {
         MemoryGetAndroidHardwareBufferInfoANDROIDBuilder {
             inner: MemoryGetAndroidHardwareBufferInfoANDROID {
-                s_type: StructureType::from_raw(-1000129004i32),
+                s_type: StructureType::from_raw(1000129004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22234,7 +22234,7 @@ impl AndroidHardwareBufferFormatPropertiesANDROID {
     pub fn builder<'a>() -> AndroidHardwareBufferFormatPropertiesANDROIDBuilder<'a> {
         AndroidHardwareBufferFormatPropertiesANDROIDBuilder {
             inner: AndroidHardwareBufferFormatPropertiesANDROID {
-                s_type: StructureType::from_raw(-1000129002i32),
+                s_type: StructureType::from_raw(1000129002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22312,7 +22312,7 @@ impl CommandBufferInheritanceConditionalRenderingInfoEXT {
     > {
         CommandBufferInheritanceConditionalRenderingInfoEXTBuilder {
             inner: CommandBufferInheritanceConditionalRenderingInfoEXT {
-                s_type: StructureType::from_raw(-1000081000i32),
+                s_type: StructureType::from_raw(1000081000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22366,7 +22366,7 @@ impl ExternalFormatANDROID {
     pub fn builder<'a>() -> ExternalFormatANDROIDBuilder<'a> {
         ExternalFormatANDROIDBuilder {
             inner: ExternalFormatANDROID {
-                s_type: StructureType::from_raw(-1000129005i32),
+                s_type: StructureType::from_raw(1000129005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22418,7 +22418,7 @@ impl PhysicalDevice8BitStorageFeatures {
     pub fn builder<'a>() -> PhysicalDevice8BitStorageFeaturesBuilder<'a> {
         PhysicalDevice8BitStorageFeaturesBuilder {
             inner: PhysicalDevice8BitStorageFeatures {
-                s_type: StructureType::from_raw(-1000177000i32),
+                s_type: StructureType::from_raw(1000177000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22480,7 +22480,7 @@ impl PhysicalDeviceConditionalRenderingFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceConditionalRenderingFeaturesEXTBuilder<'a> {
         PhysicalDeviceConditionalRenderingFeaturesEXTBuilder {
             inner: PhysicalDeviceConditionalRenderingFeaturesEXT {
-                s_type: StructureType::from_raw(-1000081001i32),
+                s_type: StructureType::from_raw(1000081001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22538,7 +22538,7 @@ impl PhysicalDeviceVulkanMemoryModelFeatures {
     pub fn builder<'a>() -> PhysicalDeviceVulkanMemoryModelFeaturesBuilder<'a> {
         PhysicalDeviceVulkanMemoryModelFeaturesBuilder {
             inner: PhysicalDeviceVulkanMemoryModelFeatures {
-                s_type: StructureType::from_raw(-1000211000i32),
+                s_type: StructureType::from_raw(1000211000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22603,7 +22603,7 @@ impl PhysicalDeviceShaderAtomicInt64Features {
     pub fn builder<'a>() -> PhysicalDeviceShaderAtomicInt64FeaturesBuilder<'a> {
         PhysicalDeviceShaderAtomicInt64FeaturesBuilder {
             inner: PhysicalDeviceShaderAtomicInt64Features {
-                s_type: StructureType::from_raw(-1000180000i32),
+                s_type: StructureType::from_raw(1000180000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22660,7 +22660,7 @@ impl PhysicalDeviceShaderAtomicFloatFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderAtomicFloatFeaturesEXT {
-                s_type: StructureType::from_raw(-1000260000i32),
+                s_type: StructureType::from_raw(1000260000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22767,7 +22767,7 @@ impl PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder {
             inner: PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
-                s_type: StructureType::from_raw(-1000273000i32),
+                s_type: StructureType::from_raw(1000273000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22874,7 +22874,7 @@ impl PhysicalDeviceVertexAttributeDivisorFeatures {
     pub fn builder<'a>() -> PhysicalDeviceVertexAttributeDivisorFeaturesBuilder<'a> {
         PhysicalDeviceVertexAttributeDivisorFeaturesBuilder {
             inner: PhysicalDeviceVertexAttributeDivisorFeatures {
-                s_type: StructureType::from_raw(-1000190002i32),
+                s_type: StructureType::from_raw(1000190002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22932,7 +22932,7 @@ impl QueueFamilyCheckpointPropertiesNV {
     pub fn builder<'a>() -> QueueFamilyCheckpointPropertiesNVBuilder<'a> {
         QueueFamilyCheckpointPropertiesNVBuilder {
             inner: QueueFamilyCheckpointPropertiesNV {
-                s_type: StructureType::from_raw(-1000206001i32),
+                s_type: StructureType::from_raw(1000206001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -22969,7 +22969,7 @@ impl CheckpointDataNV {
     pub fn builder<'a>() -> CheckpointDataNVBuilder<'a> {
         CheckpointDataNVBuilder {
             inner: CheckpointDataNV {
-                s_type: StructureType::from_raw(-1000206000i32),
+                s_type: StructureType::from_raw(1000206000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23011,7 +23011,7 @@ impl PhysicalDeviceDepthStencilResolveProperties {
     pub fn builder<'a>() -> PhysicalDeviceDepthStencilResolvePropertiesBuilder<'a> {
         PhysicalDeviceDepthStencilResolvePropertiesBuilder {
             inner: PhysicalDeviceDepthStencilResolveProperties {
-                s_type: StructureType::from_raw(-1000199000i32),
+                s_type: StructureType::from_raw(1000199000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23063,7 +23063,7 @@ impl SubpassDescriptionDepthStencilResolve {
     pub fn builder<'a>() -> SubpassDescriptionDepthStencilResolveBuilder<'a> {
         SubpassDescriptionDepthStencilResolveBuilder {
             inner: SubpassDescriptionDepthStencilResolve {
-                s_type: StructureType::from_raw(-1000199001i32),
+                s_type: StructureType::from_raw(1000199001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23128,7 +23128,7 @@ impl ImageViewASTCDecodeModeEXT {
     pub fn builder<'a>() -> ImageViewASTCDecodeModeEXTBuilder<'a> {
         ImageViewASTCDecodeModeEXTBuilder {
             inner: ImageViewASTCDecodeModeEXT {
-                s_type: StructureType::from_raw(-1000067000i32),
+                s_type: StructureType::from_raw(1000067000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23180,7 +23180,7 @@ impl PhysicalDeviceASTCDecodeFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceASTCDecodeFeaturesEXTBuilder<'a> {
         PhysicalDeviceASTCDecodeFeaturesEXTBuilder {
             inner: PhysicalDeviceASTCDecodeFeaturesEXT {
-                s_type: StructureType::from_raw(-1000067001i32),
+                s_type: StructureType::from_raw(1000067001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23232,7 +23232,7 @@ impl PhysicalDeviceTransformFeedbackFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceTransformFeedbackFeaturesEXTBuilder<'a> {
         PhysicalDeviceTransformFeedbackFeaturesEXTBuilder {
             inner: PhysicalDeviceTransformFeedbackFeaturesEXT {
-                s_type: StructureType::from_raw(-1000028000i32),
+                s_type: StructureType::from_raw(1000028000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23289,7 +23289,7 @@ impl PhysicalDeviceTransformFeedbackPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceTransformFeedbackPropertiesEXTBuilder<'a> {
         PhysicalDeviceTransformFeedbackPropertiesEXTBuilder {
             inner: PhysicalDeviceTransformFeedbackPropertiesEXT {
-                s_type: StructureType::from_raw(-1000028001i32),
+                s_type: StructureType::from_raw(1000028001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23372,7 +23372,7 @@ impl PipelineRasterizationStateStreamCreateInfoEXT {
     pub fn builder<'a>() -> PipelineRasterizationStateStreamCreateInfoEXTBuilder<'a> {
         PipelineRasterizationStateStreamCreateInfoEXTBuilder {
             inner: PipelineRasterizationStateStreamCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000028002i32),
+                s_type: StructureType::from_raw(1000028002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23435,7 +23435,7 @@ impl PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
     > {
         PhysicalDeviceRepresentativeFragmentTestFeaturesNVBuilder {
             inner: PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
-                s_type: StructureType::from_raw(-1000166000i32),
+                s_type: StructureType::from_raw(1000166000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23491,7 +23491,7 @@ impl PipelineRepresentativeFragmentTestStateCreateInfoNV {
     > {
         PipelineRepresentativeFragmentTestStateCreateInfoNVBuilder {
             inner: PipelineRepresentativeFragmentTestStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000166001i32),
+                s_type: StructureType::from_raw(1000166001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23545,7 +23545,7 @@ impl PhysicalDeviceExclusiveScissorFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExclusiveScissorFeaturesNVBuilder<'a> {
         PhysicalDeviceExclusiveScissorFeaturesNVBuilder {
             inner: PhysicalDeviceExclusiveScissorFeaturesNV {
-                s_type: StructureType::from_raw(-1000205002i32),
+                s_type: StructureType::from_raw(1000205002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23599,7 +23599,7 @@ impl PipelineViewportExclusiveScissorStateCreateInfoNV {
     > {
         PipelineViewportExclusiveScissorStateCreateInfoNVBuilder {
             inner: PipelineViewportExclusiveScissorStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000205000i32),
+                s_type: StructureType::from_raw(1000205000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23654,7 +23654,7 @@ impl PhysicalDeviceCornerSampledImageFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCornerSampledImageFeaturesNVBuilder<'a> {
         PhysicalDeviceCornerSampledImageFeaturesNVBuilder {
             inner: PhysicalDeviceCornerSampledImageFeaturesNV {
-                s_type: StructureType::from_raw(-1000050000i32),
+                s_type: StructureType::from_raw(1000050000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23708,7 +23708,7 @@ impl PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
     > {
         PhysicalDeviceComputeShaderDerivativesFeaturesKHRBuilder {
             inner: PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
-                s_type: StructureType::from_raw(-1000201000i32),
+                s_type: StructureType::from_raw(1000201000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23769,7 +23769,7 @@ impl PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
     > {
         PhysicalDeviceComputeShaderDerivativesPropertiesKHRBuilder {
             inner: PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
-                s_type: StructureType::from_raw(-1000511000i32),
+                s_type: StructureType::from_raw(1000511000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23808,7 +23808,7 @@ impl PhysicalDeviceShaderImageFootprintFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceShaderImageFootprintFeaturesNVBuilder<'a> {
         PhysicalDeviceShaderImageFootprintFeaturesNVBuilder {
             inner: PhysicalDeviceShaderImageFootprintFeaturesNV {
-                s_type: StructureType::from_raw(-1000204000i32),
+                s_type: StructureType::from_raw(1000204000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23863,7 +23863,7 @@ impl PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
     > {
         PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNVBuilder {
             inner: PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
-                s_type: StructureType::from_raw(-1000240000i32),
+                s_type: StructureType::from_raw(1000240000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23917,7 +23917,7 @@ impl PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder<'a> {
         PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder {
             inner: PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
-                s_type: StructureType::from_raw(-1000549000i32),
+                s_type: StructureType::from_raw(1000549000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -23974,7 +23974,7 @@ impl PhysicalDeviceCopyMemoryIndirectFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder<'a> {
         PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder {
             inner: PhysicalDeviceCopyMemoryIndirectFeaturesNV {
-                s_type: StructureType::from_raw(-1000426000i32),
+                s_type: StructureType::from_raw(1000426000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24026,7 +24026,7 @@ impl PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceCopyMemoryIndirectPropertiesKHRBuilder<'a> {
         PhysicalDeviceCopyMemoryIndirectPropertiesKHRBuilder {
             inner: PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
-                s_type: StructureType::from_raw(-1000426001i32),
+                s_type: StructureType::from_raw(1000426001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24064,7 +24064,7 @@ impl PhysicalDeviceMemoryDecompressionFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder<'a> {
         PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder {
             inner: PhysicalDeviceMemoryDecompressionFeaturesEXT {
-                s_type: StructureType::from_raw(-1000427000i32),
+                s_type: StructureType::from_raw(1000427000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24117,7 +24117,7 @@ impl PhysicalDeviceMemoryDecompressionPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder<'a> {
         PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder {
             inner: PhysicalDeviceMemoryDecompressionPropertiesEXT {
-                s_type: StructureType::from_raw(-1000427001i32),
+                s_type: StructureType::from_raw(1000427001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24165,7 +24165,7 @@ impl PipelineViewportShadingRateImageStateCreateInfoNV {
     > {
         PipelineViewportShadingRateImageStateCreateInfoNVBuilder {
             inner: PipelineViewportShadingRateImageStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000164000i32),
+                s_type: StructureType::from_raw(1000164000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24225,7 +24225,7 @@ impl PhysicalDeviceShadingRateImageFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceShadingRateImageFeaturesNVBuilder<'a> {
         PhysicalDeviceShadingRateImageFeaturesNVBuilder {
             inner: PhysicalDeviceShadingRateImageFeaturesNV {
-                s_type: StructureType::from_raw(-1000164001i32),
+                s_type: StructureType::from_raw(1000164001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24282,7 +24282,7 @@ impl PhysicalDeviceShadingRateImagePropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceShadingRateImagePropertiesNVBuilder<'a> {
         PhysicalDeviceShadingRateImagePropertiesNVBuilder {
             inner: PhysicalDeviceShadingRateImagePropertiesNV {
-                s_type: StructureType::from_raw(-1000164002i32),
+                s_type: StructureType::from_raw(1000164002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24329,7 +24329,7 @@ impl PhysicalDeviceInvocationMaskFeaturesHUAWEI {
     pub fn builder<'a>() -> PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder {
             inner: PhysicalDeviceInvocationMaskFeaturesHUAWEI {
-                s_type: StructureType::from_raw(-1000370000i32),
+                s_type: StructureType::from_raw(1000370000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24383,7 +24383,7 @@ impl PipelineViewportCoarseSampleOrderStateCreateInfoNV {
     > {
         PipelineViewportCoarseSampleOrderStateCreateInfoNVBuilder {
             inner: PipelineViewportCoarseSampleOrderStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000164005i32),
+                s_type: StructureType::from_raw(1000164005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24446,7 +24446,7 @@ impl PhysicalDeviceMeshShaderFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderFeaturesNVBuilder<'a> {
         PhysicalDeviceMeshShaderFeaturesNVBuilder {
             inner: PhysicalDeviceMeshShaderFeaturesNV {
-                s_type: StructureType::from_raw(-1000202000i32),
+                s_type: StructureType::from_raw(1000202000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24503,7 +24503,7 @@ impl PhysicalDeviceMeshShaderPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderPropertiesNVBuilder<'a> {
         PhysicalDeviceMeshShaderPropertiesNVBuilder {
             inner: PhysicalDeviceMeshShaderPropertiesNV {
-                s_type: StructureType::from_raw(-1000202001i32),
+                s_type: StructureType::from_raw(1000202001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24600,7 +24600,7 @@ impl PhysicalDeviceMeshShaderFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderFeaturesEXTBuilder<'a> {
         PhysicalDeviceMeshShaderFeaturesEXTBuilder {
             inner: PhysicalDeviceMeshShaderFeaturesEXT {
-                s_type: StructureType::from_raw(-1000328000i32),
+                s_type: StructureType::from_raw(1000328000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24672,7 +24672,7 @@ impl PhysicalDeviceMeshShaderPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a> {
         PhysicalDeviceMeshShaderPropertiesEXTBuilder {
             inner: PhysicalDeviceMeshShaderPropertiesEXT {
-                s_type: StructureType::from_raw(-1000328001i32),
+                s_type: StructureType::from_raw(1000328001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24844,7 +24844,7 @@ impl RayTracingShaderGroupCreateInfoNV {
     pub fn builder<'a>() -> RayTracingShaderGroupCreateInfoNVBuilder<'a> {
         RayTracingShaderGroupCreateInfoNVBuilder {
             inner: RayTracingShaderGroupCreateInfoNV {
-                s_type: StructureType::from_raw(-1000165011i32),
+                s_type: StructureType::from_raw(1000165011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24916,7 +24916,7 @@ impl RayTracingShaderGroupCreateInfoKHR {
     pub fn builder<'a>() -> RayTracingShaderGroupCreateInfoKHRBuilder<'a> {
         RayTracingShaderGroupCreateInfoKHRBuilder {
             inner: RayTracingShaderGroupCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000150016i32),
+                s_type: StructureType::from_raw(1000150016i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -24996,7 +24996,7 @@ impl RayTracingPipelineCreateInfoNV {
     pub fn builder<'a>() -> RayTracingPipelineCreateInfoNVBuilder<'a> {
         RayTracingPipelineCreateInfoNVBuilder {
             inner: RayTracingPipelineCreateInfoNV {
-                s_type: StructureType::from_raw(-1000165000i32),
+                s_type: StructureType::from_raw(1000165000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25080,7 +25080,7 @@ impl RayTracingPipelineCreateInfoKHR {
     pub fn builder<'a>() -> RayTracingPipelineCreateInfoKHRBuilder<'a> {
         RayTracingPipelineCreateInfoKHRBuilder {
             inner: RayTracingPipelineCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000150015i32),
+                s_type: StructureType::from_raw(1000150015i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25185,7 +25185,7 @@ impl GeometryTrianglesNV {
     pub fn builder<'a>() -> GeometryTrianglesNVBuilder<'a> {
         GeometryTrianglesNVBuilder {
             inner: GeometryTrianglesNV {
-                s_type: StructureType::from_raw(-1000165004i32),
+                s_type: StructureType::from_raw(1000165004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25284,7 +25284,7 @@ impl GeometryAABBNV {
     pub fn builder<'a>() -> GeometryAABBNVBuilder<'a> {
         GeometryAABBNVBuilder {
             inner: GeometryAABBNV {
-                s_type: StructureType::from_raw(-1000165005i32),
+                s_type: StructureType::from_raw(1000165005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25348,7 +25348,7 @@ impl GeometryNV {
     pub fn builder<'a>() -> GeometryNVBuilder<'a> {
         GeometryNVBuilder {
             inner: GeometryNV {
-                s_type: StructureType::from_raw(-1000165003i32),
+                s_type: StructureType::from_raw(1000165003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25407,7 +25407,7 @@ impl AccelerationStructureInfoNV {
     pub fn builder<'a>() -> AccelerationStructureInfoNVBuilder<'a> {
         AccelerationStructureInfoNVBuilder {
             inner: AccelerationStructureInfoNV {
-                s_type: StructureType::from_raw(-1000165012i32),
+                s_type: StructureType::from_raw(1000165012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25475,7 +25475,7 @@ impl AccelerationStructureCreateInfoNV {
     pub fn builder<'a>() -> AccelerationStructureCreateInfoNVBuilder<'a> {
         AccelerationStructureCreateInfoNVBuilder {
             inner: AccelerationStructureCreateInfoNV {
-                s_type: StructureType::from_raw(-1000165001i32),
+                s_type: StructureType::from_raw(1000165001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25532,7 +25532,7 @@ impl BindAccelerationStructureMemoryInfoNV {
     pub fn builder<'a>() -> BindAccelerationStructureMemoryInfoNVBuilder<'a> {
         BindAccelerationStructureMemoryInfoNVBuilder {
             inner: BindAccelerationStructureMemoryInfoNV {
-                s_type: StructureType::from_raw(-1000165006i32),
+                s_type: StructureType::from_raw(1000165006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25600,7 +25600,7 @@ impl WriteDescriptorSetAccelerationStructureKHR {
     pub fn builder<'a>() -> WriteDescriptorSetAccelerationStructureKHRBuilder<'a> {
         WriteDescriptorSetAccelerationStructureKHRBuilder {
             inner: WriteDescriptorSetAccelerationStructureKHR {
-                s_type: StructureType::from_raw(-1000150007i32),
+                s_type: StructureType::from_raw(1000150007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25656,7 +25656,7 @@ impl WriteDescriptorSetAccelerationStructureNV {
     pub fn builder<'a>() -> WriteDescriptorSetAccelerationStructureNVBuilder<'a> {
         WriteDescriptorSetAccelerationStructureNVBuilder {
             inner: WriteDescriptorSetAccelerationStructureNV {
-                s_type: StructureType::from_raw(-1000165007i32),
+                s_type: StructureType::from_raw(1000165007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25712,7 +25712,7 @@ impl AccelerationStructureMemoryRequirementsInfoNV {
     pub fn builder<'a>() -> AccelerationStructureMemoryRequirementsInfoNVBuilder<'a> {
         AccelerationStructureMemoryRequirementsInfoNVBuilder {
             inner: AccelerationStructureMemoryRequirementsInfoNV {
-                s_type: StructureType::from_raw(-1000165008i32),
+                s_type: StructureType::from_raw(1000165008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25773,7 +25773,7 @@ impl PhysicalDeviceAccelerationStructureFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceAccelerationStructureFeaturesKHRBuilder<'a> {
         PhysicalDeviceAccelerationStructureFeaturesKHRBuilder {
             inner: PhysicalDeviceAccelerationStructureFeaturesKHR {
-                s_type: StructureType::from_raw(-1000150013i32),
+                s_type: StructureType::from_raw(1000150013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25849,7 +25849,7 @@ impl PhysicalDeviceRayTracingPipelineFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder<'a> {
         PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder {
             inner: PhysicalDeviceRayTracingPipelineFeaturesKHR {
-                s_type: StructureType::from_raw(-1000347000i32),
+                s_type: StructureType::from_raw(1000347000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25927,7 +25927,7 @@ impl PhysicalDeviceRayQueryFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceRayQueryFeaturesKHRBuilder<'a> {
         PhysicalDeviceRayQueryFeaturesKHRBuilder {
             inner: PhysicalDeviceRayQueryFeaturesKHR {
-                s_type: StructureType::from_raw(-1000348013i32),
+                s_type: StructureType::from_raw(1000348013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -25979,7 +25979,7 @@ impl PhysicalDeviceAccelerationStructurePropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceAccelerationStructurePropertiesKHRBuilder<'a> {
         PhysicalDeviceAccelerationStructurePropertiesKHRBuilder {
             inner: PhysicalDeviceAccelerationStructurePropertiesKHR {
-                s_type: StructureType::from_raw(-1000150014i32),
+                s_type: StructureType::from_raw(1000150014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26065,7 +26065,7 @@ impl PhysicalDeviceRayTracingPipelinePropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPipelinePropertiesKHRBuilder<'a> {
         PhysicalDeviceRayTracingPipelinePropertiesKHRBuilder {
             inner: PhysicalDeviceRayTracingPipelinePropertiesKHR {
-                s_type: StructureType::from_raw(-1000347001i32),
+                s_type: StructureType::from_raw(1000347001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26138,7 +26138,7 @@ impl PhysicalDeviceRayTracingPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPropertiesNVBuilder<'a> {
         PhysicalDeviceRayTracingPropertiesNVBuilder {
             inner: PhysicalDeviceRayTracingPropertiesNV {
-                s_type: StructureType::from_raw(-1000165009i32),
+                s_type: StructureType::from_raw(1000165009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26210,7 +26210,7 @@ impl PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
         PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder {
             inner: PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
-                s_type: StructureType::from_raw(-1000386000i32),
+                s_type: StructureType::from_raw(1000386000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26269,7 +26269,7 @@ impl DrmFormatModifierPropertiesListEXT {
     pub fn builder<'a>() -> DrmFormatModifierPropertiesListEXTBuilder<'a> {
         DrmFormatModifierPropertiesListEXTBuilder {
             inner: DrmFormatModifierPropertiesListEXT {
-                s_type: StructureType::from_raw(-1000158000i32),
+                s_type: StructureType::from_raw(1000158000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26310,7 +26310,7 @@ impl PhysicalDeviceImageDrmFormatModifierInfoEXT {
     pub fn builder<'a>() -> PhysicalDeviceImageDrmFormatModifierInfoEXTBuilder<'a> {
         PhysicalDeviceImageDrmFormatModifierInfoEXTBuilder {
             inner: PhysicalDeviceImageDrmFormatModifierInfoEXT {
-                s_type: StructureType::from_raw(-1000158002i32),
+                s_type: StructureType::from_raw(1000158002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26373,7 +26373,7 @@ impl ImageDrmFormatModifierListCreateInfoEXT {
     pub fn builder<'a>() -> ImageDrmFormatModifierListCreateInfoEXTBuilder<'a> {
         ImageDrmFormatModifierListCreateInfoEXTBuilder {
             inner: ImageDrmFormatModifierListCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000158003i32),
+                s_type: StructureType::from_raw(1000158003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26426,7 +26426,7 @@ impl ImageDrmFormatModifierExplicitCreateInfoEXT {
     pub fn builder<'a>() -> ImageDrmFormatModifierExplicitCreateInfoEXTBuilder<'a> {
         ImageDrmFormatModifierExplicitCreateInfoEXTBuilder {
             inner: ImageDrmFormatModifierExplicitCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000158004i32),
+                s_type: StructureType::from_raw(1000158004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26484,7 +26484,7 @@ impl ImageDrmFormatModifierPropertiesEXT {
     pub fn builder<'a>() -> ImageDrmFormatModifierPropertiesEXTBuilder<'a> {
         ImageDrmFormatModifierPropertiesEXTBuilder {
             inner: ImageDrmFormatModifierPropertiesEXT {
-                s_type: StructureType::from_raw(-1000158005i32),
+                s_type: StructureType::from_raw(1000158005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26521,7 +26521,7 @@ impl ImageStencilUsageCreateInfo {
     pub fn builder<'a>() -> ImageStencilUsageCreateInfoBuilder<'a> {
         ImageStencilUsageCreateInfoBuilder {
             inner: ImageStencilUsageCreateInfo {
-                s_type: StructureType::from_raw(-1000246000i32),
+                s_type: StructureType::from_raw(1000246000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26573,7 +26573,7 @@ impl DeviceMemoryOverallocationCreateInfoAMD {
     pub fn builder<'a>() -> DeviceMemoryOverallocationCreateInfoAMDBuilder<'a> {
         DeviceMemoryOverallocationCreateInfoAMDBuilder {
             inner: DeviceMemoryOverallocationCreateInfoAMD {
-                s_type: StructureType::from_raw(-1000189000i32),
+                s_type: StructureType::from_raw(1000189000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26628,7 +26628,7 @@ impl PhysicalDeviceFragmentDensityMapFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder {
             inner: PhysicalDeviceFragmentDensityMapFeaturesEXT {
-                s_type: StructureType::from_raw(-1000218000i32),
+                s_type: StructureType::from_raw(1000218000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26690,7 +26690,7 @@ impl PhysicalDeviceFragmentDensityMap2FeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder {
             inner: PhysicalDeviceFragmentDensityMap2FeaturesEXT {
-                s_type: StructureType::from_raw(-1000332000i32),
+                s_type: StructureType::from_raw(1000332000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26745,7 +26745,7 @@ impl PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
     > {
         PhysicalDeviceFragmentDensityMapOffsetFeaturesEXTBuilder {
             inner: PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
-                s_type: StructureType::from_raw(-1000425000i32),
+                s_type: StructureType::from_raw(1000425000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26799,7 +26799,7 @@ impl PhysicalDeviceFragmentDensityMapPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder {
             inner: PhysicalDeviceFragmentDensityMapPropertiesEXT {
-                s_type: StructureType::from_raw(-1000218001i32),
+                s_type: StructureType::from_raw(1000218001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26847,7 +26847,7 @@ impl PhysicalDeviceFragmentDensityMap2PropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder {
             inner: PhysicalDeviceFragmentDensityMap2PropertiesEXT {
-                s_type: StructureType::from_raw(-1000332001i32),
+                s_type: StructureType::from_raw(1000332001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26902,7 +26902,7 @@ impl PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
     > {
         PhysicalDeviceFragmentDensityMapOffsetPropertiesEXTBuilder {
             inner: PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
-                s_type: StructureType::from_raw(-1000425001i32),
+                s_type: StructureType::from_raw(1000425001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26941,7 +26941,7 @@ impl RenderPassFragmentDensityMapCreateInfoEXT {
     pub fn builder<'a>() -> RenderPassFragmentDensityMapCreateInfoEXTBuilder<'a> {
         RenderPassFragmentDensityMapCreateInfoEXTBuilder {
             inner: RenderPassFragmentDensityMapCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000218002i32),
+                s_type: StructureType::from_raw(1000218002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -26996,7 +26996,7 @@ impl RenderPassFragmentDensityMapOffsetEndInfoEXT {
     pub fn builder<'a>() -> RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder<'a> {
         RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder {
             inner: RenderPassFragmentDensityMapOffsetEndInfoEXT {
-                s_type: StructureType::from_raw(-1000425002i32),
+                s_type: StructureType::from_raw(1000425002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27050,7 +27050,7 @@ impl PhysicalDeviceScalarBlockLayoutFeatures {
     pub fn builder<'a>() -> PhysicalDeviceScalarBlockLayoutFeaturesBuilder<'a> {
         PhysicalDeviceScalarBlockLayoutFeaturesBuilder {
             inner: PhysicalDeviceScalarBlockLayoutFeatures {
-                s_type: StructureType::from_raw(-1000221000i32),
+                s_type: StructureType::from_raw(1000221000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27102,7 +27102,7 @@ impl SurfaceProtectedCapabilitiesKHR {
     pub fn builder<'a>() -> SurfaceProtectedCapabilitiesKHRBuilder<'a> {
         SurfaceProtectedCapabilitiesKHRBuilder {
             inner: SurfaceProtectedCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000239000i32),
+                s_type: StructureType::from_raw(1000239000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27141,7 +27141,7 @@ impl PhysicalDeviceUniformBufferStandardLayoutFeatures {
     > {
         PhysicalDeviceUniformBufferStandardLayoutFeaturesBuilder {
             inner: PhysicalDeviceUniformBufferStandardLayoutFeatures {
-                s_type: StructureType::from_raw(-1000253000i32),
+                s_type: StructureType::from_raw(1000253000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27195,7 +27195,7 @@ impl PhysicalDeviceDepthClipEnableFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDepthClipEnableFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthClipEnableFeaturesEXTBuilder {
             inner: PhysicalDeviceDepthClipEnableFeaturesEXT {
-                s_type: StructureType::from_raw(-1000102000i32),
+                s_type: StructureType::from_raw(1000102000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27247,7 +27247,7 @@ impl PipelineRasterizationDepthClipStateCreateInfoEXT {
     pub fn builder<'a>() -> PipelineRasterizationDepthClipStateCreateInfoEXTBuilder<'a> {
         PipelineRasterizationDepthClipStateCreateInfoEXTBuilder {
             inner: PipelineRasterizationDepthClipStateCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000102001i32),
+                s_type: StructureType::from_raw(1000102001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27309,7 +27309,7 @@ impl PhysicalDeviceMemoryBudgetPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMemoryBudgetPropertiesEXTBuilder<'a> {
         PhysicalDeviceMemoryBudgetPropertiesEXTBuilder {
             inner: PhysicalDeviceMemoryBudgetPropertiesEXT {
-                s_type: StructureType::from_raw(-1000237000i32),
+                s_type: StructureType::from_raw(1000237000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27351,7 +27351,7 @@ impl PhysicalDeviceMemoryPriorityFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMemoryPriorityFeaturesEXTBuilder<'a> {
         PhysicalDeviceMemoryPriorityFeaturesEXTBuilder {
             inner: PhysicalDeviceMemoryPriorityFeaturesEXT {
-                s_type: StructureType::from_raw(-1000238000i32),
+                s_type: StructureType::from_raw(1000238000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27403,7 +27403,7 @@ impl MemoryPriorityAllocateInfoEXT {
     pub fn builder<'a>() -> MemoryPriorityAllocateInfoEXTBuilder<'a> {
         MemoryPriorityAllocateInfoEXTBuilder {
             inner: MemoryPriorityAllocateInfoEXT {
-                s_type: StructureType::from_raw(-1000238001i32),
+                s_type: StructureType::from_raw(1000238001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27457,7 +27457,7 @@ impl PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
     > {
         PhysicalDevicePageableDeviceLocalMemoryFeaturesEXTBuilder {
             inner: PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
-                s_type: StructureType::from_raw(-1000412000i32),
+                s_type: StructureType::from_raw(1000412000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27511,7 +27511,7 @@ impl PhysicalDeviceBufferDeviceAddressFeatures {
     pub fn builder<'a>() -> PhysicalDeviceBufferDeviceAddressFeaturesBuilder<'a> {
         PhysicalDeviceBufferDeviceAddressFeaturesBuilder {
             inner: PhysicalDeviceBufferDeviceAddressFeatures {
-                s_type: StructureType::from_raw(-1000257000i32),
+                s_type: StructureType::from_raw(1000257000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27573,7 +27573,7 @@ impl PhysicalDeviceBufferDeviceAddressFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder<'a> {
         PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder {
             inner: PhysicalDeviceBufferDeviceAddressFeaturesEXT {
-                s_type: StructureType::from_raw(-1000244000i32),
+                s_type: StructureType::from_raw(1000244000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27636,7 +27636,7 @@ impl BufferDeviceAddressInfo {
     pub fn builder<'a>() -> BufferDeviceAddressInfoBuilder<'a> {
         BufferDeviceAddressInfoBuilder {
             inner: BufferDeviceAddressInfo {
-                s_type: StructureType::from_raw(-1000244001i32),
+                s_type: StructureType::from_raw(1000244001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27688,7 +27688,7 @@ impl BufferOpaqueCaptureAddressCreateInfo {
     pub fn builder<'a>() -> BufferOpaqueCaptureAddressCreateInfoBuilder<'a> {
         BufferOpaqueCaptureAddressCreateInfoBuilder {
             inner: BufferOpaqueCaptureAddressCreateInfo {
-                s_type: StructureType::from_raw(-1000257002i32),
+                s_type: StructureType::from_raw(1000257002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27740,7 +27740,7 @@ impl BufferDeviceAddressCreateInfoEXT {
     pub fn builder<'a>() -> BufferDeviceAddressCreateInfoEXTBuilder<'a> {
         BufferDeviceAddressCreateInfoEXTBuilder {
             inner: BufferDeviceAddressCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000244002i32),
+                s_type: StructureType::from_raw(1000244002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27792,7 +27792,7 @@ impl PhysicalDeviceImageViewImageFormatInfoEXT {
     pub fn builder<'a>() -> PhysicalDeviceImageViewImageFormatInfoEXTBuilder<'a> {
         PhysicalDeviceImageViewImageFormatInfoEXTBuilder {
             inner: PhysicalDeviceImageViewImageFormatInfoEXT {
-                s_type: StructureType::from_raw(-1000170000i32),
+                s_type: StructureType::from_raw(1000170000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27844,7 +27844,7 @@ impl FilterCubicImageViewImageFormatPropertiesEXT {
     pub fn builder<'a>() -> FilterCubicImageViewImageFormatPropertiesEXTBuilder<'a> {
         FilterCubicImageViewImageFormatPropertiesEXTBuilder {
             inner: FilterCubicImageViewImageFormatPropertiesEXT {
-                s_type: StructureType::from_raw(-1000170001i32),
+                s_type: StructureType::from_raw(1000170001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27887,7 +27887,7 @@ impl PhysicalDeviceImagelessFramebufferFeatures {
     pub fn builder<'a>() -> PhysicalDeviceImagelessFramebufferFeaturesBuilder<'a> {
         PhysicalDeviceImagelessFramebufferFeaturesBuilder {
             inner: PhysicalDeviceImagelessFramebufferFeatures {
-                s_type: StructureType::from_raw(-1000108000i32),
+                s_type: StructureType::from_raw(1000108000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27939,7 +27939,7 @@ impl FramebufferAttachmentsCreateInfo {
     pub fn builder<'a>() -> FramebufferAttachmentsCreateInfoBuilder<'a> {
         FramebufferAttachmentsCreateInfoBuilder {
             inner: FramebufferAttachmentsCreateInfo {
-                s_type: StructureType::from_raw(-1000108001i32),
+                s_type: StructureType::from_raw(1000108001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -27995,7 +27995,7 @@ impl FramebufferAttachmentImageInfo {
     pub fn builder<'a>() -> FramebufferAttachmentImageInfoBuilder<'a> {
         FramebufferAttachmentImageInfoBuilder {
             inner: FramebufferAttachmentImageInfo {
-                s_type: StructureType::from_raw(-1000108002i32),
+                s_type: StructureType::from_raw(1000108002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28073,7 +28073,7 @@ impl RenderPassAttachmentBeginInfo {
     pub fn builder<'a>() -> RenderPassAttachmentBeginInfoBuilder<'a> {
         RenderPassAttachmentBeginInfoBuilder {
             inner: RenderPassAttachmentBeginInfo {
-                s_type: StructureType::from_raw(-1000108003i32),
+                s_type: StructureType::from_raw(1000108003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28126,7 +28126,7 @@ impl PhysicalDeviceTextureCompressionASTCHDRFeatures {
     pub fn builder<'a>() -> PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder<'a> {
         PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder {
             inner: PhysicalDeviceTextureCompressionASTCHDRFeatures {
-                s_type: StructureType::from_raw(-1000066000i32),
+                s_type: StructureType::from_raw(1000066000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28180,7 +28180,7 @@ impl PhysicalDeviceCooperativeMatrixFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixFeaturesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrixFeaturesNVBuilder {
             inner: PhysicalDeviceCooperativeMatrixFeaturesNV {
-                s_type: StructureType::from_raw(-1000249000i32),
+                s_type: StructureType::from_raw(1000249000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28237,7 +28237,7 @@ impl PhysicalDeviceCooperativeMatrixPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixPropertiesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrixPropertiesNVBuilder {
             inner: PhysicalDeviceCooperativeMatrixPropertiesNV {
-                s_type: StructureType::from_raw(-1000249002i32),
+                s_type: StructureType::from_raw(1000249002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28277,7 +28277,7 @@ impl CooperativeMatrixPropertiesNV {
     pub fn builder<'a>() -> CooperativeMatrixPropertiesNVBuilder<'a> {
         CooperativeMatrixPropertiesNVBuilder {
             inner: CooperativeMatrixPropertiesNV {
-                s_type: StructureType::from_raw(-1000249001i32),
+                s_type: StructureType::from_raw(1000249001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28349,7 +28349,7 @@ impl PhysicalDeviceYcbcrImageArraysFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder<'a> {
         PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder {
             inner: PhysicalDeviceYcbcrImageArraysFeaturesEXT {
-                s_type: StructureType::from_raw(-1000252000i32),
+                s_type: StructureType::from_raw(1000252000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28401,7 +28401,7 @@ impl ImageViewHandleInfoNVX {
     pub fn builder<'a>() -> ImageViewHandleInfoNVXBuilder<'a> {
         ImageViewHandleInfoNVXBuilder {
             inner: ImageViewHandleInfoNVX {
-                s_type: StructureType::from_raw(-1000030000i32),
+                s_type: StructureType::from_raw(1000030000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28463,7 +28463,7 @@ impl ImageViewAddressPropertiesNVX {
     pub fn builder<'a>() -> ImageViewAddressPropertiesNVXBuilder<'a> {
         ImageViewAddressPropertiesNVXBuilder {
             inner: ImageViewAddressPropertiesNVX {
-                s_type: StructureType::from_raw(-1000030001i32),
+                s_type: StructureType::from_raw(1000030001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28505,7 +28505,7 @@ impl PresentFrameTokenGGP {
     pub fn builder<'a>() -> PresentFrameTokenGGPBuilder<'a> {
         PresentFrameTokenGGPBuilder {
             inner: PresentFrameTokenGGP {
-                s_type: StructureType::from_raw(-1000191000i32),
+                s_type: StructureType::from_raw(1000191000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28554,7 +28554,7 @@ impl PipelineCreationFeedbackCreateInfo {
     pub fn builder<'a>() -> PipelineCreationFeedbackCreateInfoBuilder<'a> {
         PipelineCreationFeedbackCreateInfoBuilder {
             inner: PipelineCreationFeedbackCreateInfo {
-                s_type: StructureType::from_raw(-1000192000i32),
+                s_type: StructureType::from_raw(1000192000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28618,7 +28618,7 @@ impl SurfaceFullScreenExclusiveInfoEXT {
     pub fn builder<'a>() -> SurfaceFullScreenExclusiveInfoEXTBuilder<'a> {
         SurfaceFullScreenExclusiveInfoEXTBuilder {
             inner: SurfaceFullScreenExclusiveInfoEXT {
-                s_type: StructureType::from_raw(-1000255000i32),
+                s_type: StructureType::from_raw(1000255000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28670,7 +28670,7 @@ impl SurfaceFullScreenExclusiveWin32InfoEXT {
     pub fn builder<'a>() -> SurfaceFullScreenExclusiveWin32InfoEXTBuilder<'a> {
         SurfaceFullScreenExclusiveWin32InfoEXTBuilder {
             inner: SurfaceFullScreenExclusiveWin32InfoEXT {
-                s_type: StructureType::from_raw(-1000255001i32),
+                s_type: StructureType::from_raw(1000255001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28722,7 +28722,7 @@ impl SurfaceCapabilitiesFullScreenExclusiveEXT {
     pub fn builder<'a>() -> SurfaceCapabilitiesFullScreenExclusiveEXTBuilder<'a> {
         SurfaceCapabilitiesFullScreenExclusiveEXTBuilder {
             inner: SurfaceCapabilitiesFullScreenExclusiveEXT {
-                s_type: StructureType::from_raw(-1000255002i32),
+                s_type: StructureType::from_raw(1000255002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28759,7 +28759,7 @@ impl PhysicalDevicePresentBarrierFeaturesNV {
     pub fn builder<'a>() -> PhysicalDevicePresentBarrierFeaturesNVBuilder<'a> {
         PhysicalDevicePresentBarrierFeaturesNVBuilder {
             inner: PhysicalDevicePresentBarrierFeaturesNV {
-                s_type: StructureType::from_raw(-1000292000i32),
+                s_type: StructureType::from_raw(1000292000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28811,7 +28811,7 @@ impl SurfaceCapabilitiesPresentBarrierNV {
     pub fn builder<'a>() -> SurfaceCapabilitiesPresentBarrierNVBuilder<'a> {
         SurfaceCapabilitiesPresentBarrierNVBuilder {
             inner: SurfaceCapabilitiesPresentBarrierNV {
-                s_type: StructureType::from_raw(-1000292001i32),
+                s_type: StructureType::from_raw(1000292001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28848,7 +28848,7 @@ impl SwapchainPresentBarrierCreateInfoNV {
     pub fn builder<'a>() -> SwapchainPresentBarrierCreateInfoNVBuilder<'a> {
         SwapchainPresentBarrierCreateInfoNVBuilder {
             inner: SwapchainPresentBarrierCreateInfoNV {
-                s_type: StructureType::from_raw(-1000292002i32),
+                s_type: StructureType::from_raw(1000292002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28900,7 +28900,7 @@ impl PhysicalDevicePerformanceQueryFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDevicePerformanceQueryFeaturesKHRBuilder<'a> {
         PhysicalDevicePerformanceQueryFeaturesKHRBuilder {
             inner: PhysicalDevicePerformanceQueryFeaturesKHR {
-                s_type: StructureType::from_raw(-1000116000i32),
+                s_type: StructureType::from_raw(1000116000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28957,7 +28957,7 @@ impl PhysicalDevicePerformanceQueryPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDevicePerformanceQueryPropertiesKHRBuilder<'a> {
         PhysicalDevicePerformanceQueryPropertiesKHRBuilder {
             inner: PhysicalDevicePerformanceQueryPropertiesKHR {
-                s_type: StructureType::from_raw(-1000116001i32),
+                s_type: StructureType::from_raw(1000116001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -28994,7 +28994,7 @@ impl PerformanceCounterKHR {
     pub fn builder<'a>() -> PerformanceCounterKHRBuilder<'a> {
         PerformanceCounterKHRBuilder {
             inner: PerformanceCounterKHR {
-                s_type: StructureType::from_raw(-1000116005i32),
+                s_type: StructureType::from_raw(1000116005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29046,7 +29046,7 @@ impl PerformanceCounterDescriptionKHR {
     pub fn builder<'a>() -> PerformanceCounterDescriptionKHRBuilder<'a> {
         PerformanceCounterDescriptionKHRBuilder {
             inner: PerformanceCounterDescriptionKHR {
-                s_type: StructureType::from_raw(-1000116006i32),
+                s_type: StructureType::from_raw(1000116006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29107,7 +29107,7 @@ impl QueryPoolPerformanceCreateInfoKHR {
     pub fn builder<'a>() -> QueryPoolPerformanceCreateInfoKHRBuilder<'a> {
         QueryPoolPerformanceCreateInfoKHRBuilder {
             inner: QueryPoolPerformanceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000116002i32),
+                s_type: StructureType::from_raw(1000116002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29165,7 +29165,7 @@ impl AcquireProfilingLockInfoKHR {
     pub fn builder<'a>() -> AcquireProfilingLockInfoKHRBuilder<'a> {
         AcquireProfilingLockInfoKHRBuilder {
             inner: AcquireProfilingLockInfoKHR {
-                s_type: StructureType::from_raw(-1000116004i32),
+                s_type: StructureType::from_raw(1000116004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29222,7 +29222,7 @@ impl PerformanceQuerySubmitInfoKHR {
     pub fn builder<'a>() -> PerformanceQuerySubmitInfoKHRBuilder<'a> {
         PerformanceQuerySubmitInfoKHRBuilder {
             inner: PerformanceQuerySubmitInfoKHR {
-                s_type: StructureType::from_raw(-1000116003i32),
+                s_type: StructureType::from_raw(1000116003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29274,7 +29274,7 @@ impl PerformanceQueryReservationInfoKHR {
     pub fn builder<'a>() -> PerformanceQueryReservationInfoKHRBuilder<'a> {
         PerformanceQueryReservationInfoKHRBuilder {
             inner: PerformanceQueryReservationInfoKHR {
-                s_type: StructureType::from_raw(-1000116007i32),
+                s_type: StructureType::from_raw(1000116007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29326,7 +29326,7 @@ impl HeadlessSurfaceCreateInfoEXT {
     pub fn builder<'a>() -> HeadlessSurfaceCreateInfoEXTBuilder<'a> {
         HeadlessSurfaceCreateInfoEXTBuilder {
             inner: HeadlessSurfaceCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000256000i32),
+                s_type: StructureType::from_raw(1000256000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29378,7 +29378,7 @@ impl PhysicalDeviceCoverageReductionModeFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCoverageReductionModeFeaturesNVBuilder<'a> {
         PhysicalDeviceCoverageReductionModeFeaturesNVBuilder {
             inner: PhysicalDeviceCoverageReductionModeFeaturesNV {
-                s_type: StructureType::from_raw(-1000250000i32),
+                s_type: StructureType::from_raw(1000250000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29431,7 +29431,7 @@ impl PipelineCoverageReductionStateCreateInfoNV {
     pub fn builder<'a>() -> PipelineCoverageReductionStateCreateInfoNVBuilder<'a> {
         PipelineCoverageReductionStateCreateInfoNVBuilder {
             inner: PipelineCoverageReductionStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000250001i32),
+                s_type: StructureType::from_raw(1000250001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29488,7 +29488,7 @@ impl FramebufferMixedSamplesCombinationNV {
     pub fn builder<'a>() -> FramebufferMixedSamplesCombinationNVBuilder<'a> {
         FramebufferMixedSamplesCombinationNVBuilder {
             inner: FramebufferMixedSamplesCombinationNV {
-                s_type: StructureType::from_raw(-1000250002i32),
+                s_type: StructureType::from_raw(1000250002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29542,7 +29542,7 @@ impl PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
     > {
         PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder {
             inner: PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
-                s_type: StructureType::from_raw(-1000209000i32),
+                s_type: StructureType::from_raw(1000209000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29596,7 +29596,7 @@ impl InitializePerformanceApiInfoINTEL {
     pub fn builder<'a>() -> InitializePerformanceApiInfoINTELBuilder<'a> {
         InitializePerformanceApiInfoINTELBuilder {
             inner: InitializePerformanceApiInfoINTEL {
-                s_type: StructureType::from_raw(-1000210001i32),
+                s_type: StructureType::from_raw(1000210001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29648,7 +29648,7 @@ impl QueryPoolPerformanceQueryCreateInfoINTEL {
     pub fn builder<'a>() -> QueryPoolPerformanceQueryCreateInfoINTELBuilder<'a> {
         QueryPoolPerformanceQueryCreateInfoINTELBuilder {
             inner: QueryPoolPerformanceQueryCreateInfoINTEL {
-                s_type: StructureType::from_raw(-1000210000i32),
+                s_type: StructureType::from_raw(1000210000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29703,7 +29703,7 @@ impl PerformanceMarkerInfoINTEL {
     pub fn builder<'a>() -> PerformanceMarkerInfoINTELBuilder<'a> {
         PerformanceMarkerInfoINTELBuilder {
             inner: PerformanceMarkerInfoINTEL {
-                s_type: StructureType::from_raw(-1000210002i32),
+                s_type: StructureType::from_raw(1000210002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29755,7 +29755,7 @@ impl PerformanceStreamMarkerInfoINTEL {
     pub fn builder<'a>() -> PerformanceStreamMarkerInfoINTELBuilder<'a> {
         PerformanceStreamMarkerInfoINTELBuilder {
             inner: PerformanceStreamMarkerInfoINTEL {
-                s_type: StructureType::from_raw(-1000210003i32),
+                s_type: StructureType::from_raw(1000210003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29807,7 +29807,7 @@ impl PerformanceOverrideInfoINTEL {
     pub fn builder<'a>() -> PerformanceOverrideInfoINTELBuilder<'a> {
         PerformanceOverrideInfoINTELBuilder {
             inner: PerformanceOverrideInfoINTEL {
-                s_type: StructureType::from_raw(-1000210004i32),
+                s_type: StructureType::from_raw(1000210004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29869,7 +29869,7 @@ impl PerformanceConfigurationAcquireInfoINTEL {
     pub fn builder<'a>() -> PerformanceConfigurationAcquireInfoINTELBuilder<'a> {
         PerformanceConfigurationAcquireInfoINTELBuilder {
             inner: PerformanceConfigurationAcquireInfoINTEL {
-                s_type: StructureType::from_raw(-1000210005i32),
+                s_type: StructureType::from_raw(1000210005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29921,7 +29921,7 @@ impl PhysicalDeviceShaderClockFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderClockFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderClockFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderClockFeaturesKHR {
-                s_type: StructureType::from_raw(-1000181000i32),
+                s_type: StructureType::from_raw(1000181000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -29978,7 +29978,7 @@ impl PhysicalDeviceIndexTypeUint8Features {
     pub fn builder<'a>() -> PhysicalDeviceIndexTypeUint8FeaturesBuilder<'a> {
         PhysicalDeviceIndexTypeUint8FeaturesBuilder {
             inner: PhysicalDeviceIndexTypeUint8Features {
-                s_type: StructureType::from_raw(-1000265000i32),
+                s_type: StructureType::from_raw(1000265000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30030,7 +30030,7 @@ impl PhysicalDeviceShaderSMBuiltinsPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceShaderSMBuiltinsPropertiesNVBuilder<'a> {
         PhysicalDeviceShaderSMBuiltinsPropertiesNVBuilder {
             inner: PhysicalDeviceShaderSMBuiltinsPropertiesNV {
-                s_type: StructureType::from_raw(-1000154001i32),
+                s_type: StructureType::from_raw(1000154001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30072,7 +30072,7 @@ impl PhysicalDeviceShaderSMBuiltinsFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder<'a> {
         PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder {
             inner: PhysicalDeviceShaderSMBuiltinsFeaturesNV {
-                s_type: StructureType::from_raw(-1000154000i32),
+                s_type: StructureType::from_raw(1000154000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30124,7 +30124,7 @@ impl PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder<'a> {
         PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder {
             inner: PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
-                s_type: StructureType::from_raw(-1000251000i32),
+                s_type: StructureType::from_raw(1000251000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30190,7 +30190,7 @@ impl PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
     > {
         PhysicalDeviceSeparateDepthStencilLayoutsFeaturesBuilder {
             inner: PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
-                s_type: StructureType::from_raw(-1000241000i32),
+                s_type: StructureType::from_raw(1000241000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30244,7 +30244,7 @@ impl AttachmentReferenceStencilLayout {
     pub fn builder<'a>() -> AttachmentReferenceStencilLayoutBuilder<'a> {
         AttachmentReferenceStencilLayoutBuilder {
             inner: AttachmentReferenceStencilLayout {
-                s_type: StructureType::from_raw(-1000241001i32),
+                s_type: StructureType::from_raw(1000241001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30298,7 +30298,7 @@ impl PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
     > {
         PhysicalDevicePrimitiveTopologyListRestartFeaturesEXTBuilder {
             inner: PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
-                s_type: StructureType::from_raw(-1000356000i32),
+                s_type: StructureType::from_raw(1000356000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30357,7 +30357,7 @@ impl AttachmentDescriptionStencilLayout {
     pub fn builder<'a>() -> AttachmentDescriptionStencilLayoutBuilder<'a> {
         AttachmentDescriptionStencilLayoutBuilder {
             inner: AttachmentDescriptionStencilLayout {
-                s_type: StructureType::from_raw(-1000241002i32),
+                s_type: StructureType::from_raw(1000241002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30416,7 +30416,7 @@ impl PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
     > {
         PhysicalDevicePipelineExecutablePropertiesFeaturesKHRBuilder {
             inner: PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
-                s_type: StructureType::from_raw(-1000269000i32),
+                s_type: StructureType::from_raw(1000269000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30470,7 +30470,7 @@ impl PipelineInfoKHR {
     pub fn builder<'a>() -> PipelineInfoKHRBuilder<'a> {
         PipelineInfoKHRBuilder {
             inner: PipelineInfoKHR {
-                s_type: StructureType::from_raw(-1000269001i32),
+                s_type: StructureType::from_raw(1000269001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30519,7 +30519,7 @@ impl PipelineExecutablePropertiesKHR {
     pub fn builder<'a>() -> PipelineExecutablePropertiesKHRBuilder<'a> {
         PipelineExecutablePropertiesKHRBuilder {
             inner: PipelineExecutablePropertiesKHR {
-                s_type: StructureType::from_raw(-1000269002i32),
+                s_type: StructureType::from_raw(1000269002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30577,7 +30577,7 @@ impl PipelineExecutableInfoKHR {
     pub fn builder<'a>() -> PipelineExecutableInfoKHRBuilder<'a> {
         PipelineExecutableInfoKHRBuilder {
             inner: PipelineExecutableInfoKHR {
-                s_type: StructureType::from_raw(-1000269003i32),
+                s_type: StructureType::from_raw(1000269003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30634,7 +30634,7 @@ impl PipelineExecutableStatisticKHR {
     pub fn builder<'a>() -> PipelineExecutableStatisticKHRBuilder<'a> {
         PipelineExecutableStatisticKHRBuilder {
             inner: PipelineExecutableStatisticKHR {
-                s_type: StructureType::from_raw(-1000269004i32),
+                s_type: StructureType::from_raw(1000269004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30692,7 +30692,7 @@ impl PipelineExecutableInternalRepresentationKHR {
     pub fn builder<'a>() -> PipelineExecutableInternalRepresentationKHRBuilder<'a> {
         PipelineExecutableInternalRepresentationKHRBuilder {
             inner: PipelineExecutableInternalRepresentationKHR {
-                s_type: StructureType::from_raw(-1000269005i32),
+                s_type: StructureType::from_raw(1000269005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30753,7 +30753,7 @@ impl PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
     > {
         PhysicalDeviceShaderDemoteToHelperInvocationFeaturesBuilder {
             inner: PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
-                s_type: StructureType::from_raw(-1000276000i32),
+                s_type: StructureType::from_raw(1000276000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30807,7 +30807,7 @@ impl PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder<'a> {
         PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder {
             inner: PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
-                s_type: StructureType::from_raw(-1000281000i32),
+                s_type: StructureType::from_raw(1000281000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30860,7 +30860,7 @@ impl PhysicalDeviceTexelBufferAlignmentProperties {
     pub fn builder<'a>() -> PhysicalDeviceTexelBufferAlignmentPropertiesBuilder<'a> {
         PhysicalDeviceTexelBufferAlignmentPropertiesBuilder {
             inner: PhysicalDeviceTexelBufferAlignmentProperties {
-                s_type: StructureType::from_raw(-1000281001i32),
+                s_type: StructureType::from_raw(1000281001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30919,7 +30919,7 @@ impl PhysicalDeviceSubgroupSizeControlFeatures {
     pub fn builder<'a>() -> PhysicalDeviceSubgroupSizeControlFeaturesBuilder<'a> {
         PhysicalDeviceSubgroupSizeControlFeaturesBuilder {
             inner: PhysicalDeviceSubgroupSizeControlFeatures {
-                s_type: StructureType::from_raw(-1000225002i32),
+                s_type: StructureType::from_raw(1000225002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -30976,7 +30976,7 @@ impl PhysicalDeviceSubgroupSizeControlProperties {
     pub fn builder<'a>() -> PhysicalDeviceSubgroupSizeControlPropertiesBuilder<'a> {
         PhysicalDeviceSubgroupSizeControlPropertiesBuilder {
             inner: PhysicalDeviceSubgroupSizeControlProperties {
-                s_type: StructureType::from_raw(-1000225000i32),
+                s_type: StructureType::from_raw(1000225000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31030,7 +31030,7 @@ impl PipelineShaderStageRequiredSubgroupSizeCreateInfo {
     > {
         PipelineShaderStageRequiredSubgroupSizeCreateInfoBuilder {
             inner: PipelineShaderStageRequiredSubgroupSizeCreateInfo {
-                s_type: StructureType::from_raw(-1000225001i32),
+                s_type: StructureType::from_raw(1000225001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31084,7 +31084,7 @@ impl SubpassShadingPipelineCreateInfoHUAWEI {
     pub fn builder<'a>() -> SubpassShadingPipelineCreateInfoHUAWEIBuilder<'a> {
         SubpassShadingPipelineCreateInfoHUAWEIBuilder {
             inner: SubpassShadingPipelineCreateInfoHUAWEI {
-                s_type: StructureType::from_raw(-1000369000i32),
+                s_type: StructureType::from_raw(1000369000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31141,7 +31141,7 @@ impl PhysicalDeviceSubpassShadingPropertiesHUAWEI {
     pub fn builder<'a>() -> PhysicalDeviceSubpassShadingPropertiesHUAWEIBuilder<'a> {
         PhysicalDeviceSubpassShadingPropertiesHUAWEIBuilder {
             inner: PhysicalDeviceSubpassShadingPropertiesHUAWEI {
-                s_type: StructureType::from_raw(-1000369002i32),
+                s_type: StructureType::from_raw(1000369002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31184,7 +31184,7 @@ impl PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
     > {
         PhysicalDeviceClusterCullingShaderPropertiesHUAWEIBuilder {
             inner: PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
-                s_type: StructureType::from_raw(-1000404001i32),
+                s_type: StructureType::from_raw(1000404001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31238,7 +31238,7 @@ impl MemoryOpaqueCaptureAddressAllocateInfo {
     pub fn builder<'a>() -> MemoryOpaqueCaptureAddressAllocateInfoBuilder<'a> {
         MemoryOpaqueCaptureAddressAllocateInfoBuilder {
             inner: MemoryOpaqueCaptureAddressAllocateInfo {
-                s_type: StructureType::from_raw(-1000257003i32),
+                s_type: StructureType::from_raw(1000257003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31290,7 +31290,7 @@ impl DeviceMemoryOpaqueCaptureAddressInfo {
     pub fn builder<'a>() -> DeviceMemoryOpaqueCaptureAddressInfoBuilder<'a> {
         DeviceMemoryOpaqueCaptureAddressInfoBuilder {
             inner: DeviceMemoryOpaqueCaptureAddressInfo {
-                s_type: StructureType::from_raw(-1000257004i32),
+                s_type: StructureType::from_raw(1000257004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31342,7 +31342,7 @@ impl PhysicalDeviceLineRasterizationFeatures {
     pub fn builder<'a>() -> PhysicalDeviceLineRasterizationFeaturesBuilder<'a> {
         PhysicalDeviceLineRasterizationFeaturesBuilder {
             inner: PhysicalDeviceLineRasterizationFeatures {
-                s_type: StructureType::from_raw(-1000259000i32),
+                s_type: StructureType::from_raw(1000259000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31419,7 +31419,7 @@ impl PhysicalDeviceLineRasterizationProperties {
     pub fn builder<'a>() -> PhysicalDeviceLineRasterizationPropertiesBuilder<'a> {
         PhysicalDeviceLineRasterizationPropertiesBuilder {
             inner: PhysicalDeviceLineRasterizationProperties {
-                s_type: StructureType::from_raw(-1000259002i32),
+                s_type: StructureType::from_raw(1000259002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31456,7 +31456,7 @@ impl PipelineRasterizationLineStateCreateInfo {
     pub fn builder<'a>() -> PipelineRasterizationLineStateCreateInfoBuilder<'a> {
         PipelineRasterizationLineStateCreateInfoBuilder {
             inner: PipelineRasterizationLineStateCreateInfo {
-                s_type: StructureType::from_raw(-1000259001i32),
+                s_type: StructureType::from_raw(1000259001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -31525,7 +31525,7 @@ impl PhysicalDevicePipelineCreationCacheControlFeatures {
     > {
         PhysicalDevicePipelineCreationCacheControlFeaturesBuilder {
             inner: PhysicalDevicePipelineCreationCacheControlFeatures {
-                s_type: StructureType::from_raw(-1000297000i32),
+                s_type: StructureType::from_raw(1000297000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33303,7 +33303,7 @@ impl PipelineCompilerControlCreateInfoAMD {
     pub fn builder<'a>() -> PipelineCompilerControlCreateInfoAMDBuilder<'a> {
         PipelineCompilerControlCreateInfoAMDBuilder {
             inner: PipelineCompilerControlCreateInfoAMD {
-                s_type: StructureType::from_raw(-1000183000i32),
+                s_type: StructureType::from_raw(1000183000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33358,7 +33358,7 @@ impl PhysicalDeviceCoherentMemoryFeaturesAMD {
     pub fn builder<'a>() -> PhysicalDeviceCoherentMemoryFeaturesAMDBuilder<'a> {
         PhysicalDeviceCoherentMemoryFeaturesAMDBuilder {
             inner: PhysicalDeviceCoherentMemoryFeaturesAMD {
-                s_type: StructureType::from_raw(-1000229000i32),
+                s_type: StructureType::from_raw(1000229000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33410,7 +33410,7 @@ impl FaultData {
     pub fn builder<'a>() -> FaultDataBuilder<'a> {
         FaultDataBuilder {
             inner: FaultData {
-                s_type: StructureType::from_raw(-1000298007i32),
+                s_type: StructureType::from_raw(1000298007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33452,7 +33452,7 @@ impl FaultCallbackInfo {
     pub fn builder<'a>() -> FaultCallbackInfoBuilder<'a> {
         FaultCallbackInfoBuilder {
             inner: FaultCallbackInfo {
-                s_type: StructureType::from_raw(-1000298008i32),
+                s_type: StructureType::from_raw(1000298008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33507,7 +33507,7 @@ impl PhysicalDeviceToolProperties {
     pub fn builder<'a>() -> PhysicalDeviceToolPropertiesBuilder<'a> {
         PhysicalDeviceToolPropertiesBuilder {
             inner: PhysicalDeviceToolProperties {
-                s_type: StructureType::from_raw(-1000245000i32),
+                s_type: StructureType::from_raw(1000245000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33576,7 +33576,7 @@ impl SamplerCustomBorderColorCreateInfoEXT {
     pub fn builder<'a>() -> SamplerCustomBorderColorCreateInfoEXTBuilder<'a> {
         SamplerCustomBorderColorCreateInfoEXTBuilder {
             inner: SamplerCustomBorderColorCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000287000i32),
+                s_type: StructureType::from_raw(1000287000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33633,7 +33633,7 @@ impl PhysicalDeviceCustomBorderColorPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceCustomBorderColorPropertiesEXTBuilder<'a> {
         PhysicalDeviceCustomBorderColorPropertiesEXTBuilder {
             inner: PhysicalDeviceCustomBorderColorPropertiesEXT {
-                s_type: StructureType::from_raw(-1000287001i32),
+                s_type: StructureType::from_raw(1000287001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33671,7 +33671,7 @@ impl PhysicalDeviceCustomBorderColorFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceCustomBorderColorFeaturesEXTBuilder<'a> {
         PhysicalDeviceCustomBorderColorFeaturesEXTBuilder {
             inner: PhysicalDeviceCustomBorderColorFeaturesEXT {
-                s_type: StructureType::from_raw(-1000287002i32),
+                s_type: StructureType::from_raw(1000287002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33728,7 +33728,7 @@ impl SamplerBorderColorComponentMappingCreateInfoEXT {
     pub fn builder<'a>() -> SamplerBorderColorComponentMappingCreateInfoEXTBuilder<'a> {
         SamplerBorderColorComponentMappingCreateInfoEXTBuilder {
             inner: SamplerBorderColorComponentMappingCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000411001i32),
+                s_type: StructureType::from_raw(1000411001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33787,7 +33787,7 @@ impl PhysicalDeviceBorderColorSwizzleFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder<'a> {
         PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder {
             inner: PhysicalDeviceBorderColorSwizzleFeaturesEXT {
-                s_type: StructureType::from_raw(-1000411000i32),
+                s_type: StructureType::from_raw(1000411000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33844,7 +33844,7 @@ impl AccelerationStructureGeometryTrianglesDataKHR {
     pub fn builder<'a>() -> AccelerationStructureGeometryTrianglesDataKHRBuilder<'a> {
         AccelerationStructureGeometryTrianglesDataKHRBuilder {
             inner: AccelerationStructureGeometryTrianglesDataKHR {
-                s_type: StructureType::from_raw(-1000150005i32),
+                s_type: StructureType::from_raw(1000150005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33927,7 +33927,7 @@ impl AccelerationStructureGeometryAabbsDataKHR {
     pub fn builder<'a>() -> AccelerationStructureGeometryAabbsDataKHRBuilder<'a> {
         AccelerationStructureGeometryAabbsDataKHRBuilder {
             inner: AccelerationStructureGeometryAabbsDataKHR {
-                s_type: StructureType::from_raw(-1000150003i32),
+                s_type: StructureType::from_raw(1000150003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -33984,7 +33984,7 @@ impl AccelerationStructureGeometryInstancesDataKHR {
     pub fn builder<'a>() -> AccelerationStructureGeometryInstancesDataKHRBuilder<'a> {
         AccelerationStructureGeometryInstancesDataKHRBuilder {
             inner: AccelerationStructureGeometryInstancesDataKHR {
-                s_type: StructureType::from_raw(-1000150004i32),
+                s_type: StructureType::from_raw(1000150004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34044,7 +34044,7 @@ impl AccelerationStructureGeometryLinearSweptSpheresDataNV {
     > {
         AccelerationStructureGeometryLinearSweptSpheresDataNVBuilder {
             inner: AccelerationStructureGeometryLinearSweptSpheresDataNV {
-                s_type: StructureType::from_raw(-1000429009i32),
+                s_type: StructureType::from_raw(1000429009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34148,7 +34148,7 @@ impl AccelerationStructureGeometrySpheresDataNV {
     pub fn builder<'a>() -> AccelerationStructureGeometrySpheresDataNVBuilder<'a> {
         AccelerationStructureGeometrySpheresDataNVBuilder {
             inner: AccelerationStructureGeometrySpheresDataNV {
-                s_type: StructureType::from_raw(-1000429010i32),
+                s_type: StructureType::from_raw(1000429010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34240,7 +34240,7 @@ impl AccelerationStructureGeometryKHR {
     pub fn builder<'a>() -> AccelerationStructureGeometryKHRBuilder<'a> {
         AccelerationStructureGeometryKHRBuilder {
             inner: AccelerationStructureGeometryKHR {
-                s_type: StructureType::from_raw(-1000150006i32),
+                s_type: StructureType::from_raw(1000150006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34302,7 +34302,7 @@ impl AccelerationStructureBuildGeometryInfoKHR {
     pub fn builder<'a>() -> AccelerationStructureBuildGeometryInfoKHRBuilder<'a> {
         AccelerationStructureBuildGeometryInfoKHRBuilder {
             inner: AccelerationStructureBuildGeometryInfoKHR {
-                s_type: StructureType::from_raw(-1000150000i32),
+                s_type: StructureType::from_raw(1000150000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34399,7 +34399,7 @@ impl AccelerationStructureCreateInfoKHR {
     pub fn builder<'a>() -> AccelerationStructureCreateInfoKHRBuilder<'a> {
         AccelerationStructureCreateInfoKHRBuilder {
             inner: AccelerationStructureCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000150017i32),
+                s_type: StructureType::from_raw(1000150017i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34476,7 +34476,7 @@ impl AccelerationStructureDeviceAddressInfoKHR {
     pub fn builder<'a>() -> AccelerationStructureDeviceAddressInfoKHRBuilder<'a> {
         AccelerationStructureDeviceAddressInfoKHRBuilder {
             inner: AccelerationStructureDeviceAddressInfoKHR {
-                s_type: StructureType::from_raw(-1000150002i32),
+                s_type: StructureType::from_raw(1000150002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34528,7 +34528,7 @@ impl AccelerationStructureVersionInfoKHR {
     pub fn builder<'a>() -> AccelerationStructureVersionInfoKHRBuilder<'a> {
         AccelerationStructureVersionInfoKHRBuilder {
             inner: AccelerationStructureVersionInfoKHR {
-                s_type: StructureType::from_raw(-1000150009i32),
+                s_type: StructureType::from_raw(1000150009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34580,7 +34580,7 @@ impl CopyAccelerationStructureInfoKHR {
     pub fn builder<'a>() -> CopyAccelerationStructureInfoKHRBuilder<'a> {
         CopyAccelerationStructureInfoKHRBuilder {
             inner: CopyAccelerationStructureInfoKHR {
-                s_type: StructureType::from_raw(-1000150010i32),
+                s_type: StructureType::from_raw(1000150010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34642,7 +34642,7 @@ impl CopyAccelerationStructureToMemoryInfoKHR {
     pub fn builder<'a>() -> CopyAccelerationStructureToMemoryInfoKHRBuilder<'a> {
         CopyAccelerationStructureToMemoryInfoKHRBuilder {
             inner: CopyAccelerationStructureToMemoryInfoKHR {
-                s_type: StructureType::from_raw(-1000150011i32),
+                s_type: StructureType::from_raw(1000150011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34704,7 +34704,7 @@ impl CopyMemoryToAccelerationStructureInfoKHR {
     pub fn builder<'a>() -> CopyMemoryToAccelerationStructureInfoKHRBuilder<'a> {
         CopyMemoryToAccelerationStructureInfoKHRBuilder {
             inner: CopyMemoryToAccelerationStructureInfoKHR {
-                s_type: StructureType::from_raw(-1000150012i32),
+                s_type: StructureType::from_raw(1000150012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34766,7 +34766,7 @@ impl RayTracingPipelineInterfaceCreateInfoKHR {
     pub fn builder<'a>() -> RayTracingPipelineInterfaceCreateInfoKHRBuilder<'a> {
         RayTracingPipelineInterfaceCreateInfoKHRBuilder {
             inner: RayTracingPipelineInterfaceCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000150018i32),
+                s_type: StructureType::from_raw(1000150018i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34823,7 +34823,7 @@ impl PipelineLibraryCreateInfoKHR {
     pub fn builder<'a>() -> PipelineLibraryCreateInfoKHRBuilder<'a> {
         PipelineLibraryCreateInfoKHRBuilder {
             inner: PipelineLibraryCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000290000i32),
+                s_type: StructureType::from_raw(1000290000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34876,7 +34876,7 @@ impl RefreshObjectListKHR {
     pub fn builder<'a>() -> RefreshObjectListKHRBuilder<'a> {
         RefreshObjectListKHRBuilder {
             inner: RefreshObjectListKHR {
-                s_type: StructureType::from_raw(-1000308000i32),
+                s_type: StructureType::from_raw(1000308000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34926,7 +34926,7 @@ impl PhysicalDeviceExtendedDynamicStateFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder {
             inner: PhysicalDeviceExtendedDynamicStateFeaturesEXT {
-                s_type: StructureType::from_raw(-1000267000i32),
+                s_type: StructureType::from_raw(1000267000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -34979,7 +34979,7 @@ impl PhysicalDeviceExtendedDynamicState2FeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder {
             inner: PhysicalDeviceExtendedDynamicState2FeaturesEXT {
-                s_type: StructureType::from_raw(-1000377000i32),
+                s_type: StructureType::from_raw(1000377000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35042,7 +35042,7 @@ impl PhysicalDeviceExtendedDynamicState3FeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder {
             inner: PhysicalDeviceExtendedDynamicState3FeaturesEXT {
-                s_type: StructureType::from_raw(-1000455000i32),
+                s_type: StructureType::from_raw(1000455000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35293,7 +35293,7 @@ impl PhysicalDeviceExtendedDynamicState3PropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder {
             inner: PhysicalDeviceExtendedDynamicState3PropertiesEXT {
-                s_type: StructureType::from_raw(-1000455001i32),
+                s_type: StructureType::from_raw(1000455001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35332,7 +35332,7 @@ impl RenderPassTransformBeginInfoQCOM {
     pub fn builder<'a>() -> RenderPassTransformBeginInfoQCOMBuilder<'a> {
         RenderPassTransformBeginInfoQCOMBuilder {
             inner: RenderPassTransformBeginInfoQCOM {
-                s_type: StructureType::from_raw(-1000282001i32),
+                s_type: StructureType::from_raw(1000282001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35384,7 +35384,7 @@ impl CopyCommandTransformInfoQCOM {
     pub fn builder<'a>() -> CopyCommandTransformInfoQCOMBuilder<'a> {
         CopyCommandTransformInfoQCOMBuilder {
             inner: CopyCommandTransformInfoQCOM {
-                s_type: StructureType::from_raw(-1000333000i32),
+                s_type: StructureType::from_raw(1000333000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35438,7 +35438,7 @@ impl CommandBufferInheritanceRenderPassTransformInfoQCOM {
     > {
         CommandBufferInheritanceRenderPassTransformInfoQCOMBuilder {
             inner: CommandBufferInheritanceRenderPassTransformInfoQCOM {
-                s_type: StructureType::from_raw(-1000282000i32),
+                s_type: StructureType::from_raw(1000282000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35499,7 +35499,7 @@ impl PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
     > {
         PhysicalDevicePartitionedAccelerationStructureFeaturesNVBuilder {
             inner: PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
-                s_type: StructureType::from_raw(-1000570000i32),
+                s_type: StructureType::from_raw(1000570000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35555,7 +35555,7 @@ impl PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
     > {
         PhysicalDevicePartitionedAccelerationStructurePropertiesNVBuilder {
             inner: PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
-                s_type: StructureType::from_raw(-1000570001i32),
+                s_type: StructureType::from_raw(1000570001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35594,7 +35594,7 @@ impl PartitionedAccelerationStructureFlagsNV {
     pub fn builder<'a>() -> PartitionedAccelerationStructureFlagsNVBuilder<'a> {
         PartitionedAccelerationStructureFlagsNVBuilder {
             inner: PartitionedAccelerationStructureFlagsNV {
-                s_type: StructureType::from_raw(-1000570005i32),
+                s_type: StructureType::from_raw(1000570005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35648,7 +35648,7 @@ impl WriteDescriptorSetPartitionedAccelerationStructureNV {
     > {
         WriteDescriptorSetPartitionedAccelerationStructureNVBuilder {
             inner: WriteDescriptorSetPartitionedAccelerationStructureNV {
-                s_type: StructureType::from_raw(-1000570002i32),
+                s_type: StructureType::from_raw(1000570002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35703,7 +35703,7 @@ impl PartitionedAccelerationStructureInstancesInputNV {
     pub fn builder<'a>() -> PartitionedAccelerationStructureInstancesInputNVBuilder<'a> {
         PartitionedAccelerationStructureInstancesInputNVBuilder {
             inner: PartitionedAccelerationStructureInstancesInputNV {
-                s_type: StructureType::from_raw(-1000570003i32),
+                s_type: StructureType::from_raw(1000570003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35777,7 +35777,7 @@ impl BuildPartitionedAccelerationStructureInfoNV {
     pub fn builder<'a>() -> BuildPartitionedAccelerationStructureInfoNVBuilder<'a> {
         BuildPartitionedAccelerationStructureInfoNVBuilder {
             inner: BuildPartitionedAccelerationStructureInfoNV {
-                s_type: StructureType::from_raw(-1000570004i32),
+                s_type: StructureType::from_raw(1000570004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35857,7 +35857,7 @@ impl PhysicalDeviceDiagnosticsConfigFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder<'a> {
         PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder {
             inner: PhysicalDeviceDiagnosticsConfigFeaturesNV {
-                s_type: StructureType::from_raw(-1000300000i32),
+                s_type: StructureType::from_raw(1000300000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35909,7 +35909,7 @@ impl DeviceDiagnosticsConfigCreateInfoNV {
     pub fn builder<'a>() -> DeviceDiagnosticsConfigCreateInfoNVBuilder<'a> {
         DeviceDiagnosticsConfigCreateInfoNVBuilder {
             inner: DeviceDiagnosticsConfigCreateInfoNV {
-                s_type: StructureType::from_raw(-1000300001i32),
+                s_type: StructureType::from_raw(1000300001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35961,7 +35961,7 @@ impl PipelineOfflineCreateInfo {
     pub fn builder<'a>() -> PipelineOfflineCreateInfoBuilder<'a> {
         PipelineOfflineCreateInfoBuilder {
             inner: PipelineOfflineCreateInfo {
-                s_type: StructureType::from_raw(-1000298010i32),
+                s_type: StructureType::from_raw(1000298010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36025,7 +36025,7 @@ impl PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
     > {
         PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesBuilder {
             inner: PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
-                s_type: StructureType::from_raw(-1000325000i32),
+                s_type: StructureType::from_raw(1000325000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36081,7 +36081,7 @@ impl PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
     > {
         PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
-                s_type: StructureType::from_raw(-1000323000i32),
+                s_type: StructureType::from_raw(1000323000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36134,7 +36134,7 @@ impl PhysicalDeviceRobustness2FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceRobustness2FeaturesKHRBuilder<'a> {
         PhysicalDeviceRobustness2FeaturesKHRBuilder {
             inner: PhysicalDeviceRobustness2FeaturesKHR {
-                s_type: StructureType::from_raw(-1000286000i32),
+                s_type: StructureType::from_raw(1000286000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36196,7 +36196,7 @@ impl PhysicalDeviceRobustness2PropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceRobustness2PropertiesKHRBuilder<'a> {
         PhysicalDeviceRobustness2PropertiesKHRBuilder {
             inner: PhysicalDeviceRobustness2PropertiesKHR {
-                s_type: StructureType::from_raw(-1000286001i32),
+                s_type: StructureType::from_raw(1000286001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36238,7 +36238,7 @@ impl PhysicalDeviceImageRobustnessFeatures {
     pub fn builder<'a>() -> PhysicalDeviceImageRobustnessFeaturesBuilder<'a> {
         PhysicalDeviceImageRobustnessFeaturesBuilder {
             inner: PhysicalDeviceImageRobustnessFeatures {
-                s_type: StructureType::from_raw(-1000335000i32),
+                s_type: StructureType::from_raw(1000335000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36292,7 +36292,7 @@ impl PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
     > {
         PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRBuilder {
             inner: PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
-                s_type: StructureType::from_raw(-1000336000i32),
+                s_type: StructureType::from_raw(1000336000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36364,7 +36364,7 @@ impl PhysicalDevicePortabilitySubsetFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDevicePortabilitySubsetFeaturesKHRBuilder<'a> {
         PhysicalDevicePortabilitySubsetFeaturesKHRBuilder {
             inner: PhysicalDevicePortabilitySubsetFeaturesKHR {
-                s_type: StructureType::from_raw(-1000163000i32),
+                s_type: StructureType::from_raw(1000163000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36486,7 +36486,7 @@ impl PhysicalDevicePortabilitySubsetPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDevicePortabilitySubsetPropertiesKHRBuilder<'a> {
         PhysicalDevicePortabilitySubsetPropertiesKHRBuilder {
             inner: PhysicalDevicePortabilitySubsetPropertiesKHR {
-                s_type: StructureType::from_raw(-1000163001i32),
+                s_type: StructureType::from_raw(1000163001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36524,7 +36524,7 @@ impl PhysicalDevice4444FormatsFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDevice4444FormatsFeaturesEXTBuilder<'a> {
         PhysicalDevice4444FormatsFeaturesEXTBuilder {
             inner: PhysicalDevice4444FormatsFeaturesEXT {
-                s_type: StructureType::from_raw(-1000340000i32),
+                s_type: StructureType::from_raw(1000340000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36581,7 +36581,7 @@ impl PhysicalDeviceSubpassShadingFeaturesHUAWEI {
     pub fn builder<'a>() -> PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder {
             inner: PhysicalDeviceSubpassShadingFeaturesHUAWEI {
-                s_type: StructureType::from_raw(-1000369001i32),
+                s_type: StructureType::from_raw(1000369001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36633,7 +36633,7 @@ impl PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
     pub fn builder<'a>() -> PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder {
             inner: PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
-                s_type: StructureType::from_raw(-1000404000i32),
+                s_type: StructureType::from_raw(1000404000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36694,7 +36694,7 @@ impl PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
     > {
         PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEIBuilder {
             inner: PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
-                s_type: StructureType::from_raw(-1000404002i32),
+                s_type: StructureType::from_raw(1000404002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36748,7 +36748,7 @@ impl BufferCopy2 {
     pub fn builder<'a>() -> BufferCopy2Builder<'a> {
         BufferCopy2Builder {
             inner: BufferCopy2 {
-                s_type: StructureType::from_raw(-1000337006i32),
+                s_type: StructureType::from_raw(1000337006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36807,7 +36807,7 @@ impl ImageCopy2 {
     pub fn builder<'a>() -> ImageCopy2Builder<'a> {
         ImageCopy2Builder {
             inner: ImageCopy2 {
-                s_type: StructureType::from_raw(-1000337007i32),
+                s_type: StructureType::from_raw(1000337007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36876,7 +36876,7 @@ impl ImageBlit2 {
     pub fn builder<'a>() -> ImageBlit2Builder<'a> {
         ImageBlit2Builder {
             inner: ImageBlit2 {
-                s_type: StructureType::from_raw(-1000337008i32),
+                s_type: StructureType::from_raw(1000337008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -36940,7 +36940,7 @@ impl BufferImageCopy2 {
     pub fn builder<'a>() -> BufferImageCopy2Builder<'a> {
         BufferImageCopy2Builder {
             inner: BufferImageCopy2 {
-                s_type: StructureType::from_raw(-1000337009i32),
+                s_type: StructureType::from_raw(1000337009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37014,7 +37014,7 @@ impl ImageResolve2 {
     pub fn builder<'a>() -> ImageResolve2Builder<'a> {
         ImageResolve2Builder {
             inner: ImageResolve2 {
-                s_type: StructureType::from_raw(-1000337010i32),
+                s_type: StructureType::from_raw(1000337010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37083,7 +37083,7 @@ impl CopyBufferInfo2 {
     pub fn builder<'a>() -> CopyBufferInfo2Builder<'a> {
         CopyBufferInfo2Builder {
             inner: CopyBufferInfo2 {
-                s_type: StructureType::from_raw(-1000337000i32),
+                s_type: StructureType::from_raw(1000337000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37143,7 +37143,7 @@ impl CopyImageInfo2 {
     pub fn builder<'a>() -> CopyImageInfo2Builder<'a> {
         CopyImageInfo2Builder {
             inner: CopyImageInfo2 {
-                s_type: StructureType::from_raw(-1000337001i32),
+                s_type: StructureType::from_raw(1000337001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37213,7 +37213,7 @@ impl BlitImageInfo2 {
     pub fn builder<'a>() -> BlitImageInfo2Builder<'a> {
         BlitImageInfo2Builder {
             inner: BlitImageInfo2 {
-                s_type: StructureType::from_raw(-1000337004i32),
+                s_type: StructureType::from_raw(1000337004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37288,7 +37288,7 @@ impl CopyBufferToImageInfo2 {
     pub fn builder<'a>() -> CopyBufferToImageInfo2Builder<'a> {
         CopyBufferToImageInfo2Builder {
             inner: CopyBufferToImageInfo2 {
-                s_type: StructureType::from_raw(-1000337002i32),
+                s_type: StructureType::from_raw(1000337002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37356,7 +37356,7 @@ impl CopyImageToBufferInfo2 {
     pub fn builder<'a>() -> CopyImageToBufferInfo2Builder<'a> {
         CopyImageToBufferInfo2Builder {
             inner: CopyImageToBufferInfo2 {
-                s_type: StructureType::from_raw(-1000337003i32),
+                s_type: StructureType::from_raw(1000337003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37424,7 +37424,7 @@ impl ResolveImageInfo2 {
     pub fn builder<'a>() -> ResolveImageInfo2Builder<'a> {
         ResolveImageInfo2Builder {
             inner: ResolveImageInfo2 {
-                s_type: StructureType::from_raw(-1000337005i32),
+                s_type: StructureType::from_raw(1000337005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37494,7 +37494,7 @@ impl PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder {
             inner: PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
-                s_type: StructureType::from_raw(-1000234000i32),
+                s_type: StructureType::from_raw(1000234000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37553,7 +37553,7 @@ impl FragmentShadingRateAttachmentInfoKHR {
     pub fn builder<'a>() -> FragmentShadingRateAttachmentInfoKHRBuilder<'a> {
         FragmentShadingRateAttachmentInfoKHRBuilder {
             inner: FragmentShadingRateAttachmentInfoKHR {
-                s_type: StructureType::from_raw(-1000226000i32),
+                s_type: StructureType::from_raw(1000226000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37613,7 +37613,7 @@ impl PipelineFragmentShadingRateStateCreateInfoKHR {
     pub fn builder<'a>() -> PipelineFragmentShadingRateStateCreateInfoKHRBuilder<'a> {
         PipelineFragmentShadingRateStateCreateInfoKHRBuilder {
             inner: PipelineFragmentShadingRateStateCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000226001i32),
+                s_type: StructureType::from_raw(1000226001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37674,7 +37674,7 @@ impl PhysicalDeviceFragmentShadingRateFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder<'a> {
         PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder {
             inner: PhysicalDeviceFragmentShadingRateFeaturesKHR {
-                s_type: StructureType::from_raw(-1000226003i32),
+                s_type: StructureType::from_raw(1000226003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37737,7 +37737,7 @@ impl PhysicalDeviceFragmentShadingRatePropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder<'a> {
         PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder {
             inner: PhysicalDeviceFragmentShadingRatePropertiesKHR {
-                s_type: StructureType::from_raw(-1000226002i32),
+                s_type: StructureType::from_raw(1000226002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37882,7 +37882,7 @@ impl PhysicalDeviceFragmentShadingRateKHR {
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRateKHRBuilder<'a> {
         PhysicalDeviceFragmentShadingRateKHRBuilder {
             inner: PhysicalDeviceFragmentShadingRateKHR {
-                s_type: StructureType::from_raw(-1000226004i32),
+                s_type: StructureType::from_raw(1000226004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37924,7 +37924,7 @@ impl PhysicalDeviceShaderTerminateInvocationFeatures {
     pub fn builder<'a>() -> PhysicalDeviceShaderTerminateInvocationFeaturesBuilder<'a> {
         PhysicalDeviceShaderTerminateInvocationFeaturesBuilder {
             inner: PhysicalDeviceShaderTerminateInvocationFeatures {
-                s_type: StructureType::from_raw(-1000215000i32),
+                s_type: StructureType::from_raw(1000215000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -37978,7 +37978,7 @@ impl PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder<'a> {
         PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder {
             inner: PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
-                s_type: StructureType::from_raw(-1000326001i32),
+                s_type: StructureType::from_raw(1000326001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38044,7 +38044,7 @@ impl PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     > {
         PhysicalDeviceFragmentShadingRateEnumsPropertiesNVBuilder {
             inner: PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
-                s_type: StructureType::from_raw(-1000326000i32),
+                s_type: StructureType::from_raw(1000326000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38086,7 +38086,7 @@ impl PipelineFragmentShadingRateEnumStateCreateInfoNV {
     pub fn builder<'a>() -> PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder<'a> {
         PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder {
             inner: PipelineFragmentShadingRateEnumStateCreateInfoNV {
-                s_type: StructureType::from_raw(-1000326002i32),
+                s_type: StructureType::from_raw(1000326002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38153,7 +38153,7 @@ impl AccelerationStructureBuildSizesInfoKHR {
     pub fn builder<'a>() -> AccelerationStructureBuildSizesInfoKHRBuilder<'a> {
         AccelerationStructureBuildSizesInfoKHRBuilder {
             inner: AccelerationStructureBuildSizesInfoKHR {
-                s_type: StructureType::from_raw(-1000150020i32),
+                s_type: StructureType::from_raw(1000150020i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38200,7 +38200,7 @@ impl PhysicalDeviceImage2DViewOf3DFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder<'a> {
         PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder {
             inner: PhysicalDeviceImage2DViewOf3DFeaturesEXT {
-                s_type: StructureType::from_raw(-1000393000i32),
+                s_type: StructureType::from_raw(1000393000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38257,7 +38257,7 @@ impl PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder<'a> {
         PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder {
             inner: PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
-                s_type: StructureType::from_raw(-1000418000i32),
+                s_type: StructureType::from_raw(1000418000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38312,7 +38312,7 @@ impl PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
     > {
         PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXTBuilder {
             inner: PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
-                s_type: StructureType::from_raw(-1000524000i32),
+                s_type: StructureType::from_raw(1000524000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38365,7 +38365,7 @@ impl PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder<'a> {
         PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder {
             inner: PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
-                s_type: StructureType::from_raw(-1000495000i32),
+                s_type: StructureType::from_raw(1000495000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38421,7 +38421,7 @@ impl PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
     > {
         PhysicalDeviceLegacyVertexAttributesPropertiesEXTBuilder {
             inner: PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
-                s_type: StructureType::from_raw(-1000495001i32),
+                s_type: StructureType::from_raw(1000495001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38460,7 +38460,7 @@ impl PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
         PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder {
             inner: PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
-                s_type: StructureType::from_raw(-1000351000i32),
+                s_type: StructureType::from_raw(1000351000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38513,7 +38513,7 @@ impl MutableDescriptorTypeCreateInfoEXT {
     pub fn builder<'a>() -> MutableDescriptorTypeCreateInfoEXTBuilder<'a> {
         MutableDescriptorTypeCreateInfoEXTBuilder {
             inner: MutableDescriptorTypeCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000351002i32),
+                s_type: StructureType::from_raw(1000351002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38569,7 +38569,7 @@ impl PhysicalDeviceDepthClipControlFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDepthClipControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthClipControlFeaturesEXTBuilder {
             inner: PhysicalDeviceDepthClipControlFeaturesEXT {
-                s_type: StructureType::from_raw(-1000355000i32),
+                s_type: StructureType::from_raw(1000355000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38623,7 +38623,7 @@ impl PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
     > {
         PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXTBuilder {
             inner: PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
-                s_type: StructureType::from_raw(-1000620000i32),
+                s_type: StructureType::from_raw(1000620000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38677,7 +38677,7 @@ impl BeginCustomResolveInfoEXT {
     pub fn builder<'a>() -> BeginCustomResolveInfoEXTBuilder<'a> {
         BeginCustomResolveInfoEXTBuilder {
             inner: BeginCustomResolveInfoEXT {
-                s_type: StructureType::from_raw(-1000628001i32),
+                s_type: StructureType::from_raw(1000628001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38724,7 +38724,7 @@ impl PhysicalDeviceCustomResolveFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceCustomResolveFeaturesEXTBuilder<'a> {
         PhysicalDeviceCustomResolveFeaturesEXTBuilder {
             inner: PhysicalDeviceCustomResolveFeaturesEXT {
-                s_type: StructureType::from_raw(-1000628000i32),
+                s_type: StructureType::from_raw(1000628000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38776,7 +38776,7 @@ impl CustomResolveCreateInfoEXT {
     pub fn builder<'a>() -> CustomResolveCreateInfoEXTBuilder<'a> {
         CustomResolveCreateInfoEXTBuilder {
             inner: CustomResolveCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000628002i32),
+                s_type: StructureType::from_raw(1000628002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38844,7 +38844,7 @@ impl PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder<'a> {
         PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder {
             inner: PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
-                s_type: StructureType::from_raw(-1000572000i32),
+                s_type: StructureType::from_raw(1000572000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -38905,7 +38905,7 @@ impl PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
     > {
         PhysicalDeviceDeviceGeneratedCommandsPropertiesEXTBuilder {
             inner: PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
-                s_type: StructureType::from_raw(-1000572001i32),
+                s_type: StructureType::from_raw(1000572001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39014,7 +39014,7 @@ impl GeneratedCommandsPipelineInfoEXT {
     pub fn builder<'a>() -> GeneratedCommandsPipelineInfoEXTBuilder<'a> {
         GeneratedCommandsPipelineInfoEXTBuilder {
             inner: GeneratedCommandsPipelineInfoEXT {
-                s_type: StructureType::from_raw(-1000572013i32),
+                s_type: StructureType::from_raw(1000572013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39066,7 +39066,7 @@ impl GeneratedCommandsShaderInfoEXT {
     pub fn builder<'a>() -> GeneratedCommandsShaderInfoEXTBuilder<'a> {
         GeneratedCommandsShaderInfoEXTBuilder {
             inner: GeneratedCommandsShaderInfoEXT {
-                s_type: StructureType::from_raw(-1000572014i32),
+                s_type: StructureType::from_raw(1000572014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39119,7 +39119,7 @@ impl GeneratedCommandsMemoryRequirementsInfoEXT {
     pub fn builder<'a>() -> GeneratedCommandsMemoryRequirementsInfoEXTBuilder<'a> {
         GeneratedCommandsMemoryRequirementsInfoEXTBuilder {
             inner: GeneratedCommandsMemoryRequirementsInfoEXT {
-                s_type: StructureType::from_raw(-1000572002i32),
+                s_type: StructureType::from_raw(1000572002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39186,7 +39186,7 @@ impl IndirectExecutionSetPipelineInfoEXT {
     pub fn builder<'a>() -> IndirectExecutionSetPipelineInfoEXTBuilder<'a> {
         IndirectExecutionSetPipelineInfoEXTBuilder {
             inner: IndirectExecutionSetPipelineInfoEXT {
-                s_type: StructureType::from_raw(-1000572010i32),
+                s_type: StructureType::from_raw(1000572010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39243,7 +39243,7 @@ impl IndirectExecutionSetShaderLayoutInfoEXT {
     pub fn builder<'a>() -> IndirectExecutionSetShaderLayoutInfoEXTBuilder<'a> {
         IndirectExecutionSetShaderLayoutInfoEXTBuilder {
             inner: IndirectExecutionSetShaderLayoutInfoEXT {
-                s_type: StructureType::from_raw(-1000572012i32),
+                s_type: StructureType::from_raw(1000572012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39296,7 +39296,7 @@ impl IndirectExecutionSetShaderInfoEXT {
     pub fn builder<'a>() -> IndirectExecutionSetShaderInfoEXTBuilder<'a> {
         IndirectExecutionSetShaderInfoEXTBuilder {
             inner: IndirectExecutionSetShaderInfoEXT {
-                s_type: StructureType::from_raw(-1000572011i32),
+                s_type: StructureType::from_raw(1000572011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39369,7 +39369,7 @@ impl IndirectExecutionSetCreateInfoEXT {
     pub fn builder<'a>() -> IndirectExecutionSetCreateInfoEXTBuilder<'a> {
         IndirectExecutionSetCreateInfoEXTBuilder {
             inner: IndirectExecutionSetCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000572003i32),
+                s_type: StructureType::from_raw(1000572003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39426,7 +39426,7 @@ impl GeneratedCommandsInfoEXT {
     pub fn builder<'a>() -> GeneratedCommandsInfoEXTBuilder<'a> {
         GeneratedCommandsInfoEXTBuilder {
             inner: GeneratedCommandsInfoEXT {
-                s_type: StructureType::from_raw(-1000572004i32),
+                s_type: StructureType::from_raw(1000572004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39523,7 +39523,7 @@ impl WriteIndirectExecutionSetPipelineEXT {
     pub fn builder<'a>() -> WriteIndirectExecutionSetPipelineEXTBuilder<'a> {
         WriteIndirectExecutionSetPipelineEXTBuilder {
             inner: WriteIndirectExecutionSetPipelineEXT {
-                s_type: StructureType::from_raw(-1000572008i32),
+                s_type: StructureType::from_raw(1000572008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39580,7 +39580,7 @@ impl WriteIndirectExecutionSetShaderEXT {
     pub fn builder<'a>() -> WriteIndirectExecutionSetShaderEXTBuilder<'a> {
         WriteIndirectExecutionSetShaderEXTBuilder {
             inner: WriteIndirectExecutionSetShaderEXT {
-                s_type: StructureType::from_raw(-1000572009i32),
+                s_type: StructureType::from_raw(1000572009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39637,7 +39637,7 @@ impl IndirectCommandsLayoutCreateInfoEXT {
     pub fn builder<'a>() -> IndirectCommandsLayoutCreateInfoEXTBuilder<'a> {
         IndirectCommandsLayoutCreateInfoEXTBuilder {
             inner: IndirectCommandsLayoutCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000572006i32),
+                s_type: StructureType::from_raw(1000572006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39710,7 +39710,7 @@ impl IndirectCommandsLayoutTokenEXT {
     pub fn builder<'a>() -> IndirectCommandsLayoutTokenEXTBuilder<'a> {
         IndirectCommandsLayoutTokenEXTBuilder {
             inner: IndirectCommandsLayoutTokenEXT {
-                s_type: StructureType::from_raw(-1000572007i32),
+                s_type: StructureType::from_raw(1000572007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39772,7 +39772,7 @@ impl PipelineViewportDepthClipControlCreateInfoEXT {
     pub fn builder<'a>() -> PipelineViewportDepthClipControlCreateInfoEXTBuilder<'a> {
         PipelineViewportDepthClipControlCreateInfoEXTBuilder {
             inner: PipelineViewportDepthClipControlCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000355001i32),
+                s_type: StructureType::from_raw(1000355001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39825,7 +39825,7 @@ impl PhysicalDeviceDepthClampControlFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDepthClampControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthClampControlFeaturesEXTBuilder {
             inner: PhysicalDeviceDepthClampControlFeaturesEXT {
-                s_type: StructureType::from_raw(-1000582000i32),
+                s_type: StructureType::from_raw(1000582000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39877,7 +39877,7 @@ impl PipelineViewportDepthClampControlCreateInfoEXT {
     pub fn builder<'a>() -> PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
         PipelineViewportDepthClampControlCreateInfoEXTBuilder {
             inner: PipelineViewportDepthClampControlCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000582001i32),
+                s_type: StructureType::from_raw(1000582001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39935,7 +39935,7 @@ impl PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder<'a> {
         PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder {
             inner: PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
-                s_type: StructureType::from_raw(-1000352000i32),
+                s_type: StructureType::from_raw(1000352000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -39989,7 +39989,7 @@ impl PhysicalDeviceExternalMemoryRDMAFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder {
             inner: PhysicalDeviceExternalMemoryRDMAFeaturesNV {
-                s_type: StructureType::from_raw(-1000371001i32),
+                s_type: StructureType::from_raw(1000371001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40043,7 +40043,7 @@ impl PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
     > {
         PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
-                s_type: StructureType::from_raw(-1000558000i32),
+                s_type: StructureType::from_raw(1000558000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40096,7 +40096,7 @@ impl VertexInputBindingDescription2EXT {
     pub fn builder<'a>() -> VertexInputBindingDescription2EXTBuilder<'a> {
         VertexInputBindingDescription2EXTBuilder {
             inner: VertexInputBindingDescription2EXT {
-                s_type: StructureType::from_raw(-1000352001i32),
+                s_type: StructureType::from_raw(1000352001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40163,7 +40163,7 @@ impl VertexInputAttributeDescription2EXT {
     pub fn builder<'a>() -> VertexInputAttributeDescription2EXTBuilder<'a> {
         VertexInputAttributeDescription2EXTBuilder {
             inner: VertexInputAttributeDescription2EXT {
-                s_type: StructureType::from_raw(-1000352002i32),
+                s_type: StructureType::from_raw(1000352002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40230,7 +40230,7 @@ impl PhysicalDeviceColorWriteEnableFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceColorWriteEnableFeaturesEXTBuilder<'a> {
         PhysicalDeviceColorWriteEnableFeaturesEXTBuilder {
             inner: PhysicalDeviceColorWriteEnableFeaturesEXT {
-                s_type: StructureType::from_raw(-1000381000i32),
+                s_type: StructureType::from_raw(1000381000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40282,7 +40282,7 @@ impl PipelineColorWriteCreateInfoEXT {
     pub fn builder<'a>() -> PipelineColorWriteCreateInfoEXTBuilder<'a> {
         PipelineColorWriteCreateInfoEXTBuilder {
             inner: PipelineColorWriteCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000381001i32),
+                s_type: StructureType::from_raw(1000381001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40335,7 +40335,7 @@ impl MemoryBarrier2 {
     pub fn builder<'a>() -> MemoryBarrier2Builder<'a> {
         MemoryBarrier2Builder {
             inner: MemoryBarrier2 {
-                s_type: StructureType::from_raw(-1000314000i32),
+                s_type: StructureType::from_raw(1000314000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40399,7 +40399,7 @@ impl ImageMemoryBarrier2 {
     pub fn builder<'a>() -> ImageMemoryBarrier2Builder<'a> {
         ImageMemoryBarrier2Builder {
             inner: ImageMemoryBarrier2 {
-                s_type: StructureType::from_raw(-1000314002i32),
+                s_type: StructureType::from_raw(1000314002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40493,7 +40493,7 @@ impl BufferMemoryBarrier2 {
     pub fn builder<'a>() -> BufferMemoryBarrier2Builder<'a> {
         BufferMemoryBarrier2Builder {
             inner: BufferMemoryBarrier2 {
-                s_type: StructureType::from_raw(-1000314001i32),
+                s_type: StructureType::from_raw(1000314001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40582,7 +40582,7 @@ impl MemoryBarrierAccessFlags3KHR {
     pub fn builder<'a>() -> MemoryBarrierAccessFlags3KHRBuilder<'a> {
         MemoryBarrierAccessFlags3KHRBuilder {
             inner: MemoryBarrierAccessFlags3KHR {
-                s_type: StructureType::from_raw(-1000574002i32),
+                s_type: StructureType::from_raw(1000574002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40639,7 +40639,7 @@ impl DependencyInfo {
     pub fn builder<'a>() -> DependencyInfoBuilder<'a> {
         DependencyInfoBuilder {
             inner: DependencyInfo {
-                s_type: StructureType::from_raw(-1000314003i32),
+                s_type: StructureType::from_raw(1000314003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40706,7 +40706,7 @@ impl SemaphoreSubmitInfo {
     pub fn builder<'a>() -> SemaphoreSubmitInfoBuilder<'a> {
         SemaphoreSubmitInfoBuilder {
             inner: SemaphoreSubmitInfo {
-                s_type: StructureType::from_raw(-1000314005i32),
+                s_type: StructureType::from_raw(1000314005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40770,7 +40770,7 @@ impl CommandBufferSubmitInfo {
     pub fn builder<'a>() -> CommandBufferSubmitInfoBuilder<'a> {
         CommandBufferSubmitInfoBuilder {
             inner: CommandBufferSubmitInfo {
-                s_type: StructureType::from_raw(-1000314006i32),
+                s_type: StructureType::from_raw(1000314006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40827,7 +40827,7 @@ impl SubmitInfo2 {
     pub fn builder<'a>() -> SubmitInfo2Builder<'a> {
         SubmitInfo2Builder {
             inner: SubmitInfo2 {
-                s_type: StructureType::from_raw(-1000314004i32),
+                s_type: StructureType::from_raw(1000314004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40894,7 +40894,7 @@ impl QueueFamilyCheckpointProperties2NV {
     pub fn builder<'a>() -> QueueFamilyCheckpointProperties2NVBuilder<'a> {
         QueueFamilyCheckpointProperties2NVBuilder {
             inner: QueueFamilyCheckpointProperties2NV {
-                s_type: StructureType::from_raw(-1000314008i32),
+                s_type: StructureType::from_raw(1000314008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40934,7 +40934,7 @@ impl CheckpointData2NV {
     pub fn builder<'a>() -> CheckpointData2NVBuilder<'a> {
         CheckpointData2NVBuilder {
             inner: CheckpointData2NV {
-                s_type: StructureType::from_raw(-1000314009i32),
+                s_type: StructureType::from_raw(1000314009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -40976,7 +40976,7 @@ impl PhysicalDeviceSynchronization2Features {
     pub fn builder<'a>() -> PhysicalDeviceSynchronization2FeaturesBuilder<'a> {
         PhysicalDeviceSynchronization2FeaturesBuilder {
             inner: PhysicalDeviceSynchronization2Features {
-                s_type: StructureType::from_raw(-1000314007i32),
+                s_type: StructureType::from_raw(1000314007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41028,7 +41028,7 @@ impl PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder<'a> {
         PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder {
             inner: PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
-                s_type: StructureType::from_raw(-1000527000i32),
+                s_type: StructureType::from_raw(1000527000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41086,7 +41086,7 @@ impl PhysicalDeviceHostImageCopyFeatures {
     pub fn builder<'a>() -> PhysicalDeviceHostImageCopyFeaturesBuilder<'a> {
         PhysicalDeviceHostImageCopyFeaturesBuilder {
             inner: PhysicalDeviceHostImageCopyFeatures {
-                s_type: StructureType::from_raw(-1000270000i32),
+                s_type: StructureType::from_raw(1000270000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41138,7 +41138,7 @@ impl PhysicalDeviceHostImageCopyProperties {
     pub fn builder<'a>() -> PhysicalDeviceHostImageCopyPropertiesBuilder<'a> {
         PhysicalDeviceHostImageCopyPropertiesBuilder {
             inner: PhysicalDeviceHostImageCopyProperties {
-                s_type: StructureType::from_raw(-1000270001i32),
+                s_type: StructureType::from_raw(1000270001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41210,7 +41210,7 @@ impl MemoryToImageCopy {
     pub fn builder<'a>() -> MemoryToImageCopyBuilder<'a> {
         MemoryToImageCopyBuilder {
             inner: MemoryToImageCopy {
-                s_type: StructureType::from_raw(-1000270002i32),
+                s_type: StructureType::from_raw(1000270002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41284,7 +41284,7 @@ impl ImageToMemoryCopy {
     pub fn builder<'a>() -> ImageToMemoryCopyBuilder<'a> {
         ImageToMemoryCopyBuilder {
             inner: ImageToMemoryCopy {
-                s_type: StructureType::from_raw(-1000270003i32),
+                s_type: StructureType::from_raw(1000270003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41358,7 +41358,7 @@ impl CopyMemoryToImageInfo {
     pub fn builder<'a>() -> CopyMemoryToImageInfoBuilder<'a> {
         CopyMemoryToImageInfoBuilder {
             inner: CopyMemoryToImageInfo {
-                s_type: StructureType::from_raw(-1000270005i32),
+                s_type: StructureType::from_raw(1000270005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41426,7 +41426,7 @@ impl CopyImageToMemoryInfo {
     pub fn builder<'a>() -> CopyImageToMemoryInfoBuilder<'a> {
         CopyImageToMemoryInfoBuilder {
             inner: CopyImageToMemoryInfo {
-                s_type: StructureType::from_raw(-1000270004i32),
+                s_type: StructureType::from_raw(1000270004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41494,7 +41494,7 @@ impl CopyImageToImageInfo {
     pub fn builder<'a>() -> CopyImageToImageInfoBuilder<'a> {
         CopyImageToImageInfoBuilder {
             inner: CopyImageToImageInfo {
-                s_type: StructureType::from_raw(-1000270007i32),
+                s_type: StructureType::from_raw(1000270007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41569,7 +41569,7 @@ impl HostImageLayoutTransitionInfo {
     pub fn builder<'a>() -> HostImageLayoutTransitionInfoBuilder<'a> {
         HostImageLayoutTransitionInfoBuilder {
             inner: HostImageLayoutTransitionInfo {
-                s_type: StructureType::from_raw(-1000270006i32),
+                s_type: StructureType::from_raw(1000270006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41636,7 +41636,7 @@ impl SubresourceHostMemcpySize {
     pub fn builder<'a>() -> SubresourceHostMemcpySizeBuilder<'a> {
         SubresourceHostMemcpySizeBuilder {
             inner: SubresourceHostMemcpySize {
-                s_type: StructureType::from_raw(-1000270008i32),
+                s_type: StructureType::from_raw(1000270008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41673,7 +41673,7 @@ impl HostImageCopyDevicePerformanceQuery {
     pub fn builder<'a>() -> HostImageCopyDevicePerformanceQueryBuilder<'a> {
         HostImageCopyDevicePerformanceQueryBuilder {
             inner: HostImageCopyDevicePerformanceQuery {
-                s_type: StructureType::from_raw(-1000270009i32),
+                s_type: StructureType::from_raw(1000270009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41715,7 +41715,7 @@ impl PhysicalDeviceVulkanSC10Properties {
     pub fn builder<'a>() -> PhysicalDeviceVulkanSC10PropertiesBuilder<'a> {
         PhysicalDeviceVulkanSC10PropertiesBuilder {
             inner: PhysicalDeviceVulkanSC10Properties {
-                s_type: StructureType::from_raw(-1000298001i32),
+                s_type: StructureType::from_raw(1000298001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41843,7 +41843,7 @@ impl PipelinePoolSize {
     pub fn builder<'a>() -> PipelinePoolSizeBuilder<'a> {
         PipelinePoolSizeBuilder {
             inner: PipelinePoolSize {
-                s_type: StructureType::from_raw(-1000298005i32),
+                s_type: StructureType::from_raw(1000298005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -41897,7 +41897,7 @@ impl DeviceObjectReservationCreateInfo {
     pub fn builder<'a>() -> DeviceObjectReservationCreateInfoBuilder<'a> {
         DeviceObjectReservationCreateInfoBuilder {
             inner: DeviceObjectReservationCreateInfo {
-                s_type: StructureType::from_raw(-1000298002i32),
+                s_type: StructureType::from_raw(1000298002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42147,7 +42147,7 @@ impl CommandPoolMemoryReservationCreateInfo {
     pub fn builder<'a>() -> CommandPoolMemoryReservationCreateInfoBuilder<'a> {
         CommandPoolMemoryReservationCreateInfoBuilder {
             inner: CommandPoolMemoryReservationCreateInfo {
-                s_type: StructureType::from_raw(-1000298003i32),
+                s_type: StructureType::from_raw(1000298003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42204,7 +42204,7 @@ impl CommandPoolMemoryConsumption {
     pub fn builder<'a>() -> CommandPoolMemoryConsumptionBuilder<'a> {
         CommandPoolMemoryConsumptionBuilder {
             inner: CommandPoolMemoryConsumption {
-                s_type: StructureType::from_raw(-1000298004i32),
+                s_type: StructureType::from_raw(1000298004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42251,7 +42251,7 @@ impl PhysicalDeviceVulkanSC10Features {
     pub fn builder<'a>() -> PhysicalDeviceVulkanSC10FeaturesBuilder<'a> {
         PhysicalDeviceVulkanSC10FeaturesBuilder {
             inner: PhysicalDeviceVulkanSC10Features {
-                s_type: StructureType::from_raw(-1000298000i32),
+                s_type: StructureType::from_raw(1000298000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42305,7 +42305,7 @@ impl PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
     > {
         PhysicalDevicePrimitivesGeneratedQueryFeaturesEXTBuilder {
             inner: PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
-                s_type: StructureType::from_raw(-1000382000i32),
+                s_type: StructureType::from_raw(1000382000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42375,7 +42375,7 @@ impl PhysicalDeviceLegacyDitheringFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceLegacyDitheringFeaturesEXTBuilder<'a> {
         PhysicalDeviceLegacyDitheringFeaturesEXTBuilder {
             inner: PhysicalDeviceLegacyDitheringFeaturesEXT {
-                s_type: StructureType::from_raw(-1000465000i32),
+                s_type: StructureType::from_raw(1000465000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42429,7 +42429,7 @@ impl PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
     > {
         PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXTBuilder {
             inner: PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
-                s_type: StructureType::from_raw(-1000376000i32),
+                s_type: StructureType::from_raw(1000376000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42482,7 +42482,7 @@ impl SurfaceCapabilitiesPresentId2KHR {
     pub fn builder<'a>() -> SurfaceCapabilitiesPresentId2KHRBuilder<'a> {
         SurfaceCapabilitiesPresentId2KHRBuilder {
             inner: SurfaceCapabilitiesPresentId2KHR {
-                s_type: StructureType::from_raw(-1000479000i32),
+                s_type: StructureType::from_raw(1000479000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42534,7 +42534,7 @@ impl SurfaceCapabilitiesPresentWait2KHR {
     pub fn builder<'a>() -> SurfaceCapabilitiesPresentWait2KHRBuilder<'a> {
         SurfaceCapabilitiesPresentWait2KHRBuilder {
             inner: SurfaceCapabilitiesPresentWait2KHR {
-                s_type: StructureType::from_raw(-1000480000i32),
+                s_type: StructureType::from_raw(1000480000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42586,7 +42586,7 @@ impl SubpassResolvePerformanceQueryEXT {
     pub fn builder<'a>() -> SubpassResolvePerformanceQueryEXTBuilder<'a> {
         SubpassResolvePerformanceQueryEXTBuilder {
             inner: SubpassResolvePerformanceQueryEXT {
-                s_type: StructureType::from_raw(-1000376001i32),
+                s_type: StructureType::from_raw(1000376001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42623,7 +42623,7 @@ impl MultisampledRenderToSingleSampledInfoEXT {
     pub fn builder<'a>() -> MultisampledRenderToSingleSampledInfoEXTBuilder<'a> {
         MultisampledRenderToSingleSampledInfoEXTBuilder {
             inner: MultisampledRenderToSingleSampledInfoEXT {
-                s_type: StructureType::from_raw(-1000376002i32),
+                s_type: StructureType::from_raw(1000376002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42680,7 +42680,7 @@ impl PhysicalDevicePipelineProtectedAccessFeatures {
     pub fn builder<'a>() -> PhysicalDevicePipelineProtectedAccessFeaturesBuilder<'a> {
         PhysicalDevicePipelineProtectedAccessFeaturesBuilder {
             inner: PhysicalDevicePipelineProtectedAccessFeatures {
-                s_type: StructureType::from_raw(-1000466000i32),
+                s_type: StructureType::from_raw(1000466000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42733,7 +42733,7 @@ impl QueueFamilyVideoPropertiesKHR {
     pub fn builder<'a>() -> QueueFamilyVideoPropertiesKHRBuilder<'a> {
         QueueFamilyVideoPropertiesKHRBuilder {
             inner: QueueFamilyVideoPropertiesKHR {
-                s_type: StructureType::from_raw(-1000023012i32),
+                s_type: StructureType::from_raw(1000023012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42770,7 +42770,7 @@ impl QueueFamilyQueryResultStatusPropertiesKHR {
     pub fn builder<'a>() -> QueueFamilyQueryResultStatusPropertiesKHRBuilder<'a> {
         QueueFamilyQueryResultStatusPropertiesKHRBuilder {
             inner: QueueFamilyQueryResultStatusPropertiesKHR {
-                s_type: StructureType::from_raw(-1000023016i32),
+                s_type: StructureType::from_raw(1000023016i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42807,7 +42807,7 @@ impl VideoProfileListInfoKHR {
     pub fn builder<'a>() -> VideoProfileListInfoKHRBuilder<'a> {
         VideoProfileListInfoKHRBuilder {
             inner: VideoProfileListInfoKHR {
-                s_type: StructureType::from_raw(-1000023013i32),
+                s_type: StructureType::from_raw(1000023013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42860,7 +42860,7 @@ impl PhysicalDeviceVideoFormatInfoKHR {
     pub fn builder<'a>() -> PhysicalDeviceVideoFormatInfoKHRBuilder<'a> {
         PhysicalDeviceVideoFormatInfoKHRBuilder {
             inner: PhysicalDeviceVideoFormatInfoKHR {
-                s_type: StructureType::from_raw(-1000023014i32),
+                s_type: StructureType::from_raw(1000023014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42912,7 +42912,7 @@ impl VideoFormatPropertiesKHR {
     pub fn builder<'a>() -> VideoFormatPropertiesKHRBuilder<'a> {
         VideoFormatPropertiesKHRBuilder {
             inner: VideoFormatPropertiesKHR {
-                s_type: StructureType::from_raw(-1000023015i32),
+                s_type: StructureType::from_raw(1000023015i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -42974,7 +42974,7 @@ impl VideoEncodeQuantizationMapCapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeQuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeQuantizationMapCapabilitiesKHRBuilder {
             inner: VideoEncodeQuantizationMapCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000553000i32),
+                s_type: StructureType::from_raw(1000553000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43011,7 +43011,7 @@ impl VideoEncodeH264QuantizationMapCapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeH264QuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeH264QuantizationMapCapabilitiesKHRBuilder {
             inner: VideoEncodeH264QuantizationMapCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000553003i32),
+                s_type: StructureType::from_raw(1000553003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43054,7 +43054,7 @@ impl VideoEncodeH265QuantizationMapCapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeH265QuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeH265QuantizationMapCapabilitiesKHRBuilder {
             inner: VideoEncodeH265QuantizationMapCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000553004i32),
+                s_type: StructureType::from_raw(1000553004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43097,7 +43097,7 @@ impl VideoEncodeAV1QuantizationMapCapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeAV1QuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeAV1QuantizationMapCapabilitiesKHRBuilder {
             inner: VideoEncodeAV1QuantizationMapCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000553007i32),
+                s_type: StructureType::from_raw(1000553007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43140,7 +43140,7 @@ impl VideoFormatQuantizationMapPropertiesKHR {
     pub fn builder<'a>() -> VideoFormatQuantizationMapPropertiesKHRBuilder<'a> {
         VideoFormatQuantizationMapPropertiesKHRBuilder {
             inner: VideoFormatQuantizationMapPropertiesKHR {
-                s_type: StructureType::from_raw(-1000553001i32),
+                s_type: StructureType::from_raw(1000553001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43177,7 +43177,7 @@ impl VideoFormatH265QuantizationMapPropertiesKHR {
     pub fn builder<'a>() -> VideoFormatH265QuantizationMapPropertiesKHRBuilder<'a> {
         VideoFormatH265QuantizationMapPropertiesKHRBuilder {
             inner: VideoFormatH265QuantizationMapPropertiesKHR {
-                s_type: StructureType::from_raw(-1000553006i32),
+                s_type: StructureType::from_raw(1000553006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43217,7 +43217,7 @@ impl VideoFormatAV1QuantizationMapPropertiesKHR {
     pub fn builder<'a>() -> VideoFormatAV1QuantizationMapPropertiesKHRBuilder<'a> {
         VideoFormatAV1QuantizationMapPropertiesKHRBuilder {
             inner: VideoFormatAV1QuantizationMapPropertiesKHR {
-                s_type: StructureType::from_raw(-1000553008i32),
+                s_type: StructureType::from_raw(1000553008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43257,7 +43257,7 @@ impl VideoProfileInfoKHR {
     pub fn builder<'a>() -> VideoProfileInfoKHRBuilder<'a> {
         VideoProfileInfoKHRBuilder {
             inner: VideoProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000023000i32),
+                s_type: StructureType::from_raw(1000023000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43324,7 +43324,7 @@ impl VideoCapabilitiesKHR {
     pub fn builder<'a>() -> VideoCapabilitiesKHRBuilder<'a> {
         VideoCapabilitiesKHRBuilder {
             inner: VideoCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000023001i32),
+                s_type: StructureType::from_raw(1000023001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43401,7 +43401,7 @@ impl VideoSessionMemoryRequirementsKHR {
     pub fn builder<'a>() -> VideoSessionMemoryRequirementsKHRBuilder<'a> {
         VideoSessionMemoryRequirementsKHRBuilder {
             inner: VideoSessionMemoryRequirementsKHR {
-                s_type: StructureType::from_raw(-1000023003i32),
+                s_type: StructureType::from_raw(1000023003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43443,7 +43443,7 @@ impl BindVideoSessionMemoryInfoKHR {
     pub fn builder<'a>() -> BindVideoSessionMemoryInfoKHRBuilder<'a> {
         BindVideoSessionMemoryInfoKHRBuilder {
             inner: BindVideoSessionMemoryInfoKHR {
-                s_type: StructureType::from_raw(-1000023004i32),
+                s_type: StructureType::from_raw(1000023004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43510,7 +43510,7 @@ impl VideoPictureResourceInfoKHR {
     pub fn builder<'a>() -> VideoPictureResourceInfoKHRBuilder<'a> {
         VideoPictureResourceInfoKHRBuilder {
             inner: VideoPictureResourceInfoKHR {
-                s_type: StructureType::from_raw(-1000023002i32),
+                s_type: StructureType::from_raw(1000023002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43577,7 +43577,7 @@ impl VideoReferenceSlotInfoKHR {
     pub fn builder<'a>() -> VideoReferenceSlotInfoKHRBuilder<'a> {
         VideoReferenceSlotInfoKHRBuilder {
             inner: VideoReferenceSlotInfoKHR {
-                s_type: StructureType::from_raw(-1000023011i32),
+                s_type: StructureType::from_raw(1000023011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43637,7 +43637,7 @@ impl VideoDecodeCapabilitiesKHR {
     pub fn builder<'a>() -> VideoDecodeCapabilitiesKHRBuilder<'a> {
         VideoDecodeCapabilitiesKHRBuilder {
             inner: VideoDecodeCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000024001i32),
+                s_type: StructureType::from_raw(1000024001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43674,7 +43674,7 @@ impl VideoDecodeUsageInfoKHR {
     pub fn builder<'a>() -> VideoDecodeUsageInfoKHRBuilder<'a> {
         VideoDecodeUsageInfoKHRBuilder {
             inner: VideoDecodeUsageInfoKHR {
-                s_type: StructureType::from_raw(-1000024002i32),
+                s_type: StructureType::from_raw(1000024002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43726,7 +43726,7 @@ impl VideoDecodeInfoKHR {
     pub fn builder<'a>() -> VideoDecodeInfoKHRBuilder<'a> {
         VideoDecodeInfoKHRBuilder {
             inner: VideoDecodeInfoKHR {
-                s_type: StructureType::from_raw(-1000024000i32),
+                s_type: StructureType::from_raw(1000024000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43809,7 +43809,7 @@ impl PhysicalDeviceVideoMaintenance1FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder {
             inner: PhysicalDeviceVideoMaintenance1FeaturesKHR {
-                s_type: StructureType::from_raw(-1000515000i32),
+                s_type: StructureType::from_raw(1000515000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43861,7 +43861,7 @@ impl PhysicalDeviceVideoMaintenance2FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder {
             inner: PhysicalDeviceVideoMaintenance2FeaturesKHR {
-                s_type: StructureType::from_raw(-1000586000i32),
+                s_type: StructureType::from_raw(1000586000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43913,7 +43913,7 @@ impl VideoInlineQueryInfoKHR {
     pub fn builder<'a>() -> VideoInlineQueryInfoKHRBuilder<'a> {
         VideoInlineQueryInfoKHRBuilder {
             inner: VideoInlineQueryInfoKHR {
-                s_type: StructureType::from_raw(-1000515001i32),
+                s_type: StructureType::from_raw(1000515001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -43975,7 +43975,7 @@ impl VideoDecodeH264ProfileInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH264ProfileInfoKHRBuilder<'a> {
         VideoDecodeH264ProfileInfoKHRBuilder {
             inner: VideoDecodeH264ProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000040003i32),
+                s_type: StructureType::from_raw(1000040003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44035,7 +44035,7 @@ impl VideoDecodeH264CapabilitiesKHR {
     pub fn builder<'a>() -> VideoDecodeH264CapabilitiesKHRBuilder<'a> {
         VideoDecodeH264CapabilitiesKHRBuilder {
             inner: VideoDecodeH264CapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000040000i32),
+                s_type: StructureType::from_raw(1000040000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44077,7 +44077,7 @@ impl VideoDecodeH264SessionParametersAddInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH264SessionParametersAddInfoKHRBuilder<'a> {
         VideoDecodeH264SessionParametersAddInfoKHRBuilder {
             inner: VideoDecodeH264SessionParametersAddInfoKHR {
-                s_type: StructureType::from_raw(-1000040005i32),
+                s_type: StructureType::from_raw(1000040005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44136,7 +44136,7 @@ impl VideoDecodeH264SessionParametersCreateInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         VideoDecodeH264SessionParametersCreateInfoKHRBuilder {
             inner: VideoDecodeH264SessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000040004i32),
+                s_type: StructureType::from_raw(1000040004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44202,7 +44202,7 @@ impl VideoDecodeH264InlineSessionParametersInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH264InlineSessionParametersInfoKHRBuilder<'a> {
         VideoDecodeH264InlineSessionParametersInfoKHRBuilder {
             inner: VideoDecodeH264InlineSessionParametersInfoKHR {
-                s_type: StructureType::from_raw(-1000586001i32),
+                s_type: StructureType::from_raw(1000586001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44260,7 +44260,7 @@ impl VideoDecodeH264PictureInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH264PictureInfoKHRBuilder<'a> {
         VideoDecodeH264PictureInfoKHRBuilder {
             inner: VideoDecodeH264PictureInfoKHR {
-                s_type: StructureType::from_raw(-1000040001i32),
+                s_type: StructureType::from_raw(1000040001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44321,7 +44321,7 @@ impl VideoDecodeH264DpbSlotInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH264DpbSlotInfoKHRBuilder<'a> {
         VideoDecodeH264DpbSlotInfoKHRBuilder {
             inner: VideoDecodeH264DpbSlotInfoKHR {
-                s_type: StructureType::from_raw(-1000040006i32),
+                s_type: StructureType::from_raw(1000040006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44376,7 +44376,7 @@ impl VideoDecodeH265ProfileInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH265ProfileInfoKHRBuilder<'a> {
         VideoDecodeH265ProfileInfoKHRBuilder {
             inner: VideoDecodeH265ProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000187003i32),
+                s_type: StructureType::from_raw(1000187003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44428,7 +44428,7 @@ impl VideoDecodeH265CapabilitiesKHR {
     pub fn builder<'a>() -> VideoDecodeH265CapabilitiesKHRBuilder<'a> {
         VideoDecodeH265CapabilitiesKHRBuilder {
             inner: VideoDecodeH265CapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000187000i32),
+                s_type: StructureType::from_raw(1000187000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44465,7 +44465,7 @@ impl VideoDecodeH265SessionParametersAddInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH265SessionParametersAddInfoKHRBuilder<'a> {
         VideoDecodeH265SessionParametersAddInfoKHRBuilder {
             inner: VideoDecodeH265SessionParametersAddInfoKHR {
-                s_type: StructureType::from_raw(-1000187002i32),
+                s_type: StructureType::from_raw(1000187002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44530,7 +44530,7 @@ impl VideoDecodeH265SessionParametersCreateInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         VideoDecodeH265SessionParametersCreateInfoKHRBuilder {
             inner: VideoDecodeH265SessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000187001i32),
+                s_type: StructureType::from_raw(1000187001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44601,7 +44601,7 @@ impl VideoDecodeH265InlineSessionParametersInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH265InlineSessionParametersInfoKHRBuilder<'a> {
         VideoDecodeH265InlineSessionParametersInfoKHRBuilder {
             inner: VideoDecodeH265InlineSessionParametersInfoKHR {
-                s_type: StructureType::from_raw(-1000586002i32),
+                s_type: StructureType::from_raw(1000586002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44664,7 +44664,7 @@ impl VideoDecodeH265PictureInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH265PictureInfoKHRBuilder<'a> {
         VideoDecodeH265PictureInfoKHRBuilder {
             inner: VideoDecodeH265PictureInfoKHR {
-                s_type: StructureType::from_raw(-1000187004i32),
+                s_type: StructureType::from_raw(1000187004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44725,7 +44725,7 @@ impl VideoDecodeH265DpbSlotInfoKHR {
     pub fn builder<'a>() -> VideoDecodeH265DpbSlotInfoKHRBuilder<'a> {
         VideoDecodeH265DpbSlotInfoKHRBuilder {
             inner: VideoDecodeH265DpbSlotInfoKHR {
-                s_type: StructureType::from_raw(-1000187005i32),
+                s_type: StructureType::from_raw(1000187005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44780,7 +44780,7 @@ impl PhysicalDeviceVideoDecodeVP9FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder {
             inner: PhysicalDeviceVideoDecodeVP9FeaturesKHR {
-                s_type: StructureType::from_raw(-1000514000i32),
+                s_type: StructureType::from_raw(1000514000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44832,7 +44832,7 @@ impl VideoDecodeVP9ProfileInfoKHR {
     pub fn builder<'a>() -> VideoDecodeVP9ProfileInfoKHRBuilder<'a> {
         VideoDecodeVP9ProfileInfoKHRBuilder {
             inner: VideoDecodeVP9ProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000514003i32),
+                s_type: StructureType::from_raw(1000514003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44884,7 +44884,7 @@ impl VideoDecodeVP9CapabilitiesKHR {
     pub fn builder<'a>() -> VideoDecodeVP9CapabilitiesKHRBuilder<'a> {
         VideoDecodeVP9CapabilitiesKHRBuilder {
             inner: VideoDecodeVP9CapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000514001i32),
+                s_type: StructureType::from_raw(1000514001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44921,7 +44921,7 @@ impl VideoDecodeVP9PictureInfoKHR {
     pub fn builder<'a>() -> VideoDecodeVP9PictureInfoKHRBuilder<'a> {
         VideoDecodeVP9PictureInfoKHRBuilder {
             inner: VideoDecodeVP9PictureInfoKHR {
-                s_type: StructureType::from_raw(-1000514002i32),
+                s_type: StructureType::from_raw(1000514002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -44999,7 +44999,7 @@ impl VideoDecodeAV1ProfileInfoKHR {
     pub fn builder<'a>() -> VideoDecodeAV1ProfileInfoKHRBuilder<'a> {
         VideoDecodeAV1ProfileInfoKHRBuilder {
             inner: VideoDecodeAV1ProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000512003i32),
+                s_type: StructureType::from_raw(1000512003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45056,7 +45056,7 @@ impl VideoDecodeAV1CapabilitiesKHR {
     pub fn builder<'a>() -> VideoDecodeAV1CapabilitiesKHRBuilder<'a> {
         VideoDecodeAV1CapabilitiesKHRBuilder {
             inner: VideoDecodeAV1CapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000512000i32),
+                s_type: StructureType::from_raw(1000512000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45093,7 +45093,7 @@ impl VideoDecodeAV1SessionParametersCreateInfoKHR {
     pub fn builder<'a>() -> VideoDecodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         VideoDecodeAV1SessionParametersCreateInfoKHRBuilder {
             inner: VideoDecodeAV1SessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000512004i32),
+                s_type: StructureType::from_raw(1000512004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45149,7 +45149,7 @@ impl VideoDecodeAV1InlineSessionParametersInfoKHR {
     pub fn builder<'a>() -> VideoDecodeAV1InlineSessionParametersInfoKHRBuilder<'a> {
         VideoDecodeAV1InlineSessionParametersInfoKHRBuilder {
             inner: VideoDecodeAV1InlineSessionParametersInfoKHR {
-                s_type: StructureType::from_raw(-1000586003i32),
+                s_type: StructureType::from_raw(1000586003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45205,7 +45205,7 @@ impl VideoDecodeAV1PictureInfoKHR {
     pub fn builder<'a>() -> VideoDecodeAV1PictureInfoKHRBuilder<'a> {
         VideoDecodeAV1PictureInfoKHRBuilder {
             inner: VideoDecodeAV1PictureInfoKHR {
-                s_type: StructureType::from_raw(-1000512001i32),
+                s_type: StructureType::from_raw(1000512001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45285,7 +45285,7 @@ impl VideoDecodeAV1DpbSlotInfoKHR {
     pub fn builder<'a>() -> VideoDecodeAV1DpbSlotInfoKHRBuilder<'a> {
         VideoDecodeAV1DpbSlotInfoKHRBuilder {
             inner: VideoDecodeAV1DpbSlotInfoKHR {
-                s_type: StructureType::from_raw(-1000512005i32),
+                s_type: StructureType::from_raw(1000512005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45340,7 +45340,7 @@ impl VideoSessionCreateInfoKHR {
     pub fn builder<'a>() -> VideoSessionCreateInfoKHRBuilder<'a> {
         VideoSessionCreateInfoKHRBuilder {
             inner: VideoSessionCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000023005i32),
+                s_type: StructureType::from_raw(1000023005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45432,7 +45432,7 @@ impl VideoSessionParametersCreateInfoKHR {
     pub fn builder<'a>() -> VideoSessionParametersCreateInfoKHRBuilder<'a> {
         VideoSessionParametersCreateInfoKHRBuilder {
             inner: VideoSessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000023006i32),
+                s_type: StructureType::from_raw(1000023006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45497,7 +45497,7 @@ impl VideoSessionParametersUpdateInfoKHR {
     pub fn builder<'a>() -> VideoSessionParametersUpdateInfoKHRBuilder<'a> {
         VideoSessionParametersUpdateInfoKHRBuilder {
             inner: VideoSessionParametersUpdateInfoKHR {
-                s_type: StructureType::from_raw(-1000023007i32),
+                s_type: StructureType::from_raw(1000023007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45549,7 +45549,7 @@ impl VideoEncodeSessionParametersGetInfoKHR {
     pub fn builder<'a>() -> VideoEncodeSessionParametersGetInfoKHRBuilder<'a> {
         VideoEncodeSessionParametersGetInfoKHRBuilder {
             inner: VideoEncodeSessionParametersGetInfoKHR {
-                s_type: StructureType::from_raw(-1000299009i32),
+                s_type: StructureType::from_raw(1000299009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45601,7 +45601,7 @@ impl VideoEncodeSessionParametersFeedbackInfoKHR {
     pub fn builder<'a>() -> VideoEncodeSessionParametersFeedbackInfoKHRBuilder<'a> {
         VideoEncodeSessionParametersFeedbackInfoKHRBuilder {
             inner: VideoEncodeSessionParametersFeedbackInfoKHR {
-                s_type: StructureType::from_raw(-1000299010i32),
+                s_type: StructureType::from_raw(1000299010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45638,7 +45638,7 @@ impl VideoBeginCodingInfoKHR {
     pub fn builder<'a>() -> VideoBeginCodingInfoKHRBuilder<'a> {
         VideoBeginCodingInfoKHRBuilder {
             inner: VideoBeginCodingInfoKHR {
-                s_type: StructureType::from_raw(-1000023008i32),
+                s_type: StructureType::from_raw(1000023008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45706,7 +45706,7 @@ impl VideoEndCodingInfoKHR {
     pub fn builder<'a>() -> VideoEndCodingInfoKHRBuilder<'a> {
         VideoEndCodingInfoKHRBuilder {
             inner: VideoEndCodingInfoKHR {
-                s_type: StructureType::from_raw(-1000023009i32),
+                s_type: StructureType::from_raw(1000023009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45758,7 +45758,7 @@ impl VideoCodingControlInfoKHR {
     pub fn builder<'a>() -> VideoCodingControlInfoKHRBuilder<'a> {
         VideoCodingControlInfoKHRBuilder {
             inner: VideoCodingControlInfoKHR {
-                s_type: StructureType::from_raw(-1000023010i32),
+                s_type: StructureType::from_raw(1000023010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45810,7 +45810,7 @@ impl VideoEncodeUsageInfoKHR {
     pub fn builder<'a>() -> VideoEncodeUsageInfoKHRBuilder<'a> {
         VideoEncodeUsageInfoKHRBuilder {
             inner: VideoEncodeUsageInfoKHR {
-                s_type: StructureType::from_raw(-1000299004i32),
+                s_type: StructureType::from_raw(1000299004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45872,7 +45872,7 @@ impl VideoEncodeInfoKHR {
     pub fn builder<'a>() -> VideoEncodeInfoKHRBuilder<'a> {
         VideoEncodeInfoKHRBuilder {
             inner: VideoEncodeInfoKHR {
-                s_type: StructureType::from_raw(-1000299000i32),
+                s_type: StructureType::from_raw(1000299000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -45960,7 +45960,7 @@ impl VideoEncodeQuantizationMapInfoKHR {
     pub fn builder<'a>() -> VideoEncodeQuantizationMapInfoKHRBuilder<'a> {
         VideoEncodeQuantizationMapInfoKHRBuilder {
             inner: VideoEncodeQuantizationMapInfoKHR {
-                s_type: StructureType::from_raw(-1000553002i32),
+                s_type: StructureType::from_raw(1000553002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46019,7 +46019,7 @@ impl VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
     > {
         VideoEncodeQuantizationMapSessionParametersCreateInfoKHRBuilder {
             inner: VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000553005i32),
+                s_type: StructureType::from_raw(1000553005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46075,7 +46075,7 @@ impl PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
     > {
         PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHRBuilder {
             inner: PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
-                s_type: StructureType::from_raw(-1000553009i32),
+                s_type: StructureType::from_raw(1000553009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46129,7 +46129,7 @@ impl QueryPoolVideoEncodeFeedbackCreateInfoKHR {
     pub fn builder<'a>() -> QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilder<'a> {
         QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilder {
             inner: QueryPoolVideoEncodeFeedbackCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000299005i32),
+                s_type: StructureType::from_raw(1000299005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46181,7 +46181,7 @@ impl VideoEncodeQualityLevelInfoKHR {
     pub fn builder<'a>() -> VideoEncodeQualityLevelInfoKHRBuilder<'a> {
         VideoEncodeQualityLevelInfoKHRBuilder {
             inner: VideoEncodeQualityLevelInfoKHR {
-                s_type: StructureType::from_raw(-1000299008i32),
+                s_type: StructureType::from_raw(1000299008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46233,7 +46233,7 @@ impl PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
         PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder {
             inner: PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
-                s_type: StructureType::from_raw(-1000299006i32),
+                s_type: StructureType::from_raw(1000299006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46291,7 +46291,7 @@ impl VideoEncodeQualityLevelPropertiesKHR {
     pub fn builder<'a>() -> VideoEncodeQualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeQualityLevelPropertiesKHRBuilder {
             inner: VideoEncodeQualityLevelPropertiesKHR {
-                s_type: StructureType::from_raw(-1000299007i32),
+                s_type: StructureType::from_raw(1000299007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46336,7 +46336,7 @@ impl VideoEncodeRateControlInfoKHR {
     pub fn builder<'a>() -> VideoEncodeRateControlInfoKHRBuilder<'a> {
         VideoEncodeRateControlInfoKHRBuilder {
             inner: VideoEncodeRateControlInfoKHR {
-                s_type: StructureType::from_raw(-1000299001i32),
+                s_type: StructureType::from_raw(1000299001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46412,7 +46412,7 @@ impl VideoEncodeRateControlLayerInfoKHR {
     pub fn builder<'a>() -> VideoEncodeRateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeRateControlLayerInfoKHRBuilder {
             inner: VideoEncodeRateControlLayerInfoKHR {
-                s_type: StructureType::from_raw(-1000299002i32),
+                s_type: StructureType::from_raw(1000299002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46479,7 +46479,7 @@ impl VideoEncodeCapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeCapabilitiesKHRBuilder<'a> {
         VideoEncodeCapabilitiesKHRBuilder {
             inner: VideoEncodeCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000299003i32),
+                s_type: StructureType::from_raw(1000299003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46552,7 +46552,7 @@ impl VideoEncodeH264CapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeH264CapabilitiesKHRBuilder<'a> {
         VideoEncodeH264CapabilitiesKHRBuilder {
             inner: VideoEncodeH264CapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000038000i32),
+                s_type: StructureType::from_raw(1000038000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46649,7 +46649,7 @@ impl VideoEncodeH264QualityLevelPropertiesKHR {
     pub fn builder<'a>() -> VideoEncodeH264QualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeH264QualityLevelPropertiesKHRBuilder {
             inner: VideoEncodeH264QualityLevelPropertiesKHR {
-                s_type: StructureType::from_raw(-1000038011i32),
+                s_type: StructureType::from_raw(1000038011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46729,7 +46729,7 @@ impl VideoEncodeH264SessionCreateInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264SessionCreateInfoKHRBuilder<'a> {
         VideoEncodeH264SessionCreateInfoKHRBuilder {
             inner: VideoEncodeH264SessionCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000038010i32),
+                s_type: StructureType::from_raw(1000038010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46786,7 +46786,7 @@ impl VideoEncodeH264SessionParametersAddInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersAddInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersAddInfoKHRBuilder {
             inner: VideoEncodeH264SessionParametersAddInfoKHR {
-                s_type: StructureType::from_raw(-1000038002i32),
+                s_type: StructureType::from_raw(1000038002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46845,7 +46845,7 @@ impl VideoEncodeH264SessionParametersCreateInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersCreateInfoKHRBuilder {
             inner: VideoEncodeH264SessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000038001i32),
+                s_type: StructureType::from_raw(1000038001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46911,7 +46911,7 @@ impl VideoEncodeH264SessionParametersGetInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersGetInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersGetInfoKHRBuilder {
             inner: VideoEncodeH264SessionParametersGetInfoKHR {
-                s_type: StructureType::from_raw(-1000038012i32),
+                s_type: StructureType::from_raw(1000038012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -46978,7 +46978,7 @@ impl VideoEncodeH264SessionParametersFeedbackInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder {
             inner: VideoEncodeH264SessionParametersFeedbackInfoKHR {
-                s_type: StructureType::from_raw(-1000038013i32),
+                s_type: StructureType::from_raw(1000038013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47022,7 +47022,7 @@ impl VideoEncodeH264DpbSlotInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264DpbSlotInfoKHRBuilder<'a> {
         VideoEncodeH264DpbSlotInfoKHRBuilder {
             inner: VideoEncodeH264DpbSlotInfoKHR {
-                s_type: StructureType::from_raw(-1000038004i32),
+                s_type: StructureType::from_raw(1000038004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47077,7 +47077,7 @@ impl VideoEncodeH264PictureInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264PictureInfoKHRBuilder<'a> {
         VideoEncodeH264PictureInfoKHRBuilder {
             inner: VideoEncodeH264PictureInfoKHR {
-                s_type: StructureType::from_raw(-1000038003i32),
+                s_type: StructureType::from_raw(1000038003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47146,7 +47146,7 @@ impl VideoEncodeH264ProfileInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264ProfileInfoKHRBuilder<'a> {
         VideoEncodeH264ProfileInfoKHRBuilder {
             inner: VideoEncodeH264ProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000038007i32),
+                s_type: StructureType::from_raw(1000038007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47198,7 +47198,7 @@ impl VideoEncodeH264NaluSliceInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264NaluSliceInfoKHRBuilder<'a> {
         VideoEncodeH264NaluSliceInfoKHRBuilder {
             inner: VideoEncodeH264NaluSliceInfoKHR {
-                s_type: StructureType::from_raw(-1000038005i32),
+                s_type: StructureType::from_raw(1000038005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47258,7 +47258,7 @@ impl VideoEncodeH264RateControlInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264RateControlInfoKHRBuilder<'a> {
         VideoEncodeH264RateControlInfoKHRBuilder {
             inner: VideoEncodeH264RateControlInfoKHR {
-                s_type: StructureType::from_raw(-1000038008i32),
+                s_type: StructureType::from_raw(1000038008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47330,7 +47330,7 @@ impl VideoEncodeH264GopRemainingFrameInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264GopRemainingFrameInfoKHRBuilder<'a> {
         VideoEncodeH264GopRemainingFrameInfoKHRBuilder {
             inner: VideoEncodeH264GopRemainingFrameInfoKHR {
-                s_type: StructureType::from_raw(-1000038006i32),
+                s_type: StructureType::from_raw(1000038006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47397,7 +47397,7 @@ impl VideoEncodeH264RateControlLayerInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeH264RateControlLayerInfoKHRBuilder {
             inner: VideoEncodeH264RateControlLayerInfoKHR {
-                s_type: StructureType::from_raw(-1000038009i32),
+                s_type: StructureType::from_raw(1000038009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47474,7 +47474,7 @@ impl VideoEncodeH265CapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeH265CapabilitiesKHRBuilder<'a> {
         VideoEncodeH265CapabilitiesKHRBuilder {
             inner: VideoEncodeH265CapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000039000i32),
+                s_type: StructureType::from_raw(1000039000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47589,7 +47589,7 @@ impl VideoEncodeH265QualityLevelPropertiesKHR {
     pub fn builder<'a>() -> VideoEncodeH265QualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeH265QualityLevelPropertiesKHRBuilder {
             inner: VideoEncodeH265QualityLevelPropertiesKHR {
-                s_type: StructureType::from_raw(-1000039012i32),
+                s_type: StructureType::from_raw(1000039012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47664,7 +47664,7 @@ impl VideoEncodeH265SessionCreateInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265SessionCreateInfoKHRBuilder<'a> {
         VideoEncodeH265SessionCreateInfoKHRBuilder {
             inner: VideoEncodeH265SessionCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000039011i32),
+                s_type: StructureType::from_raw(1000039011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47721,7 +47721,7 @@ impl VideoEncodeH265SessionParametersAddInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersAddInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersAddInfoKHRBuilder {
             inner: VideoEncodeH265SessionParametersAddInfoKHR {
-                s_type: StructureType::from_raw(-1000039002i32),
+                s_type: StructureType::from_raw(1000039002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47786,7 +47786,7 @@ impl VideoEncodeH265SessionParametersCreateInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersCreateInfoKHRBuilder {
             inner: VideoEncodeH265SessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000039001i32),
+                s_type: StructureType::from_raw(1000039001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47857,7 +47857,7 @@ impl VideoEncodeH265SessionParametersGetInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersGetInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersGetInfoKHRBuilder {
             inner: VideoEncodeH265SessionParametersGetInfoKHR {
-                s_type: StructureType::from_raw(-1000039013i32),
+                s_type: StructureType::from_raw(1000039013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47934,7 +47934,7 @@ impl VideoEncodeH265SessionParametersFeedbackInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder {
             inner: VideoEncodeH265SessionParametersFeedbackInfoKHR {
-                s_type: StructureType::from_raw(-1000039014i32),
+                s_type: StructureType::from_raw(1000039014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -47983,7 +47983,7 @@ impl VideoEncodeH265PictureInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265PictureInfoKHRBuilder<'a> {
         VideoEncodeH265PictureInfoKHRBuilder {
             inner: VideoEncodeH265PictureInfoKHR {
-                s_type: StructureType::from_raw(-1000039003i32),
+                s_type: StructureType::from_raw(1000039003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48047,7 +48047,7 @@ impl VideoEncodeH265NaluSliceSegmentInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265NaluSliceSegmentInfoKHRBuilder<'a> {
         VideoEncodeH265NaluSliceSegmentInfoKHRBuilder {
             inner: VideoEncodeH265NaluSliceSegmentInfoKHR {
-                s_type: StructureType::from_raw(-1000039005i32),
+                s_type: StructureType::from_raw(1000039005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48107,7 +48107,7 @@ impl VideoEncodeH265RateControlInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265RateControlInfoKHRBuilder<'a> {
         VideoEncodeH265RateControlInfoKHRBuilder {
             inner: VideoEncodeH265RateControlInfoKHR {
-                s_type: StructureType::from_raw(-1000039009i32),
+                s_type: StructureType::from_raw(1000039009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48179,7 +48179,7 @@ impl VideoEncodeH265GopRemainingFrameInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265GopRemainingFrameInfoKHRBuilder<'a> {
         VideoEncodeH265GopRemainingFrameInfoKHRBuilder {
             inner: VideoEncodeH265GopRemainingFrameInfoKHR {
-                s_type: StructureType::from_raw(-1000039006i32),
+                s_type: StructureType::from_raw(1000039006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48246,7 +48246,7 @@ impl VideoEncodeH265RateControlLayerInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeH265RateControlLayerInfoKHRBuilder {
             inner: VideoEncodeH265RateControlLayerInfoKHR {
-                s_type: StructureType::from_raw(-1000039010i32),
+                s_type: StructureType::from_raw(1000039010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48323,7 +48323,7 @@ impl VideoEncodeH265ProfileInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265ProfileInfoKHRBuilder<'a> {
         VideoEncodeH265ProfileInfoKHRBuilder {
             inner: VideoEncodeH265ProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000039007i32),
+                s_type: StructureType::from_raw(1000039007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48375,7 +48375,7 @@ impl VideoEncodeH265DpbSlotInfoKHR {
     pub fn builder<'a>() -> VideoEncodeH265DpbSlotInfoKHRBuilder<'a> {
         VideoEncodeH265DpbSlotInfoKHRBuilder {
             inner: VideoEncodeH265DpbSlotInfoKHR {
-                s_type: StructureType::from_raw(-1000039004i32),
+                s_type: StructureType::from_raw(1000039004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48430,7 +48430,7 @@ impl VideoEncodeAV1CapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeAV1CapabilitiesKHRBuilder<'a> {
         VideoEncodeAV1CapabilitiesKHRBuilder {
             inner: VideoEncodeAV1CapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000513000i32),
+                s_type: StructureType::from_raw(1000513000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48594,7 +48594,7 @@ impl VideoEncodeAV1QualityLevelPropertiesKHR {
     pub fn builder<'a>() -> VideoEncodeAV1QualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeAV1QualityLevelPropertiesKHRBuilder {
             inner: VideoEncodeAV1QualityLevelPropertiesKHR {
-                s_type: StructureType::from_raw(-1000513008i32),
+                s_type: StructureType::from_raw(1000513008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48725,7 +48725,7 @@ impl PhysicalDeviceVideoEncodeAV1FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder {
             inner: PhysicalDeviceVideoEncodeAV1FeaturesKHR {
-                s_type: StructureType::from_raw(-1000513004i32),
+                s_type: StructureType::from_raw(1000513004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48777,7 +48777,7 @@ impl VideoEncodeAV1SessionCreateInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1SessionCreateInfoKHRBuilder<'a> {
         VideoEncodeAV1SessionCreateInfoKHRBuilder {
             inner: VideoEncodeAV1SessionCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000513009i32),
+                s_type: StructureType::from_raw(1000513009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48834,7 +48834,7 @@ impl VideoEncodeAV1SessionParametersCreateInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         VideoEncodeAV1SessionParametersCreateInfoKHRBuilder {
             inner: VideoEncodeAV1SessionParametersCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000513001i32),
+                s_type: StructureType::from_raw(1000513001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48907,7 +48907,7 @@ impl VideoEncodeAV1DpbSlotInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1DpbSlotInfoKHRBuilder<'a> {
         VideoEncodeAV1DpbSlotInfoKHRBuilder {
             inner: VideoEncodeAV1DpbSlotInfoKHR {
-                s_type: StructureType::from_raw(-1000513003i32),
+                s_type: StructureType::from_raw(1000513003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -48962,7 +48962,7 @@ impl VideoEncodeAV1PictureInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1PictureInfoKHRBuilder<'a> {
         VideoEncodeAV1PictureInfoKHRBuilder {
             inner: VideoEncodeAV1PictureInfoKHR {
-                s_type: StructureType::from_raw(-1000513002i32),
+                s_type: StructureType::from_raw(1000513002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49053,7 +49053,7 @@ impl VideoEncodeAV1ProfileInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1ProfileInfoKHRBuilder<'a> {
         VideoEncodeAV1ProfileInfoKHRBuilder {
             inner: VideoEncodeAV1ProfileInfoKHR {
-                s_type: StructureType::from_raw(-1000513005i32),
+                s_type: StructureType::from_raw(1000513005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49105,7 +49105,7 @@ impl VideoEncodeAV1RateControlInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
         VideoEncodeAV1RateControlInfoKHRBuilder {
             inner: VideoEncodeAV1RateControlInfoKHR {
-                s_type: StructureType::from_raw(-1000513006i32),
+                s_type: StructureType::from_raw(1000513006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49177,7 +49177,7 @@ impl VideoEncodeAV1GopRemainingFrameInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1GopRemainingFrameInfoKHRBuilder<'a> {
         VideoEncodeAV1GopRemainingFrameInfoKHRBuilder {
             inner: VideoEncodeAV1GopRemainingFrameInfoKHR {
-                s_type: StructureType::from_raw(-1000513010i32),
+                s_type: StructureType::from_raw(1000513010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49244,7 +49244,7 @@ impl VideoEncodeAV1RateControlLayerInfoKHR {
     pub fn builder<'a>() -> VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeAV1RateControlLayerInfoKHRBuilder {
             inner: VideoEncodeAV1RateControlLayerInfoKHR {
-                s_type: StructureType::from_raw(-1000513007i32),
+                s_type: StructureType::from_raw(1000513007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49321,7 +49321,7 @@ impl PhysicalDeviceInheritedViewportScissorFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder<'a> {
         PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder {
             inner: PhysicalDeviceInheritedViewportScissorFeaturesNV {
-                s_type: StructureType::from_raw(-1000278000i32),
+                s_type: StructureType::from_raw(1000278000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49375,7 +49375,7 @@ impl CommandBufferInheritanceViewportScissorInfoNV {
     pub fn builder<'a>() -> CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
         CommandBufferInheritanceViewportScissorInfoNVBuilder {
             inner: CommandBufferInheritanceViewportScissorInfoNV {
-                s_type: StructureType::from_raw(-1000278001i32),
+                s_type: StructureType::from_raw(1000278001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49438,7 +49438,7 @@ impl PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder<'a> {
         PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder {
             inner: PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
-                s_type: StructureType::from_raw(-1000330000i32),
+                s_type: StructureType::from_raw(1000330000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49491,7 +49491,7 @@ impl PhysicalDeviceProvokingVertexFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceProvokingVertexFeaturesEXTBuilder<'a> {
         PhysicalDeviceProvokingVertexFeaturesEXTBuilder {
             inner: PhysicalDeviceProvokingVertexFeaturesEXT {
-                s_type: StructureType::from_raw(-1000254000i32),
+                s_type: StructureType::from_raw(1000254000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49548,7 +49548,7 @@ impl PhysicalDeviceProvokingVertexPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceProvokingVertexPropertiesEXTBuilder<'a> {
         PhysicalDeviceProvokingVertexPropertiesEXTBuilder {
             inner: PhysicalDeviceProvokingVertexPropertiesEXT {
-                s_type: StructureType::from_raw(-1000254002i32),
+                s_type: StructureType::from_raw(1000254002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49595,7 +49595,7 @@ impl PipelineRasterizationProvokingVertexStateCreateInfoEXT {
     > {
         PipelineRasterizationProvokingVertexStateCreateInfoEXTBuilder {
             inner: PipelineRasterizationProvokingVertexStateCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000254001i32),
+                s_type: StructureType::from_raw(1000254001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49649,7 +49649,7 @@ impl VideoEncodeIntraRefreshCapabilitiesKHR {
     pub fn builder<'a>() -> VideoEncodeIntraRefreshCapabilitiesKHRBuilder<'a> {
         VideoEncodeIntraRefreshCapabilitiesKHRBuilder {
             inner: VideoEncodeIntraRefreshCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000552000i32),
+                s_type: StructureType::from_raw(1000552000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49709,7 +49709,7 @@ impl VideoEncodeSessionIntraRefreshCreateInfoKHR {
     pub fn builder<'a>() -> VideoEncodeSessionIntraRefreshCreateInfoKHRBuilder<'a> {
         VideoEncodeSessionIntraRefreshCreateInfoKHRBuilder {
             inner: VideoEncodeSessionIntraRefreshCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000552001i32),
+                s_type: StructureType::from_raw(1000552001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49764,7 +49764,7 @@ impl VideoEncodeIntraRefreshInfoKHR {
     pub fn builder<'a>() -> VideoEncodeIntraRefreshInfoKHRBuilder<'a> {
         VideoEncodeIntraRefreshInfoKHRBuilder {
             inner: VideoEncodeIntraRefreshInfoKHR {
-                s_type: StructureType::from_raw(-1000552002i32),
+                s_type: StructureType::from_raw(1000552002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49821,7 +49821,7 @@ impl VideoReferenceIntraRefreshInfoKHR {
     pub fn builder<'a>() -> VideoReferenceIntraRefreshInfoKHRBuilder<'a> {
         VideoReferenceIntraRefreshInfoKHRBuilder {
             inner: VideoReferenceIntraRefreshInfoKHR {
-                s_type: StructureType::from_raw(-1000552003i32),
+                s_type: StructureType::from_raw(1000552003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49873,7 +49873,7 @@ impl PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder {
             inner: PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
-                s_type: StructureType::from_raw(-1000552004i32),
+                s_type: StructureType::from_raw(1000552004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49927,7 +49927,7 @@ impl CuModuleCreateInfoNVX {
     pub fn builder<'a>() -> CuModuleCreateInfoNVXBuilder<'a> {
         CuModuleCreateInfoNVXBuilder {
             inner: CuModuleCreateInfoNVX {
-                s_type: StructureType::from_raw(-1000029000i32),
+                s_type: StructureType::from_raw(1000029000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -49980,7 +49980,7 @@ impl CuModuleTexturingModeCreateInfoNVX {
     pub fn builder<'a>() -> CuModuleTexturingModeCreateInfoNVXBuilder<'a> {
         CuModuleTexturingModeCreateInfoNVXBuilder {
             inner: CuModuleTexturingModeCreateInfoNVX {
-                s_type: StructureType::from_raw(-1000029004i32),
+                s_type: StructureType::from_raw(1000029004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50032,7 +50032,7 @@ impl CuFunctionCreateInfoNVX {
     pub fn builder<'a>() -> CuFunctionCreateInfoNVXBuilder<'a> {
         CuFunctionCreateInfoNVXBuilder {
             inner: CuFunctionCreateInfoNVX {
-                s_type: StructureType::from_raw(-1000029001i32),
+                s_type: StructureType::from_raw(1000029001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50089,7 +50089,7 @@ impl CuLaunchInfoNVX {
     pub fn builder<'a>() -> CuLaunchInfoNVXBuilder<'a> {
         CuLaunchInfoNVXBuilder {
             inner: CuLaunchInfoNVX {
-                s_type: StructureType::from_raw(-1000029002i32),
+                s_type: StructureType::from_raw(1000029002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50193,7 +50193,7 @@ impl PhysicalDeviceDescriptorBufferFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferFeaturesEXTBuilder<'a> {
         PhysicalDeviceDescriptorBufferFeaturesEXTBuilder {
             inner: PhysicalDeviceDescriptorBufferFeaturesEXT {
-                s_type: StructureType::from_raw(-1000316002i32),
+                s_type: StructureType::from_raw(1000316002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50260,7 +50260,7 @@ impl PhysicalDeviceDescriptorBufferPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferPropertiesEXTBuilder<'a> {
         PhysicalDeviceDescriptorBufferPropertiesEXTBuilder {
             inner: PhysicalDeviceDescriptorBufferPropertiesEXT {
-                s_type: StructureType::from_raw(-1000316000i32),
+                s_type: StructureType::from_raw(1000316000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50465,7 +50465,7 @@ impl PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
     > {
         PhysicalDeviceDescriptorBufferDensityMapPropertiesEXTBuilder {
             inner: PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
-                s_type: StructureType::from_raw(-1000316001i32),
+                s_type: StructureType::from_raw(1000316001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50507,7 +50507,7 @@ impl DescriptorAddressInfoEXT {
     pub fn builder<'a>() -> DescriptorAddressInfoEXTBuilder<'a> {
         DescriptorAddressInfoEXTBuilder {
             inner: DescriptorAddressInfoEXT {
-                s_type: StructureType::from_raw(-1000316003i32),
+                s_type: StructureType::from_raw(1000316003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50569,7 +50569,7 @@ impl DescriptorBufferBindingInfoEXT {
     pub fn builder<'a>() -> DescriptorBufferBindingInfoEXTBuilder<'a> {
         DescriptorBufferBindingInfoEXTBuilder {
             inner: DescriptorBufferBindingInfoEXT {
-                s_type: StructureType::from_raw(-1000316011i32),
+                s_type: StructureType::from_raw(1000316011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50628,7 +50628,7 @@ impl DescriptorBufferBindingPushDescriptorBufferHandleEXT {
     > {
         DescriptorBufferBindingPushDescriptorBufferHandleEXTBuilder {
             inner: DescriptorBufferBindingPushDescriptorBufferHandleEXT {
-                s_type: StructureType::from_raw(-1000316012i32),
+                s_type: StructureType::from_raw(1000316012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50682,7 +50682,7 @@ impl DescriptorGetInfoEXT {
     pub fn builder<'a>() -> DescriptorGetInfoEXTBuilder<'a> {
         DescriptorGetInfoEXTBuilder {
             inner: DescriptorGetInfoEXT {
-                s_type: StructureType::from_raw(-1000316004i32),
+                s_type: StructureType::from_raw(1000316004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50736,7 +50736,7 @@ impl BufferCaptureDescriptorDataInfoEXT {
     pub fn builder<'a>() -> BufferCaptureDescriptorDataInfoEXTBuilder<'a> {
         BufferCaptureDescriptorDataInfoEXTBuilder {
             inner: BufferCaptureDescriptorDataInfoEXT {
-                s_type: StructureType::from_raw(-1000316005i32),
+                s_type: StructureType::from_raw(1000316005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50788,7 +50788,7 @@ impl ImageCaptureDescriptorDataInfoEXT {
     pub fn builder<'a>() -> ImageCaptureDescriptorDataInfoEXTBuilder<'a> {
         ImageCaptureDescriptorDataInfoEXTBuilder {
             inner: ImageCaptureDescriptorDataInfoEXT {
-                s_type: StructureType::from_raw(-1000316006i32),
+                s_type: StructureType::from_raw(1000316006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50840,7 +50840,7 @@ impl ImageViewCaptureDescriptorDataInfoEXT {
     pub fn builder<'a>() -> ImageViewCaptureDescriptorDataInfoEXTBuilder<'a> {
         ImageViewCaptureDescriptorDataInfoEXTBuilder {
             inner: ImageViewCaptureDescriptorDataInfoEXT {
-                s_type: StructureType::from_raw(-1000316007i32),
+                s_type: StructureType::from_raw(1000316007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50892,7 +50892,7 @@ impl SamplerCaptureDescriptorDataInfoEXT {
     pub fn builder<'a>() -> SamplerCaptureDescriptorDataInfoEXTBuilder<'a> {
         SamplerCaptureDescriptorDataInfoEXTBuilder {
             inner: SamplerCaptureDescriptorDataInfoEXT {
-                s_type: StructureType::from_raw(-1000316008i32),
+                s_type: StructureType::from_raw(1000316008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -50946,7 +50946,7 @@ impl AccelerationStructureCaptureDescriptorDataInfoEXT {
     > {
         AccelerationStructureCaptureDescriptorDataInfoEXTBuilder {
             inner: AccelerationStructureCaptureDescriptorDataInfoEXT {
-                s_type: StructureType::from_raw(-1000316009i32),
+                s_type: StructureType::from_raw(1000316009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51005,7 +51005,7 @@ impl OpaqueCaptureDescriptorDataCreateInfoEXT {
     pub fn builder<'a>() -> OpaqueCaptureDescriptorDataCreateInfoEXTBuilder<'a> {
         OpaqueCaptureDescriptorDataCreateInfoEXTBuilder {
             inner: OpaqueCaptureDescriptorDataCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000316010i32),
+                s_type: StructureType::from_raw(1000316010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51060,7 +51060,7 @@ impl PhysicalDeviceShaderIntegerDotProductFeatures {
     pub fn builder<'a>() -> PhysicalDeviceShaderIntegerDotProductFeaturesBuilder<'a> {
         PhysicalDeviceShaderIntegerDotProductFeaturesBuilder {
             inner: PhysicalDeviceShaderIntegerDotProductFeatures {
-                s_type: StructureType::from_raw(-1000280000i32),
+                s_type: StructureType::from_raw(1000280000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51113,7 +51113,7 @@ impl PhysicalDeviceShaderIntegerDotProductProperties {
     pub fn builder<'a>() -> PhysicalDeviceShaderIntegerDotProductPropertiesBuilder<'a> {
         PhysicalDeviceShaderIntegerDotProductPropertiesBuilder {
             inner: PhysicalDeviceShaderIntegerDotProductProperties {
-                s_type: StructureType::from_raw(-1000280001i32),
+                s_type: StructureType::from_raw(1000280001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51391,7 +51391,7 @@ impl PhysicalDeviceDrmPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDrmPropertiesEXTBuilder<'a> {
         PhysicalDeviceDrmPropertiesEXTBuilder {
             inner: PhysicalDeviceDrmPropertiesEXT {
-                s_type: StructureType::from_raw(-1000353000i32),
+                s_type: StructureType::from_raw(1000353000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51455,7 +51455,7 @@ impl PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
     > {
         PhysicalDeviceFragmentShaderBarycentricFeaturesKHRBuilder {
             inner: PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
-                s_type: StructureType::from_raw(-1000203000i32),
+                s_type: StructureType::from_raw(1000203000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51511,7 +51511,7 @@ impl PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
     > {
         PhysicalDeviceFragmentShaderBarycentricPropertiesKHRBuilder {
             inner: PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
-                s_type: StructureType::from_raw(-1000322000i32),
+                s_type: StructureType::from_raw(1000322000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51553,7 +51553,7 @@ impl PhysicalDeviceShaderFmaFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderFmaFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderFmaFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderFmaFeaturesKHR {
-                s_type: StructureType::from_raw(-1000579000i32),
+                s_type: StructureType::from_raw(1000579000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51615,7 +51615,7 @@ impl PhysicalDeviceRayTracingMotionBlurFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder<'a> {
         PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder {
             inner: PhysicalDeviceRayTracingMotionBlurFeaturesNV {
-                s_type: StructureType::from_raw(-1000327001i32),
+                s_type: StructureType::from_raw(1000327001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51676,7 +51676,7 @@ impl PhysicalDeviceRayTracingValidationFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceRayTracingValidationFeaturesNVBuilder<'a> {
         PhysicalDeviceRayTracingValidationFeaturesNVBuilder {
             inner: PhysicalDeviceRayTracingValidationFeaturesNV {
-                s_type: StructureType::from_raw(-1000568000i32),
+                s_type: StructureType::from_raw(1000568000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51731,7 +51731,7 @@ impl PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
     > {
         PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNVBuilder {
             inner: PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
-                s_type: StructureType::from_raw(-1000429008i32),
+                s_type: StructureType::from_raw(1000429008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51792,7 +51792,7 @@ impl AccelerationStructureGeometryMotionTrianglesDataNV {
     > {
         AccelerationStructureGeometryMotionTrianglesDataNVBuilder {
             inner: AccelerationStructureGeometryMotionTrianglesDataNV {
-                s_type: StructureType::from_raw(-1000327000i32),
+                s_type: StructureType::from_raw(1000327000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51846,7 +51846,7 @@ impl AccelerationStructureMotionInfoNV {
     pub fn builder<'a>() -> AccelerationStructureMotionInfoNVBuilder<'a> {
         AccelerationStructureMotionInfoNVBuilder {
             inner: AccelerationStructureMotionInfoNV {
-                s_type: StructureType::from_raw(-1000327002i32),
+                s_type: StructureType::from_raw(1000327002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51903,7 +51903,7 @@ impl MemoryGetRemoteAddressInfoNV {
     pub fn builder<'a>() -> MemoryGetRemoteAddressInfoNVBuilder<'a> {
         MemoryGetRemoteAddressInfoNVBuilder {
             inner: MemoryGetRemoteAddressInfoNV {
-                s_type: StructureType::from_raw(-1000371000i32),
+                s_type: StructureType::from_raw(1000371000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -51960,7 +51960,7 @@ impl ImportMemoryBufferCollectionFUCHSIA {
     pub fn builder<'a>() -> ImportMemoryBufferCollectionFUCHSIABuilder<'a> {
         ImportMemoryBufferCollectionFUCHSIABuilder {
             inner: ImportMemoryBufferCollectionFUCHSIA {
-                s_type: StructureType::from_raw(-1000366001i32),
+                s_type: StructureType::from_raw(1000366001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52017,7 +52017,7 @@ impl BufferCollectionImageCreateInfoFUCHSIA {
     pub fn builder<'a>() -> BufferCollectionImageCreateInfoFUCHSIABuilder<'a> {
         BufferCollectionImageCreateInfoFUCHSIABuilder {
             inner: BufferCollectionImageCreateInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000366002i32),
+                s_type: StructureType::from_raw(1000366002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52074,7 +52074,7 @@ impl BufferCollectionBufferCreateInfoFUCHSIA {
     pub fn builder<'a>() -> BufferCollectionBufferCreateInfoFUCHSIABuilder<'a> {
         BufferCollectionBufferCreateInfoFUCHSIABuilder {
             inner: BufferCollectionBufferCreateInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000366005i32),
+                s_type: StructureType::from_raw(1000366005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52131,7 +52131,7 @@ impl BufferCollectionCreateInfoFUCHSIA {
     pub fn builder<'a>() -> BufferCollectionCreateInfoFUCHSIABuilder<'a> {
         BufferCollectionCreateInfoFUCHSIABuilder {
             inner: BufferCollectionCreateInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000366000i32),
+                s_type: StructureType::from_raw(1000366000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52183,7 +52183,7 @@ impl BufferCollectionPropertiesFUCHSIA {
     pub fn builder<'a>() -> BufferCollectionPropertiesFUCHSIABuilder<'a> {
         BufferCollectionPropertiesFUCHSIABuilder {
             inner: BufferCollectionPropertiesFUCHSIA {
-                s_type: StructureType::from_raw(-1000366003i32),
+                s_type: StructureType::from_raw(1000366003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52273,7 +52273,7 @@ impl BufferConstraintsInfoFUCHSIA {
     pub fn builder<'a>() -> BufferConstraintsInfoFUCHSIABuilder<'a> {
         BufferConstraintsInfoFUCHSIABuilder {
             inner: BufferConstraintsInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000366004i32),
+                s_type: StructureType::from_raw(1000366004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52338,7 +52338,7 @@ impl SysmemColorSpaceFUCHSIA {
     pub fn builder<'a>() -> SysmemColorSpaceFUCHSIABuilder<'a> {
         SysmemColorSpaceFUCHSIABuilder {
             inner: SysmemColorSpaceFUCHSIA {
-                s_type: StructureType::from_raw(-1000366008i32),
+                s_type: StructureType::from_raw(1000366008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52390,7 +52390,7 @@ impl ImageFormatConstraintsInfoFUCHSIA {
     pub fn builder<'a>() -> ImageFormatConstraintsInfoFUCHSIABuilder<'a> {
         ImageFormatConstraintsInfoFUCHSIABuilder {
             inner: ImageFormatConstraintsInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000366007i32),
+                s_type: StructureType::from_raw(1000366007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52463,7 +52463,7 @@ impl ImageConstraintsInfoFUCHSIA {
     pub fn builder<'a>() -> ImageConstraintsInfoFUCHSIABuilder<'a> {
         ImageConstraintsInfoFUCHSIABuilder {
             inner: ImageConstraintsInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000366006i32),
+                s_type: StructureType::from_raw(1000366006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52532,7 +52532,7 @@ impl BufferCollectionConstraintsInfoFUCHSIA {
     pub fn builder<'a>() -> BufferCollectionConstraintsInfoFUCHSIABuilder<'a> {
         BufferCollectionConstraintsInfoFUCHSIABuilder {
             inner: BufferCollectionConstraintsInfoFUCHSIA {
-                s_type: StructureType::from_raw(-1000366009i32),
+                s_type: StructureType::from_raw(1000366009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52604,7 +52604,7 @@ impl CudaModuleCreateInfoNV {
     pub fn builder<'a>() -> CudaModuleCreateInfoNVBuilder<'a> {
         CudaModuleCreateInfoNVBuilder {
             inner: CudaModuleCreateInfoNV {
-                s_type: StructureType::from_raw(-1000307000i32),
+                s_type: StructureType::from_raw(1000307000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52657,7 +52657,7 @@ impl CudaFunctionCreateInfoNV {
     pub fn builder<'a>() -> CudaFunctionCreateInfoNVBuilder<'a> {
         CudaFunctionCreateInfoNVBuilder {
             inner: CudaFunctionCreateInfoNV {
-                s_type: StructureType::from_raw(-1000307001i32),
+                s_type: StructureType::from_raw(1000307001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52714,7 +52714,7 @@ impl CudaLaunchInfoNV {
     pub fn builder<'a>() -> CudaLaunchInfoNVBuilder<'a> {
         CudaLaunchInfoNVBuilder {
             inner: CudaLaunchInfoNV {
-                s_type: StructureType::from_raw(-1000307002i32),
+                s_type: StructureType::from_raw(1000307002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52818,7 +52818,7 @@ impl PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder<'a> {
         PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder {
             inner: PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
-                s_type: StructureType::from_raw(-1000344000i32),
+                s_type: StructureType::from_raw(1000344000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52870,7 +52870,7 @@ impl FormatProperties3 {
     pub fn builder<'a>() -> FormatProperties3Builder<'a> {
         FormatProperties3Builder {
             inner: FormatProperties3 {
-                s_type: StructureType::from_raw(-1000360000i32),
+                s_type: StructureType::from_raw(1000360000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52917,7 +52917,7 @@ impl DrmFormatModifierPropertiesList2EXT {
     pub fn builder<'a>() -> DrmFormatModifierPropertiesList2EXTBuilder<'a> {
         DrmFormatModifierPropertiesList2EXTBuilder {
             inner: DrmFormatModifierPropertiesList2EXT {
-                s_type: StructureType::from_raw(-1000158006i32),
+                s_type: StructureType::from_raw(1000158006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -52958,7 +52958,7 @@ impl AndroidHardwareBufferFormatProperties2ANDROID {
     pub fn builder<'a>() -> AndroidHardwareBufferFormatProperties2ANDROIDBuilder<'a> {
         AndroidHardwareBufferFormatProperties2ANDROIDBuilder {
             inner: AndroidHardwareBufferFormatProperties2ANDROID {
-                s_type: StructureType::from_raw(-1000129006i32),
+                s_type: StructureType::from_raw(1000129006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53034,7 +53034,7 @@ impl PipelineRenderingCreateInfo {
     pub fn builder<'a>() -> PipelineRenderingCreateInfoBuilder<'a> {
         PipelineRenderingCreateInfoBuilder {
             inner: PipelineRenderingCreateInfo {
-                s_type: StructureType::from_raw(-1000044002i32),
+                s_type: StructureType::from_raw(1000044002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53102,7 +53102,7 @@ impl RenderingInfo {
     pub fn builder<'a>() -> RenderingInfoBuilder<'a> {
         RenderingInfoBuilder {
             inner: RenderingInfo {
-                s_type: StructureType::from_raw(-1000044000i32),
+                s_type: StructureType::from_raw(1000044000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53185,7 +53185,7 @@ impl RenderingEndInfoKHR {
     pub fn builder<'a>() -> RenderingEndInfoKHRBuilder<'a> {
         RenderingEndInfoKHRBuilder {
             inner: RenderingEndInfoKHR {
-                s_type: StructureType::from_raw(-1000619003i32),
+                s_type: StructureType::from_raw(1000619003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53229,7 +53229,7 @@ impl RenderingAttachmentInfo {
     pub fn builder<'a>() -> RenderingAttachmentInfoBuilder<'a> {
         RenderingAttachmentInfoBuilder {
             inner: RenderingAttachmentInfo {
-                s_type: StructureType::from_raw(-1000044001i32),
+                s_type: StructureType::from_raw(1000044001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53316,7 +53316,7 @@ impl RenderingFragmentShadingRateAttachmentInfoKHR {
     pub fn builder<'a>() -> RenderingFragmentShadingRateAttachmentInfoKHRBuilder<'a> {
         RenderingFragmentShadingRateAttachmentInfoKHRBuilder {
             inner: RenderingFragmentShadingRateAttachmentInfoKHR {
-                s_type: StructureType::from_raw(-1000044006i32),
+                s_type: StructureType::from_raw(1000044006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53379,7 +53379,7 @@ impl RenderingFragmentDensityMapAttachmentInfoEXT {
     pub fn builder<'a>() -> RenderingFragmentDensityMapAttachmentInfoEXTBuilder<'a> {
         RenderingFragmentDensityMapAttachmentInfoEXTBuilder {
             inner: RenderingFragmentDensityMapAttachmentInfoEXT {
-                s_type: StructureType::from_raw(-1000044007i32),
+                s_type: StructureType::from_raw(1000044007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53437,7 +53437,7 @@ impl PhysicalDeviceDynamicRenderingFeatures {
     pub fn builder<'a>() -> PhysicalDeviceDynamicRenderingFeaturesBuilder<'a> {
         PhysicalDeviceDynamicRenderingFeaturesBuilder {
             inner: PhysicalDeviceDynamicRenderingFeatures {
-                s_type: StructureType::from_raw(-1000044003i32),
+                s_type: StructureType::from_raw(1000044003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53489,7 +53489,7 @@ impl CommandBufferInheritanceRenderingInfo {
     pub fn builder<'a>() -> CommandBufferInheritanceRenderingInfoBuilder<'a> {
         CommandBufferInheritanceRenderingInfoBuilder {
             inner: CommandBufferInheritanceRenderingInfo {
-                s_type: StructureType::from_raw(-1000044004i32),
+                s_type: StructureType::from_raw(1000044004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53567,7 +53567,7 @@ impl AttachmentSampleCountInfoAMD {
     pub fn builder<'a>() -> AttachmentSampleCountInfoAMDBuilder<'a> {
         AttachmentSampleCountInfoAMDBuilder {
             inner: AttachmentSampleCountInfoAMD {
-                s_type: StructureType::from_raw(-1000044008i32),
+                s_type: StructureType::from_raw(1000044008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53628,7 +53628,7 @@ impl MultiviewPerViewAttributesInfoNVX {
     pub fn builder<'a>() -> MultiviewPerViewAttributesInfoNVXBuilder<'a> {
         MultiviewPerViewAttributesInfoNVXBuilder {
             inner: MultiviewPerViewAttributesInfoNVX {
-                s_type: StructureType::from_raw(-1000044009i32),
+                s_type: StructureType::from_raw(1000044009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53685,7 +53685,7 @@ impl PhysicalDeviceImageViewMinLodFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceImageViewMinLodFeaturesEXTBuilder<'a> {
         PhysicalDeviceImageViewMinLodFeaturesEXTBuilder {
             inner: PhysicalDeviceImageViewMinLodFeaturesEXT {
-                s_type: StructureType::from_raw(-1000391000i32),
+                s_type: StructureType::from_raw(1000391000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53737,7 +53737,7 @@ impl ImageViewMinLodCreateInfoEXT {
     pub fn builder<'a>() -> ImageViewMinLodCreateInfoEXTBuilder<'a> {
         ImageViewMinLodCreateInfoEXTBuilder {
             inner: ImageViewMinLodCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000391001i32),
+                s_type: StructureType::from_raw(1000391001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53791,7 +53791,7 @@ impl PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
     > {
         PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTBuilder {
             inner: PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
-                s_type: StructureType::from_raw(-1000342000i32),
+                s_type: StructureType::from_raw(1000342000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53854,7 +53854,7 @@ impl PhysicalDeviceLinearColorAttachmentFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder<'a> {
         PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder {
             inner: PhysicalDeviceLinearColorAttachmentFeaturesNV {
-                s_type: StructureType::from_raw(-1000430000i32),
+                s_type: StructureType::from_raw(1000430000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53907,7 +53907,7 @@ impl PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder<'a> {
         PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder {
             inner: PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
-                s_type: StructureType::from_raw(-1000320000i32),
+                s_type: StructureType::from_raw(1000320000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -53961,7 +53961,7 @@ impl PhysicalDevicePipelineBinaryFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDevicePipelineBinaryFeaturesKHRBuilder<'a> {
         PhysicalDevicePipelineBinaryFeaturesKHRBuilder {
             inner: PhysicalDevicePipelineBinaryFeaturesKHR {
-                s_type: StructureType::from_raw(-1000483000i32),
+                s_type: StructureType::from_raw(1000483000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54013,7 +54013,7 @@ impl DevicePipelineBinaryInternalCacheControlKHR {
     pub fn builder<'a>() -> DevicePipelineBinaryInternalCacheControlKHRBuilder<'a> {
         DevicePipelineBinaryInternalCacheControlKHRBuilder {
             inner: DevicePipelineBinaryInternalCacheControlKHR {
-                s_type: StructureType::from_raw(-1000483008i32),
+                s_type: StructureType::from_raw(1000483008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54065,7 +54065,7 @@ impl PhysicalDevicePipelineBinaryPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDevicePipelineBinaryPropertiesKHRBuilder<'a> {
         PhysicalDevicePipelineBinaryPropertiesKHRBuilder {
             inner: PhysicalDevicePipelineBinaryPropertiesKHR {
-                s_type: StructureType::from_raw(-1000483004i32),
+                s_type: StructureType::from_raw(1000483004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54124,7 +54124,7 @@ impl PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
     > {
         PhysicalDeviceGraphicsPipelineLibraryPropertiesEXTBuilder {
             inner: PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
-                s_type: StructureType::from_raw(-1000320001i32),
+                s_type: StructureType::from_raw(1000320001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54171,7 +54171,7 @@ impl GraphicsPipelineLibraryCreateInfoEXT {
     pub fn builder<'a>() -> GraphicsPipelineLibraryCreateInfoEXTBuilder<'a> {
         GraphicsPipelineLibraryCreateInfoEXTBuilder {
             inner: GraphicsPipelineLibraryCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000320002i32),
+                s_type: StructureType::from_raw(1000320002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54225,7 +54225,7 @@ impl PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
     > {
         PhysicalDeviceDescriptorSetHostMappingFeaturesVALVEBuilder {
             inner: PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
-                s_type: StructureType::from_raw(-1000420000i32),
+                s_type: StructureType::from_raw(1000420000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54279,7 +54279,7 @@ impl DescriptorSetBindingReferenceVALVE {
     pub fn builder<'a>() -> DescriptorSetBindingReferenceVALVEBuilder<'a> {
         DescriptorSetBindingReferenceVALVEBuilder {
             inner: DescriptorSetBindingReferenceVALVE {
-                s_type: StructureType::from_raw(-1000420001i32),
+                s_type: StructureType::from_raw(1000420001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54336,7 +54336,7 @@ impl DescriptorSetLayoutHostMappingInfoVALVE {
     pub fn builder<'a>() -> DescriptorSetLayoutHostMappingInfoVALVEBuilder<'a> {
         DescriptorSetLayoutHostMappingInfoVALVEBuilder {
             inner: DescriptorSetLayoutHostMappingInfoVALVE {
-                s_type: StructureType::from_raw(-1000420002i32),
+                s_type: StructureType::from_raw(1000420002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54393,7 +54393,7 @@ impl PhysicalDeviceNestedCommandBufferFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder<'a> {
         PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder {
             inner: PhysicalDeviceNestedCommandBufferFeaturesEXT {
-                s_type: StructureType::from_raw(-1000451000i32),
+                s_type: StructureType::from_raw(1000451000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54456,7 +54456,7 @@ impl PhysicalDeviceNestedCommandBufferPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceNestedCommandBufferPropertiesEXTBuilder<'a> {
         PhysicalDeviceNestedCommandBufferPropertiesEXTBuilder {
             inner: PhysicalDeviceNestedCommandBufferPropertiesEXT {
-                s_type: StructureType::from_raw(-1000451001i32),
+                s_type: StructureType::from_raw(1000451001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54494,7 +54494,7 @@ impl PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
-                s_type: StructureType::from_raw(-1000462000i32),
+                s_type: StructureType::from_raw(1000462000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54550,7 +54550,7 @@ impl PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     > {
         PhysicalDeviceShaderModuleIdentifierPropertiesEXTBuilder {
             inner: PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
-                s_type: StructureType::from_raw(-1000462001i32),
+                s_type: StructureType::from_raw(1000462001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54592,7 +54592,7 @@ impl PipelineShaderStageModuleIdentifierCreateInfoEXT {
     pub fn builder<'a>() -> PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder<'a> {
         PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder {
             inner: PipelineShaderStageModuleIdentifierCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000462002i32),
+                s_type: StructureType::from_raw(1000462002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54647,7 +54647,7 @@ impl ShaderModuleIdentifierEXT {
     pub fn builder<'a>() -> ShaderModuleIdentifierEXTBuilder<'a> {
         ShaderModuleIdentifierEXTBuilder {
             inner: ShaderModuleIdentifierEXT {
-                s_type: StructureType::from_raw(-1000462003i32),
+                s_type: StructureType::from_raw(1000462003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54692,7 +54692,7 @@ impl ImageCompressionControlEXT {
     pub fn builder<'a>() -> ImageCompressionControlEXTBuilder<'a> {
         ImageCompressionControlEXTBuilder {
             inner: ImageCompressionControlEXT {
-                s_type: StructureType::from_raw(-1000338001i32),
+                s_type: StructureType::from_raw(1000338001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54753,7 +54753,7 @@ impl PhysicalDeviceImageCompressionControlFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceImageCompressionControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceImageCompressionControlFeaturesEXTBuilder {
             inner: PhysicalDeviceImageCompressionControlFeaturesEXT {
-                s_type: StructureType::from_raw(-1000338000i32),
+                s_type: StructureType::from_raw(1000338000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54807,7 +54807,7 @@ impl ImageCompressionPropertiesEXT {
     pub fn builder<'a>() -> ImageCompressionPropertiesEXTBuilder<'a> {
         ImageCompressionPropertiesEXTBuilder {
             inner: ImageCompressionPropertiesEXT {
-                s_type: StructureType::from_raw(-1000338004i32),
+                s_type: StructureType::from_raw(1000338004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54854,7 +54854,7 @@ impl PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
     > {
         PhysicalDeviceImageCompressionControlSwapchainFeaturesEXTBuilder {
             inner: PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
-                s_type: StructureType::from_raw(-1000437000i32),
+                s_type: StructureType::from_raw(1000437000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54907,7 +54907,7 @@ impl ImageSubresource2 {
     pub fn builder<'a>() -> ImageSubresource2Builder<'a> {
         ImageSubresource2Builder {
             inner: ImageSubresource2 {
-                s_type: StructureType::from_raw(-1000338003i32),
+                s_type: StructureType::from_raw(1000338003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54956,7 +54956,7 @@ impl SubresourceLayout2 {
     pub fn builder<'a>() -> SubresourceLayout2Builder<'a> {
         SubresourceLayout2Builder {
             inner: SubresourceLayout2 {
-                s_type: StructureType::from_raw(-1000338002i32),
+                s_type: StructureType::from_raw(1000338002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -54993,7 +54993,7 @@ impl RenderPassCreationControlEXT {
     pub fn builder<'a>() -> RenderPassCreationControlEXTBuilder<'a> {
         RenderPassCreationControlEXTBuilder {
             inner: RenderPassCreationControlEXT {
-                s_type: StructureType::from_raw(-1000458001i32),
+                s_type: StructureType::from_raw(1000458001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55045,7 +55045,7 @@ impl RenderPassCreationFeedbackCreateInfoEXT {
     pub fn builder<'a>() -> RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
         RenderPassCreationFeedbackCreateInfoEXTBuilder {
             inner: RenderPassCreationFeedbackCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000458002i32),
+                s_type: StructureType::from_raw(1000458002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55100,7 +55100,7 @@ impl RenderPassSubpassFeedbackCreateInfoEXT {
     pub fn builder<'a>() -> RenderPassSubpassFeedbackCreateInfoEXTBuilder<'a> {
         RenderPassSubpassFeedbackCreateInfoEXTBuilder {
             inner: RenderPassSubpassFeedbackCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000458003i32),
+                s_type: StructureType::from_raw(1000458003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55155,7 +55155,7 @@ impl PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder<'a> {
         PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder {
             inner: PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
-                s_type: StructureType::from_raw(-1000458000i32),
+                s_type: StructureType::from_raw(1000458000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55208,7 +55208,7 @@ impl MicromapBuildInfoEXT {
     pub fn builder<'a>() -> MicromapBuildInfoEXTBuilder<'a> {
         MicromapBuildInfoEXTBuilder {
             inner: MicromapBuildInfoEXT {
-                s_type: StructureType::from_raw(-1000396000i32),
+                s_type: StructureType::from_raw(1000396000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55303,7 +55303,7 @@ impl MicromapCreateInfoEXT {
     pub fn builder<'a>() -> MicromapCreateInfoEXTBuilder<'a> {
         MicromapCreateInfoEXTBuilder {
             inner: MicromapCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000396007i32),
+                s_type: StructureType::from_raw(1000396007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55380,7 +55380,7 @@ impl MicromapVersionInfoEXT {
     pub fn builder<'a>() -> MicromapVersionInfoEXTBuilder<'a> {
         MicromapVersionInfoEXTBuilder {
             inner: MicromapVersionInfoEXT {
-                s_type: StructureType::from_raw(-1000396001i32),
+                s_type: StructureType::from_raw(1000396001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55432,7 +55432,7 @@ impl CopyMicromapInfoEXT {
     pub fn builder<'a>() -> CopyMicromapInfoEXTBuilder<'a> {
         CopyMicromapInfoEXTBuilder {
             inner: CopyMicromapInfoEXT {
-                s_type: StructureType::from_raw(-1000396002i32),
+                s_type: StructureType::from_raw(1000396002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55491,7 +55491,7 @@ impl CopyMicromapToMemoryInfoEXT {
     pub fn builder<'a>() -> CopyMicromapToMemoryInfoEXTBuilder<'a> {
         CopyMicromapToMemoryInfoEXTBuilder {
             inner: CopyMicromapToMemoryInfoEXT {
-                s_type: StructureType::from_raw(-1000396003i32),
+                s_type: StructureType::from_raw(1000396003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55553,7 +55553,7 @@ impl CopyMemoryToMicromapInfoEXT {
     pub fn builder<'a>() -> CopyMemoryToMicromapInfoEXTBuilder<'a> {
         CopyMemoryToMicromapInfoEXTBuilder {
             inner: CopyMemoryToMicromapInfoEXT {
-                s_type: StructureType::from_raw(-1000396004i32),
+                s_type: StructureType::from_raw(1000396004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55615,7 +55615,7 @@ impl MicromapBuildSizesInfoEXT {
     pub fn builder<'a>() -> MicromapBuildSizesInfoEXTBuilder<'a> {
         MicromapBuildSizesInfoEXTBuilder {
             inner: MicromapBuildSizesInfoEXT {
-                s_type: StructureType::from_raw(-1000396008i32),
+                s_type: StructureType::from_raw(1000396008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55677,7 +55677,7 @@ impl PhysicalDeviceOpacityMicromapFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceOpacityMicromapFeaturesEXTBuilder<'a> {
         PhysicalDeviceOpacityMicromapFeaturesEXTBuilder {
             inner: PhysicalDeviceOpacityMicromapFeaturesEXT {
-                s_type: StructureType::from_raw(-1000396005i32),
+                s_type: StructureType::from_raw(1000396005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55739,7 +55739,7 @@ impl PhysicalDeviceOpacityMicromapPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceOpacityMicromapPropertiesEXTBuilder<'a> {
         PhysicalDeviceOpacityMicromapPropertiesEXTBuilder {
             inner: PhysicalDeviceOpacityMicromapPropertiesEXT {
-                s_type: StructureType::from_raw(-1000396006i32),
+                s_type: StructureType::from_raw(1000396006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55781,7 +55781,7 @@ impl AccelerationStructureTrianglesOpacityMicromapEXT {
     pub fn builder<'a>() -> AccelerationStructureTrianglesOpacityMicromapEXTBuilder<'a> {
         AccelerationStructureTrianglesOpacityMicromapEXTBuilder {
             inner: AccelerationStructureTrianglesOpacityMicromapEXT {
-                s_type: StructureType::from_raw(-1000396009i32),
+                s_type: StructureType::from_raw(1000396009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55866,7 +55866,7 @@ impl PhysicalDeviceDisplacementMicromapFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceDisplacementMicromapFeaturesNVBuilder<'a> {
         PhysicalDeviceDisplacementMicromapFeaturesNVBuilder {
             inner: PhysicalDeviceDisplacementMicromapFeaturesNV {
-                s_type: StructureType::from_raw(-1000397000i32),
+                s_type: StructureType::from_raw(1000397000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55919,7 +55919,7 @@ impl PhysicalDeviceDisplacementMicromapPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceDisplacementMicromapPropertiesNVBuilder<'a> {
         PhysicalDeviceDisplacementMicromapPropertiesNVBuilder {
             inner: PhysicalDeviceDisplacementMicromapPropertiesNV {
-                s_type: StructureType::from_raw(-1000397001i32),
+                s_type: StructureType::from_raw(1000397001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -55959,7 +55959,7 @@ impl AccelerationStructureTrianglesDisplacementMicromapNV {
     > {
         AccelerationStructureTrianglesDisplacementMicromapNVBuilder {
             inner: AccelerationStructureTrianglesDisplacementMicromapNV {
-                s_type: StructureType::from_raw(-1000397002i32),
+                s_type: StructureType::from_raw(1000397002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56093,7 +56093,7 @@ impl PipelinePropertiesIdentifierEXT {
     pub fn builder<'a>() -> PipelinePropertiesIdentifierEXTBuilder<'a> {
         PipelinePropertiesIdentifierEXTBuilder {
             inner: PipelinePropertiesIdentifierEXT {
-                s_type: StructureType::from_raw(-1000372000i32),
+                s_type: StructureType::from_raw(1000372000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56130,7 +56130,7 @@ impl PhysicalDevicePipelinePropertiesFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDevicePipelinePropertiesFeaturesEXTBuilder<'a> {
         PhysicalDevicePipelinePropertiesFeaturesEXTBuilder {
             inner: PhysicalDevicePipelinePropertiesFeaturesEXT {
-                s_type: StructureType::from_raw(-1000372001i32),
+                s_type: StructureType::from_raw(1000372001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56184,7 +56184,7 @@ impl PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
     > {
         PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMDBuilder {
             inner: PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
-                s_type: StructureType::from_raw(-1000321000i32),
+                s_type: StructureType::from_raw(1000321000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56238,7 +56238,7 @@ impl ExternalMemoryAcquireUnmodifiedEXT {
     pub fn builder<'a>() -> ExternalMemoryAcquireUnmodifiedEXTBuilder<'a> {
         ExternalMemoryAcquireUnmodifiedEXTBuilder {
             inner: ExternalMemoryAcquireUnmodifiedEXT {
-                s_type: StructureType::from_raw(-1000453000i32),
+                s_type: StructureType::from_raw(1000453000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56290,7 +56290,7 @@ impl ExportMetalObjectCreateInfoEXT {
     pub fn builder<'a>() -> ExportMetalObjectCreateInfoEXTBuilder<'a> {
         ExportMetalObjectCreateInfoEXTBuilder {
             inner: ExportMetalObjectCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000311000i32),
+                s_type: StructureType::from_raw(1000311000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56345,7 +56345,7 @@ impl ExportMetalObjectsInfoEXT {
     pub fn builder<'a>() -> ExportMetalObjectsInfoEXTBuilder<'a> {
         ExportMetalObjectsInfoEXTBuilder {
             inner: ExportMetalObjectsInfoEXT {
-                s_type: StructureType::from_raw(-1000311001i32),
+                s_type: StructureType::from_raw(1000311001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56392,7 +56392,7 @@ impl ExportMetalDeviceInfoEXT {
     pub fn builder<'a>() -> ExportMetalDeviceInfoEXTBuilder<'a> {
         ExportMetalDeviceInfoEXTBuilder {
             inner: ExportMetalDeviceInfoEXT {
-                s_type: StructureType::from_raw(-1000311002i32),
+                s_type: StructureType::from_raw(1000311002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56444,7 +56444,7 @@ impl ExportMetalCommandQueueInfoEXT {
     pub fn builder<'a>() -> ExportMetalCommandQueueInfoEXTBuilder<'a> {
         ExportMetalCommandQueueInfoEXTBuilder {
             inner: ExportMetalCommandQueueInfoEXT {
-                s_type: StructureType::from_raw(-1000311003i32),
+                s_type: StructureType::from_raw(1000311003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56501,7 +56501,7 @@ impl ExportMetalBufferInfoEXT {
     pub fn builder<'a>() -> ExportMetalBufferInfoEXTBuilder<'a> {
         ExportMetalBufferInfoEXTBuilder {
             inner: ExportMetalBufferInfoEXT {
-                s_type: StructureType::from_raw(-1000311004i32),
+                s_type: StructureType::from_raw(1000311004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56558,7 +56558,7 @@ impl ImportMetalBufferInfoEXT {
     pub fn builder<'a>() -> ImportMetalBufferInfoEXTBuilder<'a> {
         ImportMetalBufferInfoEXTBuilder {
             inner: ImportMetalBufferInfoEXT {
-                s_type: StructureType::from_raw(-1000311005i32),
+                s_type: StructureType::from_raw(1000311005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56610,7 +56610,7 @@ impl ExportMetalTextureInfoEXT {
     pub fn builder<'a>() -> ExportMetalTextureInfoEXTBuilder<'a> {
         ExportMetalTextureInfoEXTBuilder {
             inner: ExportMetalTextureInfoEXT {
-                s_type: StructureType::from_raw(-1000311006i32),
+                s_type: StructureType::from_raw(1000311006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56682,7 +56682,7 @@ impl ImportMetalTextureInfoEXT {
     pub fn builder<'a>() -> ImportMetalTextureInfoEXTBuilder<'a> {
         ImportMetalTextureInfoEXTBuilder {
             inner: ImportMetalTextureInfoEXT {
-                s_type: StructureType::from_raw(-1000311007i32),
+                s_type: StructureType::from_raw(1000311007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56739,7 +56739,7 @@ impl ExportMetalIOSurfaceInfoEXT {
     pub fn builder<'a>() -> ExportMetalIOSurfaceInfoEXTBuilder<'a> {
         ExportMetalIOSurfaceInfoEXTBuilder {
             inner: ExportMetalIOSurfaceInfoEXT {
-                s_type: StructureType::from_raw(-1000311008i32),
+                s_type: StructureType::from_raw(1000311008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56796,7 +56796,7 @@ impl ImportMetalIOSurfaceInfoEXT {
     pub fn builder<'a>() -> ImportMetalIOSurfaceInfoEXTBuilder<'a> {
         ImportMetalIOSurfaceInfoEXTBuilder {
             inner: ImportMetalIOSurfaceInfoEXT {
-                s_type: StructureType::from_raw(-1000311009i32),
+                s_type: StructureType::from_raw(1000311009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56848,7 +56848,7 @@ impl ExportMetalSharedEventInfoEXT {
     pub fn builder<'a>() -> ExportMetalSharedEventInfoEXTBuilder<'a> {
         ExportMetalSharedEventInfoEXTBuilder {
             inner: ExportMetalSharedEventInfoEXT {
-                s_type: StructureType::from_raw(-1000311010i32),
+                s_type: StructureType::from_raw(1000311010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56910,7 +56910,7 @@ impl ImportMetalSharedEventInfoEXT {
     pub fn builder<'a>() -> ImportMetalSharedEventInfoEXTBuilder<'a> {
         ImportMetalSharedEventInfoEXTBuilder {
             inner: ImportMetalSharedEventInfoEXT {
-                s_type: StructureType::from_raw(-1000311011i32),
+                s_type: StructureType::from_raw(1000311011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -56962,7 +56962,7 @@ impl PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder<'a> {
         PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder {
             inner: PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
-                s_type: StructureType::from_raw(-1000422000i32),
+                s_type: StructureType::from_raw(1000422000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57014,7 +57014,7 @@ impl PhysicalDevicePipelineRobustnessFeatures {
     pub fn builder<'a>() -> PhysicalDevicePipelineRobustnessFeaturesBuilder<'a> {
         PhysicalDevicePipelineRobustnessFeaturesBuilder {
             inner: PhysicalDevicePipelineRobustnessFeatures {
-                s_type: StructureType::from_raw(-1000068001i32),
+                s_type: StructureType::from_raw(1000068001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57066,7 +57066,7 @@ impl PipelineRobustnessCreateInfo {
     pub fn builder<'a>() -> PipelineRobustnessCreateInfoBuilder<'a> {
         PipelineRobustnessCreateInfoBuilder {
             inner: PipelineRobustnessCreateInfo {
-                s_type: StructureType::from_raw(-1000068000i32),
+                s_type: StructureType::from_raw(1000068000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57133,7 +57133,7 @@ impl PhysicalDevicePipelineRobustnessProperties {
     pub fn builder<'a>() -> PhysicalDevicePipelineRobustnessPropertiesBuilder<'a> {
         PhysicalDevicePipelineRobustnessPropertiesBuilder {
             inner: PhysicalDevicePipelineRobustnessProperties {
-                s_type: StructureType::from_raw(-1000068002i32),
+                s_type: StructureType::from_raw(1000068002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57197,7 +57197,7 @@ impl ImageViewSampleWeightCreateInfoQCOM {
     pub fn builder<'a>() -> ImageViewSampleWeightCreateInfoQCOMBuilder<'a> {
         ImageViewSampleWeightCreateInfoQCOMBuilder {
             inner: ImageViewSampleWeightCreateInfoQCOM {
-                s_type: StructureType::from_raw(-1000440002i32),
+                s_type: StructureType::from_raw(1000440002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57259,7 +57259,7 @@ impl PhysicalDeviceImageProcessingFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceImageProcessingFeaturesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessingFeaturesQCOMBuilder {
             inner: PhysicalDeviceImageProcessingFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000440000i32),
+                s_type: StructureType::from_raw(1000440000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57321,7 +57321,7 @@ impl PhysicalDeviceImageProcessingPropertiesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceImageProcessingPropertiesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessingPropertiesQCOMBuilder {
             inner: PhysicalDeviceImageProcessingPropertiesQCOM {
-                s_type: StructureType::from_raw(-1000440001i32),
+                s_type: StructureType::from_raw(1000440001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57373,7 +57373,7 @@ impl PhysicalDeviceTilePropertiesFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceTilePropertiesFeaturesQCOMBuilder<'a> {
         PhysicalDeviceTilePropertiesFeaturesQCOMBuilder {
             inner: PhysicalDeviceTilePropertiesFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000484000i32),
+                s_type: StructureType::from_raw(1000484000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57425,7 +57425,7 @@ impl TilePropertiesQCOM {
     pub fn builder<'a>() -> TilePropertiesQCOMBuilder<'a> {
         TilePropertiesQCOMBuilder {
             inner: TilePropertiesQCOM {
-                s_type: StructureType::from_raw(-1000484001i32),
+                s_type: StructureType::from_raw(1000484001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57484,7 +57484,7 @@ impl TileMemoryBindInfoQCOM {
     pub fn builder<'a>() -> TileMemoryBindInfoQCOMBuilder<'a> {
         TileMemoryBindInfoQCOMBuilder {
             inner: TileMemoryBindInfoQCOM {
-                s_type: StructureType::from_raw(-1000547003i32),
+                s_type: StructureType::from_raw(1000547003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57536,7 +57536,7 @@ impl PhysicalDeviceAmigoProfilingFeaturesSEC {
     pub fn builder<'a>() -> PhysicalDeviceAmigoProfilingFeaturesSECBuilder<'a> {
         PhysicalDeviceAmigoProfilingFeaturesSECBuilder {
             inner: PhysicalDeviceAmigoProfilingFeaturesSEC {
-                s_type: StructureType::from_raw(-1000485000i32),
+                s_type: StructureType::from_raw(1000485000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57588,7 +57588,7 @@ impl AmigoProfilingSubmitInfoSEC {
     pub fn builder<'a>() -> AmigoProfilingSubmitInfoSECBuilder<'a> {
         AmigoProfilingSubmitInfoSECBuilder {
             inner: AmigoProfilingSubmitInfoSEC {
-                s_type: StructureType::from_raw(-1000485001i32),
+                s_type: StructureType::from_raw(1000485001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57647,7 +57647,7 @@ impl PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
     > {
         PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXTBuilder {
             inner: PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
-                s_type: StructureType::from_raw(-1000339000i32),
+                s_type: StructureType::from_raw(1000339000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57701,7 +57701,7 @@ impl AttachmentFeedbackLoopInfoEXT {
     pub fn builder<'a>() -> AttachmentFeedbackLoopInfoEXTBuilder<'a> {
         AttachmentFeedbackLoopInfoEXTBuilder {
             inner: AttachmentFeedbackLoopInfoEXT {
-                s_type: StructureType::from_raw(-1000527001i32),
+                s_type: StructureType::from_raw(1000527001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57753,7 +57753,7 @@ impl PhysicalDeviceAddressBindingReportFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceAddressBindingReportFeaturesEXTBuilder<'a> {
         PhysicalDeviceAddressBindingReportFeaturesEXTBuilder {
             inner: PhysicalDeviceAddressBindingReportFeaturesEXT {
-                s_type: StructureType::from_raw(-1000354000i32),
+                s_type: StructureType::from_raw(1000354000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57806,7 +57806,7 @@ impl RenderingAttachmentFlagsInfoKHR {
     pub fn builder<'a>() -> RenderingAttachmentFlagsInfoKHRBuilder<'a> {
         RenderingAttachmentFlagsInfoKHRBuilder {
             inner: RenderingAttachmentFlagsInfoKHR {
-                s_type: StructureType::from_raw(-1000630002i32),
+                s_type: StructureType::from_raw(1000630002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57858,7 +57858,7 @@ impl ResolveImageModeInfoKHR {
     pub fn builder<'a>() -> ResolveImageModeInfoKHRBuilder<'a> {
         ResolveImageModeInfoKHRBuilder {
             inner: ResolveImageModeInfoKHR {
-                s_type: StructureType::from_raw(-1000630004i32),
+                s_type: StructureType::from_raw(1000630004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57920,7 +57920,7 @@ impl DeviceAddressBindingCallbackDataEXT {
     pub fn builder<'a>() -> DeviceAddressBindingCallbackDataEXTBuilder<'a> {
         DeviceAddressBindingCallbackDataEXTBuilder {
             inner: DeviceAddressBindingCallbackDataEXT {
-                s_type: StructureType::from_raw(-1000354001i32),
+                s_type: StructureType::from_raw(1000354001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -57987,7 +57987,7 @@ impl PhysicalDeviceOpticalFlowFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceOpticalFlowFeaturesNVBuilder<'a> {
         PhysicalDeviceOpticalFlowFeaturesNVBuilder {
             inner: PhysicalDeviceOpticalFlowFeaturesNV {
-                s_type: StructureType::from_raw(-1000464000i32),
+                s_type: StructureType::from_raw(1000464000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58039,7 +58039,7 @@ impl PhysicalDeviceOpticalFlowPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceOpticalFlowPropertiesNVBuilder<'a> {
         PhysicalDeviceOpticalFlowPropertiesNVBuilder {
             inner: PhysicalDeviceOpticalFlowPropertiesNV {
-                s_type: StructureType::from_raw(-1000464001i32),
+                s_type: StructureType::from_raw(1000464001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58132,7 +58132,7 @@ impl OpticalFlowImageFormatInfoNV {
     pub fn builder<'a>() -> OpticalFlowImageFormatInfoNVBuilder<'a> {
         OpticalFlowImageFormatInfoNVBuilder {
             inner: OpticalFlowImageFormatInfoNV {
-                s_type: StructureType::from_raw(-1000464002i32),
+                s_type: StructureType::from_raw(1000464002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58184,7 +58184,7 @@ impl OpticalFlowImageFormatPropertiesNV {
     pub fn builder<'a>() -> OpticalFlowImageFormatPropertiesNVBuilder<'a> {
         OpticalFlowImageFormatPropertiesNVBuilder {
             inner: OpticalFlowImageFormatPropertiesNV {
-                s_type: StructureType::from_raw(-1000464003i32),
+                s_type: StructureType::from_raw(1000464003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58221,7 +58221,7 @@ impl OpticalFlowSessionCreateInfoNV {
     pub fn builder<'a>() -> OpticalFlowSessionCreateInfoNVBuilder<'a> {
         OpticalFlowSessionCreateInfoNVBuilder {
             inner: OpticalFlowSessionCreateInfoNV {
-                s_type: StructureType::from_raw(-1000464004i32),
+                s_type: StructureType::from_raw(1000464004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58313,7 +58313,7 @@ impl OpticalFlowSessionCreatePrivateDataInfoNV {
     pub fn builder<'a>() -> OpticalFlowSessionCreatePrivateDataInfoNVBuilder<'a> {
         OpticalFlowSessionCreatePrivateDataInfoNVBuilder {
             inner: OpticalFlowSessionCreatePrivateDataInfoNV {
-                s_type: StructureType::from_raw(-1000464010i32),
+                s_type: StructureType::from_raw(1000464010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58375,7 +58375,7 @@ impl OpticalFlowExecuteInfoNV {
     pub fn builder<'a>() -> OpticalFlowExecuteInfoNVBuilder<'a> {
         OpticalFlowExecuteInfoNVBuilder {
             inner: OpticalFlowExecuteInfoNV {
-                s_type: StructureType::from_raw(-1000464005i32),
+                s_type: StructureType::from_raw(1000464005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58433,7 +58433,7 @@ impl PhysicalDeviceFaultFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
         PhysicalDeviceFaultFeaturesEXTBuilder {
             inner: PhysicalDeviceFaultFeaturesEXT {
-                s_type: StructureType::from_raw(-1000341000i32),
+                s_type: StructureType::from_raw(1000341000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58490,7 +58490,7 @@ impl DeviceFaultInfoKHR {
     pub fn builder<'a>() -> DeviceFaultInfoKHRBuilder<'a> {
         DeviceFaultInfoKHRBuilder {
             inner: DeviceFaultInfoKHR {
-                s_type: StructureType::from_raw(-1000573002i32),
+                s_type: StructureType::from_raw(1000573002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58555,7 +58555,7 @@ impl DeviceFaultDebugInfoKHR {
     pub fn builder<'a>() -> DeviceFaultDebugInfoKHRBuilder<'a> {
         DeviceFaultDebugInfoKHRBuilder {
             inner: DeviceFaultDebugInfoKHR {
-                s_type: StructureType::from_raw(-1000573003i32),
+                s_type: StructureType::from_raw(1000573003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58593,7 +58593,7 @@ impl DeviceFaultCountsEXT {
     pub fn builder<'a>() -> DeviceFaultCountsEXTBuilder<'a> {
         DeviceFaultCountsEXTBuilder {
             inner: DeviceFaultCountsEXT {
-                s_type: StructureType::from_raw(-1000341001i32),
+                s_type: StructureType::from_raw(1000341001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58652,7 +58652,7 @@ impl DeviceFaultInfoEXT {
     pub fn builder<'a>() -> DeviceFaultInfoEXTBuilder<'a> {
         DeviceFaultInfoEXTBuilder {
             inner: DeviceFaultInfoEXT {
-                s_type: StructureType::from_raw(-1000341002i32),
+                s_type: StructureType::from_raw(1000341002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58707,7 +58707,7 @@ impl PhysicalDeviceFaultFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceFaultFeaturesKHRBuilder<'a> {
         PhysicalDeviceFaultFeaturesKHRBuilder {
             inner: PhysicalDeviceFaultFeaturesKHR {
-                s_type: StructureType::from_raw(-1000573000i32),
+                s_type: StructureType::from_raw(1000573000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58774,7 +58774,7 @@ impl PhysicalDeviceFaultPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceFaultPropertiesKHRBuilder<'a> {
         PhysicalDeviceFaultPropertiesKHRBuilder {
             inner: PhysicalDeviceFaultPropertiesKHR {
-                s_type: StructureType::from_raw(-1000573001i32),
+                s_type: StructureType::from_raw(1000573001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58813,7 +58813,7 @@ impl PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
     > {
         PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXTBuilder {
             inner: PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
-                s_type: StructureType::from_raw(-1000498000i32),
+                s_type: StructureType::from_raw(1000498000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58867,7 +58867,7 @@ impl DepthBiasInfoEXT {
     pub fn builder<'a>() -> DepthBiasInfoEXTBuilder<'a> {
         DepthBiasInfoEXTBuilder {
             inner: DepthBiasInfoEXT {
-                s_type: StructureType::from_raw(-1000283001i32),
+                s_type: StructureType::from_raw(1000283001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58926,7 +58926,7 @@ impl DepthBiasRepresentationInfoEXT {
     pub fn builder<'a>() -> DepthBiasRepresentationInfoEXTBuilder<'a> {
         DepthBiasRepresentationInfoEXTBuilder {
             inner: DepthBiasRepresentationInfoEXT {
-                s_type: StructureType::from_raw(-1000283002i32),
+                s_type: StructureType::from_raw(1000283002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -58986,7 +58986,7 @@ impl DecompressMemoryInfoEXT {
     pub fn builder<'a>() -> DecompressMemoryInfoEXTBuilder<'a> {
         DecompressMemoryInfoEXTBuilder {
             inner: DecompressMemoryInfoEXT {
-                s_type: StructureType::from_raw(-1000550002i32),
+                s_type: StructureType::from_raw(1000550002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59047,7 +59047,7 @@ impl PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
     pub fn builder<'a>() -> PhysicalDeviceShaderCoreBuiltinsPropertiesARMBuilder<'a> {
         PhysicalDeviceShaderCoreBuiltinsPropertiesARMBuilder {
             inner: PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
-                s_type: StructureType::from_raw(-1000497001i32),
+                s_type: StructureType::from_raw(1000497001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59095,7 +59095,7 @@ impl PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder<'a> {
         PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder {
             inner: PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
-                s_type: StructureType::from_raw(-1000497000i32),
+                s_type: StructureType::from_raw(1000497000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59147,7 +59147,7 @@ impl FrameBoundaryEXT {
     pub fn builder<'a>() -> FrameBoundaryEXTBuilder<'a> {
         FrameBoundaryEXTBuilder {
             inner: FrameBoundaryEXT {
-                s_type: StructureType::from_raw(-1000375001i32),
+                s_type: StructureType::from_raw(1000375001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59224,7 +59224,7 @@ impl PhysicalDeviceFrameBoundaryFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceFrameBoundaryFeaturesEXTBuilder<'a> {
         PhysicalDeviceFrameBoundaryFeaturesEXTBuilder {
             inner: PhysicalDeviceFrameBoundaryFeaturesEXT {
-                s_type: StructureType::from_raw(-1000375000i32),
+                s_type: StructureType::from_raw(1000375000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59278,7 +59278,7 @@ impl PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
     > {
         PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXTBuilder {
             inner: PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
-                s_type: StructureType::from_raw(-1000499000i32),
+                s_type: StructureType::from_raw(1000499000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59333,7 +59333,7 @@ impl PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
     > {
         PhysicalDeviceInternallySynchronizedQueuesFeaturesKHRBuilder {
             inner: PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
-                s_type: StructureType::from_raw(-1000504000i32),
+                s_type: StructureType::from_raw(1000504000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59387,7 +59387,7 @@ impl SurfacePresentModeKHR {
     pub fn builder<'a>() -> SurfacePresentModeKHRBuilder<'a> {
         SurfacePresentModeKHRBuilder {
             inner: SurfacePresentModeKHR {
-                s_type: StructureType::from_raw(-1000274000i32),
+                s_type: StructureType::from_raw(1000274000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59439,7 +59439,7 @@ impl SurfacePresentScalingCapabilitiesKHR {
     pub fn builder<'a>() -> SurfacePresentScalingCapabilitiesKHRBuilder<'a> {
         SurfacePresentScalingCapabilitiesKHRBuilder {
             inner: SurfacePresentScalingCapabilitiesKHR {
-                s_type: StructureType::from_raw(-1000274001i32),
+                s_type: StructureType::from_raw(1000274001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59511,7 +59511,7 @@ impl SurfacePresentModeCompatibilityKHR {
     pub fn builder<'a>() -> SurfacePresentModeCompatibilityKHRBuilder<'a> {
         SurfacePresentModeCompatibilityKHRBuilder {
             inner: SurfacePresentModeCompatibilityKHR {
-                s_type: StructureType::from_raw(-1000274002i32),
+                s_type: StructureType::from_raw(1000274002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59564,7 +59564,7 @@ impl PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder<'a> {
         PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder {
             inner: PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
-                s_type: StructureType::from_raw(-1000275000i32),
+                s_type: StructureType::from_raw(1000275000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59617,7 +59617,7 @@ impl SwapchainPresentFenceInfoKHR {
     pub fn builder<'a>() -> SwapchainPresentFenceInfoKHRBuilder<'a> {
         SwapchainPresentFenceInfoKHRBuilder {
             inner: SwapchainPresentFenceInfoKHR {
-                s_type: StructureType::from_raw(-1000275001i32),
+                s_type: StructureType::from_raw(1000275001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59670,7 +59670,7 @@ impl SwapchainPresentModesCreateInfoKHR {
     pub fn builder<'a>() -> SwapchainPresentModesCreateInfoKHRBuilder<'a> {
         SwapchainPresentModesCreateInfoKHRBuilder {
             inner: SwapchainPresentModesCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000275002i32),
+                s_type: StructureType::from_raw(1000275002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59723,7 +59723,7 @@ impl SwapchainPresentModeInfoKHR {
     pub fn builder<'a>() -> SwapchainPresentModeInfoKHRBuilder<'a> {
         SwapchainPresentModeInfoKHRBuilder {
             inner: SwapchainPresentModeInfoKHR {
-                s_type: StructureType::from_raw(-1000275003i32),
+                s_type: StructureType::from_raw(1000275003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59776,7 +59776,7 @@ impl SwapchainPresentScalingCreateInfoKHR {
     pub fn builder<'a>() -> SwapchainPresentScalingCreateInfoKHRBuilder<'a> {
         SwapchainPresentScalingCreateInfoKHRBuilder {
             inner: SwapchainPresentScalingCreateInfoKHR {
-                s_type: StructureType::from_raw(-1000275004i32),
+                s_type: StructureType::from_raw(1000275004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59838,7 +59838,7 @@ impl ReleaseSwapchainImagesInfoKHR {
     pub fn builder<'a>() -> ReleaseSwapchainImagesInfoKHRBuilder<'a> {
         ReleaseSwapchainImagesInfoKHRBuilder {
             inner: ReleaseSwapchainImagesInfoKHR {
-                s_type: StructureType::from_raw(-1000275005i32),
+                s_type: StructureType::from_raw(1000275005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59896,7 +59896,7 @@ impl PhysicalDeviceDepthBiasControlFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDepthBiasControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthBiasControlFeaturesEXTBuilder {
             inner: PhysicalDeviceDepthBiasControlFeaturesEXT {
-                s_type: StructureType::from_raw(-1000283000i32),
+                s_type: StructureType::from_raw(1000283000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -59968,7 +59968,7 @@ impl PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
     > {
         PhysicalDeviceRayTracingInvocationReorderFeaturesEXTBuilder {
             inner: PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
-                s_type: StructureType::from_raw(-1000581000i32),
+                s_type: StructureType::from_raw(1000581000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60024,7 +60024,7 @@ impl PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
     > {
         PhysicalDeviceRayTracingInvocationReorderFeaturesNVBuilder {
             inner: PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
-                s_type: StructureType::from_raw(-1000490000i32),
+                s_type: StructureType::from_raw(1000490000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60080,7 +60080,7 @@ impl PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
     > {
         PhysicalDeviceRayTracingInvocationReorderPropertiesEXTBuilder {
             inner: PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
-                s_type: StructureType::from_raw(-1000581001i32),
+                s_type: StructureType::from_raw(1000581001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60129,7 +60129,7 @@ impl PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
     > {
         PhysicalDeviceRayTracingInvocationReorderPropertiesNVBuilder {
             inner: PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
-                s_type: StructureType::from_raw(-1000490001i32),
+                s_type: StructureType::from_raw(1000490001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60173,7 +60173,7 @@ impl PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
     > {
         PhysicalDeviceExtendedSparseAddressSpaceFeaturesNVBuilder {
             inner: PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
-                s_type: StructureType::from_raw(-1000492000i32),
+                s_type: StructureType::from_raw(1000492000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60229,7 +60229,7 @@ impl PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
     > {
         PhysicalDeviceExtendedSparseAddressSpacePropertiesNVBuilder {
             inner: PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
-                s_type: StructureType::from_raw(-1000492001i32),
+                s_type: StructureType::from_raw(1000492001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60281,7 +60281,7 @@ impl DirectDriverLoadingInfoLUNARG {
     pub fn builder<'a>() -> DirectDriverLoadingInfoLUNARGBuilder<'a> {
         DirectDriverLoadingInfoLUNARGBuilder {
             inner: DirectDriverLoadingInfoLUNARG {
-                s_type: StructureType::from_raw(-1000459000i32),
+                s_type: StructureType::from_raw(1000459000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60341,7 +60341,7 @@ impl DirectDriverLoadingListLUNARG {
     pub fn builder<'a>() -> DirectDriverLoadingListLUNARGBuilder<'a> {
         DirectDriverLoadingListLUNARGBuilder {
             inner: DirectDriverLoadingListLUNARG {
-                s_type: StructureType::from_raw(-1000459001i32),
+                s_type: StructureType::from_raw(1000459001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60401,7 +60401,7 @@ impl PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
     > {
         PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOMBuilder {
             inner: PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000488000i32),
+                s_type: StructureType::from_raw(1000488000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60455,7 +60455,7 @@ impl PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder<'a> {
         PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder {
             inner: PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
-                s_type: StructureType::from_raw(-1000481000i32),
+                s_type: StructureType::from_raw(1000481000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60509,7 +60509,7 @@ impl DeviceImageSubresourceInfo {
     pub fn builder<'a>() -> DeviceImageSubresourceInfoBuilder<'a> {
         DeviceImageSubresourceInfoBuilder {
             inner: DeviceImageSubresourceInfo {
-                s_type: StructureType::from_raw(-1000470004i32),
+                s_type: StructureType::from_raw(1000470004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60566,7 +60566,7 @@ impl PhysicalDeviceShaderCorePropertiesARM {
     pub fn builder<'a>() -> PhysicalDeviceShaderCorePropertiesARMBuilder<'a> {
         PhysicalDeviceShaderCorePropertiesARMBuilder {
             inner: PhysicalDeviceShaderCorePropertiesARM {
-                s_type: StructureType::from_raw(-1000415000i32),
+                s_type: StructureType::from_raw(1000415000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60615,7 +60615,7 @@ impl PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
     > {
         PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOMBuilder {
             inner: PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000510000i32),
+                s_type: StructureType::from_raw(1000510000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60671,7 +60671,7 @@ impl MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
     > {
         MultiviewPerViewRenderAreasRenderPassBeginInfoQCOMBuilder {
             inner: MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
-                s_type: StructureType::from_raw(-1000510001i32),
+                s_type: StructureType::from_raw(1000510001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60726,7 +60726,7 @@ impl QueryLowLatencySupportNV {
     pub fn builder<'a>() -> QueryLowLatencySupportNVBuilder<'a> {
         QueryLowLatencySupportNVBuilder {
             inner: QueryLowLatencySupportNV {
-                s_type: StructureType::from_raw(-1000310000i32),
+                s_type: StructureType::from_raw(1000310000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60778,7 +60778,7 @@ impl MemoryMapInfo {
     pub fn builder<'a>() -> MemoryMapInfoBuilder<'a> {
         MemoryMapInfoBuilder {
             inner: MemoryMapInfo {
-                s_type: StructureType::from_raw(-1000271000i32),
+                s_type: StructureType::from_raw(1000271000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60842,7 +60842,7 @@ impl MemoryUnmapInfo {
     pub fn builder<'a>() -> MemoryUnmapInfoBuilder<'a> {
         MemoryUnmapInfoBuilder {
             inner: MemoryUnmapInfo {
-                s_type: StructureType::from_raw(-1000271001i32),
+                s_type: StructureType::from_raw(1000271001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60896,7 +60896,7 @@ impl PhysicalDeviceShaderObjectFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderObjectFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderObjectFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderObjectFeaturesEXT {
-                s_type: StructureType::from_raw(-1000482000i32),
+                s_type: StructureType::from_raw(1000482000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60948,7 +60948,7 @@ impl PhysicalDeviceShaderObjectPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderObjectPropertiesEXTBuilder<'a> {
         PhysicalDeviceShaderObjectPropertiesEXTBuilder {
             inner: PhysicalDeviceShaderObjectPropertiesEXT {
-                s_type: StructureType::from_raw(-1000482001i32),
+                s_type: StructureType::from_raw(1000482001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -60990,7 +60990,7 @@ impl ShaderCreateInfoEXT {
     pub fn builder<'a>() -> ShaderCreateInfoEXTBuilder<'a> {
         ShaderCreateInfoEXTBuilder {
             inner: ShaderCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000482002i32),
+                s_type: StructureType::from_raw(1000482002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61082,7 +61082,7 @@ impl PhysicalDeviceShaderTileImageFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderTileImageFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderTileImageFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderTileImageFeaturesEXT {
-                s_type: StructureType::from_raw(-1000395000i32),
+                s_type: StructureType::from_raw(1000395000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61144,7 +61144,7 @@ impl PhysicalDeviceShaderTileImagePropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderTileImagePropertiesEXTBuilder<'a> {
         PhysicalDeviceShaderTileImagePropertiesEXTBuilder {
             inner: PhysicalDeviceShaderTileImagePropertiesEXT {
-                s_type: StructureType::from_raw(-1000395001i32),
+                s_type: StructureType::from_raw(1000395001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61194,7 +61194,7 @@ impl ImportScreenBufferInfoQNX {
     pub fn builder<'a>() -> ImportScreenBufferInfoQNXBuilder<'a> {
         ImportScreenBufferInfoQNXBuilder {
             inner: ImportScreenBufferInfoQNX {
-                s_type: StructureType::from_raw(-1000529002i32),
+                s_type: StructureType::from_raw(1000529002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61246,7 +61246,7 @@ impl ScreenBufferPropertiesQNX {
     pub fn builder<'a>() -> ScreenBufferPropertiesQNXBuilder<'a> {
         ScreenBufferPropertiesQNXBuilder {
             inner: ScreenBufferPropertiesQNX {
-                s_type: StructureType::from_raw(-1000529000i32),
+                s_type: StructureType::from_raw(1000529000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61288,7 +61288,7 @@ impl ScreenBufferFormatPropertiesQNX {
     pub fn builder<'a>() -> ScreenBufferFormatPropertiesQNXBuilder<'a> {
         ScreenBufferFormatPropertiesQNXBuilder {
             inner: ScreenBufferFormatPropertiesQNX {
-                s_type: StructureType::from_raw(-1000529001i32),
+                s_type: StructureType::from_raw(1000529001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61368,7 +61368,7 @@ impl ExternalFormatQNX {
     pub fn builder<'a>() -> ExternalFormatQNXBuilder<'a> {
         ExternalFormatQNXBuilder {
             inner: ExternalFormatQNX {
-                s_type: StructureType::from_raw(-1000529003i32),
+                s_type: StructureType::from_raw(1000529003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61419,7 +61419,7 @@ impl PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
     > {
         PhysicalDeviceExternalMemoryScreenBufferFeaturesQNXBuilder {
             inner: PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
-                s_type: StructureType::from_raw(-1000529004i32),
+                s_type: StructureType::from_raw(1000529004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61473,7 +61473,7 @@ impl PhysicalDeviceCooperativeMatrixFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder<'a> {
         PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder {
             inner: PhysicalDeviceCooperativeMatrixFeaturesKHR {
-                s_type: StructureType::from_raw(-1000506000i32),
+                s_type: StructureType::from_raw(1000506000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61530,7 +61530,7 @@ impl CooperativeMatrixPropertiesKHR {
     pub fn builder<'a>() -> CooperativeMatrixPropertiesKHRBuilder<'a> {
         CooperativeMatrixPropertiesKHRBuilder {
             inner: CooperativeMatrixPropertiesKHR {
-                s_type: StructureType::from_raw(-1000506001i32),
+                s_type: StructureType::from_raw(1000506001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61607,7 +61607,7 @@ impl PhysicalDeviceCooperativeMatrixPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixPropertiesKHRBuilder<'a> {
         PhysicalDeviceCooperativeMatrixPropertiesKHRBuilder {
             inner: PhysicalDeviceCooperativeMatrixPropertiesKHR {
-                s_type: StructureType::from_raw(-1000506002i32),
+                s_type: StructureType::from_raw(1000506002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61650,7 +61650,7 @@ impl PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
     > {
         PhysicalDeviceCooperativeMatrixConversionFeaturesQCOMBuilder {
             inner: PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000172000i32),
+                s_type: StructureType::from_raw(1000172000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61704,7 +61704,7 @@ impl PhysicalDeviceShaderEnqueuePropertiesAMDX {
     pub fn builder<'a>() -> PhysicalDeviceShaderEnqueuePropertiesAMDXBuilder<'a> {
         PhysicalDeviceShaderEnqueuePropertiesAMDXBuilder {
             inner: PhysicalDeviceShaderEnqueuePropertiesAMDX {
-                s_type: StructureType::from_raw(-1000134001i32),
+                s_type: StructureType::from_raw(1000134001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61771,7 +61771,7 @@ impl PhysicalDeviceShaderEnqueueFeaturesAMDX {
     pub fn builder<'a>() -> PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder<'a> {
         PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder {
             inner: PhysicalDeviceShaderEnqueueFeaturesAMDX {
-                s_type: StructureType::from_raw(-1000134000i32),
+                s_type: StructureType::from_raw(1000134000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61828,7 +61828,7 @@ impl ExecutionGraphPipelineCreateInfoAMDX {
     pub fn builder<'a>() -> ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
         ExecutionGraphPipelineCreateInfoAMDXBuilder {
             inner: ExecutionGraphPipelineCreateInfoAMDX {
-                s_type: StructureType::from_raw(-1000134003i32),
+                s_type: StructureType::from_raw(1000134003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61906,7 +61906,7 @@ impl PipelineShaderStageNodeCreateInfoAMDX {
     pub fn builder<'a>() -> PipelineShaderStageNodeCreateInfoAMDXBuilder<'a> {
         PipelineShaderStageNodeCreateInfoAMDXBuilder {
             inner: PipelineShaderStageNodeCreateInfoAMDX {
-                s_type: StructureType::from_raw(-1000134004i32),
+                s_type: StructureType::from_raw(1000134004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -61963,7 +61963,7 @@ impl ExecutionGraphPipelineScratchSizeAMDX {
     pub fn builder<'a>() -> ExecutionGraphPipelineScratchSizeAMDXBuilder<'a> {
         ExecutionGraphPipelineScratchSizeAMDXBuilder {
             inner: ExecutionGraphPipelineScratchSizeAMDX {
-                s_type: StructureType::from_raw(-1000134002i32),
+                s_type: StructureType::from_raw(1000134002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62025,7 +62025,7 @@ impl PhysicalDeviceAntiLagFeaturesAMD {
     pub fn builder<'a>() -> PhysicalDeviceAntiLagFeaturesAMDBuilder<'a> {
         PhysicalDeviceAntiLagFeaturesAMDBuilder {
             inner: PhysicalDeviceAntiLagFeaturesAMD {
-                s_type: StructureType::from_raw(-1000476000i32),
+                s_type: StructureType::from_raw(1000476000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62077,7 +62077,7 @@ impl AntiLagDataAMD {
     pub fn builder<'a>() -> AntiLagDataAMDBuilder<'a> {
         AntiLagDataAMDBuilder {
             inner: AntiLagDataAMD {
-                s_type: StructureType::from_raw(-1000476001i32),
+                s_type: StructureType::from_raw(1000476001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62139,7 +62139,7 @@ impl AntiLagPresentationInfoAMD {
     pub fn builder<'a>() -> AntiLagPresentationInfoAMDBuilder<'a> {
         AntiLagPresentationInfoAMDBuilder {
             inner: AntiLagPresentationInfoAMD {
-                s_type: StructureType::from_raw(-1000476002i32),
+                s_type: StructureType::from_raw(1000476002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62196,7 +62196,7 @@ impl BindMemoryStatus {
     pub fn builder<'a>() -> BindMemoryStatusBuilder<'a> {
         BindMemoryStatusBuilder {
             inner: BindMemoryStatus {
-                s_type: StructureType::from_raw(-1000545002i32),
+                s_type: StructureType::from_raw(1000545002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62245,7 +62245,7 @@ impl PhysicalDeviceTileMemoryHeapFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder<'a> {
         PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder {
             inner: PhysicalDeviceTileMemoryHeapFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000547000i32),
+                s_type: StructureType::from_raw(1000547000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62297,7 +62297,7 @@ impl PhysicalDeviceTileMemoryHeapPropertiesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder<'a> {
         PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder {
             inner: PhysicalDeviceTileMemoryHeapPropertiesQCOM {
-                s_type: StructureType::from_raw(-1000547001i32),
+                s_type: StructureType::from_raw(1000547001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62354,7 +62354,7 @@ impl TileMemorySizeInfoQCOM {
     pub fn builder<'a>() -> TileMemorySizeInfoQCOMBuilder<'a> {
         TileMemorySizeInfoQCOMBuilder {
             inner: TileMemorySizeInfoQCOM {
-                s_type: StructureType::from_raw(-1000547004i32),
+                s_type: StructureType::from_raw(1000547004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62406,7 +62406,7 @@ impl TileMemoryRequirementsQCOM {
     pub fn builder<'a>() -> TileMemoryRequirementsQCOMBuilder<'a> {
         TileMemoryRequirementsQCOMBuilder {
             inner: TileMemoryRequirementsQCOM {
-                s_type: StructureType::from_raw(-1000547002i32),
+                s_type: StructureType::from_raw(1000547002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62463,7 +62463,7 @@ impl BindDescriptorSetsInfo {
     pub fn builder<'a>() -> BindDescriptorSetsInfoBuilder<'a> {
         BindDescriptorSetsInfoBuilder {
             inner: BindDescriptorSetsInfo {
-                s_type: StructureType::from_raw(-1000545003i32),
+                s_type: StructureType::from_raw(1000545003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62537,7 +62537,7 @@ impl PushConstantsInfo {
     pub fn builder<'a>() -> PushConstantsInfoBuilder<'a> {
         PushConstantsInfoBuilder {
             inner: PushConstantsInfo {
-                s_type: StructureType::from_raw(-1000545004i32),
+                s_type: StructureType::from_raw(1000545004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62602,7 +62602,7 @@ impl PushDescriptorSetInfo {
     pub fn builder<'a>() -> PushDescriptorSetInfoBuilder<'a> {
         PushDescriptorSetInfoBuilder {
             inner: PushDescriptorSetInfo {
-                s_type: StructureType::from_raw(-1000545005i32),
+                s_type: StructureType::from_raw(1000545005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62670,7 +62670,7 @@ impl PushDescriptorSetWithTemplateInfo {
     pub fn builder<'a>() -> PushDescriptorSetWithTemplateInfoBuilder<'a> {
         PushDescriptorSetWithTemplateInfoBuilder {
             inner: PushDescriptorSetWithTemplateInfo {
-                s_type: StructureType::from_raw(-1000545006i32),
+                s_type: StructureType::from_raw(1000545006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62740,7 +62740,7 @@ impl SetDescriptorBufferOffsetsInfoEXT {
     pub fn builder<'a>() -> SetDescriptorBufferOffsetsInfoEXTBuilder<'a> {
         SetDescriptorBufferOffsetsInfoEXTBuilder {
             inner: SetDescriptorBufferOffsetsInfoEXT {
-                s_type: StructureType::from_raw(-1000545007i32),
+                s_type: StructureType::from_raw(1000545007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62814,7 +62814,7 @@ impl BindDescriptorBufferEmbeddedSamplersInfoEXT {
     pub fn builder<'a>() -> BindDescriptorBufferEmbeddedSamplersInfoEXTBuilder<'a> {
         BindDescriptorBufferEmbeddedSamplersInfoEXTBuilder {
             inner: BindDescriptorBufferEmbeddedSamplersInfoEXT {
-                s_type: StructureType::from_raw(-1000545008i32),
+                s_type: StructureType::from_raw(1000545008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62876,7 +62876,7 @@ impl PhysicalDeviceCubicClampFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceCubicClampFeaturesQCOMBuilder<'a> {
         PhysicalDeviceCubicClampFeaturesQCOMBuilder {
             inner: PhysicalDeviceCubicClampFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000521000i32),
+                s_type: StructureType::from_raw(1000521000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62928,7 +62928,7 @@ impl PhysicalDeviceYcbcrDegammaFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder<'a> {
         PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder {
             inner: PhysicalDeviceYcbcrDegammaFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000520000i32),
+                s_type: StructureType::from_raw(1000520000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -62980,7 +62980,7 @@ impl SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
     pub fn builder<'a>() -> SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder<'a> {
         SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder {
             inner: SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
-                s_type: StructureType::from_raw(-1000520001i32),
+                s_type: StructureType::from_raw(1000520001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63039,7 +63039,7 @@ impl PhysicalDeviceCubicWeightsFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceCubicWeightsFeaturesQCOMBuilder<'a> {
         PhysicalDeviceCubicWeightsFeaturesQCOMBuilder {
             inner: PhysicalDeviceCubicWeightsFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000519001i32),
+                s_type: StructureType::from_raw(1000519001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63091,7 +63091,7 @@ impl SamplerCubicWeightsCreateInfoQCOM {
     pub fn builder<'a>() -> SamplerCubicWeightsCreateInfoQCOMBuilder<'a> {
         SamplerCubicWeightsCreateInfoQCOMBuilder {
             inner: SamplerCubicWeightsCreateInfoQCOM {
-                s_type: StructureType::from_raw(-1000519000i32),
+                s_type: StructureType::from_raw(1000519000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63143,7 +63143,7 @@ impl BlitImageCubicWeightsInfoQCOM {
     pub fn builder<'a>() -> BlitImageCubicWeightsInfoQCOMBuilder<'a> {
         BlitImageCubicWeightsInfoQCOMBuilder {
             inner: BlitImageCubicWeightsInfoQCOM {
-                s_type: StructureType::from_raw(-1000519002i32),
+                s_type: StructureType::from_raw(1000519002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63195,7 +63195,7 @@ impl PhysicalDeviceImageProcessing2FeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceImageProcessing2FeaturesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessing2FeaturesQCOMBuilder {
             inner: PhysicalDeviceImageProcessing2FeaturesQCOM {
-                s_type: StructureType::from_raw(-1000518000i32),
+                s_type: StructureType::from_raw(1000518000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63247,7 +63247,7 @@ impl PhysicalDeviceImageProcessing2PropertiesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceImageProcessing2PropertiesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessing2PropertiesQCOMBuilder {
             inner: PhysicalDeviceImageProcessing2PropertiesQCOM {
-                s_type: StructureType::from_raw(-1000518001i32),
+                s_type: StructureType::from_raw(1000518001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63285,7 +63285,7 @@ impl SamplerBlockMatchWindowCreateInfoQCOM {
     pub fn builder<'a>() -> SamplerBlockMatchWindowCreateInfoQCOMBuilder<'a> {
         SamplerBlockMatchWindowCreateInfoQCOMBuilder {
             inner: SamplerBlockMatchWindowCreateInfoQCOM {
-                s_type: StructureType::from_raw(-1000518002i32),
+                s_type: StructureType::from_raw(1000518002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63347,7 +63347,7 @@ impl PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
     > {
         PhysicalDeviceDescriptorPoolOverallocationFeaturesNVBuilder {
             inner: PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
-                s_type: StructureType::from_raw(-1000546000i32),
+                s_type: StructureType::from_raw(1000546000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63401,7 +63401,7 @@ impl PhysicalDeviceLayeredDriverPropertiesMSFT {
     pub fn builder<'a>() -> PhysicalDeviceLayeredDriverPropertiesMSFTBuilder<'a> {
         PhysicalDeviceLayeredDriverPropertiesMSFTBuilder {
             inner: PhysicalDeviceLayeredDriverPropertiesMSFT {
-                s_type: StructureType::from_raw(-1000530000i32),
+                s_type: StructureType::from_raw(1000530000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63438,7 +63438,7 @@ impl PhysicalDevicePerStageDescriptorSetFeaturesNV {
     pub fn builder<'a>() -> PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder<'a> {
         PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder {
             inner: PhysicalDevicePerStageDescriptorSetFeaturesNV {
-                s_type: StructureType::from_raw(-1000516000i32),
+                s_type: StructureType::from_raw(1000516000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63498,7 +63498,7 @@ impl PhysicalDeviceExternalFormatResolveFeaturesANDROID {
     > {
         PhysicalDeviceExternalFormatResolveFeaturesANDROIDBuilder {
             inner: PhysicalDeviceExternalFormatResolveFeaturesANDROID {
-                s_type: StructureType::from_raw(-1000468000i32),
+                s_type: StructureType::from_raw(1000468000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63554,7 +63554,7 @@ impl PhysicalDeviceExternalFormatResolvePropertiesANDROID {
     > {
         PhysicalDeviceExternalFormatResolvePropertiesANDROIDBuilder {
             inner: PhysicalDeviceExternalFormatResolvePropertiesANDROID {
-                s_type: StructureType::from_raw(-1000468001i32),
+                s_type: StructureType::from_raw(1000468001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63614,7 +63614,7 @@ impl AndroidHardwareBufferFormatResolvePropertiesANDROID {
     > {
         AndroidHardwareBufferFormatResolvePropertiesANDROIDBuilder {
             inner: AndroidHardwareBufferFormatResolvePropertiesANDROID {
-                s_type: StructureType::from_raw(-1000468002i32),
+                s_type: StructureType::from_raw(1000468002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63653,7 +63653,7 @@ impl LatencySleepModeInfoNV {
     pub fn builder<'a>() -> LatencySleepModeInfoNVBuilder<'a> {
         LatencySleepModeInfoNVBuilder {
             inner: LatencySleepModeInfoNV {
-                s_type: StructureType::from_raw(-1000505000i32),
+                s_type: StructureType::from_raw(1000505000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63715,7 +63715,7 @@ impl LatencySleepInfoNV {
     pub fn builder<'a>() -> LatencySleepInfoNVBuilder<'a> {
         LatencySleepInfoNVBuilder {
             inner: LatencySleepInfoNV {
-                s_type: StructureType::from_raw(-1000505001i32),
+                s_type: StructureType::from_raw(1000505001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63769,7 +63769,7 @@ impl SetLatencyMarkerInfoNV {
     pub fn builder<'a>() -> SetLatencyMarkerInfoNVBuilder<'a> {
         SetLatencyMarkerInfoNVBuilder {
             inner: SetLatencyMarkerInfoNV {
-                s_type: StructureType::from_raw(-1000505002i32),
+                s_type: StructureType::from_raw(1000505002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63826,7 +63826,7 @@ impl GetLatencyMarkerInfoNV {
     pub fn builder<'a>() -> GetLatencyMarkerInfoNVBuilder<'a> {
         GetLatencyMarkerInfoNVBuilder {
             inner: GetLatencyMarkerInfoNV {
-                s_type: StructureType::from_raw(-1000505003i32),
+                s_type: StructureType::from_raw(1000505003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63879,7 +63879,7 @@ impl LatencyTimingsFrameReportNV {
     pub fn builder<'a>() -> LatencyTimingsFrameReportNVBuilder<'a> {
         LatencyTimingsFrameReportNVBuilder {
             inner: LatencyTimingsFrameReportNV {
-                s_type: StructureType::from_raw(-1000505004i32),
+                s_type: StructureType::from_raw(1000505004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -63981,7 +63981,7 @@ impl OutOfBandQueueTypeInfoNV {
     pub fn builder<'a>() -> OutOfBandQueueTypeInfoNVBuilder<'a> {
         OutOfBandQueueTypeInfoNVBuilder {
             inner: OutOfBandQueueTypeInfoNV {
-                s_type: StructureType::from_raw(-1000505006i32),
+                s_type: StructureType::from_raw(1000505006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64033,7 +64033,7 @@ impl LatencySubmissionPresentIdNV {
     pub fn builder<'a>() -> LatencySubmissionPresentIdNVBuilder<'a> {
         LatencySubmissionPresentIdNVBuilder {
             inner: LatencySubmissionPresentIdNV {
-                s_type: StructureType::from_raw(-1000505005i32),
+                s_type: StructureType::from_raw(1000505005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64085,7 +64085,7 @@ impl SwapchainLatencyCreateInfoNV {
     pub fn builder<'a>() -> SwapchainLatencyCreateInfoNVBuilder<'a> {
         SwapchainLatencyCreateInfoNVBuilder {
             inner: SwapchainLatencyCreateInfoNV {
-                s_type: StructureType::from_raw(-1000505007i32),
+                s_type: StructureType::from_raw(1000505007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64137,7 +64137,7 @@ impl LatencySurfaceCapabilitiesNV {
     pub fn builder<'a>() -> LatencySurfaceCapabilitiesNVBuilder<'a> {
         LatencySurfaceCapabilitiesNVBuilder {
             inner: LatencySurfaceCapabilitiesNV {
-                s_type: StructureType::from_raw(-1000505008i32),
+                s_type: StructureType::from_raw(1000505008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64190,7 +64190,7 @@ impl PhysicalDeviceCudaKernelLaunchFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder<'a> {
         PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder {
             inner: PhysicalDeviceCudaKernelLaunchFeaturesNV {
-                s_type: StructureType::from_raw(-1000307003i32),
+                s_type: StructureType::from_raw(1000307003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64242,7 +64242,7 @@ impl PhysicalDeviceCudaKernelLaunchPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceCudaKernelLaunchPropertiesNVBuilder<'a> {
         PhysicalDeviceCudaKernelLaunchPropertiesNVBuilder {
             inner: PhysicalDeviceCudaKernelLaunchPropertiesNV {
-                s_type: StructureType::from_raw(-1000307004i32),
+                s_type: StructureType::from_raw(1000307004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64284,7 +64284,7 @@ impl DeviceQueueShaderCoreControlCreateInfoARM {
     pub fn builder<'a>() -> DeviceQueueShaderCoreControlCreateInfoARMBuilder<'a> {
         DeviceQueueShaderCoreControlCreateInfoARMBuilder {
             inner: DeviceQueueShaderCoreControlCreateInfoARM {
-                s_type: StructureType::from_raw(-1000417000i32),
+                s_type: StructureType::from_raw(1000417000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64336,7 +64336,7 @@ impl PhysicalDeviceSchedulingControlsFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceSchedulingControlsFeaturesARMBuilder<'a> {
         PhysicalDeviceSchedulingControlsFeaturesARMBuilder {
             inner: PhysicalDeviceSchedulingControlsFeaturesARM {
-                s_type: StructureType::from_raw(-1000417001i32),
+                s_type: StructureType::from_raw(1000417001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64388,7 +64388,7 @@ impl PhysicalDeviceSchedulingControlsPropertiesARM {
     pub fn builder<'a>() -> PhysicalDeviceSchedulingControlsPropertiesARMBuilder<'a> {
         PhysicalDeviceSchedulingControlsPropertiesARMBuilder {
             inner: PhysicalDeviceSchedulingControlsPropertiesARM {
-                s_type: StructureType::from_raw(-1000417002i32),
+                s_type: StructureType::from_raw(1000417002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64431,7 +64431,7 @@ impl PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
     > {
         PhysicalDeviceRelaxedLineRasterizationFeaturesIMGBuilder {
             inner: PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
-                s_type: StructureType::from_raw(-1000110000i32),
+                s_type: StructureType::from_raw(1000110000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64485,7 +64485,7 @@ impl PhysicalDeviceRenderPassStripedFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceRenderPassStripedFeaturesARMBuilder<'a> {
         PhysicalDeviceRenderPassStripedFeaturesARMBuilder {
             inner: PhysicalDeviceRenderPassStripedFeaturesARM {
-                s_type: StructureType::from_raw(-1000424000i32),
+                s_type: StructureType::from_raw(1000424000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64537,7 +64537,7 @@ impl PhysicalDeviceRenderPassStripedPropertiesARM {
     pub fn builder<'a>() -> PhysicalDeviceRenderPassStripedPropertiesARMBuilder<'a> {
         PhysicalDeviceRenderPassStripedPropertiesARMBuilder {
             inner: PhysicalDeviceRenderPassStripedPropertiesARM {
-                s_type: StructureType::from_raw(-1000424001i32),
+                s_type: StructureType::from_raw(1000424001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64580,7 +64580,7 @@ impl RenderPassStripeInfoARM {
     pub fn builder<'a>() -> RenderPassStripeInfoARMBuilder<'a> {
         RenderPassStripeInfoARMBuilder {
             inner: RenderPassStripeInfoARM {
-                s_type: StructureType::from_raw(-1000424003i32),
+                s_type: StructureType::from_raw(1000424003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64632,7 +64632,7 @@ impl RenderPassStripeBeginInfoARM {
     pub fn builder<'a>() -> RenderPassStripeBeginInfoARMBuilder<'a> {
         RenderPassStripeBeginInfoARMBuilder {
             inner: RenderPassStripeBeginInfoARM {
-                s_type: StructureType::from_raw(-1000424002i32),
+                s_type: StructureType::from_raw(1000424002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64685,7 +64685,7 @@ impl RenderPassStripeSubmitInfoARM {
     pub fn builder<'a>() -> RenderPassStripeSubmitInfoARMBuilder<'a> {
         RenderPassStripeSubmitInfoARMBuilder {
             inner: RenderPassStripeSubmitInfoARM {
-                s_type: StructureType::from_raw(-1000424004i32),
+                s_type: StructureType::from_raw(1000424004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64738,7 +64738,7 @@ impl PhysicalDevicePipelineOpacityMicromapFeaturesARM {
     pub fn builder<'a>() -> PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder<'a> {
         PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder {
             inner: PhysicalDevicePipelineOpacityMicromapFeaturesARM {
-                s_type: StructureType::from_raw(-1000596000i32),
+                s_type: StructureType::from_raw(1000596000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64794,7 +64794,7 @@ impl PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
     > {
         PhysicalDeviceShaderMaximalReconvergenceFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
-                s_type: StructureType::from_raw(-1000434000i32),
+                s_type: StructureType::from_raw(1000434000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64848,7 +64848,7 @@ impl PhysicalDeviceShaderSubgroupRotateFeatures {
     pub fn builder<'a>() -> PhysicalDeviceShaderSubgroupRotateFeaturesBuilder<'a> {
         PhysicalDeviceShaderSubgroupRotateFeaturesBuilder {
             inner: PhysicalDeviceShaderSubgroupRotateFeatures {
-                s_type: StructureType::from_raw(-1000416000i32),
+                s_type: StructureType::from_raw(1000416000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64905,7 +64905,7 @@ impl PhysicalDeviceShaderExpectAssumeFeatures {
     pub fn builder<'a>() -> PhysicalDeviceShaderExpectAssumeFeaturesBuilder<'a> {
         PhysicalDeviceShaderExpectAssumeFeaturesBuilder {
             inner: PhysicalDeviceShaderExpectAssumeFeatures {
-                s_type: StructureType::from_raw(-1000544000i32),
+                s_type: StructureType::from_raw(1000544000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -64957,7 +64957,7 @@ impl PhysicalDeviceShaderFloatControls2Features {
     pub fn builder<'a>() -> PhysicalDeviceShaderFloatControls2FeaturesBuilder<'a> {
         PhysicalDeviceShaderFloatControls2FeaturesBuilder {
             inner: PhysicalDeviceShaderFloatControls2Features {
-                s_type: StructureType::from_raw(-1000528000i32),
+                s_type: StructureType::from_raw(1000528000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65009,7 +65009,7 @@ impl PhysicalDeviceDynamicRenderingLocalReadFeatures {
     pub fn builder<'a>() -> PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder<'a> {
         PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder {
             inner: PhysicalDeviceDynamicRenderingLocalReadFeatures {
-                s_type: StructureType::from_raw(-1000232000i32),
+                s_type: StructureType::from_raw(1000232000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65063,7 +65063,7 @@ impl RenderingAttachmentLocationInfo {
     pub fn builder<'a>() -> RenderingAttachmentLocationInfoBuilder<'a> {
         RenderingAttachmentLocationInfoBuilder {
             inner: RenderingAttachmentLocationInfo {
-                s_type: StructureType::from_raw(-1000232001i32),
+                s_type: StructureType::from_raw(1000232001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65116,7 +65116,7 @@ impl RenderingInputAttachmentIndexInfo {
     pub fn builder<'a>() -> RenderingInputAttachmentIndexInfoBuilder<'a> {
         RenderingInputAttachmentIndexInfoBuilder {
             inner: RenderingInputAttachmentIndexInfo {
-                s_type: StructureType::from_raw(-1000232002i32),
+                s_type: StructureType::from_raw(1000232002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65179,7 +65179,7 @@ impl PhysicalDeviceShaderQuadControlFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderQuadControlFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderQuadControlFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderQuadControlFeaturesKHR {
-                s_type: StructureType::from_raw(-1000235000i32),
+                s_type: StructureType::from_raw(1000235000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65233,7 +65233,7 @@ impl PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
     > {
         PhysicalDeviceShaderAtomicFloat16VectorFeaturesNVBuilder {
             inner: PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
-                s_type: StructureType::from_raw(-1000563000i32),
+                s_type: StructureType::from_raw(1000563000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65287,7 +65287,7 @@ impl PhysicalDeviceMapMemoryPlacedFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder<'a> {
         PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder {
             inner: PhysicalDeviceMapMemoryPlacedFeaturesEXT {
-                s_type: StructureType::from_raw(-1000272000i32),
+                s_type: StructureType::from_raw(1000272000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65349,7 +65349,7 @@ impl PhysicalDeviceMapMemoryPlacedPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceMapMemoryPlacedPropertiesEXTBuilder<'a> {
         PhysicalDeviceMapMemoryPlacedPropertiesEXTBuilder {
             inner: PhysicalDeviceMapMemoryPlacedPropertiesEXT {
-                s_type: StructureType::from_raw(-1000272001i32),
+                s_type: StructureType::from_raw(1000272001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65386,7 +65386,7 @@ impl MemoryMapPlacedInfoEXT {
     pub fn builder<'a>() -> MemoryMapPlacedInfoEXTBuilder<'a> {
         MemoryMapPlacedInfoEXTBuilder {
             inner: MemoryMapPlacedInfoEXT {
-                s_type: StructureType::from_raw(-1000272002i32),
+                s_type: StructureType::from_raw(1000272002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65438,7 +65438,7 @@ impl PhysicalDeviceShaderBfloat16FeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderBfloat16FeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderBfloat16FeaturesKHRBuilder {
             inner: PhysicalDeviceShaderBfloat16FeaturesKHR {
-                s_type: StructureType::from_raw(-1000141000i32),
+                s_type: StructureType::from_raw(1000141000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65500,7 +65500,7 @@ impl PhysicalDeviceRawAccessChainsFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceRawAccessChainsFeaturesNVBuilder<'a> {
         PhysicalDeviceRawAccessChainsFeaturesNVBuilder {
             inner: PhysicalDeviceRawAccessChainsFeaturesNV {
-                s_type: StructureType::from_raw(-1000555000i32),
+                s_type: StructureType::from_raw(1000555000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65552,7 +65552,7 @@ impl PhysicalDeviceCommandBufferInheritanceFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder<'a> {
         PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder {
             inner: PhysicalDeviceCommandBufferInheritanceFeaturesNV {
-                s_type: StructureType::from_raw(-1000559000i32),
+                s_type: StructureType::from_raw(1000559000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65606,7 +65606,7 @@ impl PhysicalDeviceImageAlignmentControlFeaturesMESA {
     pub fn builder<'a>() -> PhysicalDeviceImageAlignmentControlFeaturesMESABuilder<'a> {
         PhysicalDeviceImageAlignmentControlFeaturesMESABuilder {
             inner: PhysicalDeviceImageAlignmentControlFeaturesMESA {
-                s_type: StructureType::from_raw(-1000575000i32),
+                s_type: StructureType::from_raw(1000575000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65662,7 +65662,7 @@ impl PhysicalDeviceImageAlignmentControlPropertiesMESA {
     > {
         PhysicalDeviceImageAlignmentControlPropertiesMESABuilder {
             inner: PhysicalDeviceImageAlignmentControlPropertiesMESA {
-                s_type: StructureType::from_raw(-1000575001i32),
+                s_type: StructureType::from_raw(1000575001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65701,7 +65701,7 @@ impl ImageAlignmentControlCreateInfoMESA {
     pub fn builder<'a>() -> ImageAlignmentControlCreateInfoMESABuilder<'a> {
         ImageAlignmentControlCreateInfoMESABuilder {
             inner: ImageAlignmentControlCreateInfoMESA {
-                s_type: StructureType::from_raw(-1000575002i32),
+                s_type: StructureType::from_raw(1000575002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65755,7 +65755,7 @@ impl PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
     > {
         PhysicalDeviceShaderReplicatedCompositesFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
-                s_type: StructureType::from_raw(-1000564000i32),
+                s_type: StructureType::from_raw(1000564000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65811,7 +65811,7 @@ impl PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
     > {
         PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder {
             inner: PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
-                s_type: StructureType::from_raw(-1000361000i32),
+                s_type: StructureType::from_raw(1000361000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65865,7 +65865,7 @@ impl PhysicalDeviceCooperativeMatrix2FeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder {
             inner: PhysicalDeviceCooperativeMatrix2FeaturesNV {
-                s_type: StructureType::from_raw(-1000593000i32),
+                s_type: StructureType::from_raw(1000593000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -65947,7 +65947,7 @@ impl PhysicalDeviceCooperativeMatrix2PropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrix2PropertiesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrix2PropertiesNVBuilder {
             inner: PhysicalDeviceCooperativeMatrix2PropertiesNV {
-                s_type: StructureType::from_raw(-1000593002i32),
+                s_type: StructureType::from_raw(1000593002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66004,7 +66004,7 @@ impl CooperativeMatrixFlexibleDimensionsPropertiesNV {
     pub fn builder<'a>() -> CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder<'a> {
         CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder {
             inner: CooperativeMatrixFlexibleDimensionsPropertiesNV {
-                s_type: StructureType::from_raw(-1000593001i32),
+                s_type: StructureType::from_raw(1000593001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66088,7 +66088,7 @@ impl PhysicalDeviceHdrVividFeaturesHUAWEI {
     pub fn builder<'a>() -> PhysicalDeviceHdrVividFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceHdrVividFeaturesHUAWEIBuilder {
             inner: PhysicalDeviceHdrVividFeaturesHUAWEI {
-                s_type: StructureType::from_raw(-1000590000i32),
+                s_type: StructureType::from_raw(1000590000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66142,7 +66142,7 @@ impl PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
     > {
         PhysicalDeviceVertexAttributeRobustnessFeaturesEXTBuilder {
             inner: PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
-                s_type: StructureType::from_raw(-1000608000i32),
+                s_type: StructureType::from_raw(1000608000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66196,7 +66196,7 @@ impl PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
     pub fn builder<'a>() -> PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder<'a> {
         PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder {
             inner: PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
-                s_type: StructureType::from_raw(-1000478000i32),
+                s_type: StructureType::from_raw(1000478000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66251,7 +66251,7 @@ impl AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
     > {
         AccelerationStructureDenseGeometryFormatTrianglesDataAMDXBuilder {
             inner: AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
-                s_type: StructureType::from_raw(-1000478001i32),
+                s_type: StructureType::from_raw(1000478001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66334,7 +66334,7 @@ impl PhysicalDeviceDepthClampZeroOneFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder<'a> {
         PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder {
             inner: PhysicalDeviceDepthClampZeroOneFeaturesKHR {
-                s_type: StructureType::from_raw(-1000421000i32),
+                s_type: StructureType::from_raw(1000421000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66386,7 +66386,7 @@ impl PhysicalDeviceCooperativeVectorFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeVectorFeaturesNVBuilder<'a> {
         PhysicalDeviceCooperativeVectorFeaturesNVBuilder {
             inner: PhysicalDeviceCooperativeVectorFeaturesNV {
-                s_type: StructureType::from_raw(-1000491000i32),
+                s_type: StructureType::from_raw(1000491000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66443,7 +66443,7 @@ impl CooperativeVectorPropertiesNV {
     pub fn builder<'a>() -> CooperativeVectorPropertiesNVBuilder<'a> {
         CooperativeVectorPropertiesNVBuilder {
             inner: CooperativeVectorPropertiesNV {
-                s_type: StructureType::from_raw(-1000491002i32),
+                s_type: StructureType::from_raw(1000491002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66520,7 +66520,7 @@ impl PhysicalDeviceCooperativeVectorPropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceCooperativeVectorPropertiesNVBuilder<'a> {
         PhysicalDeviceCooperativeVectorPropertiesNVBuilder {
             inner: PhysicalDeviceCooperativeVectorPropertiesNV {
-                s_type: StructureType::from_raw(-1000491001i32),
+                s_type: StructureType::from_raw(1000491001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66581,7 +66581,7 @@ impl ConvertCooperativeVectorMatrixInfoNV {
     pub fn builder<'a>() -> ConvertCooperativeVectorMatrixInfoNVBuilder<'a> {
         ConvertCooperativeVectorMatrixInfoNVBuilder {
             inner: ConvertCooperativeVectorMatrixInfoNV {
-                s_type: StructureType::from_raw(-1000491004i32),
+                s_type: StructureType::from_raw(1000491004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66688,7 +66688,7 @@ impl PhysicalDeviceTileShadingFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceTileShadingFeaturesQCOMBuilder<'a> {
         PhysicalDeviceTileShadingFeaturesQCOMBuilder {
             inner: PhysicalDeviceTileShadingFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000309000i32),
+                s_type: StructureType::from_raw(1000309000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66805,7 +66805,7 @@ impl PhysicalDeviceTileShadingPropertiesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceTileShadingPropertiesQCOMBuilder<'a> {
         PhysicalDeviceTileShadingPropertiesQCOMBuilder {
             inner: PhysicalDeviceTileShadingPropertiesQCOM {
-                s_type: StructureType::from_raw(-1000309001i32),
+                s_type: StructureType::from_raw(1000309001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66857,7 +66857,7 @@ impl RenderPassTileShadingCreateInfoQCOM {
     pub fn builder<'a>() -> RenderPassTileShadingCreateInfoQCOMBuilder<'a> {
         RenderPassTileShadingCreateInfoQCOMBuilder {
             inner: RenderPassTileShadingCreateInfoQCOM {
-                s_type: StructureType::from_raw(-1000309002i32),
+                s_type: StructureType::from_raw(1000309002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66914,7 +66914,7 @@ impl PerTileBeginInfoQCOM {
     pub fn builder<'a>() -> PerTileBeginInfoQCOMBuilder<'a> {
         PerTileBeginInfoQCOMBuilder {
             inner: PerTileBeginInfoQCOM {
-                s_type: StructureType::from_raw(-1000309003i32),
+                s_type: StructureType::from_raw(1000309003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -66958,7 +66958,7 @@ impl PerTileEndInfoQCOM {
     pub fn builder<'a>() -> PerTileEndInfoQCOMBuilder<'a> {
         PerTileEndInfoQCOMBuilder {
             inner: PerTileEndInfoQCOM {
-                s_type: StructureType::from_raw(-1000309004i32),
+                s_type: StructureType::from_raw(1000309004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67002,7 +67002,7 @@ impl DispatchTileInfoQCOM {
     pub fn builder<'a>() -> DispatchTileInfoQCOMBuilder<'a> {
         DispatchTileInfoQCOMBuilder {
             inner: DispatchTileInfoQCOM {
-                s_type: StructureType::from_raw(-1000309005i32),
+                s_type: StructureType::from_raw(1000309005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67048,7 +67048,7 @@ impl PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
     > {
         PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVEBuilder {
             inner: PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
-                s_type: StructureType::from_raw(-1000611001i32),
+                s_type: StructureType::from_raw(1000611001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67089,7 +67089,7 @@ impl PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
     > {
         PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVEBuilder {
             inner: PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
-                s_type: StructureType::from_raw(-1000611000i32),
+                s_type: StructureType::from_raw(1000611000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67143,7 +67143,7 @@ impl PipelineFragmentDensityMapLayeredCreateInfoVALVE {
     pub fn builder<'a>() -> PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder<'a> {
         PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder {
             inner: PipelineFragmentDensityMapLayeredCreateInfoVALVE {
-                s_type: StructureType::from_raw(-1000611002i32),
+                s_type: StructureType::from_raw(1000611002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67197,7 +67197,7 @@ impl SetPresentConfigNV {
     pub fn builder<'a>() -> SetPresentConfigNVBuilder<'a> {
         SetPresentConfigNVBuilder {
             inner: SetPresentConfigNV {
-                s_type: StructureType::from_raw(-1000613000i32),
+                s_type: StructureType::from_raw(1000613000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67251,7 +67251,7 @@ impl PhysicalDevicePresentMeteringFeaturesNV {
     pub fn builder<'a>() -> PhysicalDevicePresentMeteringFeaturesNVBuilder<'a> {
         PhysicalDevicePresentMeteringFeaturesNVBuilder {
             inner: PhysicalDevicePresentMeteringFeaturesNV {
-                s_type: StructureType::from_raw(-1000613001i32),
+                s_type: StructureType::from_raw(1000613001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67303,7 +67303,7 @@ impl ExternalComputeQueueDeviceCreateInfoNV {
     pub fn builder<'a>() -> ExternalComputeQueueDeviceCreateInfoNVBuilder<'a> {
         ExternalComputeQueueDeviceCreateInfoNVBuilder {
             inner: ExternalComputeQueueDeviceCreateInfoNV {
-                s_type: StructureType::from_raw(-1000556000i32),
+                s_type: StructureType::from_raw(1000556000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67355,7 +67355,7 @@ impl ExternalComputeQueueCreateInfoNV {
     pub fn builder<'a>() -> ExternalComputeQueueCreateInfoNVBuilder<'a> {
         ExternalComputeQueueCreateInfoNVBuilder {
             inner: ExternalComputeQueueCreateInfoNV {
-                s_type: StructureType::from_raw(-1000556001i32),
+                s_type: StructureType::from_raw(1000556001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67407,7 +67407,7 @@ impl ExternalComputeQueueDataParamsNV {
     pub fn builder<'a>() -> ExternalComputeQueueDataParamsNVBuilder<'a> {
         ExternalComputeQueueDataParamsNVBuilder {
             inner: ExternalComputeQueueDataParamsNV {
-                s_type: StructureType::from_raw(-1000556002i32),
+                s_type: StructureType::from_raw(1000556002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67459,7 +67459,7 @@ impl PhysicalDeviceExternalComputeQueuePropertiesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalComputeQueuePropertiesNVBuilder<'a> {
         PhysicalDeviceExternalComputeQueuePropertiesNVBuilder {
             inner: PhysicalDeviceExternalComputeQueuePropertiesNV {
-                s_type: StructureType::from_raw(-1000556003i32),
+                s_type: StructureType::from_raw(1000556003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67504,7 +67504,7 @@ impl PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
     > {
         PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
-                s_type: StructureType::from_raw(-1000642000i32),
+                s_type: StructureType::from_raw(1000642000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67560,7 +67560,7 @@ impl PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
     > {
         PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEBuilder {
             inner: PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
-                s_type: StructureType::from_raw(-1000673000i32),
+                s_type: StructureType::from_raw(1000673000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67638,7 +67638,7 @@ impl PhysicalDeviceFormatPackFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceFormatPackFeaturesARMBuilder<'a> {
         PhysicalDeviceFormatPackFeaturesARMBuilder {
             inner: PhysicalDeviceFormatPackFeaturesARM {
-                s_type: StructureType::from_raw(-1000609000i32),
+                s_type: StructureType::from_raw(1000609000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67690,7 +67690,7 @@ impl TensorDescriptionARM {
     pub fn builder<'a>() -> TensorDescriptionARMBuilder<'a> {
         TensorDescriptionARMBuilder {
             inner: TensorDescriptionARM {
-                s_type: StructureType::from_raw(-1000460006i32),
+                s_type: StructureType::from_raw(1000460006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67761,7 +67761,7 @@ impl TensorCreateInfoARM {
     pub fn builder<'a>() -> TensorCreateInfoARMBuilder<'a> {
         TensorCreateInfoARMBuilder {
             inner: TensorCreateInfoARM {
-                s_type: StructureType::from_raw(-1000460000i32),
+                s_type: StructureType::from_raw(1000460000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67826,7 +67826,7 @@ impl TensorViewCreateInfoARM {
     pub fn builder<'a>() -> TensorViewCreateInfoARMBuilder<'a> {
         TensorViewCreateInfoARMBuilder {
             inner: TensorViewCreateInfoARM {
-                s_type: StructureType::from_raw(-1000460001i32),
+                s_type: StructureType::from_raw(1000460001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67888,7 +67888,7 @@ impl TensorMemoryRequirementsInfoARM {
     pub fn builder<'a>() -> TensorMemoryRequirementsInfoARMBuilder<'a> {
         TensorMemoryRequirementsInfoARMBuilder {
             inner: TensorMemoryRequirementsInfoARM {
-                s_type: StructureType::from_raw(-1000460007i32),
+                s_type: StructureType::from_raw(1000460007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -67940,7 +67940,7 @@ impl BindTensorMemoryInfoARM {
     pub fn builder<'a>() -> BindTensorMemoryInfoARMBuilder<'a> {
         BindTensorMemoryInfoARMBuilder {
             inner: BindTensorMemoryInfoARM {
-                s_type: StructureType::from_raw(-1000460002i32),
+                s_type: StructureType::from_raw(1000460002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68002,7 +68002,7 @@ impl WriteDescriptorSetTensorARM {
     pub fn builder<'a>() -> WriteDescriptorSetTensorARMBuilder<'a> {
         WriteDescriptorSetTensorARMBuilder {
             inner: WriteDescriptorSetTensorARM {
-                s_type: StructureType::from_raw(-1000460003i32),
+                s_type: StructureType::from_raw(1000460003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68055,7 +68055,7 @@ impl TensorFormatPropertiesARM {
     pub fn builder<'a>() -> TensorFormatPropertiesARMBuilder<'a> {
         TensorFormatPropertiesARMBuilder {
             inner: TensorFormatPropertiesARM {
-                s_type: StructureType::from_raw(-1000460005i32),
+                s_type: StructureType::from_raw(1000460005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68097,7 +68097,7 @@ impl PhysicalDeviceTensorPropertiesARM {
     pub fn builder<'a>() -> PhysicalDeviceTensorPropertiesARMBuilder<'a> {
         PhysicalDeviceTensorPropertiesARMBuilder {
             inner: PhysicalDeviceTensorPropertiesARM {
-                s_type: StructureType::from_raw(-1000460004i32),
+                s_type: StructureType::from_raw(1000460004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68203,7 +68203,7 @@ impl TensorMemoryBarrierARM {
     pub fn builder<'a>() -> TensorMemoryBarrierARMBuilder<'a> {
         TensorMemoryBarrierARMBuilder {
             inner: TensorMemoryBarrierARM {
-                s_type: StructureType::from_raw(-1000460008i32),
+                s_type: StructureType::from_raw(1000460008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68285,7 +68285,7 @@ impl TensorDependencyInfoARM {
     pub fn builder<'a>() -> TensorDependencyInfoARMBuilder<'a> {
         TensorDependencyInfoARMBuilder {
             inner: TensorDependencyInfoARM {
-                s_type: StructureType::from_raw(-1000460013i32),
+                s_type: StructureType::from_raw(1000460013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68345,7 +68345,7 @@ impl PhysicalDeviceTensorFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceTensorFeaturesARMBuilder<'a> {
         PhysicalDeviceTensorFeaturesARMBuilder {
             inner: PhysicalDeviceTensorFeaturesARM {
-                s_type: StructureType::from_raw(-1000460009i32),
+                s_type: StructureType::from_raw(1000460009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68428,7 +68428,7 @@ impl DeviceTensorMemoryRequirementsARM {
     pub fn builder<'a>() -> DeviceTensorMemoryRequirementsARMBuilder<'a> {
         DeviceTensorMemoryRequirementsARMBuilder {
             inner: DeviceTensorMemoryRequirementsARM {
-                s_type: StructureType::from_raw(-1000460010i32),
+                s_type: StructureType::from_raw(1000460010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68480,7 +68480,7 @@ impl CopyTensorInfoARM {
     pub fn builder<'a>() -> CopyTensorInfoARMBuilder<'a> {
         CopyTensorInfoARMBuilder {
             inner: CopyTensorInfoARM {
-                s_type: StructureType::from_raw(-1000460011i32),
+                s_type: StructureType::from_raw(1000460011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68540,7 +68540,7 @@ impl TensorCopyARM {
     pub fn builder<'a>() -> TensorCopyARMBuilder<'a> {
         TensorCopyARMBuilder {
             inner: TensorCopyARM {
-                s_type: StructureType::from_raw(-1000460012i32),
+                s_type: StructureType::from_raw(1000460012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68602,7 +68602,7 @@ impl MemoryDedicatedAllocateInfoTensorARM {
     pub fn builder<'a>() -> MemoryDedicatedAllocateInfoTensorARMBuilder<'a> {
         MemoryDedicatedAllocateInfoTensorARMBuilder {
             inner: MemoryDedicatedAllocateInfoTensorARM {
-                s_type: StructureType::from_raw(-1000460014i32),
+                s_type: StructureType::from_raw(1000460014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68656,7 +68656,7 @@ impl PhysicalDeviceDescriptorBufferTensorPropertiesARM {
     > {
         PhysicalDeviceDescriptorBufferTensorPropertiesARMBuilder {
             inner: PhysicalDeviceDescriptorBufferTensorPropertiesARM {
-                s_type: StructureType::from_raw(-1000460019i32),
+                s_type: StructureType::from_raw(1000460019i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68723,7 +68723,7 @@ impl PhysicalDeviceDescriptorBufferTensorFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder<'a> {
         PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder {
             inner: PhysicalDeviceDescriptorBufferTensorFeaturesARM {
-                s_type: StructureType::from_raw(-1000460018i32),
+                s_type: StructureType::from_raw(1000460018i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68777,7 +68777,7 @@ impl TensorCaptureDescriptorDataInfoARM {
     pub fn builder<'a>() -> TensorCaptureDescriptorDataInfoARMBuilder<'a> {
         TensorCaptureDescriptorDataInfoARMBuilder {
             inner: TensorCaptureDescriptorDataInfoARM {
-                s_type: StructureType::from_raw(-1000460021i32),
+                s_type: StructureType::from_raw(1000460021i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68829,7 +68829,7 @@ impl TensorViewCaptureDescriptorDataInfoARM {
     pub fn builder<'a>() -> TensorViewCaptureDescriptorDataInfoARMBuilder<'a> {
         TensorViewCaptureDescriptorDataInfoARMBuilder {
             inner: TensorViewCaptureDescriptorDataInfoARM {
-                s_type: StructureType::from_raw(-1000460022i32),
+                s_type: StructureType::from_raw(1000460022i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68881,7 +68881,7 @@ impl DescriptorGetTensorInfoARM {
     pub fn builder<'a>() -> DescriptorGetTensorInfoARMBuilder<'a> {
         DescriptorGetTensorInfoARMBuilder {
             inner: DescriptorGetTensorInfoARM {
-                s_type: StructureType::from_raw(-1000460020i32),
+                s_type: StructureType::from_raw(1000460020i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68933,7 +68933,7 @@ impl FrameBoundaryTensorsARM {
     pub fn builder<'a>() -> FrameBoundaryTensorsARMBuilder<'a> {
         FrameBoundaryTensorsARMBuilder {
             inner: FrameBoundaryTensorsARM {
-                s_type: StructureType::from_raw(-1000460023i32),
+                s_type: StructureType::from_raw(1000460023i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -68986,7 +68986,7 @@ impl PhysicalDeviceExternalTensorInfoARM {
     pub fn builder<'a>() -> PhysicalDeviceExternalTensorInfoARMBuilder<'a> {
         PhysicalDeviceExternalTensorInfoARMBuilder {
             inner: PhysicalDeviceExternalTensorInfoARM {
-                s_type: StructureType::from_raw(-1000460015i32),
+                s_type: StructureType::from_raw(1000460015i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69048,7 +69048,7 @@ impl ExternalTensorPropertiesARM {
     pub fn builder<'a>() -> ExternalTensorPropertiesARMBuilder<'a> {
         ExternalTensorPropertiesARMBuilder {
             inner: ExternalTensorPropertiesARM {
-                s_type: StructureType::from_raw(-1000460016i32),
+                s_type: StructureType::from_raw(1000460016i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69103,7 +69103,7 @@ impl ExternalMemoryTensorCreateInfoARM {
     pub fn builder<'a>() -> ExternalMemoryTensorCreateInfoARMBuilder<'a> {
         ExternalMemoryTensorCreateInfoARMBuilder {
             inner: ExternalMemoryTensorCreateInfoARM {
-                s_type: StructureType::from_raw(-1000460017i32),
+                s_type: StructureType::from_raw(1000460017i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69155,7 +69155,7 @@ impl PhysicalDeviceShaderFloat8FeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderFloat8FeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderFloat8FeaturesEXTBuilder {
             inner: PhysicalDeviceShaderFloat8FeaturesEXT {
-                s_type: StructureType::from_raw(-1000567000i32),
+                s_type: StructureType::from_raw(1000567000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69269,7 +69269,7 @@ impl PhysicalDeviceDataGraphFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceDataGraphFeaturesARMBuilder<'a> {
         PhysicalDeviceDataGraphFeaturesARMBuilder {
             inner: PhysicalDeviceDataGraphFeaturesARM {
-                s_type: StructureType::from_raw(-1000507006i32),
+                s_type: StructureType::from_raw(1000507006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69343,7 +69343,7 @@ impl DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
     > {
         DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARMBuilder {
             inner: DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
-                s_type: StructureType::from_raw(-1000507015i32),
+                s_type: StructureType::from_raw(1000507015i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69406,7 +69406,7 @@ impl DataGraphPipelineConstantARM {
     pub fn builder<'a>() -> DataGraphPipelineConstantARMBuilder<'a> {
         DataGraphPipelineConstantARMBuilder {
             inner: DataGraphPipelineConstantARM {
-                s_type: StructureType::from_raw(-1000507003i32),
+                s_type: StructureType::from_raw(1000507003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69463,7 +69463,7 @@ impl DataGraphPipelineResourceInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineResourceInfoARMBuilder<'a> {
         DataGraphPipelineResourceInfoARMBuilder {
             inner: DataGraphPipelineResourceInfoARM {
-                s_type: StructureType::from_raw(-1000507002i32),
+                s_type: StructureType::from_raw(1000507002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69525,7 +69525,7 @@ impl DataGraphPipelineCompilerControlCreateInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
         DataGraphPipelineCompilerControlCreateInfoARMBuilder {
             inner: DataGraphPipelineCompilerControlCreateInfoARM {
-                s_type: StructureType::from_raw(-1000507010i32),
+                s_type: StructureType::from_raw(1000507010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69578,7 +69578,7 @@ impl DataGraphPipelineCreateInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineCreateInfoARMBuilder<'a> {
         DataGraphPipelineCreateInfoARMBuilder {
             inner: DataGraphPipelineCreateInfoARM {
-                s_type: StructureType::from_raw(-1000507000i32),
+                s_type: StructureType::from_raw(1000507000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69644,7 +69644,7 @@ impl DataGraphPipelineShaderModuleCreateInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
         DataGraphPipelineShaderModuleCreateInfoARMBuilder {
             inner: DataGraphPipelineShaderModuleCreateInfoARM {
-                s_type: StructureType::from_raw(-1000507007i32),
+                s_type: StructureType::from_raw(1000507007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69712,7 +69712,7 @@ impl DataGraphPipelineSessionCreateInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineSessionCreateInfoARMBuilder<'a> {
         DataGraphPipelineSessionCreateInfoARMBuilder {
             inner: DataGraphPipelineSessionCreateInfoARM {
-                s_type: StructureType::from_raw(-1000507001i32),
+                s_type: StructureType::from_raw(1000507001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69771,7 +69771,7 @@ impl DataGraphPipelineSessionBindPointRequirementsInfoARM {
     > {
         DataGraphPipelineSessionBindPointRequirementsInfoARMBuilder {
             inner: DataGraphPipelineSessionBindPointRequirementsInfoARM {
-                s_type: StructureType::from_raw(-1000507011i32),
+                s_type: StructureType::from_raw(1000507011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69825,7 +69825,7 @@ impl DataGraphPipelineSessionBindPointRequirementARM {
     pub fn builder<'a>() -> DataGraphPipelineSessionBindPointRequirementARMBuilder<'a> {
         DataGraphPipelineSessionBindPointRequirementARMBuilder {
             inner: DataGraphPipelineSessionBindPointRequirementARM {
-                s_type: StructureType::from_raw(-1000507012i32),
+                s_type: StructureType::from_raw(1000507012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69879,7 +69879,7 @@ impl DataGraphPipelineSessionMemoryRequirementsInfoARM {
     > {
         DataGraphPipelineSessionMemoryRequirementsInfoARMBuilder {
             inner: DataGraphPipelineSessionMemoryRequirementsInfoARM {
-                s_type: StructureType::from_raw(-1000507004i32),
+                s_type: StructureType::from_raw(1000507004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -69943,7 +69943,7 @@ impl BindDataGraphPipelineSessionMemoryInfoARM {
     pub fn builder<'a>() -> BindDataGraphPipelineSessionMemoryInfoARMBuilder<'a> {
         BindDataGraphPipelineSessionMemoryInfoARMBuilder {
             inner: BindDataGraphPipelineSessionMemoryInfoARM {
-                s_type: StructureType::from_raw(-1000507005i32),
+                s_type: StructureType::from_raw(1000507005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70015,7 +70015,7 @@ impl DataGraphPipelineInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineInfoARMBuilder<'a> {
         DataGraphPipelineInfoARMBuilder {
             inner: DataGraphPipelineInfoARM {
-                s_type: StructureType::from_raw(-1000507009i32),
+                s_type: StructureType::from_raw(1000507009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70067,7 +70067,7 @@ impl DataGraphPipelinePropertyQueryResultARM {
     pub fn builder<'a>() -> DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
         DataGraphPipelinePropertyQueryResultARMBuilder {
             inner: DataGraphPipelinePropertyQueryResultARM {
-                s_type: StructureType::from_raw(-1000507008i32),
+                s_type: StructureType::from_raw(1000507008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70130,7 +70130,7 @@ impl DataGraphPipelineIdentifierCreateInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineIdentifierCreateInfoARMBuilder<'a> {
         DataGraphPipelineIdentifierCreateInfoARMBuilder {
             inner: DataGraphPipelineIdentifierCreateInfoARM {
-                s_type: StructureType::from_raw(-1000507013i32),
+                s_type: StructureType::from_raw(1000507013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70183,7 +70183,7 @@ impl DataGraphPipelineDispatchInfoARM {
     pub fn builder<'a>() -> DataGraphPipelineDispatchInfoARMBuilder<'a> {
         DataGraphPipelineDispatchInfoARMBuilder {
             inner: DataGraphPipelineDispatchInfoARM {
-                s_type: StructureType::from_raw(-1000507014i32),
+                s_type: StructureType::from_raw(1000507014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70235,7 +70235,7 @@ impl QueueFamilyDataGraphPropertiesARM {
     pub fn builder<'a>() -> QueueFamilyDataGraphPropertiesARMBuilder<'a> {
         QueueFamilyDataGraphPropertiesARMBuilder {
             inner: QueueFamilyDataGraphPropertiesARM {
-                s_type: StructureType::from_raw(-1000507018i32),
+                s_type: StructureType::from_raw(1000507018i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70282,7 +70282,7 @@ impl PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
     > {
         PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARMBuilder {
             inner: PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
-                s_type: StructureType::from_raw(-1000507019i32),
+                s_type: StructureType::from_raw(1000507019i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70345,7 +70345,7 @@ impl QueueFamilyDataGraphProcessingEnginePropertiesARM {
     > {
         QueueFamilyDataGraphProcessingEnginePropertiesARMBuilder {
             inner: QueueFamilyDataGraphProcessingEnginePropertiesARM {
-                s_type: StructureType::from_raw(-1000507017i32),
+                s_type: StructureType::from_raw(1000507017i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70395,7 +70395,7 @@ impl DataGraphProcessingEngineCreateInfoARM {
     pub fn builder<'a>() -> DataGraphProcessingEngineCreateInfoARMBuilder<'a> {
         DataGraphProcessingEngineCreateInfoARMBuilder {
             inner: DataGraphProcessingEngineCreateInfoARM {
-                s_type: StructureType::from_raw(-1000507016i32),
+                s_type: StructureType::from_raw(1000507016i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70453,7 +70453,7 @@ impl PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
     > {
         PhysicalDevicePipelineCacheIncrementalModeFeaturesSECBuilder {
             inner: PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
-                s_type: StructureType::from_raw(-1000637000i32),
+                s_type: StructureType::from_raw(1000637000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70507,7 +70507,7 @@ impl DataGraphPipelineBuiltinModelCreateInfoQCOM {
     pub fn builder<'a>() -> DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder<'a> {
         DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder {
             inner: DataGraphPipelineBuiltinModelCreateInfoQCOM {
-                s_type: StructureType::from_raw(-1000629001i32),
+                s_type: StructureType::from_raw(1000629001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70562,7 +70562,7 @@ impl PhysicalDeviceDataGraphModelFeaturesQCOM {
     pub fn builder<'a>() -> PhysicalDeviceDataGraphModelFeaturesQCOMBuilder<'a> {
         PhysicalDeviceDataGraphModelFeaturesQCOMBuilder {
             inner: PhysicalDeviceDataGraphModelFeaturesQCOM {
-                s_type: StructureType::from_raw(-1000629000i32),
+                s_type: StructureType::from_raw(1000629000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70614,7 +70614,7 @@ impl PhysicalDeviceShaderUntypedPointersFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderUntypedPointersFeaturesKHR {
-                s_type: StructureType::from_raw(-1000387000i32),
+                s_type: StructureType::from_raw(1000387000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70807,7 +70807,7 @@ impl PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
     > {
         PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVEBuilder {
             inner: PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
-                s_type: StructureType::from_raw(-1000390000i32),
+                s_type: StructureType::from_raw(1000390000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70861,7 +70861,7 @@ impl VideoEncodeRgbConversionCapabilitiesVALVE {
     pub fn builder<'a>() -> VideoEncodeRgbConversionCapabilitiesVALVEBuilder<'a> {
         VideoEncodeRgbConversionCapabilitiesVALVEBuilder {
             inner: VideoEncodeRgbConversionCapabilitiesVALVE {
-                s_type: StructureType::from_raw(-1000390001i32),
+                s_type: StructureType::from_raw(1000390001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70922,7 +70922,7 @@ impl VideoEncodeProfileRgbConversionInfoVALVE {
     pub fn builder<'a>() -> VideoEncodeProfileRgbConversionInfoVALVEBuilder<'a> {
         VideoEncodeProfileRgbConversionInfoVALVEBuilder {
             inner: VideoEncodeProfileRgbConversionInfoVALVE {
-                s_type: StructureType::from_raw(-1000390002i32),
+                s_type: StructureType::from_raw(1000390002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -70974,7 +70974,7 @@ impl VideoEncodeSessionRgbConversionCreateInfoVALVE {
     pub fn builder<'a>() -> VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder<'a> {
         VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder {
             inner: VideoEncodeSessionRgbConversionCreateInfoVALVE {
-                s_type: StructureType::from_raw(-1000390003i32),
+                s_type: StructureType::from_raw(1000390003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71054,7 +71054,7 @@ impl PhysicalDeviceShader64BitIndexingFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder<'a> {
         PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder {
             inner: PhysicalDeviceShader64BitIndexingFeaturesEXT {
-                s_type: StructureType::from_raw(-1000627000i32),
+                s_type: StructureType::from_raw(1000627000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71107,7 +71107,7 @@ impl NativeBufferUsageOHOS {
     pub fn builder<'a>() -> NativeBufferUsageOHOSBuilder<'a> {
         NativeBufferUsageOHOSBuilder {
             inner: NativeBufferUsageOHOS {
-                s_type: StructureType::from_raw(-1000452000i32),
+                s_type: StructureType::from_raw(1000452000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71144,7 +71144,7 @@ impl NativeBufferPropertiesOHOS {
     pub fn builder<'a>() -> NativeBufferPropertiesOHOSBuilder<'a> {
         NativeBufferPropertiesOHOSBuilder {
             inner: NativeBufferPropertiesOHOS {
-                s_type: StructureType::from_raw(-1000452001i32),
+                s_type: StructureType::from_raw(1000452001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71186,7 +71186,7 @@ impl NativeBufferFormatPropertiesOHOS {
     pub fn builder<'a>() -> NativeBufferFormatPropertiesOHOSBuilder<'a> {
         NativeBufferFormatPropertiesOHOSBuilder {
             inner: NativeBufferFormatPropertiesOHOS {
-                s_type: StructureType::from_raw(-1000452002i32),
+                s_type: StructureType::from_raw(1000452002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71261,7 +71261,7 @@ impl ImportNativeBufferInfoOHOS {
     pub fn builder<'a>() -> ImportNativeBufferInfoOHOSBuilder<'a> {
         ImportNativeBufferInfoOHOSBuilder {
             inner: ImportNativeBufferInfoOHOS {
-                s_type: StructureType::from_raw(-1000452003i32),
+                s_type: StructureType::from_raw(1000452003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71313,7 +71313,7 @@ impl MemoryGetNativeBufferInfoOHOS {
     pub fn builder<'a>() -> MemoryGetNativeBufferInfoOHOSBuilder<'a> {
         MemoryGetNativeBufferInfoOHOSBuilder {
             inner: MemoryGetNativeBufferInfoOHOS {
-                s_type: StructureType::from_raw(-1000452004i32),
+                s_type: StructureType::from_raw(1000452004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71365,7 +71365,7 @@ impl ExternalFormatOHOS {
     pub fn builder<'a>() -> ExternalFormatOHOSBuilder<'a> {
         ExternalFormatOHOSBuilder {
             inner: ExternalFormatOHOS {
-                s_type: StructureType::from_raw(-1000452005i32),
+                s_type: StructureType::from_raw(1000452005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71416,7 +71416,7 @@ impl PhysicalDevicePerformanceCountersByRegionFeaturesARM {
     > {
         PhysicalDevicePerformanceCountersByRegionFeaturesARMBuilder {
             inner: PhysicalDevicePerformanceCountersByRegionFeaturesARM {
-                s_type: StructureType::from_raw(-1000605000i32),
+                s_type: StructureType::from_raw(1000605000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71472,7 +71472,7 @@ impl PhysicalDevicePerformanceCountersByRegionPropertiesARM {
     > {
         PhysicalDevicePerformanceCountersByRegionPropertiesARMBuilder {
             inner: PhysicalDevicePerformanceCountersByRegionPropertiesARM {
-                s_type: StructureType::from_raw(-1000605001i32),
+                s_type: StructureType::from_raw(1000605001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71531,7 +71531,7 @@ impl PerformanceCounterARM {
     pub fn builder<'a>() -> PerformanceCounterARMBuilder<'a> {
         PerformanceCounterARMBuilder {
             inner: PerformanceCounterARM {
-                s_type: StructureType::from_raw(-1000605002i32),
+                s_type: StructureType::from_raw(1000605002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71568,7 +71568,7 @@ impl PerformanceCounterDescriptionARM {
     pub fn builder<'a>() -> PerformanceCounterDescriptionARMBuilder<'a> {
         PerformanceCounterDescriptionARMBuilder {
             inner: PerformanceCounterDescriptionARM {
-                s_type: StructureType::from_raw(-1000605003i32),
+                s_type: StructureType::from_raw(1000605003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71615,7 +71615,7 @@ impl RenderPassPerformanceCountersByRegionBeginInfoARM {
     > {
         RenderPassPerformanceCountersByRegionBeginInfoARMBuilder {
             inner: RenderPassPerformanceCountersByRegionBeginInfoARM {
-                s_type: StructureType::from_raw(-1000605004i32),
+                s_type: StructureType::from_raw(1000605004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71681,7 +71681,7 @@ impl ComputeOccupancyPriorityParametersNV {
     pub fn builder<'a>() -> ComputeOccupancyPriorityParametersNVBuilder<'a> {
         ComputeOccupancyPriorityParametersNVBuilder {
             inner: ComputeOccupancyPriorityParametersNV {
-                s_type: StructureType::from_raw(-1000645000i32),
+                s_type: StructureType::from_raw(1000645000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71738,7 +71738,7 @@ impl PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder<'a> {
         PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder {
             inner: PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
-                s_type: StructureType::from_raw(-1000645001i32),
+                s_type: StructureType::from_raw(1000645001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71792,7 +71792,7 @@ impl PhysicalDeviceShaderLongVectorFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderLongVectorFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderLongVectorFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderLongVectorFeaturesEXT {
-                s_type: StructureType::from_raw(-1000635000i32),
+                s_type: StructureType::from_raw(1000635000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71844,7 +71844,7 @@ impl PhysicalDeviceShaderLongVectorPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceShaderLongVectorPropertiesEXTBuilder<'a> {
         PhysicalDeviceShaderLongVectorPropertiesEXTBuilder {
             inner: PhysicalDeviceShaderLongVectorPropertiesEXT {
-                s_type: StructureType::from_raw(-1000635001i32),
+                s_type: StructureType::from_raw(1000635001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71883,7 +71883,7 @@ impl PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
     > {
         PhysicalDeviceTextureCompressionASTC3DFeaturesEXTBuilder {
             inner: PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
-                s_type: StructureType::from_raw(-1000288000i32),
+                s_type: StructureType::from_raw(1000288000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71939,7 +71939,7 @@ impl PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
     > {
         PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder {
             inner: PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
-                s_type: StructureType::from_raw(-1000662000i32),
+                s_type: StructureType::from_raw(1000662000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -71993,7 +71993,7 @@ impl TexelBufferDescriptorInfoEXT {
     pub fn builder<'a>() -> TexelBufferDescriptorInfoEXTBuilder<'a> {
         TexelBufferDescriptorInfoEXTBuilder {
             inner: TexelBufferDescriptorInfoEXT {
-                s_type: StructureType::from_raw(-1000135000i32),
+                s_type: StructureType::from_raw(1000135000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72050,7 +72050,7 @@ impl ImageDescriptorInfoEXT {
     pub fn builder<'a>() -> ImageDescriptorInfoEXTBuilder<'a> {
         ImageDescriptorInfoEXTBuilder {
             inner: ImageDescriptorInfoEXT {
-                s_type: StructureType::from_raw(-1000135001i32),
+                s_type: StructureType::from_raw(1000135001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72107,7 +72107,7 @@ impl ResourceDescriptorInfoEXT {
     pub fn builder<'a>() -> ResourceDescriptorInfoEXTBuilder<'a> {
         ResourceDescriptorInfoEXTBuilder {
             inner: ResourceDescriptorInfoEXT {
-                s_type: StructureType::from_raw(-1000135002i32),
+                s_type: StructureType::from_raw(1000135002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72164,7 +72164,7 @@ impl BindHeapInfoEXT {
     pub fn builder<'a>() -> BindHeapInfoEXTBuilder<'a> {
         BindHeapInfoEXTBuilder {
             inner: BindHeapInfoEXT {
-                s_type: StructureType::from_raw(-1000135003i32),
+                s_type: StructureType::from_raw(1000135003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72223,7 +72223,7 @@ impl PushDataInfoEXT {
     pub fn builder<'a>() -> PushDataInfoEXTBuilder<'a> {
         PushDataInfoEXTBuilder {
             inner: PushDataInfoEXT {
-                s_type: StructureType::from_raw(-1000135004i32),
+                s_type: StructureType::from_raw(1000135004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72277,7 +72277,7 @@ impl DescriptorSetAndBindingMappingEXT {
     pub fn builder<'a>() -> DescriptorSetAndBindingMappingEXTBuilder<'a> {
         DescriptorSetAndBindingMappingEXTBuilder {
             inner: DescriptorSetAndBindingMappingEXT {
-                s_type: StructureType::from_raw(-1000135005i32),
+                s_type: StructureType::from_raw(1000135005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72354,7 +72354,7 @@ impl ShaderDescriptorSetAndBindingMappingInfoEXT {
     pub fn builder<'a>() -> ShaderDescriptorSetAndBindingMappingInfoEXTBuilder<'a> {
         ShaderDescriptorSetAndBindingMappingInfoEXTBuilder {
             inner: ShaderDescriptorSetAndBindingMappingInfoEXT {
-                s_type: StructureType::from_raw(-1000135006i32),
+                s_type: StructureType::from_raw(1000135006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72407,7 +72407,7 @@ impl SamplerCustomBorderColorIndexCreateInfoEXT {
     pub fn builder<'a>() -> SamplerCustomBorderColorIndexCreateInfoEXTBuilder<'a> {
         SamplerCustomBorderColorIndexCreateInfoEXTBuilder {
             inner: SamplerCustomBorderColorIndexCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000135011i32),
+                s_type: StructureType::from_raw(1000135011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72459,7 +72459,7 @@ impl OpaqueCaptureDataCreateInfoEXT {
     pub fn builder<'a>() -> OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
         OpaqueCaptureDataCreateInfoEXTBuilder {
             inner: OpaqueCaptureDataCreateInfoEXT {
-                s_type: StructureType::from_raw(-1000135007i32),
+                s_type: StructureType::from_raw(1000135007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72511,7 +72511,7 @@ impl IndirectCommandsLayoutPushDataTokenNV {
     pub fn builder<'a>() -> IndirectCommandsLayoutPushDataTokenNVBuilder<'a> {
         IndirectCommandsLayoutPushDataTokenNVBuilder {
             inner: IndirectCommandsLayoutPushDataTokenNV {
-                s_type: StructureType::from_raw(-1000135012i32),
+                s_type: StructureType::from_raw(1000135012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72568,7 +72568,7 @@ impl SubsampledImageFormatPropertiesEXT {
     pub fn builder<'a>() -> SubsampledImageFormatPropertiesEXTBuilder<'a> {
         SubsampledImageFormatPropertiesEXTBuilder {
             inner: SubsampledImageFormatPropertiesEXT {
-                s_type: StructureType::from_raw(-1000135013i32),
+                s_type: StructureType::from_raw(1000135013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72620,7 +72620,7 @@ impl PhysicalDeviceDescriptorHeapFeaturesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorHeapFeaturesEXTBuilder<'a> {
         PhysicalDeviceDescriptorHeapFeaturesEXTBuilder {
             inner: PhysicalDeviceDescriptorHeapFeaturesEXT {
-                s_type: StructureType::from_raw(-1000135009i32),
+                s_type: StructureType::from_raw(1000135009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72677,7 +72677,7 @@ impl PhysicalDeviceDescriptorHeapPropertiesEXT {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorHeapPropertiesEXTBuilder<'a> {
         PhysicalDeviceDescriptorHeapPropertiesEXTBuilder {
             inner: PhysicalDeviceDescriptorHeapPropertiesEXT {
-                s_type: StructureType::from_raw(-1000135008i32),
+                s_type: StructureType::from_raw(1000135008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72804,7 +72804,7 @@ impl CommandBufferInheritanceDescriptorHeapInfoEXT {
     pub fn builder<'a>() -> CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
         CommandBufferInheritanceDescriptorHeapInfoEXTBuilder {
             inner: CommandBufferInheritanceDescriptorHeapInfoEXT {
-                s_type: StructureType::from_raw(-1000135010i32),
+                s_type: StructureType::from_raw(1000135010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72862,7 +72862,7 @@ impl PhysicalDeviceDescriptorHeapTensorPropertiesARM {
     pub fn builder<'a>() -> PhysicalDeviceDescriptorHeapTensorPropertiesARMBuilder<'a> {
         PhysicalDeviceDescriptorHeapTensorPropertiesARMBuilder {
             inner: PhysicalDeviceDescriptorHeapTensorPropertiesARM {
-                s_type: StructureType::from_raw(-1000135014i32),
+                s_type: StructureType::from_raw(1000135014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72911,7 +72911,7 @@ impl PhysicalDeviceShaderInstrumentationFeaturesARM {
     pub fn builder<'a>() -> PhysicalDeviceShaderInstrumentationFeaturesARMBuilder<'a> {
         PhysicalDeviceShaderInstrumentationFeaturesARMBuilder {
             inner: PhysicalDeviceShaderInstrumentationFeaturesARM {
-                s_type: StructureType::from_raw(-1000607000i32),
+                s_type: StructureType::from_raw(1000607000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -72964,7 +72964,7 @@ impl PhysicalDeviceShaderInstrumentationPropertiesARM {
     pub fn builder<'a>() -> PhysicalDeviceShaderInstrumentationPropertiesARMBuilder<'a> {
         PhysicalDeviceShaderInstrumentationPropertiesARMBuilder {
             inner: PhysicalDeviceShaderInstrumentationPropertiesARM {
-                s_type: StructureType::from_raw(-1000607001i32),
+                s_type: StructureType::from_raw(1000607001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73008,7 +73008,7 @@ impl ShaderInstrumentationCreateInfoARM {
     pub fn builder<'a>() -> ShaderInstrumentationCreateInfoARMBuilder<'a> {
         ShaderInstrumentationCreateInfoARMBuilder {
             inner: ShaderInstrumentationCreateInfoARM {
-                s_type: StructureType::from_raw(-1000607002i32),
+                s_type: StructureType::from_raw(1000607002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73055,7 +73055,7 @@ impl ShaderInstrumentationMetricDescriptionARM {
     pub fn builder<'a>() -> ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
         ShaderInstrumentationMetricDescriptionARMBuilder {
             inner: ShaderInstrumentationMetricDescriptionARM {
-                s_type: StructureType::from_raw(-1000607003i32),
+                s_type: StructureType::from_raw(1000607003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73118,7 +73118,7 @@ impl DeviceMemoryCopyKHR {
     pub fn builder<'a>() -> DeviceMemoryCopyKHRBuilder<'a> {
         DeviceMemoryCopyKHRBuilder {
             inner: DeviceMemoryCopyKHR {
-                s_type: StructureType::from_raw(-1000318000i32),
+                s_type: StructureType::from_raw(1000318000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73182,7 +73182,7 @@ impl CopyDeviceMemoryInfoKHR {
     pub fn builder<'a>() -> CopyDeviceMemoryInfoKHRBuilder<'a> {
         CopyDeviceMemoryInfoKHRBuilder {
             inner: CopyDeviceMemoryInfoKHR {
-                s_type: StructureType::from_raw(-1000318001i32),
+                s_type: StructureType::from_raw(1000318001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73235,7 +73235,7 @@ impl DeviceMemoryImageCopyKHR {
     pub fn builder<'a>() -> DeviceMemoryImageCopyKHRBuilder<'a> {
         DeviceMemoryImageCopyKHRBuilder {
             inner: DeviceMemoryImageCopyKHR {
-                s_type: StructureType::from_raw(-1000318002i32),
+                s_type: StructureType::from_raw(1000318002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73322,7 +73322,7 @@ impl CopyDeviceMemoryImageInfoKHR {
     pub fn builder<'a>() -> CopyDeviceMemoryImageInfoKHRBuilder<'a> {
         CopyDeviceMemoryImageInfoKHRBuilder {
             inner: CopyDeviceMemoryImageInfoKHR {
-                s_type: StructureType::from_raw(-1000318003i32),
+                s_type: StructureType::from_raw(1000318003i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73380,7 +73380,7 @@ impl MemoryRangeBarriersInfoKHR {
     pub fn builder<'a>() -> MemoryRangeBarriersInfoKHRBuilder<'a> {
         MemoryRangeBarriersInfoKHRBuilder {
             inner: MemoryRangeBarriersInfoKHR {
-                s_type: StructureType::from_raw(-1000318004i32),
+                s_type: StructureType::from_raw(1000318004i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73433,7 +73433,7 @@ impl MemoryRangeBarrierKHR {
     pub fn builder<'a>() -> MemoryRangeBarrierKHRBuilder<'a> {
         MemoryRangeBarrierKHRBuilder {
             inner: MemoryRangeBarrierKHR {
-                s_type: StructureType::from_raw(-1000318005i32),
+                s_type: StructureType::from_raw(1000318005i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73520,7 +73520,7 @@ impl PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder<'a> {
         PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder {
             inner: PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
-                s_type: StructureType::from_raw(-1000318006i32),
+                s_type: StructureType::from_raw(1000318006i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73573,7 +73573,7 @@ impl ConditionalRenderingBeginInfo2EXT {
     pub fn builder<'a>() -> ConditionalRenderingBeginInfo2EXTBuilder<'a> {
         ConditionalRenderingBeginInfo2EXTBuilder {
             inner: ConditionalRenderingBeginInfo2EXT {
-                s_type: StructureType::from_raw(-1000318012i32),
+                s_type: StructureType::from_raw(1000318012i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73635,7 +73635,7 @@ impl AccelerationStructureCreateInfo2KHR {
     pub fn builder<'a>() -> AccelerationStructureCreateInfo2KHRBuilder<'a> {
         AccelerationStructureCreateInfo2KHRBuilder {
             inner: AccelerationStructureCreateInfo2KHR {
-                s_type: StructureType::from_raw(-1000318015i32),
+                s_type: StructureType::from_raw(1000318015i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73702,7 +73702,7 @@ impl BindIndexBuffer3InfoKHR {
     pub fn builder<'a>() -> BindIndexBuffer3InfoKHRBuilder<'a> {
         BindIndexBuffer3InfoKHRBuilder {
             inner: BindIndexBuffer3InfoKHR {
-                s_type: StructureType::from_raw(-1000318007i32),
+                s_type: StructureType::from_raw(1000318007i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73764,7 +73764,7 @@ impl BindVertexBuffer3InfoKHR {
     pub fn builder<'a>() -> BindVertexBuffer3InfoKHRBuilder<'a> {
         BindVertexBuffer3InfoKHRBuilder {
             inner: BindVertexBuffer3InfoKHR {
-                s_type: StructureType::from_raw(-1000318008i32),
+                s_type: StructureType::from_raw(1000318008i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73826,7 +73826,7 @@ impl DrawIndirect2InfoKHR {
     pub fn builder<'a>() -> DrawIndirect2InfoKHRBuilder<'a> {
         DrawIndirect2InfoKHRBuilder {
             inner: DrawIndirect2InfoKHR {
-                s_type: StructureType::from_raw(-1000318009i32),
+                s_type: StructureType::from_raw(1000318009i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73885,7 +73885,7 @@ impl DrawIndirectCount2InfoKHR {
     pub fn builder<'a>() -> DrawIndirectCount2InfoKHRBuilder<'a> {
         DrawIndirectCount2InfoKHRBuilder {
             inner: DrawIndirectCount2InfoKHR {
-                s_type: StructureType::from_raw(-1000318010i32),
+                s_type: StructureType::from_raw(1000318010i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -73957,7 +73957,7 @@ impl DispatchIndirect2InfoKHR {
     pub fn builder<'a>() -> DispatchIndirect2InfoKHRBuilder<'a> {
         DispatchIndirect2InfoKHRBuilder {
             inner: DispatchIndirect2InfoKHR {
-                s_type: StructureType::from_raw(-1000318011i32),
+                s_type: StructureType::from_raw(1000318011i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -74014,7 +74014,7 @@ impl BindTransformFeedbackBuffer2InfoEXT {
     pub fn builder<'a>() -> BindTransformFeedbackBuffer2InfoEXTBuilder<'a> {
         BindTransformFeedbackBuffer2InfoEXTBuilder {
             inner: BindTransformFeedbackBuffer2InfoEXT {
-                s_type: StructureType::from_raw(-1000318013i32),
+                s_type: StructureType::from_raw(1000318013i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -74071,7 +74071,7 @@ impl MemoryMarkerInfoAMD {
     pub fn builder<'a>() -> MemoryMarkerInfoAMDBuilder<'a> {
         MemoryMarkerInfoAMDBuilder {
             inner: MemoryMarkerInfoAMD {
-                s_type: StructureType::from_raw(-1000318014i32),
+                s_type: StructureType::from_raw(1000318014i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -74135,7 +74135,7 @@ impl PhysicalDeviceShaderConstantDataFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderConstantDataFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderConstantDataFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderConstantDataFeaturesKHR {
-                s_type: StructureType::from_raw(-1000231000i32),
+                s_type: StructureType::from_raw(1000231000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -74187,7 +74187,7 @@ impl PhysicalDeviceShaderAbortFeaturesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderAbortFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderAbortFeaturesKHRBuilder {
             inner: PhysicalDeviceShaderAbortFeaturesKHR {
-                s_type: StructureType::from_raw(-1000233000i32),
+                s_type: StructureType::from_raw(1000233000i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -74239,7 +74239,7 @@ impl PhysicalDeviceShaderAbortPropertiesKHR {
     pub fn builder<'a>() -> PhysicalDeviceShaderAbortPropertiesKHRBuilder<'a> {
         PhysicalDeviceShaderAbortPropertiesKHRBuilder {
             inner: PhysicalDeviceShaderAbortPropertiesKHR {
-                s_type: StructureType::from_raw(-1000233002i32),
+                s_type: StructureType::from_raw(1000233002i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -74291,7 +74291,7 @@ impl DeviceFaultShaderAbortMessageInfoKHR {
     pub fn builder<'a>() -> DeviceFaultShaderAbortMessageInfoKHRBuilder<'a> {
         DeviceFaultShaderAbortMessageInfoKHRBuilder {
             inner: DeviceFaultShaderAbortMessageInfoKHR {
-                s_type: StructureType::from_raw(-1000233001i32),
+                s_type: StructureType::from_raw(1000233001i32),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,

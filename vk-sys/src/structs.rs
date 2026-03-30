@@ -199,176 +199,176 @@ pub struct StdVideoVP9Level {
 pub struct StdVideoVP9Profile {
     _opaque: [u8; 0],
 }
-pub type OpticalFlowExecuteFlagsNV = OpticalFlowExecuteFlagBitsNV;
-pub type VideoComponentBitDepthFlagsKHR = VideoComponentBitDepthFlagBitsKHR;
-pub type VideoEncodeH265RateControlFlagsKHR = VideoEncodeH265RateControlFlagBitsKHR;
-pub type VideoEncodeRateControlModeFlagsKHR = VideoEncodeRateControlModeFlagBitsKHR;
-pub type SurfaceCounterFlagsEXT = SurfaceCounterFlagBitsEXT;
-pub type OpticalFlowUsageFlagsNV = OpticalFlowUsageFlagBitsNV;
-pub type PartitionedAccelerationStructureInstanceFlagsNV = PartitionedAccelerationStructureInstanceFlagBitsNV;
-pub type FramebufferCreateFlags = FramebufferCreateFlagBits;
-pub type CullModeFlags = CullModeFlagBits;
-pub type SurfaceTransformFlagsKHR = SurfaceTransformFlagBitsKHR;
-pub type ImageCompressionFlagsEXT = ImageCompressionFlagBitsEXT;
-pub type AccelerationStructureCreateFlagsKHR = AccelerationStructureCreateFlagBitsKHR;
-pub type DeviceDiagnosticsConfigFlagsNV = DeviceDiagnosticsConfigFlagBitsNV;
-pub type PipelineCompilerControlFlagsAMD = PipelineCompilerControlFlagBitsAMD;
-pub type DebugUtilsMessageTypeFlagsEXT = DebugUtilsMessageTypeFlagBitsEXT;
-pub type MemoryAllocateFlags = MemoryAllocateFlagBits;
-pub type DeviceAddressBindingFlagsEXT = DeviceAddressBindingFlagBitsEXT;
-pub type SwapchainCreateFlagsKHR = SwapchainCreateFlagBitsKHR;
-pub type RenderPassCreateFlags = RenderPassCreateFlagBits;
-pub type GeometryInstanceFlagsKHR = GeometryInstanceFlagBitsKHR;
-pub type SparseMemoryBindFlags = SparseMemoryBindFlagBits;
-pub type DescriptorSetLayoutCreateFlags = DescriptorSetLayoutCreateFlagBits;
-pub type RenderingFlags = RenderingFlagBits;
-pub type PipelineCreationFeedbackFlags = PipelineCreationFeedbackFlagBits;
-pub type ExternalMemoryFeatureFlags = ExternalMemoryFeatureFlagBits;
-pub type OpticalFlowGridSizeFlagsNV = OpticalFlowGridSizeFlagBitsNV;
-pub type VideoEncodeAV1SuperblockSizeFlagsKHR = VideoEncodeAV1SuperblockSizeFlagBitsKHR;
-pub type BuildMicromapFlagsEXT = BuildMicromapFlagBitsEXT;
-pub type PipelineShaderStageCreateFlags = PipelineShaderStageCreateFlagBits;
-pub type AddressCommandFlagsKHR = AddressCommandFlagBitsKHR;
-pub type HostImageCopyFlags = HostImageCopyFlagBits;
-pub type ImageViewCreateFlags = ImageViewCreateFlagBits;
-pub type DependencyFlags = DependencyFlagBits;
-pub type FenceCreateFlags = FenceCreateFlagBits;
-pub type ClusterAccelerationStructureAddressResolutionFlagsNV = ClusterAccelerationStructureAddressResolutionFlagBitsNV;
-pub type QueryPoolCreateFlags = QueryPoolCreateFlagBits;
-pub type VideoDecodeUsageFlagsKHR = VideoDecodeUsageFlagBitsKHR;
-pub type ResolveImageFlagsKHR = ResolveImageFlagBitsKHR;
-pub type FormatFeatureFlags2 = FormatFeatureFlagBits2;
-pub type VideoEncodeH265CtbSizeFlagsKHR = VideoEncodeH265CtbSizeFlagBitsKHR;
-pub type FormatFeatureFlags = FormatFeatureFlagBits;
-pub type SampleCountFlags = SampleCountFlagBits;
-pub type BufferUsageFlags = BufferUsageFlagBits;
-pub type SubmitFlags = SubmitFlagBits;
-pub type VideoEncodeH265CapabilityFlagsKHR = VideoEncodeH265CapabilityFlagBitsKHR;
-pub type IndirectCommandsInputModeFlagsEXT = IndirectCommandsInputModeFlagBitsEXT;
-pub type RenderingAttachmentFlagsKHR = RenderingAttachmentFlagBitsKHR;
-pub type BufferCreateFlags = BufferCreateFlagBits;
-pub type ExternalFenceFeatureFlags = ExternalFenceFeatureFlagBits;
-pub type ConditionalRenderingFlagsEXT = ConditionalRenderingFlagBitsEXT;
-pub type PerformanceCounterDescriptionFlagsKHR = PerformanceCounterDescriptionFlagBitsKHR;
-pub type EventCreateFlags = EventCreateFlagBits;
 pub type VideoEncodeH264RateControlFlagsKHR = VideoEncodeH264RateControlFlagBitsKHR;
-pub type PresentScalingFlagsKHR = PresentScalingFlagBitsKHR;
-pub type IndirectCommandsLayoutUsageFlagsNV = IndirectCommandsLayoutUsageFlagBitsNV;
-pub type InstanceCreateFlags = InstanceCreateFlagBits;
-pub type PipelineStageFlags = PipelineStageFlagBits;
-pub type ShaderCorePropertiesFlagsAMD = ShaderCorePropertiesFlagBitsAMD;
-pub type VideoEncodeRgbRangeCompressionFlagsVALVE = VideoEncodeRgbRangeCompressionFlagBitsVALVE;
-pub type ShaderStageFlags = ShaderStageFlagBits;
-pub type CompositeAlphaFlagsKHR = CompositeAlphaFlagBitsKHR;
-pub type PresentGravityFlagsKHR = PresentGravityFlagBitsKHR;
-pub type MemoryUnmapFlags = MemoryUnmapFlagBits;
-pub type MemoryHeapFlags = MemoryHeapFlagBits;
-pub type MemoryDecompressionMethodFlagsEXT = MemoryDecompressionMethodFlagBitsEXT;
-pub type PastPresentationTimingFlagsEXT = PastPresentationTimingFlagBitsEXT;
-pub type VideoChromaSubsamplingFlagsKHR = VideoChromaSubsamplingFlagBitsKHR;
-pub type VideoEncodeAV1RateControlFlagsKHR = VideoEncodeAV1RateControlFlagBitsKHR;
-pub type PresentStageFlagsEXT = PresentStageFlagBitsEXT;
-pub type QueryPipelineStatisticFlags = QueryPipelineStatisticFlagBits;
-pub type DebugReportFlagsEXT = DebugReportFlagBitsEXT;
-pub type PhysicalDeviceSchedulingControlsFlagsARM = PhysicalDeviceSchedulingControlsFlagBitsARM;
-pub type SpirvResourceTypeFlagsEXT = SpirvResourceTypeFlagBitsEXT;
-pub type VideoEncodeIntraRefreshModeFlagsKHR = VideoEncodeIntraRefreshModeFlagBitsKHR;
-pub type PresentTimingInfoFlagsEXT = PresentTimingInfoFlagBitsEXT;
-pub type PipelineColorBlendStateCreateFlags = PipelineColorBlendStateCreateFlagBits;
-pub type DataGraphPipelineDispatchFlagsARM = DataGraphPipelineDispatchFlagBitsARM;
-pub type VideoSessionCreateFlagsKHR = VideoSessionCreateFlagBitsKHR;
-pub type AddressCopyFlagsKHR = AddressCopyFlagBitsKHR;
-pub type TensorCreateFlagsARM = TensorCreateFlagBitsARM;
-pub type PipelineLayoutCreateFlags = PipelineLayoutCreateFlagBits;
-pub type FrameBoundaryFlagsEXT = FrameBoundaryFlagBitsEXT;
-pub type GraphicsPipelineLibraryFlagsEXT = GraphicsPipelineLibraryFlagBitsEXT;
-pub type SubgroupFeatureFlags = SubgroupFeatureFlagBits;
-pub type QueueFlags = QueueFlagBits;
-pub type SamplerCreateFlags = SamplerCreateFlagBits;
-pub type ImageConstraintsInfoFlagsFUCHSIA = ImageConstraintsInfoFlagBitsFUCHSIA;
-pub type VideoEncodeH265StdFlagsKHR = VideoEncodeH265StdFlagBitsKHR;
-pub type VideoDecodeH264PictureLayoutFlagsKHR = VideoDecodeH264PictureLayoutFlagBitsKHR;
-pub type VideoCodecOperationFlagsKHR = VideoCodecOperationFlagBitsKHR;
-pub type ShaderCreateFlagsEXT = ShaderCreateFlagBitsEXT;
-pub type QueryControlFlags = QueryControlFlagBits;
-pub type SubpassDescriptionFlags = SubpassDescriptionFlagBits;
-pub type VideoEncodeH265TransformBlockSizeFlagsKHR = VideoEncodeH265TransformBlockSizeFlagBitsKHR;
-pub type IndirectCommandsLayoutUsageFlagsEXT = IndirectCommandsLayoutUsageFlagBitsEXT;
-pub type DescriptorBindingFlags = DescriptorBindingFlagBits;
-pub type ImageCreateFlags = ImageCreateFlagBits;
-pub type VideoEncodeH264StdFlagsKHR = VideoEncodeH264StdFlagBitsKHR;
-pub type OpticalFlowSessionCreateFlagsNV = OpticalFlowSessionCreateFlagBitsNV;
-pub type StencilFaceFlags = StencilFaceFlagBits;
-pub type DisplayPlaneAlphaFlagsKHR = DisplayPlaneAlphaFlagBitsKHR;
-pub type AttachmentDescriptionFlags = AttachmentDescriptionFlagBits;
-pub type MemoryMapFlags = MemoryMapFlagBits;
-pub type SparseImageFormatFlags = SparseImageFormatFlagBits;
-pub type VideoEncodeUsageFlagsKHR = VideoEncodeUsageFlagBitsKHR;
-pub type TensorUsageFlagsARM = TensorUsageFlagBitsARM;
-pub type TileShadingRenderPassFlagsQCOM = TileShadingRenderPassFlagBitsQCOM;
-pub type ResolveModeFlags = ResolveModeFlagBits;
-pub type ClusterAccelerationStructureIndexFormatFlagsNV = ClusterAccelerationStructureIndexFormatFlagBitsNV;
-pub type ColorComponentFlags = ColorComponentFlagBits;
-pub type PipelineCreateFlags2 = PipelineCreateFlagBits2;
-pub type ExternalMemoryHandleTypeFlags = ExternalMemoryHandleTypeFlagBits;
-pub type VideoEncodeAV1CapabilityFlagsKHR = VideoEncodeAV1CapabilityFlagBitsKHR;
-pub type ClusterAccelerationStructureClusterFlagsNV = ClusterAccelerationStructureClusterFlagBitsNV;
-pub type AccessFlags = AccessFlagBits;
-pub type PipelineDepthStencilStateCreateFlags = PipelineDepthStencilStateCreateFlagBits;
-pub type VideoCapabilityFlagsKHR = VideoCapabilityFlagBitsKHR;
-pub type MicromapCreateFlagsEXT = MicromapCreateFlagBitsEXT;
-pub type ImageUsageFlags = ImageUsageFlagBits;
-pub type PipelineCreateFlags = PipelineCreateFlagBits;
-pub type GeometryFlagsKHR = GeometryFlagBitsKHR;
-pub type ExternalMemoryHandleTypeFlagsNV = ExternalMemoryHandleTypeFlagBitsNV;
-pub type TensorViewCreateFlagsARM = TensorViewCreateFlagBitsARM;
-pub type VideoEncodeRgbModelConversionFlagsVALVE = VideoEncodeRgbModelConversionFlagBitsVALVE;
-pub type IndirectStateFlagsNV = IndirectStateFlagBitsNV;
-pub type CommandPoolResetFlags = CommandPoolResetFlagBits;
-pub type ToolPurposeFlags = ToolPurposeFlagBits;
-pub type VideoDecodeCapabilityFlagsKHR = VideoDecodeCapabilityFlagBitsKHR;
-pub type CommandPoolCreateFlags = CommandPoolCreateFlagBits;
-pub type PeerMemoryFeatureFlags = PeerMemoryFeatureFlagBits;
-pub type ImageCompressionFixedRateFlagsEXT = ImageCompressionFixedRateFlagBitsEXT;
-pub type DescriptorPoolCreateFlags = DescriptorPoolCreateFlagBits;
-pub type VideoCodingControlFlagsKHR = VideoCodingControlFlagBitsKHR;
-pub type VideoEncodeFeedbackFlagsKHR = VideoEncodeFeedbackFlagBitsKHR;
-pub type BuildAccelerationStructureFlagsKHR = BuildAccelerationStructureFlagBitsKHR;
-pub type SwapchainImageUsageFlagsOHOS = SwapchainImageUsageFlagBitsOHOS;
-pub type ExternalSemaphoreFeatureFlags = ExternalSemaphoreFeatureFlagBits;
-pub type PipelineCacheCreateFlags = PipelineCacheCreateFlagBits;
-pub type VideoEncodeFlagsKHR = VideoEncodeFlagBitsKHR;
-pub type VideoEncodeCapabilityFlagsKHR = VideoEncodeCapabilityFlagBitsKHR;
-pub type VideoEncodeH264CapabilityFlagsKHR = VideoEncodeH264CapabilityFlagBitsKHR;
-pub type VideoEncodeRgbChromaOffsetFlagsVALVE = VideoEncodeRgbChromaOffsetFlagBitsVALVE;
-pub type SwapchainImageUsageFlagsANDROID = SwapchainImageUsageFlagBitsANDROID;
+pub type ImageCompressionFlagsEXT = ImageCompressionFlagBitsEXT;
+pub type VideoComponentBitDepthFlagsKHR = VideoComponentBitDepthFlagBitsKHR;
 pub type FenceImportFlags = FenceImportFlagBits;
-pub type CommandBufferUsageFlags = CommandBufferUsageFlagBits;
-pub type ExternalMemoryFeatureFlagsNV = ExternalMemoryFeatureFlagBitsNV;
-pub type DataGraphPipelineSessionCreateFlagsARM = DataGraphPipelineSessionCreateFlagBitsARM;
-pub type VideoEncodeAV1StdFlagsKHR = VideoEncodeAV1StdFlagBitsKHR;
-pub type ExternalSemaphoreHandleTypeFlags = ExternalSemaphoreHandleTypeFlagBits;
-pub type VideoSessionParametersCreateFlagsKHR = VideoSessionParametersCreateFlagBitsKHR;
-pub type DeviceGroupPresentModeFlagsKHR = DeviceGroupPresentModeFlagBitsKHR;
-pub type BufferUsageFlags2 = BufferUsageFlagBits2;
-pub type DebugUtilsMessageSeverityFlagsEXT = DebugUtilsMessageSeverityFlagBitsEXT;
-pub type ImageAspectFlags = ImageAspectFlagBits;
+pub type IndirectCommandsLayoutUsageFlagsEXT = IndirectCommandsLayoutUsageFlagBitsEXT;
+pub type MemoryHeapFlags = MemoryHeapFlagBits;
+pub type DependencyFlags = DependencyFlagBits;
+pub type PipelineDepthStencilStateCreateFlags = PipelineDepthStencilStateCreateFlagBits;
+pub type GraphicsPipelineLibraryFlagsEXT = GraphicsPipelineLibraryFlagBitsEXT;
+pub type OpticalFlowGridSizeFlagsNV = OpticalFlowGridSizeFlagBitsNV;
+pub type IndirectCommandsInputModeFlagsEXT = IndirectCommandsInputModeFlagBitsEXT;
+pub type ShaderCreateFlagsEXT = ShaderCreateFlagBitsEXT;
+pub type PipelineColorBlendStateCreateFlags = PipelineColorBlendStateCreateFlagBits;
 pub type AcquireProfilingLockFlagsKHR = AcquireProfilingLockFlagBitsKHR;
-pub type CommandBufferResetFlags = CommandBufferResetFlagBits;
-pub type DeviceFaultFlagsKHR = DeviceFaultFlagBitsKHR;
-pub type AccessFlags3KHR = AccessFlagBits3KHR;
 pub type ExternalFenceHandleTypeFlags = ExternalFenceHandleTypeFlagBits;
-pub type QueryResultFlags = QueryResultFlagBits;
-pub type ClusterAccelerationStructureGeometryFlagsNV = ClusterAccelerationStructureGeometryFlagBitsNV;
-pub type MemoryPropertyFlags = MemoryPropertyFlagBits;
-pub type SemaphoreImportFlags = SemaphoreImportFlagBits;
-pub type RefreshObjectFlagsKHR = RefreshObjectFlagBitsKHR;
-pub type PipelineStageFlags2 = PipelineStageFlagBits2;
-pub type SemaphoreWaitFlags = SemaphoreWaitFlagBits;
-pub type AccessFlags2 = AccessFlagBits2;
-pub type VideoEncodeContentFlagsKHR = VideoEncodeContentFlagBitsKHR;
-pub type ExportMetalObjectTypeFlagsEXT = ExportMetalObjectTypeFlagBitsEXT;
+pub type PresentGravityFlagsKHR = PresentGravityFlagBitsKHR;
+pub type VideoCodecOperationFlagsKHR = VideoCodecOperationFlagBitsKHR;
+pub type FormatFeatureFlags = FormatFeatureFlagBits;
+pub type CullModeFlags = CullModeFlagBits;
+pub type PipelineCreationFeedbackFlags = PipelineCreationFeedbackFlagBits;
+pub type SpirvResourceTypeFlagsEXT = SpirvResourceTypeFlagBitsEXT;
+pub type VideoEncodeH264StdFlagsKHR = VideoEncodeH264StdFlagBitsKHR;
 pub type DeviceQueueCreateFlags = DeviceQueueCreateFlagBits;
+pub type DeviceGroupPresentModeFlagsKHR = DeviceGroupPresentModeFlagBitsKHR;
+pub type OpticalFlowUsageFlagsNV = OpticalFlowUsageFlagBitsNV;
+pub type SparseMemoryBindFlags = SparseMemoryBindFlagBits;
+pub type PresentTimingInfoFlagsEXT = PresentTimingInfoFlagBitsEXT;
+pub type AccessFlags3KHR = AccessFlagBits3KHR;
+pub type BuildAccelerationStructureFlagsKHR = BuildAccelerationStructureFlagBitsKHR;
+pub type PastPresentationTimingFlagsEXT = PastPresentationTimingFlagBitsEXT;
+pub type PipelineStageFlags2 = PipelineStageFlagBits2;
+pub type ImageAspectFlags = ImageAspectFlagBits;
+pub type VideoEncodeRateControlModeFlagsKHR = VideoEncodeRateControlModeFlagBitsKHR;
+pub type VideoEncodeH265RateControlFlagsKHR = VideoEncodeH265RateControlFlagBitsKHR;
+pub type ExternalMemoryFeatureFlags = ExternalMemoryFeatureFlagBits;
+pub type DescriptorSetLayoutCreateFlags = DescriptorSetLayoutCreateFlagBits;
+pub type MemoryPropertyFlags = MemoryPropertyFlagBits;
+pub type PipelineStageFlags = PipelineStageFlagBits;
+pub type PipelineCacheCreateFlags = PipelineCacheCreateFlagBits;
+pub type VideoChromaSubsamplingFlagsKHR = VideoChromaSubsamplingFlagBitsKHR;
+pub type PeerMemoryFeatureFlags = PeerMemoryFeatureFlagBits;
+pub type MemoryUnmapFlags = MemoryUnmapFlagBits;
+pub type ClusterAccelerationStructureGeometryFlagsNV = ClusterAccelerationStructureGeometryFlagBitsNV;
+pub type QueryPipelineStatisticFlags = QueryPipelineStatisticFlagBits;
+pub type CompositeAlphaFlagsKHR = CompositeAlphaFlagBitsKHR;
+pub type PipelineShaderStageCreateFlags = PipelineShaderStageCreateFlagBits;
+pub type AddressCopyFlagsKHR = AddressCopyFlagBitsKHR;
+pub type RenderingFlags = RenderingFlagBits;
+pub type BufferCreateFlags = BufferCreateFlagBits;
+pub type ImageConstraintsInfoFlagsFUCHSIA = ImageConstraintsInfoFlagBitsFUCHSIA;
+pub type DeviceFaultFlagsKHR = DeviceFaultFlagBitsKHR;
+pub type QueryPoolCreateFlags = QueryPoolCreateFlagBits;
+pub type VideoEncodeAV1StdFlagsKHR = VideoEncodeAV1StdFlagBitsKHR;
+pub type QueryResultFlags = QueryResultFlagBits;
+pub type AccessFlags2 = AccessFlagBits2;
+pub type VideoEncodeH265CtbSizeFlagsKHR = VideoEncodeH265CtbSizeFlagBitsKHR;
+pub type QueueFlags = QueueFlagBits;
+pub type SurfaceCounterFlagsEXT = SurfaceCounterFlagBitsEXT;
+pub type ExportMetalObjectTypeFlagsEXT = ExportMetalObjectTypeFlagBitsEXT;
+pub type SparseImageFormatFlags = SparseImageFormatFlagBits;
+pub type MicromapCreateFlagsEXT = MicromapCreateFlagBitsEXT;
+pub type CommandPoolCreateFlags = CommandPoolCreateFlagBits;
+pub type IndirectStateFlagsNV = IndirectStateFlagBitsNV;
+pub type SubpassDescriptionFlags = SubpassDescriptionFlagBits;
+pub type VideoEncodeFlagsKHR = VideoEncodeFlagBitsKHR;
+pub type ClusterAccelerationStructureIndexFormatFlagsNV = ClusterAccelerationStructureIndexFormatFlagBitsNV;
+pub type CommandPoolResetFlags = CommandPoolResetFlagBits;
+pub type DebugUtilsMessageSeverityFlagsEXT = DebugUtilsMessageSeverityFlagBitsEXT;
+pub type PipelineCreateFlags2 = PipelineCreateFlagBits2;
+pub type VideoEncodeAV1CapabilityFlagsKHR = VideoEncodeAV1CapabilityFlagBitsKHR;
+pub type BuildMicromapFlagsEXT = BuildMicromapFlagBitsEXT;
+pub type SubmitFlags = SubmitFlagBits;
+pub type HostImageCopyFlags = HostImageCopyFlagBits;
+pub type MemoryMapFlags = MemoryMapFlagBits;
+pub type SampleCountFlags = SampleCountFlagBits;
+pub type VideoEncodeAV1RateControlFlagsKHR = VideoEncodeAV1RateControlFlagBitsKHR;
+pub type ClusterAccelerationStructureAddressResolutionFlagsNV = ClusterAccelerationStructureAddressResolutionFlagBitsNV;
+pub type DeviceDiagnosticsConfigFlagsNV = DeviceDiagnosticsConfigFlagBitsNV;
+pub type PresentStageFlagsEXT = PresentStageFlagBitsEXT;
+pub type ExternalMemoryHandleTypeFlagsNV = ExternalMemoryHandleTypeFlagBitsNV;
+pub type ResolveModeFlags = ResolveModeFlagBits;
+pub type PipelineCompilerControlFlagsAMD = PipelineCompilerControlFlagBitsAMD;
+pub type RenderPassCreateFlags = RenderPassCreateFlagBits;
+pub type VideoDecodeUsageFlagsKHR = VideoDecodeUsageFlagBitsKHR;
+pub type AccessFlags = AccessFlagBits;
+pub type FenceCreateFlags = FenceCreateFlagBits;
+pub type ExternalSemaphoreFeatureFlags = ExternalSemaphoreFeatureFlagBits;
+pub type OpticalFlowExecuteFlagsNV = OpticalFlowExecuteFlagBitsNV;
+pub type ImageCreateFlags = ImageCreateFlagBits;
+pub type StencilFaceFlags = StencilFaceFlagBits;
+pub type TensorUsageFlagsARM = TensorUsageFlagBitsARM;
+pub type SwapchainImageUsageFlagsOHOS = SwapchainImageUsageFlagBitsOHOS;
+pub type ClusterAccelerationStructureClusterFlagsNV = ClusterAccelerationStructureClusterFlagBitsNV;
+pub type VideoEncodeH264CapabilityFlagsKHR = VideoEncodeH264CapabilityFlagBitsKHR;
+pub type VideoDecodeCapabilityFlagsKHR = VideoDecodeCapabilityFlagBitsKHR;
+pub type ImageCompressionFixedRateFlagsEXT = ImageCompressionFixedRateFlagBitsEXT;
+pub type ImageViewCreateFlags = ImageViewCreateFlagBits;
+pub type DeviceAddressBindingFlagsEXT = DeviceAddressBindingFlagBitsEXT;
+pub type MemoryAllocateFlags = MemoryAllocateFlagBits;
+pub type PipelineLayoutCreateFlags = PipelineLayoutCreateFlagBits;
+pub type VideoSessionCreateFlagsKHR = VideoSessionCreateFlagBitsKHR;
+pub type AddressCommandFlagsKHR = AddressCommandFlagBitsKHR;
+pub type DebugReportFlagsEXT = DebugReportFlagBitsEXT;
+pub type VideoSessionParametersCreateFlagsKHR = VideoSessionParametersCreateFlagBitsKHR;
+pub type FramebufferCreateFlags = FramebufferCreateFlagBits;
+pub type VideoEncodeH265TransformBlockSizeFlagsKHR = VideoEncodeH265TransformBlockSizeFlagBitsKHR;
+pub type DataGraphPipelineDispatchFlagsARM = DataGraphPipelineDispatchFlagBitsARM;
+pub type TileShadingRenderPassFlagsQCOM = TileShadingRenderPassFlagBitsQCOM;
+pub type InstanceCreateFlags = InstanceCreateFlagBits;
+pub type VideoEncodeIntraRefreshModeFlagsKHR = VideoEncodeIntraRefreshModeFlagBitsKHR;
+pub type PerformanceCounterDescriptionFlagsKHR = PerformanceCounterDescriptionFlagBitsKHR;
+pub type VideoEncodeFeedbackFlagsKHR = VideoEncodeFeedbackFlagBitsKHR;
+pub type AccelerationStructureCreateFlagsKHR = AccelerationStructureCreateFlagBitsKHR;
+pub type SemaphoreImportFlags = SemaphoreImportFlagBits;
+pub type VideoCapabilityFlagsKHR = VideoCapabilityFlagBitsKHR;
+pub type QueryControlFlags = QueryControlFlagBits;
+pub type VideoEncodeRgbRangeCompressionFlagsVALVE = VideoEncodeRgbRangeCompressionFlagBitsVALVE;
+pub type DescriptorPoolCreateFlags = DescriptorPoolCreateFlagBits;
+pub type DescriptorBindingFlags = DescriptorBindingFlagBits;
+pub type EventCreateFlags = EventCreateFlagBits;
+pub type OpticalFlowSessionCreateFlagsNV = OpticalFlowSessionCreateFlagBitsNV;
+pub type SubgroupFeatureFlags = SubgroupFeatureFlagBits;
+pub type SemaphoreWaitFlags = SemaphoreWaitFlagBits;
+pub type BufferUsageFlags = BufferUsageFlagBits;
+pub type GeometryInstanceFlagsKHR = GeometryInstanceFlagBitsKHR;
+pub type PhysicalDeviceSchedulingControlsFlagsARM = PhysicalDeviceSchedulingControlsFlagBitsARM;
+pub type ShaderCorePropertiesFlagsAMD = ShaderCorePropertiesFlagBitsAMD;
+pub type TensorViewCreateFlagsARM = TensorViewCreateFlagBitsARM;
+pub type VideoDecodeH264PictureLayoutFlagsKHR = VideoDecodeH264PictureLayoutFlagBitsKHR;
+pub type CommandBufferResetFlags = CommandBufferResetFlagBits;
+pub type ColorComponentFlags = ColorComponentFlagBits;
+pub type AttachmentDescriptionFlags = AttachmentDescriptionFlagBits;
+pub type VideoEncodeContentFlagsKHR = VideoEncodeContentFlagBitsKHR;
+pub type SwapchainImageUsageFlagsANDROID = SwapchainImageUsageFlagBitsANDROID;
+pub type GeometryFlagsKHR = GeometryFlagBitsKHR;
+pub type BufferUsageFlags2 = BufferUsageFlagBits2;
+pub type RefreshObjectFlagsKHR = RefreshObjectFlagBitsKHR;
+pub type VideoEncodeH265StdFlagsKHR = VideoEncodeH265StdFlagBitsKHR;
+pub type SamplerCreateFlags = SamplerCreateFlagBits;
+pub type DataGraphPipelineSessionCreateFlagsARM = DataGraphPipelineSessionCreateFlagBitsARM;
+pub type ConditionalRenderingFlagsEXT = ConditionalRenderingFlagBitsEXT;
+pub type ExternalMemoryFeatureFlagsNV = ExternalMemoryFeatureFlagBitsNV;
+pub type FormatFeatureFlags2 = FormatFeatureFlagBits2;
+pub type VideoEncodeCapabilityFlagsKHR = VideoEncodeCapabilityFlagBitsKHR;
+pub type ShaderStageFlags = ShaderStageFlagBits;
+pub type SurfaceTransformFlagsKHR = SurfaceTransformFlagBitsKHR;
+pub type DebugUtilsMessageTypeFlagsEXT = DebugUtilsMessageTypeFlagBitsEXT;
+pub type RenderingAttachmentFlagsKHR = RenderingAttachmentFlagBitsKHR;
+pub type VideoEncodeH265CapabilityFlagsKHR = VideoEncodeH265CapabilityFlagBitsKHR;
+pub type VideoEncodeRgbModelConversionFlagsVALVE = VideoEncodeRgbModelConversionFlagBitsVALVE;
+pub type VideoCodingControlFlagsKHR = VideoCodingControlFlagBitsKHR;
+pub type VideoEncodeRgbChromaOffsetFlagsVALVE = VideoEncodeRgbChromaOffsetFlagBitsVALVE;
+pub type CommandBufferUsageFlags = CommandBufferUsageFlagBits;
+pub type ToolPurposeFlags = ToolPurposeFlagBits;
+pub type VideoEncodeUsageFlagsKHR = VideoEncodeUsageFlagBitsKHR;
+pub type IndirectCommandsLayoutUsageFlagsNV = IndirectCommandsLayoutUsageFlagBitsNV;
+pub type TensorCreateFlagsARM = TensorCreateFlagBitsARM;
+pub type DisplayPlaneAlphaFlagsKHR = DisplayPlaneAlphaFlagBitsKHR;
+pub type PartitionedAccelerationStructureInstanceFlagsNV = PartitionedAccelerationStructureInstanceFlagBitsNV;
+pub type PresentScalingFlagsKHR = PresentScalingFlagBitsKHR;
+pub type PipelineCreateFlags = PipelineCreateFlagBits;
+pub type ResolveImageFlagsKHR = ResolveImageFlagBitsKHR;
+pub type FrameBoundaryFlagsEXT = FrameBoundaryFlagBitsEXT;
+pub type MemoryDecompressionMethodFlagsEXT = MemoryDecompressionMethodFlagBitsEXT;
+pub type ImageUsageFlags = ImageUsageFlagBits;
+pub type ExternalFenceFeatureFlags = ExternalFenceFeatureFlagBits;
+pub type SwapchainCreateFlagsKHR = SwapchainCreateFlagBitsKHR;
+pub type ExternalMemoryHandleTypeFlags = ExternalMemoryHandleTypeFlagBits;
+pub type ExternalSemaphoreHandleTypeFlags = ExternalSemaphoreHandleTypeFlagBits;
+pub type VideoEncodeAV1SuperblockSizeFlagsKHR = VideoEncodeAV1SuperblockSizeFlagBitsKHR;
 pub type DeviceCreateFlags = u32;
 pub type BufferViewCreateFlags = u32;
 pub type ShaderModuleCreateFlags = ShaderModuleCreateFlagBits;
@@ -1364,7 +1364,7 @@ impl Default for BufferUsageFlags2CreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000470006i32),
+            s_type: StructureType::from_raw(1000470006i32),
             p_next: core::ptr::null(),
             usage: Default::default(),
         }
@@ -1853,7 +1853,7 @@ impl Default for CopyMemoryIndirectInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000549002i32),
+            s_type: StructureType::from_raw(1000549002i32),
             p_next: core::ptr::null(),
             src_copy_flags: Default::default(),
             dst_copy_flags: Default::default(),
@@ -1896,7 +1896,7 @@ impl Default for CopyMemoryToImageIndirectInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000549003i32),
+            s_type: StructureType::from_raw(1000549003i32),
             p_next: core::ptr::null(),
             src_copy_flags: Default::default(),
             copy_count: Default::default(),
@@ -2137,7 +2137,7 @@ impl Default for ComputePipelineIndirectBufferInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000428001i32),
+            s_type: StructureType::from_raw(1000428001i32),
             p_next: core::ptr::null(),
             device_address: Default::default(),
             size: Default::default(),
@@ -2157,7 +2157,7 @@ impl Default for PipelineCreateFlags2CreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000470005i32),
+            s_type: StructureType::from_raw(1000470005i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -2658,7 +2658,7 @@ impl Default for PipelineBinaryCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483001i32),
+            s_type: StructureType::from_raw(1000483001i32),
             p_next: core::ptr::null(),
             p_keys_and_data_info: core::ptr::null(),
             pipeline: Default::default(),
@@ -2679,7 +2679,7 @@ impl Default for PipelineBinaryHandlesInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483009i32),
+            s_type: StructureType::from_raw(1000483009i32),
             p_next: core::ptr::null(),
             pipeline_binary_count: Default::default(),
             p_pipeline_binaries: core::ptr::null_mut(),
@@ -2726,7 +2726,7 @@ impl Default for PipelineBinaryKeyKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483003i32),
+            s_type: StructureType::from_raw(1000483003i32),
             p_next: core::ptr::null_mut(),
             key_size: Default::default(),
             key: unsafe { core::mem::zeroed() },
@@ -2746,7 +2746,7 @@ impl Default for PipelineBinaryInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483002i32),
+            s_type: StructureType::from_raw(1000483002i32),
             p_next: core::ptr::null(),
             binary_count: Default::default(),
             p_pipeline_binaries: core::ptr::null(),
@@ -2765,7 +2765,7 @@ impl Default for ReleaseCapturedPipelineDataInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483005i32),
+            s_type: StructureType::from_raw(1000483005i32),
             p_next: core::ptr::null_mut(),
             pipeline: Default::default(),
         }
@@ -2783,7 +2783,7 @@ impl Default for PipelineBinaryDataInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483006i32),
+            s_type: StructureType::from_raw(1000483006i32),
             p_next: core::ptr::null_mut(),
             pipeline_binary: Default::default(),
         }
@@ -2800,7 +2800,7 @@ impl Default for PipelineCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483007i32),
+            s_type: StructureType::from_raw(1000483007i32),
             p_next: core::ptr::null_mut(),
         }
     }
@@ -3640,7 +3640,7 @@ impl Default for DisplayModeCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000002000i32),
+            s_type: StructureType::from_raw(1000002000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             parameters: Default::default(),
@@ -3686,7 +3686,7 @@ impl Default for DisplaySurfaceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000002001i32),
+            s_type: StructureType::from_raw(1000002001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             display_mode: Default::default(),
@@ -3711,7 +3711,7 @@ impl Default for DisplaySurfaceStereoCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000551000i32),
+            s_type: StructureType::from_raw(1000551000i32),
             p_next: core::ptr::null(),
             stereo_type: Default::default(),
         }
@@ -3731,7 +3731,7 @@ impl Default for DisplayPresentInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000003000i32),
+            s_type: StructureType::from_raw(1000003000i32),
             p_next: core::ptr::null(),
             src_rect: Default::default(),
             dst_rect: Default::default(),
@@ -3773,7 +3773,7 @@ impl Default for AndroidSurfaceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000008000i32),
+            s_type: StructureType::from_raw(1000008000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             window: core::ptr::null_mut(),
@@ -3793,7 +3793,7 @@ impl Default for ViSurfaceCreateInfoNN {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000062000i32),
+            s_type: StructureType::from_raw(1000062000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             window: core::ptr::null_mut(),
@@ -3814,7 +3814,7 @@ impl Default for WaylandSurfaceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000006000i32),
+            s_type: StructureType::from_raw(1000006000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             display: core::ptr::null_mut(),
@@ -3836,7 +3836,7 @@ impl Default for UbmSurfaceCreateInfoSEC {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000664000i32),
+            s_type: StructureType::from_raw(1000664000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             device: core::ptr::null_mut(),
@@ -3858,7 +3858,7 @@ impl Default for Win32SurfaceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000009000i32),
+            s_type: StructureType::from_raw(1000009000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             hinstance: Default::default(),
@@ -3880,7 +3880,7 @@ impl Default for XlibSurfaceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000004000i32),
+            s_type: StructureType::from_raw(1000004000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             dpy: core::ptr::null_mut(),
@@ -3902,7 +3902,7 @@ impl Default for XcbSurfaceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000005000i32),
+            s_type: StructureType::from_raw(1000005000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             connection: core::ptr::null_mut(),
@@ -3924,7 +3924,7 @@ impl Default for DirectFBSurfaceCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000346000i32),
+            s_type: StructureType::from_raw(1000346000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             dfb: core::ptr::null_mut(),
@@ -3945,7 +3945,7 @@ impl Default for ImagePipeSurfaceCreateInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000214000i32),
+            s_type: StructureType::from_raw(1000214000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             image_pipe_handle: Default::default(),
@@ -3965,7 +3965,7 @@ impl Default for StreamDescriptorSurfaceCreateInfoGGP {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000049000i32),
+            s_type: StructureType::from_raw(1000049000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             stream_descriptor: Default::default(),
@@ -3986,7 +3986,7 @@ impl Default for ScreenSurfaceCreateInfoQNX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000378000i32),
+            s_type: StructureType::from_raw(1000378000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             context: core::ptr::null_mut(),
@@ -4034,7 +4034,7 @@ impl Default for SwapchainCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000001000i32),
+            s_type: StructureType::from_raw(1000001000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             surface: Default::default(),
@@ -4072,7 +4072,7 @@ impl Default for PresentInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000001001i32),
+            s_type: StructureType::from_raw(1000001001i32),
             p_next: core::ptr::null(),
             wait_semaphore_count: Default::default(),
             p_wait_semaphores: core::ptr::null(),
@@ -4097,7 +4097,7 @@ impl Default for DebugReportCallbackCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000011000i32),
+            s_type: StructureType::from_raw(1000011000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             pfn_callback: Default::default(),
@@ -4118,7 +4118,7 @@ impl Default for ValidationFlagsEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000061000i32),
+            s_type: StructureType::from_raw(1000061000i32),
             p_next: core::ptr::null(),
             disabled_validation_check_count: Default::default(),
             p_disabled_validation_checks: core::ptr::null(),
@@ -4140,7 +4140,7 @@ impl Default for ValidationFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000247000i32),
+            s_type: StructureType::from_raw(1000247000i32),
             p_next: core::ptr::null(),
             enabled_validation_feature_count: Default::default(),
             p_enabled_validation_features: core::ptr::null(),
@@ -4162,7 +4162,7 @@ impl Default for LayerSettingsCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000496000i32),
+            s_type: StructureType::from_raw(1000496000i32),
             p_next: core::ptr::null(),
             setting_count: Default::default(),
             p_settings: core::ptr::null(),
@@ -4200,7 +4200,7 @@ impl Default for ApplicationParametersEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000435000i32),
+            s_type: StructureType::from_raw(1000435000i32),
             p_next: core::ptr::null(),
             vendor_id: Default::default(),
             device_id: Default::default(),
@@ -4221,7 +4221,7 @@ impl Default for PipelineRasterizationStateRasterizationOrderAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000018000i32),
+            s_type: StructureType::from_raw(1000018000i32),
             p_next: core::ptr::null(),
             rasterization_order: Default::default(),
         }
@@ -4241,7 +4241,7 @@ impl Default for DebugMarkerObjectNameInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000022000i32),
+            s_type: StructureType::from_raw(1000022000i32),
             p_next: core::ptr::null(),
             object_type: Default::default(),
             object: Default::default(),
@@ -4265,7 +4265,7 @@ impl Default for DebugMarkerObjectTagInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000022001i32),
+            s_type: StructureType::from_raw(1000022001i32),
             p_next: core::ptr::null(),
             object_type: Default::default(),
             object: Default::default(),
@@ -4288,7 +4288,7 @@ impl Default for DebugMarkerMarkerInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000022002i32),
+            s_type: StructureType::from_raw(1000022002i32),
             p_next: core::ptr::null(),
             p_marker_name: core::ptr::null(),
             color: unsafe { core::mem::zeroed() },
@@ -4307,7 +4307,7 @@ impl Default for DedicatedAllocationImageCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000026000i32),
+            s_type: StructureType::from_raw(1000026000i32),
             p_next: core::ptr::null(),
             dedicated_allocation: Default::default(),
         }
@@ -4325,7 +4325,7 @@ impl Default for DedicatedAllocationBufferCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000026001i32),
+            s_type: StructureType::from_raw(1000026001i32),
             p_next: core::ptr::null(),
             dedicated_allocation: Default::default(),
         }
@@ -4344,7 +4344,7 @@ impl Default for DedicatedAllocationMemoryAllocateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000026002i32),
+            s_type: StructureType::from_raw(1000026002i32),
             p_next: core::ptr::null(),
             image: Default::default(),
             buffer: Default::default(),
@@ -4378,7 +4378,7 @@ impl Default for ExternalMemoryImageCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000056000i32),
+            s_type: StructureType::from_raw(1000056000i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -4396,7 +4396,7 @@ impl Default for ExportMemoryAllocateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000056001i32),
+            s_type: StructureType::from_raw(1000056001i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -4415,7 +4415,7 @@ impl Default for ImportMemoryWin32HandleInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000057000i32),
+            s_type: StructureType::from_raw(1000057000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             handle: Default::default(),
@@ -4435,7 +4435,7 @@ impl Default for ExportMemoryWin32HandleInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000057001i32),
+            s_type: StructureType::from_raw(1000057001i32),
             p_next: core::ptr::null(),
             p_attributes: core::ptr::null(),
             dw_access: Default::default(),
@@ -4454,7 +4454,7 @@ impl Default for ExportMemorySciBufInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000374001i32),
+            s_type: StructureType::from_raw(1000374001i32),
             p_next: core::ptr::null(),
             p_attributes: Default::default(),
         }
@@ -4473,7 +4473,7 @@ impl Default for ImportMemorySciBufInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000374000i32),
+            s_type: StructureType::from_raw(1000374000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             handle: Default::default(),
@@ -4493,7 +4493,7 @@ impl Default for MemoryGetSciBufInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000374002i32),
+            s_type: StructureType::from_raw(1000374002i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
             handle_type: Default::default(),
@@ -4512,7 +4512,7 @@ impl Default for MemorySciBufPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000374003i32),
+            s_type: StructureType::from_raw(1000374003i32),
             p_next: core::ptr::null(),
             memory_type_bits: Default::default(),
         }
@@ -4531,7 +4531,7 @@ impl Default for PhysicalDeviceExternalMemorySciBufFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000374004i32),
+            s_type: StructureType::from_raw(1000374004i32),
             p_next: core::ptr::null_mut(),
             sci_buf_import: Default::default(),
             sci_buf_export: Default::default(),
@@ -4556,7 +4556,7 @@ impl Default for Win32KeyedMutexAcquireReleaseInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000058000i32),
+            s_type: StructureType::from_raw(1000058000i32),
             p_next: core::ptr::null(),
             acquire_count: Default::default(),
             p_acquire_syncs: core::ptr::null(),
@@ -4580,7 +4580,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277007i32),
+            s_type: StructureType::from_raw(1000277007i32),
             p_next: core::ptr::null_mut(),
             device_generated_commands: Default::default(),
         }
@@ -4598,7 +4598,7 @@ impl Default for PushConstantBankInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000580000i32),
+            s_type: StructureType::from_raw(1000580000i32),
             p_next: core::ptr::null(),
             bank: Default::default(),
         }
@@ -4616,7 +4616,7 @@ impl Default for PhysicalDevicePushConstantBankFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000580001i32),
+            s_type: StructureType::from_raw(1000580001i32),
             p_next: core::ptr::null_mut(),
             push_constant_bank: Default::default(),
         }
@@ -4637,7 +4637,7 @@ impl Default for PhysicalDevicePushConstantBankPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000580002i32),
+            s_type: StructureType::from_raw(1000580002i32),
             p_next: core::ptr::null_mut(),
             max_graphics_push_constant_banks: Default::default(),
             max_compute_push_constant_banks: Default::default(),
@@ -4660,7 +4660,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000428000i32),
+            s_type: StructureType::from_raw(1000428000i32),
             p_next: core::ptr::null_mut(),
             device_generated_compute: Default::default(),
             device_generated_compute_pipelines: Default::default(),
@@ -4680,7 +4680,7 @@ impl Default for DevicePrivateDataCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000295001i32),
+            s_type: StructureType::from_raw(1000295001i32),
             p_next: core::ptr::null(),
             private_data_slot_request_count: Default::default(),
         }
@@ -4698,7 +4698,7 @@ impl Default for PrivateDataSlotCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000295002i32),
+            s_type: StructureType::from_raw(1000295002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -4716,7 +4716,7 @@ impl Default for PhysicalDevicePrivateDataFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000295000i32),
+            s_type: StructureType::from_raw(1000295000i32),
             p_next: core::ptr::null_mut(),
             private_data: Default::default(),
         }
@@ -4742,7 +4742,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277000i32),
+            s_type: StructureType::from_raw(1000277000i32),
             p_next: core::ptr::null_mut(),
             max_graphics_shader_group_count: Default::default(),
             max_indirect_sequence_count: Default::default(),
@@ -4768,7 +4768,7 @@ impl Default for PhysicalDeviceClusterAccelerationStructureFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569000i32),
+            s_type: StructureType::from_raw(1000569000i32),
             p_next: core::ptr::null_mut(),
             cluster_acceleration_structure: Default::default(),
         }
@@ -4793,7 +4793,7 @@ impl Default for PhysicalDeviceClusterAccelerationStructurePropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569001i32),
+            s_type: StructureType::from_raw(1000569001i32),
             p_next: core::ptr::null_mut(),
             max_vertices_per_cluster: Default::default(),
             max_triangles_per_cluster: Default::default(),
@@ -4831,7 +4831,7 @@ impl Default for RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569007i32),
+            s_type: StructureType::from_raw(1000569007i32),
             p_next: core::ptr::null_mut(),
             allow_cluster_acceleration_structure: Default::default(),
         }
@@ -4975,7 +4975,7 @@ impl Default for ClusterAccelerationStructureClustersBottomLevelInputNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569002i32),
+            s_type: StructureType::from_raw(1000569002i32),
             p_next: core::ptr::null_mut(),
             max_total_cluster_count: Default::default(),
             max_cluster_count_per_acceleration_structure: Default::default(),
@@ -5001,7 +5001,7 @@ impl Default for ClusterAccelerationStructureTriangleClusterInputNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569003i32),
+            s_type: StructureType::from_raw(1000569003i32),
             p_next: core::ptr::null_mut(),
             vertex_format: Default::default(),
             max_geometry_index_value: Default::default(),
@@ -5028,7 +5028,7 @@ impl Default for ClusterAccelerationStructureMoveObjectsInputNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569004i32),
+            s_type: StructureType::from_raw(1000569004i32),
             p_next: core::ptr::null_mut(),
             r#type: Default::default(),
             no_move_overlap: Default::default(),
@@ -5071,7 +5071,7 @@ impl Default for ClusterAccelerationStructureInputInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569005i32),
+            s_type: StructureType::from_raw(1000569005i32),
             p_next: core::ptr::null_mut(),
             max_acceleration_structure_count: Default::default(),
             flags: Default::default(),
@@ -5100,7 +5100,7 @@ impl Default for ClusterAccelerationStructureCommandsInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000569006i32),
+            s_type: StructureType::from_raw(1000569006i32),
             p_next: core::ptr::null_mut(),
             input: Default::default(),
             dst_implicit_data: Default::default(),
@@ -5125,7 +5125,7 @@ impl Default for PhysicalDeviceMultiDrawPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000392001i32),
+            s_type: StructureType::from_raw(1000392001i32),
             p_next: core::ptr::null_mut(),
             max_multi_draw_count: Default::default(),
         }
@@ -5146,7 +5146,7 @@ impl Default for GraphicsShaderGroupCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277001i32),
+            s_type: StructureType::from_raw(1000277001i32),
             p_next: core::ptr::null(),
             stage_count: Default::default(),
             p_stages: core::ptr::null(),
@@ -5170,7 +5170,7 @@ impl Default for GraphicsPipelineShaderGroupsCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277002i32),
+            s_type: StructureType::from_raw(1000277002i32),
             p_next: core::ptr::null(),
             group_count: Default::default(),
             p_groups: core::ptr::null(),
@@ -5268,7 +5268,7 @@ impl Default for IndirectCommandsLayoutTokenNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277003i32),
+            s_type: StructureType::from_raw(1000277003i32),
             p_next: core::ptr::null(),
             token_type: Default::default(),
             stream: Default::default(),
@@ -5303,7 +5303,7 @@ impl Default for IndirectCommandsLayoutCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277004i32),
+            s_type: StructureType::from_raw(1000277004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             pipeline_bind_point: Default::default(),
@@ -5338,7 +5338,7 @@ impl Default for GeneratedCommandsInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277005i32),
+            s_type: StructureType::from_raw(1000277005i32),
             p_next: core::ptr::null(),
             pipeline_bind_point: Default::default(),
             pipeline: Default::default(),
@@ -5371,7 +5371,7 @@ impl Default for GeneratedCommandsMemoryRequirementsInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000277006i32),
+            s_type: StructureType::from_raw(1000277006i32),
             p_next: core::ptr::null(),
             pipeline_bind_point: Default::default(),
             pipeline: Default::default(),
@@ -5393,7 +5393,7 @@ impl Default for PipelineIndirectDeviceAddressInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000428002i32),
+            s_type: StructureType::from_raw(1000428002i32),
             p_next: core::ptr::null(),
             pipeline_bind_point: Default::default(),
             pipeline: Default::default(),
@@ -5424,7 +5424,7 @@ impl Default for PhysicalDeviceFeatures2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059000i32),
+            s_type: StructureType::from_raw(1000059000i32),
             p_next: core::ptr::null_mut(),
             features: Default::default(),
         }
@@ -5442,7 +5442,7 @@ impl Default for PhysicalDeviceProperties2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059001i32),
+            s_type: StructureType::from_raw(1000059001i32),
             p_next: core::ptr::null_mut(),
             properties: Default::default(),
         }
@@ -5460,7 +5460,7 @@ impl Default for FormatProperties2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059002i32),
+            s_type: StructureType::from_raw(1000059002i32),
             p_next: core::ptr::null_mut(),
             format_properties: Default::default(),
         }
@@ -5478,7 +5478,7 @@ impl Default for ImageFormatProperties2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059003i32),
+            s_type: StructureType::from_raw(1000059003i32),
             p_next: core::ptr::null_mut(),
             image_format_properties: Default::default(),
         }
@@ -5500,7 +5500,7 @@ impl Default for PhysicalDeviceImageFormatInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059004i32),
+            s_type: StructureType::from_raw(1000059004i32),
             p_next: core::ptr::null(),
             format: Default::default(),
             r#type: Default::default(),
@@ -5522,7 +5522,7 @@ impl Default for QueueFamilyProperties2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059005i32),
+            s_type: StructureType::from_raw(1000059005i32),
             p_next: core::ptr::null_mut(),
             queue_family_properties: Default::default(),
         }
@@ -5540,7 +5540,7 @@ impl Default for PhysicalDeviceMemoryProperties2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059006i32),
+            s_type: StructureType::from_raw(1000059006i32),
             p_next: core::ptr::null_mut(),
             memory_properties: Default::default(),
         }
@@ -5558,7 +5558,7 @@ impl Default for SparseImageFormatProperties2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059007i32),
+            s_type: StructureType::from_raw(1000059007i32),
             p_next: core::ptr::null_mut(),
             properties: Default::default(),
         }
@@ -5580,7 +5580,7 @@ impl Default for PhysicalDeviceSparseImageFormatInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000059008i32),
+            s_type: StructureType::from_raw(1000059008i32),
             p_next: core::ptr::null(),
             format: Default::default(),
             r#type: Default::default(),
@@ -5602,7 +5602,7 @@ impl Default for PhysicalDevicePushDescriptorProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000080000i32),
+            s_type: StructureType::from_raw(1000080000i32),
             p_next: core::ptr::null_mut(),
             max_push_descriptors: Default::default(),
         }
@@ -5638,7 +5638,7 @@ impl Default for PhysicalDeviceDriverProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000196000i32),
+            s_type: StructureType::from_raw(1000196000i32),
             p_next: core::ptr::null_mut(),
             driver_id: Default::default(),
             driver_name: unsafe { core::mem::zeroed() },
@@ -5660,7 +5660,7 @@ impl Default for PresentRegionsKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000084000i32),
+            s_type: StructureType::from_raw(1000084000i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_regions: core::ptr::null(),
@@ -5707,7 +5707,7 @@ impl Default for PhysicalDeviceVariablePointersFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000120000i32),
+            s_type: StructureType::from_raw(1000120000i32),
             p_next: core::ptr::null_mut(),
             variable_pointers_storage_buffer: Default::default(),
             variable_pointers: Default::default(),
@@ -5740,7 +5740,7 @@ impl Default for PhysicalDeviceExternalImageFormatInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000071000i32),
+            s_type: StructureType::from_raw(1000071000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
         }
@@ -5758,7 +5758,7 @@ impl Default for ExternalImageFormatProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000071001i32),
+            s_type: StructureType::from_raw(1000071001i32),
             p_next: core::ptr::null_mut(),
             external_memory_properties: Default::default(),
         }
@@ -5778,7 +5778,7 @@ impl Default for PhysicalDeviceExternalBufferInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000071002i32),
+            s_type: StructureType::from_raw(1000071002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             usage: Default::default(),
@@ -5798,7 +5798,7 @@ impl Default for ExternalBufferProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000071003i32),
+            s_type: StructureType::from_raw(1000071003i32),
             p_next: core::ptr::null_mut(),
             external_memory_properties: Default::default(),
         }
@@ -5820,7 +5820,7 @@ impl Default for PhysicalDeviceIDProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000071004i32),
+            s_type: StructureType::from_raw(1000071004i32),
             p_next: core::ptr::null_mut(),
             device_uuid: unsafe { core::mem::zeroed() },
             driver_uuid: unsafe { core::mem::zeroed() },
@@ -5842,7 +5842,7 @@ impl Default for ExternalMemoryImageCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000072001i32),
+            s_type: StructureType::from_raw(1000072001i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -5860,7 +5860,7 @@ impl Default for ExternalMemoryBufferCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000072000i32),
+            s_type: StructureType::from_raw(1000072000i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -5878,7 +5878,7 @@ impl Default for ExportMemoryAllocateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000072002i32),
+            s_type: StructureType::from_raw(1000072002i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -5898,7 +5898,7 @@ impl Default for ImportMemoryWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000073000i32),
+            s_type: StructureType::from_raw(1000073000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             handle: Default::default(),
@@ -5920,7 +5920,7 @@ impl Default for ExportMemoryWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000073001i32),
+            s_type: StructureType::from_raw(1000073001i32),
             p_next: core::ptr::null(),
             p_attributes: core::ptr::null(),
             dw_access: Default::default(),
@@ -5941,7 +5941,7 @@ impl Default for ImportMemoryZirconHandleInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000364000i32),
+            s_type: StructureType::from_raw(1000364000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             handle: Default::default(),
@@ -5960,7 +5960,7 @@ impl Default for MemoryZirconHandlePropertiesFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000364001i32),
+            s_type: StructureType::from_raw(1000364001i32),
             p_next: core::ptr::null_mut(),
             memory_type_bits: Default::default(),
         }
@@ -5979,7 +5979,7 @@ impl Default for MemoryGetZirconHandleInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000364002i32),
+            s_type: StructureType::from_raw(1000364002i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
             handle_type: Default::default(),
@@ -5998,7 +5998,7 @@ impl Default for MemoryWin32HandlePropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000073002i32),
+            s_type: StructureType::from_raw(1000073002i32),
             p_next: core::ptr::null_mut(),
             memory_type_bits: Default::default(),
         }
@@ -6017,7 +6017,7 @@ impl Default for MemoryGetWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000073003i32),
+            s_type: StructureType::from_raw(1000073003i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
             handle_type: Default::default(),
@@ -6037,7 +6037,7 @@ impl Default for ImportMemoryFdInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000074000i32),
+            s_type: StructureType::from_raw(1000074000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             fd: Default::default(),
@@ -6056,7 +6056,7 @@ impl Default for MemoryFdPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000074001i32),
+            s_type: StructureType::from_raw(1000074001i32),
             p_next: core::ptr::null_mut(),
             memory_type_bits: Default::default(),
         }
@@ -6075,7 +6075,7 @@ impl Default for MemoryGetFdInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000074002i32),
+            s_type: StructureType::from_raw(1000074002i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
             handle_type: Default::default(),
@@ -6100,7 +6100,7 @@ impl Default for Win32KeyedMutexAcquireReleaseInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000075000i32),
+            s_type: StructureType::from_raw(1000075000i32),
             p_next: core::ptr::null(),
             acquire_count: Default::default(),
             p_acquire_syncs: core::ptr::null(),
@@ -6125,7 +6125,7 @@ impl Default for ImportMemoryMetalHandleInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000602000i32),
+            s_type: StructureType::from_raw(1000602000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             handle: core::ptr::null_mut(),
@@ -6144,7 +6144,7 @@ impl Default for MemoryMetalHandlePropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000602001i32),
+            s_type: StructureType::from_raw(1000602001i32),
             p_next: core::ptr::null_mut(),
             memory_type_bits: Default::default(),
         }
@@ -6163,7 +6163,7 @@ impl Default for MemoryGetMetalHandleInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000602002i32),
+            s_type: StructureType::from_raw(1000602002i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
             handle_type: Default::default(),
@@ -6182,7 +6182,7 @@ impl Default for PhysicalDeviceExternalSemaphoreInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000076000i32),
+            s_type: StructureType::from_raw(1000076000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
         }
@@ -6202,7 +6202,7 @@ impl Default for ExternalSemaphoreProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000076001i32),
+            s_type: StructureType::from_raw(1000076001i32),
             p_next: core::ptr::null_mut(),
             export_from_imported_handle_types: Default::default(),
             compatible_handle_types: Default::default(),
@@ -6222,7 +6222,7 @@ impl Default for ExportSemaphoreCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000077000i32),
+            s_type: StructureType::from_raw(1000077000i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -6244,7 +6244,7 @@ impl Default for ImportSemaphoreWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000078000i32),
+            s_type: StructureType::from_raw(1000078000i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             flags: Default::default(),
@@ -6268,7 +6268,7 @@ impl Default for ExportSemaphoreWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000078001i32),
+            s_type: StructureType::from_raw(1000078001i32),
             p_next: core::ptr::null(),
             p_attributes: core::ptr::null(),
             dw_access: Default::default(),
@@ -6291,7 +6291,7 @@ impl Default for D3D12FenceSubmitInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000078002i32),
+            s_type: StructureType::from_raw(1000078002i32),
             p_next: core::ptr::null(),
             wait_semaphore_values_count: Default::default(),
             p_wait_semaphore_values: core::ptr::null(),
@@ -6313,7 +6313,7 @@ impl Default for SemaphoreGetWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000078003i32),
+            s_type: StructureType::from_raw(1000078003i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             handle_type: Default::default(),
@@ -6335,7 +6335,7 @@ impl Default for ImportSemaphoreFdInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000079000i32),
+            s_type: StructureType::from_raw(1000079000i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             flags: Default::default(),
@@ -6357,7 +6357,7 @@ impl Default for SemaphoreGetFdInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000079001i32),
+            s_type: StructureType::from_raw(1000079001i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             handle_type: Default::default(),
@@ -6379,7 +6379,7 @@ impl Default for ImportSemaphoreZirconHandleInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000365000i32),
+            s_type: StructureType::from_raw(1000365000i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             flags: Default::default(),
@@ -6401,7 +6401,7 @@ impl Default for SemaphoreGetZirconHandleInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000365001i32),
+            s_type: StructureType::from_raw(1000365001i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             handle_type: Default::default(),
@@ -6420,7 +6420,7 @@ impl Default for PhysicalDeviceExternalFenceInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000112000i32),
+            s_type: StructureType::from_raw(1000112000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
         }
@@ -6440,7 +6440,7 @@ impl Default for ExternalFenceProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000112001i32),
+            s_type: StructureType::from_raw(1000112001i32),
             p_next: core::ptr::null_mut(),
             export_from_imported_handle_types: Default::default(),
             compatible_handle_types: Default::default(),
@@ -6460,7 +6460,7 @@ impl Default for ExportFenceCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000113000i32),
+            s_type: StructureType::from_raw(1000113000i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -6482,7 +6482,7 @@ impl Default for ImportFenceWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000114000i32),
+            s_type: StructureType::from_raw(1000114000i32),
             p_next: core::ptr::null(),
             fence: Default::default(),
             flags: Default::default(),
@@ -6506,7 +6506,7 @@ impl Default for ExportFenceWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000114001i32),
+            s_type: StructureType::from_raw(1000114001i32),
             p_next: core::ptr::null(),
             p_attributes: core::ptr::null(),
             dw_access: Default::default(),
@@ -6527,7 +6527,7 @@ impl Default for FenceGetWin32HandleInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000114002i32),
+            s_type: StructureType::from_raw(1000114002i32),
             p_next: core::ptr::null(),
             fence: Default::default(),
             handle_type: Default::default(),
@@ -6549,7 +6549,7 @@ impl Default for ImportFenceFdInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000115000i32),
+            s_type: StructureType::from_raw(1000115000i32),
             p_next: core::ptr::null(),
             fence: Default::default(),
             flags: Default::default(),
@@ -6571,7 +6571,7 @@ impl Default for FenceGetFdInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000115001i32),
+            s_type: StructureType::from_raw(1000115001i32),
             p_next: core::ptr::null(),
             fence: Default::default(),
             handle_type: Default::default(),
@@ -6590,7 +6590,7 @@ impl Default for ExportFenceSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373001i32),
+            s_type: StructureType::from_raw(1000373001i32),
             p_next: core::ptr::null(),
             p_attributes: Default::default(),
         }
@@ -6610,7 +6610,7 @@ impl Default for ImportFenceSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373000i32),
+            s_type: StructureType::from_raw(1000373000i32),
             p_next: core::ptr::null(),
             fence: Default::default(),
             handle_type: Default::default(),
@@ -6631,7 +6631,7 @@ impl Default for FenceGetSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373002i32),
+            s_type: StructureType::from_raw(1000373002i32),
             p_next: core::ptr::null(),
             fence: Default::default(),
             handle_type: Default::default(),
@@ -6650,7 +6650,7 @@ impl Default for ExportSemaphoreSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373005i32),
+            s_type: StructureType::from_raw(1000373005i32),
             p_next: core::ptr::null(),
             p_attributes: Default::default(),
         }
@@ -6670,7 +6670,7 @@ impl Default for ImportSemaphoreSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373004i32),
+            s_type: StructureType::from_raw(1000373004i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             handle_type: Default::default(),
@@ -6691,7 +6691,7 @@ impl Default for SemaphoreGetSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373006i32),
+            s_type: StructureType::from_raw(1000373006i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             handle_type: Default::default(),
@@ -6711,7 +6711,7 @@ impl Default for SciSyncAttributesInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373003i32),
+            s_type: StructureType::from_raw(1000373003i32),
             p_next: core::ptr::null(),
             client_type: Default::default(),
             primitive_type: Default::default(),
@@ -6733,7 +6733,7 @@ impl Default for PhysicalDeviceExternalSciSyncFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000373007i32),
+            s_type: StructureType::from_raw(1000373007i32),
             p_next: core::ptr::null_mut(),
             sci_sync_fence: Default::default(),
             sci_sync_semaphore: Default::default(),
@@ -6757,7 +6757,7 @@ impl Default for PhysicalDeviceExternalSciSync2FeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000489002i32),
+            s_type: StructureType::from_raw(1000489002i32),
             p_next: core::ptr::null_mut(),
             sci_sync_fence: Default::default(),
             sci_sync_semaphore2: Default::default(),
@@ -6778,7 +6778,7 @@ impl Default for SemaphoreSciSyncPoolCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000489000i32),
+            s_type: StructureType::from_raw(1000489000i32),
             p_next: core::ptr::null(),
             handle: Default::default(),
         }
@@ -6797,7 +6797,7 @@ impl Default for SemaphoreSciSyncCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000489001i32),
+            s_type: StructureType::from_raw(1000489001i32),
             p_next: core::ptr::null(),
             semaphore_pool: Default::default(),
             p_fence: core::ptr::null(),
@@ -6816,7 +6816,7 @@ impl Default for DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000489003i32),
+            s_type: StructureType::from_raw(1000489003i32),
             p_next: core::ptr::null(),
             semaphore_sci_sync_pool_request_count: Default::default(),
         }
@@ -6836,7 +6836,7 @@ impl Default for PhysicalDeviceMultiviewFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000053001i32),
+            s_type: StructureType::from_raw(1000053001i32),
             p_next: core::ptr::null_mut(),
             multiview: Default::default(),
             multiview_geometry_shader: Default::default(),
@@ -6857,7 +6857,7 @@ impl Default for PhysicalDeviceMultiviewProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000053002i32),
+            s_type: StructureType::from_raw(1000053002i32),
             p_next: core::ptr::null_mut(),
             max_multiview_view_count: Default::default(),
             max_multiview_instance_index: Default::default(),
@@ -6881,7 +6881,7 @@ impl Default for RenderPassMultiviewCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000053000i32),
+            s_type: StructureType::from_raw(1000053000i32),
             p_next: core::ptr::null(),
             subpass_count: Default::default(),
             p_view_masks: core::ptr::null(),
@@ -6914,7 +6914,7 @@ impl Default for SurfaceCapabilities2EXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000090000i32),
+            s_type: StructureType::from_raw(1000090000i32),
             p_next: core::ptr::null_mut(),
             min_image_count: Default::default(),
             max_image_count: Default::default(),
@@ -6942,7 +6942,7 @@ impl Default for DisplayPowerInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000091000i32),
+            s_type: StructureType::from_raw(1000091000i32),
             p_next: core::ptr::null(),
             power_state: Default::default(),
         }
@@ -6960,7 +6960,7 @@ impl Default for DeviceEventInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000091001i32),
+            s_type: StructureType::from_raw(1000091001i32),
             p_next: core::ptr::null(),
             device_event: Default::default(),
         }
@@ -6978,7 +6978,7 @@ impl Default for DisplayEventInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000091002i32),
+            s_type: StructureType::from_raw(1000091002i32),
             p_next: core::ptr::null(),
             display_event: Default::default(),
         }
@@ -6996,7 +6996,7 @@ impl Default for SwapchainCounterCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000091003i32),
+            s_type: StructureType::from_raw(1000091003i32),
             p_next: core::ptr::null(),
             surface_counters: Default::default(),
         }
@@ -7016,7 +7016,7 @@ impl Default for PhysicalDeviceGroupProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000070000i32),
+            s_type: StructureType::from_raw(1000070000i32),
             p_next: core::ptr::null_mut(),
             physical_device_count: Default::default(),
             physical_devices: unsafe { core::mem::zeroed() },
@@ -7037,7 +7037,7 @@ impl Default for MemoryAllocateFlagsInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060000i32),
+            s_type: StructureType::from_raw(1000060000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             device_mask: Default::default(),
@@ -7058,7 +7058,7 @@ impl Default for BindBufferMemoryInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000157000i32),
+            s_type: StructureType::from_raw(1000157000i32),
             p_next: core::ptr::null(),
             buffer: Default::default(),
             memory: Default::default(),
@@ -7079,7 +7079,7 @@ impl Default for BindBufferMemoryDeviceGroupInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060013i32),
+            s_type: StructureType::from_raw(1000060013i32),
             p_next: core::ptr::null(),
             device_index_count: Default::default(),
             p_device_indices: core::ptr::null(),
@@ -7100,7 +7100,7 @@ impl Default for BindImageMemoryInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000157001i32),
+            s_type: StructureType::from_raw(1000157001i32),
             p_next: core::ptr::null(),
             image: Default::default(),
             memory: Default::default(),
@@ -7123,7 +7123,7 @@ impl Default for BindImageMemoryDeviceGroupInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060014i32),
+            s_type: StructureType::from_raw(1000060014i32),
             p_next: core::ptr::null(),
             device_index_count: Default::default(),
             p_device_indices: core::ptr::null(),
@@ -7146,7 +7146,7 @@ impl Default for DeviceGroupRenderPassBeginInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060003i32),
+            s_type: StructureType::from_raw(1000060003i32),
             p_next: core::ptr::null(),
             device_mask: Default::default(),
             device_render_area_count: Default::default(),
@@ -7166,7 +7166,7 @@ impl Default for DeviceGroupCommandBufferBeginInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060004i32),
+            s_type: StructureType::from_raw(1000060004i32),
             p_next: core::ptr::null(),
             device_mask: Default::default(),
         }
@@ -7189,7 +7189,7 @@ impl Default for DeviceGroupSubmitInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060005i32),
+            s_type: StructureType::from_raw(1000060005i32),
             p_next: core::ptr::null(),
             wait_semaphore_count: Default::default(),
             p_wait_semaphore_device_indices: core::ptr::null(),
@@ -7213,7 +7213,7 @@ impl Default for DeviceGroupBindSparseInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060006i32),
+            s_type: StructureType::from_raw(1000060006i32),
             p_next: core::ptr::null(),
             resource_device_index: Default::default(),
             memory_device_index: Default::default(),
@@ -7233,7 +7233,7 @@ impl Default for DeviceGroupPresentCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060007i32),
+            s_type: StructureType::from_raw(1000060007i32),
             p_next: core::ptr::null_mut(),
             present_mask: unsafe { core::mem::zeroed() },
             modes: Default::default(),
@@ -7252,7 +7252,7 @@ impl Default for ImageSwapchainCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060008i32),
+            s_type: StructureType::from_raw(1000060008i32),
             p_next: core::ptr::null(),
             swapchain: Default::default(),
         }
@@ -7271,7 +7271,7 @@ impl Default for BindImageMemorySwapchainInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060009i32),
+            s_type: StructureType::from_raw(1000060009i32),
             p_next: core::ptr::null(),
             swapchain: Default::default(),
             image_index: Default::default(),
@@ -7294,7 +7294,7 @@ impl Default for AcquireNextImageInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060010i32),
+            s_type: StructureType::from_raw(1000060010i32),
             p_next: core::ptr::null(),
             swapchain: Default::default(),
             timeout: Default::default(),
@@ -7318,7 +7318,7 @@ impl Default for DeviceGroupPresentInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060011i32),
+            s_type: StructureType::from_raw(1000060011i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_device_masks: core::ptr::null(),
@@ -7339,7 +7339,7 @@ impl Default for DeviceGroupDeviceCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000070001i32),
+            s_type: StructureType::from_raw(1000070001i32),
             p_next: core::ptr::null(),
             physical_device_count: Default::default(),
             p_physical_devices: core::ptr::null(),
@@ -7358,7 +7358,7 @@ impl Default for DeviceGroupSwapchainCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000060012i32),
+            s_type: StructureType::from_raw(1000060012i32),
             p_next: core::ptr::null(),
             modes: Default::default(),
         }
@@ -7400,7 +7400,7 @@ impl Default for DescriptorUpdateTemplateCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000085000i32),
+            s_type: StructureType::from_raw(1000085000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             descriptor_update_entry_count: Default::default(),
@@ -7438,7 +7438,7 @@ impl Default for PhysicalDevicePresentIdFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000294001i32),
+            s_type: StructureType::from_raw(1000294001i32),
             p_next: core::ptr::null_mut(),
             present_id: Default::default(),
         }
@@ -7457,7 +7457,7 @@ impl Default for PresentIdKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000294000i32),
+            s_type: StructureType::from_raw(1000294000i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_present_ids: core::ptr::null(),
@@ -7476,7 +7476,7 @@ impl Default for PhysicalDevicePresentId2FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000479002i32),
+            s_type: StructureType::from_raw(1000479002i32),
             p_next: core::ptr::null_mut(),
             present_id2: Default::default(),
         }
@@ -7495,7 +7495,7 @@ impl Default for PresentId2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000479001i32),
+            s_type: StructureType::from_raw(1000479001i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_present_ids: core::ptr::null(),
@@ -7515,7 +7515,7 @@ impl Default for PresentWait2InfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000480002i32),
+            s_type: StructureType::from_raw(1000480002i32),
             p_next: core::ptr::null(),
             present_id: Default::default(),
             timeout: Default::default(),
@@ -7534,7 +7534,7 @@ impl Default for PhysicalDevicePresentWaitFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000248000i32),
+            s_type: StructureType::from_raw(1000248000i32),
             p_next: core::ptr::null_mut(),
             present_wait: Default::default(),
         }
@@ -7552,7 +7552,7 @@ impl Default for PhysicalDevicePresentWait2FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000480001i32),
+            s_type: StructureType::from_raw(1000480001i32),
             p_next: core::ptr::null_mut(),
             present_wait2: Default::default(),
         }
@@ -7572,7 +7572,7 @@ impl Default for PhysicalDevicePresentTimingFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208000i32),
+            s_type: StructureType::from_raw(1000208000i32),
             p_next: core::ptr::null_mut(),
             present_timing: Default::default(),
             present_at_absolute_time: Default::default(),
@@ -7595,7 +7595,7 @@ impl Default for PresentTimingSurfaceCapabilitiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208008i32),
+            s_type: StructureType::from_raw(1000208008i32),
             p_next: core::ptr::null_mut(),
             present_timing_supported: Default::default(),
             present_at_absolute_time_supported: Default::default(),
@@ -7617,7 +7617,7 @@ impl Default for SwapchainTimingPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208001i32),
+            s_type: StructureType::from_raw(1000208001i32),
             p_next: core::ptr::null_mut(),
             refresh_duration: Default::default(),
             refresh_interval: Default::default(),
@@ -7638,7 +7638,7 @@ impl Default for SwapchainTimeDomainPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208002i32),
+            s_type: StructureType::from_raw(1000208002i32),
             p_next: core::ptr::null_mut(),
             time_domain_count: Default::default(),
             p_time_domains: core::ptr::null_mut(),
@@ -7672,7 +7672,7 @@ impl Default for PastPresentationTimingInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208005i32),
+            s_type: StructureType::from_raw(1000208005i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             swapchain: Default::default(),
@@ -7694,7 +7694,7 @@ impl Default for PastPresentationTimingPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208006i32),
+            s_type: StructureType::from_raw(1000208006i32),
             p_next: core::ptr::null_mut(),
             timing_properties_counter: Default::default(),
             time_domains_counter: Default::default(),
@@ -7721,7 +7721,7 @@ impl Default for PastPresentationTimingEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208007i32),
+            s_type: StructureType::from_raw(1000208007i32),
             p_next: core::ptr::null_mut(),
             present_id: Default::default(),
             target_time: Default::default(),
@@ -7746,7 +7746,7 @@ impl Default for PresentTimingsInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208003i32),
+            s_type: StructureType::from_raw(1000208003i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_timing_infos: core::ptr::null(),
@@ -7769,7 +7769,7 @@ impl Default for PresentTimingInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208004i32),
+            s_type: StructureType::from_raw(1000208004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             target_time: Default::default(),
@@ -7793,7 +7793,7 @@ impl Default for SwapchainCalibratedTimestampInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000208009i32),
+            s_type: StructureType::from_raw(1000208009i32),
             p_next: core::ptr::null(),
             swapchain: Default::default(),
             present_stage: Default::default(),
@@ -7820,7 +7820,7 @@ impl Default for HdrMetadataEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000105000i32),
+            s_type: StructureType::from_raw(1000105000i32),
             p_next: core::ptr::null(),
             display_primary_red: Default::default(),
             display_primary_green: Default::default(),
@@ -7846,7 +7846,7 @@ impl Default for HdrVividDynamicMetadataHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000590001i32),
+            s_type: StructureType::from_raw(1000590001i32),
             p_next: core::ptr::null(),
             dynamic_metadata_size: Default::default(),
             p_dynamic_metadata: core::ptr::null(),
@@ -7865,7 +7865,7 @@ impl Default for DisplayNativeHdrSurfaceCapabilitiesAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000213000i32),
+            s_type: StructureType::from_raw(1000213000i32),
             p_next: core::ptr::null_mut(),
             local_dimming_support: Default::default(),
         }
@@ -7883,7 +7883,7 @@ impl Default for SwapchainDisplayNativeHdrCreateInfoAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000213001i32),
+            s_type: StructureType::from_raw(1000213001i32),
             p_next: core::ptr::null(),
             local_dimming_enable: Default::default(),
         }
@@ -7930,7 +7930,7 @@ impl Default for PresentTimesInfoGOOGLE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000092000i32),
+            s_type: StructureType::from_raw(1000092000i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_times: core::ptr::null(),
@@ -7963,7 +7963,7 @@ impl Default for IOSSurfaceCreateInfoMVK {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000122000i32),
+            s_type: StructureType::from_raw(1000122000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             p_view: core::ptr::null(),
@@ -7983,7 +7983,7 @@ impl Default for MacOSSurfaceCreateInfoMVK {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000123000i32),
+            s_type: StructureType::from_raw(1000123000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             p_view: core::ptr::null(),
@@ -8003,7 +8003,7 @@ impl Default for MetalSurfaceCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000217000i32),
+            s_type: StructureType::from_raw(1000217000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             p_layer: core::ptr::null(),
@@ -8037,7 +8037,7 @@ impl Default for PipelineViewportWScalingStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000087000i32),
+            s_type: StructureType::from_raw(1000087000i32),
             p_next: core::ptr::null(),
             viewport_w_scaling_enable: Default::default(),
             viewport_count: Default::default(),
@@ -8074,7 +8074,7 @@ impl Default for PipelineViewportSwizzleStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000098000i32),
+            s_type: StructureType::from_raw(1000098000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             viewport_count: Default::default(),
@@ -8094,7 +8094,7 @@ impl Default for PhysicalDeviceDiscardRectanglePropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000099000i32),
+            s_type: StructureType::from_raw(1000099000i32),
             p_next: core::ptr::null_mut(),
             max_discard_rectangles: Default::default(),
         }
@@ -8115,7 +8115,7 @@ impl Default for PipelineDiscardRectangleStateCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000099001i32),
+            s_type: StructureType::from_raw(1000099001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             discard_rectangle_mode: Default::default(),
@@ -8136,7 +8136,7 @@ impl Default for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000097000i32),
+            s_type: StructureType::from_raw(1000097000i32),
             p_next: core::ptr::null_mut(),
             per_view_position_all_components: Default::default(),
         }
@@ -8169,7 +8169,7 @@ impl Default for RenderPassInputAttachmentAspectCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000117001i32),
+            s_type: StructureType::from_raw(1000117001i32),
             p_next: core::ptr::null(),
             aspect_reference_count: Default::default(),
             p_aspect_references: core::ptr::null(),
@@ -8188,7 +8188,7 @@ impl Default for PhysicalDeviceSurfaceInfo2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000119000i32),
+            s_type: StructureType::from_raw(1000119000i32),
             p_next: core::ptr::null(),
             surface: Default::default(),
         }
@@ -8206,7 +8206,7 @@ impl Default for SurfaceCapabilities2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000119001i32),
+            s_type: StructureType::from_raw(1000119001i32),
             p_next: core::ptr::null_mut(),
             surface_capabilities: Default::default(),
         }
@@ -8224,7 +8224,7 @@ impl Default for SurfaceFormat2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000119002i32),
+            s_type: StructureType::from_raw(1000119002i32),
             p_next: core::ptr::null_mut(),
             surface_format: Default::default(),
         }
@@ -8242,7 +8242,7 @@ impl Default for DisplayProperties2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000121000i32),
+            s_type: StructureType::from_raw(1000121000i32),
             p_next: core::ptr::null_mut(),
             display_properties: Default::default(),
         }
@@ -8260,7 +8260,7 @@ impl Default for DisplayPlaneProperties2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000121001i32),
+            s_type: StructureType::from_raw(1000121001i32),
             p_next: core::ptr::null_mut(),
             display_plane_properties: Default::default(),
         }
@@ -8278,7 +8278,7 @@ impl Default for DisplayModeProperties2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000121002i32),
+            s_type: StructureType::from_raw(1000121002i32),
             p_next: core::ptr::null_mut(),
             display_mode_properties: Default::default(),
         }
@@ -8296,7 +8296,7 @@ impl Default for DisplayModeStereoPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000551001i32),
+            s_type: StructureType::from_raw(1000551001i32),
             p_next: core::ptr::null_mut(),
             hdmi3_d_supported: Default::default(),
         }
@@ -8315,7 +8315,7 @@ impl Default for DisplayPlaneInfo2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000121003i32),
+            s_type: StructureType::from_raw(1000121003i32),
             p_next: core::ptr::null(),
             mode: Default::default(),
             plane_index: Default::default(),
@@ -8334,7 +8334,7 @@ impl Default for DisplayPlaneCapabilities2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000121004i32),
+            s_type: StructureType::from_raw(1000121004i32),
             p_next: core::ptr::null_mut(),
             capabilities: Default::default(),
         }
@@ -8352,7 +8352,7 @@ impl Default for SharedPresentSurfaceCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000111000i32),
+            s_type: StructureType::from_raw(1000111000i32),
             p_next: core::ptr::null_mut(),
             shared_present_supported_usage_flags: Default::default(),
         }
@@ -8373,7 +8373,7 @@ impl Default for PhysicalDevice16BitStorageFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000083000i32),
+            s_type: StructureType::from_raw(1000083000i32),
             p_next: core::ptr::null_mut(),
             storage_buffer16_bit_access: Default::default(),
             uniform_and_storage_buffer16_bit_access: Default::default(),
@@ -8397,7 +8397,7 @@ impl Default for PhysicalDeviceSubgroupProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000094000i32),
+            s_type: StructureType::from_raw(1000094000i32),
             p_next: core::ptr::null_mut(),
             subgroup_size: Default::default(),
             supported_stages: Default::default(),
@@ -8418,7 +8418,7 @@ impl Default for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000175000i32),
+            s_type: StructureType::from_raw(1000175000i32),
             p_next: core::ptr::null_mut(),
             shader_subgroup_extended_types: Default::default(),
         }
@@ -8436,7 +8436,7 @@ impl Default for BufferMemoryRequirementsInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000146000i32),
+            s_type: StructureType::from_raw(1000146000i32),
             p_next: core::ptr::null(),
             buffer: Default::default(),
         }
@@ -8454,7 +8454,7 @@ impl Default for DeviceBufferMemoryRequirements {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000413002i32),
+            s_type: StructureType::from_raw(1000413002i32),
             p_next: core::ptr::null(),
             p_create_info: core::ptr::null(),
         }
@@ -8472,7 +8472,7 @@ impl Default for ImageMemoryRequirementsInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000146001i32),
+            s_type: StructureType::from_raw(1000146001i32),
             p_next: core::ptr::null(),
             image: Default::default(),
         }
@@ -8490,7 +8490,7 @@ impl Default for ImageSparseMemoryRequirementsInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000146002i32),
+            s_type: StructureType::from_raw(1000146002i32),
             p_next: core::ptr::null(),
             image: Default::default(),
         }
@@ -8509,7 +8509,7 @@ impl Default for DeviceImageMemoryRequirements {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000413003i32),
+            s_type: StructureType::from_raw(1000413003i32),
             p_next: core::ptr::null(),
             p_create_info: core::ptr::null(),
             plane_aspect: Default::default(),
@@ -8528,7 +8528,7 @@ impl Default for MemoryRequirements2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000146003i32),
+            s_type: StructureType::from_raw(1000146003i32),
             p_next: core::ptr::null_mut(),
             memory_requirements: Default::default(),
         }
@@ -8546,7 +8546,7 @@ impl Default for SparseImageMemoryRequirements2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000146004i32),
+            s_type: StructureType::from_raw(1000146004i32),
             p_next: core::ptr::null_mut(),
             memory_requirements: Default::default(),
         }
@@ -8564,7 +8564,7 @@ impl Default for PhysicalDevicePointClippingProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000117000i32),
+            s_type: StructureType::from_raw(1000117000i32),
             p_next: core::ptr::null_mut(),
             point_clipping_behavior: Default::default(),
         }
@@ -8583,7 +8583,7 @@ impl Default for MemoryDedicatedRequirements {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000127000i32),
+            s_type: StructureType::from_raw(1000127000i32),
             p_next: core::ptr::null_mut(),
             prefers_dedicated_allocation: Default::default(),
             requires_dedicated_allocation: Default::default(),
@@ -8603,7 +8603,7 @@ impl Default for MemoryDedicatedAllocateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000127001i32),
+            s_type: StructureType::from_raw(1000127001i32),
             p_next: core::ptr::null(),
             image: Default::default(),
             buffer: Default::default(),
@@ -8622,7 +8622,7 @@ impl Default for ImageViewUsageCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000117002i32),
+            s_type: StructureType::from_raw(1000117002i32),
             p_next: core::ptr::null(),
             usage: Default::default(),
         }
@@ -8641,7 +8641,7 @@ impl Default for ImageViewSlicedCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000418001i32),
+            s_type: StructureType::from_raw(1000418001i32),
             p_next: core::ptr::null(),
             slice_offset: Default::default(),
             slice_count: Default::default(),
@@ -8660,7 +8660,7 @@ impl Default for PipelineTessellationDomainOriginStateCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000117003i32),
+            s_type: StructureType::from_raw(1000117003i32),
             p_next: core::ptr::null(),
             domain_origin: Default::default(),
         }
@@ -8678,7 +8678,7 @@ impl Default for SamplerYcbcrConversionInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000156001i32),
+            s_type: StructureType::from_raw(1000156001i32),
             p_next: core::ptr::null(),
             conversion: Default::default(),
         }
@@ -8703,7 +8703,7 @@ impl Default for SamplerYcbcrConversionCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000156000i32),
+            s_type: StructureType::from_raw(1000156000i32),
             p_next: core::ptr::null(),
             format: Default::default(),
             ycbcr_model: Default::default(),
@@ -8728,7 +8728,7 @@ impl Default for BindImagePlaneMemoryInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000156002i32),
+            s_type: StructureType::from_raw(1000156002i32),
             p_next: core::ptr::null(),
             plane_aspect: Default::default(),
         }
@@ -8746,7 +8746,7 @@ impl Default for ImagePlaneMemoryRequirementsInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000156003i32),
+            s_type: StructureType::from_raw(1000156003i32),
             p_next: core::ptr::null(),
             plane_aspect: Default::default(),
         }
@@ -8764,7 +8764,7 @@ impl Default for PhysicalDeviceSamplerYcbcrConversionFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000156004i32),
+            s_type: StructureType::from_raw(1000156004i32),
             p_next: core::ptr::null_mut(),
             sampler_ycbcr_conversion: Default::default(),
         }
@@ -8782,7 +8782,7 @@ impl Default for SamplerYcbcrConversionImageFormatProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000156005i32),
+            s_type: StructureType::from_raw(1000156005i32),
             p_next: core::ptr::null_mut(),
             combined_image_sampler_descriptor_count: Default::default(),
         }
@@ -8800,7 +8800,7 @@ impl Default for TextureLODGatherFormatPropertiesAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000041000i32),
+            s_type: StructureType::from_raw(1000041000i32),
             p_next: core::ptr::null_mut(),
             supports_texture_gather_lod_bias_amd: Default::default(),
         }
@@ -8820,7 +8820,7 @@ impl Default for ConditionalRenderingBeginInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000081002i32),
+            s_type: StructureType::from_raw(1000081002i32),
             p_next: core::ptr::null(),
             buffer: Default::default(),
             offset: Default::default(),
@@ -8840,7 +8840,7 @@ impl Default for ProtectedSubmitInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000145000i32),
+            s_type: StructureType::from_raw(1000145000i32),
             p_next: core::ptr::null(),
             protected_submit: Default::default(),
         }
@@ -8858,7 +8858,7 @@ impl Default for PhysicalDeviceProtectedMemoryFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000145001i32),
+            s_type: StructureType::from_raw(1000145001i32),
             p_next: core::ptr::null_mut(),
             protected_memory: Default::default(),
         }
@@ -8876,7 +8876,7 @@ impl Default for PhysicalDeviceProtectedMemoryProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000145002i32),
+            s_type: StructureType::from_raw(1000145002i32),
             p_next: core::ptr::null_mut(),
             protected_no_fault: Default::default(),
         }
@@ -8896,7 +8896,7 @@ impl Default for DeviceQueueInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000145003i32),
+            s_type: StructureType::from_raw(1000145003i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             queue_family_index: Default::default(),
@@ -8918,7 +8918,7 @@ impl Default for PipelineCoverageToColorStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000149000i32),
+            s_type: StructureType::from_raw(1000149000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             coverage_to_color_enable: Default::default(),
@@ -8939,7 +8939,7 @@ impl Default for PhysicalDeviceSamplerFilterMinmaxProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000130000i32),
+            s_type: StructureType::from_raw(1000130000i32),
             p_next: core::ptr::null_mut(),
             filter_minmax_single_component_formats: Default::default(),
             filter_minmax_image_component_mapping: Default::default(),
@@ -8974,7 +8974,7 @@ impl Default for SampleLocationsInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000143000i32),
+            s_type: StructureType::from_raw(1000143000i32),
             p_next: core::ptr::null(),
             sample_locations_per_pixel: Default::default(),
             sample_location_grid_size: Default::default(),
@@ -9024,7 +9024,7 @@ impl Default for RenderPassSampleLocationsBeginInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000143001i32),
+            s_type: StructureType::from_raw(1000143001i32),
             p_next: core::ptr::null(),
             attachment_initial_sample_locations_count: Default::default(),
             p_attachment_initial_sample_locations: core::ptr::null(),
@@ -9046,7 +9046,7 @@ impl Default for PipelineSampleLocationsStateCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000143002i32),
+            s_type: StructureType::from_raw(1000143002i32),
             p_next: core::ptr::null(),
             sample_locations_enable: Default::default(),
             sample_locations_info: Default::default(),
@@ -9069,7 +9069,7 @@ impl Default for PhysicalDeviceSampleLocationsPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000143003i32),
+            s_type: StructureType::from_raw(1000143003i32),
             p_next: core::ptr::null_mut(),
             sample_location_sample_counts: Default::default(),
             max_sample_location_grid_size: Default::default(),
@@ -9091,7 +9091,7 @@ impl Default for MultisamplePropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000143004i32),
+            s_type: StructureType::from_raw(1000143004i32),
             p_next: core::ptr::null_mut(),
             max_sample_location_grid_size: Default::default(),
         }
@@ -9109,7 +9109,7 @@ impl Default for SamplerReductionModeCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000130001i32),
+            s_type: StructureType::from_raw(1000130001i32),
             p_next: core::ptr::null(),
             reduction_mode: Default::default(),
         }
@@ -9127,7 +9127,7 @@ impl Default for PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000148000i32),
+            s_type: StructureType::from_raw(1000148000i32),
             p_next: core::ptr::null_mut(),
             advanced_blend_coherent_operations: Default::default(),
         }
@@ -9145,7 +9145,7 @@ impl Default for PhysicalDeviceMultiDrawFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000392000i32),
+            s_type: StructureType::from_raw(1000392000i32),
             p_next: core::ptr::null_mut(),
             multi_draw: Default::default(),
         }
@@ -9168,7 +9168,7 @@ impl Default for PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000148001i32),
+            s_type: StructureType::from_raw(1000148001i32),
             p_next: core::ptr::null_mut(),
             advanced_blend_max_color_attachments: Default::default(),
             advanced_blend_independent_blend: Default::default(),
@@ -9193,7 +9193,7 @@ impl Default for PipelineColorBlendAdvancedStateCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000148002i32),
+            s_type: StructureType::from_raw(1000148002i32),
             p_next: core::ptr::null(),
             src_premultiplied: Default::default(),
             dst_premultiplied: Default::default(),
@@ -9214,7 +9214,7 @@ impl Default for PhysicalDeviceInlineUniformBlockFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000138000i32),
+            s_type: StructureType::from_raw(1000138000i32),
             p_next: core::ptr::null_mut(),
             inline_uniform_block: Default::default(),
             descriptor_binding_inline_uniform_block_update_after_bind: Default::default(),
@@ -9237,7 +9237,7 @@ impl Default for PhysicalDeviceInlineUniformBlockProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000138001i32),
+            s_type: StructureType::from_raw(1000138001i32),
             p_next: core::ptr::null_mut(),
             max_inline_uniform_block_size: Default::default(),
             max_per_stage_descriptor_inline_uniform_blocks: Default::default(),
@@ -9260,7 +9260,7 @@ impl Default for WriteDescriptorSetInlineUniformBlock {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000138002i32),
+            s_type: StructureType::from_raw(1000138002i32),
             p_next: core::ptr::null(),
             data_size: Default::default(),
             p_data: core::ptr::null(),
@@ -9279,7 +9279,7 @@ impl Default for DescriptorPoolInlineUniformBlockCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000138003i32),
+            s_type: StructureType::from_raw(1000138003i32),
             p_next: core::ptr::null(),
             max_inline_uniform_block_bindings: Default::default(),
         }
@@ -9301,7 +9301,7 @@ impl Default for PipelineCoverageModulationStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000152000i32),
+            s_type: StructureType::from_raw(1000152000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             coverage_modulation_mode: Default::default(),
@@ -9324,7 +9324,7 @@ impl Default for ImageFormatListCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000147000i32),
+            s_type: StructureType::from_raw(1000147000i32),
             p_next: core::ptr::null(),
             view_format_count: Default::default(),
             p_view_formats: core::ptr::null(),
@@ -9345,7 +9345,7 @@ impl Default for ValidationCacheCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000160000i32),
+            s_type: StructureType::from_raw(1000160000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             initial_data_size: Default::default(),
@@ -9365,7 +9365,7 @@ impl Default for ShaderModuleValidationCacheCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000160001i32),
+            s_type: StructureType::from_raw(1000160001i32),
             p_next: core::ptr::null(),
             validation_cache: Default::default(),
         }
@@ -9384,7 +9384,7 @@ impl Default for PhysicalDeviceMaintenance3Properties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000168000i32),
+            s_type: StructureType::from_raw(1000168000i32),
             p_next: core::ptr::null_mut(),
             max_per_set_descriptors: Default::default(),
             max_memory_allocation_size: Default::default(),
@@ -9403,7 +9403,7 @@ impl Default for PhysicalDeviceMaintenance4Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000413000i32),
+            s_type: StructureType::from_raw(1000413000i32),
             p_next: core::ptr::null_mut(),
             maintenance4: Default::default(),
         }
@@ -9421,7 +9421,7 @@ impl Default for PhysicalDeviceMaintenance4Properties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000413001i32),
+            s_type: StructureType::from_raw(1000413001i32),
             p_next: core::ptr::null_mut(),
             max_buffer_size: Default::default(),
         }
@@ -9439,7 +9439,7 @@ impl Default for PhysicalDeviceMaintenance5Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000470000i32),
+            s_type: StructureType::from_raw(1000470000i32),
             p_next: core::ptr::null_mut(),
             maintenance5: Default::default(),
         }
@@ -9462,7 +9462,7 @@ impl Default for PhysicalDeviceMaintenance5Properties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000470001i32),
+            s_type: StructureType::from_raw(1000470001i32),
             p_next: core::ptr::null_mut(),
             early_fragment_multisample_coverage_after_sample_counting: Default::default(),
             early_fragment_sample_mask_test_before_sample_counting: Default::default(),
@@ -9485,7 +9485,7 @@ impl Default for PhysicalDeviceMaintenance6Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545000i32),
+            s_type: StructureType::from_raw(1000545000i32),
             p_next: core::ptr::null_mut(),
             maintenance6: Default::default(),
         }
@@ -9505,7 +9505,7 @@ impl Default for PhysicalDeviceMaintenance6Properties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545001i32),
+            s_type: StructureType::from_raw(1000545001i32),
             p_next: core::ptr::null_mut(),
             block_texel_view_compatible_multiple_layers: Default::default(),
             max_combined_image_sampler_descriptor_count: Default::default(),
@@ -9525,7 +9525,7 @@ impl Default for PhysicalDeviceMaintenance7FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000562000i32),
+            s_type: StructureType::from_raw(1000562000i32),
             p_next: core::ptr::null_mut(),
             maintenance7: Default::default(),
         }
@@ -9550,7 +9550,7 @@ impl Default for PhysicalDeviceMaintenance7PropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000562001i32),
+            s_type: StructureType::from_raw(1000562001i32),
             p_next: core::ptr::null_mut(),
             robust_fragment_shading_rate_attachment_access: Default::default(),
             separate_depth_stencil_attachment_access: Default::default(),
@@ -9576,7 +9576,7 @@ impl Default for PhysicalDeviceLayeredApiPropertiesListKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000562002i32),
+            s_type: StructureType::from_raw(1000562002i32),
             p_next: core::ptr::null_mut(),
             layered_api_count: Default::default(),
             p_layered_apis: core::ptr::null_mut(),
@@ -9598,7 +9598,7 @@ impl Default for PhysicalDeviceLayeredApiPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000562003i32),
+            s_type: StructureType::from_raw(1000562003i32),
             p_next: core::ptr::null_mut(),
             vendor_id: Default::default(),
             device_id: Default::default(),
@@ -9619,7 +9619,7 @@ impl Default for PhysicalDeviceLayeredApiVulkanPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000562004i32),
+            s_type: StructureType::from_raw(1000562004i32),
             p_next: core::ptr::null_mut(),
             properties: Default::default(),
         }
@@ -9637,7 +9637,7 @@ impl Default for PhysicalDeviceMaintenance8FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000574000i32),
+            s_type: StructureType::from_raw(1000574000i32),
             p_next: core::ptr::null_mut(),
             maintenance8: Default::default(),
         }
@@ -9655,7 +9655,7 @@ impl Default for PhysicalDeviceMaintenance9FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000584000i32),
+            s_type: StructureType::from_raw(1000584000i32),
             p_next: core::ptr::null_mut(),
             maintenance9: Default::default(),
         }
@@ -9674,7 +9674,7 @@ impl Default for PhysicalDeviceMaintenance9PropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000584001i32),
+            s_type: StructureType::from_raw(1000584001i32),
             p_next: core::ptr::null_mut(),
             image2_d_view_of3_d_sparse: Default::default(),
             default_vertex_attribute_value: Default::default(),
@@ -9695,7 +9695,7 @@ impl Default for PhysicalDeviceMaintenance10PropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000630001i32),
+            s_type: StructureType::from_raw(1000630001i32),
             p_next: core::ptr::null_mut(),
             rgba4_opaque_black_swizzled: Default::default(),
             resolve_srgb_format_applies_transfer_function: Default::default(),
@@ -9715,7 +9715,7 @@ impl Default for PhysicalDeviceMaintenance10FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000630000i32),
+            s_type: StructureType::from_raw(1000630000i32),
             p_next: core::ptr::null_mut(),
             maintenance10: Default::default(),
         }
@@ -9733,7 +9733,7 @@ impl Default for QueueFamilyOwnershipTransferPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000584002i32),
+            s_type: StructureType::from_raw(1000584002i32),
             p_next: core::ptr::null_mut(),
             optimal_image_transfer_to_queue_families: Default::default(),
         }
@@ -9755,7 +9755,7 @@ impl Default for RenderingAreaInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000470003i32),
+            s_type: StructureType::from_raw(1000470003i32),
             p_next: core::ptr::null(),
             view_mask: Default::default(),
             color_attachment_count: Default::default(),
@@ -9777,7 +9777,7 @@ impl Default for DescriptorSetLayoutSupport {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000168001i32),
+            s_type: StructureType::from_raw(1000168001i32),
             p_next: core::ptr::null_mut(),
             supported: Default::default(),
         }
@@ -9795,7 +9795,7 @@ impl Default for PhysicalDeviceShaderDrawParametersFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000063000i32),
+            s_type: StructureType::from_raw(1000063000i32),
             p_next: core::ptr::null_mut(),
             shader_draw_parameters: Default::default(),
         }
@@ -9814,7 +9814,7 @@ impl Default for PhysicalDeviceShaderFloat16Int8Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000082000i32),
+            s_type: StructureType::from_raw(1000082000i32),
             p_next: core::ptr::null_mut(),
             shader_float16: Default::default(),
             shader_int8: Default::default(),
@@ -9849,7 +9849,7 @@ impl Default for PhysicalDeviceFloatControlsProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000197000i32),
+            s_type: StructureType::from_raw(1000197000i32),
             p_next: core::ptr::null_mut(),
             denorm_behavior_independence: Default::default(),
             rounding_mode_independence: Default::default(),
@@ -9883,7 +9883,7 @@ impl Default for PhysicalDeviceHostQueryResetFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000261000i32),
+            s_type: StructureType::from_raw(1000261000i32),
             p_next: core::ptr::null_mut(),
             host_query_reset: Default::default(),
         }
@@ -10010,7 +10010,7 @@ impl Default for DeviceQueueGlobalPriorityCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000174000i32),
+            s_type: StructureType::from_raw(1000174000i32),
             p_next: core::ptr::null(),
             global_priority: Default::default(),
         }
@@ -10028,7 +10028,7 @@ impl Default for PhysicalDeviceGlobalPriorityQueryFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000388000i32),
+            s_type: StructureType::from_raw(1000388000i32),
             p_next: core::ptr::null_mut(),
             global_priority_query: Default::default(),
         }
@@ -10047,7 +10047,7 @@ impl Default for QueueFamilyGlobalPriorityProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000388001i32),
+            s_type: StructureType::from_raw(1000388001i32),
             p_next: core::ptr::null_mut(),
             priority_count: Default::default(),
             priorities: unsafe { core::mem::zeroed() },
@@ -10068,7 +10068,7 @@ impl Default for DebugUtilsObjectNameInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000128000i32),
+            s_type: StructureType::from_raw(1000128000i32),
             p_next: core::ptr::null(),
             object_type: Default::default(),
             object_handle: Default::default(),
@@ -10092,7 +10092,7 @@ impl Default for DebugUtilsObjectTagInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000128001i32),
+            s_type: StructureType::from_raw(1000128001i32),
             p_next: core::ptr::null(),
             object_type: Default::default(),
             object_handle: Default::default(),
@@ -10115,7 +10115,7 @@ impl Default for DebugUtilsLabelEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000128002i32),
+            s_type: StructureType::from_raw(1000128002i32),
             p_next: core::ptr::null(),
             p_label_name: core::ptr::null(),
             color: unsafe { core::mem::zeroed() },
@@ -10138,7 +10138,7 @@ impl Default for DebugUtilsMessengerCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000128004i32),
+            s_type: StructureType::from_raw(1000128004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             message_severity: Default::default(),
@@ -10169,7 +10169,7 @@ impl Default for DebugUtilsMessengerCallbackDataEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000128003i32),
+            s_type: StructureType::from_raw(1000128003i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             p_message_id_name: core::ptr::null(),
@@ -10196,7 +10196,7 @@ impl Default for PhysicalDeviceDeviceMemoryReportFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000284000i32),
+            s_type: StructureType::from_raw(1000284000i32),
             p_next: core::ptr::null_mut(),
             device_memory_report: Default::default(),
         }
@@ -10216,7 +10216,7 @@ impl Default for DeviceDeviceMemoryReportCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000284001i32),
+            s_type: StructureType::from_raw(1000284001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             pfn_user_callback: Default::default(),
@@ -10242,7 +10242,7 @@ impl Default for DeviceMemoryReportCallbackDataEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000284002i32),
+            s_type: StructureType::from_raw(1000284002i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             r#type: Default::default(),
@@ -10267,7 +10267,7 @@ impl Default for ImportMemoryHostPointerInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000178000i32),
+            s_type: StructureType::from_raw(1000178000i32),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             p_host_pointer: core::ptr::null_mut(),
@@ -10286,7 +10286,7 @@ impl Default for MemoryHostPointerPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000178001i32),
+            s_type: StructureType::from_raw(1000178001i32),
             p_next: core::ptr::null_mut(),
             memory_type_bits: Default::default(),
         }
@@ -10304,7 +10304,7 @@ impl Default for PhysicalDeviceExternalMemoryHostPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000178002i32),
+            s_type: StructureType::from_raw(1000178002i32),
             p_next: core::ptr::null_mut(),
             min_imported_host_pointer_alignment: Default::default(),
         }
@@ -10330,7 +10330,7 @@ impl Default for PhysicalDeviceConservativeRasterizationPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000101000i32),
+            s_type: StructureType::from_raw(1000101000i32),
             p_next: core::ptr::null_mut(),
             primitive_overestimation_size: Default::default(),
             max_extra_primitive_overestimation_size: Default::default(),
@@ -10356,7 +10356,7 @@ impl Default for CalibratedTimestampInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000184000i32),
+            s_type: StructureType::from_raw(1000184000i32),
             p_next: core::ptr::null(),
             time_domain: Default::default(),
         }
@@ -10387,7 +10387,7 @@ impl Default for PhysicalDeviceShaderCorePropertiesAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000185000i32),
+            s_type: StructureType::from_raw(1000185000i32),
             p_next: core::ptr::null_mut(),
             shader_engine_count: Default::default(),
             shader_arrays_per_engine_count: Default::default(),
@@ -10419,7 +10419,7 @@ impl Default for PhysicalDeviceShaderCoreProperties2AMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000227000i32),
+            s_type: StructureType::from_raw(1000227000i32),
             p_next: core::ptr::null_mut(),
             shader_core_features: Default::default(),
             active_compute_unit_count: Default::default(),
@@ -10440,7 +10440,7 @@ impl Default for PipelineRasterizationConservativeStateCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000101001i32),
+            s_type: StructureType::from_raw(1000101001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             conservative_rasterization_mode: Default::default(),
@@ -10479,7 +10479,7 @@ impl Default for PhysicalDeviceDescriptorIndexingFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000161001i32),
+            s_type: StructureType::from_raw(1000161001i32),
             p_next: core::ptr::null_mut(),
             shader_input_attachment_array_dynamic_indexing: Default::default(),
             shader_uniform_texel_buffer_array_dynamic_indexing: Default::default(),
@@ -10538,7 +10538,7 @@ impl Default for PhysicalDeviceDescriptorIndexingProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000161002i32),
+            s_type: StructureType::from_raw(1000161002i32),
             p_next: core::ptr::null_mut(),
             max_update_after_bind_descriptors_in_all_pools: Default::default(),
             shader_uniform_buffer_array_non_uniform_indexing_native: Default::default(),
@@ -10579,7 +10579,7 @@ impl Default for DescriptorSetLayoutBindingFlagsCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000161000i32),
+            s_type: StructureType::from_raw(1000161000i32),
             p_next: core::ptr::null(),
             binding_count: Default::default(),
             p_binding_flags: core::ptr::null(),
@@ -10599,7 +10599,7 @@ impl Default for DescriptorSetVariableDescriptorCountAllocateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000161003i32),
+            s_type: StructureType::from_raw(1000161003i32),
             p_next: core::ptr::null(),
             descriptor_set_count: Default::default(),
             p_descriptor_counts: core::ptr::null(),
@@ -10618,7 +10618,7 @@ impl Default for DescriptorSetVariableDescriptorCountLayoutSupport {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000161004i32),
+            s_type: StructureType::from_raw(1000161004i32),
             p_next: core::ptr::null_mut(),
             max_variable_descriptor_count: Default::default(),
         }
@@ -10644,7 +10644,7 @@ impl Default for AttachmentDescription2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000109000i32),
+            s_type: StructureType::from_raw(1000109000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             format: Default::default(),
@@ -10672,7 +10672,7 @@ impl Default for AttachmentReference2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000109001i32),
+            s_type: StructureType::from_raw(1000109001i32),
             p_next: core::ptr::null(),
             attachment: Default::default(),
             layout: Default::default(),
@@ -10702,7 +10702,7 @@ impl Default for SubpassDescription2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000109002i32),
+            s_type: StructureType::from_raw(1000109002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             pipeline_bind_point: Default::default(),
@@ -10737,7 +10737,7 @@ impl Default for SubpassDependency2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000109003i32),
+            s_type: StructureType::from_raw(1000109003i32),
             p_next: core::ptr::null(),
             src_subpass: Default::default(),
             dst_subpass: Default::default(),
@@ -10770,7 +10770,7 @@ impl Default for RenderPassCreateInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000109004i32),
+            s_type: StructureType::from_raw(1000109004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             attachment_count: Default::default(),
@@ -10796,7 +10796,7 @@ impl Default for SubpassBeginInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000109005i32),
+            s_type: StructureType::from_raw(1000109005i32),
             p_next: core::ptr::null(),
             contents: Default::default(),
         }
@@ -10813,7 +10813,7 @@ impl Default for SubpassEndInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000109006i32),
+            s_type: StructureType::from_raw(1000109006i32),
             p_next: core::ptr::null(),
         }
     }
@@ -10830,7 +10830,7 @@ impl Default for PhysicalDeviceTimelineSemaphoreFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000207000i32),
+            s_type: StructureType::from_raw(1000207000i32),
             p_next: core::ptr::null_mut(),
             timeline_semaphore: Default::default(),
         }
@@ -10848,7 +10848,7 @@ impl Default for PhysicalDeviceTimelineSemaphoreProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000207001i32),
+            s_type: StructureType::from_raw(1000207001i32),
             p_next: core::ptr::null_mut(),
             max_timeline_semaphore_value_difference: Default::default(),
         }
@@ -10867,7 +10867,7 @@ impl Default for SemaphoreTypeCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000207002i32),
+            s_type: StructureType::from_raw(1000207002i32),
             p_next: core::ptr::null(),
             semaphore_type: Default::default(),
             initial_value: Default::default(),
@@ -10889,7 +10889,7 @@ impl Default for TimelineSemaphoreSubmitInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000207003i32),
+            s_type: StructureType::from_raw(1000207003i32),
             p_next: core::ptr::null(),
             wait_semaphore_value_count: Default::default(),
             p_wait_semaphore_values: core::ptr::null(),
@@ -10913,7 +10913,7 @@ impl Default for SemaphoreWaitInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000207004i32),
+            s_type: StructureType::from_raw(1000207004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             semaphore_count: Default::default(),
@@ -10935,7 +10935,7 @@ impl Default for SemaphoreSignalInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000207005i32),
+            s_type: StructureType::from_raw(1000207005i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             value: Default::default(),
@@ -10968,7 +10968,7 @@ impl Default for PipelineVertexInputDivisorStateCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000190001i32),
+            s_type: StructureType::from_raw(1000190001i32),
             p_next: core::ptr::null(),
             vertex_binding_divisor_count: Default::default(),
             p_vertex_binding_divisors: core::ptr::null(),
@@ -10987,7 +10987,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000190000i32),
+            s_type: StructureType::from_raw(1000190000i32),
             p_next: core::ptr::null_mut(),
             max_vertex_attrib_divisor: Default::default(),
         }
@@ -11006,7 +11006,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000525000i32),
+            s_type: StructureType::from_raw(1000525000i32),
             p_next: core::ptr::null_mut(),
             max_vertex_attrib_divisor: Default::default(),
             supports_non_zero_first_instance: Default::default(),
@@ -11028,7 +11028,7 @@ impl Default for PhysicalDevicePCIBusInfoPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000212000i32),
+            s_type: StructureType::from_raw(1000212000i32),
             p_next: core::ptr::null_mut(),
             pci_domain: Default::default(),
             pci_bus: Default::default(),
@@ -11049,7 +11049,7 @@ impl Default for ImportAndroidHardwareBufferInfoANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000129003i32),
+            s_type: StructureType::from_raw(1000129003i32),
             p_next: core::ptr::null(),
             buffer: core::ptr::null_mut(),
         }
@@ -11067,7 +11067,7 @@ impl Default for AndroidHardwareBufferUsageANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000129000i32),
+            s_type: StructureType::from_raw(1000129000i32),
             p_next: core::ptr::null_mut(),
             android_hardware_buffer_usage: Default::default(),
         }
@@ -11086,7 +11086,7 @@ impl Default for AndroidHardwareBufferPropertiesANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000129001i32),
+            s_type: StructureType::from_raw(1000129001i32),
             p_next: core::ptr::null_mut(),
             allocation_size: Default::default(),
             memory_type_bits: Default::default(),
@@ -11105,7 +11105,7 @@ impl Default for MemoryGetAndroidHardwareBufferInfoANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000129004i32),
+            s_type: StructureType::from_raw(1000129004i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
         }
@@ -11130,7 +11130,7 @@ impl Default for AndroidHardwareBufferFormatPropertiesANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000129002i32),
+            s_type: StructureType::from_raw(1000129002i32),
             p_next: core::ptr::null_mut(),
             format: Default::default(),
             external_format: Default::default(),
@@ -11155,7 +11155,7 @@ impl Default for CommandBufferInheritanceConditionalRenderingInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000081000i32),
+            s_type: StructureType::from_raw(1000081000i32),
             p_next: core::ptr::null(),
             conditional_rendering_enable: Default::default(),
         }
@@ -11173,7 +11173,7 @@ impl Default for ExternalFormatANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000129005i32),
+            s_type: StructureType::from_raw(1000129005i32),
             p_next: core::ptr::null_mut(),
             external_format: Default::default(),
         }
@@ -11193,7 +11193,7 @@ impl Default for PhysicalDevice8BitStorageFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000177000i32),
+            s_type: StructureType::from_raw(1000177000i32),
             p_next: core::ptr::null_mut(),
             storage_buffer8_bit_access: Default::default(),
             uniform_and_storage_buffer8_bit_access: Default::default(),
@@ -11214,7 +11214,7 @@ impl Default for PhysicalDeviceConditionalRenderingFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000081001i32),
+            s_type: StructureType::from_raw(1000081001i32),
             p_next: core::ptr::null_mut(),
             conditional_rendering: Default::default(),
             inherited_conditional_rendering: Default::default(),
@@ -11235,7 +11235,7 @@ impl Default for PhysicalDeviceVulkanMemoryModelFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000211000i32),
+            s_type: StructureType::from_raw(1000211000i32),
             p_next: core::ptr::null_mut(),
             vulkan_memory_model: Default::default(),
             vulkan_memory_model_device_scope: Default::default(),
@@ -11256,7 +11256,7 @@ impl Default for PhysicalDeviceShaderAtomicInt64Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000180000i32),
+            s_type: StructureType::from_raw(1000180000i32),
             p_next: core::ptr::null_mut(),
             shader_buffer_int64_atomics: Default::default(),
             shader_shared_int64_atomics: Default::default(),
@@ -11286,7 +11286,7 @@ impl Default for PhysicalDeviceShaderAtomicFloatFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000260000i32),
+            s_type: StructureType::from_raw(1000260000i32),
             p_next: core::ptr::null_mut(),
             shader_buffer_float32_atomics: Default::default(),
             shader_buffer_float32_atomic_add: Default::default(),
@@ -11326,7 +11326,7 @@ impl Default for PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000273000i32),
+            s_type: StructureType::from_raw(1000273000i32),
             p_next: core::ptr::null_mut(),
             shader_buffer_float16_atomics: Default::default(),
             shader_buffer_float16_atomic_add: Default::default(),
@@ -11356,7 +11356,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000190002i32),
+            s_type: StructureType::from_raw(1000190002i32),
             p_next: core::ptr::null_mut(),
             vertex_attribute_instance_rate_divisor: Default::default(),
             vertex_attribute_instance_rate_zero_divisor: Default::default(),
@@ -11375,7 +11375,7 @@ impl Default for QueueFamilyCheckpointPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000206001i32),
+            s_type: StructureType::from_raw(1000206001i32),
             p_next: core::ptr::null_mut(),
             checkpoint_execution_stage_mask: Default::default(),
         }
@@ -11394,7 +11394,7 @@ impl Default for CheckpointDataNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000206000i32),
+            s_type: StructureType::from_raw(1000206000i32),
             p_next: core::ptr::null_mut(),
             stage: Default::default(),
             p_checkpoint_marker: core::ptr::null_mut(),
@@ -11416,7 +11416,7 @@ impl Default for PhysicalDeviceDepthStencilResolveProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000199000i32),
+            s_type: StructureType::from_raw(1000199000i32),
             p_next: core::ptr::null_mut(),
             supported_depth_resolve_modes: Default::default(),
             supported_stencil_resolve_modes: Default::default(),
@@ -11439,7 +11439,7 @@ impl Default for SubpassDescriptionDepthStencilResolve {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000199001i32),
+            s_type: StructureType::from_raw(1000199001i32),
             p_next: core::ptr::null(),
             depth_resolve_mode: Default::default(),
             stencil_resolve_mode: Default::default(),
@@ -11459,7 +11459,7 @@ impl Default for ImageViewASTCDecodeModeEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000067000i32),
+            s_type: StructureType::from_raw(1000067000i32),
             p_next: core::ptr::null(),
             decode_mode: Default::default(),
         }
@@ -11477,7 +11477,7 @@ impl Default for PhysicalDeviceASTCDecodeFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000067001i32),
+            s_type: StructureType::from_raw(1000067001i32),
             p_next: core::ptr::null_mut(),
             decode_mode_shared_exponent: Default::default(),
         }
@@ -11496,7 +11496,7 @@ impl Default for PhysicalDeviceTransformFeedbackFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000028000i32),
+            s_type: StructureType::from_raw(1000028000i32),
             p_next: core::ptr::null_mut(),
             transform_feedback: Default::default(),
             geometry_streams: Default::default(),
@@ -11524,7 +11524,7 @@ impl Default for PhysicalDeviceTransformFeedbackPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000028001i32),
+            s_type: StructureType::from_raw(1000028001i32),
             p_next: core::ptr::null_mut(),
             max_transform_feedback_streams: Default::default(),
             max_transform_feedback_buffers: Default::default(),
@@ -11552,7 +11552,7 @@ impl Default for PipelineRasterizationStateStreamCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000028002i32),
+            s_type: StructureType::from_raw(1000028002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             rasterization_stream: Default::default(),
@@ -11571,7 +11571,7 @@ impl Default for PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000166000i32),
+            s_type: StructureType::from_raw(1000166000i32),
             p_next: core::ptr::null_mut(),
             representative_fragment_test: Default::default(),
         }
@@ -11589,7 +11589,7 @@ impl Default for PipelineRepresentativeFragmentTestStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000166001i32),
+            s_type: StructureType::from_raw(1000166001i32),
             p_next: core::ptr::null(),
             representative_fragment_test_enable: Default::default(),
         }
@@ -11607,7 +11607,7 @@ impl Default for PhysicalDeviceExclusiveScissorFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000205002i32),
+            s_type: StructureType::from_raw(1000205002i32),
             p_next: core::ptr::null_mut(),
             exclusive_scissor: Default::default(),
         }
@@ -11626,7 +11626,7 @@ impl Default for PipelineViewportExclusiveScissorStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000205000i32),
+            s_type: StructureType::from_raw(1000205000i32),
             p_next: core::ptr::null(),
             exclusive_scissor_count: Default::default(),
             p_exclusive_scissors: core::ptr::null(),
@@ -11645,7 +11645,7 @@ impl Default for PhysicalDeviceCornerSampledImageFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000050000i32),
+            s_type: StructureType::from_raw(1000050000i32),
             p_next: core::ptr::null_mut(),
             corner_sampled_image: Default::default(),
         }
@@ -11664,7 +11664,7 @@ impl Default for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000201000i32),
+            s_type: StructureType::from_raw(1000201000i32),
             p_next: core::ptr::null_mut(),
             compute_derivative_group_quads: Default::default(),
             compute_derivative_group_linear: Default::default(),
@@ -11683,7 +11683,7 @@ impl Default for PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000511000i32),
+            s_type: StructureType::from_raw(1000511000i32),
             p_next: core::ptr::null_mut(),
             mesh_and_task_shader_derivatives: Default::default(),
         }
@@ -11701,7 +11701,7 @@ impl Default for PhysicalDeviceShaderImageFootprintFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000204000i32),
+            s_type: StructureType::from_raw(1000204000i32),
             p_next: core::ptr::null_mut(),
             image_footprint: Default::default(),
         }
@@ -11719,7 +11719,7 @@ impl Default for PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000240000i32),
+            s_type: StructureType::from_raw(1000240000i32),
             p_next: core::ptr::null_mut(),
             dedicated_allocation_image_aliasing: Default::default(),
         }
@@ -11738,7 +11738,7 @@ impl Default for PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000549000i32),
+            s_type: StructureType::from_raw(1000549000i32),
             p_next: core::ptr::null_mut(),
             indirect_memory_copy: Default::default(),
             indirect_memory_to_image_copy: Default::default(),
@@ -11757,7 +11757,7 @@ impl Default for PhysicalDeviceCopyMemoryIndirectFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000426000i32),
+            s_type: StructureType::from_raw(1000426000i32),
             p_next: core::ptr::null_mut(),
             indirect_copy: Default::default(),
         }
@@ -11775,7 +11775,7 @@ impl Default for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000426001i32),
+            s_type: StructureType::from_raw(1000426001i32),
             p_next: core::ptr::null_mut(),
             supported_queues: Default::default(),
         }
@@ -11793,7 +11793,7 @@ impl Default for PhysicalDeviceMemoryDecompressionFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000427000i32),
+            s_type: StructureType::from_raw(1000427000i32),
             p_next: core::ptr::null_mut(),
             memory_decompression: Default::default(),
         }
@@ -11812,7 +11812,7 @@ impl Default for PhysicalDeviceMemoryDecompressionPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000427001i32),
+            s_type: StructureType::from_raw(1000427001i32),
             p_next: core::ptr::null_mut(),
             decompression_methods: Default::default(),
             max_decompression_indirect_count: Default::default(),
@@ -11846,7 +11846,7 @@ impl Default for PipelineViewportShadingRateImageStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000164000i32),
+            s_type: StructureType::from_raw(1000164000i32),
             p_next: core::ptr::null(),
             shading_rate_image_enable: Default::default(),
             viewport_count: Default::default(),
@@ -11867,7 +11867,7 @@ impl Default for PhysicalDeviceShadingRateImageFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000164001i32),
+            s_type: StructureType::from_raw(1000164001i32),
             p_next: core::ptr::null_mut(),
             shading_rate_image: Default::default(),
             shading_rate_coarse_sample_order: Default::default(),
@@ -11888,7 +11888,7 @@ impl Default for PhysicalDeviceShadingRateImagePropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000164002i32),
+            s_type: StructureType::from_raw(1000164002i32),
             p_next: core::ptr::null_mut(),
             shading_rate_texel_size: Default::default(),
             shading_rate_palette_size: Default::default(),
@@ -11908,7 +11908,7 @@ impl Default for PhysicalDeviceInvocationMaskFeaturesHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000370000i32),
+            s_type: StructureType::from_raw(1000370000i32),
             p_next: core::ptr::null_mut(),
             invocation_mask: Default::default(),
         }
@@ -11957,7 +11957,7 @@ impl Default for PipelineViewportCoarseSampleOrderStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000164005i32),
+            s_type: StructureType::from_raw(1000164005i32),
             p_next: core::ptr::null(),
             sample_order_type: Default::default(),
             custom_sample_order_count: Default::default(),
@@ -11978,7 +11978,7 @@ impl Default for PhysicalDeviceMeshShaderFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000202000i32),
+            s_type: StructureType::from_raw(1000202000i32),
             p_next: core::ptr::null_mut(),
             task_shader: Default::default(),
             mesh_shader: Default::default(),
@@ -12009,7 +12009,7 @@ impl Default for PhysicalDeviceMeshShaderPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000202001i32),
+            s_type: StructureType::from_raw(1000202001i32),
             p_next: core::ptr::null_mut(),
             max_draw_mesh_tasks_count: Default::default(),
             max_task_work_group_invocations: Default::default(),
@@ -12056,7 +12056,7 @@ impl Default for PhysicalDeviceMeshShaderFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000328000i32),
+            s_type: StructureType::from_raw(1000328000i32),
             p_next: core::ptr::null_mut(),
             task_shader: Default::default(),
             mesh_shader: Default::default(),
@@ -12105,7 +12105,7 @@ impl Default for PhysicalDeviceMeshShaderPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000328001i32),
+            s_type: StructureType::from_raw(1000328001i32),
             p_next: core::ptr::null_mut(),
             max_task_work_group_total_count: Default::default(),
             max_task_work_group_count: unsafe { core::mem::zeroed() },
@@ -12168,7 +12168,7 @@ impl Default for RayTracingShaderGroupCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165011i32),
+            s_type: StructureType::from_raw(1000165011i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             general_shader: Default::default(),
@@ -12195,7 +12195,7 @@ impl Default for RayTracingShaderGroupCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150016i32),
+            s_type: StructureType::from_raw(1000150016i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             general_shader: Default::default(),
@@ -12226,7 +12226,7 @@ impl Default for RayTracingPipelineCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165000i32),
+            s_type: StructureType::from_raw(1000165000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             stage_count: Default::default(),
@@ -12263,7 +12263,7 @@ impl Default for RayTracingPipelineCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150015i32),
+            s_type: StructureType::from_raw(1000150015i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             stage_count: Default::default(),
@@ -12302,7 +12302,7 @@ impl Default for GeometryTrianglesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165004i32),
+            s_type: StructureType::from_raw(1000165004i32),
             p_next: core::ptr::null(),
             vertex_data: Default::default(),
             vertex_offset: Default::default(),
@@ -12333,7 +12333,7 @@ impl Default for GeometryAABBNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165005i32),
+            s_type: StructureType::from_raw(1000165005i32),
             p_next: core::ptr::null(),
             aabb_data: Default::default(),
             num_aab_bs: Default::default(),
@@ -12369,7 +12369,7 @@ impl Default for GeometryNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165003i32),
+            s_type: StructureType::from_raw(1000165003i32),
             p_next: core::ptr::null(),
             geometry_type: Default::default(),
             geometry: Default::default(),
@@ -12393,7 +12393,7 @@ impl Default for AccelerationStructureInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165012i32),
+            s_type: StructureType::from_raw(1000165012i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             flags: Default::default(),
@@ -12416,7 +12416,7 @@ impl Default for AccelerationStructureCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165001i32),
+            s_type: StructureType::from_raw(1000165001i32),
             p_next: core::ptr::null(),
             compacted_size: Default::default(),
             info: Default::default(),
@@ -12439,7 +12439,7 @@ impl Default for BindAccelerationStructureMemoryInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165006i32),
+            s_type: StructureType::from_raw(1000165006i32),
             p_next: core::ptr::null(),
             acceleration_structure: Default::default(),
             memory: Default::default(),
@@ -12462,7 +12462,7 @@ impl Default for WriteDescriptorSetAccelerationStructureKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150007i32),
+            s_type: StructureType::from_raw(1000150007i32),
             p_next: core::ptr::null(),
             acceleration_structure_count: Default::default(),
             p_acceleration_structures: core::ptr::null(),
@@ -12482,7 +12482,7 @@ impl Default for WriteDescriptorSetAccelerationStructureNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165007i32),
+            s_type: StructureType::from_raw(1000165007i32),
             p_next: core::ptr::null(),
             acceleration_structure_count: Default::default(),
             p_acceleration_structures: core::ptr::null(),
@@ -12502,7 +12502,7 @@ impl Default for AccelerationStructureMemoryRequirementsInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165008i32),
+            s_type: StructureType::from_raw(1000165008i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             acceleration_structure: Default::default(),
@@ -12525,7 +12525,7 @@ impl Default for PhysicalDeviceAccelerationStructureFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150013i32),
+            s_type: StructureType::from_raw(1000150013i32),
             p_next: core::ptr::null_mut(),
             acceleration_structure: Default::default(),
             acceleration_structure_capture_replay: Default::default(),
@@ -12551,7 +12551,7 @@ impl Default for PhysicalDeviceRayTracingPipelineFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000347000i32),
+            s_type: StructureType::from_raw(1000347000i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_pipeline: Default::default(),
             ray_tracing_pipeline_shader_group_handle_capture_replay: Default::default(),
@@ -12573,7 +12573,7 @@ impl Default for PhysicalDeviceRayQueryFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000348013i32),
+            s_type: StructureType::from_raw(1000348013i32),
             p_next: core::ptr::null_mut(),
             ray_query: Default::default(),
         }
@@ -12598,7 +12598,7 @@ impl Default for PhysicalDeviceAccelerationStructurePropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150014i32),
+            s_type: StructureType::from_raw(1000150014i32),
             p_next: core::ptr::null_mut(),
             max_geometry_count: Default::default(),
             max_instance_count: Default::default(),
@@ -12630,7 +12630,7 @@ impl Default for PhysicalDeviceRayTracingPipelinePropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000347001i32),
+            s_type: StructureType::from_raw(1000347001i32),
             p_next: core::ptr::null_mut(),
             shader_group_handle_size: Default::default(),
             max_ray_recursion_depth: Default::default(),
@@ -12662,7 +12662,7 @@ impl Default for PhysicalDeviceRayTracingPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000165009i32),
+            s_type: StructureType::from_raw(1000165009i32),
             p_next: core::ptr::null_mut(),
             shader_group_handle_size: Default::default(),
             max_recursion_depth: Default::default(),
@@ -12741,7 +12741,7 @@ impl Default for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000386000i32),
+            s_type: StructureType::from_raw(1000386000i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_maintenance1: Default::default(),
             ray_tracing_pipeline_trace_rays_indirect2: Default::default(),
@@ -12761,7 +12761,7 @@ impl Default for DrmFormatModifierPropertiesListEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000158000i32),
+            s_type: StructureType::from_raw(1000158000i32),
             p_next: core::ptr::null_mut(),
             drm_format_modifier_count: Default::default(),
             p_drm_format_modifier_properties: core::ptr::null_mut(),
@@ -12797,7 +12797,7 @@ impl Default for PhysicalDeviceImageDrmFormatModifierInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000158002i32),
+            s_type: StructureType::from_raw(1000158002i32),
             p_next: core::ptr::null(),
             drm_format_modifier: Default::default(),
             sharing_mode: Default::default(),
@@ -12819,7 +12819,7 @@ impl Default for ImageDrmFormatModifierListCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000158003i32),
+            s_type: StructureType::from_raw(1000158003i32),
             p_next: core::ptr::null(),
             drm_format_modifier_count: Default::default(),
             p_drm_format_modifiers: core::ptr::null(),
@@ -12840,7 +12840,7 @@ impl Default for ImageDrmFormatModifierExplicitCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000158004i32),
+            s_type: StructureType::from_raw(1000158004i32),
             p_next: core::ptr::null(),
             drm_format_modifier: Default::default(),
             drm_format_modifier_plane_count: Default::default(),
@@ -12860,7 +12860,7 @@ impl Default for ImageDrmFormatModifierPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000158005i32),
+            s_type: StructureType::from_raw(1000158005i32),
             p_next: core::ptr::null_mut(),
             drm_format_modifier: Default::default(),
         }
@@ -12878,7 +12878,7 @@ impl Default for ImageStencilUsageCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000246000i32),
+            s_type: StructureType::from_raw(1000246000i32),
             p_next: core::ptr::null(),
             stencil_usage: Default::default(),
         }
@@ -12896,7 +12896,7 @@ impl Default for DeviceMemoryOverallocationCreateInfoAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000189000i32),
+            s_type: StructureType::from_raw(1000189000i32),
             p_next: core::ptr::null(),
             overallocation_behavior: Default::default(),
         }
@@ -12916,7 +12916,7 @@ impl Default for PhysicalDeviceFragmentDensityMapFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000218000i32),
+            s_type: StructureType::from_raw(1000218000i32),
             p_next: core::ptr::null_mut(),
             fragment_density_map: Default::default(),
             fragment_density_map_dynamic: Default::default(),
@@ -12936,7 +12936,7 @@ impl Default for PhysicalDeviceFragmentDensityMap2FeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000332000i32),
+            s_type: StructureType::from_raw(1000332000i32),
             p_next: core::ptr::null_mut(),
             fragment_density_map_deferred: Default::default(),
         }
@@ -12954,7 +12954,7 @@ impl Default for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000425000i32),
+            s_type: StructureType::from_raw(1000425000i32),
             p_next: core::ptr::null_mut(),
             fragment_density_map_offset: Default::default(),
         }
@@ -12974,7 +12974,7 @@ impl Default for PhysicalDeviceFragmentDensityMapPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000218001i32),
+            s_type: StructureType::from_raw(1000218001i32),
             p_next: core::ptr::null_mut(),
             min_fragment_density_texel_size: Default::default(),
             max_fragment_density_texel_size: Default::default(),
@@ -12997,7 +12997,7 @@ impl Default for PhysicalDeviceFragmentDensityMap2PropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000332001i32),
+            s_type: StructureType::from_raw(1000332001i32),
             p_next: core::ptr::null_mut(),
             subsampled_loads: Default::default(),
             subsampled_coarse_reconstruction_early_access: Default::default(),
@@ -13018,7 +13018,7 @@ impl Default for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000425001i32),
+            s_type: StructureType::from_raw(1000425001i32),
             p_next: core::ptr::null_mut(),
             fragment_density_offset_granularity: Default::default(),
         }
@@ -13036,7 +13036,7 @@ impl Default for RenderPassFragmentDensityMapCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000218002i32),
+            s_type: StructureType::from_raw(1000218002i32),
             p_next: core::ptr::null(),
             fragment_density_map_attachment: Default::default(),
         }
@@ -13055,7 +13055,7 @@ impl Default for RenderPassFragmentDensityMapOffsetEndInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000425002i32),
+            s_type: StructureType::from_raw(1000425002i32),
             p_next: core::ptr::null(),
             fragment_density_offset_count: Default::default(),
             p_fragment_density_offsets: core::ptr::null(),
@@ -13074,7 +13074,7 @@ impl Default for PhysicalDeviceScalarBlockLayoutFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000221000i32),
+            s_type: StructureType::from_raw(1000221000i32),
             p_next: core::ptr::null_mut(),
             scalar_block_layout: Default::default(),
         }
@@ -13092,7 +13092,7 @@ impl Default for SurfaceProtectedCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000239000i32),
+            s_type: StructureType::from_raw(1000239000i32),
             p_next: core::ptr::null_mut(),
             supports_protected: Default::default(),
         }
@@ -13110,7 +13110,7 @@ impl Default for PhysicalDeviceUniformBufferStandardLayoutFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000253000i32),
+            s_type: StructureType::from_raw(1000253000i32),
             p_next: core::ptr::null_mut(),
             uniform_buffer_standard_layout: Default::default(),
         }
@@ -13128,7 +13128,7 @@ impl Default for PhysicalDeviceDepthClipEnableFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000102000i32),
+            s_type: StructureType::from_raw(1000102000i32),
             p_next: core::ptr::null_mut(),
             depth_clip_enable: Default::default(),
         }
@@ -13147,7 +13147,7 @@ impl Default for PipelineRasterizationDepthClipStateCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000102001i32),
+            s_type: StructureType::from_raw(1000102001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             depth_clip_enable: Default::default(),
@@ -13167,7 +13167,7 @@ impl Default for PhysicalDeviceMemoryBudgetPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000237000i32),
+            s_type: StructureType::from_raw(1000237000i32),
             p_next: core::ptr::null_mut(),
             heap_budget: unsafe { core::mem::zeroed() },
             heap_usage: unsafe { core::mem::zeroed() },
@@ -13186,7 +13186,7 @@ impl Default for PhysicalDeviceMemoryPriorityFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000238000i32),
+            s_type: StructureType::from_raw(1000238000i32),
             p_next: core::ptr::null_mut(),
             memory_priority: Default::default(),
         }
@@ -13204,7 +13204,7 @@ impl Default for MemoryPriorityAllocateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000238001i32),
+            s_type: StructureType::from_raw(1000238001i32),
             p_next: core::ptr::null(),
             priority: Default::default(),
         }
@@ -13222,7 +13222,7 @@ impl Default for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000412000i32),
+            s_type: StructureType::from_raw(1000412000i32),
             p_next: core::ptr::null_mut(),
             pageable_device_local_memory: Default::default(),
         }
@@ -13242,7 +13242,7 @@ impl Default for PhysicalDeviceBufferDeviceAddressFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000257000i32),
+            s_type: StructureType::from_raw(1000257000i32),
             p_next: core::ptr::null_mut(),
             buffer_device_address: Default::default(),
             buffer_device_address_capture_replay: Default::default(),
@@ -13264,7 +13264,7 @@ impl Default for PhysicalDeviceBufferDeviceAddressFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000244000i32),
+            s_type: StructureType::from_raw(1000244000i32),
             p_next: core::ptr::null_mut(),
             buffer_device_address: Default::default(),
             buffer_device_address_capture_replay: Default::default(),
@@ -13284,7 +13284,7 @@ impl Default for BufferDeviceAddressInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000244001i32),
+            s_type: StructureType::from_raw(1000244001i32),
             p_next: core::ptr::null(),
             buffer: Default::default(),
         }
@@ -13302,7 +13302,7 @@ impl Default for BufferOpaqueCaptureAddressCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000257002i32),
+            s_type: StructureType::from_raw(1000257002i32),
             p_next: core::ptr::null(),
             opaque_capture_address: Default::default(),
         }
@@ -13320,7 +13320,7 @@ impl Default for BufferDeviceAddressCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000244002i32),
+            s_type: StructureType::from_raw(1000244002i32),
             p_next: core::ptr::null(),
             device_address: Default::default(),
         }
@@ -13338,7 +13338,7 @@ impl Default for PhysicalDeviceImageViewImageFormatInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000170000i32),
+            s_type: StructureType::from_raw(1000170000i32),
             p_next: core::ptr::null_mut(),
             image_view_type: Default::default(),
         }
@@ -13357,7 +13357,7 @@ impl Default for FilterCubicImageViewImageFormatPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000170001i32),
+            s_type: StructureType::from_raw(1000170001i32),
             p_next: core::ptr::null_mut(),
             filter_cubic: Default::default(),
             filter_cubic_minmax: Default::default(),
@@ -13376,7 +13376,7 @@ impl Default for PhysicalDeviceImagelessFramebufferFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000108000i32),
+            s_type: StructureType::from_raw(1000108000i32),
             p_next: core::ptr::null_mut(),
             imageless_framebuffer: Default::default(),
         }
@@ -13395,7 +13395,7 @@ impl Default for FramebufferAttachmentsCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000108001i32),
+            s_type: StructureType::from_raw(1000108001i32),
             p_next: core::ptr::null(),
             attachment_image_info_count: Default::default(),
             p_attachment_image_infos: core::ptr::null(),
@@ -13420,7 +13420,7 @@ impl Default for FramebufferAttachmentImageInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000108002i32),
+            s_type: StructureType::from_raw(1000108002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             usage: Default::default(),
@@ -13445,7 +13445,7 @@ impl Default for RenderPassAttachmentBeginInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000108003i32),
+            s_type: StructureType::from_raw(1000108003i32),
             p_next: core::ptr::null(),
             attachment_count: Default::default(),
             p_attachments: core::ptr::null(),
@@ -13464,7 +13464,7 @@ impl Default for PhysicalDeviceTextureCompressionASTCHDRFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000066000i32),
+            s_type: StructureType::from_raw(1000066000i32),
             p_next: core::ptr::null_mut(),
             texture_compression_astc_hdr: Default::default(),
         }
@@ -13483,7 +13483,7 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000249000i32),
+            s_type: StructureType::from_raw(1000249000i32),
             p_next: core::ptr::null_mut(),
             cooperative_matrix: Default::default(),
             cooperative_matrix_robust_buffer_access: Default::default(),
@@ -13502,7 +13502,7 @@ impl Default for PhysicalDeviceCooperativeMatrixPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000249002i32),
+            s_type: StructureType::from_raw(1000249002i32),
             p_next: core::ptr::null_mut(),
             cooperative_matrix_supported_stages: Default::default(),
         }
@@ -13527,7 +13527,7 @@ impl Default for CooperativeMatrixPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000249001i32),
+            s_type: StructureType::from_raw(1000249001i32),
             p_next: core::ptr::null_mut(),
             m_size: Default::default(),
             n_size: Default::default(),
@@ -13552,7 +13552,7 @@ impl Default for PhysicalDeviceYcbcrImageArraysFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000252000i32),
+            s_type: StructureType::from_raw(1000252000i32),
             p_next: core::ptr::null_mut(),
             ycbcr_image_arrays: Default::default(),
         }
@@ -13572,7 +13572,7 @@ impl Default for ImageViewHandleInfoNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000030000i32),
+            s_type: StructureType::from_raw(1000030000i32),
             p_next: core::ptr::null(),
             image_view: Default::default(),
             descriptor_type: Default::default(),
@@ -13593,7 +13593,7 @@ impl Default for ImageViewAddressPropertiesNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000030001i32),
+            s_type: StructureType::from_raw(1000030001i32),
             p_next: core::ptr::null_mut(),
             device_address: Default::default(),
             size: Default::default(),
@@ -13612,7 +13612,7 @@ impl Default for PresentFrameTokenGGP {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000191000i32),
+            s_type: StructureType::from_raw(1000191000i32),
             p_next: core::ptr::null(),
             frame_token: Default::default(),
         }
@@ -13645,7 +13645,7 @@ impl Default for PipelineCreationFeedbackCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000192000i32),
+            s_type: StructureType::from_raw(1000192000i32),
             p_next: core::ptr::null(),
             p_pipeline_creation_feedback: core::ptr::null_mut(),
             pipeline_stage_creation_feedback_count: Default::default(),
@@ -13665,7 +13665,7 @@ impl Default for SurfaceFullScreenExclusiveInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000255000i32),
+            s_type: StructureType::from_raw(1000255000i32),
             p_next: core::ptr::null_mut(),
             full_screen_exclusive: Default::default(),
         }
@@ -13683,7 +13683,7 @@ impl Default for SurfaceFullScreenExclusiveWin32InfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000255001i32),
+            s_type: StructureType::from_raw(1000255001i32),
             p_next: core::ptr::null(),
             hmonitor: Default::default(),
         }
@@ -13701,7 +13701,7 @@ impl Default for SurfaceCapabilitiesFullScreenExclusiveEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000255002i32),
+            s_type: StructureType::from_raw(1000255002i32),
             p_next: core::ptr::null_mut(),
             full_screen_exclusive_supported: Default::default(),
         }
@@ -13719,7 +13719,7 @@ impl Default for PhysicalDevicePresentBarrierFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000292000i32),
+            s_type: StructureType::from_raw(1000292000i32),
             p_next: core::ptr::null_mut(),
             present_barrier: Default::default(),
         }
@@ -13737,7 +13737,7 @@ impl Default for SurfaceCapabilitiesPresentBarrierNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000292001i32),
+            s_type: StructureType::from_raw(1000292001i32),
             p_next: core::ptr::null_mut(),
             present_barrier_supported: Default::default(),
         }
@@ -13755,7 +13755,7 @@ impl Default for SwapchainPresentBarrierCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000292002i32),
+            s_type: StructureType::from_raw(1000292002i32),
             p_next: core::ptr::null_mut(),
             present_barrier_enable: Default::default(),
         }
@@ -13774,7 +13774,7 @@ impl Default for PhysicalDevicePerformanceQueryFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116000i32),
+            s_type: StructureType::from_raw(1000116000i32),
             p_next: core::ptr::null_mut(),
             performance_counter_query_pools: Default::default(),
             performance_counter_multiple_query_pools: Default::default(),
@@ -13793,7 +13793,7 @@ impl Default for PhysicalDevicePerformanceQueryPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116001i32),
+            s_type: StructureType::from_raw(1000116001i32),
             p_next: core::ptr::null_mut(),
             allow_command_buffer_query_copies: Default::default(),
         }
@@ -13814,7 +13814,7 @@ impl Default for PerformanceCounterKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116005i32),
+            s_type: StructureType::from_raw(1000116005i32),
             p_next: core::ptr::null_mut(),
             unit: Default::default(),
             scope: Default::default(),
@@ -13838,7 +13838,7 @@ impl Default for PerformanceCounterDescriptionKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116006i32),
+            s_type: StructureType::from_raw(1000116006i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             name: unsafe { core::mem::zeroed() },
@@ -13861,7 +13861,7 @@ impl Default for QueryPoolPerformanceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116002i32),
+            s_type: StructureType::from_raw(1000116002i32),
             p_next: core::ptr::null(),
             queue_family_index: Default::default(),
             counter_index_count: Default::default(),
@@ -13904,7 +13904,7 @@ impl Default for AcquireProfilingLockInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116004i32),
+            s_type: StructureType::from_raw(1000116004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             timeout: Default::default(),
@@ -13923,7 +13923,7 @@ impl Default for PerformanceQuerySubmitInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116003i32),
+            s_type: StructureType::from_raw(1000116003i32),
             p_next: core::ptr::null(),
             counter_pass_index: Default::default(),
         }
@@ -13941,7 +13941,7 @@ impl Default for PerformanceQueryReservationInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000116007i32),
+            s_type: StructureType::from_raw(1000116007i32),
             p_next: core::ptr::null(),
             max_performance_queries_per_pool: Default::default(),
         }
@@ -13959,7 +13959,7 @@ impl Default for HeadlessSurfaceCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000256000i32),
+            s_type: StructureType::from_raw(1000256000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -13977,7 +13977,7 @@ impl Default for PhysicalDeviceCoverageReductionModeFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000250000i32),
+            s_type: StructureType::from_raw(1000250000i32),
             p_next: core::ptr::null_mut(),
             coverage_reduction_mode: Default::default(),
         }
@@ -13996,7 +13996,7 @@ impl Default for PipelineCoverageReductionStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000250001i32),
+            s_type: StructureType::from_raw(1000250001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             coverage_reduction_mode: Default::default(),
@@ -14018,7 +14018,7 @@ impl Default for FramebufferMixedSamplesCombinationNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000250002i32),
+            s_type: StructureType::from_raw(1000250002i32),
             p_next: core::ptr::null_mut(),
             coverage_reduction_mode: Default::default(),
             rasterization_samples: Default::default(),
@@ -14039,7 +14039,7 @@ impl Default for PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000209000i32),
+            s_type: StructureType::from_raw(1000209000i32),
             p_next: core::ptr::null_mut(),
             shader_integer_functions2: Default::default(),
         }
@@ -14091,7 +14091,7 @@ impl Default for InitializePerformanceApiInfoINTEL {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000210001i32),
+            s_type: StructureType::from_raw(1000210001i32),
             p_next: core::ptr::null(),
             p_user_data: core::ptr::null_mut(),
         }
@@ -14109,7 +14109,7 @@ impl Default for QueryPoolPerformanceQueryCreateInfoINTEL {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000210000i32),
+            s_type: StructureType::from_raw(1000210000i32),
             p_next: core::ptr::null(),
             performance_counters_sampling: Default::default(),
         }
@@ -14127,7 +14127,7 @@ impl Default for PerformanceMarkerInfoINTEL {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000210002i32),
+            s_type: StructureType::from_raw(1000210002i32),
             p_next: core::ptr::null(),
             marker: Default::default(),
         }
@@ -14145,7 +14145,7 @@ impl Default for PerformanceStreamMarkerInfoINTEL {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000210003i32),
+            s_type: StructureType::from_raw(1000210003i32),
             p_next: core::ptr::null(),
             marker: Default::default(),
         }
@@ -14165,7 +14165,7 @@ impl Default for PerformanceOverrideInfoINTEL {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000210004i32),
+            s_type: StructureType::from_raw(1000210004i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             enable: Default::default(),
@@ -14185,7 +14185,7 @@ impl Default for PerformanceConfigurationAcquireInfoINTEL {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000210005i32),
+            s_type: StructureType::from_raw(1000210005i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
         }
@@ -14204,7 +14204,7 @@ impl Default for PhysicalDeviceShaderClockFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000181000i32),
+            s_type: StructureType::from_raw(1000181000i32),
             p_next: core::ptr::null_mut(),
             shader_subgroup_clock: Default::default(),
             shader_device_clock: Default::default(),
@@ -14223,7 +14223,7 @@ impl Default for PhysicalDeviceIndexTypeUint8Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000265000i32),
+            s_type: StructureType::from_raw(1000265000i32),
             p_next: core::ptr::null_mut(),
             index_type_uint8: Default::default(),
         }
@@ -14242,7 +14242,7 @@ impl Default for PhysicalDeviceShaderSMBuiltinsPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000154001i32),
+            s_type: StructureType::from_raw(1000154001i32),
             p_next: core::ptr::null_mut(),
             shader_sm_count: Default::default(),
             shader_warps_per_sm: Default::default(),
@@ -14261,7 +14261,7 @@ impl Default for PhysicalDeviceShaderSMBuiltinsFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000154000i32),
+            s_type: StructureType::from_raw(1000154000i32),
             p_next: core::ptr::null_mut(),
             shader_sm_builtins: Default::default(),
         }
@@ -14281,7 +14281,7 @@ impl Default for PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000251000i32),
+            s_type: StructureType::from_raw(1000251000i32),
             p_next: core::ptr::null_mut(),
             fragment_shader_sample_interlock: Default::default(),
             fragment_shader_pixel_interlock: Default::default(),
@@ -14301,7 +14301,7 @@ impl Default for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000241000i32),
+            s_type: StructureType::from_raw(1000241000i32),
             p_next: core::ptr::null_mut(),
             separate_depth_stencil_layouts: Default::default(),
         }
@@ -14319,7 +14319,7 @@ impl Default for AttachmentReferenceStencilLayout {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000241001i32),
+            s_type: StructureType::from_raw(1000241001i32),
             p_next: core::ptr::null_mut(),
             stencil_layout: Default::default(),
         }
@@ -14338,7 +14338,7 @@ impl Default for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000356000i32),
+            s_type: StructureType::from_raw(1000356000i32),
             p_next: core::ptr::null_mut(),
             primitive_topology_list_restart: Default::default(),
             primitive_topology_patch_list_restart: Default::default(),
@@ -14358,7 +14358,7 @@ impl Default for AttachmentDescriptionStencilLayout {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000241002i32),
+            s_type: StructureType::from_raw(1000241002i32),
             p_next: core::ptr::null_mut(),
             stencil_initial_layout: Default::default(),
             stencil_final_layout: Default::default(),
@@ -14377,7 +14377,7 @@ impl Default for PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000269000i32),
+            s_type: StructureType::from_raw(1000269000i32),
             p_next: core::ptr::null_mut(),
             pipeline_executable_info: Default::default(),
         }
@@ -14395,7 +14395,7 @@ impl Default for PipelineInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000269001i32),
+            s_type: StructureType::from_raw(1000269001i32),
             p_next: core::ptr::null(),
             pipeline: Default::default(),
         }
@@ -14416,7 +14416,7 @@ impl Default for PipelineExecutablePropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000269002i32),
+            s_type: StructureType::from_raw(1000269002i32),
             p_next: core::ptr::null_mut(),
             stages: Default::default(),
             name: unsafe { core::mem::zeroed() },
@@ -14438,7 +14438,7 @@ impl Default for PipelineExecutableInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000269003i32),
+            s_type: StructureType::from_raw(1000269003i32),
             p_next: core::ptr::null(),
             pipeline: Default::default(),
             executable_index: Default::default(),
@@ -14480,7 +14480,7 @@ impl Default for PipelineExecutableStatisticKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000269004i32),
+            s_type: StructureType::from_raw(1000269004i32),
             p_next: core::ptr::null_mut(),
             name: unsafe { core::mem::zeroed() },
             description: unsafe { core::mem::zeroed() },
@@ -14505,7 +14505,7 @@ impl Default for PipelineExecutableInternalRepresentationKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000269005i32),
+            s_type: StructureType::from_raw(1000269005i32),
             p_next: core::ptr::null_mut(),
             name: unsafe { core::mem::zeroed() },
             description: unsafe { core::mem::zeroed() },
@@ -14527,7 +14527,7 @@ impl Default for PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000276000i32),
+            s_type: StructureType::from_raw(1000276000i32),
             p_next: core::ptr::null_mut(),
             shader_demote_to_helper_invocation: Default::default(),
         }
@@ -14545,7 +14545,7 @@ impl Default for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000281000i32),
+            s_type: StructureType::from_raw(1000281000i32),
             p_next: core::ptr::null_mut(),
             texel_buffer_alignment: Default::default(),
         }
@@ -14566,7 +14566,7 @@ impl Default for PhysicalDeviceTexelBufferAlignmentProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000281001i32),
+            s_type: StructureType::from_raw(1000281001i32),
             p_next: core::ptr::null_mut(),
             storage_texel_buffer_offset_alignment_bytes: Default::default(),
             storage_texel_buffer_offset_single_texel_alignment: Default::default(),
@@ -14588,7 +14588,7 @@ impl Default for PhysicalDeviceSubgroupSizeControlFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000225002i32),
+            s_type: StructureType::from_raw(1000225002i32),
             p_next: core::ptr::null_mut(),
             subgroup_size_control: Default::default(),
             compute_full_subgroups: Default::default(),
@@ -14610,7 +14610,7 @@ impl Default for PhysicalDeviceSubgroupSizeControlProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000225000i32),
+            s_type: StructureType::from_raw(1000225000i32),
             p_next: core::ptr::null_mut(),
             min_subgroup_size: Default::default(),
             max_subgroup_size: Default::default(),
@@ -14631,7 +14631,7 @@ impl Default for PipelineShaderStageRequiredSubgroupSizeCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000225001i32),
+            s_type: StructureType::from_raw(1000225001i32),
             p_next: core::ptr::null(),
             required_subgroup_size: Default::default(),
         }
@@ -14650,7 +14650,7 @@ impl Default for SubpassShadingPipelineCreateInfoHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000369000i32),
+            s_type: StructureType::from_raw(1000369000i32),
             p_next: core::ptr::null_mut(),
             render_pass: Default::default(),
             subpass: Default::default(),
@@ -14669,7 +14669,7 @@ impl Default for PhysicalDeviceSubpassShadingPropertiesHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000369002i32),
+            s_type: StructureType::from_raw(1000369002i32),
             p_next: core::ptr::null_mut(),
             max_subpass_shading_workgroup_size_aspect_ratio: Default::default(),
         }
@@ -14690,7 +14690,7 @@ impl Default for PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000404001i32),
+            s_type: StructureType::from_raw(1000404001i32),
             p_next: core::ptr::null_mut(),
             max_work_group_count: unsafe { core::mem::zeroed() },
             max_work_group_size: unsafe { core::mem::zeroed() },
@@ -14711,7 +14711,7 @@ impl Default for MemoryOpaqueCaptureAddressAllocateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000257003i32),
+            s_type: StructureType::from_raw(1000257003i32),
             p_next: core::ptr::null(),
             opaque_capture_address: Default::default(),
         }
@@ -14729,7 +14729,7 @@ impl Default for DeviceMemoryOpaqueCaptureAddressInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000257004i32),
+            s_type: StructureType::from_raw(1000257004i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
         }
@@ -14752,7 +14752,7 @@ impl Default for PhysicalDeviceLineRasterizationFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000259000i32),
+            s_type: StructureType::from_raw(1000259000i32),
             p_next: core::ptr::null_mut(),
             rectangular_lines: Default::default(),
             bresenham_lines: Default::default(),
@@ -14775,7 +14775,7 @@ impl Default for PhysicalDeviceLineRasterizationProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000259002i32),
+            s_type: StructureType::from_raw(1000259002i32),
             p_next: core::ptr::null_mut(),
             line_sub_pixel_precision_bits: Default::default(),
         }
@@ -14796,7 +14796,7 @@ impl Default for PipelineRasterizationLineStateCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000259001i32),
+            s_type: StructureType::from_raw(1000259001i32),
             p_next: core::ptr::null(),
             line_rasterization_mode: Default::default(),
             stippled_line_enable: Default::default(),
@@ -14817,7 +14817,7 @@ impl Default for PhysicalDevicePipelineCreationCacheControlFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000297000i32),
+            s_type: StructureType::from_raw(1000297000i32),
             p_next: core::ptr::null_mut(),
             pipeline_creation_cache_control: Default::default(),
         }
@@ -15427,7 +15427,7 @@ impl Default for PipelineCompilerControlCreateInfoAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000183000i32),
+            s_type: StructureType::from_raw(1000183000i32),
             p_next: core::ptr::null(),
             compiler_control_flags: Default::default(),
         }
@@ -15445,7 +15445,7 @@ impl Default for PhysicalDeviceCoherentMemoryFeaturesAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000229000i32),
+            s_type: StructureType::from_raw(1000229000i32),
             p_next: core::ptr::null_mut(),
             device_coherent_memory: Default::default(),
         }
@@ -15464,7 +15464,7 @@ impl Default for FaultData {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298007i32),
+            s_type: StructureType::from_raw(1000298007i32),
             p_next: core::ptr::null_mut(),
             fault_level: Default::default(),
             fault_type: Default::default(),
@@ -15485,7 +15485,7 @@ impl Default for FaultCallbackInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298008i32),
+            s_type: StructureType::from_raw(1000298008i32),
             p_next: core::ptr::null(),
             fault_count: Default::default(),
             p_faults: core::ptr::null_mut(),
@@ -15509,7 +15509,7 @@ impl Default for PhysicalDeviceToolProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000245000i32),
+            s_type: StructureType::from_raw(1000245000i32),
             p_next: core::ptr::null_mut(),
             name: unsafe { core::mem::zeroed() },
             version: unsafe { core::mem::zeroed() },
@@ -15532,7 +15532,7 @@ impl Default for SamplerCustomBorderColorCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000287000i32),
+            s_type: StructureType::from_raw(1000287000i32),
             p_next: core::ptr::null(),
             custom_border_color: Default::default(),
             format: Default::default(),
@@ -15551,7 +15551,7 @@ impl Default for PhysicalDeviceCustomBorderColorPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000287001i32),
+            s_type: StructureType::from_raw(1000287001i32),
             p_next: core::ptr::null_mut(),
             max_custom_border_color_samplers: Default::default(),
         }
@@ -15570,7 +15570,7 @@ impl Default for PhysicalDeviceCustomBorderColorFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000287002i32),
+            s_type: StructureType::from_raw(1000287002i32),
             p_next: core::ptr::null_mut(),
             custom_border_colors: Default::default(),
             custom_border_color_without_format: Default::default(),
@@ -15590,7 +15590,7 @@ impl Default for SamplerBorderColorComponentMappingCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000411001i32),
+            s_type: StructureType::from_raw(1000411001i32),
             p_next: core::ptr::null(),
             components: Default::default(),
             srgb: Default::default(),
@@ -15610,7 +15610,7 @@ impl Default for PhysicalDeviceBorderColorSwizzleFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000411000i32),
+            s_type: StructureType::from_raw(1000411000i32),
             p_next: core::ptr::null_mut(),
             border_color_swizzle: Default::default(),
             border_color_swizzle_from_image: Default::default(),
@@ -15689,7 +15689,7 @@ impl Default for AccelerationStructureGeometryTrianglesDataKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150005i32),
+            s_type: StructureType::from_raw(1000150005i32),
             p_next: core::ptr::null(),
             vertex_format: Default::default(),
             vertex_data: Default::default(),
@@ -15714,7 +15714,7 @@ impl Default for AccelerationStructureGeometryAabbsDataKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150003i32),
+            s_type: StructureType::from_raw(1000150003i32),
             p_next: core::ptr::null(),
             data: Default::default(),
             stride: Default::default(),
@@ -15734,7 +15734,7 @@ impl Default for AccelerationStructureGeometryInstancesDataKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150004i32),
+            s_type: StructureType::from_raw(1000150004i32),
             p_next: core::ptr::null(),
             array_of_pointers: Default::default(),
             data: Default::default(),
@@ -15763,7 +15763,7 @@ impl Default for AccelerationStructureGeometryLinearSweptSpheresDataNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000429009i32),
+            s_type: StructureType::from_raw(1000429009i32),
             p_next: core::ptr::null(),
             vertex_format: Default::default(),
             vertex_data: Default::default(),
@@ -15799,7 +15799,7 @@ impl Default for AccelerationStructureGeometrySpheresDataNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000429010i32),
+            s_type: StructureType::from_raw(1000429010i32),
             p_next: core::ptr::null(),
             vertex_format: Default::default(),
             vertex_data: Default::default(),
@@ -15846,7 +15846,7 @@ impl Default for AccelerationStructureGeometryKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150006i32),
+            s_type: StructureType::from_raw(1000150006i32),
             p_next: core::ptr::null(),
             geometry_type: Default::default(),
             geometry: Default::default(),
@@ -15874,7 +15874,7 @@ impl Default for AccelerationStructureBuildGeometryInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150000i32),
+            s_type: StructureType::from_raw(1000150000i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             flags: Default::default(),
@@ -15920,7 +15920,7 @@ impl Default for AccelerationStructureCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150017i32),
+            s_type: StructureType::from_raw(1000150017i32),
             p_next: core::ptr::null(),
             create_flags: Default::default(),
             buffer: Default::default(),
@@ -15989,7 +15989,7 @@ impl Default for AccelerationStructureDeviceAddressInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150002i32),
+            s_type: StructureType::from_raw(1000150002i32),
             p_next: core::ptr::null(),
             acceleration_structure: Default::default(),
         }
@@ -16007,7 +16007,7 @@ impl Default for AccelerationStructureVersionInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150009i32),
+            s_type: StructureType::from_raw(1000150009i32),
             p_next: core::ptr::null(),
             p_version_data: core::ptr::null(),
         }
@@ -16027,7 +16027,7 @@ impl Default for CopyAccelerationStructureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150010i32),
+            s_type: StructureType::from_raw(1000150010i32),
             p_next: core::ptr::null(),
             src: Default::default(),
             dst: Default::default(),
@@ -16049,7 +16049,7 @@ impl Default for CopyAccelerationStructureToMemoryInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150011i32),
+            s_type: StructureType::from_raw(1000150011i32),
             p_next: core::ptr::null(),
             src: Default::default(),
             dst: Default::default(),
@@ -16071,7 +16071,7 @@ impl Default for CopyMemoryToAccelerationStructureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150012i32),
+            s_type: StructureType::from_raw(1000150012i32),
             p_next: core::ptr::null(),
             src: Default::default(),
             dst: Default::default(),
@@ -16092,7 +16092,7 @@ impl Default for RayTracingPipelineInterfaceCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150018i32),
+            s_type: StructureType::from_raw(1000150018i32),
             p_next: core::ptr::null(),
             max_pipeline_ray_payload_size: Default::default(),
             max_pipeline_ray_hit_attribute_size: Default::default(),
@@ -16112,7 +16112,7 @@ impl Default for PipelineLibraryCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000290000i32),
+            s_type: StructureType::from_raw(1000290000i32),
             p_next: core::ptr::null(),
             library_count: Default::default(),
             p_libraries: core::ptr::null(),
@@ -16146,7 +16146,7 @@ impl Default for RefreshObjectListKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000308000i32),
+            s_type: StructureType::from_raw(1000308000i32),
             p_next: core::ptr::null(),
             object_count: Default::default(),
             p_objects: core::ptr::null(),
@@ -16165,7 +16165,7 @@ impl Default for PhysicalDeviceExtendedDynamicStateFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000267000i32),
+            s_type: StructureType::from_raw(1000267000i32),
             p_next: core::ptr::null_mut(),
             extended_dynamic_state: Default::default(),
         }
@@ -16185,7 +16185,7 @@ impl Default for PhysicalDeviceExtendedDynamicState2FeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000377000i32),
+            s_type: StructureType::from_raw(1000377000i32),
             p_next: core::ptr::null_mut(),
             extended_dynamic_state2: Default::default(),
             extended_dynamic_state2_logic_op: Default::default(),
@@ -16235,7 +16235,7 @@ impl Default for PhysicalDeviceExtendedDynamicState3FeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000455000i32),
+            s_type: StructureType::from_raw(1000455000i32),
             p_next: core::ptr::null_mut(),
             extended_dynamic_state3_tessellation_domain_origin: Default::default(),
             extended_dynamic_state3_depth_clamp_enable: Default::default(),
@@ -16283,7 +16283,7 @@ impl Default for PhysicalDeviceExtendedDynamicState3PropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000455001i32),
+            s_type: StructureType::from_raw(1000455001i32),
             p_next: core::ptr::null_mut(),
             dynamic_primitive_topology_unrestricted: Default::default(),
         }
@@ -16334,7 +16334,7 @@ impl Default for RenderPassTransformBeginInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000282001i32),
+            s_type: StructureType::from_raw(1000282001i32),
             p_next: core::ptr::null(),
             transform: Default::default(),
         }
@@ -16352,7 +16352,7 @@ impl Default for CopyCommandTransformInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000333000i32),
+            s_type: StructureType::from_raw(1000333000i32),
             p_next: core::ptr::null(),
             transform: Default::default(),
         }
@@ -16371,7 +16371,7 @@ impl Default for CommandBufferInheritanceRenderPassTransformInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000282000i32),
+            s_type: StructureType::from_raw(1000282000i32),
             p_next: core::ptr::null(),
             transform: Default::default(),
             render_area: Default::default(),
@@ -16390,7 +16390,7 @@ impl Default for PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000570000i32),
+            s_type: StructureType::from_raw(1000570000i32),
             p_next: core::ptr::null_mut(),
             partitioned_acceleration_structure: Default::default(),
         }
@@ -16408,7 +16408,7 @@ impl Default for PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000570001i32),
+            s_type: StructureType::from_raw(1000570001i32),
             p_next: core::ptr::null_mut(),
             max_partition_count: Default::default(),
         }
@@ -16440,7 +16440,7 @@ impl Default for PartitionedAccelerationStructureFlagsNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000570005i32),
+            s_type: StructureType::from_raw(1000570005i32),
             p_next: core::ptr::null_mut(),
             enable_partition_translation: Default::default(),
         }
@@ -16506,7 +16506,7 @@ impl Default for WriteDescriptorSetPartitionedAccelerationStructureNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000570002i32),
+            s_type: StructureType::from_raw(1000570002i32),
             p_next: core::ptr::null_mut(),
             acceleration_structure_count: Default::default(),
             p_acceleration_structures: core::ptr::null(),
@@ -16529,7 +16529,7 @@ impl Default for PartitionedAccelerationStructureInstancesInputNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000570003i32),
+            s_type: StructureType::from_raw(1000570003i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             instance_count: Default::default(),
@@ -16556,7 +16556,7 @@ impl Default for BuildPartitionedAccelerationStructureInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000570004i32),
+            s_type: StructureType::from_raw(1000570004i32),
             p_next: core::ptr::null_mut(),
             input: Default::default(),
             src_acceleration_structure_data: Default::default(),
@@ -16579,7 +16579,7 @@ impl Default for PhysicalDeviceDiagnosticsConfigFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000300000i32),
+            s_type: StructureType::from_raw(1000300000i32),
             p_next: core::ptr::null_mut(),
             diagnostics_config: Default::default(),
         }
@@ -16597,7 +16597,7 @@ impl Default for DeviceDiagnosticsConfigCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000300001i32),
+            s_type: StructureType::from_raw(1000300001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -16617,7 +16617,7 @@ impl Default for PipelineOfflineCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298010i32),
+            s_type: StructureType::from_raw(1000298010i32),
             p_next: core::ptr::null(),
             pipeline_identifier: unsafe { core::mem::zeroed() },
             match_control: Default::default(),
@@ -16637,7 +16637,7 @@ impl Default for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000325000i32),
+            s_type: StructureType::from_raw(1000325000i32),
             p_next: core::ptr::null_mut(),
             shader_zero_initialize_workgroup_memory: Default::default(),
         }
@@ -16655,7 +16655,7 @@ impl Default for PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000323000i32),
+            s_type: StructureType::from_raw(1000323000i32),
             p_next: core::ptr::null_mut(),
             shader_subgroup_uniform_control_flow: Default::default(),
         }
@@ -16675,7 +16675,7 @@ impl Default for PhysicalDeviceRobustness2FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000286000i32),
+            s_type: StructureType::from_raw(1000286000i32),
             p_next: core::ptr::null_mut(),
             robust_buffer_access2: Default::default(),
             robust_image_access2: Default::default(),
@@ -16696,7 +16696,7 @@ impl Default for PhysicalDeviceRobustness2PropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000286001i32),
+            s_type: StructureType::from_raw(1000286001i32),
             p_next: core::ptr::null_mut(),
             robust_storage_buffer_access_size_alignment: Default::default(),
             robust_uniform_buffer_access_size_alignment: Default::default(),
@@ -16715,7 +16715,7 @@ impl Default for PhysicalDeviceImageRobustnessFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000335000i32),
+            s_type: StructureType::from_raw(1000335000i32),
             p_next: core::ptr::null_mut(),
             robust_image_access: Default::default(),
         }
@@ -16736,7 +16736,7 @@ impl Default for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000336000i32),
+            s_type: StructureType::from_raw(1000336000i32),
             p_next: core::ptr::null_mut(),
             workgroup_memory_explicit_layout: Default::default(),
             workgroup_memory_explicit_layout_scalar_block_layout: Default::default(),
@@ -16771,7 +16771,7 @@ impl Default for PhysicalDevicePortabilitySubsetFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000163000i32),
+            s_type: StructureType::from_raw(1000163000i32),
             p_next: core::ptr::null_mut(),
             constant_alpha_color_blend_factors: Default::default(),
             events: Default::default(),
@@ -16803,7 +16803,7 @@ impl Default for PhysicalDevicePortabilitySubsetPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000163001i32),
+            s_type: StructureType::from_raw(1000163001i32),
             p_next: core::ptr::null_mut(),
             min_vertex_input_binding_stride_alignment: Default::default(),
         }
@@ -16822,7 +16822,7 @@ impl Default for PhysicalDevice4444FormatsFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000340000i32),
+            s_type: StructureType::from_raw(1000340000i32),
             p_next: core::ptr::null_mut(),
             format_a4r4g4b4: Default::default(),
             format_a4b4g4r4: Default::default(),
@@ -16841,7 +16841,7 @@ impl Default for PhysicalDeviceSubpassShadingFeaturesHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000369001i32),
+            s_type: StructureType::from_raw(1000369001i32),
             p_next: core::ptr::null_mut(),
             subpass_shading: Default::default(),
         }
@@ -16860,7 +16860,7 @@ impl Default for PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000404000i32),
+            s_type: StructureType::from_raw(1000404000i32),
             p_next: core::ptr::null_mut(),
             clusterculling_shader: Default::default(),
             multiview_cluster_culling_shader: Default::default(),
@@ -16879,7 +16879,7 @@ impl Default for PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000404002i32),
+            s_type: StructureType::from_raw(1000404002i32),
             p_next: core::ptr::null_mut(),
             cluster_shading_rate: Default::default(),
         }
@@ -16899,7 +16899,7 @@ impl Default for BufferCopy2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337006i32),
+            s_type: StructureType::from_raw(1000337006i32),
             p_next: core::ptr::null(),
             src_offset: Default::default(),
             dst_offset: Default::default(),
@@ -16923,7 +16923,7 @@ impl Default for ImageCopy2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337007i32),
+            s_type: StructureType::from_raw(1000337007i32),
             p_next: core::ptr::null(),
             src_subresource: Default::default(),
             src_offset: Default::default(),
@@ -16948,7 +16948,7 @@ impl Default for ImageBlit2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337008i32),
+            s_type: StructureType::from_raw(1000337008i32),
             p_next: core::ptr::null(),
             src_subresource: Default::default(),
             src_offsets: unsafe { core::mem::zeroed() },
@@ -16974,7 +16974,7 @@ impl Default for BufferImageCopy2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337009i32),
+            s_type: StructureType::from_raw(1000337009i32),
             p_next: core::ptr::null(),
             buffer_offset: Default::default(),
             buffer_row_length: Default::default(),
@@ -17001,7 +17001,7 @@ impl Default for ImageResolve2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337010i32),
+            s_type: StructureType::from_raw(1000337010i32),
             p_next: core::ptr::null(),
             src_subresource: Default::default(),
             src_offset: Default::default(),
@@ -17026,7 +17026,7 @@ impl Default for CopyBufferInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337000i32),
+            s_type: StructureType::from_raw(1000337000i32),
             p_next: core::ptr::null(),
             src_buffer: Default::default(),
             dst_buffer: Default::default(),
@@ -17052,7 +17052,7 @@ impl Default for CopyImageInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337001i32),
+            s_type: StructureType::from_raw(1000337001i32),
             p_next: core::ptr::null(),
             src_image: Default::default(),
             src_image_layout: Default::default(),
@@ -17081,7 +17081,7 @@ impl Default for BlitImageInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337004i32),
+            s_type: StructureType::from_raw(1000337004i32),
             p_next: core::ptr::null(),
             src_image: Default::default(),
             src_image_layout: Default::default(),
@@ -17109,7 +17109,7 @@ impl Default for CopyBufferToImageInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337002i32),
+            s_type: StructureType::from_raw(1000337002i32),
             p_next: core::ptr::null(),
             src_buffer: Default::default(),
             dst_image: Default::default(),
@@ -17135,7 +17135,7 @@ impl Default for CopyImageToBufferInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337003i32),
+            s_type: StructureType::from_raw(1000337003i32),
             p_next: core::ptr::null(),
             src_image: Default::default(),
             src_image_layout: Default::default(),
@@ -17162,7 +17162,7 @@ impl Default for ResolveImageInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000337005i32),
+            s_type: StructureType::from_raw(1000337005i32),
             p_next: core::ptr::null(),
             src_image: Default::default(),
             src_image_layout: Default::default(),
@@ -17186,7 +17186,7 @@ impl Default for PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000234000i32),
+            s_type: StructureType::from_raw(1000234000i32),
             p_next: core::ptr::null_mut(),
             shader_image_int64_atomics: Default::default(),
             sparse_image_int64_atomics: Default::default(),
@@ -17206,7 +17206,7 @@ impl Default for FragmentShadingRateAttachmentInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000226000i32),
+            s_type: StructureType::from_raw(1000226000i32),
             p_next: core::ptr::null(),
             p_fragment_shading_rate_attachment: core::ptr::null(),
             shading_rate_attachment_texel_size: Default::default(),
@@ -17226,7 +17226,7 @@ impl Default for PipelineFragmentShadingRateStateCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000226001i32),
+            s_type: StructureType::from_raw(1000226001i32),
             p_next: core::ptr::null(),
             fragment_size: Default::default(),
             combiner_ops: unsafe { core::mem::zeroed() },
@@ -17247,7 +17247,7 @@ impl Default for PhysicalDeviceFragmentShadingRateFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000226003i32),
+            s_type: StructureType::from_raw(1000226003i32),
             p_next: core::ptr::null_mut(),
             pipeline_fragment_shading_rate: Default::default(),
             primitive_fragment_shading_rate: Default::default(),
@@ -17283,7 +17283,7 @@ impl Default for PhysicalDeviceFragmentShadingRatePropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000226002i32),
+            s_type: StructureType::from_raw(1000226002i32),
             p_next: core::ptr::null_mut(),
             min_fragment_shading_rate_attachment_texel_size: Default::default(),
             max_fragment_shading_rate_attachment_texel_size: Default::default(),
@@ -17318,7 +17318,7 @@ impl Default for PhysicalDeviceFragmentShadingRateKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000226004i32),
+            s_type: StructureType::from_raw(1000226004i32),
             p_next: core::ptr::null_mut(),
             sample_counts: Default::default(),
             fragment_size: Default::default(),
@@ -17337,7 +17337,7 @@ impl Default for PhysicalDeviceShaderTerminateInvocationFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000215000i32),
+            s_type: StructureType::from_raw(1000215000i32),
             p_next: core::ptr::null_mut(),
             shader_terminate_invocation: Default::default(),
         }
@@ -17357,7 +17357,7 @@ impl Default for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000326001i32),
+            s_type: StructureType::from_raw(1000326001i32),
             p_next: core::ptr::null_mut(),
             fragment_shading_rate_enums: Default::default(),
             supersample_fragment_shading_rates: Default::default(),
@@ -17377,7 +17377,7 @@ impl Default for PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000326000i32),
+            s_type: StructureType::from_raw(1000326000i32),
             p_next: core::ptr::null_mut(),
             max_fragment_shading_rate_invocation_count: Default::default(),
         }
@@ -17397,7 +17397,7 @@ impl Default for PipelineFragmentShadingRateEnumStateCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000326002i32),
+            s_type: StructureType::from_raw(1000326002i32),
             p_next: core::ptr::null(),
             shading_rate_type: Default::default(),
             shading_rate: Default::default(),
@@ -17419,7 +17419,7 @@ impl Default for AccelerationStructureBuildSizesInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000150020i32),
+            s_type: StructureType::from_raw(1000150020i32),
             p_next: core::ptr::null_mut(),
             acceleration_structure_size: Default::default(),
             update_scratch_size: Default::default(),
@@ -17440,7 +17440,7 @@ impl Default for PhysicalDeviceImage2DViewOf3DFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000393000i32),
+            s_type: StructureType::from_raw(1000393000i32),
             p_next: core::ptr::null_mut(),
             image2_d_view_of3_d: Default::default(),
             sampler2_d_view_of3_d: Default::default(),
@@ -17459,7 +17459,7 @@ impl Default for PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000418000i32),
+            s_type: StructureType::from_raw(1000418000i32),
             p_next: core::ptr::null_mut(),
             image_sliced_view_of3_d: Default::default(),
         }
@@ -17477,7 +17477,7 @@ impl Default for PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000524000i32),
+            s_type: StructureType::from_raw(1000524000i32),
             p_next: core::ptr::null_mut(),
             attachment_feedback_loop_dynamic_state: Default::default(),
         }
@@ -17495,7 +17495,7 @@ impl Default for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000495000i32),
+            s_type: StructureType::from_raw(1000495000i32),
             p_next: core::ptr::null_mut(),
             legacy_vertex_attributes: Default::default(),
         }
@@ -17513,7 +17513,7 @@ impl Default for PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000495001i32),
+            s_type: StructureType::from_raw(1000495001i32),
             p_next: core::ptr::null_mut(),
             native_unaligned_performance: Default::default(),
         }
@@ -17531,7 +17531,7 @@ impl Default for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000351000i32),
+            s_type: StructureType::from_raw(1000351000i32),
             p_next: core::ptr::null_mut(),
             mutable_descriptor_type: Default::default(),
         }
@@ -17563,7 +17563,7 @@ impl Default for MutableDescriptorTypeCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000351002i32),
+            s_type: StructureType::from_raw(1000351002i32),
             p_next: core::ptr::null(),
             mutable_descriptor_type_list_count: Default::default(),
             p_mutable_descriptor_type_lists: core::ptr::null(),
@@ -17582,7 +17582,7 @@ impl Default for PhysicalDeviceDepthClipControlFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000355000i32),
+            s_type: StructureType::from_raw(1000355000i32),
             p_next: core::ptr::null_mut(),
             depth_clip_control: Default::default(),
         }
@@ -17600,7 +17600,7 @@ impl Default for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000620000i32),
+            s_type: StructureType::from_raw(1000620000i32),
             p_next: core::ptr::null_mut(),
             zero_initialize_device_memory: Default::default(),
         }
@@ -17617,7 +17617,7 @@ impl Default for BeginCustomResolveInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000628001i32),
+            s_type: StructureType::from_raw(1000628001i32),
             p_next: core::ptr::null_mut(),
         }
     }
@@ -17634,7 +17634,7 @@ impl Default for PhysicalDeviceCustomResolveFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000628000i32),
+            s_type: StructureType::from_raw(1000628000i32),
             p_next: core::ptr::null_mut(),
             custom_resolve: Default::default(),
         }
@@ -17656,7 +17656,7 @@ impl Default for CustomResolveCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000628002i32),
+            s_type: StructureType::from_raw(1000628002i32),
             p_next: core::ptr::null(),
             custom_resolve: Default::default(),
             color_attachment_count: Default::default(),
@@ -17679,7 +17679,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572000i32),
+            s_type: StructureType::from_raw(1000572000i32),
             p_next: core::ptr::null_mut(),
             device_generated_commands: Default::default(),
             dynamic_generated_pipeline_layout: Default::default(),
@@ -17709,7 +17709,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572001i32),
+            s_type: StructureType::from_raw(1000572001i32),
             p_next: core::ptr::null_mut(),
             max_indirect_pipeline_count: Default::default(),
             max_indirect_shader_object_count: Default::default(),
@@ -17738,7 +17738,7 @@ impl Default for GeneratedCommandsPipelineInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572013i32),
+            s_type: StructureType::from_raw(1000572013i32),
             p_next: core::ptr::null_mut(),
             pipeline: Default::default(),
         }
@@ -17757,7 +17757,7 @@ impl Default for GeneratedCommandsShaderInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572014i32),
+            s_type: StructureType::from_raw(1000572014i32),
             p_next: core::ptr::null_mut(),
             shader_count: Default::default(),
             p_shaders: core::ptr::null(),
@@ -17779,7 +17779,7 @@ impl Default for GeneratedCommandsMemoryRequirementsInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572002i32),
+            s_type: StructureType::from_raw(1000572002i32),
             p_next: core::ptr::null(),
             indirect_execution_set: Default::default(),
             indirect_commands_layout: Default::default(),
@@ -17801,7 +17801,7 @@ impl Default for IndirectExecutionSetPipelineInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572010i32),
+            s_type: StructureType::from_raw(1000572010i32),
             p_next: core::ptr::null(),
             initial_pipeline: Default::default(),
             max_pipeline_count: Default::default(),
@@ -17821,7 +17821,7 @@ impl Default for IndirectExecutionSetShaderLayoutInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572012i32),
+            s_type: StructureType::from_raw(1000572012i32),
             p_next: core::ptr::null(),
             set_layout_count: Default::default(),
             p_set_layouts: core::ptr::null(),
@@ -17845,7 +17845,7 @@ impl Default for IndirectExecutionSetShaderInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572011i32),
+            s_type: StructureType::from_raw(1000572011i32),
             p_next: core::ptr::null(),
             shader_count: Default::default(),
             p_initial_shaders: core::ptr::null(),
@@ -17887,7 +17887,7 @@ impl Default for IndirectExecutionSetCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572003i32),
+            s_type: StructureType::from_raw(1000572003i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             info: Default::default(),
@@ -17915,7 +17915,7 @@ impl Default for GeneratedCommandsInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572004i32),
+            s_type: StructureType::from_raw(1000572004i32),
             p_next: core::ptr::null(),
             shader_stages: Default::default(),
             indirect_execution_set: Default::default(),
@@ -17943,7 +17943,7 @@ impl Default for WriteIndirectExecutionSetPipelineEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572008i32),
+            s_type: StructureType::from_raw(1000572008i32),
             p_next: core::ptr::null(),
             index: Default::default(),
             pipeline: Default::default(),
@@ -17963,7 +17963,7 @@ impl Default for WriteIndirectExecutionSetShaderEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572009i32),
+            s_type: StructureType::from_raw(1000572009i32),
             p_next: core::ptr::null(),
             index: Default::default(),
             shader: Default::default(),
@@ -17987,7 +17987,7 @@ impl Default for IndirectCommandsLayoutCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572006i32),
+            s_type: StructureType::from_raw(1000572006i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             shader_stages: Default::default(),
@@ -18012,7 +18012,7 @@ impl Default for IndirectCommandsLayoutTokenEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000572007i32),
+            s_type: StructureType::from_raw(1000572007i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             data: Default::default(),
@@ -18143,7 +18143,7 @@ impl Default for PipelineViewportDepthClipControlCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000355001i32),
+            s_type: StructureType::from_raw(1000355001i32),
             p_next: core::ptr::null(),
             negative_one_to_one: Default::default(),
         }
@@ -18161,7 +18161,7 @@ impl Default for PhysicalDeviceDepthClampControlFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000582000i32),
+            s_type: StructureType::from_raw(1000582000i32),
             p_next: core::ptr::null_mut(),
             depth_clamp_control: Default::default(),
         }
@@ -18180,7 +18180,7 @@ impl Default for PipelineViewportDepthClampControlCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000582001i32),
+            s_type: StructureType::from_raw(1000582001i32),
             p_next: core::ptr::null(),
             depth_clamp_mode: Default::default(),
             p_depth_clamp_range: core::ptr::null(),
@@ -18199,7 +18199,7 @@ impl Default for PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000352000i32),
+            s_type: StructureType::from_raw(1000352000i32),
             p_next: core::ptr::null_mut(),
             vertex_input_dynamic_state: Default::default(),
         }
@@ -18217,7 +18217,7 @@ impl Default for PhysicalDeviceExternalMemoryRDMAFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000371001i32),
+            s_type: StructureType::from_raw(1000371001i32),
             p_next: core::ptr::null_mut(),
             external_memory_rdma: Default::default(),
         }
@@ -18235,7 +18235,7 @@ impl Default for PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000558000i32),
+            s_type: StructureType::from_raw(1000558000i32),
             p_next: core::ptr::null_mut(),
             shader_relaxed_extended_instruction: Default::default(),
         }
@@ -18256,7 +18256,7 @@ impl Default for VertexInputBindingDescription2EXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000352001i32),
+            s_type: StructureType::from_raw(1000352001i32),
             p_next: core::ptr::null_mut(),
             binding: Default::default(),
             stride: Default::default(),
@@ -18280,7 +18280,7 @@ impl Default for VertexInputAttributeDescription2EXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000352002i32),
+            s_type: StructureType::from_raw(1000352002i32),
             p_next: core::ptr::null_mut(),
             location: Default::default(),
             binding: Default::default(),
@@ -18301,7 +18301,7 @@ impl Default for PhysicalDeviceColorWriteEnableFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000381000i32),
+            s_type: StructureType::from_raw(1000381000i32),
             p_next: core::ptr::null_mut(),
             color_write_enable: Default::default(),
         }
@@ -18320,7 +18320,7 @@ impl Default for PipelineColorWriteCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000381001i32),
+            s_type: StructureType::from_raw(1000381001i32),
             p_next: core::ptr::null(),
             attachment_count: Default::default(),
             p_color_write_enables: core::ptr::null(),
@@ -18342,7 +18342,7 @@ impl Default for MemoryBarrier2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314000i32),
+            s_type: StructureType::from_raw(1000314000i32),
             p_next: core::ptr::null(),
             src_stage_mask: Default::default(),
             src_access_mask: Default::default(),
@@ -18372,7 +18372,7 @@ impl Default for ImageMemoryBarrier2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314002i32),
+            s_type: StructureType::from_raw(1000314002i32),
             p_next: core::ptr::null(),
             src_stage_mask: Default::default(),
             src_access_mask: Default::default(),
@@ -18407,7 +18407,7 @@ impl Default for BufferMemoryBarrier2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314001i32),
+            s_type: StructureType::from_raw(1000314001i32),
             p_next: core::ptr::null(),
             src_stage_mask: Default::default(),
             src_access_mask: Default::default(),
@@ -18434,7 +18434,7 @@ impl Default for MemoryBarrierAccessFlags3KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000574002i32),
+            s_type: StructureType::from_raw(1000574002i32),
             p_next: core::ptr::null(),
             src_access_mask3: Default::default(),
             dst_access_mask3: Default::default(),
@@ -18459,7 +18459,7 @@ impl Default for DependencyInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314003i32),
+            s_type: StructureType::from_raw(1000314003i32),
             p_next: core::ptr::null(),
             dependency_flags: Default::default(),
             memory_barrier_count: Default::default(),
@@ -18486,7 +18486,7 @@ impl Default for SemaphoreSubmitInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314005i32),
+            s_type: StructureType::from_raw(1000314005i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             value: Default::default(),
@@ -18508,7 +18508,7 @@ impl Default for CommandBufferSubmitInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314006i32),
+            s_type: StructureType::from_raw(1000314006i32),
             p_next: core::ptr::null(),
             command_buffer: Default::default(),
             device_mask: Default::default(),
@@ -18533,7 +18533,7 @@ impl Default for SubmitInfo2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314004i32),
+            s_type: StructureType::from_raw(1000314004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             wait_semaphore_info_count: Default::default(),
@@ -18557,7 +18557,7 @@ impl Default for QueueFamilyCheckpointProperties2NV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314008i32),
+            s_type: StructureType::from_raw(1000314008i32),
             p_next: core::ptr::null_mut(),
             checkpoint_execution_stage_mask: Default::default(),
         }
@@ -18576,7 +18576,7 @@ impl Default for CheckpointData2NV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314009i32),
+            s_type: StructureType::from_raw(1000314009i32),
             p_next: core::ptr::null_mut(),
             stage: Default::default(),
             p_checkpoint_marker: core::ptr::null_mut(),
@@ -18595,7 +18595,7 @@ impl Default for PhysicalDeviceSynchronization2Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000314007i32),
+            s_type: StructureType::from_raw(1000314007i32),
             p_next: core::ptr::null_mut(),
             synchronization2: Default::default(),
         }
@@ -18614,7 +18614,7 @@ impl Default for PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000527000i32),
+            s_type: StructureType::from_raw(1000527000i32),
             p_next: core::ptr::null_mut(),
             unified_image_layouts: Default::default(),
             unified_image_layouts_video: Default::default(),
@@ -18633,7 +18633,7 @@ impl Default for PhysicalDeviceHostImageCopyFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270000i32),
+            s_type: StructureType::from_raw(1000270000i32),
             p_next: core::ptr::null_mut(),
             host_image_copy: Default::default(),
         }
@@ -18656,7 +18656,7 @@ impl Default for PhysicalDeviceHostImageCopyProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270001i32),
+            s_type: StructureType::from_raw(1000270001i32),
             p_next: core::ptr::null_mut(),
             copy_src_layout_count: Default::default(),
             p_copy_src_layouts: core::ptr::null_mut(),
@@ -18684,7 +18684,7 @@ impl Default for MemoryToImageCopy {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270002i32),
+            s_type: StructureType::from_raw(1000270002i32),
             p_next: core::ptr::null(),
             p_host_pointer: core::ptr::null(),
             memory_row_length: Default::default(),
@@ -18712,7 +18712,7 @@ impl Default for ImageToMemoryCopy {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270003i32),
+            s_type: StructureType::from_raw(1000270003i32),
             p_next: core::ptr::null(),
             p_host_pointer: core::ptr::null_mut(),
             memory_row_length: Default::default(),
@@ -18739,7 +18739,7 @@ impl Default for CopyMemoryToImageInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270005i32),
+            s_type: StructureType::from_raw(1000270005i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             dst_image: Default::default(),
@@ -18765,7 +18765,7 @@ impl Default for CopyImageToMemoryInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270004i32),
+            s_type: StructureType::from_raw(1000270004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             src_image: Default::default(),
@@ -18793,7 +18793,7 @@ impl Default for CopyImageToImageInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270007i32),
+            s_type: StructureType::from_raw(1000270007i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             src_image: Default::default(),
@@ -18820,7 +18820,7 @@ impl Default for HostImageLayoutTransitionInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270006i32),
+            s_type: StructureType::from_raw(1000270006i32),
             p_next: core::ptr::null(),
             image: Default::default(),
             old_layout: Default::default(),
@@ -18841,7 +18841,7 @@ impl Default for SubresourceHostMemcpySize {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270008i32),
+            s_type: StructureType::from_raw(1000270008i32),
             p_next: core::ptr::null_mut(),
             size: Default::default(),
         }
@@ -18860,7 +18860,7 @@ impl Default for HostImageCopyDevicePerformanceQuery {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000270009i32),
+            s_type: StructureType::from_raw(1000270009i32),
             p_next: core::ptr::null_mut(),
             optimal_device_access: Default::default(),
             identical_memory_layout: Default::default(),
@@ -18896,7 +18896,7 @@ impl Default for PhysicalDeviceVulkanSC10Properties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298001i32),
+            s_type: StructureType::from_raw(1000298001i32),
             p_next: core::ptr::null_mut(),
             device_no_dynamic_host_allocations: Default::default(),
             device_destroy_frees_memory: Default::default(),
@@ -18932,7 +18932,7 @@ impl Default for PipelinePoolSize {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298005i32),
+            s_type: StructureType::from_raw(1000298005i32),
             p_next: core::ptr::null(),
             pool_entry_size: Default::default(),
             pool_entry_count: Default::default(),
@@ -18991,7 +18991,7 @@ impl Default for DeviceObjectReservationCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298002i32),
+            s_type: StructureType::from_raw(1000298002i32),
             p_next: core::ptr::null(),
             pipeline_cache_create_info_count: Default::default(),
             p_pipeline_cache_create_infos: core::ptr::null(),
@@ -19050,7 +19050,7 @@ impl Default for CommandPoolMemoryReservationCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298003i32),
+            s_type: StructureType::from_raw(1000298003i32),
             p_next: core::ptr::null(),
             command_pool_reserved_size: Default::default(),
             command_pool_max_command_buffers: Default::default(),
@@ -19071,7 +19071,7 @@ impl Default for CommandPoolMemoryConsumption {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298004i32),
+            s_type: StructureType::from_raw(1000298004i32),
             p_next: core::ptr::null_mut(),
             command_pool_allocated: Default::default(),
             command_pool_reserved_size: Default::default(),
@@ -19091,7 +19091,7 @@ impl Default for PhysicalDeviceVulkanSC10Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000298000i32),
+            s_type: StructureType::from_raw(1000298000i32),
             p_next: core::ptr::null_mut(),
             shader_atomic_instructions: Default::default(),
         }
@@ -19111,7 +19111,7 @@ impl Default for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000382000i32),
+            s_type: StructureType::from_raw(1000382000i32),
             p_next: core::ptr::null_mut(),
             primitives_generated_query: Default::default(),
             primitives_generated_query_with_rasterizer_discard: Default::default(),
@@ -19131,7 +19131,7 @@ impl Default for PhysicalDeviceLegacyDitheringFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000465000i32),
+            s_type: StructureType::from_raw(1000465000i32),
             p_next: core::ptr::null_mut(),
             legacy_dithering: Default::default(),
         }
@@ -19149,7 +19149,7 @@ impl Default for PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000376000i32),
+            s_type: StructureType::from_raw(1000376000i32),
             p_next: core::ptr::null_mut(),
             multisampled_render_to_single_sampled: Default::default(),
         }
@@ -19167,7 +19167,7 @@ impl Default for SurfaceCapabilitiesPresentId2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000479000i32),
+            s_type: StructureType::from_raw(1000479000i32),
             p_next: core::ptr::null_mut(),
             present_id2_supported: Default::default(),
         }
@@ -19185,7 +19185,7 @@ impl Default for SurfaceCapabilitiesPresentWait2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000480000i32),
+            s_type: StructureType::from_raw(1000480000i32),
             p_next: core::ptr::null_mut(),
             present_wait2_supported: Default::default(),
         }
@@ -19203,7 +19203,7 @@ impl Default for SubpassResolvePerformanceQueryEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000376001i32),
+            s_type: StructureType::from_raw(1000376001i32),
             p_next: core::ptr::null_mut(),
             optimal: Default::default(),
         }
@@ -19222,7 +19222,7 @@ impl Default for MultisampledRenderToSingleSampledInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000376002i32),
+            s_type: StructureType::from_raw(1000376002i32),
             p_next: core::ptr::null(),
             multisampled_render_to_single_sampled_enable: Default::default(),
             rasterization_samples: Default::default(),
@@ -19241,7 +19241,7 @@ impl Default for PhysicalDevicePipelineProtectedAccessFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000466000i32),
+            s_type: StructureType::from_raw(1000466000i32),
             p_next: core::ptr::null_mut(),
             pipeline_protected_access: Default::default(),
         }
@@ -19259,7 +19259,7 @@ impl Default for QueueFamilyVideoPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023012i32),
+            s_type: StructureType::from_raw(1000023012i32),
             p_next: core::ptr::null_mut(),
             video_codec_operations: Default::default(),
         }
@@ -19277,7 +19277,7 @@ impl Default for QueueFamilyQueryResultStatusPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023016i32),
+            s_type: StructureType::from_raw(1000023016i32),
             p_next: core::ptr::null_mut(),
             query_result_status_support: Default::default(),
         }
@@ -19296,7 +19296,7 @@ impl Default for VideoProfileListInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023013i32),
+            s_type: StructureType::from_raw(1000023013i32),
             p_next: core::ptr::null(),
             profile_count: Default::default(),
             p_profiles: core::ptr::null(),
@@ -19315,7 +19315,7 @@ impl Default for PhysicalDeviceVideoFormatInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023014i32),
+            s_type: StructureType::from_raw(1000023014i32),
             p_next: core::ptr::null(),
             image_usage: Default::default(),
         }
@@ -19338,7 +19338,7 @@ impl Default for VideoFormatPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023015i32),
+            s_type: StructureType::from_raw(1000023015i32),
             p_next: core::ptr::null_mut(),
             format: Default::default(),
             component_mapping: Default::default(),
@@ -19361,7 +19361,7 @@ impl Default for VideoEncodeQuantizationMapCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553000i32),
+            s_type: StructureType::from_raw(1000553000i32),
             p_next: core::ptr::null_mut(),
             max_quantization_map_extent: Default::default(),
         }
@@ -19380,7 +19380,7 @@ impl Default for VideoEncodeH264QuantizationMapCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553003i32),
+            s_type: StructureType::from_raw(1000553003i32),
             p_next: core::ptr::null_mut(),
             min_qp_delta: Default::default(),
             max_qp_delta: Default::default(),
@@ -19400,7 +19400,7 @@ impl Default for VideoEncodeH265QuantizationMapCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553004i32),
+            s_type: StructureType::from_raw(1000553004i32),
             p_next: core::ptr::null_mut(),
             min_qp_delta: Default::default(),
             max_qp_delta: Default::default(),
@@ -19420,7 +19420,7 @@ impl Default for VideoEncodeAV1QuantizationMapCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553007i32),
+            s_type: StructureType::from_raw(1000553007i32),
             p_next: core::ptr::null_mut(),
             min_q_index_delta: Default::default(),
             max_q_index_delta: Default::default(),
@@ -19439,7 +19439,7 @@ impl Default for VideoFormatQuantizationMapPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553001i32),
+            s_type: StructureType::from_raw(1000553001i32),
             p_next: core::ptr::null_mut(),
             quantization_map_texel_size: Default::default(),
         }
@@ -19457,7 +19457,7 @@ impl Default for VideoFormatH265QuantizationMapPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553006i32),
+            s_type: StructureType::from_raw(1000553006i32),
             p_next: core::ptr::null_mut(),
             compatible_ctb_sizes: Default::default(),
         }
@@ -19475,7 +19475,7 @@ impl Default for VideoFormatAV1QuantizationMapPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553008i32),
+            s_type: StructureType::from_raw(1000553008i32),
             p_next: core::ptr::null_mut(),
             compatible_superblock_sizes: Default::default(),
         }
@@ -19496,7 +19496,7 @@ impl Default for VideoProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023000i32),
+            s_type: StructureType::from_raw(1000023000i32),
             p_next: core::ptr::null(),
             video_codec_operation: Default::default(),
             chroma_subsampling: Default::default(),
@@ -19525,7 +19525,7 @@ impl Default for VideoCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023001i32),
+            s_type: StructureType::from_raw(1000023001i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             min_bitstream_buffer_offset_alignment: Default::default(),
@@ -19552,7 +19552,7 @@ impl Default for VideoSessionMemoryRequirementsKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023003i32),
+            s_type: StructureType::from_raw(1000023003i32),
             p_next: core::ptr::null_mut(),
             memory_bind_index: Default::default(),
             memory_requirements: Default::default(),
@@ -19574,7 +19574,7 @@ impl Default for BindVideoSessionMemoryInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023004i32),
+            s_type: StructureType::from_raw(1000023004i32),
             p_next: core::ptr::null(),
             memory_bind_index: Default::default(),
             memory: Default::default(),
@@ -19598,7 +19598,7 @@ impl Default for VideoPictureResourceInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023002i32),
+            s_type: StructureType::from_raw(1000023002i32),
             p_next: core::ptr::null(),
             coded_offset: Default::default(),
             coded_extent: Default::default(),
@@ -19620,7 +19620,7 @@ impl Default for VideoReferenceSlotInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023011i32),
+            s_type: StructureType::from_raw(1000023011i32),
             p_next: core::ptr::null(),
             slot_index: Default::default(),
             p_picture_resource: core::ptr::null(),
@@ -19639,7 +19639,7 @@ impl Default for VideoDecodeCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000024001i32),
+            s_type: StructureType::from_raw(1000024001i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
         }
@@ -19657,7 +19657,7 @@ impl Default for VideoDecodeUsageInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000024002i32),
+            s_type: StructureType::from_raw(1000024002i32),
             p_next: core::ptr::null(),
             video_usage_hints: Default::default(),
         }
@@ -19682,7 +19682,7 @@ impl Default for VideoDecodeInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000024000i32),
+            s_type: StructureType::from_raw(1000024000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             src_buffer: Default::default(),
@@ -19707,7 +19707,7 @@ impl Default for PhysicalDeviceVideoMaintenance1FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000515000i32),
+            s_type: StructureType::from_raw(1000515000i32),
             p_next: core::ptr::null_mut(),
             video_maintenance1: Default::default(),
         }
@@ -19725,7 +19725,7 @@ impl Default for PhysicalDeviceVideoMaintenance2FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000586000i32),
+            s_type: StructureType::from_raw(1000586000i32),
             p_next: core::ptr::null_mut(),
             video_maintenance2: Default::default(),
         }
@@ -19745,7 +19745,7 @@ impl Default for VideoInlineQueryInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000515001i32),
+            s_type: StructureType::from_raw(1000515001i32),
             p_next: core::ptr::null(),
             query_pool: Default::default(),
             first_query: Default::default(),
@@ -19766,7 +19766,7 @@ impl Default for VideoDecodeH264ProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000040003i32),
+            s_type: StructureType::from_raw(1000040003i32),
             p_next: core::ptr::null(),
             std_profile_idc: Default::default(),
             picture_layout: Default::default(),
@@ -19786,7 +19786,7 @@ impl Default for VideoDecodeH264CapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000040000i32),
+            s_type: StructureType::from_raw(1000040000i32),
             p_next: core::ptr::null_mut(),
             max_level_idc: Default::default(),
             field_offset_granularity: Default::default(),
@@ -19808,7 +19808,7 @@ impl Default for VideoDecodeH264SessionParametersAddInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000040005i32),
+            s_type: StructureType::from_raw(1000040005i32),
             p_next: core::ptr::null(),
             std_sps_count: Default::default(),
             p_std_sp_ss: core::ptr::null(),
@@ -19831,7 +19831,7 @@ impl Default for VideoDecodeH264SessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000040004i32),
+            s_type: StructureType::from_raw(1000040004i32),
             p_next: core::ptr::null(),
             max_std_sps_count: Default::default(),
             max_std_pps_count: Default::default(),
@@ -19852,7 +19852,7 @@ impl Default for VideoDecodeH264InlineSessionParametersInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000586001i32),
+            s_type: StructureType::from_raw(1000586001i32),
             p_next: core::ptr::null(),
             p_std_sps: core::ptr::null(),
             p_std_pps: core::ptr::null(),
@@ -19873,7 +19873,7 @@ impl Default for VideoDecodeH264PictureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000040001i32),
+            s_type: StructureType::from_raw(1000040001i32),
             p_next: core::ptr::null(),
             p_std_picture_info: core::ptr::null(),
             slice_count: Default::default(),
@@ -19893,7 +19893,7 @@ impl Default for VideoDecodeH264DpbSlotInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000040006i32),
+            s_type: StructureType::from_raw(1000040006i32),
             p_next: core::ptr::null(),
             p_std_reference_info: core::ptr::null(),
         }
@@ -19911,7 +19911,7 @@ impl Default for VideoDecodeH265ProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000187003i32),
+            s_type: StructureType::from_raw(1000187003i32),
             p_next: core::ptr::null(),
             std_profile_idc: Default::default(),
         }
@@ -19929,7 +19929,7 @@ impl Default for VideoDecodeH265CapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000187000i32),
+            s_type: StructureType::from_raw(1000187000i32),
             p_next: core::ptr::null_mut(),
             max_level_idc: Default::default(),
         }
@@ -19952,7 +19952,7 @@ impl Default for VideoDecodeH265SessionParametersAddInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000187002i32),
+            s_type: StructureType::from_raw(1000187002i32),
             p_next: core::ptr::null(),
             std_vps_count: Default::default(),
             p_std_vp_ss: core::ptr::null(),
@@ -19978,7 +19978,7 @@ impl Default for VideoDecodeH265SessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000187001i32),
+            s_type: StructureType::from_raw(1000187001i32),
             p_next: core::ptr::null(),
             max_std_vps_count: Default::default(),
             max_std_sps_count: Default::default(),
@@ -20001,7 +20001,7 @@ impl Default for VideoDecodeH265InlineSessionParametersInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000586002i32),
+            s_type: StructureType::from_raw(1000586002i32),
             p_next: core::ptr::null(),
             p_std_vps: core::ptr::null(),
             p_std_sps: core::ptr::null(),
@@ -20023,7 +20023,7 @@ impl Default for VideoDecodeH265PictureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000187004i32),
+            s_type: StructureType::from_raw(1000187004i32),
             p_next: core::ptr::null(),
             p_std_picture_info: core::ptr::null(),
             slice_segment_count: Default::default(),
@@ -20043,7 +20043,7 @@ impl Default for VideoDecodeH265DpbSlotInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000187005i32),
+            s_type: StructureType::from_raw(1000187005i32),
             p_next: core::ptr::null(),
             p_std_reference_info: core::ptr::null(),
         }
@@ -20061,7 +20061,7 @@ impl Default for PhysicalDeviceVideoDecodeVP9FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000514000i32),
+            s_type: StructureType::from_raw(1000514000i32),
             p_next: core::ptr::null_mut(),
             video_decode_vp9: Default::default(),
         }
@@ -20079,7 +20079,7 @@ impl Default for VideoDecodeVP9ProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000514003i32),
+            s_type: StructureType::from_raw(1000514003i32),
             p_next: core::ptr::null(),
             std_profile: Default::default(),
         }
@@ -20097,7 +20097,7 @@ impl Default for VideoDecodeVP9CapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000514001i32),
+            s_type: StructureType::from_raw(1000514001i32),
             p_next: core::ptr::null_mut(),
             max_level: Default::default(),
         }
@@ -20120,7 +20120,7 @@ impl Default for VideoDecodeVP9PictureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000514002i32),
+            s_type: StructureType::from_raw(1000514002i32),
             p_next: core::ptr::null(),
             p_std_picture_info: core::ptr::null(),
             reference_name_slot_indices: unsafe { core::mem::zeroed() },
@@ -20143,7 +20143,7 @@ impl Default for VideoDecodeAV1ProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000512003i32),
+            s_type: StructureType::from_raw(1000512003i32),
             p_next: core::ptr::null(),
             std_profile: Default::default(),
             film_grain_support: Default::default(),
@@ -20162,7 +20162,7 @@ impl Default for VideoDecodeAV1CapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000512000i32),
+            s_type: StructureType::from_raw(1000512000i32),
             p_next: core::ptr::null_mut(),
             max_level: Default::default(),
         }
@@ -20180,7 +20180,7 @@ impl Default for VideoDecodeAV1SessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000512004i32),
+            s_type: StructureType::from_raw(1000512004i32),
             p_next: core::ptr::null(),
             p_std_sequence_header: core::ptr::null(),
         }
@@ -20198,7 +20198,7 @@ impl Default for VideoDecodeAV1InlineSessionParametersInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000586003i32),
+            s_type: StructureType::from_raw(1000586003i32),
             p_next: core::ptr::null(),
             p_std_sequence_header: core::ptr::null(),
         }
@@ -20222,7 +20222,7 @@ impl Default for VideoDecodeAV1PictureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000512001i32),
+            s_type: StructureType::from_raw(1000512001i32),
             p_next: core::ptr::null(),
             p_std_picture_info: core::ptr::null(),
             reference_name_slot_indices: unsafe { core::mem::zeroed() },
@@ -20245,7 +20245,7 @@ impl Default for VideoDecodeAV1DpbSlotInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000512005i32),
+            s_type: StructureType::from_raw(1000512005i32),
             p_next: core::ptr::null(),
             p_std_reference_info: core::ptr::null(),
         }
@@ -20271,7 +20271,7 @@ impl Default for VideoSessionCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023005i32),
+            s_type: StructureType::from_raw(1000023005i32),
             p_next: core::ptr::null(),
             queue_family_index: Default::default(),
             flags: Default::default(),
@@ -20299,7 +20299,7 @@ impl Default for VideoSessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023006i32),
+            s_type: StructureType::from_raw(1000023006i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             video_session_parameters_template: Default::default(),
@@ -20319,7 +20319,7 @@ impl Default for VideoSessionParametersUpdateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023007i32),
+            s_type: StructureType::from_raw(1000023007i32),
             p_next: core::ptr::null(),
             update_sequence_count: Default::default(),
         }
@@ -20337,7 +20337,7 @@ impl Default for VideoEncodeSessionParametersGetInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299009i32),
+            s_type: StructureType::from_raw(1000299009i32),
             p_next: core::ptr::null(),
             video_session_parameters: Default::default(),
         }
@@ -20355,7 +20355,7 @@ impl Default for VideoEncodeSessionParametersFeedbackInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299010i32),
+            s_type: StructureType::from_raw(1000299010i32),
             p_next: core::ptr::null_mut(),
             has_overrides: Default::default(),
         }
@@ -20377,7 +20377,7 @@ impl Default for VideoBeginCodingInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023008i32),
+            s_type: StructureType::from_raw(1000023008i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             video_session: Default::default(),
@@ -20399,7 +20399,7 @@ impl Default for VideoEndCodingInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023009i32),
+            s_type: StructureType::from_raw(1000023009i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -20417,7 +20417,7 @@ impl Default for VideoCodingControlInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000023010i32),
+            s_type: StructureType::from_raw(1000023010i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -20437,7 +20437,7 @@ impl Default for VideoEncodeUsageInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299004i32),
+            s_type: StructureType::from_raw(1000299004i32),
             p_next: core::ptr::null(),
             video_usage_hints: Default::default(),
             video_content_hints: Default::default(),
@@ -20465,7 +20465,7 @@ impl Default for VideoEncodeInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299000i32),
+            s_type: StructureType::from_raw(1000299000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             dst_buffer: Default::default(),
@@ -20492,7 +20492,7 @@ impl Default for VideoEncodeQuantizationMapInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553002i32),
+            s_type: StructureType::from_raw(1000553002i32),
             p_next: core::ptr::null(),
             quantization_map: Default::default(),
             quantization_map_extent: Default::default(),
@@ -20511,7 +20511,7 @@ impl Default for VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553005i32),
+            s_type: StructureType::from_raw(1000553005i32),
             p_next: core::ptr::null(),
             quantization_map_texel_size: Default::default(),
         }
@@ -20529,7 +20529,7 @@ impl Default for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000553009i32),
+            s_type: StructureType::from_raw(1000553009i32),
             p_next: core::ptr::null_mut(),
             video_encode_quantization_map: Default::default(),
         }
@@ -20547,7 +20547,7 @@ impl Default for QueryPoolVideoEncodeFeedbackCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299005i32),
+            s_type: StructureType::from_raw(1000299005i32),
             p_next: core::ptr::null(),
             encode_feedback_flags: Default::default(),
         }
@@ -20565,7 +20565,7 @@ impl Default for VideoEncodeQualityLevelInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299008i32),
+            s_type: StructureType::from_raw(1000299008i32),
             p_next: core::ptr::null(),
             quality_level: Default::default(),
         }
@@ -20584,7 +20584,7 @@ impl Default for PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299006i32),
+            s_type: StructureType::from_raw(1000299006i32),
             p_next: core::ptr::null(),
             p_video_profile: core::ptr::null(),
             quality_level: Default::default(),
@@ -20604,7 +20604,7 @@ impl Default for VideoEncodeQualityLevelPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299007i32),
+            s_type: StructureType::from_raw(1000299007i32),
             p_next: core::ptr::null_mut(),
             preferred_rate_control_mode: Default::default(),
             preferred_rate_control_layer_count: Default::default(),
@@ -20628,7 +20628,7 @@ impl Default for VideoEncodeRateControlInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299001i32),
+            s_type: StructureType::from_raw(1000299001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             rate_control_mode: Default::default(),
@@ -20654,7 +20654,7 @@ impl Default for VideoEncodeRateControlLayerInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299002i32),
+            s_type: StructureType::from_raw(1000299002i32),
             p_next: core::ptr::null(),
             average_bitrate: Default::default(),
             max_bitrate: Default::default(),
@@ -20681,7 +20681,7 @@ impl Default for VideoEncodeCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000299003i32),
+            s_type: StructureType::from_raw(1000299003i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             rate_control_modes: Default::default(),
@@ -20717,7 +20717,7 @@ impl Default for VideoEncodeH264CapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038000i32),
+            s_type: StructureType::from_raw(1000038000i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             max_level_idc: Default::default(),
@@ -20755,7 +20755,7 @@ impl Default for VideoEncodeH264QualityLevelPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038011i32),
+            s_type: StructureType::from_raw(1000038011i32),
             p_next: core::ptr::null_mut(),
             preferred_rate_control_flags: Default::default(),
             preferred_gop_frame_count: Default::default(),
@@ -20782,7 +20782,7 @@ impl Default for VideoEncodeH264SessionCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038010i32),
+            s_type: StructureType::from_raw(1000038010i32),
             p_next: core::ptr::null(),
             use_max_level_idc: Default::default(),
             max_level_idc: Default::default(),
@@ -20804,7 +20804,7 @@ impl Default for VideoEncodeH264SessionParametersAddInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038002i32),
+            s_type: StructureType::from_raw(1000038002i32),
             p_next: core::ptr::null(),
             std_sps_count: Default::default(),
             p_std_sp_ss: core::ptr::null(),
@@ -20827,7 +20827,7 @@ impl Default for VideoEncodeH264SessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038001i32),
+            s_type: StructureType::from_raw(1000038001i32),
             p_next: core::ptr::null(),
             max_std_sps_count: Default::default(),
             max_std_pps_count: Default::default(),
@@ -20850,7 +20850,7 @@ impl Default for VideoEncodeH264SessionParametersGetInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038012i32),
+            s_type: StructureType::from_raw(1000038012i32),
             p_next: core::ptr::null(),
             write_std_sps: Default::default(),
             write_std_pps: Default::default(),
@@ -20872,7 +20872,7 @@ impl Default for VideoEncodeH264SessionParametersFeedbackInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038013i32),
+            s_type: StructureType::from_raw(1000038013i32),
             p_next: core::ptr::null_mut(),
             has_std_sps_overrides: Default::default(),
             has_std_pps_overrides: Default::default(),
@@ -20891,7 +20891,7 @@ impl Default for VideoEncodeH264DpbSlotInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038004i32),
+            s_type: StructureType::from_raw(1000038004i32),
             p_next: core::ptr::null(),
             p_std_reference_info: core::ptr::null(),
         }
@@ -20912,7 +20912,7 @@ impl Default for VideoEncodeH264PictureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038003i32),
+            s_type: StructureType::from_raw(1000038003i32),
             p_next: core::ptr::null(),
             nalu_slice_entry_count: Default::default(),
             p_nalu_slice_entries: core::ptr::null(),
@@ -20933,7 +20933,7 @@ impl Default for VideoEncodeH264ProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038007i32),
+            s_type: StructureType::from_raw(1000038007i32),
             p_next: core::ptr::null(),
             std_profile_idc: Default::default(),
         }
@@ -20952,7 +20952,7 @@ impl Default for VideoEncodeH264NaluSliceInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038005i32),
+            s_type: StructureType::from_raw(1000038005i32),
             p_next: core::ptr::null(),
             constant_qp: Default::default(),
             p_std_slice_header: core::ptr::null(),
@@ -20975,7 +20975,7 @@ impl Default for VideoEncodeH264RateControlInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038008i32),
+            s_type: StructureType::from_raw(1000038008i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             gop_frame_count: Default::default(),
@@ -21028,7 +21028,7 @@ impl Default for VideoEncodeH264GopRemainingFrameInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038006i32),
+            s_type: StructureType::from_raw(1000038006i32),
             p_next: core::ptr::null(),
             use_gop_remaining_frames: Default::default(),
             gop_remaining_i: Default::default(),
@@ -21054,7 +21054,7 @@ impl Default for VideoEncodeH264RateControlLayerInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000038009i32),
+            s_type: StructureType::from_raw(1000038009i32),
             p_next: core::ptr::null(),
             use_min_qp: Default::default(),
             min_qp: Default::default(),
@@ -21092,7 +21092,7 @@ impl Default for VideoEncodeH265CapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039000i32),
+            s_type: StructureType::from_raw(1000039000i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             max_level_idc: Default::default(),
@@ -21132,7 +21132,7 @@ impl Default for VideoEncodeH265QualityLevelPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039012i32),
+            s_type: StructureType::from_raw(1000039012i32),
             p_next: core::ptr::null_mut(),
             preferred_rate_control_flags: Default::default(),
             preferred_gop_frame_count: Default::default(),
@@ -21158,7 +21158,7 @@ impl Default for VideoEncodeH265SessionCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039011i32),
+            s_type: StructureType::from_raw(1000039011i32),
             p_next: core::ptr::null(),
             use_max_level_idc: Default::default(),
             max_level_idc: Default::default(),
@@ -21182,7 +21182,7 @@ impl Default for VideoEncodeH265SessionParametersAddInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039002i32),
+            s_type: StructureType::from_raw(1000039002i32),
             p_next: core::ptr::null(),
             std_vps_count: Default::default(),
             p_std_vp_ss: core::ptr::null(),
@@ -21208,7 +21208,7 @@ impl Default for VideoEncodeH265SessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039001i32),
+            s_type: StructureType::from_raw(1000039001i32),
             p_next: core::ptr::null(),
             max_std_vps_count: Default::default(),
             max_std_sps_count: Default::default(),
@@ -21234,7 +21234,7 @@ impl Default for VideoEncodeH265SessionParametersGetInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039013i32),
+            s_type: StructureType::from_raw(1000039013i32),
             p_next: core::ptr::null(),
             write_std_vps: Default::default(),
             write_std_sps: Default::default(),
@@ -21259,7 +21259,7 @@ impl Default for VideoEncodeH265SessionParametersFeedbackInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039014i32),
+            s_type: StructureType::from_raw(1000039014i32),
             p_next: core::ptr::null_mut(),
             has_std_vps_overrides: Default::default(),
             has_std_sps_overrides: Default::default(),
@@ -21281,7 +21281,7 @@ impl Default for VideoEncodeH265PictureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039003i32),
+            s_type: StructureType::from_raw(1000039003i32),
             p_next: core::ptr::null(),
             nalu_slice_segment_entry_count: Default::default(),
             p_nalu_slice_segment_entries: core::ptr::null(),
@@ -21302,7 +21302,7 @@ impl Default for VideoEncodeH265NaluSliceSegmentInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039005i32),
+            s_type: StructureType::from_raw(1000039005i32),
             p_next: core::ptr::null(),
             constant_qp: Default::default(),
             p_std_slice_segment_header: core::ptr::null(),
@@ -21325,7 +21325,7 @@ impl Default for VideoEncodeH265RateControlInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039009i32),
+            s_type: StructureType::from_raw(1000039009i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             gop_frame_count: Default::default(),
@@ -21378,7 +21378,7 @@ impl Default for VideoEncodeH265GopRemainingFrameInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039006i32),
+            s_type: StructureType::from_raw(1000039006i32),
             p_next: core::ptr::null(),
             use_gop_remaining_frames: Default::default(),
             gop_remaining_i: Default::default(),
@@ -21404,7 +21404,7 @@ impl Default for VideoEncodeH265RateControlLayerInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039010i32),
+            s_type: StructureType::from_raw(1000039010i32),
             p_next: core::ptr::null(),
             use_min_qp: Default::default(),
             min_qp: Default::default(),
@@ -21427,7 +21427,7 @@ impl Default for VideoEncodeH265ProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039007i32),
+            s_type: StructureType::from_raw(1000039007i32),
             p_next: core::ptr::null(),
             std_profile_idc: Default::default(),
         }
@@ -21445,7 +21445,7 @@ impl Default for VideoEncodeH265DpbSlotInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000039004i32),
+            s_type: StructureType::from_raw(1000039004i32),
             p_next: core::ptr::null(),
             p_std_reference_info: core::ptr::null(),
         }
@@ -21486,7 +21486,7 @@ impl Default for VideoEncodeAV1CapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513000i32),
+            s_type: StructureType::from_raw(1000513000i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             max_level: Default::default(),
@@ -21541,7 +21541,7 @@ impl Default for VideoEncodeAV1QualityLevelPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513008i32),
+            s_type: StructureType::from_raw(1000513008i32),
             p_next: core::ptr::null_mut(),
             preferred_rate_control_flags: Default::default(),
             preferred_gop_frame_count: Default::default(),
@@ -21573,7 +21573,7 @@ impl Default for PhysicalDeviceVideoEncodeAV1FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513004i32),
+            s_type: StructureType::from_raw(1000513004i32),
             p_next: core::ptr::null_mut(),
             video_encode_av1: Default::default(),
         }
@@ -21592,7 +21592,7 @@ impl Default for VideoEncodeAV1SessionCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513009i32),
+            s_type: StructureType::from_raw(1000513009i32),
             p_next: core::ptr::null(),
             use_max_level: Default::default(),
             max_level: Default::default(),
@@ -21614,7 +21614,7 @@ impl Default for VideoEncodeAV1SessionParametersCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513001i32),
+            s_type: StructureType::from_raw(1000513001i32),
             p_next: core::ptr::null(),
             p_std_sequence_header: core::ptr::null(),
             p_std_decoder_model_info: core::ptr::null(),
@@ -21635,7 +21635,7 @@ impl Default for VideoEncodeAV1DpbSlotInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513003i32),
+            s_type: StructureType::from_raw(1000513003i32),
             p_next: core::ptr::null(),
             p_std_reference_info: core::ptr::null(),
         }
@@ -21660,7 +21660,7 @@ impl Default for VideoEncodeAV1PictureInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513002i32),
+            s_type: StructureType::from_raw(1000513002i32),
             p_next: core::ptr::null(),
             prediction_mode: Default::default(),
             rate_control_group: Default::default(),
@@ -21684,7 +21684,7 @@ impl Default for VideoEncodeAV1ProfileInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513005i32),
+            s_type: StructureType::from_raw(1000513005i32),
             p_next: core::ptr::null(),
             std_profile: Default::default(),
         }
@@ -21706,7 +21706,7 @@ impl Default for VideoEncodeAV1RateControlInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513006i32),
+            s_type: StructureType::from_raw(1000513006i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             gop_frame_count: Default::default(),
@@ -21759,7 +21759,7 @@ impl Default for VideoEncodeAV1GopRemainingFrameInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513010i32),
+            s_type: StructureType::from_raw(1000513010i32),
             p_next: core::ptr::null(),
             use_gop_remaining_frames: Default::default(),
             gop_remaining_intra: Default::default(),
@@ -21785,7 +21785,7 @@ impl Default for VideoEncodeAV1RateControlLayerInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000513007i32),
+            s_type: StructureType::from_raw(1000513007i32),
             p_next: core::ptr::null(),
             use_min_q_index: Default::default(),
             min_q_index: Default::default(),
@@ -21808,7 +21808,7 @@ impl Default for PhysicalDeviceInheritedViewportScissorFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000278000i32),
+            s_type: StructureType::from_raw(1000278000i32),
             p_next: core::ptr::null_mut(),
             inherited_viewport_scissor2_d: Default::default(),
         }
@@ -21828,7 +21828,7 @@ impl Default for CommandBufferInheritanceViewportScissorInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000278001i32),
+            s_type: StructureType::from_raw(1000278001i32),
             p_next: core::ptr::null(),
             viewport_scissor2_d: Default::default(),
             viewport_depth_count: Default::default(),
@@ -21848,7 +21848,7 @@ impl Default for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000330000i32),
+            s_type: StructureType::from_raw(1000330000i32),
             p_next: core::ptr::null_mut(),
             ycbcr2plane444_formats: Default::default(),
         }
@@ -21867,7 +21867,7 @@ impl Default for PhysicalDeviceProvokingVertexFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000254000i32),
+            s_type: StructureType::from_raw(1000254000i32),
             p_next: core::ptr::null_mut(),
             provoking_vertex_last: Default::default(),
             transform_feedback_preserves_provoking_vertex: Default::default(),
@@ -21887,7 +21887,7 @@ impl Default for PhysicalDeviceProvokingVertexPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000254002i32),
+            s_type: StructureType::from_raw(1000254002i32),
             p_next: core::ptr::null_mut(),
             provoking_vertex_mode_per_pipeline: Default::default(),
             transform_feedback_preserves_triangle_fan_provoking_vertex: Default::default(),
@@ -21906,7 +21906,7 @@ impl Default for PipelineRasterizationProvokingVertexStateCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000254001i32),
+            s_type: StructureType::from_raw(1000254001i32),
             p_next: core::ptr::null(),
             provoking_vertex_mode: Default::default(),
         }
@@ -21928,7 +21928,7 @@ impl Default for VideoEncodeIntraRefreshCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000552000i32),
+            s_type: StructureType::from_raw(1000552000i32),
             p_next: core::ptr::null_mut(),
             intra_refresh_modes: Default::default(),
             max_intra_refresh_cycle_duration: Default::default(),
@@ -21950,7 +21950,7 @@ impl Default for VideoEncodeSessionIntraRefreshCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000552001i32),
+            s_type: StructureType::from_raw(1000552001i32),
             p_next: core::ptr::null(),
             intra_refresh_mode: Default::default(),
         }
@@ -21969,7 +21969,7 @@ impl Default for VideoEncodeIntraRefreshInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000552002i32),
+            s_type: StructureType::from_raw(1000552002i32),
             p_next: core::ptr::null(),
             intra_refresh_cycle_duration: Default::default(),
             intra_refresh_index: Default::default(),
@@ -21988,7 +21988,7 @@ impl Default for VideoReferenceIntraRefreshInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000552003i32),
+            s_type: StructureType::from_raw(1000552003i32),
             p_next: core::ptr::null(),
             dirty_intra_refresh_regions: Default::default(),
         }
@@ -22006,7 +22006,7 @@ impl Default for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000552004i32),
+            s_type: StructureType::from_raw(1000552004i32),
             p_next: core::ptr::null_mut(),
             video_encode_intra_refresh: Default::default(),
         }
@@ -22025,7 +22025,7 @@ impl Default for CuModuleCreateInfoNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000029000i32),
+            s_type: StructureType::from_raw(1000029000i32),
             p_next: core::ptr::null(),
             data_size: Default::default(),
             p_data: core::ptr::null(),
@@ -22044,7 +22044,7 @@ impl Default for CuModuleTexturingModeCreateInfoNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000029004i32),
+            s_type: StructureType::from_raw(1000029004i32),
             p_next: core::ptr::null(),
             use64bit_texturing: Default::default(),
         }
@@ -22063,7 +22063,7 @@ impl Default for CuFunctionCreateInfoNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000029001i32),
+            s_type: StructureType::from_raw(1000029001i32),
             p_next: core::ptr::null(),
             module: Default::default(),
             p_name: core::ptr::null(),
@@ -22093,7 +22093,7 @@ impl Default for CuLaunchInfoNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000029002i32),
+            s_type: StructureType::from_raw(1000029002i32),
             p_next: core::ptr::null(),
             function: Default::default(),
             grid_dim_x: Default::default(),
@@ -22125,7 +22125,7 @@ impl Default for PhysicalDeviceDescriptorBufferFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316002i32),
+            s_type: StructureType::from_raw(1000316002i32),
             p_next: core::ptr::null_mut(),
             descriptor_buffer: Default::default(),
             descriptor_buffer_capture_replay: Default::default(),
@@ -22178,7 +22178,7 @@ impl Default for PhysicalDeviceDescriptorBufferPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316000i32),
+            s_type: StructureType::from_raw(1000316000i32),
             p_next: core::ptr::null_mut(),
             combined_image_sampler_descriptor_single_array: Default::default(),
             bufferless_push_descriptors: Default::default(),
@@ -22228,7 +22228,7 @@ impl Default for PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316001i32),
+            s_type: StructureType::from_raw(1000316001i32),
             p_next: core::ptr::null_mut(),
             combined_image_sampler_density_map_descriptor_size: Default::default(),
         }
@@ -22248,7 +22248,7 @@ impl Default for DescriptorAddressInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316003i32),
+            s_type: StructureType::from_raw(1000316003i32),
             p_next: core::ptr::null_mut(),
             address: Default::default(),
             range: Default::default(),
@@ -22269,7 +22269,7 @@ impl Default for DescriptorBufferBindingInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316011i32),
+            s_type: StructureType::from_raw(1000316011i32),
             p_next: core::ptr::null(),
             address: Default::default(),
             usage: Default::default(),
@@ -22288,7 +22288,7 @@ impl Default for DescriptorBufferBindingPushDescriptorBufferHandleEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316012i32),
+            s_type: StructureType::from_raw(1000316012i32),
             p_next: core::ptr::null(),
             buffer: Default::default(),
         }
@@ -22333,7 +22333,7 @@ impl Default for DescriptorGetInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316004i32),
+            s_type: StructureType::from_raw(1000316004i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             data: Default::default(),
@@ -22352,7 +22352,7 @@ impl Default for BufferCaptureDescriptorDataInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316005i32),
+            s_type: StructureType::from_raw(1000316005i32),
             p_next: core::ptr::null(),
             buffer: Default::default(),
         }
@@ -22370,7 +22370,7 @@ impl Default for ImageCaptureDescriptorDataInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316006i32),
+            s_type: StructureType::from_raw(1000316006i32),
             p_next: core::ptr::null(),
             image: Default::default(),
         }
@@ -22388,7 +22388,7 @@ impl Default for ImageViewCaptureDescriptorDataInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316007i32),
+            s_type: StructureType::from_raw(1000316007i32),
             p_next: core::ptr::null(),
             image_view: Default::default(),
         }
@@ -22406,7 +22406,7 @@ impl Default for SamplerCaptureDescriptorDataInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316008i32),
+            s_type: StructureType::from_raw(1000316008i32),
             p_next: core::ptr::null(),
             sampler: Default::default(),
         }
@@ -22425,7 +22425,7 @@ impl Default for AccelerationStructureCaptureDescriptorDataInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316009i32),
+            s_type: StructureType::from_raw(1000316009i32),
             p_next: core::ptr::null(),
             acceleration_structure: Default::default(),
             acceleration_structure_nv: Default::default(),
@@ -22444,7 +22444,7 @@ impl Default for OpaqueCaptureDescriptorDataCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000316010i32),
+            s_type: StructureType::from_raw(1000316010i32),
             p_next: core::ptr::null(),
             opaque_capture_descriptor_data: core::ptr::null(),
         }
@@ -22462,7 +22462,7 @@ impl Default for PhysicalDeviceShaderIntegerDotProductFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000280000i32),
+            s_type: StructureType::from_raw(1000280000i32),
             p_next: core::ptr::null_mut(),
             shader_integer_dot_product: Default::default(),
         }
@@ -22509,7 +22509,7 @@ impl Default for PhysicalDeviceShaderIntegerDotProductProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000280001i32),
+            s_type: StructureType::from_raw(1000280001i32),
             p_next: core::ptr::null_mut(),
             integer_dot_product8_bit_unsigned_accelerated: Default::default(),
             integer_dot_product8_bit_signed_accelerated: Default::default(),
@@ -22561,7 +22561,7 @@ impl Default for PhysicalDeviceDrmPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000353000i32),
+            s_type: StructureType::from_raw(1000353000i32),
             p_next: core::ptr::null_mut(),
             has_primary: Default::default(),
             has_render: Default::default(),
@@ -22584,7 +22584,7 @@ impl Default for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000203000i32),
+            s_type: StructureType::from_raw(1000203000i32),
             p_next: core::ptr::null_mut(),
             fragment_shader_barycentric: Default::default(),
         }
@@ -22602,7 +22602,7 @@ impl Default for PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000322000i32),
+            s_type: StructureType::from_raw(1000322000i32),
             p_next: core::ptr::null_mut(),
             tri_strip_vertex_order_independent_of_provoking_vertex: Default::default(),
         }
@@ -22622,7 +22622,7 @@ impl Default for PhysicalDeviceShaderFmaFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000579000i32),
+            s_type: StructureType::from_raw(1000579000i32),
             p_next: core::ptr::null_mut(),
             shader_fma_float16: Default::default(),
             shader_fma_float32: Default::default(),
@@ -22643,7 +22643,7 @@ impl Default for PhysicalDeviceRayTracingMotionBlurFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000327001i32),
+            s_type: StructureType::from_raw(1000327001i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_motion_blur: Default::default(),
             ray_tracing_motion_blur_pipeline_trace_rays_indirect: Default::default(),
@@ -22662,7 +22662,7 @@ impl Default for PhysicalDeviceRayTracingValidationFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000568000i32),
+            s_type: StructureType::from_raw(1000568000i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_validation: Default::default(),
         }
@@ -22681,7 +22681,7 @@ impl Default for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000429008i32),
+            s_type: StructureType::from_raw(1000429008i32),
             p_next: core::ptr::null_mut(),
             spheres: Default::default(),
             linear_swept_spheres: Default::default(),
@@ -22700,7 +22700,7 @@ impl Default for AccelerationStructureGeometryMotionTrianglesDataNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000327000i32),
+            s_type: StructureType::from_raw(1000327000i32),
             p_next: core::ptr::null(),
             vertex_data: Default::default(),
         }
@@ -22719,7 +22719,7 @@ impl Default for AccelerationStructureMotionInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000327002i32),
+            s_type: StructureType::from_raw(1000327002i32),
             p_next: core::ptr::null(),
             max_instances: Default::default(),
             flags: Default::default(),
@@ -22835,7 +22835,7 @@ impl Default for MemoryGetRemoteAddressInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000371000i32),
+            s_type: StructureType::from_raw(1000371000i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
             handle_type: Default::default(),
@@ -22855,7 +22855,7 @@ impl Default for ImportMemoryBufferCollectionFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366001i32),
+            s_type: StructureType::from_raw(1000366001i32),
             p_next: core::ptr::null(),
             collection: Default::default(),
             index: Default::default(),
@@ -22875,7 +22875,7 @@ impl Default for BufferCollectionImageCreateInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366002i32),
+            s_type: StructureType::from_raw(1000366002i32),
             p_next: core::ptr::null(),
             collection: Default::default(),
             index: Default::default(),
@@ -22895,7 +22895,7 @@ impl Default for BufferCollectionBufferCreateInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366005i32),
+            s_type: StructureType::from_raw(1000366005i32),
             p_next: core::ptr::null(),
             collection: Default::default(),
             index: Default::default(),
@@ -22914,7 +22914,7 @@ impl Default for BufferCollectionCreateInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366000i32),
+            s_type: StructureType::from_raw(1000366000i32),
             p_next: core::ptr::null(),
             collection_token: Default::default(),
         }
@@ -22942,7 +22942,7 @@ impl Default for BufferCollectionPropertiesFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366003i32),
+            s_type: StructureType::from_raw(1000366003i32),
             p_next: core::ptr::null_mut(),
             memory_type_bits: Default::default(),
             buffer_count: Default::default(),
@@ -22972,7 +22972,7 @@ impl Default for BufferConstraintsInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366004i32),
+            s_type: StructureType::from_raw(1000366004i32),
             p_next: core::ptr::null(),
             create_info: Default::default(),
             required_format_features: Default::default(),
@@ -22992,7 +22992,7 @@ impl Default for SysmemColorSpaceFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366008i32),
+            s_type: StructureType::from_raw(1000366008i32),
             p_next: core::ptr::null(),
             color_space: Default::default(),
         }
@@ -23015,7 +23015,7 @@ impl Default for ImageFormatConstraintsInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366007i32),
+            s_type: StructureType::from_raw(1000366007i32),
             p_next: core::ptr::null(),
             image_create_info: Default::default(),
             required_format_features: Default::default(),
@@ -23041,7 +23041,7 @@ impl Default for ImageConstraintsInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366006i32),
+            s_type: StructureType::from_raw(1000366006i32),
             p_next: core::ptr::null(),
             format_constraints_count: Default::default(),
             p_format_constraints: core::ptr::null(),
@@ -23066,7 +23066,7 @@ impl Default for BufferCollectionConstraintsInfoFUCHSIA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000366009i32),
+            s_type: StructureType::from_raw(1000366009i32),
             p_next: core::ptr::null(),
             min_buffer_count: Default::default(),
             max_buffer_count: Default::default(),
@@ -23089,7 +23089,7 @@ impl Default for CudaModuleCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000307000i32),
+            s_type: StructureType::from_raw(1000307000i32),
             p_next: core::ptr::null(),
             data_size: Default::default(),
             p_data: core::ptr::null(),
@@ -23109,7 +23109,7 @@ impl Default for CudaFunctionCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000307001i32),
+            s_type: StructureType::from_raw(1000307001i32),
             p_next: core::ptr::null(),
             module: Default::default(),
             p_name: core::ptr::null(),
@@ -23139,7 +23139,7 @@ impl Default for CudaLaunchInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000307002i32),
+            s_type: StructureType::from_raw(1000307002i32),
             p_next: core::ptr::null(),
             function: Default::default(),
             grid_dim_x: Default::default(),
@@ -23168,7 +23168,7 @@ impl Default for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000344000i32),
+            s_type: StructureType::from_raw(1000344000i32),
             p_next: core::ptr::null_mut(),
             format_rgba10x6_without_y_cb_cr_sampler: Default::default(),
         }
@@ -23188,7 +23188,7 @@ impl Default for FormatProperties3 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000360000i32),
+            s_type: StructureType::from_raw(1000360000i32),
             p_next: core::ptr::null_mut(),
             linear_tiling_features: Default::default(),
             optimal_tiling_features: Default::default(),
@@ -23209,7 +23209,7 @@ impl Default for DrmFormatModifierPropertiesList2EXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000158006i32),
+            s_type: StructureType::from_raw(1000158006i32),
             p_next: core::ptr::null_mut(),
             drm_format_modifier_count: Default::default(),
             p_drm_format_modifier_properties: core::ptr::null_mut(),
@@ -23249,7 +23249,7 @@ impl Default for AndroidHardwareBufferFormatProperties2ANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000129006i32),
+            s_type: StructureType::from_raw(1000129006i32),
             p_next: core::ptr::null_mut(),
             format: Default::default(),
             external_format: Default::default(),
@@ -23278,7 +23278,7 @@ impl Default for PipelineRenderingCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044002i32),
+            s_type: StructureType::from_raw(1000044002i32),
             p_next: core::ptr::null(),
             view_mask: Default::default(),
             color_attachment_count: Default::default(),
@@ -23307,7 +23307,7 @@ impl Default for RenderingInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044000i32),
+            s_type: StructureType::from_raw(1000044000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             render_area: Default::default(),
@@ -23331,7 +23331,7 @@ impl Default for RenderingEndInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000619003i32),
+            s_type: StructureType::from_raw(1000619003i32),
             p_next: core::ptr::null(),
         }
     }
@@ -23355,7 +23355,7 @@ impl Default for RenderingAttachmentInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044001i32),
+            s_type: StructureType::from_raw(1000044001i32),
             p_next: core::ptr::null(),
             image_view: Default::default(),
             image_layout: Default::default(),
@@ -23382,7 +23382,7 @@ impl Default for RenderingFragmentShadingRateAttachmentInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044006i32),
+            s_type: StructureType::from_raw(1000044006i32),
             p_next: core::ptr::null(),
             image_view: Default::default(),
             image_layout: Default::default(),
@@ -23403,7 +23403,7 @@ impl Default for RenderingFragmentDensityMapAttachmentInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044007i32),
+            s_type: StructureType::from_raw(1000044007i32),
             p_next: core::ptr::null(),
             image_view: Default::default(),
             image_layout: Default::default(),
@@ -23422,7 +23422,7 @@ impl Default for PhysicalDeviceDynamicRenderingFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044003i32),
+            s_type: StructureType::from_raw(1000044003i32),
             p_next: core::ptr::null_mut(),
             dynamic_rendering: Default::default(),
         }
@@ -23446,7 +23446,7 @@ impl Default for CommandBufferInheritanceRenderingInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044004i32),
+            s_type: StructureType::from_raw(1000044004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             view_mask: Default::default(),
@@ -23472,7 +23472,7 @@ impl Default for AttachmentSampleCountInfoAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044008i32),
+            s_type: StructureType::from_raw(1000044008i32),
             p_next: core::ptr::null(),
             color_attachment_count: Default::default(),
             p_color_attachment_samples: core::ptr::null(),
@@ -23493,7 +23493,7 @@ impl Default for MultiviewPerViewAttributesInfoNVX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000044009i32),
+            s_type: StructureType::from_raw(1000044009i32),
             p_next: core::ptr::null(),
             per_view_attributes: Default::default(),
             per_view_attributes_position_x_only: Default::default(),
@@ -23512,7 +23512,7 @@ impl Default for PhysicalDeviceImageViewMinLodFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000391000i32),
+            s_type: StructureType::from_raw(1000391000i32),
             p_next: core::ptr::null_mut(),
             min_lod: Default::default(),
         }
@@ -23530,7 +23530,7 @@ impl Default for ImageViewMinLodCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000391001i32),
+            s_type: StructureType::from_raw(1000391001i32),
             p_next: core::ptr::null(),
             min_lod: Default::default(),
         }
@@ -23550,7 +23550,7 @@ impl Default for PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000342000i32),
+            s_type: StructureType::from_raw(1000342000i32),
             p_next: core::ptr::null_mut(),
             rasterization_order_color_attachment_access: Default::default(),
             rasterization_order_depth_attachment_access: Default::default(),
@@ -23570,7 +23570,7 @@ impl Default for PhysicalDeviceLinearColorAttachmentFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000430000i32),
+            s_type: StructureType::from_raw(1000430000i32),
             p_next: core::ptr::null_mut(),
             linear_color_attachment: Default::default(),
         }
@@ -23588,7 +23588,7 @@ impl Default for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000320000i32),
+            s_type: StructureType::from_raw(1000320000i32),
             p_next: core::ptr::null_mut(),
             graphics_pipeline_library: Default::default(),
         }
@@ -23606,7 +23606,7 @@ impl Default for PhysicalDevicePipelineBinaryFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483000i32),
+            s_type: StructureType::from_raw(1000483000i32),
             p_next: core::ptr::null_mut(),
             pipeline_binaries: Default::default(),
         }
@@ -23624,7 +23624,7 @@ impl Default for DevicePipelineBinaryInternalCacheControlKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483008i32),
+            s_type: StructureType::from_raw(1000483008i32),
             p_next: core::ptr::null(),
             disable_internal_cache: Default::default(),
         }
@@ -23646,7 +23646,7 @@ impl Default for PhysicalDevicePipelineBinaryPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000483004i32),
+            s_type: StructureType::from_raw(1000483004i32),
             p_next: core::ptr::null_mut(),
             pipeline_binary_internal_cache: Default::default(),
             pipeline_binary_internal_cache_control: Default::default(),
@@ -23669,7 +23669,7 @@ impl Default for PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000320001i32),
+            s_type: StructureType::from_raw(1000320001i32),
             p_next: core::ptr::null_mut(),
             graphics_pipeline_library_fast_linking: Default::default(),
             graphics_pipeline_library_independent_interpolation_decoration: Default::default(),
@@ -23688,7 +23688,7 @@ impl Default for GraphicsPipelineLibraryCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000320002i32),
+            s_type: StructureType::from_raw(1000320002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -23706,7 +23706,7 @@ impl Default for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000420000i32),
+            s_type: StructureType::from_raw(1000420000i32),
             p_next: core::ptr::null_mut(),
             descriptor_set_host_mapping: Default::default(),
         }
@@ -23725,7 +23725,7 @@ impl Default for DescriptorSetBindingReferenceVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000420001i32),
+            s_type: StructureType::from_raw(1000420001i32),
             p_next: core::ptr::null(),
             descriptor_set_layout: Default::default(),
             binding: Default::default(),
@@ -23745,7 +23745,7 @@ impl Default for DescriptorSetLayoutHostMappingInfoVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000420002i32),
+            s_type: StructureType::from_raw(1000420002i32),
             p_next: core::ptr::null_mut(),
             descriptor_offset: Default::default(),
             descriptor_size: Default::default(),
@@ -23766,7 +23766,7 @@ impl Default for PhysicalDeviceNestedCommandBufferFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000451000i32),
+            s_type: StructureType::from_raw(1000451000i32),
             p_next: core::ptr::null_mut(),
             nested_command_buffer: Default::default(),
             nested_command_buffer_rendering: Default::default(),
@@ -23786,7 +23786,7 @@ impl Default for PhysicalDeviceNestedCommandBufferPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000451001i32),
+            s_type: StructureType::from_raw(1000451001i32),
             p_next: core::ptr::null_mut(),
             max_command_buffer_nesting_level: Default::default(),
         }
@@ -23804,7 +23804,7 @@ impl Default for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000462000i32),
+            s_type: StructureType::from_raw(1000462000i32),
             p_next: core::ptr::null_mut(),
             shader_module_identifier: Default::default(),
         }
@@ -23822,7 +23822,7 @@ impl Default for PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000462001i32),
+            s_type: StructureType::from_raw(1000462001i32),
             p_next: core::ptr::null_mut(),
             shader_module_identifier_algorithm_uuid: unsafe { core::mem::zeroed() },
         }
@@ -23841,7 +23841,7 @@ impl Default for PipelineShaderStageModuleIdentifierCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000462002i32),
+            s_type: StructureType::from_raw(1000462002i32),
             p_next: core::ptr::null(),
             identifier_size: Default::default(),
             p_identifier: core::ptr::null(),
@@ -23861,7 +23861,7 @@ impl Default for ShaderModuleIdentifierEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000462003i32),
+            s_type: StructureType::from_raw(1000462003i32),
             p_next: core::ptr::null_mut(),
             identifier_size: Default::default(),
             identifier: unsafe { core::mem::zeroed() },
@@ -23882,7 +23882,7 @@ impl Default for ImageCompressionControlEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000338001i32),
+            s_type: StructureType::from_raw(1000338001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             compression_control_plane_count: Default::default(),
@@ -23902,7 +23902,7 @@ impl Default for PhysicalDeviceImageCompressionControlFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000338000i32),
+            s_type: StructureType::from_raw(1000338000i32),
             p_next: core::ptr::null_mut(),
             image_compression_control: Default::default(),
         }
@@ -23921,7 +23921,7 @@ impl Default for ImageCompressionPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000338004i32),
+            s_type: StructureType::from_raw(1000338004i32),
             p_next: core::ptr::null_mut(),
             image_compression_flags: Default::default(),
             image_compression_fixed_rate_flags: Default::default(),
@@ -23940,7 +23940,7 @@ impl Default for PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000437000i32),
+            s_type: StructureType::from_raw(1000437000i32),
             p_next: core::ptr::null_mut(),
             image_compression_control_swapchain: Default::default(),
         }
@@ -23958,7 +23958,7 @@ impl Default for ImageSubresource2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000338003i32),
+            s_type: StructureType::from_raw(1000338003i32),
             p_next: core::ptr::null_mut(),
             image_subresource: Default::default(),
         }
@@ -23976,7 +23976,7 @@ impl Default for SubresourceLayout2 {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000338002i32),
+            s_type: StructureType::from_raw(1000338002i32),
             p_next: core::ptr::null_mut(),
             subresource_layout: Default::default(),
         }
@@ -23994,7 +23994,7 @@ impl Default for RenderPassCreationControlEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000458001i32),
+            s_type: StructureType::from_raw(1000458001i32),
             p_next: core::ptr::null(),
             disallow_merging: Default::default(),
         }
@@ -24024,7 +24024,7 @@ impl Default for RenderPassCreationFeedbackCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000458002i32),
+            s_type: StructureType::from_raw(1000458002i32),
             p_next: core::ptr::null(),
             p_render_pass_feedback: core::ptr::null_mut(),
         }
@@ -24056,7 +24056,7 @@ impl Default for RenderPassSubpassFeedbackCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000458003i32),
+            s_type: StructureType::from_raw(1000458003i32),
             p_next: core::ptr::null(),
             p_subpass_feedback: core::ptr::null_mut(),
         }
@@ -24074,7 +24074,7 @@ impl Default for PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000458000i32),
+            s_type: StructureType::from_raw(1000458000i32),
             p_next: core::ptr::null_mut(),
             subpass_merge_feedback: Default::default(),
         }
@@ -24102,7 +24102,7 @@ impl Default for MicromapBuildInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396000i32),
+            s_type: StructureType::from_raw(1000396000i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             flags: Default::default(),
@@ -24135,7 +24135,7 @@ impl Default for MicromapCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396007i32),
+            s_type: StructureType::from_raw(1000396007i32),
             p_next: core::ptr::null(),
             create_flags: Default::default(),
             buffer: Default::default(),
@@ -24158,7 +24158,7 @@ impl Default for MicromapVersionInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396001i32),
+            s_type: StructureType::from_raw(1000396001i32),
             p_next: core::ptr::null(),
             p_version_data: core::ptr::null(),
         }
@@ -24178,7 +24178,7 @@ impl Default for CopyMicromapInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396002i32),
+            s_type: StructureType::from_raw(1000396002i32),
             p_next: core::ptr::null(),
             src: Default::default(),
             dst: Default::default(),
@@ -24200,7 +24200,7 @@ impl Default for CopyMicromapToMemoryInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396003i32),
+            s_type: StructureType::from_raw(1000396003i32),
             p_next: core::ptr::null(),
             src: Default::default(),
             dst: Default::default(),
@@ -24222,7 +24222,7 @@ impl Default for CopyMemoryToMicromapInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396004i32),
+            s_type: StructureType::from_raw(1000396004i32),
             p_next: core::ptr::null(),
             src: Default::default(),
             dst: Default::default(),
@@ -24244,7 +24244,7 @@ impl Default for MicromapBuildSizesInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396008i32),
+            s_type: StructureType::from_raw(1000396008i32),
             p_next: core::ptr::null(),
             micromap_size: Default::default(),
             build_scratch_size: Default::default(),
@@ -24294,7 +24294,7 @@ impl Default for PhysicalDeviceOpacityMicromapFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396005i32),
+            s_type: StructureType::from_raw(1000396005i32),
             p_next: core::ptr::null_mut(),
             micromap: Default::default(),
             micromap_capture_replay: Default::default(),
@@ -24315,7 +24315,7 @@ impl Default for PhysicalDeviceOpacityMicromapPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396006i32),
+            s_type: StructureType::from_raw(1000396006i32),
             p_next: core::ptr::null_mut(),
             max_opacity2_state_subdivision_level: Default::default(),
             max_opacity4_state_subdivision_level: Default::default(),
@@ -24341,7 +24341,7 @@ impl Default for AccelerationStructureTrianglesOpacityMicromapEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000396009i32),
+            s_type: StructureType::from_raw(1000396009i32),
             p_next: core::ptr::null_mut(),
             index_type: Default::default(),
             index_buffer: Default::default(),
@@ -24366,7 +24366,7 @@ impl Default for PhysicalDeviceDisplacementMicromapFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000397000i32),
+            s_type: StructureType::from_raw(1000397000i32),
             p_next: core::ptr::null_mut(),
             displacement_micromap: Default::default(),
         }
@@ -24384,7 +24384,7 @@ impl Default for PhysicalDeviceDisplacementMicromapPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000397001i32),
+            s_type: StructureType::from_raw(1000397001i32),
             p_next: core::ptr::null_mut(),
             max_displacement_micromap_subdivision_level: Default::default(),
         }
@@ -24417,7 +24417,7 @@ impl Default for AccelerationStructureTrianglesDisplacementMicromapNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000397002i32),
+            s_type: StructureType::from_raw(1000397002i32),
             p_next: core::ptr::null_mut(),
             displacement_bias_and_scale_format: Default::default(),
             displacement_vector_format: Default::default(),
@@ -24450,7 +24450,7 @@ impl Default for PipelinePropertiesIdentifierEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000372000i32),
+            s_type: StructureType::from_raw(1000372000i32),
             p_next: core::ptr::null_mut(),
             pipeline_identifier: unsafe { core::mem::zeroed() },
         }
@@ -24468,7 +24468,7 @@ impl Default for PhysicalDevicePipelinePropertiesFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000372001i32),
+            s_type: StructureType::from_raw(1000372001i32),
             p_next: core::ptr::null_mut(),
             pipeline_properties_identifier: Default::default(),
         }
@@ -24486,7 +24486,7 @@ impl Default for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000321000i32),
+            s_type: StructureType::from_raw(1000321000i32),
             p_next: core::ptr::null_mut(),
             shader_early_and_late_fragment_tests: Default::default(),
         }
@@ -24504,7 +24504,7 @@ impl Default for ExternalMemoryAcquireUnmodifiedEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000453000i32),
+            s_type: StructureType::from_raw(1000453000i32),
             p_next: core::ptr::null(),
             acquire_unmodified_memory: Default::default(),
         }
@@ -24522,7 +24522,7 @@ impl Default for ExportMetalObjectCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311000i32),
+            s_type: StructureType::from_raw(1000311000i32),
             p_next: core::ptr::null(),
             export_object_type: Default::default(),
         }
@@ -24539,7 +24539,7 @@ impl Default for ExportMetalObjectsInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311001i32),
+            s_type: StructureType::from_raw(1000311001i32),
             p_next: core::ptr::null(),
         }
     }
@@ -24556,7 +24556,7 @@ impl Default for ExportMetalDeviceInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311002i32),
+            s_type: StructureType::from_raw(1000311002i32),
             p_next: core::ptr::null(),
             mtl_device: Default::default(),
         }
@@ -24575,7 +24575,7 @@ impl Default for ExportMetalCommandQueueInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311003i32),
+            s_type: StructureType::from_raw(1000311003i32),
             p_next: core::ptr::null(),
             queue: Default::default(),
             mtl_command_queue: Default::default(),
@@ -24595,7 +24595,7 @@ impl Default for ExportMetalBufferInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311004i32),
+            s_type: StructureType::from_raw(1000311004i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
             mtl_buffer: Default::default(),
@@ -24614,7 +24614,7 @@ impl Default for ImportMetalBufferInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311005i32),
+            s_type: StructureType::from_raw(1000311005i32),
             p_next: core::ptr::null(),
             mtl_buffer: Default::default(),
         }
@@ -24636,7 +24636,7 @@ impl Default for ExportMetalTextureInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311006i32),
+            s_type: StructureType::from_raw(1000311006i32),
             p_next: core::ptr::null(),
             image: Default::default(),
             image_view: Default::default(),
@@ -24659,7 +24659,7 @@ impl Default for ImportMetalTextureInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311007i32),
+            s_type: StructureType::from_raw(1000311007i32),
             p_next: core::ptr::null(),
             plane: Default::default(),
             mtl_texture: Default::default(),
@@ -24679,7 +24679,7 @@ impl Default for ExportMetalIOSurfaceInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311008i32),
+            s_type: StructureType::from_raw(1000311008i32),
             p_next: core::ptr::null(),
             image: Default::default(),
             io_surface: Default::default(),
@@ -24698,7 +24698,7 @@ impl Default for ImportMetalIOSurfaceInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311009i32),
+            s_type: StructureType::from_raw(1000311009i32),
             p_next: core::ptr::null(),
             io_surface: Default::default(),
         }
@@ -24718,7 +24718,7 @@ impl Default for ExportMetalSharedEventInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311010i32),
+            s_type: StructureType::from_raw(1000311010i32),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             event: Default::default(),
@@ -24738,7 +24738,7 @@ impl Default for ImportMetalSharedEventInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000311011i32),
+            s_type: StructureType::from_raw(1000311011i32),
             p_next: core::ptr::null(),
             mtl_shared_event: Default::default(),
         }
@@ -24756,7 +24756,7 @@ impl Default for PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000422000i32),
+            s_type: StructureType::from_raw(1000422000i32),
             p_next: core::ptr::null_mut(),
             non_seamless_cube_map: Default::default(),
         }
@@ -24774,7 +24774,7 @@ impl Default for PhysicalDevicePipelineRobustnessFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000068001i32),
+            s_type: StructureType::from_raw(1000068001i32),
             p_next: core::ptr::null_mut(),
             pipeline_robustness: Default::default(),
         }
@@ -24795,7 +24795,7 @@ impl Default for PipelineRobustnessCreateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000068000i32),
+            s_type: StructureType::from_raw(1000068000i32),
             p_next: core::ptr::null(),
             storage_buffers: Default::default(),
             uniform_buffers: Default::default(),
@@ -24819,7 +24819,7 @@ impl Default for PhysicalDevicePipelineRobustnessProperties {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000068002i32),
+            s_type: StructureType::from_raw(1000068002i32),
             p_next: core::ptr::null_mut(),
             default_robustness_storage_buffers: Default::default(),
             default_robustness_uniform_buffers: Default::default(),
@@ -24842,7 +24842,7 @@ impl Default for ImageViewSampleWeightCreateInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000440002i32),
+            s_type: StructureType::from_raw(1000440002i32),
             p_next: core::ptr::null(),
             filter_center: Default::default(),
             filter_size: Default::default(),
@@ -24864,7 +24864,7 @@ impl Default for PhysicalDeviceImageProcessingFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000440000i32),
+            s_type: StructureType::from_raw(1000440000i32),
             p_next: core::ptr::null_mut(),
             texture_sample_weighted: Default::default(),
             texture_box_filter: Default::default(),
@@ -24887,7 +24887,7 @@ impl Default for PhysicalDeviceImageProcessingPropertiesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000440001i32),
+            s_type: StructureType::from_raw(1000440001i32),
             p_next: core::ptr::null_mut(),
             max_weight_filter_phases: Default::default(),
             max_weight_filter_dimension: Default::default(),
@@ -24908,7 +24908,7 @@ impl Default for PhysicalDeviceTilePropertiesFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000484000i32),
+            s_type: StructureType::from_raw(1000484000i32),
             p_next: core::ptr::null_mut(),
             tile_properties: Default::default(),
         }
@@ -24928,7 +24928,7 @@ impl Default for TilePropertiesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000484001i32),
+            s_type: StructureType::from_raw(1000484001i32),
             p_next: core::ptr::null_mut(),
             tile_size: Default::default(),
             apron_size: Default::default(),
@@ -24948,7 +24948,7 @@ impl Default for TileMemoryBindInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000547003i32),
+            s_type: StructureType::from_raw(1000547003i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
         }
@@ -24966,7 +24966,7 @@ impl Default for PhysicalDeviceAmigoProfilingFeaturesSEC {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000485000i32),
+            s_type: StructureType::from_raw(1000485000i32),
             p_next: core::ptr::null_mut(),
             amigo_profiling: Default::default(),
         }
@@ -24985,7 +24985,7 @@ impl Default for AmigoProfilingSubmitInfoSEC {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000485001i32),
+            s_type: StructureType::from_raw(1000485001i32),
             p_next: core::ptr::null(),
             first_draw_timestamp: Default::default(),
             swap_buffer_timestamp: Default::default(),
@@ -25004,7 +25004,7 @@ impl Default for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000339000i32),
+            s_type: StructureType::from_raw(1000339000i32),
             p_next: core::ptr::null_mut(),
             attachment_feedback_loop_layout: Default::default(),
         }
@@ -25022,7 +25022,7 @@ impl Default for AttachmentFeedbackLoopInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000527001i32),
+            s_type: StructureType::from_raw(1000527001i32),
             p_next: core::ptr::null(),
             feedback_loop_enable: Default::default(),
         }
@@ -25040,7 +25040,7 @@ impl Default for PhysicalDeviceAddressBindingReportFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000354000i32),
+            s_type: StructureType::from_raw(1000354000i32),
             p_next: core::ptr::null_mut(),
             report_address_binding: Default::default(),
         }
@@ -25058,7 +25058,7 @@ impl Default for RenderingAttachmentFlagsInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000630002i32),
+            s_type: StructureType::from_raw(1000630002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
         }
@@ -25078,7 +25078,7 @@ impl Default for ResolveImageModeInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000630004i32),
+            s_type: StructureType::from_raw(1000630004i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             resolve_mode: Default::default(),
@@ -25101,7 +25101,7 @@ impl Default for DeviceAddressBindingCallbackDataEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000354001i32),
+            s_type: StructureType::from_raw(1000354001i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             base_address: Default::default(),
@@ -25122,7 +25122,7 @@ impl Default for PhysicalDeviceOpticalFlowFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000464000i32),
+            s_type: StructureType::from_raw(1000464000i32),
             p_next: core::ptr::null_mut(),
             optical_flow: Default::default(),
         }
@@ -25150,7 +25150,7 @@ impl Default for PhysicalDeviceOpticalFlowPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000464001i32),
+            s_type: StructureType::from_raw(1000464001i32),
             p_next: core::ptr::null_mut(),
             supported_output_grid_sizes: Default::default(),
             supported_hint_grid_sizes: Default::default(),
@@ -25178,7 +25178,7 @@ impl Default for OpticalFlowImageFormatInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000464002i32),
+            s_type: StructureType::from_raw(1000464002i32),
             p_next: core::ptr::null(),
             usage: Default::default(),
         }
@@ -25196,7 +25196,7 @@ impl Default for OpticalFlowImageFormatPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000464003i32),
+            s_type: StructureType::from_raw(1000464003i32),
             p_next: core::ptr::null_mut(),
             format: Default::default(),
         }
@@ -25222,7 +25222,7 @@ impl Default for OpticalFlowSessionCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000464004i32),
+            s_type: StructureType::from_raw(1000464004i32),
             p_next: core::ptr::null_mut(),
             width: Default::default(),
             height: Default::default(),
@@ -25250,7 +25250,7 @@ impl Default for OpticalFlowSessionCreatePrivateDataInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000464010i32),
+            s_type: StructureType::from_raw(1000464010i32),
             p_next: core::ptr::null_mut(),
             id: Default::default(),
             size: Default::default(),
@@ -25272,7 +25272,7 @@ impl Default for OpticalFlowExecuteInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000464005i32),
+            s_type: StructureType::from_raw(1000464005i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             region_count: Default::default(),
@@ -25293,7 +25293,7 @@ impl Default for PhysicalDeviceFaultFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000341000i32),
+            s_type: StructureType::from_raw(1000341000i32),
             p_next: core::ptr::null_mut(),
             device_fault: Default::default(),
             device_fault_vendor_binary: Default::default(),
@@ -25345,7 +25345,7 @@ impl Default for DeviceFaultInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000573002i32),
+            s_type: StructureType::from_raw(1000573002i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             group_id: Default::default(),
@@ -25369,7 +25369,7 @@ impl Default for DeviceFaultDebugInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000573003i32),
+            s_type: StructureType::from_raw(1000573003i32),
             p_next: core::ptr::null_mut(),
             vendor_binary_size: Default::default(),
             p_vendor_binary_data: core::ptr::null_mut(),
@@ -25390,7 +25390,7 @@ impl Default for DeviceFaultCountsEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000341001i32),
+            s_type: StructureType::from_raw(1000341001i32),
             p_next: core::ptr::null_mut(),
             address_info_count: Default::default(),
             vendor_info_count: Default::default(),
@@ -25413,7 +25413,7 @@ impl Default for DeviceFaultInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000341002i32),
+            s_type: StructureType::from_raw(1000341002i32),
             p_next: core::ptr::null_mut(),
             description: unsafe { core::mem::zeroed() },
             p_address_infos: core::ptr::null_mut(),
@@ -25459,7 +25459,7 @@ impl Default for PhysicalDeviceFaultFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000573000i32),
+            s_type: StructureType::from_raw(1000573000i32),
             p_next: core::ptr::null_mut(),
             device_fault: Default::default(),
             device_fault_vendor_binary: Default::default(),
@@ -25480,7 +25480,7 @@ impl Default for PhysicalDeviceFaultPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000573001i32),
+            s_type: StructureType::from_raw(1000573001i32),
             p_next: core::ptr::null_mut(),
             max_device_fault_count: Default::default(),
         }
@@ -25498,7 +25498,7 @@ impl Default for PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000498000i32),
+            s_type: StructureType::from_raw(1000498000i32),
             p_next: core::ptr::null_mut(),
             pipeline_library_group_handles: Default::default(),
         }
@@ -25518,7 +25518,7 @@ impl Default for DepthBiasInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000283001i32),
+            s_type: StructureType::from_raw(1000283001i32),
             p_next: core::ptr::null(),
             depth_bias_constant_factor: Default::default(),
             depth_bias_clamp: Default::default(),
@@ -25539,7 +25539,7 @@ impl Default for DepthBiasRepresentationInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000283002i32),
+            s_type: StructureType::from_raw(1000283002i32),
             p_next: core::ptr::null(),
             depth_bias_representation: Default::default(),
             depth_bias_exact: Default::default(),
@@ -25591,7 +25591,7 @@ impl Default for DecompressMemoryInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000550002i32),
+            s_type: StructureType::from_raw(1000550002i32),
             p_next: core::ptr::null(),
             decompression_method: Default::default(),
             region_count: Default::default(),
@@ -25613,7 +25613,7 @@ impl Default for PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000497001i32),
+            s_type: StructureType::from_raw(1000497001i32),
             p_next: core::ptr::null_mut(),
             shader_core_mask: Default::default(),
             shader_core_count: Default::default(),
@@ -25633,7 +25633,7 @@ impl Default for PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000497000i32),
+            s_type: StructureType::from_raw(1000497000i32),
             p_next: core::ptr::null_mut(),
             shader_core_builtins: Default::default(),
         }
@@ -25659,7 +25659,7 @@ impl Default for FrameBoundaryEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000375001i32),
+            s_type: StructureType::from_raw(1000375001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             frame_id: Default::default(),
@@ -25685,7 +25685,7 @@ impl Default for PhysicalDeviceFrameBoundaryFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000375000i32),
+            s_type: StructureType::from_raw(1000375000i32),
             p_next: core::ptr::null_mut(),
             frame_boundary: Default::default(),
         }
@@ -25703,7 +25703,7 @@ impl Default for PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000499000i32),
+            s_type: StructureType::from_raw(1000499000i32),
             p_next: core::ptr::null_mut(),
             dynamic_rendering_unused_attachments: Default::default(),
         }
@@ -25721,7 +25721,7 @@ impl Default for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000504000i32),
+            s_type: StructureType::from_raw(1000504000i32),
             p_next: core::ptr::null_mut(),
             internally_synchronized_queues: Default::default(),
         }
@@ -25739,7 +25739,7 @@ impl Default for SurfacePresentModeKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000274000i32),
+            s_type: StructureType::from_raw(1000274000i32),
             p_next: core::ptr::null_mut(),
             present_mode: Default::default(),
         }
@@ -25761,7 +25761,7 @@ impl Default for SurfacePresentScalingCapabilitiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000274001i32),
+            s_type: StructureType::from_raw(1000274001i32),
             p_next: core::ptr::null_mut(),
             supported_present_scaling: Default::default(),
             supported_present_gravity_x: Default::default(),
@@ -25784,7 +25784,7 @@ impl Default for SurfacePresentModeCompatibilityKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000274002i32),
+            s_type: StructureType::from_raw(1000274002i32),
             p_next: core::ptr::null_mut(),
             present_mode_count: Default::default(),
             p_present_modes: core::ptr::null_mut(),
@@ -25803,7 +25803,7 @@ impl Default for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000275000i32),
+            s_type: StructureType::from_raw(1000275000i32),
             p_next: core::ptr::null_mut(),
             swapchain_maintenance1: Default::default(),
         }
@@ -25822,7 +25822,7 @@ impl Default for SwapchainPresentFenceInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000275001i32),
+            s_type: StructureType::from_raw(1000275001i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_fences: core::ptr::null(),
@@ -25842,7 +25842,7 @@ impl Default for SwapchainPresentModesCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000275002i32),
+            s_type: StructureType::from_raw(1000275002i32),
             p_next: core::ptr::null(),
             present_mode_count: Default::default(),
             p_present_modes: core::ptr::null(),
@@ -25862,7 +25862,7 @@ impl Default for SwapchainPresentModeInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000275003i32),
+            s_type: StructureType::from_raw(1000275003i32),
             p_next: core::ptr::null(),
             swapchain_count: Default::default(),
             p_present_modes: core::ptr::null(),
@@ -25883,7 +25883,7 @@ impl Default for SwapchainPresentScalingCreateInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000275004i32),
+            s_type: StructureType::from_raw(1000275004i32),
             p_next: core::ptr::null(),
             scaling_behavior: Default::default(),
             present_gravity_x: Default::default(),
@@ -25905,7 +25905,7 @@ impl Default for ReleaseSwapchainImagesInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000275005i32),
+            s_type: StructureType::from_raw(1000275005i32),
             p_next: core::ptr::null(),
             swapchain: Default::default(),
             image_index_count: Default::default(),
@@ -25928,7 +25928,7 @@ impl Default for PhysicalDeviceDepthBiasControlFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000283000i32),
+            s_type: StructureType::from_raw(1000283000i32),
             p_next: core::ptr::null_mut(),
             depth_bias_control: Default::default(),
             least_representable_value_force_unorm_representation: Default::default(),
@@ -25949,7 +25949,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000581000i32),
+            s_type: StructureType::from_raw(1000581000i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_invocation_reorder: Default::default(),
         }
@@ -25967,7 +25967,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000490000i32),
+            s_type: StructureType::from_raw(1000490000i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_invocation_reorder: Default::default(),
         }
@@ -25986,7 +25986,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000581001i32),
+            s_type: StructureType::from_raw(1000581001i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_invocation_reorder_reordering_hint: Default::default(),
             max_shader_binding_table_record_index: Default::default(),
@@ -26005,7 +26005,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000490001i32),
+            s_type: StructureType::from_raw(1000490001i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_invocation_reorder_reordering_hint: Default::default(),
         }
@@ -26023,7 +26023,7 @@ impl Default for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000492000i32),
+            s_type: StructureType::from_raw(1000492000i32),
             p_next: core::ptr::null_mut(),
             extended_sparse_address_space: Default::default(),
         }
@@ -26043,7 +26043,7 @@ impl Default for PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000492001i32),
+            s_type: StructureType::from_raw(1000492001i32),
             p_next: core::ptr::null_mut(),
             extended_sparse_address_space_size: Default::default(),
             extended_sparse_image_usage_flags: Default::default(),
@@ -26064,7 +26064,7 @@ impl Default for DirectDriverLoadingInfoLUNARG {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000459000i32),
+            s_type: StructureType::from_raw(1000459000i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             pfn_get_instance_proc_addr: Default::default(),
@@ -26085,7 +26085,7 @@ impl Default for DirectDriverLoadingListLUNARG {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000459001i32),
+            s_type: StructureType::from_raw(1000459001i32),
             p_next: core::ptr::null(),
             mode: Default::default(),
             driver_count: Default::default(),
@@ -26105,7 +26105,7 @@ impl Default for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000488000i32),
+            s_type: StructureType::from_raw(1000488000i32),
             p_next: core::ptr::null_mut(),
             multiview_per_view_viewports: Default::default(),
         }
@@ -26123,7 +26123,7 @@ impl Default for PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000481000i32),
+            s_type: StructureType::from_raw(1000481000i32),
             p_next: core::ptr::null_mut(),
             ray_tracing_position_fetch: Default::default(),
         }
@@ -26142,7 +26142,7 @@ impl Default for DeviceImageSubresourceInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000470004i32),
+            s_type: StructureType::from_raw(1000470004i32),
             p_next: core::ptr::null(),
             p_create_info: core::ptr::null(),
             p_subresource: core::ptr::null(),
@@ -26163,7 +26163,7 @@ impl Default for PhysicalDeviceShaderCorePropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000415000i32),
+            s_type: StructureType::from_raw(1000415000i32),
             p_next: core::ptr::null_mut(),
             pixel_rate: Default::default(),
             texel_rate: Default::default(),
@@ -26183,7 +26183,7 @@ impl Default for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000510000i32),
+            s_type: StructureType::from_raw(1000510000i32),
             p_next: core::ptr::null_mut(),
             multiview_per_view_render_areas: Default::default(),
         }
@@ -26202,7 +26202,7 @@ impl Default for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000510001i32),
+            s_type: StructureType::from_raw(1000510001i32),
             p_next: core::ptr::null(),
             per_view_render_area_count: Default::default(),
             p_per_view_render_areas: core::ptr::null(),
@@ -26221,7 +26221,7 @@ impl Default for QueryLowLatencySupportNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000310000i32),
+            s_type: StructureType::from_raw(1000310000i32),
             p_next: core::ptr::null(),
             p_queried_low_latency_data: core::ptr::null_mut(),
         }
@@ -26242,7 +26242,7 @@ impl Default for MemoryMapInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000271000i32),
+            s_type: StructureType::from_raw(1000271000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             memory: Default::default(),
@@ -26264,7 +26264,7 @@ impl Default for MemoryUnmapInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000271001i32),
+            s_type: StructureType::from_raw(1000271001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             memory: Default::default(),
@@ -26283,7 +26283,7 @@ impl Default for PhysicalDeviceShaderObjectFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000482000i32),
+            s_type: StructureType::from_raw(1000482000i32),
             p_next: core::ptr::null_mut(),
             shader_object: Default::default(),
         }
@@ -26302,7 +26302,7 @@ impl Default for PhysicalDeviceShaderObjectPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000482001i32),
+            s_type: StructureType::from_raw(1000482001i32),
             p_next: core::ptr::null_mut(),
             shader_binary_uuid: unsafe { core::mem::zeroed() },
             shader_binary_version: Default::default(),
@@ -26332,7 +26332,7 @@ impl Default for ShaderCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000482002i32),
+            s_type: StructureType::from_raw(1000482002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             stage: Default::default(),
@@ -26363,7 +26363,7 @@ impl Default for PhysicalDeviceShaderTileImageFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000395000i32),
+            s_type: StructureType::from_raw(1000395000i32),
             p_next: core::ptr::null_mut(),
             shader_tile_image_color_read_access: Default::default(),
             shader_tile_image_depth_read_access: Default::default(),
@@ -26385,7 +26385,7 @@ impl Default for PhysicalDeviceShaderTileImagePropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000395001i32),
+            s_type: StructureType::from_raw(1000395001i32),
             p_next: core::ptr::null_mut(),
             shader_tile_image_coherent_read_accelerated: Default::default(),
             shader_tile_image_read_sample_from_pixel_rate_invocation: Default::default(),
@@ -26405,7 +26405,7 @@ impl Default for ImportScreenBufferInfoQNX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000529002i32),
+            s_type: StructureType::from_raw(1000529002i32),
             p_next: core::ptr::null(),
             buffer: core::ptr::null_mut(),
         }
@@ -26424,7 +26424,7 @@ impl Default for ScreenBufferPropertiesQNX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000529000i32),
+            s_type: StructureType::from_raw(1000529000i32),
             p_next: core::ptr::null_mut(),
             allocation_size: Default::default(),
             memory_type_bits: Default::default(),
@@ -26451,7 +26451,7 @@ impl Default for ScreenBufferFormatPropertiesQNX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000529001i32),
+            s_type: StructureType::from_raw(1000529001i32),
             p_next: core::ptr::null_mut(),
             format: Default::default(),
             external_format: Default::default(),
@@ -26477,7 +26477,7 @@ impl Default for ExternalFormatQNX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000529003i32),
+            s_type: StructureType::from_raw(1000529003i32),
             p_next: core::ptr::null_mut(),
             external_format: Default::default(),
         }
@@ -26495,7 +26495,7 @@ impl Default for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000529004i32),
+            s_type: StructureType::from_raw(1000529004i32),
             p_next: core::ptr::null_mut(),
             screen_buffer_import: Default::default(),
         }
@@ -26514,7 +26514,7 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000506000i32),
+            s_type: StructureType::from_raw(1000506000i32),
             p_next: core::ptr::null_mut(),
             cooperative_matrix: Default::default(),
             cooperative_matrix_robust_buffer_access: Default::default(),
@@ -26541,7 +26541,7 @@ impl Default for CooperativeMatrixPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000506001i32),
+            s_type: StructureType::from_raw(1000506001i32),
             p_next: core::ptr::null_mut(),
             m_size: Default::default(),
             n_size: Default::default(),
@@ -26567,7 +26567,7 @@ impl Default for PhysicalDeviceCooperativeMatrixPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000506002i32),
+            s_type: StructureType::from_raw(1000506002i32),
             p_next: core::ptr::null_mut(),
             cooperative_matrix_supported_stages: Default::default(),
         }
@@ -26585,7 +26585,7 @@ impl Default for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000172000i32),
+            s_type: StructureType::from_raw(1000172000i32),
             p_next: core::ptr::null_mut(),
             cooperative_matrix_conversion: Default::default(),
         }
@@ -26609,7 +26609,7 @@ impl Default for PhysicalDeviceShaderEnqueuePropertiesAMDX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000134001i32),
+            s_type: StructureType::from_raw(1000134001i32),
             p_next: core::ptr::null_mut(),
             max_execution_graph_depth: Default::default(),
             max_execution_graph_shader_output_nodes: Default::default(),
@@ -26634,7 +26634,7 @@ impl Default for PhysicalDeviceShaderEnqueueFeaturesAMDX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000134000i32),
+            s_type: StructureType::from_raw(1000134000i32),
             p_next: core::ptr::null_mut(),
             shader_enqueue: Default::default(),
             shader_mesh_enqueue: Default::default(),
@@ -26659,7 +26659,7 @@ impl Default for ExecutionGraphPipelineCreateInfoAMDX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000134003i32),
+            s_type: StructureType::from_raw(1000134003i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             stage_count: Default::default(),
@@ -26684,7 +26684,7 @@ impl Default for PipelineShaderStageNodeCreateInfoAMDX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000134004i32),
+            s_type: StructureType::from_raw(1000134004i32),
             p_next: core::ptr::null(),
             p_name: core::ptr::null(),
             index: Default::default(),
@@ -26705,7 +26705,7 @@ impl Default for ExecutionGraphPipelineScratchSizeAMDX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000134002i32),
+            s_type: StructureType::from_raw(1000134002i32),
             p_next: core::ptr::null_mut(),
             min_size: Default::default(),
             max_size: Default::default(),
@@ -26754,7 +26754,7 @@ impl Default for PhysicalDeviceAntiLagFeaturesAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000476000i32),
+            s_type: StructureType::from_raw(1000476000i32),
             p_next: core::ptr::null_mut(),
             anti_lag: Default::default(),
         }
@@ -26774,7 +26774,7 @@ impl Default for AntiLagDataAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000476001i32),
+            s_type: StructureType::from_raw(1000476001i32),
             p_next: core::ptr::null(),
             mode: Default::default(),
             max_fps: Default::default(),
@@ -26795,7 +26795,7 @@ impl Default for AntiLagPresentationInfoAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000476002i32),
+            s_type: StructureType::from_raw(1000476002i32),
             p_next: core::ptr::null_mut(),
             stage: Default::default(),
             frame_index: Default::default(),
@@ -26814,7 +26814,7 @@ impl Default for BindMemoryStatus {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545002i32),
+            s_type: StructureType::from_raw(1000545002i32),
             p_next: core::ptr::null(),
             p_result: core::ptr::null_mut(),
         }
@@ -26832,7 +26832,7 @@ impl Default for PhysicalDeviceTileMemoryHeapFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000547000i32),
+            s_type: StructureType::from_raw(1000547000i32),
             p_next: core::ptr::null_mut(),
             tile_memory_heap: Default::default(),
         }
@@ -26851,7 +26851,7 @@ impl Default for PhysicalDeviceTileMemoryHeapPropertiesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000547001i32),
+            s_type: StructureType::from_raw(1000547001i32),
             p_next: core::ptr::null_mut(),
             queue_submit_boundary: Default::default(),
             tile_buffer_transfers: Default::default(),
@@ -26870,7 +26870,7 @@ impl Default for TileMemorySizeInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000547004i32),
+            s_type: StructureType::from_raw(1000547004i32),
             p_next: core::ptr::null(),
             size: Default::default(),
         }
@@ -26889,7 +26889,7 @@ impl Default for TileMemoryRequirementsQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000547002i32),
+            s_type: StructureType::from_raw(1000547002i32),
             p_next: core::ptr::null_mut(),
             size: Default::default(),
             alignment: Default::default(),
@@ -26914,7 +26914,7 @@ impl Default for BindDescriptorSetsInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545003i32),
+            s_type: StructureType::from_raw(1000545003i32),
             p_next: core::ptr::null(),
             stage_flags: Default::default(),
             layout: Default::default(),
@@ -26942,7 +26942,7 @@ impl Default for PushConstantsInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545004i32),
+            s_type: StructureType::from_raw(1000545004i32),
             p_next: core::ptr::null(),
             layout: Default::default(),
             stage_flags: Default::default(),
@@ -26968,7 +26968,7 @@ impl Default for PushDescriptorSetInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545005i32),
+            s_type: StructureType::from_raw(1000545005i32),
             p_next: core::ptr::null(),
             stage_flags: Default::default(),
             layout: Default::default(),
@@ -26993,7 +26993,7 @@ impl Default for PushDescriptorSetWithTemplateInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545006i32),
+            s_type: StructureType::from_raw(1000545006i32),
             p_next: core::ptr::null(),
             descriptor_update_template: Default::default(),
             layout: Default::default(),
@@ -27019,7 +27019,7 @@ impl Default for SetDescriptorBufferOffsetsInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545007i32),
+            s_type: StructureType::from_raw(1000545007i32),
             p_next: core::ptr::null(),
             stage_flags: Default::default(),
             layout: Default::default(),
@@ -27044,7 +27044,7 @@ impl Default for BindDescriptorBufferEmbeddedSamplersInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000545008i32),
+            s_type: StructureType::from_raw(1000545008i32),
             p_next: core::ptr::null(),
             stage_flags: Default::default(),
             layout: Default::default(),
@@ -27064,7 +27064,7 @@ impl Default for PhysicalDeviceCubicClampFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000521000i32),
+            s_type: StructureType::from_raw(1000521000i32),
             p_next: core::ptr::null_mut(),
             cubic_range_clamp: Default::default(),
         }
@@ -27082,7 +27082,7 @@ impl Default for PhysicalDeviceYcbcrDegammaFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000520000i32),
+            s_type: StructureType::from_raw(1000520000i32),
             p_next: core::ptr::null_mut(),
             ycbcr_degamma: Default::default(),
         }
@@ -27101,7 +27101,7 @@ impl Default for SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000520001i32),
+            s_type: StructureType::from_raw(1000520001i32),
             p_next: core::ptr::null_mut(),
             enable_y_degamma: Default::default(),
             enable_cb_cr_degamma: Default::default(),
@@ -27120,7 +27120,7 @@ impl Default for PhysicalDeviceCubicWeightsFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000519001i32),
+            s_type: StructureType::from_raw(1000519001i32),
             p_next: core::ptr::null_mut(),
             selectable_cubic_weights: Default::default(),
         }
@@ -27138,7 +27138,7 @@ impl Default for SamplerCubicWeightsCreateInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000519000i32),
+            s_type: StructureType::from_raw(1000519000i32),
             p_next: core::ptr::null(),
             cubic_weights: Default::default(),
         }
@@ -27156,7 +27156,7 @@ impl Default for BlitImageCubicWeightsInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000519002i32),
+            s_type: StructureType::from_raw(1000519002i32),
             p_next: core::ptr::null(),
             cubic_weights: Default::default(),
         }
@@ -27174,7 +27174,7 @@ impl Default for PhysicalDeviceImageProcessing2FeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000518000i32),
+            s_type: StructureType::from_raw(1000518000i32),
             p_next: core::ptr::null_mut(),
             texture_block_match2: Default::default(),
         }
@@ -27192,7 +27192,7 @@ impl Default for PhysicalDeviceImageProcessing2PropertiesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000518001i32),
+            s_type: StructureType::from_raw(1000518001i32),
             p_next: core::ptr::null_mut(),
             max_block_match_window: Default::default(),
         }
@@ -27211,7 +27211,7 @@ impl Default for SamplerBlockMatchWindowCreateInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000518002i32),
+            s_type: StructureType::from_raw(1000518002i32),
             p_next: core::ptr::null(),
             window_extent: Default::default(),
             window_compare_mode: Default::default(),
@@ -27230,7 +27230,7 @@ impl Default for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000546000i32),
+            s_type: StructureType::from_raw(1000546000i32),
             p_next: core::ptr::null_mut(),
             descriptor_pool_overallocation: Default::default(),
         }
@@ -27248,7 +27248,7 @@ impl Default for PhysicalDeviceLayeredDriverPropertiesMSFT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000530000i32),
+            s_type: StructureType::from_raw(1000530000i32),
             p_next: core::ptr::null_mut(),
             underlying_api: Default::default(),
         }
@@ -27267,7 +27267,7 @@ impl Default for PhysicalDevicePerStageDescriptorSetFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000516000i32),
+            s_type: StructureType::from_raw(1000516000i32),
             p_next: core::ptr::null_mut(),
             per_stage_descriptor_set: Default::default(),
             dynamic_pipeline_layout: Default::default(),
@@ -27286,7 +27286,7 @@ impl Default for PhysicalDeviceExternalFormatResolveFeaturesANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000468000i32),
+            s_type: StructureType::from_raw(1000468000i32),
             p_next: core::ptr::null_mut(),
             external_format_resolve: Default::default(),
         }
@@ -27306,7 +27306,7 @@ impl Default for PhysicalDeviceExternalFormatResolvePropertiesANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000468001i32),
+            s_type: StructureType::from_raw(1000468001i32),
             p_next: core::ptr::null_mut(),
             null_color_attachment_with_external_format_resolve: Default::default(),
             external_format_resolve_chroma_offset_x: Default::default(),
@@ -27326,7 +27326,7 @@ impl Default for AndroidHardwareBufferFormatResolvePropertiesANDROID {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000468002i32),
+            s_type: StructureType::from_raw(1000468002i32),
             p_next: core::ptr::null_mut(),
             color_attachment_format: Default::default(),
         }
@@ -27346,7 +27346,7 @@ impl Default for LatencySleepModeInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505000i32),
+            s_type: StructureType::from_raw(1000505000i32),
             p_next: core::ptr::null(),
             low_latency_mode: Default::default(),
             low_latency_boost: Default::default(),
@@ -27367,7 +27367,7 @@ impl Default for LatencySleepInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505001i32),
+            s_type: StructureType::from_raw(1000505001i32),
             p_next: core::ptr::null(),
             signal_semaphore: Default::default(),
             value: Default::default(),
@@ -27387,7 +27387,7 @@ impl Default for SetLatencyMarkerInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505002i32),
+            s_type: StructureType::from_raw(1000505002i32),
             p_next: core::ptr::null(),
             present_id: Default::default(),
             marker: Default::default(),
@@ -27407,7 +27407,7 @@ impl Default for GetLatencyMarkerInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505003i32),
+            s_type: StructureType::from_raw(1000505003i32),
             p_next: core::ptr::null(),
             timing_count: Default::default(),
             p_timings: core::ptr::null_mut(),
@@ -27439,7 +27439,7 @@ impl Default for LatencyTimingsFrameReportNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505004i32),
+            s_type: StructureType::from_raw(1000505004i32),
             p_next: core::ptr::null_mut(),
             present_id: Default::default(),
             input_sample_time_us: Default::default(),
@@ -27470,7 +27470,7 @@ impl Default for OutOfBandQueueTypeInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505006i32),
+            s_type: StructureType::from_raw(1000505006i32),
             p_next: core::ptr::null(),
             queue_type: Default::default(),
         }
@@ -27488,7 +27488,7 @@ impl Default for LatencySubmissionPresentIdNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505005i32),
+            s_type: StructureType::from_raw(1000505005i32),
             p_next: core::ptr::null(),
             present_id: Default::default(),
         }
@@ -27506,7 +27506,7 @@ impl Default for SwapchainLatencyCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505007i32),
+            s_type: StructureType::from_raw(1000505007i32),
             p_next: core::ptr::null(),
             latency_mode_enable: Default::default(),
         }
@@ -27525,7 +27525,7 @@ impl Default for LatencySurfaceCapabilitiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000505008i32),
+            s_type: StructureType::from_raw(1000505008i32),
             p_next: core::ptr::null(),
             present_mode_count: Default::default(),
             p_present_modes: core::ptr::null_mut(),
@@ -27544,7 +27544,7 @@ impl Default for PhysicalDeviceCudaKernelLaunchFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000307003i32),
+            s_type: StructureType::from_raw(1000307003i32),
             p_next: core::ptr::null_mut(),
             cuda_kernel_launch_features: Default::default(),
         }
@@ -27563,7 +27563,7 @@ impl Default for PhysicalDeviceCudaKernelLaunchPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000307004i32),
+            s_type: StructureType::from_raw(1000307004i32),
             p_next: core::ptr::null_mut(),
             compute_capability_minor: Default::default(),
             compute_capability_major: Default::default(),
@@ -27582,7 +27582,7 @@ impl Default for DeviceQueueShaderCoreControlCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000417000i32),
+            s_type: StructureType::from_raw(1000417000i32),
             p_next: core::ptr::null_mut(),
             shader_core_count: Default::default(),
         }
@@ -27600,7 +27600,7 @@ impl Default for PhysicalDeviceSchedulingControlsFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000417001i32),
+            s_type: StructureType::from_raw(1000417001i32),
             p_next: core::ptr::null_mut(),
             scheduling_controls: Default::default(),
         }
@@ -27618,7 +27618,7 @@ impl Default for PhysicalDeviceSchedulingControlsPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000417002i32),
+            s_type: StructureType::from_raw(1000417002i32),
             p_next: core::ptr::null_mut(),
             scheduling_controls_flags: Default::default(),
         }
@@ -27636,7 +27636,7 @@ impl Default for PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000110000i32),
+            s_type: StructureType::from_raw(1000110000i32),
             p_next: core::ptr::null_mut(),
             relaxed_line_rasterization: Default::default(),
         }
@@ -27654,7 +27654,7 @@ impl Default for PhysicalDeviceRenderPassStripedFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000424000i32),
+            s_type: StructureType::from_raw(1000424000i32),
             p_next: core::ptr::null_mut(),
             render_pass_striped: Default::default(),
         }
@@ -27673,7 +27673,7 @@ impl Default for PhysicalDeviceRenderPassStripedPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000424001i32),
+            s_type: StructureType::from_raw(1000424001i32),
             p_next: core::ptr::null_mut(),
             render_pass_stripe_granularity: Default::default(),
             max_render_pass_stripes: Default::default(),
@@ -27692,7 +27692,7 @@ impl Default for RenderPassStripeInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000424003i32),
+            s_type: StructureType::from_raw(1000424003i32),
             p_next: core::ptr::null(),
             stripe_area: Default::default(),
         }
@@ -27711,7 +27711,7 @@ impl Default for RenderPassStripeBeginInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000424002i32),
+            s_type: StructureType::from_raw(1000424002i32),
             p_next: core::ptr::null(),
             stripe_info_count: Default::default(),
             p_stripe_infos: core::ptr::null(),
@@ -27731,7 +27731,7 @@ impl Default for RenderPassStripeSubmitInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000424004i32),
+            s_type: StructureType::from_raw(1000424004i32),
             p_next: core::ptr::null(),
             stripe_semaphore_info_count: Default::default(),
             p_stripe_semaphore_infos: core::ptr::null(),
@@ -27750,7 +27750,7 @@ impl Default for PhysicalDevicePipelineOpacityMicromapFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000596000i32),
+            s_type: StructureType::from_raw(1000596000i32),
             p_next: core::ptr::null_mut(),
             pipeline_opacity_micromap: Default::default(),
         }
@@ -27768,7 +27768,7 @@ impl Default for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000434000i32),
+            s_type: StructureType::from_raw(1000434000i32),
             p_next: core::ptr::null_mut(),
             shader_maximal_reconvergence: Default::default(),
         }
@@ -27787,7 +27787,7 @@ impl Default for PhysicalDeviceShaderSubgroupRotateFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000416000i32),
+            s_type: StructureType::from_raw(1000416000i32),
             p_next: core::ptr::null_mut(),
             shader_subgroup_rotate: Default::default(),
             shader_subgroup_rotate_clustered: Default::default(),
@@ -27806,7 +27806,7 @@ impl Default for PhysicalDeviceShaderExpectAssumeFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000544000i32),
+            s_type: StructureType::from_raw(1000544000i32),
             p_next: core::ptr::null_mut(),
             shader_expect_assume: Default::default(),
         }
@@ -27824,7 +27824,7 @@ impl Default for PhysicalDeviceShaderFloatControls2Features {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000528000i32),
+            s_type: StructureType::from_raw(1000528000i32),
             p_next: core::ptr::null_mut(),
             shader_float_controls2: Default::default(),
         }
@@ -27842,7 +27842,7 @@ impl Default for PhysicalDeviceDynamicRenderingLocalReadFeatures {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000232000i32),
+            s_type: StructureType::from_raw(1000232000i32),
             p_next: core::ptr::null_mut(),
             dynamic_rendering_local_read: Default::default(),
         }
@@ -27861,7 +27861,7 @@ impl Default for RenderingAttachmentLocationInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000232001i32),
+            s_type: StructureType::from_raw(1000232001i32),
             p_next: core::ptr::null(),
             color_attachment_count: Default::default(),
             p_color_attachment_locations: core::ptr::null(),
@@ -27883,7 +27883,7 @@ impl Default for RenderingInputAttachmentIndexInfo {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000232002i32),
+            s_type: StructureType::from_raw(1000232002i32),
             p_next: core::ptr::null(),
             color_attachment_count: Default::default(),
             p_color_attachment_input_indices: core::ptr::null(),
@@ -27904,7 +27904,7 @@ impl Default for PhysicalDeviceShaderQuadControlFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000235000i32),
+            s_type: StructureType::from_raw(1000235000i32),
             p_next: core::ptr::null_mut(),
             shader_quad_control: Default::default(),
         }
@@ -27922,7 +27922,7 @@ impl Default for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000563000i32),
+            s_type: StructureType::from_raw(1000563000i32),
             p_next: core::ptr::null_mut(),
             shader_float16_vector_atomics: Default::default(),
         }
@@ -27942,7 +27942,7 @@ impl Default for PhysicalDeviceMapMemoryPlacedFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000272000i32),
+            s_type: StructureType::from_raw(1000272000i32),
             p_next: core::ptr::null_mut(),
             memory_map_placed: Default::default(),
             memory_map_range_placed: Default::default(),
@@ -27962,7 +27962,7 @@ impl Default for PhysicalDeviceMapMemoryPlacedPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000272001i32),
+            s_type: StructureType::from_raw(1000272001i32),
             p_next: core::ptr::null_mut(),
             min_placed_memory_map_alignment: Default::default(),
         }
@@ -27980,7 +27980,7 @@ impl Default for MemoryMapPlacedInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000272002i32),
+            s_type: StructureType::from_raw(1000272002i32),
             p_next: core::ptr::null(),
             p_placed_address: core::ptr::null_mut(),
         }
@@ -28000,7 +28000,7 @@ impl Default for PhysicalDeviceShaderBfloat16FeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000141000i32),
+            s_type: StructureType::from_raw(1000141000i32),
             p_next: core::ptr::null_mut(),
             shader_b_float16_type: Default::default(),
             shader_b_float16_dot_product: Default::default(),
@@ -28020,7 +28020,7 @@ impl Default for PhysicalDeviceRawAccessChainsFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000555000i32),
+            s_type: StructureType::from_raw(1000555000i32),
             p_next: core::ptr::null_mut(),
             shader_raw_access_chains: Default::default(),
         }
@@ -28038,7 +28038,7 @@ impl Default for PhysicalDeviceCommandBufferInheritanceFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000559000i32),
+            s_type: StructureType::from_raw(1000559000i32),
             p_next: core::ptr::null_mut(),
             command_buffer_inheritance: Default::default(),
         }
@@ -28056,7 +28056,7 @@ impl Default for PhysicalDeviceImageAlignmentControlFeaturesMESA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000575000i32),
+            s_type: StructureType::from_raw(1000575000i32),
             p_next: core::ptr::null_mut(),
             image_alignment_control: Default::default(),
         }
@@ -28074,7 +28074,7 @@ impl Default for PhysicalDeviceImageAlignmentControlPropertiesMESA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000575001i32),
+            s_type: StructureType::from_raw(1000575001i32),
             p_next: core::ptr::null_mut(),
             supported_image_alignment_mask: Default::default(),
         }
@@ -28092,7 +28092,7 @@ impl Default for ImageAlignmentControlCreateInfoMESA {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000575002i32),
+            s_type: StructureType::from_raw(1000575002i32),
             p_next: core::ptr::null(),
             maximum_requested_alignment: Default::default(),
         }
@@ -28110,7 +28110,7 @@ impl Default for PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000564000i32),
+            s_type: StructureType::from_raw(1000564000i32),
             p_next: core::ptr::null_mut(),
             shader_replicated_composites: Default::default(),
         }
@@ -28128,7 +28128,7 @@ impl Default for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000361000i32),
+            s_type: StructureType::from_raw(1000361000i32),
             p_next: core::ptr::null_mut(),
             present_mode_fifo_latest_ready: Default::default(),
         }
@@ -28165,7 +28165,7 @@ impl Default for PhysicalDeviceCooperativeMatrix2FeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000593000i32),
+            s_type: StructureType::from_raw(1000593000i32),
             p_next: core::ptr::null_mut(),
             cooperative_matrix_workgroup_scope: Default::default(),
             cooperative_matrix_flexible_dimensions: Default::default(),
@@ -28191,7 +28191,7 @@ impl Default for PhysicalDeviceCooperativeMatrix2PropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000593002i32),
+            s_type: StructureType::from_raw(1000593002i32),
             p_next: core::ptr::null_mut(),
             cooperative_matrix_workgroup_scope_max_workgroup_size: Default::default(),
             cooperative_matrix_flexible_dimensions_max_dimension: Default::default(),
@@ -28220,7 +28220,7 @@ impl Default for CooperativeMatrixFlexibleDimensionsPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000593001i32),
+            s_type: StructureType::from_raw(1000593001i32),
             p_next: core::ptr::null_mut(),
             m_granularity: Default::default(),
             n_granularity: Default::default(),
@@ -28247,7 +28247,7 @@ impl Default for PhysicalDeviceHdrVividFeaturesHUAWEI {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000590000i32),
+            s_type: StructureType::from_raw(1000590000i32),
             p_next: core::ptr::null_mut(),
             hdr_vivid: Default::default(),
         }
@@ -28265,7 +28265,7 @@ impl Default for PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000608000i32),
+            s_type: StructureType::from_raw(1000608000i32),
             p_next: core::ptr::null_mut(),
             vertex_attribute_robustness: Default::default(),
         }
@@ -28283,7 +28283,7 @@ impl Default for PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000478000i32),
+            s_type: StructureType::from_raw(1000478000i32),
             p_next: core::ptr::null_mut(),
             dense_geometry_format: Default::default(),
         }
@@ -28307,7 +28307,7 @@ impl Default for AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000478001i32),
+            s_type: StructureType::from_raw(1000478001i32),
             p_next: core::ptr::null(),
             compressed_data: Default::default(),
             data_size: Default::default(),
@@ -28331,7 +28331,7 @@ impl Default for PhysicalDeviceDepthClampZeroOneFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000421000i32),
+            s_type: StructureType::from_raw(1000421000i32),
             p_next: core::ptr::null_mut(),
             depth_clamp_zero_one: Default::default(),
         }
@@ -28350,7 +28350,7 @@ impl Default for PhysicalDeviceCooperativeVectorFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000491000i32),
+            s_type: StructureType::from_raw(1000491000i32),
             p_next: core::ptr::null_mut(),
             cooperative_vector: Default::default(),
             cooperative_vector_training: Default::default(),
@@ -28374,7 +28374,7 @@ impl Default for CooperativeVectorPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000491002i32),
+            s_type: StructureType::from_raw(1000491002i32),
             p_next: core::ptr::null_mut(),
             input_type: Default::default(),
             input_interpretation: Default::default(),
@@ -28400,7 +28400,7 @@ impl Default for PhysicalDeviceCooperativeVectorPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000491001i32),
+            s_type: StructureType::from_raw(1000491001i32),
             p_next: core::ptr::null_mut(),
             cooperative_vector_supported_stages: Default::default(),
             cooperative_vector_training_float16_accumulation: Default::default(),
@@ -28432,7 +28432,7 @@ impl Default for ConvertCooperativeVectorMatrixInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000491004i32),
+            s_type: StructureType::from_raw(1000491004i32),
             p_next: core::ptr::null(),
             src_size: Default::default(),
             src_data: Default::default(),
@@ -28474,7 +28474,7 @@ impl Default for PhysicalDeviceTileShadingFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000309000i32),
+            s_type: StructureType::from_raw(1000309000i32),
             p_next: core::ptr::null_mut(),
             tile_shading: Default::default(),
             tile_shading_fragment_stage: Default::default(),
@@ -28508,7 +28508,7 @@ impl Default for PhysicalDeviceTileShadingPropertiesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000309001i32),
+            s_type: StructureType::from_raw(1000309001i32),
             p_next: core::ptr::null_mut(),
             max_apron_size: Default::default(),
             prefer_non_coherent: Default::default(),
@@ -28530,7 +28530,7 @@ impl Default for RenderPassTileShadingCreateInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000309002i32),
+            s_type: StructureType::from_raw(1000309002i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             tile_apron_size: Default::default(),
@@ -28548,7 +28548,7 @@ impl Default for PerTileBeginInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000309003i32),
+            s_type: StructureType::from_raw(1000309003i32),
             p_next: core::ptr::null(),
         }
     }
@@ -28564,7 +28564,7 @@ impl Default for PerTileEndInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000309004i32),
+            s_type: StructureType::from_raw(1000309004i32),
             p_next: core::ptr::null(),
         }
     }
@@ -28580,7 +28580,7 @@ impl Default for DispatchTileInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000309005i32),
+            s_type: StructureType::from_raw(1000309005i32),
             p_next: core::ptr::null(),
         }
     }
@@ -28597,7 +28597,7 @@ impl Default for PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000611001i32),
+            s_type: StructureType::from_raw(1000611001i32),
             p_next: core::ptr::null_mut(),
             max_fragment_density_map_layers: Default::default(),
         }
@@ -28615,7 +28615,7 @@ impl Default for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000611000i32),
+            s_type: StructureType::from_raw(1000611000i32),
             p_next: core::ptr::null_mut(),
             fragment_density_map_layered: Default::default(),
         }
@@ -28633,7 +28633,7 @@ impl Default for PipelineFragmentDensityMapLayeredCreateInfoVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000611002i32),
+            s_type: StructureType::from_raw(1000611002i32),
             p_next: core::ptr::null(),
             max_fragment_density_map_layers: Default::default(),
         }
@@ -28652,7 +28652,7 @@ impl Default for SetPresentConfigNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000613000i32),
+            s_type: StructureType::from_raw(1000613000i32),
             p_next: core::ptr::null(),
             num_frames_per_batch: Default::default(),
             present_config_feedback: Default::default(),
@@ -28671,7 +28671,7 @@ impl Default for PhysicalDevicePresentMeteringFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000613001i32),
+            s_type: StructureType::from_raw(1000613001i32),
             p_next: core::ptr::null_mut(),
             present_metering: Default::default(),
         }
@@ -28689,7 +28689,7 @@ impl Default for ExternalComputeQueueDeviceCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000556000i32),
+            s_type: StructureType::from_raw(1000556000i32),
             p_next: core::ptr::null(),
             reserved_external_queues: Default::default(),
         }
@@ -28707,7 +28707,7 @@ impl Default for ExternalComputeQueueCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000556001i32),
+            s_type: StructureType::from_raw(1000556001i32),
             p_next: core::ptr::null(),
             preferred_queue: Default::default(),
         }
@@ -28725,7 +28725,7 @@ impl Default for ExternalComputeQueueDataParamsNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000556002i32),
+            s_type: StructureType::from_raw(1000556002i32),
             p_next: core::ptr::null(),
             device_index: Default::default(),
         }
@@ -28744,7 +28744,7 @@ impl Default for PhysicalDeviceExternalComputeQueuePropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000556003i32),
+            s_type: StructureType::from_raw(1000556003i32),
             p_next: core::ptr::null_mut(),
             external_data_size: Default::default(),
             max_external_queues: Default::default(),
@@ -28763,7 +28763,7 @@ impl Default for PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000642000i32),
+            s_type: StructureType::from_raw(1000642000i32),
             p_next: core::ptr::null_mut(),
             shader_uniform_buffer_unsized_array: Default::default(),
         }
@@ -28784,7 +28784,7 @@ impl Default for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000673000i32),
+            s_type: StructureType::from_raw(1000673000i32),
             p_next: core::ptr::null_mut(),
             shader_mixed_float_dot_product_float16_acc_float32: Default::default(),
             shader_mixed_float_dot_product_float16_acc_float16: Default::default(),
@@ -28805,7 +28805,7 @@ impl Default for PhysicalDeviceFormatPackFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000609000i32),
+            s_type: StructureType::from_raw(1000609000i32),
             p_next: core::ptr::null_mut(),
             format_pack: Default::default(),
         }
@@ -28828,7 +28828,7 @@ impl Default for TensorDescriptionARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460006i32),
+            s_type: StructureType::from_raw(1000460006i32),
             p_next: core::ptr::null(),
             tiling: Default::default(),
             format: Default::default(),
@@ -28855,7 +28855,7 @@ impl Default for TensorCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460000i32),
+            s_type: StructureType::from_raw(1000460000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             p_description: core::ptr::null(),
@@ -28879,7 +28879,7 @@ impl Default for TensorViewCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460001i32),
+            s_type: StructureType::from_raw(1000460001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             tensor: Default::default(),
@@ -28899,7 +28899,7 @@ impl Default for TensorMemoryRequirementsInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460007i32),
+            s_type: StructureType::from_raw(1000460007i32),
             p_next: core::ptr::null(),
             tensor: Default::default(),
         }
@@ -28919,7 +28919,7 @@ impl Default for BindTensorMemoryInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460002i32),
+            s_type: StructureType::from_raw(1000460002i32),
             p_next: core::ptr::null(),
             tensor: Default::default(),
             memory: Default::default(),
@@ -28940,7 +28940,7 @@ impl Default for WriteDescriptorSetTensorARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460003i32),
+            s_type: StructureType::from_raw(1000460003i32),
             p_next: core::ptr::null(),
             tensor_view_count: Default::default(),
             p_tensor_views: core::ptr::null(),
@@ -28960,7 +28960,7 @@ impl Default for TensorFormatPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460005i32),
+            s_type: StructureType::from_raw(1000460005i32),
             p_next: core::ptr::null_mut(),
             optimal_tiling_tensor_features: Default::default(),
             linear_tiling_tensor_features: Default::default(),
@@ -28991,7 +28991,7 @@ impl Default for PhysicalDeviceTensorPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460004i32),
+            s_type: StructureType::from_raw(1000460004i32),
             p_next: core::ptr::null_mut(),
             max_tensor_dimension_count: Default::default(),
             max_tensor_elements: Default::default(),
@@ -29027,7 +29027,7 @@ impl Default for TensorMemoryBarrierARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460008i32),
+            s_type: StructureType::from_raw(1000460008i32),
             p_next: core::ptr::null(),
             src_stage_mask: Default::default(),
             src_access_mask: Default::default(),
@@ -29052,7 +29052,7 @@ impl Default for TensorDependencyInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460013i32),
+            s_type: StructureType::from_raw(1000460013i32),
             p_next: core::ptr::null(),
             tensor_memory_barrier_count: Default::default(),
             p_tensor_memory_barriers: core::ptr::null(),
@@ -29076,7 +29076,7 @@ impl Default for PhysicalDeviceTensorFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460009i32),
+            s_type: StructureType::from_raw(1000460009i32),
             p_next: core::ptr::null_mut(),
             tensor_non_packed: Default::default(),
             shader_tensor_access: Default::default(),
@@ -29099,7 +29099,7 @@ impl Default for DeviceTensorMemoryRequirementsARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460010i32),
+            s_type: StructureType::from_raw(1000460010i32),
             p_next: core::ptr::null(),
             p_create_info: core::ptr::null(),
         }
@@ -29120,7 +29120,7 @@ impl Default for CopyTensorInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460011i32),
+            s_type: StructureType::from_raw(1000460011i32),
             p_next: core::ptr::null(),
             src_tensor: Default::default(),
             dst_tensor: Default::default(),
@@ -29144,7 +29144,7 @@ impl Default for TensorCopyARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460012i32),
+            s_type: StructureType::from_raw(1000460012i32),
             p_next: core::ptr::null(),
             dimension_count: Default::default(),
             p_src_offset: core::ptr::null(),
@@ -29165,7 +29165,7 @@ impl Default for MemoryDedicatedAllocateInfoTensorARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460014i32),
+            s_type: StructureType::from_raw(1000460014i32),
             p_next: core::ptr::null(),
             tensor: Default::default(),
         }
@@ -29185,7 +29185,7 @@ impl Default for PhysicalDeviceDescriptorBufferTensorPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460019i32),
+            s_type: StructureType::from_raw(1000460019i32),
             p_next: core::ptr::null_mut(),
             tensor_capture_replay_descriptor_data_size: Default::default(),
             tensor_view_capture_replay_descriptor_data_size: Default::default(),
@@ -29205,7 +29205,7 @@ impl Default for PhysicalDeviceDescriptorBufferTensorFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460018i32),
+            s_type: StructureType::from_raw(1000460018i32),
             p_next: core::ptr::null_mut(),
             descriptor_buffer_tensor_descriptors: Default::default(),
         }
@@ -29223,7 +29223,7 @@ impl Default for TensorCaptureDescriptorDataInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460021i32),
+            s_type: StructureType::from_raw(1000460021i32),
             p_next: core::ptr::null(),
             tensor: Default::default(),
         }
@@ -29241,7 +29241,7 @@ impl Default for TensorViewCaptureDescriptorDataInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460022i32),
+            s_type: StructureType::from_raw(1000460022i32),
             p_next: core::ptr::null(),
             tensor_view: Default::default(),
         }
@@ -29259,7 +29259,7 @@ impl Default for DescriptorGetTensorInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460020i32),
+            s_type: StructureType::from_raw(1000460020i32),
             p_next: core::ptr::null(),
             tensor_view: Default::default(),
         }
@@ -29278,7 +29278,7 @@ impl Default for FrameBoundaryTensorsARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460023i32),
+            s_type: StructureType::from_raw(1000460023i32),
             p_next: core::ptr::null(),
             tensor_count: Default::default(),
             p_tensors: core::ptr::null(),
@@ -29299,7 +29299,7 @@ impl Default for PhysicalDeviceExternalTensorInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460015i32),
+            s_type: StructureType::from_raw(1000460015i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             p_description: core::ptr::null(),
@@ -29319,7 +29319,7 @@ impl Default for ExternalTensorPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460016i32),
+            s_type: StructureType::from_raw(1000460016i32),
             p_next: core::ptr::null(),
             external_memory_properties: Default::default(),
         }
@@ -29337,7 +29337,7 @@ impl Default for ExternalMemoryTensorCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000460017i32),
+            s_type: StructureType::from_raw(1000460017i32),
             p_next: core::ptr::null(),
             handle_types: Default::default(),
         }
@@ -29356,7 +29356,7 @@ impl Default for PhysicalDeviceShaderFloat8FeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000567000i32),
+            s_type: StructureType::from_raw(1000567000i32),
             p_next: core::ptr::null_mut(),
             shader_float8: Default::default(),
             shader_float8_cooperative_matrix: Default::default(),
@@ -29399,7 +29399,7 @@ impl Default for PhysicalDeviceDataGraphFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507006i32),
+            s_type: StructureType::from_raw(1000507006i32),
             p_next: core::ptr::null_mut(),
             data_graph: Default::default(),
             data_graph_update_after_bind: Default::default(),
@@ -29423,7 +29423,7 @@ impl Default for DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507015i32),
+            s_type: StructureType::from_raw(1000507015i32),
             p_next: core::ptr::null(),
             dimension: Default::default(),
             zero_count: Default::default(),
@@ -29444,7 +29444,7 @@ impl Default for DataGraphPipelineConstantARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507003i32),
+            s_type: StructureType::from_raw(1000507003i32),
             p_next: core::ptr::null(),
             id: Default::default(),
             p_constant_data: core::ptr::null(),
@@ -29465,7 +29465,7 @@ impl Default for DataGraphPipelineResourceInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507002i32),
+            s_type: StructureType::from_raw(1000507002i32),
             p_next: core::ptr::null(),
             descriptor_set: Default::default(),
             binding: Default::default(),
@@ -29485,7 +29485,7 @@ impl Default for DataGraphPipelineCompilerControlCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507010i32),
+            s_type: StructureType::from_raw(1000507010i32),
             p_next: core::ptr::null(),
             p_vendor_options: core::ptr::null(),
         }
@@ -29506,7 +29506,7 @@ impl Default for DataGraphPipelineCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507000i32),
+            s_type: StructureType::from_raw(1000507000i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             layout: Default::default(),
@@ -29531,7 +29531,7 @@ impl Default for DataGraphPipelineShaderModuleCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507007i32),
+            s_type: StructureType::from_raw(1000507007i32),
             p_next: core::ptr::null(),
             module: Default::default(),
             p_name: core::ptr::null(),
@@ -29554,7 +29554,7 @@ impl Default for DataGraphPipelineSessionCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507001i32),
+            s_type: StructureType::from_raw(1000507001i32),
             p_next: core::ptr::null(),
             flags: Default::default(),
             data_graph_pipeline: Default::default(),
@@ -29573,7 +29573,7 @@ impl Default for DataGraphPipelineSessionBindPointRequirementsInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507011i32),
+            s_type: StructureType::from_raw(1000507011i32),
             p_next: core::ptr::null(),
             session: Default::default(),
         }
@@ -29593,7 +29593,7 @@ impl Default for DataGraphPipelineSessionBindPointRequirementARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507012i32),
+            s_type: StructureType::from_raw(1000507012i32),
             p_next: core::ptr::null_mut(),
             bind_point: Default::default(),
             bind_point_type: Default::default(),
@@ -29615,7 +29615,7 @@ impl Default for DataGraphPipelineSessionMemoryRequirementsInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507004i32),
+            s_type: StructureType::from_raw(1000507004i32),
             p_next: core::ptr::null(),
             session: Default::default(),
             bind_point: Default::default(),
@@ -29639,7 +29639,7 @@ impl Default for BindDataGraphPipelineSessionMemoryInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507005i32),
+            s_type: StructureType::from_raw(1000507005i32),
             p_next: core::ptr::null(),
             session: Default::default(),
             bind_point: Default::default(),
@@ -29661,7 +29661,7 @@ impl Default for DataGraphPipelineInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507009i32),
+            s_type: StructureType::from_raw(1000507009i32),
             p_next: core::ptr::null(),
             data_graph_pipeline: Default::default(),
         }
@@ -29682,7 +29682,7 @@ impl Default for DataGraphPipelinePropertyQueryResultARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507008i32),
+            s_type: StructureType::from_raw(1000507008i32),
             p_next: core::ptr::null_mut(),
             property: Default::default(),
             is_text: Default::default(),
@@ -29704,7 +29704,7 @@ impl Default for DataGraphPipelineIdentifierCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507013i32),
+            s_type: StructureType::from_raw(1000507013i32),
             p_next: core::ptr::null(),
             identifier_size: Default::default(),
             p_identifier: core::ptr::null(),
@@ -29723,7 +29723,7 @@ impl Default for DataGraphPipelineDispatchInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507014i32),
+            s_type: StructureType::from_raw(1000507014i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
         }
@@ -29770,7 +29770,7 @@ impl Default for QueueFamilyDataGraphPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507018i32),
+            s_type: StructureType::from_raw(1000507018i32),
             p_next: core::ptr::null_mut(),
             engine: Default::default(),
             operation: Default::default(),
@@ -29790,7 +29790,7 @@ impl Default for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507019i32),
+            s_type: StructureType::from_raw(1000507019i32),
             p_next: core::ptr::null(),
             queue_family_index: Default::default(),
             engine_type: Default::default(),
@@ -29810,7 +29810,7 @@ impl Default for QueueFamilyDataGraphProcessingEnginePropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507017i32),
+            s_type: StructureType::from_raw(1000507017i32),
             p_next: core::ptr::null_mut(),
             foreign_semaphore_handle_types: Default::default(),
             foreign_memory_handle_types: Default::default(),
@@ -29830,7 +29830,7 @@ impl Default for DataGraphProcessingEngineCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000507016i32),
+            s_type: StructureType::from_raw(1000507016i32),
             p_next: core::ptr::null(),
             processing_engine_count: Default::default(),
             p_processing_engines: core::ptr::null_mut(),
@@ -29849,7 +29849,7 @@ impl Default for PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000637000i32),
+            s_type: StructureType::from_raw(1000637000i32),
             p_next: core::ptr::null_mut(),
             pipeline_cache_incremental_mode: Default::default(),
         }
@@ -29867,7 +29867,7 @@ impl Default for DataGraphPipelineBuiltinModelCreateInfoQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000629001i32),
+            s_type: StructureType::from_raw(1000629001i32),
             p_next: core::ptr::null(),
             p_operation: core::ptr::null(),
         }
@@ -29885,7 +29885,7 @@ impl Default for PhysicalDeviceDataGraphModelFeaturesQCOM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000629000i32),
+            s_type: StructureType::from_raw(1000629000i32),
             p_next: core::ptr::null_mut(),
             data_graph_model: Default::default(),
         }
@@ -29903,7 +29903,7 @@ impl Default for PhysicalDeviceShaderUntypedPointersFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000387000i32),
+            s_type: StructureType::from_raw(1000387000i32),
             p_next: core::ptr::null_mut(),
             shader_untyped_pointers: Default::default(),
         }
@@ -29975,7 +29975,7 @@ impl Default for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000390000i32),
+            s_type: StructureType::from_raw(1000390000i32),
             p_next: core::ptr::null_mut(),
             video_encode_rgb_conversion: Default::default(),
         }
@@ -29996,7 +29996,7 @@ impl Default for VideoEncodeRgbConversionCapabilitiesVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000390001i32),
+            s_type: StructureType::from_raw(1000390001i32),
             p_next: core::ptr::null_mut(),
             rgb_models: Default::default(),
             rgb_ranges: Default::default(),
@@ -30017,7 +30017,7 @@ impl Default for VideoEncodeProfileRgbConversionInfoVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000390002i32),
+            s_type: StructureType::from_raw(1000390002i32),
             p_next: core::ptr::null(),
             perform_encode_rgb_conversion: Default::default(),
         }
@@ -30038,7 +30038,7 @@ impl Default for VideoEncodeSessionRgbConversionCreateInfoVALVE {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000390003i32),
+            s_type: StructureType::from_raw(1000390003i32),
             p_next: core::ptr::null(),
             rgb_model: Default::default(),
             rgb_range: Default::default(),
@@ -30059,7 +30059,7 @@ impl Default for PhysicalDeviceShader64BitIndexingFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000627000i32),
+            s_type: StructureType::from_raw(1000627000i32),
             p_next: core::ptr::null_mut(),
             shader64_bit_indexing: Default::default(),
         }
@@ -30077,7 +30077,7 @@ impl Default for NativeBufferUsageOHOS {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000452000i32),
+            s_type: StructureType::from_raw(1000452000i32),
             p_next: core::ptr::null_mut(),
             ohos_native_buffer_usage: Default::default(),
         }
@@ -30096,7 +30096,7 @@ impl Default for NativeBufferPropertiesOHOS {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000452001i32),
+            s_type: StructureType::from_raw(1000452001i32),
             p_next: core::ptr::null_mut(),
             allocation_size: Default::default(),
             memory_type_bits: Default::default(),
@@ -30122,7 +30122,7 @@ impl Default for NativeBufferFormatPropertiesOHOS {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000452002i32),
+            s_type: StructureType::from_raw(1000452002i32),
             p_next: core::ptr::null_mut(),
             format: Default::default(),
             external_format: Default::default(),
@@ -30147,7 +30147,7 @@ impl Default for ImportNativeBufferInfoOHOS {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000452003i32),
+            s_type: StructureType::from_raw(1000452003i32),
             p_next: core::ptr::null(),
             buffer: core::ptr::null_mut(),
         }
@@ -30165,7 +30165,7 @@ impl Default for MemoryGetNativeBufferInfoOHOS {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000452004i32),
+            s_type: StructureType::from_raw(1000452004i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
         }
@@ -30183,7 +30183,7 @@ impl Default for ExternalFormatOHOS {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000452005i32),
+            s_type: StructureType::from_raw(1000452005i32),
             p_next: core::ptr::null_mut(),
             external_format: Default::default(),
         }
@@ -30201,7 +30201,7 @@ impl Default for PhysicalDevicePerformanceCountersByRegionFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000605000i32),
+            s_type: StructureType::from_raw(1000605000i32),
             p_next: core::ptr::null_mut(),
             performance_counters_by_region: Default::default(),
         }
@@ -30223,7 +30223,7 @@ impl Default for PhysicalDevicePerformanceCountersByRegionPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000605001i32),
+            s_type: StructureType::from_raw(1000605001i32),
             p_next: core::ptr::null_mut(),
             max_per_region_performance_counters: Default::default(),
             performance_counter_region_size: Default::default(),
@@ -30245,7 +30245,7 @@ impl Default for PerformanceCounterARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000605002i32),
+            s_type: StructureType::from_raw(1000605002i32),
             p_next: core::ptr::null_mut(),
             counter_id: Default::default(),
         }
@@ -30264,7 +30264,7 @@ impl Default for PerformanceCounterDescriptionARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000605003i32),
+            s_type: StructureType::from_raw(1000605003i32),
             p_next: core::ptr::null_mut(),
             flags: Default::default(),
             name: unsafe { core::mem::zeroed() },
@@ -30287,7 +30287,7 @@ impl Default for RenderPassPerformanceCountersByRegionBeginInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000605004i32),
+            s_type: StructureType::from_raw(1000605004i32),
             p_next: core::ptr::null_mut(),
             counter_address_count: Default::default(),
             p_counter_addresses: core::ptr::null(),
@@ -30310,7 +30310,7 @@ impl Default for ComputeOccupancyPriorityParametersNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000645000i32),
+            s_type: StructureType::from_raw(1000645000i32),
             p_next: core::ptr::null(),
             occupancy_priority: Default::default(),
             occupancy_throttling: Default::default(),
@@ -30329,7 +30329,7 @@ impl Default for PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000645001i32),
+            s_type: StructureType::from_raw(1000645001i32),
             p_next: core::ptr::null_mut(),
             compute_occupancy_priority: Default::default(),
         }
@@ -30347,7 +30347,7 @@ impl Default for PhysicalDeviceShaderLongVectorFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000635000i32),
+            s_type: StructureType::from_raw(1000635000i32),
             p_next: core::ptr::null_mut(),
             long_vector: Default::default(),
         }
@@ -30365,7 +30365,7 @@ impl Default for PhysicalDeviceShaderLongVectorPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000635001i32),
+            s_type: StructureType::from_raw(1000635001i32),
             p_next: core::ptr::null_mut(),
             max_vector_components: Default::default(),
         }
@@ -30383,7 +30383,7 @@ impl Default for PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000288000i32),
+            s_type: StructureType::from_raw(1000288000i32),
             p_next: core::ptr::null_mut(),
             texture_compression_astc_3d: Default::default(),
         }
@@ -30401,7 +30401,7 @@ impl Default for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000662000i32),
+            s_type: StructureType::from_raw(1000662000i32),
             p_next: core::ptr::null_mut(),
             shader_subgroup_partitioned: Default::default(),
         }
@@ -30446,7 +30446,7 @@ impl Default for TexelBufferDescriptorInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135000i32),
+            s_type: StructureType::from_raw(1000135000i32),
             p_next: core::ptr::null(),
             format: Default::default(),
             address_range: Default::default(),
@@ -30466,7 +30466,7 @@ impl Default for ImageDescriptorInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135001i32),
+            s_type: StructureType::from_raw(1000135001i32),
             p_next: core::ptr::null(),
             p_view: core::ptr::null(),
             layout: Default::default(),
@@ -30506,7 +30506,7 @@ impl Default for ResourceDescriptorInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135002i32),
+            s_type: StructureType::from_raw(1000135002i32),
             p_next: core::ptr::null(),
             r#type: Default::default(),
             data: Default::default(),
@@ -30527,7 +30527,7 @@ impl Default for BindHeapInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135003i32),
+            s_type: StructureType::from_raw(1000135003i32),
             p_next: core::ptr::null(),
             heap_range: Default::default(),
             reserved_range_offset: Default::default(),
@@ -30548,7 +30548,7 @@ impl Default for PushDataInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135004i32),
+            s_type: StructureType::from_raw(1000135004i32),
             p_next: core::ptr::null(),
             offset: Default::default(),
             data: Default::default(),
@@ -30727,7 +30727,7 @@ impl Default for DescriptorSetAndBindingMappingEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135005i32),
+            s_type: StructureType::from_raw(1000135005i32),
             p_next: core::ptr::null(),
             descriptor_set: Default::default(),
             first_binding: Default::default(),
@@ -30751,7 +30751,7 @@ impl Default for ShaderDescriptorSetAndBindingMappingInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135006i32),
+            s_type: StructureType::from_raw(1000135006i32),
             p_next: core::ptr::null(),
             mapping_count: Default::default(),
             p_mappings: core::ptr::null(),
@@ -30770,7 +30770,7 @@ impl Default for SamplerCustomBorderColorIndexCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135011i32),
+            s_type: StructureType::from_raw(1000135011i32),
             p_next: core::ptr::null(),
             index: Default::default(),
         }
@@ -30788,7 +30788,7 @@ impl Default for OpaqueCaptureDataCreateInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135007i32),
+            s_type: StructureType::from_raw(1000135007i32),
             p_next: core::ptr::null(),
             p_data: core::ptr::null(),
         }
@@ -30807,7 +30807,7 @@ impl Default for IndirectCommandsLayoutPushDataTokenNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135012i32),
+            s_type: StructureType::from_raw(1000135012i32),
             p_next: core::ptr::null(),
             push_data_offset: Default::default(),
             push_data_size: Default::default(),
@@ -30826,7 +30826,7 @@ impl Default for SubsampledImageFormatPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135013i32),
+            s_type: StructureType::from_raw(1000135013i32),
             p_next: core::ptr::null(),
             subsampled_image_descriptor_count: Default::default(),
         }
@@ -30845,7 +30845,7 @@ impl Default for PhysicalDeviceDescriptorHeapFeaturesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135009i32),
+            s_type: StructureType::from_raw(1000135009i32),
             p_next: core::ptr::null_mut(),
             descriptor_heap: Default::default(),
             descriptor_heap_capture_replay: Default::default(),
@@ -30882,7 +30882,7 @@ impl Default for PhysicalDeviceDescriptorHeapPropertiesEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135008i32),
+            s_type: StructureType::from_raw(1000135008i32),
             p_next: core::ptr::null_mut(),
             sampler_heap_alignment: Default::default(),
             resource_heap_alignment: Default::default(),
@@ -30919,7 +30919,7 @@ impl Default for CommandBufferInheritanceDescriptorHeapInfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135010i32),
+            s_type: StructureType::from_raw(1000135010i32),
             p_next: core::ptr::null(),
             p_sampler_heap_bind_info: core::ptr::null(),
             p_resource_heap_bind_info: core::ptr::null(),
@@ -30940,7 +30940,7 @@ impl Default for PhysicalDeviceDescriptorHeapTensorPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000135014i32),
+            s_type: StructureType::from_raw(1000135014i32),
             p_next: core::ptr::null_mut(),
             tensor_descriptor_size: Default::default(),
             tensor_descriptor_alignment: Default::default(),
@@ -30960,7 +30960,7 @@ impl Default for PhysicalDeviceShaderInstrumentationFeaturesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000607000i32),
+            s_type: StructureType::from_raw(1000607000i32),
             p_next: core::ptr::null_mut(),
             shader_instrumentation: Default::default(),
         }
@@ -30979,7 +30979,7 @@ impl Default for PhysicalDeviceShaderInstrumentationPropertiesARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000607001i32),
+            s_type: StructureType::from_raw(1000607001i32),
             p_next: core::ptr::null_mut(),
             num_metrics: Default::default(),
             per_basic_block_granularity: Default::default(),
@@ -30997,7 +30997,7 @@ impl Default for ShaderInstrumentationCreateInfoARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000607002i32),
+            s_type: StructureType::from_raw(1000607002i32),
             p_next: core::ptr::null_mut(),
         }
     }
@@ -31015,7 +31015,7 @@ impl Default for ShaderInstrumentationMetricDescriptionARM {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000607003i32),
+            s_type: StructureType::from_raw(1000607003i32),
             p_next: core::ptr::null_mut(),
             name: unsafe { core::mem::zeroed() },
             description: unsafe { core::mem::zeroed() },
@@ -31065,7 +31065,7 @@ impl Default for DeviceMemoryCopyKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318000i32),
+            s_type: StructureType::from_raw(1000318000i32),
             p_next: core::ptr::null(),
             src_range: Default::default(),
             src_flags: Default::default(),
@@ -31087,7 +31087,7 @@ impl Default for CopyDeviceMemoryInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318001i32),
+            s_type: StructureType::from_raw(1000318001i32),
             p_next: core::ptr::null(),
             region_count: Default::default(),
             p_regions: core::ptr::null(),
@@ -31113,7 +31113,7 @@ impl Default for DeviceMemoryImageCopyKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318002i32),
+            s_type: StructureType::from_raw(1000318002i32),
             p_next: core::ptr::null(),
             address_range: Default::default(),
             address_flags: Default::default(),
@@ -31140,7 +31140,7 @@ impl Default for CopyDeviceMemoryImageInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318003i32),
+            s_type: StructureType::from_raw(1000318003i32),
             p_next: core::ptr::null(),
             image: Default::default(),
             region_count: Default::default(),
@@ -31161,7 +31161,7 @@ impl Default for MemoryRangeBarriersInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318004i32),
+            s_type: StructureType::from_raw(1000318004i32),
             p_next: core::ptr::null(),
             memory_range_barrier_count: Default::default(),
             p_memory_range_barriers: core::ptr::null(),
@@ -31187,7 +31187,7 @@ impl Default for MemoryRangeBarrierKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318005i32),
+            s_type: StructureType::from_raw(1000318005i32),
             p_next: core::ptr::null(),
             src_stage_mask: Default::default(),
             src_access_mask: Default::default(),
@@ -31212,7 +31212,7 @@ impl Default for PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318006i32),
+            s_type: StructureType::from_raw(1000318006i32),
             p_next: core::ptr::null_mut(),
             device_address_commands: Default::default(),
         }
@@ -31232,7 +31232,7 @@ impl Default for ConditionalRenderingBeginInfo2EXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318012i32),
+            s_type: StructureType::from_raw(1000318012i32),
             p_next: core::ptr::null(),
             address_range: Default::default(),
             address_flags: Default::default(),
@@ -31255,7 +31255,7 @@ impl Default for AccelerationStructureCreateInfo2KHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318015i32),
+            s_type: StructureType::from_raw(1000318015i32),
             p_next: core::ptr::null(),
             create_flags: Default::default(),
             address_range: Default::default(),
@@ -31278,7 +31278,7 @@ impl Default for BindIndexBuffer3InfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318007i32),
+            s_type: StructureType::from_raw(1000318007i32),
             p_next: core::ptr::null(),
             address_range: Default::default(),
             address_flags: Default::default(),
@@ -31300,7 +31300,7 @@ impl Default for BindVertexBuffer3InfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318008i32),
+            s_type: StructureType::from_raw(1000318008i32),
             p_next: core::ptr::null(),
             set_stride: Default::default(),
             address_range: Default::default(),
@@ -31322,7 +31322,7 @@ impl Default for DrawIndirect2InfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318009i32),
+            s_type: StructureType::from_raw(1000318009i32),
             p_next: core::ptr::null(),
             address_range: Default::default(),
             address_flags: Default::default(),
@@ -31346,7 +31346,7 @@ impl Default for DrawIndirectCount2InfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318010i32),
+            s_type: StructureType::from_raw(1000318010i32),
             p_next: core::ptr::null(),
             address_range: Default::default(),
             address_flags: Default::default(),
@@ -31369,7 +31369,7 @@ impl Default for DispatchIndirect2InfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318011i32),
+            s_type: StructureType::from_raw(1000318011i32),
             p_next: core::ptr::null(),
             address_range: Default::default(),
             address_flags: Default::default(),
@@ -31389,7 +31389,7 @@ impl Default for BindTransformFeedbackBuffer2InfoEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318013i32),
+            s_type: StructureType::from_raw(1000318013i32),
             p_next: core::ptr::null(),
             address_range: Default::default(),
             address_flags: Default::default(),
@@ -31411,7 +31411,7 @@ impl Default for MemoryMarkerInfoAMD {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000318014i32),
+            s_type: StructureType::from_raw(1000318014i32),
             p_next: core::ptr::null(),
             stage: Default::default(),
             dst_range: Default::default(),
@@ -31432,7 +31432,7 @@ impl Default for PhysicalDeviceShaderConstantDataFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000231000i32),
+            s_type: StructureType::from_raw(1000231000i32),
             p_next: core::ptr::null_mut(),
             shader_constant_data: Default::default(),
         }
@@ -31450,7 +31450,7 @@ impl Default for PhysicalDeviceShaderAbortFeaturesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000233000i32),
+            s_type: StructureType::from_raw(1000233000i32),
             p_next: core::ptr::null_mut(),
             shader_abort: Default::default(),
         }
@@ -31468,7 +31468,7 @@ impl Default for PhysicalDeviceShaderAbortPropertiesKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000233002i32),
+            s_type: StructureType::from_raw(1000233002i32),
             p_next: core::ptr::null_mut(),
             max_shader_abort_message_size: Default::default(),
         }
@@ -31487,7 +31487,7 @@ impl Default for DeviceFaultShaderAbortMessageInfoKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(-1000233001i32),
+            s_type: StructureType::from_raw(1000233001i32),
             p_next: core::ptr::null_mut(),
             message_data_size: Default::default(),
             p_message_data: core::ptr::null_mut(),

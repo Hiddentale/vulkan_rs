@@ -67,7 +67,7 @@ fn parse_enum_variant(e: &Enum) -> Option<EnumVariant> {
             ..
         } => {
             let ext_num = extnumber.unwrap_or(0);
-            let val = compute_enum_offset(ext_num, *offset, *dir);
+            let val = compute_enum_offset(ext_num, *offset, !*dir);
             EnumValue::I32(val)
         }
         EnumSpec::Bitpos { bitpos, .. } => EnumValue::I32(1i32 << bitpos),
@@ -183,7 +183,7 @@ fn parse_extension_enum_variant(e: &Enum, ext_number: Option<i64>) -> Option<Enu
             ..
         } => {
             let num = extnumber.or(ext_number).unwrap_or(0);
-            EnumValue::I32(compute_enum_offset(num, *offset, *dir))
+            EnumValue::I32(compute_enum_offset(num, *offset, !*dir))
         }
         EnumSpec::Value { value, .. } => EnumValue::I32(parse_c_literal(value)),
         EnumSpec::Alias { alias, .. } => EnumValue::Alias(alias.clone()),
@@ -208,7 +208,7 @@ fn parse_extension_bitmask_bit(e: &Enum, ext_number: Option<i64>) -> Option<Bitm
             ..
         } => {
             let num = extnumber.or(ext_number).unwrap_or(0);
-            let val = compute_enum_offset(num, *offset, *dir);
+            let val = compute_enum_offset(num, *offset, !*dir);
             BitmaskValue::Value(val as u64)
         }
         EnumSpec::None | _ => return None,
