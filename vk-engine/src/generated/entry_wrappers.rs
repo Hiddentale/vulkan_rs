@@ -1,7 +1,7 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::missing_safety_doc)]
-use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
+use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
 use crate::vk::enums::*;

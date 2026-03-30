@@ -1,7 +1,7 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::missing_safety_doc)]
-use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
+use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
 use crate::vk::enums::*;
@@ -9,10 +9,7 @@ use crate::vk::handles::*;
 use crate::vk::structs::*;
 impl crate::Instance {
     pub unsafe fn destroy_instance(&self, allocator: Option<&AllocationCallbacks>) {
-        let fp = self
-            .commands()
-            .destroy_instance
-            .expect("vkDestroyInstance not loaded");
+        let fp = self.commands().destroy_instance.expect("vkDestroyInstance not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), alloc_ptr) };
     }
@@ -104,15 +101,7 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceImageFormatProperties not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(
-                physical_device,
-                format,
-                r#type,
-                tiling,
-                usage,
-                flags,
-                &mut out,
-            )
+            fp(physical_device, format, r#type, tiling, usage, flags, &mut out)
         })?;
         Ok(out)
     }
@@ -135,7 +124,9 @@ impl crate::Instance {
             .commands()
             .enumerate_device_extension_properties
             .expect("vkEnumerateDeviceExtensionProperties not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, p_layer_name, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, p_layer_name, count, data)
+        })
     }
     pub unsafe fn get_physical_device_sparse_image_format_properties(
         &self,
@@ -151,16 +142,7 @@ impl crate::Instance {
             .get_physical_device_sparse_image_format_properties
             .expect("vkGetPhysicalDeviceSparseImageFormatProperties not loaded");
         fill_two_call(|count, data| unsafe {
-            fp(
-                physical_device,
-                format,
-                r#type,
-                samples,
-                usage,
-                tiling,
-                count,
-                data,
-            )
+            fp(physical_device, format, r#type, samples, usage, tiling, count, data)
         })
     }
     pub unsafe fn create_surface_ohos(
@@ -206,7 +188,9 @@ impl crate::Instance {
             .commands()
             .get_display_plane_supported_displays_khr
             .expect("vkGetDisplayPlaneSupportedDisplaysKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, plane_index, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, plane_index, count, data)
+        })
     }
     pub unsafe fn get_display_mode_properties_khr(
         &self,
@@ -217,7 +201,9 @@ impl crate::Instance {
             .commands()
             .get_display_mode_properties_khr
             .expect("vkGetDisplayModePropertiesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, display, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, display, count, data)
+        })
     }
     pub unsafe fn create_display_mode_khr(
         &self,
@@ -232,7 +218,9 @@ impl crate::Instance {
             .expect("vkCreateDisplayModeKHR not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
-        check(unsafe { fp(physical_device, display, p_create_info, alloc_ptr, &mut out) })?;
+        check(unsafe {
+            fp(physical_device, display, p_create_info, alloc_ptr, &mut out)
+        })?;
         Ok(out)
     }
     pub unsafe fn get_display_plane_capabilities_khr(
@@ -299,7 +287,9 @@ impl crate::Instance {
             .commands()
             .get_physical_device_surface_formats_khr
             .expect("vkGetPhysicalDeviceSurfaceFormatsKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, surface, count, data)
+        })
     }
     pub unsafe fn get_physical_device_surface_present_modes_khr(
         &self,
@@ -310,7 +300,9 @@ impl crate::Instance {
             .commands()
             .get_physical_device_surface_present_modes_khr
             .expect("vkGetPhysicalDeviceSurfacePresentModesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, surface, count, data)
+        })
     }
     pub unsafe fn create_vi_surface_nn(
         &self,
@@ -614,11 +606,7 @@ impl crate::Instance {
             .get_physical_device_image_format_properties2
             .expect("vkGetPhysicalDeviceImageFormatProperties2 not loaded");
         check(unsafe {
-            fp(
-                physical_device,
-                p_image_format_info,
-                p_image_format_properties,
-            )
+            fp(physical_device, p_image_format_info, p_image_format_properties)
         })
     }
     pub unsafe fn get_physical_device_queue_family_properties2(
@@ -651,7 +639,9 @@ impl crate::Instance {
             .commands()
             .get_physical_device_sparse_image_format_properties2
             .expect("vkGetPhysicalDeviceSparseImageFormatProperties2 not loaded");
-        fill_two_call(|count, data| unsafe { fp(physical_device, p_format_info, count, data) })
+        fill_two_call(|count, data| unsafe {
+            fp(physical_device, p_format_info, count, data)
+        })
     }
     pub unsafe fn get_physical_device_external_buffer_properties(
         &self,
@@ -664,11 +654,7 @@ impl crate::Instance {
             .get_physical_device_external_buffer_properties
             .expect("vkGetPhysicalDeviceExternalBufferProperties not loaded");
         unsafe {
-            fp(
-                physical_device,
-                p_external_buffer_info,
-                p_external_buffer_properties,
-            )
+            fp(physical_device, p_external_buffer_info, p_external_buffer_properties)
         };
     }
     pub unsafe fn get_physical_device_external_memory_sci_buf_properties_nv(
@@ -683,12 +669,7 @@ impl crate::Instance {
             .get_physical_device_external_memory_sci_buf_properties_nv
             .expect("vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV not loaded");
         check(unsafe {
-            fp(
-                physical_device,
-                handle_type,
-                handle,
-                p_memory_sci_buf_properties,
-            )
+            fp(physical_device, handle_type, handle, p_memory_sci_buf_properties)
         })
     }
     pub unsafe fn get_physical_device_sci_buf_attributes_nv(
@@ -731,11 +712,7 @@ impl crate::Instance {
             .get_physical_device_external_fence_properties
             .expect("vkGetPhysicalDeviceExternalFenceProperties not loaded");
         unsafe {
-            fp(
-                physical_device,
-                p_external_fence_info,
-                p_external_fence_properties,
-            )
+            fp(physical_device, p_external_fence_info, p_external_fence_properties)
         };
     }
     pub unsafe fn get_physical_device_sci_sync_attributes_nv(
@@ -842,7 +819,9 @@ impl crate::Instance {
             .commands()
             .get_physical_device_present_rectangles_khr
             .expect("vkGetPhysicalDevicePresentRectanglesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, surface, count, data)
+        })
     }
     pub unsafe fn create_ios_surface_mvk(
         &self,
@@ -938,7 +917,9 @@ impl crate::Instance {
             .commands()
             .get_display_mode_properties2_khr
             .expect("vkGetDisplayModeProperties2KHR not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, display, count, data) })
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, display, count, data)
+        })
     }
     pub unsafe fn get_display_plane_capabilities2_khr(
         &self,
@@ -998,14 +979,7 @@ impl crate::Instance {
             .commands()
             .submit_debug_utils_message_ext
             .expect("vkSubmitDebugUtilsMessageEXT not loaded");
-        unsafe {
-            fp(
-                self.handle(),
-                message_severity,
-                message_types,
-                p_callback_data,
-            )
-        };
+        unsafe { fp(self.handle(), message_severity, message_types, p_callback_data) };
     }
     pub unsafe fn get_physical_device_cooperative_matrix_properties_nv(
         &self,
@@ -1039,15 +1013,11 @@ impl crate::Instance {
         let fp = self
             .commands()
             .enumerate_physical_device_queue_family_performance_query_counters_khr
-            .expect("vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR not loaded");
+            .expect(
+                "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR not loaded",
+            );
         enumerate_two_call(|count, data| unsafe {
-            fp(
-                physical_device,
-                queue_family_index,
-                count,
-                data,
-                p_counter_descriptions,
-            )
+            fp(physical_device, queue_family_index, count, data, p_counter_descriptions)
         })
     }
     pub unsafe fn get_physical_device_queue_family_performance_query_passes_khr(
@@ -1058,7 +1028,9 @@ impl crate::Instance {
         let fp = self
             .commands()
             .get_physical_device_queue_family_performance_query_passes_khr
-            .expect("vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR not loaded");
+            .expect(
+                "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR not loaded",
+            );
         let mut out = unsafe { core::mem::zeroed() };
         unsafe { fp(physical_device, p_performance_query_create_info, &mut out) };
         out
@@ -1084,7 +1056,9 @@ impl crate::Instance {
         let fp = self
             .commands()
             .get_physical_device_supported_framebuffer_mixed_samples_combinations_nv
-            .expect("vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV not loaded");
+            .expect(
+                "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV not loaded",
+            );
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
     pub unsafe fn get_physical_device_tool_properties(
@@ -1151,13 +1125,11 @@ impl crate::Instance {
         let fp = self
             .commands()
             .get_physical_device_video_encode_quality_level_properties_khr
-            .expect("vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR not loaded");
+            .expect(
+                "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR not loaded",
+            );
         check(unsafe {
-            fp(
-                physical_device,
-                p_quality_level_info,
-                p_quality_level_properties,
-            )
+            fp(physical_device, p_quality_level_info, p_quality_level_properties)
         })
     }
     pub unsafe fn acquire_drm_display_ext(
@@ -1196,12 +1168,7 @@ impl crate::Instance {
             .get_physical_device_optical_flow_image_formats_nv
             .expect("vkGetPhysicalDeviceOpticalFlowImageFormatsNV not loaded");
         enumerate_two_call(|count, data| unsafe {
-            fp(
-                physical_device,
-                p_optical_flow_image_format_info,
-                count,
-                data,
-            )
+            fp(physical_device, p_optical_flow_image_format_info, count, data)
         })
     }
     pub unsafe fn get_physical_device_cooperative_matrix_properties_khr(
@@ -1243,7 +1210,9 @@ impl crate::Instance {
         let fp = self
             .commands()
             .enumerate_physical_device_shader_instrumentation_metrics_arm
-            .expect("vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM not loaded");
+            .expect(
+                "vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM not loaded",
+            );
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
     pub unsafe fn get_physical_device_external_tensor_properties_arm(
@@ -1257,11 +1226,7 @@ impl crate::Instance {
             .get_physical_device_external_tensor_properties_arm
             .expect("vkGetPhysicalDeviceExternalTensorPropertiesARM not loaded");
         unsafe {
-            fp(
-                physical_device,
-                p_external_tensor_info,
-                p_external_tensor_properties,
-            )
+            fp(physical_device, p_external_tensor_info, p_external_tensor_properties)
         };
     }
     pub unsafe fn get_physical_device_queue_family_data_graph_properties_arm(
@@ -1310,13 +1275,7 @@ impl crate::Instance {
                 "vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM not loaded",
             );
         enumerate_two_call(|count, data| unsafe {
-            fp(
-                physical_device,
-                queue_family_index,
-                count,
-                data,
-                p_counter_descriptions,
-            )
+            fp(physical_device, queue_family_index, count, data, p_counter_descriptions)
         })
     }
     pub unsafe fn get_physical_device_descriptor_size_ext(
