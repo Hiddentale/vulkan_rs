@@ -35,7 +35,12 @@ fn parse_command(def: &CommandDefinition) -> Option<CommandDef> {
     let name = def.proto.name.clone();
     let return_type = def.proto.type_name.as_deref().unwrap_or("void").to_string();
 
-    let params: Vec<ParamDef> = def.params.iter().map(parse_param).collect();
+    let params: Vec<ParamDef> = def
+        .params
+        .iter()
+        .filter(|p| !is_non_vulkan_api(p.api.as_deref()))
+        .map(parse_param)
+        .collect();
 
     let dispatch_level = classify_dispatch_level(&params);
 

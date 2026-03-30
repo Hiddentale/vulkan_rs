@@ -1,6 +1,17 @@
 # vulkan_rs
 Minimal Vulkan 1.2 bindings for Rust.
 
+Current progress:
+
+- Generator from vk.xml with vk-parse + quote
+- Two-crate split with directed dependency
+- from_raw_parts interop
+- Inherent methods (not traits)
+- Complete command loading (all ~700 PFN typedefs)
+- Builder Deref pattern with push_next
+- #![no_std] for vk-sys
+- CI with fmt/clippy/build/test
+
 ## License
 
 Licensed under either of

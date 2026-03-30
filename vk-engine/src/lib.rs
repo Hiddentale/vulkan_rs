@@ -6,6 +6,7 @@ pub mod bytecode;
 mod device;
 mod entry;
 mod error;
+mod generated;
 mod instance;
 mod loader;
 #[cfg(feature = "surface")]

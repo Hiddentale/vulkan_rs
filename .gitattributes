@@ -1,0 +1,6 @@
+# Force LF line endings for all Rust source files so generated output
+# is identical across Windows and Linux (prevents CRLF/LF determinism issues).
+*.rs text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf

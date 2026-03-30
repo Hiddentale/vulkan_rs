@@ -79,10 +79,25 @@ jobs:
         run: cargo clippy --workspace --all-targets -- -D warnings
 
   build:
-    name: Build & Test
-    runs-on: windows-latest
+    name: Build & Test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            install: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+          - os: macos-latest
+            install: ""
+          - os: windows-latest
+            install: ""
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        if: matrix.install != ''
+        run: ${{ matrix.install }}
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -94,3 +109,26 @@ jobs:
 
       - name: Run tests
         run: cargo test --workspace
+
+  generator-determinism:
+    name: Generator Determinism
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Re-run generator and check for diffs
+        run: |
+          cargo run -p generator
+          if ! git diff --quiet; then
+            echo "::error::Generated files are stale. Run 'cargo run -p generator' and commit the output."
+            git diff --stat
+            exit 1
+          fi

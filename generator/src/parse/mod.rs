@@ -275,12 +275,16 @@ pub fn parse_registry(path: &std::path::Path) -> VkRegistry {
         }
     }
 
-    // Build final enum/bitmask defs.
-    for (name, variants) in enum_map {
+    // Build final enum/bitmask defs. Sort by name for deterministic output.
+    let mut enum_entries: Vec<_> = enum_map.into_iter().collect();
+    enum_entries.sort_by(|(a, _), (b, _)| a.cmp(b));
+    for (name, variants) in enum_entries {
         reg.enums.push(EnumDef { name, variants });
     }
 
-    for (enum_name, bits) in bitmask_map {
+    let mut bitmask_entries: Vec<_> = bitmask_map.into_iter().collect();
+    bitmask_entries.sort_by(|(a, _), (b, _)| a.cmp(b));
+    for (enum_name, bits) in bitmask_entries {
         let (flags_name, bitwidth) = bitmask_meta
             .get(&enum_name)
             .cloned()
@@ -376,7 +380,9 @@ fn is_non_vulkan(e: &Enum) -> bool {
 
 fn is_non_vulkan_api(api: Option<&str>) -> bool {
     match api {
-        Some(a) => !a.contains("vulkan"),
+        Some(a) => !a
+            .split(',')
+            .any(|part| matches!(part.trim(), "vulkan" | "vulkanbase")),
         None => false,
     }
 }

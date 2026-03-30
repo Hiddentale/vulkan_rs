@@ -1,9 +1,7 @@
 use std::sync::Arc;
 
-use crate::error::{VkResult, check};
 use crate::loader::Loader;
 use crate::vk;
-use vk::handles::Handle;
 
 /// Wrapper around a `VkDevice` handle and its loaded command table.
 ///
@@ -77,71 +75,6 @@ impl Device {
     /// including those without hand-written ergonomic wrappers.
     pub fn commands(&self) -> &vk::commands::DeviceCommands {
         &self.commands
-    }
-
-    /// Destroy this device.
-    ///
-    /// # Safety
-    ///
-    /// All child objects (queues, buffers, pipelines, etc.) derived from this
-    /// device must be destroyed before calling this. After this call, `self`
-    /// must not be used.
-    pub unsafe fn destroy_device(&self, allocator: Option<&vk::structs::AllocationCallbacks>) {
-        let fp = self
-            .commands
-            .destroy_device
-            .expect("vkDestroyDevice not loaded");
-        unsafe { fp(self.handle, allocator.map_or(std::ptr::null(), |a| a)) };
-    }
-
-    /// Wait for this device to become idle.
-    ///
-    /// Blocks until all pending work on all queues of this device is complete.
-    ///
-    /// # Safety
-    ///
-    /// The device must be valid and not in a lost state.
-    pub unsafe fn device_wait_idle(&self) -> VkResult<()> {
-        let fp = self
-            .commands
-            .device_wait_idle
-            .expect("vkDeviceWaitIdle not loaded");
-        check(unsafe { fp(self.handle) })
-    }
-
-    /// Wait for a queue to become idle.
-    ///
-    /// Blocks until all pending work submitted to `queue` is complete.
-    ///
-    /// # Safety
-    ///
-    /// `queue` must be a valid handle obtained from this device.
-    pub unsafe fn queue_wait_idle(&self, queue: vk::handles::Queue) -> VkResult<()> {
-        let fp = self
-            .commands
-            .queue_wait_idle
-            .expect("vkQueueWaitIdle not loaded");
-        check(unsafe { fp(queue) })
-    }
-
-    /// Retrieve a queue handle from this device.
-    ///
-    /// # Safety
-    ///
-    /// `queue_family_index` and `queue_index` must be within the bounds
-    /// specified in the `DeviceCreateInfo` used to create this device.
-    pub unsafe fn get_device_queue(
-        &self,
-        queue_family_index: u32,
-        queue_index: u32,
-    ) -> vk::handles::Queue {
-        let fp = self
-            .commands
-            .get_device_queue
-            .expect("vkGetDeviceQueue not loaded");
-        let mut queue = vk::handles::Queue::null();
-        unsafe { fp(self.handle, queue_family_index, queue_index, &mut queue) };
-        queue
     }
 }
 

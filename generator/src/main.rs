@@ -6,6 +6,7 @@ mod emit_constants;
 mod emit_enums;
 mod emit_handles;
 mod emit_structs;
+mod emit_wrappers;
 #[allow(dead_code)]
 mod parse;
 mod resolve_types;
@@ -13,6 +14,7 @@ mod stype;
 #[allow(dead_code)]
 mod type_map;
 mod validate;
+mod wrapper_utils;
 
 use std::fs;
 use std::path::Path;
@@ -60,8 +62,29 @@ fn main() {
 
     update_lib_rs(&out_dir);
 
+    // Generate ergonomic wrapper methods for vk-engine.
+    let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-engine/src/generated");
+    fs::create_dir_all(&engine_dir).unwrap_or_else(|e| {
+        panic!("failed to create {}: {e}", engine_dir.display());
+    });
+
+    let (entry_wrappers, instance_wrappers, device_wrappers) =
+        emit_wrappers::emit_wrappers(&registry);
+
+    write_module(&engine_dir, "entry_wrappers.rs", entry_wrappers);
+    write_module(&engine_dir, "instance_wrappers.rs", instance_wrappers);
+    write_module(&engine_dir, "device_wrappers.rs", device_wrappers);
+    write_engine_mod_rs(&engine_dir);
+
+    // Run rustfmt on vk-engine generated files so the output matches
+    // `cargo fmt` exactly. prettyplease and rustfmt disagree on import
+    // ordering, line wrapping, and argument formatting.
+    // vk-sys is skipped — it has `disable_all_formatting = true`.
+    rustfmt_engine();
+
     println!("\n=== generation complete ===");
-    println!("  output: {}", out_dir.display());
+    println!("  vk-sys output:   {}", out_dir.display());
+    println!("  vk-engine output: {}", engine_dir.display());
 }
 
 fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream) {
@@ -77,6 +100,18 @@ fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream
 
     let lines = formatted.lines().count();
     println!("  wrote {filename} ({lines} lines)");
+}
+
+fn rustfmt_engine() {
+    let status = std::process::Command::new(env!("CARGO"))
+        .args(["fmt", "-p", "vk-engine"])
+        .current_dir(Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap())
+        .status();
+    match status {
+        Ok(s) if s.success() => println!("  rustfmt vk-engine: ok"),
+        Ok(s) => eprintln!("  warning: cargo fmt exited with {s}"),
+        Err(e) => eprintln!("  warning: cargo fmt not available ({e}), skipping"),
+    }
 }
 
 fn update_lib_rs(out_dir: &Path) {
@@ -98,6 +133,22 @@ pub mod builders;
 pub mod commands;
 ";
     let path = out_dir.join("lib.rs");
+    fs::write(&path, content).unwrap_or_else(|e| {
+        panic!("failed to write {}: {e}", path.display());
+    });
+}
+
+fn write_engine_mod_rs(out_dir: &Path) {
+    let content = "\
+//! Generated wrapper methods for Entry, Instance, and Device.
+//!
+//! Do not edit by hand — regenerate with the `generator` crate.
+
+mod entry_wrappers;
+mod instance_wrappers;
+mod device_wrappers;
+";
+    let path = out_dir.join("mod.rs");
     fs::write(&path, content).unwrap_or_else(|e| {
         panic!("failed to write {}: {e}", path.display());
     });
