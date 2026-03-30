@@ -24,6 +24,7 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "VkFlags" => "u32",
         "VkFlags64" => "u64",
         "VkSampleMask" => "u32",
+        "VkRemoteAddressNV" => "*mut std::ffi::c_void",
 
         // Platform types — Win32
         "HINSTANCE" => "isize",
@@ -102,4 +103,41 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
 /// True if this C type maps to a Rust primitive (not a generated Vk type).
 pub fn is_primitive(c: &str) -> bool {
     c_type_to_rust(c).is_some()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn maps_fixed_width_integers() {
+        assert_eq!(c_type_to_rust("uint32_t"), Some("u32"));
+        assert_eq!(c_type_to_rust("int64_t"), Some("i64"));
+        assert_eq!(c_type_to_rust("size_t"), Some("usize"));
+    }
+
+    #[test]
+    fn maps_vulkan_typedefs() {
+        assert_eq!(c_type_to_rust("VkBool32"), Some("u32"));
+        assert_eq!(c_type_to_rust("VkDeviceSize"), Some("u64"));
+    }
+
+    #[test]
+    fn maps_platform_types() {
+        assert_eq!(c_type_to_rust("HWND"), Some("isize"));
+        assert_eq!(c_type_to_rust("ANativeWindow"), Some("std::ffi::c_void"));
+    }
+
+    #[test]
+    fn returns_none_for_unknown() {
+        assert_eq!(c_type_to_rust("VkBuffer"), None);
+        assert_eq!(c_type_to_rust("SomeUnknownType"), None);
+    }
+
+    #[test]
+    fn is_primitive_classification() {
+        assert!(is_primitive("uint32_t"));
+        assert!(is_primitive("VkBool32"));
+        assert!(!is_primitive("VkBuffer"));
+    }
 }

@@ -1,6 +1,7 @@
 mod emit_aliases;
 mod emit_bitmasks;
 mod emit_builders;
+mod emit_commands;
 mod emit_constants;
 mod emit_enums;
 mod emit_handles;
@@ -11,6 +12,7 @@ mod resolve_types;
 mod stype;
 #[allow(dead_code)]
 mod type_map;
+mod validate;
 
 use std::fs;
 use std::path::Path;
@@ -20,6 +22,7 @@ fn main() {
     let registry = parse::parse_registry(&vk_xml);
 
     print_summary(&registry);
+    validate::check_type_completeness(&registry);
 
     let out_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/src");
 
@@ -48,6 +51,11 @@ fn main() {
         &out_dir,
         "builders.rs",
         emit_builders::emit_builders(&registry),
+    );
+    write_module(
+        &out_dir,
+        "commands.rs",
+        emit_commands::emit_commands(&registry),
     );
 
     update_lib_rs(&out_dir);
@@ -86,6 +94,7 @@ pub mod bitmasks;
 pub mod constants;
 pub mod structs;
 pub mod builders;
+pub mod commands;
 ";
     let path = out_dir.join("lib.rs");
     fs::write(&path, content).unwrap_or_else(|e| {
@@ -136,5 +145,11 @@ fn print_summary(registry: &parse::VkRegistry) {
     println!("  funcpointers:  {}", registry.func_pointers.len());
     println!("  extensions:    {}", registry.extensions.len());
     println!("  platforms:     {}", registry.platforms.len());
-    println!("  aliases:       {}", registry.aliases.len());
+    println!(
+        "  aliases:       {} (type={}, command={}, bitmask={})",
+        registry.aliases.len(),
+        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Type).count(),
+        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Command).count(),
+        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Bitmask).count(),
+    );
 }

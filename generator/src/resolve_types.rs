@@ -6,38 +6,75 @@ use heck::ToSnakeCase;
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
-use crate::parse::MemberDef;
+use crate::parse::{MemberDef, ParamDef};
 use crate::type_map;
 
 /// Resolve a struct member's C type + pointer/array info into a Rust type token.
 pub fn resolve_member_type(member: &MemberDef) -> TokenStream {
-    if member.type_name == "void" && !member.is_pointer {
+    resolve_type_fields(
+        &member.type_name,
+        member.is_pointer,
+        member.is_const,
+        member.is_double_pointer,
+        member.array_size.as_deref(),
+    )
+}
+
+/// Resolve a command parameter's C type into a Rust type token.
+pub fn resolve_param_type(param: &ParamDef) -> TokenStream {
+    resolve_type_fields(
+        &param.type_name,
+        param.is_pointer,
+        param.is_const,
+        param.is_double_pointer,
+        param.array_size.as_deref(),
+    )
+}
+
+/// Resolve a command return type string into a Rust type token.
+/// Returns `None` for void (no return type needed in the signature).
+pub fn resolve_return_type(return_type: &str) -> Option<TokenStream> {
+    match return_type {
+        "void" => None,
+        other => Some(resolve_base_type(other)),
+    }
+}
+
+/// Core type resolution: shared by member and parameter resolution.
+fn resolve_type_fields(
+    type_name: &str,
+    is_pointer: bool,
+    is_const: bool,
+    is_double_pointer: bool,
+    array_size: Option<&str>,
+) -> TokenStream {
+    if type_name == "void" && !is_pointer {
         return quote! { std::ffi::c_void };
     }
 
     // Opaque platform types that map to c_void but aren't marked as pointers.
-    if !member.is_pointer
-        && let Some(rust) = type_map::c_type_to_rust(&member.type_name)
+    if !is_pointer
+        && let Some(rust) = type_map::c_type_to_rust(type_name)
         && rust == "std::ffi::c_void"
-        && member.type_name != "void"
+        && type_name != "void"
     {
         return quote! { *const std::ffi::c_void };
     }
 
-    let base = resolve_base_type(&member.type_name);
+    let base = resolve_base_type(type_name);
 
-    if let Some(ref size) = member.array_size {
+    if let Some(size) = array_size {
         return wrap_array(&base, size);
     }
 
-    if member.is_double_pointer {
-        if member.is_const {
+    if is_double_pointer {
+        if is_const {
             quote! { *const *const #base }
         } else {
             quote! { *mut *mut #base }
         }
-    } else if member.is_pointer {
-        if member.is_const {
+    } else if is_pointer {
+        if is_const {
             quote! { *const #base }
         } else {
             quote! { *mut #base }
@@ -138,7 +175,7 @@ pub fn is_rust_keyword(name: &str) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::parse::MemberDef;
+    use crate::parse::{MemberDef, ParamDef};
 
     fn make_member(name: &str, type_name: &str) -> MemberDef {
         MemberDef {
@@ -285,5 +322,141 @@ mod tests {
         assert!(is_rust_keyword("type"));
         assert!(is_rust_keyword("ref"));
         assert!(!is_rust_keyword("flags"));
+    }
+
+    // --- ParamDef resolution tests ---
+
+    fn make_param(name: &str, type_name: &str) -> ParamDef {
+        ParamDef {
+            name: name.to_string(),
+            type_name: type_name.to_string(),
+            is_pointer: false,
+            is_const: false,
+            is_double_pointer: false,
+            array_size: None,
+            optional: false,
+            len: None,
+            extern_sync: None,
+        }
+    }
+
+    #[test]
+    fn resolve_param_handle_type() {
+        let p = ParamDef {
+            is_pointer: false,
+            ..make_param("instance", "VkInstance")
+        };
+        assert_eq!(resolve_param_type(&p).to_string(), "Instance");
+    }
+
+    #[test]
+    fn resolve_param_const_pointer() {
+        let p = ParamDef {
+            is_pointer: true,
+            is_const: true,
+            ..make_param("pCreateInfo", "VkInstanceCreateInfo")
+        };
+        assert_eq!(
+            resolve_param_type(&p).to_string(),
+            "* const InstanceCreateInfo"
+        );
+    }
+
+    #[test]
+    fn resolve_param_mut_pointer() {
+        let p = ParamDef {
+            is_pointer: true,
+            is_const: false,
+            ..make_param("pInstance", "VkInstance")
+        };
+        assert_eq!(resolve_param_type(&p).to_string(), "* mut Instance");
+    }
+
+    #[test]
+    fn resolve_param_double_pointer() {
+        let p = ParamDef {
+            is_pointer: true,
+            is_double_pointer: true,
+            is_const: false,
+            ..make_param("ppData", "void")
+        };
+        assert_eq!(
+            resolve_param_type(&p).to_string(),
+            "* mut * mut std :: ffi :: c_void"
+        );
+    }
+
+    #[test]
+    fn resolve_param_primitive() {
+        let p = make_param("vertexCount", "uint32_t");
+        assert_eq!(resolve_param_type(&p).to_string(), "u32");
+    }
+
+    // --- Return type resolution tests ---
+
+    #[test]
+    fn resolve_return_void() {
+        assert!(resolve_return_type("void").is_none());
+    }
+
+    #[test]
+    fn resolve_return_vk_result() {
+        let ty = resolve_return_type("VkResult").unwrap();
+        assert_eq!(ty.to_string(), "Result");
+    }
+
+    #[test]
+    fn resolve_return_vk_bool() {
+        let ty = resolve_return_type("VkBool32").unwrap();
+        assert_eq!(ty.to_string(), "u32");
+    }
+
+    // --- Flags alias resolution tests ---
+
+    #[test]
+    fn flags_alias_bare() {
+        assert_eq!(resolve_flags_alias("BufferCreateFlags"), "BufferCreateFlagBits");
+    }
+
+    #[test]
+    fn flags_alias_extension_suffixed() {
+        assert_eq!(
+            resolve_flags_alias("SwapchainCreateFlagsKHR"),
+            "SwapchainCreateFlagBitsKHR"
+        );
+    }
+
+    #[test]
+    fn flags_alias_versioned() {
+        assert_eq!(
+            resolve_flags_alias("PipelineCreateFlags2KHR"),
+            "PipelineCreateFlagBits2KHR"
+        );
+    }
+
+    #[test]
+    fn flags_alias_noop_for_flagbits() {
+        assert_eq!(resolve_flags_alias("BufferCreateFlagBits"), "BufferCreateFlagBits");
+    }
+
+    #[test]
+    fn flags_alias_noop_for_unrelated() {
+        assert_eq!(resolve_flags_alias("SomeRandomType"), "SomeRandomType");
+    }
+
+    #[test]
+    fn flags_alias_ext_suffix() {
+        assert_eq!(
+            resolve_flags_alias("DebugUtilsMessageTypeFlagsEXT"),
+            "DebugUtilsMessageTypeFlagBitsEXT"
+        );
+    }
+
+    #[test]
+    fn flags_alias_nv_suffix() {
+        assert_eq!(
+            resolve_flags_alias("ExternalMemoryHandleTypeFlagsNV"),
+            "ExternalMemoryHandleTypeFlagBitsNV"
+        );
     }
 }

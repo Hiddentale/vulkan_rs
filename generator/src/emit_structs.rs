@@ -22,14 +22,13 @@ pub fn emit_structs(registry: &VkRegistry) -> TokenStream {
     let flags_aliases = emit_aliases::emit_flags_aliases(registry);
     let type_aliases = emit_aliases::emit_type_aliases(registry);
 
-    let stype_variants = stype::build_variant_set(registry);
     let stype_raw = stype::build_raw_map(registry);
 
     let structs: Vec<TokenStream> = registry
         .structs
         .iter()
         .filter(|s| !is_base_pnext_struct(&s.name))
-        .map(|s| emit_struct_or_union(s, &stype_variants, &stype_raw))
+        .map(|s| emit_struct_or_union(s, &stype_raw))
         .collect();
 
     let marker_traits = emit_marker_traits(registry);
@@ -129,27 +128,19 @@ fn emit_base_pnext_structs() -> TokenStream {
 // Struct and union emission
 // ---------------------------------------------------------------------------
 
-fn emit_struct_or_union(
-    def: &StructDef,
-    stype_variants: &HashSet<String>,
-    stype_raw: &HashMap<String, i32>,
-) -> TokenStream {
+fn emit_struct_or_union(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStream {
     if def.is_union {
         emit_union(def)
     } else {
-        emit_struct(def, stype_variants, stype_raw)
+        emit_struct(def, stype_raw)
     }
 }
 
-fn emit_struct(
-    def: &StructDef,
-    stype_variants: &HashSet<String>,
-    stype_raw: &HashMap<String, i32>,
-) -> TokenStream {
+fn emit_struct(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStream {
     let name = format_ident!("{}", &def.name);
     let vk_name = format!("Vk{}", &def.name);
     let fields = emit_fields(&def.members);
-    let default_impl = emit_default(def, stype_variants, stype_raw);
+    let default_impl = emit_default(def, stype_raw);
 
     quote! {
         #[repr(C)]
@@ -212,13 +203,9 @@ fn emit_field(member: &MemberDef) -> TokenStream {
     quote! { pub #field_ident: #ty, }
 }
 
-fn emit_default(
-    def: &StructDef,
-    stype_variants: &HashSet<String>,
-    stype_raw: &HashMap<String, i32>,
-) -> TokenStream {
+fn emit_default(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStream {
     let name = format_ident!("{}", &def.name);
-    let stype_val = stype::struct_stype(def, stype_variants, stype_raw);
+    let stype_val = stype::struct_stype(def, stype_raw);
     let has_pnext = def.members.iter().any(|m| m.name == "pNext");
 
     if stype_val.is_some() || has_pnext {
@@ -363,7 +350,7 @@ mod tests {
             func_pointers: vec![],
             extensions: vec![],
             platforms: vec![],
-            aliases: std::collections::HashMap::new(),
+            aliases: vec![],
             base_types: std::collections::HashMap::new(),
         }
     }
@@ -443,7 +430,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let tokens = emit_struct(&def, &HashSet::new(), &HashMap::new());
+        let tokens = emit_struct(&def, &HashMap::new());
         let code = tokens.to_string();
         assert!(code.contains("# [repr (C)]"));
         assert!(code.contains("pub struct Extent2D"));
@@ -460,7 +447,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_struct(&def, &HashSet::new(), &HashMap::new()).to_string();
+        let code = emit_struct(&def, &HashMap::new()).to_string();
         assert!(code.contains("std :: mem :: zeroed ()"));
     }
 
@@ -482,7 +469,7 @@ mod tests {
             provided_by: None,
         };
         let raw = make_stype_raw_map();
-        let code = emit_struct(&def, &HashSet::new(), &raw).to_string();
+        let code = emit_struct(&def, &raw).to_string();
         assert!(code.contains("from_raw"));
         assert!(code.contains("std :: ptr :: null ()"));
     }
@@ -497,7 +484,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_struct(&def, &HashSet::new(), &HashMap::new()).to_string();
+        let code = emit_struct(&def, &HashMap::new()).to_string();
         assert!(code.contains("VkExtent2D"));
     }
 
@@ -511,7 +498,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_struct(&def, &HashSet::new(), &HashMap::new()).to_string();
+        let code = emit_struct(&def, &HashMap::new()).to_string();
         assert!(code.contains("r#type"));
     }
 
@@ -618,5 +605,49 @@ mod tests {
         assert_eq!(count, 1);
         let impl_count = code.matches("impl ExtendsFoo for").count();
         assert_eq!(impl_count, 2);
+    }
+
+    // --- Public helpers ---
+
+    #[test]
+    fn has_stype_pnext_true_for_extensible_struct() {
+        let def = StructDef {
+            name: "BufferCreateInfo".to_string(),
+            members: vec![
+                make_member("sType", "VkStructureType"),
+                make_pointer_member("pNext", "void", true),
+                make_member("flags", "uint32_t"),
+            ],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        assert!(has_stype_pnext(&def));
+    }
+
+    #[test]
+    fn has_stype_pnext_false_for_plain_struct() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![make_member("width", "uint32_t")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        assert!(!has_stype_pnext(&def));
+    }
+
+    #[test]
+    fn is_base_pnext_struct_recognizes_both() {
+        assert!(is_base_pnext_struct("BaseOutStructure"));
+        assert!(is_base_pnext_struct("BaseInStructure"));
+    }
+
+    #[test]
+    fn is_base_pnext_struct_rejects_normal() {
+        assert!(!is_base_pnext_struct("BufferCreateInfo"));
+        assert!(!is_base_pnext_struct("InstanceCreateInfo"));
     }
 }

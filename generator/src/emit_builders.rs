@@ -12,13 +12,12 @@ use crate::stype;
 
 /// Emit builders for all extensible structs.
 pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
-    let stype_variants = stype::build_variant_set(registry);
     let stype_raw = stype::build_raw_map(registry);
     let builders: Vec<TokenStream> = registry
         .structs
         .iter()
         .filter(|s| has_stype_pnext(s) && !is_base_pnext_struct(&s.name))
-        .map(|s| emit_builder(s, &stype_variants, &stype_raw))
+        .map(|s| emit_builder(s, &stype_raw))
         .collect();
 
     quote! {
@@ -34,7 +33,6 @@ pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
 
 fn emit_builder(
     def: &StructDef,
-    stype_variants: &std::collections::HashSet<String>,
     stype_raw: &std::collections::HashMap<String, i32>,
 ) -> TokenStream {
     let struct_name = format_ident!("{}", &def.name);
@@ -56,7 +54,7 @@ fn emit_builder(
         .map(|m| emit_setter(m, def))
         .collect();
 
-    let stype_val = stype::struct_stype(def, stype_variants, stype_raw);
+    let stype_val = stype::struct_stype(def, stype_raw);
     let default_stype = stype_val.unwrap_or_else(|| quote! { Default::default() });
 
     // push_next: only if any struct extends this one.
@@ -312,7 +310,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -325,7 +322,7 @@ mod tests {
         let def = make_buffer_create_info();
         let mut raw = std::collections::HashMap::new();
         raw.insert("VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO".to_string(), 12i32);
-        let code = emit_builder(&def, &std::collections::HashSet::new(), &raw).to_string();
+        let code = emit_builder(&def, &raw).to_string();
         assert!(code.contains("impl BufferCreateInfo"));
         assert!(code.contains("fn builder"));
         assert!(code.contains("from_raw"));
@@ -336,7 +333,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -350,7 +346,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -368,7 +363,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -391,7 +385,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -406,7 +399,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -422,7 +414,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -435,7 +426,6 @@ mod tests {
         let def = make_buffer_create_info();
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();
@@ -454,7 +444,6 @@ mod tests {
         };
         let code = emit_builder(
             &def,
-            &std::collections::HashSet::new(),
             &std::collections::HashMap::new(),
         )
         .to_string();

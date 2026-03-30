@@ -1,6 +1,6 @@
 //! StructureType constant resolution for Default impls and builders.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -10,14 +10,13 @@ use crate::parse::{EnumValue, StructDef, VkRegistry};
 /// Return a `StructureType::from_raw(N)` token for a struct's sType member.
 pub fn struct_stype(
     def: &StructDef,
-    enum_variants: &HashSet<String>,
     stype_raw: &HashMap<String, i32>,
 ) -> Option<TokenStream> {
     def.members.iter().find_map(|m| {
         if m.name == "sType" {
             m.values
                 .as_deref()
-                .and_then(|v| stype_constant(v, enum_variants, stype_raw))
+                .and_then(|v| stype_constant(v, stype_raw))
         } else {
             None
         }
@@ -39,34 +38,8 @@ pub fn build_raw_map(registry: &VkRegistry) -> HashMap<String, i32> {
         .collect()
 }
 
-/// Build the set of StructureType variant names that exist as `pub const` in the
-/// generated enum. Mirrors the enum emitter's deduplication logic.
-pub fn build_variant_set(registry: &VkRegistry) -> HashSet<String> {
-    use crate::emit_enums::{enum_variant_prefix, strip_variant_prefix};
-
-    let Some(stype_enum) = registry.enums.iter().find(|e| e.name == "StructureType") else {
-        return HashSet::new();
-    };
-
-    let prefix = enum_variant_prefix(&stype_enum.name);
-    let mut seen = HashSet::new();
-    stype_enum
-        .variants
-        .iter()
-        .filter_map(|v| {
-            let rust_name = strip_variant_prefix(&v.name, &prefix)?;
-            if seen.insert(rust_name.clone()) {
-                Some(rust_name)
-            } else {
-                None
-            }
-        })
-        .collect()
-}
-
 fn stype_constant(
     values: &str,
-    _enum_variants: &HashSet<String>,
     stype_raw: &HashMap<String, i32>,
 ) -> Option<TokenStream> {
     stype_raw
@@ -111,12 +84,14 @@ mod tests {
     #[test]
     fn stype_constant_uses_from_raw() {
         let raw = make_raw_map();
-        let tokens = stype_constant(
-            "VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO",
-            &HashSet::new(),
-            &raw,
-        );
+        let tokens = stype_constant("VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO", &raw);
         assert!(tokens.unwrap().to_string().contains("from_raw"));
+    }
+
+    #[test]
+    fn stype_constant_returns_none_for_unknown() {
+        let raw = make_raw_map();
+        assert!(stype_constant("VK_STRUCTURE_TYPE_UNKNOWN", &raw).is_none());
     }
 
     #[test]
@@ -136,7 +111,7 @@ mod tests {
             provided_by: None,
         };
         let raw = make_raw_map();
-        let result = struct_stype(&def, &HashSet::new(), &raw);
+        let result = struct_stype(&def, &raw);
         assert!(result.is_some());
         assert!(result.unwrap().to_string().contains("from_raw"));
     }
@@ -151,6 +126,6 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        assert!(struct_stype(&def, &HashSet::new(), &HashMap::new()).is_none());
+        assert!(struct_stype(&def, &HashMap::new()).is_none());
     }
 }

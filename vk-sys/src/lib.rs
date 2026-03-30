@@ -11,3 +11,4 @@ pub mod bitmasks;
 pub mod constants;
 pub mod structs;
 pub mod builders;
+pub mod commands;
