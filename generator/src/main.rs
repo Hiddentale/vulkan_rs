@@ -1,4 +1,6 @@
 mod emit_bitmasks;
+#[allow(dead_code)]
+mod emit_builders;
 mod emit_constants;
 mod emit_enums;
 mod emit_handles;

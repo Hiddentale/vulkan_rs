@@ -21,7 +21,7 @@ fn stype_constant(values: &str) -> TokenStream {
 }
 
 /// Returns the StructureType constant for a struct, if it has an sType member with a values hint.
-fn struct_stype(def: &StructDef) -> Option<TokenStream> {
+pub fn struct_stype(def: &StructDef) -> Option<TokenStream> {
     def.members.iter().find_map(|m| {
         if m.name == "sType" {
             m.values.as_deref().map(stype_constant)
@@ -36,7 +36,7 @@ fn struct_stype(def: &StructDef) -> Option<TokenStream> {
 // ---------------------------------------------------------------------------
 
 /// Resolve a struct member's C type + pointer/array info into a Rust type token.
-fn resolve_member_type(member: &MemberDef) -> TokenStream {
+pub fn resolve_member_type(member: &MemberDef) -> TokenStream {
     // Special case: void without pointer (rare, appears in unions)
     if member.type_name == "void" && !member.is_pointer {
         return quote! { std::ffi::c_void };
@@ -71,7 +71,7 @@ fn resolve_member_type(member: &MemberDef) -> TokenStream {
 }
 
 /// Resolve a C type name to Rust tokens: either a primitive or a generated type.
-fn resolve_base_type(c_type: &str) -> TokenStream {
+pub fn resolve_base_type(c_type: &str) -> TokenStream {
     if let Some(rust) = type_map::c_type_to_rust(c_type) {
         // Primitive or platform type — parse the string into tokens.
         let ty: TokenStream = rust.parse().expect("invalid type_map entry");
@@ -102,7 +102,7 @@ fn wrap_array(base: &TokenStream, size: &str) -> TokenStream {
 // ---------------------------------------------------------------------------
 
 /// Convert a C member name to snake_case, handling Vulkan quirks.
-fn member_name(c_name: &str) -> String {
+pub fn member_name(c_name: &str) -> String {
     match c_name {
         // Special cases that heck's to_snake_case doesn't handle well.
         "sType" => "s_type".to_string(),
@@ -116,7 +116,7 @@ fn member_name(c_name: &str) -> String {
 }
 
 /// True if this member name is a Rust keyword and needs to be raw-ident escaped.
-fn is_rust_keyword(name: &str) -> bool {
+pub fn is_rust_keyword(name: &str) -> bool {
     matches!(
         name,
         "type"
