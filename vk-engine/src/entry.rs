@@ -118,8 +118,14 @@ impl Entry {
         allocator: Option<&vk::structs::AllocationCallbacks>,
     ) -> VkResult<Instance> {
         let raw = unsafe { self.create_instance_raw(create_info, allocator) }?;
-        let instance =
-            unsafe { Instance::load(raw, self.get_instance_proc_addr, self.get_device_proc_addr) };
+        let instance = unsafe {
+            Instance::load(
+                raw,
+                self.get_instance_proc_addr,
+                self.get_device_proc_addr,
+                Some(self._loader.clone()),
+            )
+        };
         Ok(instance)
     }
 
@@ -219,6 +225,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn new_succeeds_with_real_loader() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let loader = crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
         let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
         assert!(entry.get_instance_proc_addr().is_some());
@@ -228,6 +235,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn version_returns_at_least_1_0() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let entry = create_entry();
         let version = entry.version().expect("failed to query version");
         assert!(version.major >= 1);
@@ -237,6 +245,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_layer_properties_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let entry = create_entry();
         let layers = unsafe { entry.enumerate_instance_layer_properties() }
             .expect("failed to enumerate layers");
@@ -246,6 +255,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_extension_properties_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let entry = create_entry();
         let extensions = unsafe { entry.enumerate_instance_extension_properties(None) }
             .expect("failed to enumerate extensions");

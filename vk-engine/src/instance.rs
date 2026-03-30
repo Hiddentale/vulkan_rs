@@ -1,5 +1,8 @@
+use std::sync::Arc;
+
 use crate::device::Device;
 use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
+use crate::loader::Loader;
 use crate::vk;
 use vk::handles::Handle;
 
@@ -9,6 +12,11 @@ use vk::handles::Handle;
 /// pointers, loaded at construction via `vkGetInstanceProcAddr`. Also
 /// stores `vkGetDeviceProcAddr` for later use when creating a `Device`.
 ///
+/// Holds an optional reference to the Vulkan shared library so that
+/// function pointers remain valid even if the originating `Entry` is
+/// dropped. When created via `from_raw_parts`, the caller manages the
+/// library lifetime and this field is `None`.
+///
 /// Does **not** implement `Drop` — the caller must explicitly call
 /// `destroy_instance` when done. This avoids double-destroy bugs when
 /// wrapping externally managed handles via `from_raw_parts`.
@@ -16,6 +24,7 @@ pub struct Instance {
     handle: vk::handles::Instance,
     commands: Box<vk::commands::InstanceCommands>,
     get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
+    _loader: Option<Arc<dyn Loader>>,
 }
 
 impl Instance {
@@ -36,6 +45,7 @@ impl Instance {
         handle: vk::handles::Instance,
         get_instance_proc_addr: vk::commands::PFN_vkGetInstanceProcAddr,
         get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
+        loader: Option<Arc<dyn Loader>>,
     ) -> Self {
         let get_instance_proc_addr_fn = get_instance_proc_addr.unwrap();
         let commands = Box::new(unsafe {
@@ -47,6 +57,7 @@ impl Instance {
             handle,
             commands,
             get_device_proc_addr,
+            _loader: loader,
         }
     }
 
@@ -75,7 +86,7 @@ impl Instance {
             ))
         };
 
-        unsafe { Self::load(handle, get_instance_proc_addr, get_device_proc_addr) }
+        unsafe { Self::load(handle, get_instance_proc_addr, get_device_proc_addr, None) }
     }
 
     /// Returns the raw `VkInstance` handle.
@@ -216,7 +227,7 @@ impl Instance {
             )
         };
         check(result)?;
-        let device = unsafe { Device::load(raw, self.get_device_proc_addr) };
+        let device = unsafe { Device::load(raw, self.get_device_proc_addr, self._loader.clone()) };
         Ok(device)
     }
 }
@@ -249,14 +260,14 @@ mod tests {
     #[test]
     fn handle_returns_value_from_construction() {
         let instance =
-            unsafe { Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None) };
+            unsafe { Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None, None) };
         assert_eq!(instance.handle().as_raw(), fake_handle().as_raw());
     }
 
     #[test]
     fn commands_returns_reference() {
         let instance =
-            unsafe { Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None) };
+            unsafe { Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None, None) };
         // Commands were loaded with a null-returning proc addr, so all
         // function pointers are None — but the reference is valid.
         let _ = instance.commands();
@@ -265,6 +276,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_physical_devices_returns_at_least_one() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let instance = create_real_instance();
         let devices = unsafe { instance.enumerate_physical_devices() }
             .expect("enumerate_physical_devices failed");
@@ -274,6 +286,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn get_physical_device_properties_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let instance = create_real_instance();
         let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
         let props = unsafe { instance.get_physical_device_properties(devices[0]) };
@@ -291,6 +304,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn get_physical_device_queue_family_properties_returns_at_least_one() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let instance = create_real_instance();
         let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
         let families = unsafe { instance.get_physical_device_queue_family_properties(devices[0]) };
