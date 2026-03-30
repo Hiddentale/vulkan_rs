@@ -2,6 +2,7 @@
 
 pub use vk_sys as vk;
 
+pub mod bytecode;
 mod device;
 mod entry;
 mod error;
@@ -9,6 +10,7 @@ mod instance;
 mod loader;
 mod version;
 
+pub use bytecode::{BytecodeError, cast_to_u32};
 pub use device::Device;
 pub use entry::Entry;
 pub use error::{LoadError, VkResult};
