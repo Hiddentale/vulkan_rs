@@ -76,6 +76,12 @@ fn main() {
     write_module(&engine_dir, "device_wrappers.rs", device_wrappers);
     write_engine_mod_rs(&engine_dir);
 
+    // Run rustfmt on vk-engine generated files so the output matches
+    // `cargo fmt` exactly. prettyplease and rustfmt disagree on import
+    // ordering, line wrapping, and argument formatting.
+    // vk-sys is skipped — it has `disable_all_formatting = true`.
+    rustfmt_engine();
+
     println!("\n=== generation complete ===");
     println!("  vk-sys output:   {}", out_dir.display());
     println!("  vk-engine output: {}", engine_dir.display());
@@ -94,6 +100,18 @@ fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream
 
     let lines = formatted.lines().count();
     println!("  wrote {filename} ({lines} lines)");
+}
+
+fn rustfmt_engine() {
+    let status = std::process::Command::new(env!("CARGO"))
+        .args(["fmt", "-p", "vk-engine"])
+        .current_dir(Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap())
+        .status();
+    match status {
+        Ok(s) if s.success() => println!("  rustfmt vk-engine: ok"),
+        Ok(s) => eprintln!("  warning: cargo fmt exited with {s}"),
+        Err(e) => eprintln!("  warning: cargo fmt not available ({e}), skipping"),
+    }
 }
 
 fn update_lib_rs(out_dir: &Path) {
