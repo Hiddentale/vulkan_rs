@@ -1,4 +1,7 @@
+use crate::device::Device;
+use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
 use crate::vk;
+use vk::handles::Handle;
 
 /// Wrapper around a `VkInstance` handle and its loaded command table.
 ///
@@ -12,7 +15,6 @@ use crate::vk;
 pub struct Instance {
     handle: vk::handles::Instance,
     commands: Box<vk::commands::InstanceCommands>,
-    #[allow(dead_code)] // used by create_device in subtask 1d
     get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
 }
 
@@ -88,6 +90,137 @@ impl Instance {
     pub fn commands(&self) -> &vk::commands::InstanceCommands {
         &self.commands
     }
+
+    /// Destroy this instance.
+    ///
+    /// # Safety
+    ///
+    /// All child objects (surfaces, devices, etc.) derived from this instance
+    /// must be destroyed before calling this. After this call, `self` must not
+    /// be used.
+    pub unsafe fn destroy_instance(&self, allocator: Option<&vk::structs::AllocationCallbacks>) {
+        let fp = self
+            .commands
+            .destroy_instance
+            .expect("vkDestroyInstance not loaded");
+        unsafe { fp(self.handle, allocator.map_or(std::ptr::null(), |a| a)) };
+    }
+
+    /// Enumerate the physical devices accessible to this instance.
+    ///
+    /// # Safety
+    ///
+    /// The instance must be valid.
+    pub unsafe fn enumerate_physical_devices(
+        &self,
+    ) -> VkResult<Vec<vk::handles::PhysicalDevice>> {
+        let fp = self
+            .commands
+            .enumerate_physical_devices
+            .expect("vkEnumeratePhysicalDevices not loaded");
+        enumerate_two_call(|count, data| unsafe { fp(self.handle, count, data) })
+    }
+
+    /// Query the properties of a physical device.
+    ///
+    /// # Safety
+    ///
+    /// `physical_device` must be a valid handle obtained from this instance.
+    pub unsafe fn get_physical_device_properties(
+        &self,
+        physical_device: vk::handles::PhysicalDevice,
+    ) -> vk::structs::PhysicalDeviceProperties {
+        let fp = self
+            .commands
+            .get_physical_device_properties
+            .expect("vkGetPhysicalDeviceProperties not loaded");
+        let mut props = vk::structs::PhysicalDeviceProperties::default();
+        unsafe { fp(physical_device, &mut props) };
+        props
+    }
+
+    /// Query the queue family properties of a physical device.
+    ///
+    /// # Safety
+    ///
+    /// `physical_device` must be a valid handle obtained from this instance.
+    pub unsafe fn get_physical_device_queue_family_properties(
+        &self,
+        physical_device: vk::handles::PhysicalDevice,
+    ) -> Vec<vk::structs::QueueFamilyProperties> {
+        let fp = self
+            .commands
+            .get_physical_device_queue_family_properties
+            .expect("vkGetPhysicalDeviceQueueFamilyProperties not loaded");
+        fill_two_call(|count, data| unsafe { fp(physical_device, count, data) })
+    }
+
+    /// Query the memory properties of a physical device.
+    ///
+    /// # Safety
+    ///
+    /// `physical_device` must be a valid handle obtained from this instance.
+    pub unsafe fn get_physical_device_memory_properties(
+        &self,
+        physical_device: vk::handles::PhysicalDevice,
+    ) -> vk::structs::PhysicalDeviceMemoryProperties {
+        let fp = self
+            .commands
+            .get_physical_device_memory_properties
+            .expect("vkGetPhysicalDeviceMemoryProperties not loaded");
+        let mut props = vk::structs::PhysicalDeviceMemoryProperties::default();
+        unsafe { fp(physical_device, &mut props) };
+        props
+    }
+
+    /// Query the features supported by a physical device.
+    ///
+    /// # Safety
+    ///
+    /// `physical_device` must be a valid handle obtained from this instance.
+    pub unsafe fn get_physical_device_features(
+        &self,
+        physical_device: vk::handles::PhysicalDevice,
+    ) -> vk::structs::PhysicalDeviceFeatures {
+        let fp = self
+            .commands
+            .get_physical_device_features
+            .expect("vkGetPhysicalDeviceFeatures not loaded");
+        let mut features = vk::structs::PhysicalDeviceFeatures::default();
+        unsafe { fp(physical_device, &mut features) };
+        features
+    }
+
+    /// Create a logical device for the given physical device.
+    ///
+    /// # Safety
+    ///
+    /// - `physical_device` must be a valid handle obtained from this instance.
+    /// - `create_info` must be a valid, fully populated `DeviceCreateInfo`.
+    /// - The caller is responsible for calling `device.destroy_device` when done.
+    pub unsafe fn create_device(
+        &self,
+        physical_device: vk::handles::PhysicalDevice,
+        create_info: &vk::structs::DeviceCreateInfo,
+        allocator: Option<&vk::structs::AllocationCallbacks>,
+    ) -> VkResult<Device> {
+        let fp = self
+            .commands
+            .create_device
+            .expect("vkCreateDevice not loaded");
+        let mut raw = vk::handles::Device::null();
+        let result = unsafe {
+            fp(
+                physical_device,
+                create_info,
+                allocator.map_or(std::ptr::null(), |a| a),
+                &mut raw,
+            )
+        };
+        check(result)?;
+        let device = unsafe { Device::load(raw, self.get_device_proc_addr) };
+        Ok(device)
+    }
 }
 
 #[cfg(test)]
@@ -119,11 +252,7 @@ mod tests {
     #[test]
     fn handle_returns_value_from_construction() {
         let instance = unsafe {
-            Instance::load(
-                fake_handle(),
-                Some(mock_get_instance_proc_addr),
-                None,
-            )
+            Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None)
         };
         assert_eq!(instance.handle().as_raw(), fake_handle().as_raw());
     }
@@ -131,14 +260,79 @@ mod tests {
     #[test]
     fn commands_returns_reference() {
         let instance = unsafe {
-            Instance::load(
-                fake_handle(),
-                Some(mock_get_instance_proc_addr),
-                None,
-            )
+            Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None)
         };
         // Commands were loaded with a null-returning proc addr, so all
         // function pointers are None — but the reference is valid.
         let _ = instance.commands();
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn enumerate_physical_devices_returns_at_least_one() {
+        let instance = create_real_instance();
+        let devices = unsafe { instance.enumerate_physical_devices() }
+            .expect("enumerate_physical_devices failed");
+        assert!(!devices.is_empty(), "expected at least one physical device");
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn get_physical_device_properties_succeeds() {
+        let instance = create_real_instance();
+        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        let props = unsafe { instance.get_physical_device_properties(devices[0]) };
+        let name_bytes: Vec<u8> = props
+            .device_name
+            .iter()
+            .take_while(|&&c| c != 0)
+            .map(|&c| c as u8)
+            .collect();
+        let name = String::from_utf8_lossy(&name_bytes);
+        println!("GPU: {name}");
+        assert!(!name.is_empty());
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn get_physical_device_queue_family_properties_returns_at_least_one() {
+        let instance = create_real_instance();
+        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        let families =
+            unsafe { instance.get_physical_device_queue_family_properties(devices[0]) };
+        assert!(!families.is_empty(), "expected at least one queue family");
+    }
+
+    fn create_real_instance() -> Instance {
+        use crate::entry::Entry;
+        use crate::loader::LibloadingLoader;
+
+        let loader = LibloadingLoader::new().expect("failed to load Vulkan");
+        let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
+
+        // VK_MAKE_API_VERSION(0, 1, 0, 0)
+        let api_version_1_0 = 1u32 << 22;
+
+        let app_info = vk::structs::ApplicationInfo {
+            s_type: vk::enums::StructureType::APPLICATION_INFO,
+            p_next: std::ptr::null(),
+            p_application_name: std::ptr::null(),
+            application_version: 0,
+            p_engine_name: std::ptr::null(),
+            engine_version: 0,
+            api_version: api_version_1_0,
+        };
+        let create_info = vk::structs::InstanceCreateInfo {
+            s_type: vk::enums::StructureType::INSTANCE_CREATE_INFO,
+            p_next: std::ptr::null(),
+            flags: vk::bitmasks::InstanceCreateFlagBits::empty(),
+            p_application_info: &app_info,
+            enabled_layer_count: 0,
+            pp_enabled_layer_names: std::ptr::null(),
+            enabled_extension_count: 0,
+            pp_enabled_extension_names: std::ptr::null(),
+        };
+
+        unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance")
     }
 }

@@ -1,5 +1,34 @@
 use crate::vk;
 
+/// Two-call enumerate pattern used by many Vulkan commands that return `VkResult`.
+///
+/// First call with null data pointer to get the count, allocate, then call
+/// again to fill the buffer.
+pub(crate) fn enumerate_two_call<T>(
+    call: impl Fn(*mut u32, *mut T) -> vk::enums::Result,
+) -> VkResult<Vec<T>> {
+    let mut count = 0u32;
+    check(call(&mut count, std::ptr::null_mut()))?;
+    let mut data = Vec::with_capacity(count as usize);
+    let result = call(&mut count, data.as_mut_ptr());
+    check(result)?;
+    unsafe { data.set_len(count as usize) };
+    Ok(data)
+}
+
+/// Two-call fill pattern for Vulkan commands that return `void` (no `VkResult`).
+///
+/// Used by commands like `vkGetPhysicalDeviceQueueFamilyProperties` which write
+/// directly into the output buffer without a result code.
+pub(crate) fn fill_two_call<T>(call: impl Fn(*mut u32, *mut T)) -> Vec<T> {
+    let mut count = 0u32;
+    call(&mut count, std::ptr::null_mut());
+    let mut data = Vec::with_capacity(count as usize);
+    call(&mut count, data.as_mut_ptr());
+    unsafe { data.set_len(count as usize) };
+    data
+}
+
 /// Vulkan API result type.
 ///
 /// The `Err` variant is any negative `vk::enums::Result` (an error code).

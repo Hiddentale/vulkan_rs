@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use std::ffi::CStr;
 
-use crate::error::{LoadError, VkResult, check};
+use crate::error::{LoadError, VkResult, check, enumerate_two_call};
 use crate::instance::Instance;
 use crate::loader::Loader;
 use crate::version::Version;
@@ -193,19 +193,6 @@ impl Entry {
     }
 }
 
-/// Two-call enumerate pattern used by many Vulkan commands.
-///
-/// First call with null data pointer to get the count, allocate, then
-/// call again to fill the buffer.
-fn enumerate_two_call<T>(call: impl Fn(*mut u32, *mut T) -> vk::enums::Result) -> VkResult<Vec<T>> {
-    let mut count = 0u32;
-    check(call(&mut count, std::ptr::null_mut()))?;
-    let mut data = Vec::with_capacity(count as usize);
-    let result = call(&mut count, data.as_mut_ptr());
-    check(result)?;
-    unsafe { data.set_len(count as usize) };
-    Ok(data)
-}
 
 #[cfg(test)]
 mod tests {
