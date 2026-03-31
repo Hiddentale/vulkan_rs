@@ -137,6 +137,31 @@ jobs:
       - name: Run doc tests
         run: cargo test --doc --all-features
 
+  doc-coverage:
+    name: Documentation Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Regenerate bindings
+        run: cargo run -p generator
+
+      - name: Report doc coverage
+        run: |
+          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-engine 2>&1 | tee coverage.txt
+          echo "---"
+          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-sys 2>&1 | tee -a coverage.txt
+
   generator-determinism:
     name: Generator Determinism
     runs-on: ubuntu-latest
