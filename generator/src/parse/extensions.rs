@@ -412,6 +412,8 @@ mod tests {
 
     #[test]
     fn parse_func_pointers_no_markers() {
-        assert!(parse_func_pointers("<types><type category=\"struct\">foo</type></types>").is_empty());
+        assert!(
+            parse_func_pointers("<types><type category=\"struct\">foo</type></types>").is_empty()
+        );
     }
 }

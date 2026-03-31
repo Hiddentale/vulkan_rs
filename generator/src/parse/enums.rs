@@ -279,9 +279,14 @@ mod tests {
 
     #[test]
     fn enum_variant_alias() {
-        let e = make_alias_enum("VK_COLORSPACE_SRGB_NONLINEAR_KHR", "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR");
+        let e = make_alias_enum(
+            "VK_COLORSPACE_SRGB_NONLINEAR_KHR",
+            "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR",
+        );
         let v = parse_enum_variant(&e).expect("should parse alias variant");
-        assert!(matches!(v.value, EnumValue::Alias(ref a) if a == "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR"));
+        assert!(
+            matches!(v.value, EnumValue::Alias(ref a) if a == "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR")
+        );
     }
 
     #[test]
@@ -384,7 +389,11 @@ mod tests {
 
     // -- collect_enums dispatch ------------------------------------------------
 
-    fn make_enums_group(name: &str, kind: Option<&str>, children: Vec<EnumsChild>) -> vk_parse::Enums {
+    fn make_enums_group(
+        name: &str,
+        kind: Option<&str>,
+        children: Vec<EnumsChild>,
+    ) -> vk_parse::Enums {
         let mut enums = vk_parse::Enums::default();
         enums.name = Some(name.to_string());
         enums.kind = kind.map(str::to_string);
@@ -394,9 +403,11 @@ mod tests {
 
     #[test]
     fn collect_enums_dispatches_to_enum_map() {
-        let enums = make_enums_group("VkResult", Some("enum"), vec![
-            EnumsChild::Enum(make_value_enum("VK_SUCCESS", "0")),
-        ]);
+        let enums = make_enums_group(
+            "VkResult",
+            Some("enum"),
+            vec![EnumsChild::Enum(make_value_enum("VK_SUCCESS", "0"))],
+        );
         let mut enum_map = HashMap::new();
         let mut bitmask_map = HashMap::new();
         let bitmask_names = HashSet::new();
@@ -410,9 +421,14 @@ mod tests {
 
     #[test]
     fn collect_enums_dispatches_to_bitmask_map() {
-        let enums = make_enums_group("VkQueueFlagBits", Some("bitmask"), vec![
-            EnumsChild::Enum(make_bitpos_enum("VK_QUEUE_GRAPHICS_BIT", 0)),
-        ]);
+        let enums = make_enums_group(
+            "VkQueueFlagBits",
+            Some("bitmask"),
+            vec![EnumsChild::Enum(make_bitpos_enum(
+                "VK_QUEUE_GRAPHICS_BIT",
+                0,
+            ))],
+        );
         let mut enum_map = HashMap::new();
         let mut bitmask_map = HashMap::new();
         let bitmask_names = HashSet::new();
@@ -426,9 +442,11 @@ mod tests {
 
     #[test]
     fn collect_enums_skips_api_constants() {
-        let enums = make_enums_group("API Constants", None, vec![
-            EnumsChild::Enum(make_value_enum("VK_TRUE", "1")),
-        ]);
+        let enums = make_enums_group(
+            "API Constants",
+            None,
+            vec![EnumsChild::Enum(make_value_enum("VK_TRUE", "1"))],
+        );
         let mut enum_map = HashMap::new();
         let mut bitmask_map = HashMap::new();
         let bitmask_names = HashSet::new();
@@ -441,9 +459,11 @@ mod tests {
 
     #[test]
     fn collect_enums_recognises_bitmask_by_name_set() {
-        let enums = make_enums_group("VkCustomFlagBits", Some("enum"), vec![
-            EnumsChild::Enum(make_bitpos_enum("VK_CUSTOM_BIT", 2)),
-        ]);
+        let enums = make_enums_group(
+            "VkCustomFlagBits",
+            Some("enum"),
+            vec![EnumsChild::Enum(make_bitpos_enum("VK_CUSTOM_BIT", 2))],
+        );
         let mut enum_map = HashMap::new();
         let mut bitmask_map = HashMap::new();
         let mut bitmask_names = HashSet::new();

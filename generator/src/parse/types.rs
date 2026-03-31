@@ -274,17 +274,26 @@ mod tests {
 
     #[test]
     fn fixed_array_digits() {
-        assert_eq!(parse_fixed_array_size("float color[4]"), Some("4".to_string()));
+        assert_eq!(
+            parse_fixed_array_size("float color[4]"),
+            Some("4".to_string())
+        );
     }
 
     #[test]
     fn fixed_array_larger() {
-        assert_eq!(parse_fixed_array_size("uint32_t data[256]"), Some("256".to_string()));
+        assert_eq!(
+            parse_fixed_array_size("uint32_t data[256]"),
+            Some("256".to_string())
+        );
     }
 
     #[test]
     fn fixed_array_rejects_enum_reference() {
-        assert_eq!(parse_fixed_array_size("char name[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]"), None);
+        assert_eq!(
+            parse_fixed_array_size("char name[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]"),
+            None
+        );
     }
 
     #[test]
@@ -299,17 +308,23 @@ mod tests {
 
     #[test]
     fn fixed_array_trims_whitespace() {
-        assert_eq!(parse_fixed_array_size("float v[ 3 ]"), Some("3".to_string()));
+        assert_eq!(
+            parse_fixed_array_size("float v[ 3 ]"),
+            Some("3".to_string())
+        );
     }
 
     // -- parse_member_def ------------------------------------------------------
 
     #[test]
     fn member_def_simple_value() {
-        let def = make_member_def("uint32_t flags", vec![
-            TypeMemberMarkup::Type("uint32_t".to_string()),
-            TypeMemberMarkup::Name("flags".to_string()),
-        ]);
+        let def = make_member_def(
+            "uint32_t flags",
+            vec![
+                TypeMemberMarkup::Type("uint32_t".to_string()),
+                TypeMemberMarkup::Name("flags".to_string()),
+            ],
+        );
         let m = parse_member_def(&def);
         assert_eq!(m.name, "flags");
         assert_eq!(m.type_name, "uint32_t");
@@ -320,10 +335,13 @@ mod tests {
 
     #[test]
     fn member_def_const_pointer() {
-        let def = make_member_def("const void* pNext", vec![
-            TypeMemberMarkup::Type("void".to_string()),
-            TypeMemberMarkup::Name("pNext".to_string()),
-        ]);
+        let def = make_member_def(
+            "const void* pNext",
+            vec![
+                TypeMemberMarkup::Type("void".to_string()),
+                TypeMemberMarkup::Name("pNext".to_string()),
+            ],
+        );
         let m = parse_member_def(&def);
         assert!(m.is_pointer);
         assert!(m.is_const);
@@ -332,41 +350,56 @@ mod tests {
 
     #[test]
     fn member_def_double_pointer() {
-        let def = make_member_def("const char* const* ppEnabledLayerNames", vec![
-            TypeMemberMarkup::Type("char".to_string()),
-            TypeMemberMarkup::Name("ppEnabledLayerNames".to_string()),
-        ]);
+        let def = make_member_def(
+            "const char* const* ppEnabledLayerNames",
+            vec![
+                TypeMemberMarkup::Type("char".to_string()),
+                TypeMemberMarkup::Name("ppEnabledLayerNames".to_string()),
+            ],
+        );
         let m = parse_member_def(&def);
         assert!(m.is_double_pointer);
     }
 
     #[test]
     fn member_def_enum_array_size() {
-        let def = make_member_def("char deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]", vec![
-            TypeMemberMarkup::Type("char".to_string()),
-            TypeMemberMarkup::Name("deviceName".to_string()),
-            TypeMemberMarkup::Enum("VK_MAX_PHYSICAL_DEVICE_NAME_SIZE".to_string()),
-        ]);
+        let def = make_member_def(
+            "char deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]",
+            vec![
+                TypeMemberMarkup::Type("char".to_string()),
+                TypeMemberMarkup::Name("deviceName".to_string()),
+                TypeMemberMarkup::Enum("VK_MAX_PHYSICAL_DEVICE_NAME_SIZE".to_string()),
+            ],
+        );
         let m = parse_member_def(&def);
-        assert_eq!(m.array_size.as_deref(), Some("VK_MAX_PHYSICAL_DEVICE_NAME_SIZE"));
+        assert_eq!(
+            m.array_size.as_deref(),
+            Some("VK_MAX_PHYSICAL_DEVICE_NAME_SIZE")
+        );
     }
 
     #[test]
     fn member_def_fixed_numeric_array() {
-        let def = make_member_def("float color[4]", vec![
-            TypeMemberMarkup::Type("float".to_string()),
-            TypeMemberMarkup::Name("color".to_string()),
-        ]);
+        let def = make_member_def(
+            "float color[4]",
+            vec![
+                TypeMemberMarkup::Type("float".to_string()),
+                TypeMemberMarkup::Name("color".to_string()),
+            ],
+        );
         let m = parse_member_def(&def);
         assert_eq!(m.array_size.as_deref(), Some("4"));
     }
 
     #[test]
     fn member_def_optional() {
-        let mut def = make_member_def("VkFence fence", vec![
-            TypeMemberMarkup::Type("VkFence".to_string()),
-            TypeMemberMarkup::Name("fence".to_string()),
-        ]);
+        let mut def = make_member_def(
+            "VkFence fence",
+            vec![
+                TypeMemberMarkup::Type("VkFence".to_string()),
+                TypeMemberMarkup::Name("fence".to_string()),
+            ],
+        );
         def.optional = Some("true".to_string());
         let m = parse_member_def(&def);
         assert!(m.optional);
@@ -374,13 +407,19 @@ mod tests {
 
     #[test]
     fn member_def_preserves_values() {
-        let mut def = make_member_def("VkStructureType sType", vec![
-            TypeMemberMarkup::Type("VkStructureType".to_string()),
-            TypeMemberMarkup::Name("sType".to_string()),
-        ]);
+        let mut def = make_member_def(
+            "VkStructureType sType",
+            vec![
+                TypeMemberMarkup::Type("VkStructureType".to_string()),
+                TypeMemberMarkup::Name("sType".to_string()),
+            ],
+        );
         def.values = Some("VK_STRUCTURE_TYPE_APPLICATION_INFO".to_string());
         let m = parse_member_def(&def);
-        assert_eq!(m.values.as_deref(), Some("VK_STRUCTURE_TYPE_APPLICATION_INFO"));
+        assert_eq!(
+            m.values.as_deref(),
+            Some("VK_STRUCTURE_TYPE_APPLICATION_INFO")
+        );
     }
 
     // -- collect_handle --------------------------------------------------------
@@ -388,10 +427,14 @@ mod tests {
     #[test]
     fn collect_handle_dispatchable() {
         let mut reg = empty_registry();
-        let ty = make_type("VkInstance", "handle", make_type_code(
-            "VK_DEFINE_HANDLE(VkInstance)",
-            vec![TypeCodeMarkup::Name("VkInstance".to_string())],
-        ));
+        let ty = make_type(
+            "VkInstance",
+            "handle",
+            make_type_code(
+                "VK_DEFINE_HANDLE(VkInstance)",
+                vec![TypeCodeMarkup::Name("VkInstance".to_string())],
+            ),
+        );
         collect_handle(&ty, &mut reg);
         assert_eq!(reg.handles.len(), 1);
         assert_eq!(reg.handles[0].name, "Instance");
@@ -401,10 +444,14 @@ mod tests {
     #[test]
     fn collect_handle_non_dispatchable() {
         let mut reg = empty_registry();
-        let ty = make_type("VkBuffer", "handle", make_type_code(
-            "VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkBuffer)",
-            vec![TypeCodeMarkup::Name("VkBuffer".to_string())],
-        ));
+        let ty = make_type(
+            "VkBuffer",
+            "handle",
+            make_type_code(
+                "VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkBuffer)",
+                vec![TypeCodeMarkup::Name("VkBuffer".to_string())],
+            ),
+        );
         collect_handle(&ty, &mut reg);
         assert_eq!(reg.handles.len(), 1);
         assert_eq!(reg.handles[0].name, "Buffer");
@@ -414,10 +461,14 @@ mod tests {
     #[test]
     fn collect_handle_with_parent() {
         let mut reg = empty_registry();
-        let mut ty = make_type("VkBuffer", "handle", make_type_code(
-            "VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkBuffer)",
-            vec![TypeCodeMarkup::Name("VkBuffer".to_string())],
-        ));
+        let mut ty = make_type(
+            "VkBuffer",
+            "handle",
+            make_type_code(
+                "VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkBuffer)",
+                vec![TypeCodeMarkup::Name("VkBuffer".to_string())],
+            ),
+        );
         ty.parent = Some("VkDevice".to_string());
         collect_handle(&ty, &mut reg);
         assert_eq!(reg.handles[0].parent.as_deref(), Some("Device"));
@@ -426,10 +477,14 @@ mod tests {
     #[test]
     fn collect_handle_prefers_ty_name() {
         let mut reg = empty_registry();
-        let ty = make_type("VkFence", "handle", make_type_code(
-            "VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkFence)",
-            vec![TypeCodeMarkup::Name("VkFence".to_string())],
-        ));
+        let ty = make_type(
+            "VkFence",
+            "handle",
+            make_type_code(
+                "VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkFence)",
+                vec![TypeCodeMarkup::Name("VkFence".to_string())],
+            ),
+        );
         collect_handle(&ty, &mut reg);
         assert_eq!(reg.handles[0].name, "Fence");
     }
@@ -439,16 +494,26 @@ mod tests {
     #[test]
     fn collect_struct_basic() {
         let mut reg = empty_registry();
-        let ty = make_type("VkExtent2D", "struct", TypeSpec::Members(vec![
-            TypeMember::Definition(make_member_def("uint32_t width", vec![
-                TypeMemberMarkup::Type("uint32_t".to_string()),
-                TypeMemberMarkup::Name("width".to_string()),
-            ])),
-            TypeMember::Definition(make_member_def("uint32_t height", vec![
-                TypeMemberMarkup::Type("uint32_t".to_string()),
-                TypeMemberMarkup::Name("height".to_string()),
-            ])),
-        ]));
+        let ty = make_type(
+            "VkExtent2D",
+            "struct",
+            TypeSpec::Members(vec![
+                TypeMember::Definition(make_member_def(
+                    "uint32_t width",
+                    vec![
+                        TypeMemberMarkup::Type("uint32_t".to_string()),
+                        TypeMemberMarkup::Name("width".to_string()),
+                    ],
+                )),
+                TypeMember::Definition(make_member_def(
+                    "uint32_t height",
+                    vec![
+                        TypeMemberMarkup::Type("uint32_t".to_string()),
+                        TypeMemberMarkup::Name("height".to_string()),
+                    ],
+                )),
+            ]),
+        );
         collect_struct(&ty, &mut reg, false);
         assert_eq!(reg.structs.len(), 1);
         assert_eq!(reg.structs[0].name, "Extent2D");
@@ -460,12 +525,17 @@ mod tests {
     #[test]
     fn collect_struct_union() {
         let mut reg = empty_registry();
-        let ty = make_type("VkClearColorValue", "union", TypeSpec::Members(vec![
-            TypeMember::Definition(make_member_def("float float32[4]", vec![
-                TypeMemberMarkup::Type("float".to_string()),
-                TypeMemberMarkup::Name("float32".to_string()),
-            ])),
-        ]));
+        let ty = make_type(
+            "VkClearColorValue",
+            "union",
+            TypeSpec::Members(vec![TypeMember::Definition(make_member_def(
+                "float float32[4]",
+                vec![
+                    TypeMemberMarkup::Type("float".to_string()),
+                    TypeMemberMarkup::Name("float32".to_string()),
+                ],
+            ))]),
+        );
         collect_struct(&ty, &mut reg, true);
         assert!(reg.structs[0].is_union);
     }
@@ -473,7 +543,11 @@ mod tests {
     #[test]
     fn collect_struct_returned_only() {
         let mut reg = empty_registry();
-        let mut ty = make_type("VkPhysicalDeviceProperties", "struct", TypeSpec::Members(vec![]));
+        let mut ty = make_type(
+            "VkPhysicalDeviceProperties",
+            "struct",
+            TypeSpec::Members(vec![]),
+        );
         ty.returnedonly = Some("true".to_string());
         collect_struct(&ty, &mut reg, false);
         assert!(reg.structs[0].returned_only);
@@ -485,7 +559,10 @@ mod tests {
         let mut ty = make_type("VkFoo", "struct", TypeSpec::Members(vec![]));
         ty.structextends = Some("VkDeviceCreateInfo,VkInstanceCreateInfo".to_string());
         collect_struct(&ty, &mut reg, false);
-        assert_eq!(reg.structs[0].extends, vec!["DeviceCreateInfo", "InstanceCreateInfo"]);
+        assert_eq!(
+            reg.structs[0].extends,
+            vec!["DeviceCreateInfo", "InstanceCreateInfo"]
+        );
     }
 
     // -- collect_bitmask_type --------------------------------------------------
@@ -495,10 +572,11 @@ mod tests {
         let mut reg = empty_registry();
         let mut meta = HashMap::new();
         let mut names = HashSet::new();
-        let mut ty = make_type("VkCullModeFlags", "bitmask", make_type_code(
-            "typedef VkFlags VkCullModeFlags;",
-            vec![],
-        ));
+        let mut ty = make_type(
+            "VkCullModeFlags",
+            "bitmask",
+            make_type_code("typedef VkFlags VkCullModeFlags;", vec![]),
+        );
         ty.requires = Some("VkCullModeFlagBits".to_string());
         collect_bitmask_type(&ty, &mut meta, &mut names, &mut reg);
         assert!(names.contains("CullModeFlagBits"));
@@ -510,10 +588,11 @@ mod tests {
         let mut reg = empty_registry();
         let mut meta = HashMap::new();
         let mut names = HashSet::new();
-        let mut ty = make_type("VkPipelineStageFlagBits2", "bitmask", make_type_code(
-            "typedef VkFlags64 VkPipelineStageFlagBits2;",
-            vec![],
-        ));
+        let mut ty = make_type(
+            "VkPipelineStageFlagBits2",
+            "bitmask",
+            make_type_code("typedef VkFlags64 VkPipelineStageFlagBits2;", vec![]),
+        );
         ty.bitvalues = Some("VkPipelineStageFlagBits2".to_string());
         collect_bitmask_type(&ty, &mut meta, &mut names, &mut reg);
         let (_, bitwidth) = &meta["PipelineStageFlagBits2"];

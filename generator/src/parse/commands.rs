@@ -210,7 +210,11 @@ mod tests {
 
     #[test]
     fn parse_param_detects_const_pointer() {
-        let p = make_command_param("pCreateInfo", "VkBufferCreateInfo", "const VkBufferCreateInfo* pCreateInfo");
+        let p = make_command_param(
+            "pCreateInfo",
+            "VkBufferCreateInfo",
+            "const VkBufferCreateInfo* pCreateInfo",
+        );
         let result = parse_param(&p);
         assert!(result.is_pointer);
         assert!(result.is_const);
@@ -235,7 +239,11 @@ mod tests {
 
     #[test]
     fn parse_param_optional_true() {
-        let mut p = make_command_param("pAllocator", "VkAllocationCallbacks", "const VkAllocationCallbacks* pAllocator");
+        let mut p = make_command_param(
+            "pAllocator",
+            "VkAllocationCallbacks",
+            "const VkAllocationCallbacks* pAllocator",
+        );
         p.optional = Some("true".to_string());
         let result = parse_param(&p);
         assert!(result.optional);
@@ -250,10 +258,17 @@ mod tests {
 
     #[test]
     fn parse_param_optional_true_false_combo() {
-        let mut p = make_command_param("pAllocator", "VkAllocationCallbacks", "const VkAllocationCallbacks* pAllocator");
+        let mut p = make_command_param(
+            "pAllocator",
+            "VkAllocationCallbacks",
+            "const VkAllocationCallbacks* pAllocator",
+        );
         p.optional = Some("true,false".to_string());
         let result = parse_param(&p);
-        assert!(result.optional, "should detect true in comma-separated optional");
+        assert!(
+            result.optional,
+            "should detect true in comma-separated optional"
+        );
     }
 
     #[test]
@@ -274,7 +289,11 @@ mod tests {
 
     // -- parse_command ---------------------------------------------------------
 
-    fn make_command_def(name: &str, return_type: Option<&str>, params: Vec<CommandParam>) -> CommandDefinition {
+    fn make_command_def(
+        name: &str,
+        return_type: Option<&str>,
+        params: Vec<CommandParam>,
+    ) -> CommandDefinition {
         let mut def = CommandDefinition::default();
         def.proto.name = name.to_string();
         def.proto.type_name = return_type.map(str::to_string);
@@ -306,10 +325,17 @@ mod tests {
     fn parse_command_splits_success_codes() {
         let mut def = make_command_def("vkFoo", Some("VkResult"), vec![]);
         def.successcodes = Some("VK_SUCCESS,VK_INCOMPLETE".to_string());
-        def.errorcodes = Some("VK_ERROR_OUT_OF_HOST_MEMORY,VK_ERROR_OUT_OF_DEVICE_MEMORY".to_string());
+        def.errorcodes =
+            Some("VK_ERROR_OUT_OF_HOST_MEMORY,VK_ERROR_OUT_OF_DEVICE_MEMORY".to_string());
         let result = parse_command(&def).expect("should parse command with codes");
         assert_eq!(result.success_codes, vec!["VK_SUCCESS", "VK_INCOMPLETE"]);
-        assert_eq!(result.error_codes, vec!["VK_ERROR_OUT_OF_HOST_MEMORY", "VK_ERROR_OUT_OF_DEVICE_MEMORY"]);
+        assert_eq!(
+            result.error_codes,
+            vec![
+                "VK_ERROR_OUT_OF_HOST_MEMORY",
+                "VK_ERROR_OUT_OF_DEVICE_MEMORY"
+            ]
+        );
     }
 
     #[test]
