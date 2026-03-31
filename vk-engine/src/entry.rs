@@ -81,7 +81,6 @@ impl Entry {
     }
 
     /// Returns a reference to the loaded entry-level commands.
-    #[allow(dead_code)] // used in Phase 8
     pub(crate) fn commands(&self) -> &vk::commands::EntryCommands {
         &self.commands
     }
@@ -221,7 +220,7 @@ impl Entry {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::ffi::{CStr, c_void};
+    use std::ffi::{CStr, c_char, c_void};
 
     /// Mock loader that returns null for everything — simulates missing library.
     struct NullLoader;
@@ -229,6 +228,28 @@ mod tests {
     unsafe impl Loader for NullLoader {
         unsafe fn load(&self, _name: &CStr) -> *const c_void {
             std::ptr::null()
+        }
+    }
+
+    /// Mock loader that returns a fake `vkGetInstanceProcAddr` which itself
+    /// returns null for everything. This lets us construct an Entry without
+    /// a real Vulkan runtime.
+    struct FakeEntryLoader;
+
+    unsafe extern "system" fn mock_get_instance_proc_addr(
+        _instance: vk::handles::Instance,
+        _name: *const c_char,
+    ) -> vk::structs::PFN_vkVoidFunction {
+        None
+    }
+
+    unsafe impl Loader for FakeEntryLoader {
+        unsafe fn load(&self, name: &CStr) -> *const c_void {
+            if name == c"vkGetInstanceProcAddr" {
+                mock_get_instance_proc_addr as *const c_void
+            } else {
+                std::ptr::null()
+            }
         }
     }
 
@@ -240,6 +261,42 @@ mod tests {
             Err(other) => panic!("expected MissingEntryPoint, got {other}"),
             Ok(_) => panic!("expected error, got Ok"),
         }
+    }
+
+    #[test]
+    fn new_succeeds_with_fake_loader() {
+        let entry = unsafe { Entry::new(FakeEntryLoader) }.expect("should create Entry");
+        assert!(entry.get_instance_proc_addr().is_some());
+    }
+
+    #[test]
+    fn version_returns_1_0_when_enumerate_instance_version_is_none() {
+        // FakeEntryLoader returns null for all commands, so
+        // enumerate_instance_version will be None → 1.0 fallback.
+        let entry = unsafe { Entry::new(FakeEntryLoader) }.expect("should create Entry");
+        let version = entry.version().expect("version should succeed");
+        assert_eq!(version.major, 1);
+        assert_eq!(version.minor, 0);
+        assert_eq!(version.patch, 0);
+    }
+
+    #[test]
+    fn commands_returns_reference() {
+        let entry = unsafe { Entry::new(FakeEntryLoader) }.expect("should create Entry");
+        let _ = entry.commands();
+    }
+
+    #[test]
+    fn get_instance_proc_addr_returns_some() {
+        let entry = unsafe { Entry::new(FakeEntryLoader) }.expect("should create Entry");
+        assert!(entry.get_instance_proc_addr().is_some());
+    }
+
+    #[test]
+    fn get_device_proc_addr_returns_none_from_fake_loader() {
+        // FakeEntryLoader returns null for vkGetDeviceProcAddr
+        let entry = unsafe { Entry::new(FakeEntryLoader) }.expect("should create Entry");
+        assert!(entry.get_device_proc_addr().is_none());
     }
 
     #[test]

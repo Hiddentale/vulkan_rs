@@ -19,6 +19,8 @@ pub mod emit_enums;
 #[doc(hidden)]
 pub mod emit_handles;
 #[doc(hidden)]
+pub mod emit_layout_check;
+#[doc(hidden)]
 pub mod emit_structs;
 #[doc(hidden)]
 pub mod emit_wrappers;

@@ -210,6 +210,7 @@ fn emit_struct(
     let docs = emit_struct_docs(def, extended_by);
     let fields = emit_fields_with_docs(&def.members);
     let default_impl = emit_default(def, stype_raw);
+    let bitfield_accessors = emit_bitfield_accessors(def);
 
     quote! {
         #docs
@@ -221,6 +222,7 @@ fn emit_struct(
         }
 
         #default_impl
+        #bitfield_accessors
     }
 }
 
@@ -254,9 +256,169 @@ fn emit_union(def: &StructDef, extended_by: &HashMap<String, Vec<String>>) -> To
     }
 }
 
+/// Info about one field within a packed bitfield group.
+struct BitfieldEntry {
+    name: String,
+    offset: u32,
+    width: u32,
+}
+
+/// Info about a packed bitfield group (one `u32`).
+struct BitfieldGroup {
+    packed_name: String,
+    entries: Vec<BitfieldEntry>,
+}
+
+/// Extract bitfield group metadata from members.
+fn bitfield_groups(members: &[MemberDef]) -> Vec<BitfieldGroup> {
+    let mut groups = Vec::new();
+    let mut i = 0;
+    let mut counter = 0u32;
+
+    while i < members.len() {
+        if !members[i].is_bitfield {
+            i += 1;
+            continue;
+        }
+
+        let mut entries = Vec::new();
+        let mut bit_offset = 0u32;
+        while i < members.len() && members[i].is_bitfield {
+            let width = members[i].bitwidth.unwrap_or(0) as u32;
+            entries.push(BitfieldEntry {
+                name: members[i].name.clone(),
+                offset: bit_offset,
+                width,
+            });
+            bit_offset += width;
+            i += 1;
+            if bit_offset == 32 {
+                break;
+            }
+        }
+
+        groups.push(BitfieldGroup {
+            packed_name: format!("bitfield_{counter}"),
+            entries,
+        });
+        counter += 1;
+    }
+
+    groups
+}
+
+/// Generate getter and setter methods for packed bitfield groups.
+fn emit_bitfield_accessors(def: &StructDef) -> TokenStream {
+    let groups = bitfield_groups(&def.members);
+    if groups.is_empty() {
+        return quote! {};
+    }
+
+    let struct_name = format_ident!("{}", &def.name);
+    let mut methods = Vec::new();
+
+    for group in &groups {
+        let packed_ident = format_ident!("{}", &group.packed_name);
+
+        for entry in &group.entries {
+            if entry.name == "reserved" {
+                continue;
+            }
+            let rust_name = member_name(&entry.name);
+            let getter = format_ident!("{}", &rust_name);
+            let setter = format_ident!("set_{}", &rust_name);
+            let offset = entry.offset;
+            let width = entry.width;
+            let mask = (1u64 << width) - 1;
+            let mask_lit = mask as u32;
+
+            if offset == 0 {
+                methods.push(quote! {
+                    #[inline]
+                    pub fn #getter(&self) -> u32 {
+                        self.#packed_ident & #mask_lit
+                    }
+
+                    #[inline]
+                    pub fn #setter(&mut self, val: u32) {
+                        self.#packed_ident = (self.#packed_ident & !#mask_lit)
+                            | (val & #mask_lit);
+                    }
+                });
+            } else {
+                methods.push(quote! {
+                    #[inline]
+                    pub fn #getter(&self) -> u32 {
+                        (self.#packed_ident >> #offset) & #mask_lit
+                    }
+
+                    #[inline]
+                    pub fn #setter(&mut self, val: u32) {
+                        self.#packed_ident = (self.#packed_ident & !(#mask_lit << #offset))
+                            | ((val & #mask_lit) << #offset);
+                    }
+                });
+            }
+        }
+    }
+
+    quote! {
+        impl #struct_name {
+            #(#methods)*
+        }
+    }
+}
+
+/// Pack consecutive bitfield members into single `u32` fields.
+/// `instanceCustomIndex:24` + `mask:8` → `bitfield_0: u32`.
+fn pack_bitfields(members: &[MemberDef]) -> Vec<MemberDef> {
+    let mut result = Vec::new();
+    let mut i = 0;
+    let mut bitfield_counter = 0u32;
+
+    while i < members.len() {
+        if !members[i].is_bitfield {
+            result.push(members[i].clone());
+            i += 1;
+            continue;
+        }
+
+        // Consume consecutive bitfields summing to 32 bits
+        let mut total_bits = 0u32;
+        while i < members.len() && members[i].is_bitfield {
+            let width = members[i].bitwidth.unwrap_or(0) as u32;
+            total_bits += width;
+            i += 1;
+            if total_bits == 32 {
+                break;
+            }
+        }
+
+        let packed_name = format!("bitfield_{bitfield_counter}");
+        bitfield_counter += 1;
+        result.push(MemberDef {
+            name: packed_name,
+            type_name: "uint32_t".to_string(),
+            is_pointer: false,
+            is_const: false,
+            is_double_pointer: false,
+            array_size: None,
+            optional: false,
+            values: None,
+            len: None,
+            extern_sync: None,
+            is_bitfield: false,
+            bitwidth: None,
+        });
+    }
+
+    result
+}
+
 fn emit_fields(members: &[MemberDef]) -> Vec<TokenStream> {
+    let packed = pack_bitfields(members);
     let mut seen = HashSet::new();
-    members
+    packed
         .iter()
         .filter(|m| seen.insert(m.name.clone()))
         .map(|m| emit_field(m, false))
@@ -264,6 +426,7 @@ fn emit_fields(members: &[MemberDef]) -> Vec<TokenStream> {
 }
 
 fn emit_fields_with_docs(members: &[MemberDef]) -> Vec<TokenStream> {
+    let members = pack_bitfields(members);
     // Build a set of pointer members' len targets so we can annotate count fields.
     let len_targets: HashMap<&str, &str> = members
         .iter()
@@ -337,9 +500,9 @@ fn emit_default(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStrea
     let has_pnext = def.members.iter().any(|m| m.name == "pNext");
 
     if stype_val.is_some() || has_pnext {
+        let packed = pack_bitfields(&def.members);
         let mut seen = HashSet::new();
-        let field_defaults: Vec<TokenStream> = def
-            .members
+        let field_defaults: Vec<TokenStream> = packed
             .iter()
             .filter(|m| seen.insert(m.name.clone()))
             .map(|m| {
@@ -495,6 +658,8 @@ mod tests {
             values: None,
             len: None,
             extern_sync: None,
+            is_bitfield: false,
+            bitwidth: None,
         }
     }
 

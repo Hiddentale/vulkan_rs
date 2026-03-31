@@ -136,7 +136,18 @@ pub fn emit_func_pointer_stubs(registry: &VkRegistry) -> TokenStream {
     quote! { #(#stubs)* }
 }
 
-/// Emit opaque stubs for StdVideo* types referenced by struct members.
+/// Returns true if the StdVideo type is used by value (not pointer) in any struct.
+/// By-value StdVideo types are C enums (i32), not opaque structs.
+fn is_by_value_stdvideo(registry: &VkRegistry, type_name: &str) -> bool {
+    registry.structs.iter().any(|s| {
+        s.members
+            .iter()
+            .any(|m| m.type_name == type_name && !m.is_pointer)
+    })
+}
+
+/// Emit stubs for StdVideo* types referenced by struct members.
+/// Types used by value are C enums (i32). Types used only by pointer are opaque.
 pub fn emit_stdvideo_stubs(registry: &VkRegistry) -> TokenStream {
     let mut names: BTreeSet<String> = BTreeSet::new();
     for s in &registry.structs {
@@ -151,12 +162,21 @@ pub fn emit_stdvideo_stubs(registry: &VkRegistry) -> TokenStream {
         .iter()
         .map(|name| {
             let ident = format_ident!("{}", name);
-            quote! {
-                /// Opaque video codec type (defined in vulkan_video_codec headers).
-                #[repr(C)]
-                #[derive(Debug, Copy, Clone, Default)]
-                pub struct #ident {
-                    _opaque: [u8; 0],
+            if is_by_value_stdvideo(registry, name) {
+                quote! {
+                    /// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+                    #[repr(transparent)]
+                    #[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+                    pub struct #ident(pub i32);
+                }
+            } else {
+                quote! {
+                    /// Opaque video codec type (defined in vulkan_video_codec headers).
+                    #[repr(C)]
+                    #[derive(Debug, Copy, Clone, Default)]
+                    pub struct #ident {
+                        _opaque: [u8; 0],
+                    }
                 }
             }
         })
@@ -198,6 +218,8 @@ mod tests {
             values: None,
             len: None,
             extern_sync: None,
+            is_bitfield: false,
+            bitwidth: None,
         }
     }
 
@@ -326,11 +348,13 @@ mod tests {
     }
 
     #[test]
-    fn stdvideo_stub_emits_opaque_struct() {
+    fn stdvideo_stub_emits_opaque_for_pointer_members() {
         let mut reg = empty_registry();
+        let mut ptr_member = make_member("pSlot", "StdVideoDecodeH264PictureInfo");
+        ptr_member.is_pointer = true;
         reg.structs.push(StructDef {
             name: "VideoDecodeInfoKHR".to_string(),
-            members: vec![make_member("pSlot", "StdVideoDecodeH264PictureInfo")],
+            members: vec![ptr_member],
             extends: vec![],
             returned_only: false,
             is_union: false,
@@ -338,8 +362,24 @@ mod tests {
         });
         let code = emit_stdvideo_stubs(&reg).to_string();
         assert!(code.contains("StdVideoDecodeH264PictureInfo"));
-        assert!(code.contains("repr (C)"));
         assert!(code.contains("_opaque"));
+    }
+
+    #[test]
+    fn stdvideo_stub_emits_i32_for_by_value_members() {
+        let mut reg = empty_registry();
+        reg.structs.push(StructDef {
+            name: "VideoDecodeH264ProfileInfoKHR".to_string(),
+            members: vec![make_member("stdProfileIdc", "StdVideoH264ProfileIdc")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        });
+        let code = emit_stdvideo_stubs(&reg).to_string();
+        assert!(code.contains("StdVideoH264ProfileIdc"));
+        assert!(code.contains("i32"));
+        assert!(!code.contains("_opaque"));
     }
 
     #[test]

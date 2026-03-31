@@ -3,7 +3,7 @@ use std::path::Path;
 
 use generator::{
     emit_bitmasks, emit_builders, emit_commands, emit_constants, emit_enums, emit_handles,
-    emit_structs, emit_wrappers, parse, validate,
+    emit_layout_check, emit_structs, emit_wrappers, parse, validate,
 };
 
 fn main() {
@@ -48,6 +48,32 @@ fn main() {
     );
 
     update_lib_rs(&out_dir);
+
+    // Generate C ↔ Rust cross-validation programs.
+    let test_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/tests");
+    let c_check = emit_layout_check::emit_c_layout_check(&registry);
+    let c_path = test_dir.join("c_layout_check.c");
+    fs::write(&c_path, &c_check).unwrap_or_else(|e| {
+        panic!("failed to write {}: {e}", c_path.display());
+    });
+    println!(
+        "  wrote c_layout_check.c ({} lines)",
+        c_check.lines().count()
+    );
+
+    let rs_check = emit_layout_check::emit_rust_layout_check(&registry);
+    let bin_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/src/bin");
+    fs::create_dir_all(&bin_dir).unwrap_or_else(|e| {
+        panic!("failed to create {}: {e}", bin_dir.display());
+    });
+    let rs_path = bin_dir.join("rust_layout_check.rs");
+    fs::write(&rs_path, &rs_check).unwrap_or_else(|e| {
+        panic!("failed to write {}: {e}", rs_path.display());
+    });
+    println!(
+        "  wrote rust_layout_check.rs ({} lines)",
+        rs_check.lines().count()
+    );
 
     // Generate ergonomic wrapper methods for vk-engine.
     let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-engine/src/generated");

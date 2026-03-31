@@ -4,3 +4,7 @@ version = "0.2.0"
 edition = "2024"
 description = "Raw Vulkan 1.2 FFI types generated from vk.xml"
 license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "rust_layout_check"
+path = "src/bin/rust_layout_check.rs"

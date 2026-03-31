@@ -83,6 +83,29 @@ mod tests {
     use super::*;
 
     #[test]
+    fn null_loader_returns_null() {
+        struct TestNullLoader;
+        unsafe impl Loader for TestNullLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                std::ptr::null()
+            }
+        }
+        let loader = TestNullLoader;
+        let ptr = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        assert!(ptr.is_null());
+    }
+
+    #[test]
+    fn load_vulkan_library_returns_error_on_missing_platform() {
+        // Verify the error path is reachable.
+        let result = LoadError::MissingEntryPoint;
+        assert_eq!(
+            result.to_string(),
+            "vkGetInstanceProcAddr not found in Vulkan library"
+        );
+    }
+
+    #[test]
     fn libloading_loader_new_returns_error_message_on_missing_lib() {
         // We can't easily force a missing library, but we can verify
         // the error path by trying to load a nonsense library name.

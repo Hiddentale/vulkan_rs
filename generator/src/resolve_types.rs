@@ -134,7 +134,18 @@ pub fn resolve_flags_alias(name: &str) -> String {
     name.to_string()
 }
 
+/// Wrap a type in array brackets. Supports multi-dimensional arrays
+/// encoded as `"3:4"` (produces `[[base; 4]; 3]`).
 fn wrap_array(base: &TokenStream, size: &str) -> TokenStream {
+    // Multi-dimensional: "3:4" → [[base; 4]; 3] (outer dimension first)
+    if size.contains(':') {
+        let dims: Vec<usize> = size.split(':').filter_map(|d| d.parse().ok()).collect();
+        let mut result = base.clone();
+        for &dim in dims.iter().rev() {
+            result = quote! { [#result; #dim] };
+        }
+        return result;
+    }
     if let Ok(n) = size.parse::<usize>() {
         quote! { [#base; #n] }
     } else {
@@ -189,6 +200,8 @@ mod tests {
             values: None,
             len: None,
             extern_sync: None,
+            is_bitfield: false,
+            bitwidth: None,
         }
     }
 

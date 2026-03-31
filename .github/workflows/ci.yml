@@ -80,6 +80,7 @@ jobs:
 
   build:
     name: Build & Test (${{ matrix.os }})
+    needs: [fmt, clippy]
     strategy:
       fail-fast: false
       matrix:
@@ -101,8 +102,6 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-        with:
-          components: rustfmt
 
       - uses: Swatinem/rust-cache@v2
 
@@ -114,6 +113,49 @@ jobs:
 
   doc-check:
     name: Documentation Check
+    needs: [fmt, clippy, generator-determinism]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Check docs build without warnings
+        run: RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --all-features
+
+      - name: Run doc tests
+        run: cargo test --doc --all-features
+
+  doc-coverage:
+    name: Documentation Coverage
+    needs: [fmt, clippy, generator-determinism]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Report doc coverage
+        run: |
+          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-engine 2>&1 | tee coverage.txt
+          echo "---"
+          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-sys 2>&1 | tee -a coverage.txt
+
+  test-coverage:
+    name: Test Coverage
+    needs: [fmt, clippy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -124,43 +166,122 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          components: rustfmt
+          components: llvm-tools-preview
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Regenerate bindings
-        run: cargo run -p generator
+      - name: Install cargo-llvm-cov
+        uses: taiki-e/install-action@cargo-llvm-cov
 
-      - name: Check docs build without warnings
-        run: RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --all-features
+      - name: Generate coverage report
+        run: |
+          cargo llvm-cov --workspace --lcov --output-path lcov.info \
+            --ignore-filename-regex '(vk-sys/src/|vk-engine/src/generated/)'
 
-      - name: Run doc tests
-        run: cargo test --doc --all-features
+      - name: Print coverage summary
+        run: |
+          cargo llvm-cov --workspace --no-run \
+            --ignore-filename-regex '(vk-sys/src/|vk-engine/src/generated/)'
 
-  doc-coverage:
-    name: Documentation Coverage
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: coverage-report
+          path: lcov.info
+
+  vulkan-runtime-tests:
+    name: Vulkan Runtime Tests (lavapipe)
+    needs: [fmt, clippy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies and lavapipe
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev \
+            mesa-vulkan-drivers vulkan-tools
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Find lavapipe ICD and verify
+        run: |
+          # Find the actual ICD file path (varies by Ubuntu version)
+          LVP_ICD=$(find /usr/share/vulkan /etc/vulkan -name '*lvp*' -o -name '*lavapipe*' 2>/dev/null | head -1)
+          if [ -z "$LVP_ICD" ]; then
+            echo "::warning::Lavapipe ICD not found, listing available ICDs:"
+            find /usr/share/vulkan /etc/vulkan -name '*.json' 2>/dev/null
+            exit 1
+          fi
+          echo "Found lavapipe ICD: $LVP_ICD"
+          echo "LVP_ICD=$LVP_ICD" >> "$GITHUB_ENV"
+          VK_ICD_FILENAMES="$LVP_ICD" vulkaninfo --summary
+
+      - name: Run ignored tests (requires Vulkan runtime)
+        run: |
+          export VK_ICD_FILENAMES="$LVP_ICD"
+          cargo test --workspace -- --ignored --test-threads=1
+
+  layout-cross-validation:
+    name: C ↔ Rust Layout Validation
+    needs: [fmt, clippy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
 
       - name: Install system dependencies
-        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+        run: sudo apt-get install -y libxcb1-dev libxkbcommon-dev
 
-      - name: Install Rust nightly
-        uses: dtolnay/rust-toolchain@nightly
-        with:
-          components: rustfmt
+      - name: Install matching Vulkan headers
+        run: |
+          # Extract the exact version from our vk.xml so we compile against
+          # the same spec revision we generate from. Mismatch = false failures.
+          VK_PATCH=$(grep '<name>VK_HEADER_VERSION</name>' generator/vk.xml \
+            | head -1 | grep -oP '\d+(?=</type>)')
+          VK_TAG="v1.4.${VK_PATCH}"
+          echo "Our vk.xml is version 1.4.${VK_PATCH}, checking out Vulkan-Headers at ${VK_TAG}"
+
+          git clone --depth 1 --branch "${VK_TAG}" \
+            https://github.com/KhronosGroup/Vulkan-Headers.git /tmp/vulkan-headers
+
+          sudo rm -rf /usr/include/vulkan /usr/include/vk_video
+          sudo cp -r /tmp/vulkan-headers/include/vulkan /usr/include/vulkan
+          sudo cp -r /tmp/vulkan-headers/include/vk_video /usr/include/vk_video
+
+          # Self-check: verify the installed headers match our vk.xml
+          INSTALLED=$(grep -oP 'VK_HEADER_VERSION \K\d+' /usr/include/vulkan/vulkan_core.h | head -1)
+          if [ "$INSTALLED" != "$VK_PATCH" ]; then
+            echo "::error::Header version mismatch: installed=${INSTALLED}, expected=${VK_PATCH}"
+            exit 1
+          fi
+          echo "Verified: C headers and vk.xml both at version 1.4.${VK_PATCH}"
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Regenerate bindings
-        run: cargo run -p generator
+      - name: Compile C layout checker
+        run: cc -o c_layout_check vk-sys/tests/c_layout_check.c -I/usr/include
 
-      - name: Report doc coverage
+      - name: Generate C layout output
+        run: ./c_layout_check > c_layouts.txt
+
+      - name: Generate Rust layout output
+        run: cargo run --bin rust_layout_check > rust_layouts.txt
+
+      - name: Cross-validate layouts
         run: |
-          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-engine 2>&1 | tee coverage.txt
-          echo "---"
-          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-sys 2>&1 | tee -a coverage.txt
+          if ! diff c_layouts.txt rust_layouts.txt; then
+            echo "::error::Rust struct layouts disagree with C Vulkan headers!"
+            echo "Lines above show the differences. Left = C, Right = Rust."
+            exit 1
+          fi
+          STRUCT_COUNT=$(wc -l < c_layouts.txt)
+          echo "All ${STRUCT_COUNT} struct layouts match between C and Rust"
 
   generator-determinism:
     name: Generator Determinism
@@ -186,3 +307,4 @@ jobs:
             git diff --stat
             exit 1
           fi
+          echo "Generated files are up to date"

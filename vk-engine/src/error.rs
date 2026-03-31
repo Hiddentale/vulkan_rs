@@ -112,6 +112,84 @@ mod tests {
     }
 
     #[test]
+    fn enumerate_two_call_returns_items() {
+        // Simulate a Vulkan enumerate command that returns 3 u32 values.
+        let result = enumerate_two_call(|count, data: *mut u32| {
+            unsafe { *count = 3 };
+            if !data.is_null() {
+                unsafe {
+                    *data = 10;
+                    *data.add(1) = 20;
+                    *data.add(2) = 30;
+                }
+            }
+            vk::enums::Result::SUCCESS
+        });
+        assert_eq!(result.expect("should succeed"), vec![10u32, 20, 30]);
+    }
+
+    #[test]
+    fn enumerate_two_call_returns_empty_on_zero_count() {
+        let result = enumerate_two_call::<u32>(|count, _data| {
+            unsafe { *count = 0 };
+            vk::enums::Result::SUCCESS
+        });
+        assert!(result.expect("should succeed").is_empty());
+    }
+
+    #[test]
+    fn enumerate_two_call_propagates_error() {
+        let result =
+            enumerate_two_call::<u32>(|_count, _data| vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY);
+        assert_eq!(
+            result.unwrap_err(),
+            vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
+        );
+    }
+
+    #[test]
+    fn fill_two_call_returns_items() {
+        let result = fill_two_call(|count, data: *mut u64| {
+            unsafe { *count = 2 };
+            if !data.is_null() {
+                unsafe {
+                    *data = 42u64;
+                    *data.add(1) = 99;
+                }
+            }
+        });
+        assert_eq!(result, vec![42u64, 99]);
+    }
+
+    #[test]
+    fn fill_two_call_returns_empty_on_zero_count() {
+        let result = fill_two_call::<u32>(|count, _data| {
+            unsafe { *count = 0 };
+        });
+        assert!(result.is_empty());
+    }
+
+    #[test]
+    fn load_error_source_library_returns_some() {
+        let lib_err =
+            unsafe { libloading::Library::new("nonexistent_vulkan_lib.dll") }.unwrap_err();
+        let err = LoadError::Library(lib_err);
+        assert!(
+            std::error::Error::source(&err).is_some(),
+            "Library variant should have a source"
+        );
+    }
+
+    #[test]
+    fn load_error_source_missing_entry_point_returns_none() {
+        let err = LoadError::MissingEntryPoint;
+        assert!(
+            std::error::Error::source(&err).is_none(),
+            "MissingEntryPoint should have no source"
+        );
+    }
+
+    #[test]
     fn load_error_display_missing_entry_point() {
         let err = LoadError::MissingEntryPoint;
         assert_eq!(

@@ -18,7 +18,16 @@ pub(super) fn stamp_provenance(registry: &Registry, reg: &mut VkRegistry) {
                 let provider = feature.name.clone();
                 for fc in &feature.children {
                     let items = match fc {
-                        FeatureChild::Require { items, .. } => items,
+                        FeatureChild::Require { items, api, .. } => {
+                            // Skip require blocks for non-vulkan APIs (e.g. vulkansc)
+                            if api
+                                .as_deref()
+                                .is_some_and(|a| !a.split(',').any(|part| part.trim() == "vulkan"))
+                            {
+                                continue;
+                            }
+                            items
+                        }
                         _ => continue,
                     };
                     for item in items {
@@ -43,7 +52,15 @@ pub(super) fn stamp_provenance(registry: &Registry, reg: &mut VkRegistry) {
                     }
                     for ec in &ext.children {
                         let items = match ec {
-                            ExtensionChild::Require { items, .. } => items,
+                            ExtensionChild::Require { items, api, .. } => {
+                                // Skip require blocks for non-vulkan APIs (e.g. vulkansc)
+                                if api.as_deref().is_some_and(|a| {
+                                    !a.split(',').any(|part| part.trim() == "vulkan")
+                                }) {
+                                    continue;
+                                }
+                                items
+                            }
                             _ => continue,
                         };
                         for item in items {
@@ -252,4 +269,168 @@ fn find_closing_type_tag(xml: &str) -> Option<usize> {
         }
     }
     None
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    // -- extract_tag -----------------------------------------------------------
+
+    #[test]
+    fn extract_tag_simple() {
+        let xml = "<name>vkFoo</name>";
+        assert_eq!(extract_tag(xml, "name"), Some("vkFoo"));
+    }
+
+    #[test]
+    fn extract_tag_with_attributes() {
+        let xml = r#"<type category="funcpointer">void</type>"#;
+        assert_eq!(extract_tag(xml, "type"), Some("void"));
+    }
+
+    #[test]
+    fn extract_tag_nested_content() {
+        let xml = "<proto>VKAPI_ATTR <type>VkResult</type> VKAPI_CALL <name>vkFoo</name></proto>";
+        let proto = extract_tag(xml, "proto").expect("should extract proto");
+        assert!(proto.contains("VkResult"));
+        assert!(proto.contains("vkFoo"));
+    }
+
+    #[test]
+    fn extract_tag_missing_tag_returns_none() {
+        assert!(extract_tag("<foo>bar</foo>", "baz").is_none());
+    }
+
+    #[test]
+    fn extract_tag_missing_close_returns_none() {
+        assert!(extract_tag("<name>bar", "name").is_none());
+    }
+
+    // -- find_closing_type_tag -------------------------------------------------
+
+    #[test]
+    fn find_closing_simple() {
+        let xml = "<type>void</type>";
+        assert_eq!(find_closing_type_tag(xml), Some(xml.len()));
+    }
+
+    #[test]
+    fn find_closing_nested() {
+        let xml = r#"<type category="funcpointer"><type>VkBool32</type></type>"#;
+        assert_eq!(find_closing_type_tag(xml), Some(xml.len()));
+    }
+
+    #[test]
+    fn find_closing_no_match() {
+        assert!(find_closing_type_tag("<other>content</other>").is_none());
+    }
+
+    #[test]
+    fn find_closing_multiple_inner() {
+        let xml = "<type><type>A</type><type>B</type></type>";
+        assert_eq!(find_closing_type_tag(xml), Some(xml.len()));
+    }
+
+    // -- parse_funcpointer_xml -------------------------------------------------
+
+    #[test]
+    fn parse_funcpointer_basic() {
+        let xml = r#"<type category="funcpointer">
+            <proto><type>void</type> <name>PFN_vkFreeFunction</name></proto>
+            <param><type>void</type>* <name>pUserData</name></param>
+            <param><type>void</type>* <name>pMemory</name></param>
+        </type>"#;
+        let fp = parse_funcpointer_xml(xml).expect("should parse funcpointer");
+        assert_eq!(fp.name, "PFN_vkFreeFunction");
+        assert_eq!(fp.return_type, "void");
+        assert!(!fp.is_return_pointer);
+        assert_eq!(fp.params.len(), 2);
+        assert_eq!(fp.params[0].name, "pUserData");
+        assert!(fp.params[0].is_pointer);
+        assert_eq!(fp.params[1].name, "pMemory");
+    }
+
+    #[test]
+    fn parse_funcpointer_return_pointer() {
+        let xml = r#"<type category="funcpointer">
+            <proto><type>void</type>* <name>PFN_vkAllocationFunction</name></proto>
+            <param><type>size_t</type> <name>size</name></param>
+        </type>"#;
+        let fp = parse_funcpointer_xml(xml).expect("should parse return pointer");
+        assert!(fp.is_return_pointer);
+        assert_eq!(fp.params.len(), 1);
+        assert!(!fp.params[0].is_pointer);
+    }
+
+    #[test]
+    fn parse_funcpointer_const_param() {
+        let xml = r#"<type category="funcpointer">
+            <proto><type>void</type> <name>PFN_vkFoo</name></proto>
+            <param>const <type>VkFoo</type>* <name>pFoo</name></param>
+        </type>"#;
+        let fp = parse_funcpointer_xml(xml).expect("should parse const param");
+        assert!(fp.params[0].is_const);
+        assert!(fp.params[0].is_pointer);
+    }
+
+    #[test]
+    fn parse_funcpointer_double_pointer() {
+        let xml = r#"<type category="funcpointer">
+            <proto><type>void</type> <name>PFN_vkFoo</name></proto>
+            <param><type>void</type>** <name>ppData</name></param>
+        </type>"#;
+        let fp = parse_funcpointer_xml(xml).expect("should parse double pointer");
+        assert!(fp.params[0].is_double_pointer);
+    }
+
+    #[test]
+    fn parse_funcpointer_no_params() {
+        let xml = r#"<type category="funcpointer">
+            <proto><type>VkBool32</type> <name>PFN_vkFoo</name></proto>
+        </type>"#;
+        let fp = parse_funcpointer_xml(xml).expect("should parse no-param funcpointer");
+        assert_eq!(fp.return_type, "VkBool32");
+        assert!(fp.params.is_empty());
+    }
+
+    #[test]
+    fn parse_funcpointer_missing_proto_returns_none() {
+        let xml = "<type><name>foo</name></type>";
+        assert!(parse_funcpointer_xml(xml).is_none());
+    }
+
+    // -- parse_func_pointers (full pipeline) -----------------------------------
+
+    #[test]
+    fn parse_func_pointers_finds_markers() {
+        let xml = r#"
+<types>
+    <type category="funcpointer">
+        <proto><type>void</type> <name>PFN_vkA</name></proto>
+    </type>
+    <type category="basetype">not a funcpointer</type>
+    <type category="funcpointer">
+        <proto><type>uint32_t</type> <name>PFN_vkB</name></proto>
+        <param><type>VkDevice</type> <name>device</name></param>
+    </type>
+</types>"#;
+        let fps = parse_func_pointers(xml);
+        assert_eq!(fps.len(), 2);
+        assert_eq!(fps[0].name, "PFN_vkA");
+        assert_eq!(fps[1].name, "PFN_vkB");
+        assert_eq!(fps[1].params.len(), 1);
+    }
+
+    #[test]
+    fn parse_func_pointers_empty_input() {
+        assert!(parse_func_pointers("").is_empty());
+    }
+
+    #[test]
+    fn parse_func_pointers_no_markers() {
+        assert!(
+            parse_func_pointers("<types><type category=\"struct\">foo</type></types>").is_empty()
+        );
+    }
 }

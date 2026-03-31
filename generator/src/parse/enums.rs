@@ -220,3 +220,258 @@ fn parse_extension_bitmask_bit(e: &Enum, ext_number: Option<i64>) -> Option<Bitm
         value,
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn make_value_enum(name: &str, value: &str) -> Enum {
+        let mut e = Enum::default();
+        e.name = name.to_string();
+        e.spec = EnumSpec::Value {
+            value: value.to_string(),
+            extends: None,
+        };
+        e
+    }
+
+    fn make_bitpos_enum(name: &str, bitpos: i64) -> Enum {
+        let mut e = Enum::default();
+        e.name = name.to_string();
+        e.spec = EnumSpec::Bitpos {
+            bitpos,
+            extends: None,
+        };
+        e
+    }
+
+    fn make_alias_enum(name: &str, alias: &str) -> Enum {
+        let mut e = Enum::default();
+        e.name = name.to_string();
+        e.spec = EnumSpec::Alias {
+            alias: alias.to_string(),
+            extends: None,
+        };
+        e
+    }
+
+    fn make_offset_enum(name: &str, offset: i64, extnumber: Option<i64>, dir: bool) -> Enum {
+        let mut e = Enum::default();
+        e.name = name.to_string();
+        e.spec = EnumSpec::Offset {
+            offset,
+            extends: "VkResult".to_string(),
+            extnumber,
+            dir,
+        };
+        e
+    }
+
+    // -- parse_enum_variant ----------------------------------------------------
+
+    #[test]
+    fn enum_variant_value_parses_decimal() {
+        let e = make_value_enum("VK_SUCCESS", "0");
+        let v = parse_enum_variant(&e).expect("should parse value variant");
+        assert_eq!(v.name, "VK_SUCCESS");
+        assert!(matches!(v.value, EnumValue::I32(0)));
+    }
+
+    #[test]
+    fn enum_variant_alias() {
+        let e = make_alias_enum(
+            "VK_COLORSPACE_SRGB_NONLINEAR_KHR",
+            "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR",
+        );
+        let v = parse_enum_variant(&e).expect("should parse alias variant");
+        assert!(
+            matches!(v.value, EnumValue::Alias(ref a) if a == "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR")
+        );
+    }
+
+    #[test]
+    fn enum_variant_bitpos_shift() {
+        let e = make_bitpos_enum("VK_QUEUE_GRAPHICS_BIT", 0);
+        let v = parse_enum_variant(&e).expect("should parse bitpos variant");
+        assert!(matches!(v.value, EnumValue::I32(1)));
+    }
+
+    #[test]
+    fn enum_variant_bitpos_high() {
+        let e = make_bitpos_enum("VK_SOME_BIT", 4);
+        let v = parse_enum_variant(&e).expect("should parse bitpos=4");
+        assert!(matches!(v.value, EnumValue::I32(16)));
+    }
+
+    #[test]
+    fn enum_variant_offset_positive() {
+        // dir=true → !dir=false → positive. Ext 1, offset 0 → BASE + 0 = 1_000_000_000
+        let e = make_offset_enum("VK_SOMETHING", 0, Some(1), true);
+        let v = parse_enum_variant(&e).expect("should parse offset variant");
+        assert!(matches!(v.value, EnumValue::I32(1_000_000_000)));
+    }
+
+    #[test]
+    fn enum_variant_offset_negative() {
+        // dir=false → !dir=true → negative. Ext 1, offset 0 → -1_000_000_000
+        let e = make_offset_enum("VK_ERROR_SOMETHING", 0, Some(1), false);
+        let v = parse_enum_variant(&e).expect("should parse negative offset");
+        assert!(matches!(v.value, EnumValue::I32(-1_000_000_000)));
+    }
+
+    #[test]
+    fn enum_variant_offset_ext_number_2() {
+        // dir=true → positive. Ext 2, offset 0 → BASE + 1*1000 = 1_000_001_000
+        let e = make_offset_enum("VK_EXT2_THING", 0, Some(2), true);
+        let v = parse_enum_variant(&e).expect("should parse ext_number=2");
+        assert!(matches!(v.value, EnumValue::I32(1_000_001_000)));
+    }
+
+    #[test]
+    fn enum_variant_none_spec_returns_none() {
+        let mut e = Enum::default();
+        e.name = "VK_UNUSED".to_string();
+        e.spec = EnumSpec::None;
+        assert!(parse_enum_variant(&e).is_none());
+    }
+
+    #[test]
+    fn enum_variant_skips_non_vulkan_api() {
+        let mut e = make_value_enum("VK_SC_THING", "5");
+        e.api = Some("vulkansc".to_string());
+        assert!(parse_enum_variant(&e).is_none());
+    }
+
+    #[test]
+    fn enum_variant_preserves_comment() {
+        let mut e = make_value_enum("VK_SUCCESS", "0");
+        e.comment = Some("Command completed successfully".to_string());
+        let v = parse_enum_variant(&e).expect("should parse");
+        assert_eq!(v.comment.as_deref(), Some("Command completed successfully"));
+    }
+
+    // -- parse_bitmask_bit -----------------------------------------------------
+
+    #[test]
+    fn bitmask_bit_bitpos() {
+        let e = make_bitpos_enum("VK_QUEUE_GRAPHICS_BIT", 0);
+        let b = parse_bitmask_bit(&e).expect("should parse bitmask bitpos");
+        assert!(matches!(b.value, BitmaskValue::Bitpos(0)));
+    }
+
+    #[test]
+    fn bitmask_bit_bitpos_high() {
+        let e = make_bitpos_enum("VK_SOME_BIT", 31);
+        let b = parse_bitmask_bit(&e).expect("should parse bitpos=31");
+        assert!(matches!(b.value, BitmaskValue::Bitpos(31)));
+    }
+
+    #[test]
+    fn bitmask_bit_value() {
+        let e = make_value_enum("VK_SOMETHING", "0x7FFFFFFF");
+        let b = parse_bitmask_bit(&e).expect("should parse bitmask value");
+        assert!(matches!(b.value, BitmaskValue::Value(0x7FFFFFFF)));
+    }
+
+    #[test]
+    fn bitmask_bit_alias() {
+        let e = make_alias_enum("VK_NEW_NAME", "VK_OLD_NAME");
+        let b = parse_bitmask_bit(&e).expect("should parse bitmask alias");
+        assert!(matches!(b.value, BitmaskValue::Alias(ref a) if a == "VK_OLD_NAME"));
+    }
+
+    #[test]
+    fn bitmask_bit_skips_non_vulkan() {
+        let mut e = make_bitpos_enum("VK_SC_BIT", 0);
+        e.api = Some("vulkansc".to_string());
+        assert!(parse_bitmask_bit(&e).is_none());
+    }
+
+    // -- collect_enums dispatch ------------------------------------------------
+
+    fn make_enums_group(
+        name: &str,
+        kind: Option<&str>,
+        children: Vec<EnumsChild>,
+    ) -> vk_parse::Enums {
+        let mut enums = vk_parse::Enums::default();
+        enums.name = Some(name.to_string());
+        enums.kind = kind.map(str::to_string);
+        enums.children = children;
+        enums
+    }
+
+    #[test]
+    fn collect_enums_dispatches_to_enum_map() {
+        let enums = make_enums_group(
+            "VkResult",
+            Some("enum"),
+            vec![EnumsChild::Enum(make_value_enum("VK_SUCCESS", "0"))],
+        );
+        let mut enum_map = HashMap::new();
+        let mut bitmask_map = HashMap::new();
+        let bitmask_names = HashSet::new();
+
+        collect_enums(&enums, &mut enum_map, &mut bitmask_map, &bitmask_names);
+
+        assert!(enum_map.contains_key("Result"));
+        assert_eq!(enum_map["Result"].len(), 1);
+        assert!(bitmask_map.is_empty());
+    }
+
+    #[test]
+    fn collect_enums_dispatches_to_bitmask_map() {
+        let enums = make_enums_group(
+            "VkQueueFlagBits",
+            Some("bitmask"),
+            vec![EnumsChild::Enum(make_bitpos_enum(
+                "VK_QUEUE_GRAPHICS_BIT",
+                0,
+            ))],
+        );
+        let mut enum_map = HashMap::new();
+        let mut bitmask_map = HashMap::new();
+        let bitmask_names = HashSet::new();
+
+        collect_enums(&enums, &mut enum_map, &mut bitmask_map, &bitmask_names);
+
+        assert!(bitmask_map.contains_key("QueueFlagBits"));
+        assert_eq!(bitmask_map["QueueFlagBits"].len(), 1);
+        assert!(enum_map.is_empty());
+    }
+
+    #[test]
+    fn collect_enums_skips_api_constants() {
+        let enums = make_enums_group(
+            "API Constants",
+            None,
+            vec![EnumsChild::Enum(make_value_enum("VK_TRUE", "1"))],
+        );
+        let mut enum_map = HashMap::new();
+        let mut bitmask_map = HashMap::new();
+        let bitmask_names = HashSet::new();
+
+        collect_enums(&enums, &mut enum_map, &mut bitmask_map, &bitmask_names);
+
+        assert!(enum_map.is_empty());
+        assert!(bitmask_map.is_empty());
+    }
+
+    #[test]
+    fn collect_enums_recognises_bitmask_by_name_set() {
+        let enums = make_enums_group(
+            "VkCustomFlagBits",
+            Some("enum"),
+            vec![EnumsChild::Enum(make_bitpos_enum("VK_CUSTOM_BIT", 2))],
+        );
+        let mut enum_map = HashMap::new();
+        let mut bitmask_map = HashMap::new();
+        let mut bitmask_names = HashSet::new();
+        bitmask_names.insert("CustomFlagBits".to_string());
+
+        collect_enums(&enums, &mut enum_map, &mut bitmask_map, &bitmask_names);
+
+        assert!(bitmask_map.contains_key("CustomFlagBits"));
+        assert!(enum_map.is_empty());
+    }
+}
