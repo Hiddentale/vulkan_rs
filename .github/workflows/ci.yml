@@ -225,6 +225,41 @@ jobs:
           VK_ICD_FILENAMES: /usr/share/vulkan/icd.d/lvp_icd.x86_64.json
         run: cargo test --workspace -- --ignored
 
+  layout-cross-validation:
+    name: C ↔ Rust Layout Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Compile C layout checker
+        run: cc -o c_layout_check vk-sys/tests/c_layout_check.c -I/usr/include -lvulkan
+
+      - name: Generate C layout output
+        run: ./c_layout_check > c_layouts.txt
+
+      - name: Generate Rust layout output
+        run: cargo run --bin rust_layout_check > rust_layouts.txt
+
+      - name: Cross-validate layouts
+        run: |
+          if ! diff c_layouts.txt rust_layouts.txt; then
+            echo "::error::Rust struct layouts disagree with C Vulkan headers!"
+            echo "Lines above show the differences. Left = C, Right = Rust."
+            exit 1
+          fi
+          STRUCT_COUNT=$(wc -l < c_layouts.txt)
+          echo "All ${STRUCT_COUNT} struct layouts match between C and Rust"
+
   generator-determinism:
     name: Generator Determinism
     runs-on: ubuntu-latest
