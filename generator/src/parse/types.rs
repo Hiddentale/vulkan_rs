@@ -174,15 +174,24 @@ fn parse_member_def(def: &TypeMemberDefinition) -> MemberDef {
     }
 }
 
-/// Extract fixed array size from C code like `float color[4]`.
+/// Extract fixed array dimensions from C code like `float color[4]` or `float matrix[3][4]`.
+/// Returns dimensions joined by `:` for multi-dimensional arrays (e.g. `"3:4"`).
 fn parse_fixed_array_size(code: &str) -> Option<String> {
-    let start = code.find('[')?;
-    let end = code.find(']')?;
-    let inner = code[start + 1..end].trim();
-    if !inner.is_empty() && inner.chars().all(|c| c.is_ascii_digit()) {
-        Some(inner.to_string())
-    } else {
+    let mut dims = Vec::new();
+    let mut rest = code;
+    while let Some(start) = rest.find('[') {
+        let end = rest[start..].find(']')?;
+        let inner = rest[start + 1..start + end].trim();
+        if inner.is_empty() || !inner.chars().all(|c| c.is_ascii_digit()) {
+            break;
+        }
+        dims.push(inner.to_string());
+        rest = &rest[start + end + 1..];
+    }
+    if dims.is_empty() {
         None
+    } else {
+        Some(dims.join(":"))
     }
 }
 

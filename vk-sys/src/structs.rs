@@ -13,18 +13,14 @@ pub type PFN_vkDebugUtilsMessengerCallbackEXT = Option<unsafe extern "system" fn
 pub type PFN_vkFaultCallbackFunction = Option<unsafe extern "system" fn()>;
 pub type PFN_vkDeviceMemoryReportCallbackEXT = Option<unsafe extern "system" fn()>;
 pub type PFN_vkGetInstanceProcAddrLUNARG = Option<unsafe extern "system" fn()>;
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoAV1Level {
-    _opaque: [u8; 0],
-}
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoAV1Profile {
-    _opaque: [u8; 0],
-}
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoAV1Level(pub i32);
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoAV1Profile(pub i32);
 /// Opaque video codec type (defined in vulkan_video_codec headers).
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
@@ -133,48 +129,40 @@ pub struct StdVideoEncodeH265ReferenceInfo {
 pub struct StdVideoEncodeH265SliceSegmentHeader {
     _opaque: [u8; 0],
 }
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoH264LevelIdc {
-    _opaque: [u8; 0],
-}
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoH264LevelIdc(pub i32);
 /// Opaque video codec type (defined in vulkan_video_codec headers).
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct StdVideoH264PictureParameterSet {
     _opaque: [u8; 0],
 }
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoH264ProfileIdc {
-    _opaque: [u8; 0],
-}
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoH264ProfileIdc(pub i32);
 /// Opaque video codec type (defined in vulkan_video_codec headers).
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct StdVideoH264SequenceParameterSet {
     _opaque: [u8; 0],
 }
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoH265LevelIdc {
-    _opaque: [u8; 0],
-}
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoH265LevelIdc(pub i32);
 /// Opaque video codec type (defined in vulkan_video_codec headers).
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
 pub struct StdVideoH265PictureParameterSet {
     _opaque: [u8; 0],
 }
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoH265ProfileIdc {
-    _opaque: [u8; 0],
-}
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoH265ProfileIdc(pub i32);
 /// Opaque video codec type (defined in vulkan_video_codec headers).
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Default)]
@@ -187,18 +175,14 @@ pub struct StdVideoH265SequenceParameterSet {
 pub struct StdVideoH265VideoParameterSet {
     _opaque: [u8; 0],
 }
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoVP9Level {
-    _opaque: [u8; 0],
-}
-/// Opaque video codec type (defined in vulkan_video_codec headers).
-#[repr(C)]
-#[derive(Debug, Copy, Clone, Default)]
-pub struct StdVideoVP9Profile {
-    _opaque: [u8; 0],
-}
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoVP9Level(pub i32);
+/// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]
+pub struct StdVideoVP9Profile(pub i32);
 pub type AccelerationStructureCreateFlagsKHR = AccelerationStructureCreateFlagBitsKHR;
 pub type AccessFlags = AccessFlagBits;
 pub type AccessFlags2 = AccessFlagBits2;
@@ -22079,7 +22063,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkTransformMatrixKHR")]
 pub struct TransformMatrixKHR {
-    pub matrix: [f32; 3usize],
+    pub matrix: [[f32; 4usize]; 3usize],
 }
 impl Default for TransformMatrixKHR {
     #[inline]
