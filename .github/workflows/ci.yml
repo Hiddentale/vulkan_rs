@@ -245,13 +245,26 @@ jobs:
 
       - name: Install matching Vulkan headers
         run: |
-          # System headers may be older than our vk.xml. Install latest
-          # Vulkan-Headers to ensure all types are defined.
-          git clone --depth 1 https://github.com/KhronosGroup/Vulkan-Headers.git /tmp/vulkan-headers
+          # Extract the exact version from our vk.xml so we compile against
+          # the same spec revision we generate from. Mismatch = false failures.
+          VK_PATCH=$(grep '<name>VK_HEADER_VERSION</name>' generator/vk.xml \
+            | head -1 | grep -oP '\d+(?=</type>)')
+          VK_TAG="v1.4.${VK_PATCH}"
+          echo "Our vk.xml is version 1.4.${VK_PATCH}, checking out Vulkan-Headers at ${VK_TAG}"
+
+          git clone --depth 1 --branch "${VK_TAG}" \
+            https://github.com/KhronosGroup/Vulkan-Headers.git /tmp/vulkan-headers
+
           sudo rm -rf /usr/include/vulkan
           sudo cp -r /tmp/vulkan-headers/include/vulkan /usr/include/vulkan
-          echo "Installed Vulkan header version:"
-          grep VK_HEADER_VERSION_COMPLETE /usr/include/vulkan/vulkan_core.h
+
+          # Self-check: verify the installed headers match our vk.xml
+          INSTALLED=$(grep -oP 'VK_HEADER_VERSION \K\d+' /usr/include/vulkan/vulkan_core.h | head -1)
+          if [ "$INSTALLED" != "$VK_PATCH" ]; then
+            echo "::error::Header version mismatch: installed=${INSTALLED}, expected=${VK_PATCH}"
+            exit 1
+          fi
+          echo "Verified: C headers and vk.xml both at version 1.4.${VK_PATCH}"
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
