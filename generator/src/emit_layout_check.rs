@@ -50,8 +50,12 @@ fn testable_structs<'a>(
         .filter(|s| !is_opaque(&s.name))
         .filter(|s| !has_bitfields(s))
         .filter(|s| match &s.provided_by {
-            Some(provider) => !skip_extensions.contains(provider) && !provider.starts_with("VKSC_"),
-            None => true,
+            Some(provider) => {
+                !skip_extensions.contains(provider) && !provider.starts_with("VKSC_")
+            }
+            // Types without provenance are from disabled or SC-only extensions
+            // and won't be available in standard vulkan.h
+            None => false,
         })
         .collect()
 }
@@ -186,7 +190,7 @@ mod tests {
                 extends: vec![],
                 returned_only: false,
                 is_union: false,
-                provided_by: None,
+                provided_by: Some("VK_VERSION_1_0".to_string()),
             }],
             handles: vec![],
             enums: vec![],
@@ -236,7 +240,7 @@ mod tests {
                 extends: vec![],
                 returned_only: false,
                 is_union: false,
-                provided_by: None,
+                provided_by: Some("VK_VERSION_1_0".to_string()),
             }],
             handles: vec![],
             enums: vec![],

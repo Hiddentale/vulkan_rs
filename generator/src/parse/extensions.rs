@@ -43,7 +43,15 @@ pub(super) fn stamp_provenance(registry: &Registry, reg: &mut VkRegistry) {
                     }
                     for ec in &ext.children {
                         let items = match ec {
-                            ExtensionChild::Require { items, .. } => items,
+                            ExtensionChild::Require { items, api, .. } => {
+                                // Skip require blocks for non-vulkan APIs (e.g. vulkansc)
+                                if api.as_deref().is_some_and(|a| {
+                                    !a.split(',').any(|part| part.trim() == "vulkan")
+                                }) {
+                                    continue;
+                                }
+                                items
+                            }
                             _ => continue,
                         };
                         for item in items {

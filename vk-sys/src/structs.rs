@@ -9536,8 +9536,6 @@ impl Default for SemaphoreSciSyncCreateInfoNV {
     }
 }
 ///[`VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync2**.*/
 ///
 ///# Extends
 ///- [`DeviceCreateInfo`]
@@ -19462,8 +19460,6 @@ impl Default for PerformanceQuerySubmitInfoKHR {
     }
 }
 ///[`VkPerformanceQueryReservationInfoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceQueryReservationInfoKHR.html)
-/**
-Provided by **VK_KHR_performance_query**.*/
 ///
 ///# Extends
 ///- [`DeviceCreateInfo`]
