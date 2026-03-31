@@ -248,7 +248,10 @@ jobs:
           # System headers may be older than our vk.xml. Install latest
           # Vulkan-Headers to ensure all types are defined.
           git clone --depth 1 https://github.com/KhronosGroup/Vulkan-Headers.git /tmp/vulkan-headers
+          sudo rm -rf /usr/include/vulkan
           sudo cp -r /tmp/vulkan-headers/include/vulkan /usr/include/vulkan
+          echo "Installed Vulkan header version:"
+          grep VK_HEADER_VERSION_COMPLETE /usr/include/vulkan/vulkan_core.h
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
