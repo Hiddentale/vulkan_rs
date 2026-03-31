@@ -56,7 +56,10 @@ fn main() {
     fs::write(&c_path, &c_check).unwrap_or_else(|e| {
         panic!("failed to write {}: {e}", c_path.display());
     });
-    println!("  wrote c_layout_check.c ({} lines)", c_check.lines().count());
+    println!(
+        "  wrote c_layout_check.c ({} lines)",
+        c_check.lines().count()
+    );
 
     let rs_check = emit_layout_check::emit_rust_layout_check(&registry);
     let bin_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/src/bin");
@@ -67,7 +70,10 @@ fn main() {
     fs::write(&rs_path, &rs_check).unwrap_or_else(|e| {
         panic!("failed to write {}: {e}", rs_path.display());
     });
-    println!("  wrote rust_layout_check.rs ({} lines)", rs_check.lines().count());
+    println!(
+        "  wrote rust_layout_check.rs ({} lines)",
+        rs_check.lines().count()
+    );
 
     // Generate ergonomic wrapper methods for vk-engine.
     let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-engine/src/generated");

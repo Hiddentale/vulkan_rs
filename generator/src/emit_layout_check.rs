@@ -20,8 +20,9 @@ fn is_opaque_or_problematic(name: &str) -> bool {
 /// that won't be available when compiling with generic Linux Vulkan headers.
 fn platform_extension_names(registry: &VkRegistry) -> HashSet<String> {
     // Platforms available on a generic Linux CI runner with mesa.
-    let linux_platforms: HashSet<&str> =
-        ["xcb", "xlib", "wayland", "xlib_xrandr"].into_iter().collect();
+    let linux_platforms: HashSet<&str> = ["xcb", "xlib", "wayland", "xlib_xrandr"]
+        .into_iter()
+        .collect();
 
     let platform_extensions: HashMap<&str, &str> = registry
         .extensions
@@ -46,11 +47,9 @@ fn testable_structs<'a>(
         .iter()
         .filter(|s| !s.members.is_empty())
         .filter(|s| !is_opaque_or_problematic(&s.name))
-        .filter(|s| {
-            match &s.provided_by {
-                Some(ext) => !skip_extensions.contains(ext),
-                None => true,
-            }
+        .filter(|s| match &s.provided_by {
+            Some(ext) => !skip_extensions.contains(ext),
+            None => true,
         })
         .collect()
 }
@@ -93,10 +92,7 @@ pub fn emit_c_layout_check(registry: &VkRegistry) -> String {
             .collect();
 
         let mut fmt_parts = vec!["%zu".to_string(), "%zu".to_string()]; // size, align
-        let mut arg_parts = vec![
-            format!("sizeof({c_name})"),
-            format!("_Alignof({c_name})"),
-        ];
+        let mut arg_parts = vec![format!("sizeof({c_name})"), format!("_Alignof({c_name})")];
 
         for field in &fields {
             fmt_parts.push("%zu".to_string());
@@ -105,10 +101,7 @@ pub fn emit_c_layout_check(registry: &VkRegistry) -> String {
 
         let fmt = fmt_parts.join(" ");
         let args = arg_parts.join(", ");
-        c.push_str(&format!(
-            "    printf(\"{} {fmt}\\n\", {args});\n",
-            s.name
-        ));
+        c.push_str(&format!("    printf(\"{} {fmt}\\n\", {args});\n", s.name));
     }
 
     c.push_str("    return 0;\n");
@@ -150,7 +143,9 @@ pub fn emit_rust_layout_check(registry: &VkRegistry) -> String {
         }
 
         let print_args = parts.join(", ");
-        let fmt = std::iter::repeat_n("{}", parts.len()).collect::<Vec<_>>().join(" ");
+        let fmt = std::iter::repeat_n("{}", parts.len())
+            .collect::<Vec<_>>()
+            .join(" ");
         rs.push_str(&format!(
             "    println!(\"{rust_name} {fmt}\", {print_args});\n"
         ));
