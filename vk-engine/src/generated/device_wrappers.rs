@@ -13,6 +13,22 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Returns a function pointer for a device-level command. This is the
+    ///device-specific equivalent of `get_instance_proc_addr` and returns
+    ///pointers dispatched directly through the device's driver, bypassing
+    ///the loader trampoline.
+    ///
+    ///In normal usage you do not need to call this yourself — `Device`
+    ///loads all function pointers automatically at creation time. Use this
+    ///only if you need a command that is not yet exposed as a wrapper
+    ///method, or for raw interop scenarios.
+    ///
+    ///The returned pointer is only valid for the device it was queried
+    ///from. Passing a command name that the device does not support
+    ///returns a null pointer.
     pub unsafe fn get_device_proc_addr(&self, p_name: *const core::ffi::c_char) {
         let fp = self
             .commands()
@@ -27,6 +43,23 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `device` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Destroys a logical device and frees its resources. All objects
+    ///created from this device (buffers, images, pipelines, command pools,
+    ///etc.) **must** be destroyed before calling this.
+    ///
+    ///A safe teardown order:
+    ///
+    ///1. `device_wait_idle` — ensure no GPU work is in flight.
+    ///2. Destroy all device-child objects (pipelines, buffers, images,
+    ///   views, descriptor pools, command pools, fences, semaphores, etc.).
+    ///3. `free_memory` for all device memory allocations.
+    ///4. `destroy_device`.
+    ///
+    ///After this call the `Device` handle is invalid. Do not use it or any
+    ///object created from it.
     pub unsafe fn destroy_device(&self, allocator: Option<&AllocationCallbacks>) {
         let fp = self
             .commands()
@@ -41,6 +74,23 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Retrieves a queue handle for a queue that was requested at device
+    ///creation time. The `queue_family_index` and `queue_index` must match
+    ///a family and index that was included in the `DeviceCreateInfo`'s
+    ///`queue_create_infos`.
+    ///
+    ///Queue handles are implicitly owned by the device — they do not need
+    ///to be destroyed and become invalid when the device is destroyed.
+    ///
+    ///Queues retrieved this way have no special flags. If you created
+    ///queues with `DeviceQueueCreateFlags` (e.g. protected queues), use
+    ///`get_device_queue2` instead.
+    ///
+    ///It is common to retrieve queues once after device creation and store
+    ///them for the lifetime of the device.
     pub unsafe fn get_device_queue(&self, queue_family_index: u32, queue_index: u32) -> Queue {
         let fp = self
             .commands()
@@ -65,6 +115,28 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///- `fence` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///`queue_submit` is the primary way to send recorded command buffers
+    ///to the GPU. Each `SubmitInfo` specifies:
+    ///
+    ///- **Wait semaphores + stage masks**: the submission waits on these
+    ///  semaphores at the given pipeline stages before executing.
+    ///- **Command buffers**: executed in array order within the submission.
+    ///- **Signal semaphores**: signalled when all command buffers complete.
+    ///
+    ///**Fence**: pass a fence to know when the *entire batch* of submissions
+    ///completes on the CPU side. Passing `Fence::null()` means there is no
+    ///CPU-visible signal — you must use semaphores or `queue_wait_idle`
+    ///instead.
+    ///
+    ///Minimize `queue_submit` calls. Each call has driver overhead; batching
+    ///multiple `SubmitInfo` entries into one call is cheaper than separate
+    ///calls.
+    ///
+    ///**Thread safety**: a `Queue` must be externally synchronized. If
+    ///multiple threads submit to the same queue, you need a mutex.
     pub unsafe fn queue_submit(
         &self,
         queue: Queue,
@@ -91,6 +163,21 @@ impl crate::Device {
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Blocks the calling thread until all commands submitted to this queue
+    ///have completed. Equivalent to submitting a fence and immediately
+    ///waiting on it, but simpler.
+    ///
+    ///Use this for quick synchronization in non-performance-critical paths
+    ///(e.g. during teardown or after a one-shot transfer). In a render
+    ///loop, prefer fences or timeline semaphores for finer-grained
+    ///control — `queue_wait_idle` stalls the CPU and prevents overlap
+    ///between CPU and GPU work.
+    ///
+    ///The queue must be externally synchronized: do not call this while
+    ///another thread is submitting to the same queue.
     pub unsafe fn queue_wait_idle(&self, queue: Queue) -> VkResult<()> {
         let fp = self
             .commands()
@@ -111,6 +198,23 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Blocks the calling thread until **all** queues on this device are
+    ///idle. This is the nuclear option for synchronization — it drains
+    ///every queue completely.
+    ///
+    ///Typical uses:
+    ///
+    ///- **Before destroying the device**: ensures no GPU work is in flight
+    ///  before you start tearing down resources.
+    ///- **Before a swapchain resize**: guarantees all frames are done so
+    ///  image views and framebuffers can be safely recreated.
+    ///
+    ///Avoid calling this in a render loop. It forces a full CPU–GPU
+    ///round-trip and prevents any overlap. Use per-frame fences or
+    ///timeline semaphores instead.
     pub unsafe fn device_wait_idle(&self) -> VkResult<()> {
         let fp = self
             .commands()
@@ -162,6 +266,21 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `memory` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Frees a device memory allocation. All buffers and images bound to
+    ///this memory must already be destroyed — freeing memory while objects
+    ///are still bound is undefined behaviour.
+    ///
+    ///If the memory is currently mapped, it is implicitly unmapped before
+    ///being freed. You do not need to call `unmap_memory` first, although
+    ///doing so explicitly is a common defensive practice.
+    ///
+    ///Vulkan has a per-device allocation limit
+    ///(`max_memory_allocation_count`, often 4096). Sub-allocating from
+    ///large blocks and freeing them as a group keeps you well within this
+    ///limit.
     pub unsafe fn free_memory(
         &self,
         memory: DeviceMemory,
@@ -188,6 +307,29 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `memory` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Maps device memory into the host address space so the CPU can read or
+    ///write it. The memory must have been allocated from a memory type with
+    ///`MEMORY_PROPERTY_HOST_VISIBLE`.
+    ///
+    ///**Persistently mapped memory**: it is valid (and recommended) to keep
+    ///memory mapped for the lifetime of the allocation. Map once after
+    ///`allocate_memory` and unmap only before `free_memory`. This avoids
+    ///repeated map/unmap overhead.
+    ///
+    ///**Coherency**: if the memory type does not include
+    ///`MEMORY_PROPERTY_HOST_COHERENT`, you must call:
+    ///
+    ///- `flush_mapped_memory_ranges` after CPU writes, before GPU reads.
+    ///- `invalidate_mapped_memory_ranges` after GPU writes, before CPU reads.
+    ///
+    ///Host-coherent memory skips both calls at the cost of slightly lower
+    ///throughput on some architectures.
+    ///
+    ///**Alignment**: when sub-allocating from a large allocation, ensure
+    ///offsets respect `non_coherent_atom_size` for flush/invalidate ranges.
     pub unsafe fn map_memory(
         &self,
         memory: DeviceMemory,
@@ -206,6 +348,22 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `memory` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Unmaps a previously mapped device memory region. After this call the
+    ///host pointer returned by `map_memory` is invalid.
+    ///
+    ///Unmapping is only strictly necessary before `free_memory` if you
+    ///want to be explicit. Freeing memory implicitly unmaps it.
+    ///
+    ///For persistently mapped memory (the recommended pattern), you
+    ///typically map once after allocation and unmap only during teardown.
+    ///There is no performance penalty for keeping memory mapped.
+    ///
+    ///If the memory type is not `HOST_COHERENT`, make sure to call
+    ///`flush_mapped_memory_ranges` after your final writes before
+    ///unmapping, to ensure the GPU sees the latest data.
     pub unsafe fn unmap_memory(&self, memory: DeviceMemory) {
         let fp = self
             .commands()
@@ -225,6 +383,27 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Flushes CPU writes to mapped non-coherent memory so the GPU can see
+    ///them. Only needed when the memory type does **not** include
+    ///`MEMORY_PROPERTY_HOST_COHERENT`.
+    ///
+    ///Call this **after** writing data through the mapped pointer and
+    ///**before** the GPU reads it (i.e. before the relevant
+    ///`queue_submit`).
+    ///
+    ///**Alignment**: the `offset` and `size` of each range must be
+    ///multiples of `non_coherent_atom_size` (from physical device limits),
+    ///or `offset` must be zero and `size` must be `VK_WHOLE_SIZE`. Failing
+    ///to align causes undefined behaviour on some implementations.
+    ///
+    ///Multiple ranges can be flushed in a single call. Batch them when
+    ///updating several sub-allocations within the same memory object.
+    ///
+    ///If you are using host-coherent memory, this call is unnecessary and
+    ///can be skipped entirely.
     pub unsafe fn flush_mapped_memory_ranges(
         &self,
         p_memory_ranges: &[MappedMemoryRange],
@@ -253,6 +432,24 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Invalidates CPU caches for mapped non-coherent memory so the CPU
+    ///can see data written by the GPU. The counterpart to
+    ///`flush_mapped_memory_ranges`.
+    ///
+    ///Call this **after** the GPU has finished writing (e.g. after
+    ///`wait_for_fences` on the relevant submission) and **before** reading
+    ///the data through the mapped pointer.
+    ///
+    ///The same alignment rules apply: `offset` and `size` must be
+    ///multiples of `non_coherent_atom_size`, or use offset zero with
+    ///`VK_WHOLE_SIZE`.
+    ///
+    ///If you are using host-coherent memory, this call is unnecessary —
+    ///GPU writes are automatically visible to the CPU. Most desktop GPUs
+    ///offer host-coherent memory types for host-visible heaps.
     pub unsafe fn invalidate_mapped_memory_ranges(
         &self,
         p_memory_ranges: &[MappedMemoryRange],
@@ -275,6 +472,21 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Queries how many bytes of a lazily-allocated memory object are
+    ///currently backed by physical storage. Only meaningful for memory
+    ///allocated with `MEMORY_PROPERTY_LAZILY_ALLOCATED`.
+    ///
+    ///Lazily-allocated memory is primarily used for transient framebuffer
+    ///attachments on tile-based GPUs (mobile). The driver may not back the
+    ///full allocation with physical memory until tiles actually need it.
+    ///
+    ///On desktop GPUs this typically returns the full allocation size since
+    ///lazy allocation is rarely supported. Check
+    ///`memory_properties.memory_types` for the `LAZILY_ALLOCATED` flag
+    ///before relying on this.
     pub unsafe fn get_device_memory_commitment(&self, memory: DeviceMemory) -> u64 {
         let fp = self
             .commands()
@@ -290,6 +502,23 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Returns the memory requirements (size, alignment, compatible memory
+    ///type bits) for a buffer. Must be called before `bind_buffer_memory`.
+    ///
+    ///The returned `memory_type_bits` is a bitmask where bit *i* is set if
+    ///memory type *i* (from `get_physical_device_memory_properties`) is
+    ///compatible. Pick a type that satisfies both this mask and your
+    ///desired properties (`HOST_VISIBLE`, `DEVICE_LOCAL`, etc.).
+    ///
+    ///The `alignment` value must be respected when sub-allocating: the
+    ///offset passed to `bind_buffer_memory` must be a multiple of it.
+    ///
+    ///For Vulkan 1.1+, prefer `get_buffer_memory_requirements2` which
+    ///supports dedicated allocation queries via
+    ///`MemoryDedicatedRequirements`.
     pub unsafe fn get_buffer_memory_requirements(&self, buffer: Buffer) -> MemoryRequirements {
         let fp = self
             .commands()
@@ -313,6 +542,27 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `buffer` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Binds a `DeviceMemory` allocation (or a region of one) to a buffer.
+    ///Must be called before the buffer is used in any command.
+    ///
+    ///**Requirements**:
+    ///
+    ///1. Call `get_buffer_memory_requirements` first.
+    ///2. The `memory_type_index` used for allocation must have a bit set
+    ///   in the returned `memory_type_bits` mask.
+    ///3. `memory_offset` must be a multiple of the returned `alignment`.
+    ///4. `memory_offset + size` must not exceed the allocation size.
+    ///
+    ///**Sub-allocation**: multiple buffers can share one `DeviceMemory`
+    ///allocation at different offsets. This is strongly recommended —
+    ///drivers have a per-allocation limit (`max_memory_allocation_count`,
+    ///often 4096) and each allocation has overhead.
+    ///
+    ///Once bound, the memory binding cannot be changed for the lifetime of
+    ///the buffer. Destroy the buffer before freeing its backing memory.
     pub unsafe fn bind_buffer_memory(
         &self,
         buffer: Buffer,
@@ -331,6 +581,23 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Returns the memory requirements (size, alignment, compatible memory
+    ///type bits) for an image. Must be called before `bind_image_memory`.
+    ///
+    ///Image memory requirements can differ significantly based on tiling,
+    ///format, and usage flags. An `IMAGE_TILING_OPTIMAL` image typically
+    ///requires `DEVICE_LOCAL` memory and has stricter alignment than a
+    ///linear image.
+    ///
+    ///When sub-allocating linear and optimal images from the same memory
+    ///object, the `buffer_image_granularity` device limit applies. You may
+    ///need extra padding between the two to satisfy this constraint.
+    ///
+    ///For Vulkan 1.1+, prefer `get_image_memory_requirements2` which
+    ///supports dedicated allocation queries.
     pub unsafe fn get_image_memory_requirements(&self, image: Image) -> MemoryRequirements {
         let fp = self
             .commands()
@@ -353,6 +620,32 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `image` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Binds a `DeviceMemory` allocation (or a region of one) to an image.
+    ///Must be called after `create_image` and before the image is used.
+    ///
+    ///**Requirements**:
+    ///
+    ///1. Call `get_image_memory_requirements` first.
+    ///2. The `memory_type_index` used for allocation must have a bit set
+    ///   in the returned `memory_type_bits` mask.
+    ///3. `memory_offset` must be a multiple of the returned `alignment`.
+    ///
+    ///**Dedicated allocations**: some drivers perform better when certain
+    ///images (especially swapchain-sized color or depth targets) have their
+    ///own allocation. Query `get_image_memory_requirements2` with
+    ///`MemoryDedicatedRequirements` to check whether the driver prefers or
+    ///requires a dedicated allocation.
+    ///
+    ///**Sub-allocation**: like buffers, multiple images can share one
+    ///allocation at different offsets. Respect alignment from the memory
+    ///requirements, and note that linear and optimal-tiling images may
+    ///need `buffer_image_granularity` spacing between them.
+    ///
+    ///Once bound, the memory binding is permanent. Destroy the image
+    ///before freeing its backing memory.
     pub unsafe fn bind_image_memory(
         &self,
         image: Image,
@@ -371,6 +664,22 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Queries the sparse memory requirements for an image created with
+    ///one of the `IMAGE_CREATE_SPARSE_*` flags. Returns a list of sparse
+    ///image format properties describing the memory layout for each
+    ///image aspect (color, depth, stencil, metadata).
+    ///
+    ///Sparse resources allow partially-resident textures where only some
+    ///mip levels or regions are backed by physical memory. This is an
+    ///advanced feature primarily used for virtual texturing and terrain
+    ///streaming.
+    ///
+    ///If the image was not created with sparse flags, this returns an
+    ///empty list. Check `physical_device_features.sparse_binding` before
+    ///using sparse resources.
     pub unsafe fn get_image_sparse_memory_requirements(
         &self,
         image: Image,
@@ -396,6 +705,28 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///- `fence` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Binds sparse memory regions to sparse resources (buffers or images).
+    ///This is the only way to change the memory backing of a sparse
+    ///resource after creation.
+    ///
+    ///Sparse binding supports:
+    ///
+    ///- **Partial residency**: bind memory to individual mip tail regions
+    ///  or image tiles, leaving others unbound.
+    ///- **Aliasing**: multiple sparse resources can alias the same memory
+    ///  region (with `IMAGE_CREATE_SPARSE_ALIASED`).
+    ///- **Dynamic re-binding**: swap memory pages at runtime for virtual
+    ///  texturing or streaming.
+    ///
+    ///The bind operation is asynchronous and can synchronize with
+    ///semaphores, similar to `queue_submit`. The queue must support sparse
+    ///binding (check `QUEUE_SPARSE_BINDING`).
+    ///
+    ///This is an advanced feature. Most applications use fully-bound
+    ///resources with `bind_buffer_memory` / `bind_image_memory` instead.
     pub unsafe fn queue_bind_sparse(
         &self,
         queue: Queue,
@@ -420,6 +751,28 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Fences are the primary CPU–GPU synchronization primitive. The CPU
+    ///blocks on `wait_for_fences` until the GPU signals the fence.
+    ///
+    ///**Initial state**: create with `FENCE_CREATE_SIGNALED` when the
+    ///fence is used in a frame loop that waits before the first submit.
+    ///Without this flag the first `wait_for_fences` would block forever.
+    ///
+    ///**Typical frame loop pattern**:
+    ///
+    ///1. `wait_for_fences` — block until the previous frame's GPU work
+    ///   completes.
+    ///2. `reset_fences` — reset back to unsignaled.
+    ///3. Record and submit commands, passing the fence to `queue_submit`.
+    ///
+    ///A fence can only be associated with one submission at a time.
+    ///Submitting with a fence that is already pending is an error.
+    ///
+    ///For GPU–GPU synchronization (between queue submissions) use
+    ///semaphores instead. Fences are strictly for CPU-visible signalling.
     pub unsafe fn create_fence(
         &self,
         p_create_info: &FenceCreateInfo,
@@ -441,6 +794,16 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `fence` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Destroys a fence object. The fence must not be in use by any
+    ///pending `queue_submit` call — wait on it or call `device_wait_idle`
+    ///before destroying.
+    ///
+    ///Fences are lightweight objects but are still tracked by the driver.
+    ///Destroy them during teardown or when they are no longer part of your
+    ///synchronization scheme.
     pub unsafe fn destroy_fence(&self, fence: Fence, allocator: Option<&AllocationCallbacks>) {
         let fp = self
             .commands()
@@ -461,6 +824,22 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pFences` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Resets one or more fences to the unsignaled state. Must be called
+    ///before reusing a fence in a new `queue_submit` call.
+    ///
+    ///The fence must not be currently waited on by `wait_for_fences` from
+    ///another thread. A common safe pattern:
+    ///
+    ///1. `wait_for_fences` — blocks until signaled.
+    ///2. `reset_fences` — immediately reset after the wait returns.
+    ///3. Submit new work with the fence.
+    ///
+    ///Resetting a fence that is already unsignaled is valid but wasteful.
+    ///Resetting a fence that is pending (submitted but not yet signaled)
+    ///is an error.
     pub unsafe fn reset_fences(&self, p_fences: &[Fence]) -> VkResult<()> {
         let fp = self
             .commands()
@@ -481,6 +860,27 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Non-blocking check of whether a fence is signaled. Returns
+    ///`VK_SUCCESS` if signaled, `VK_NOT_READY` if still pending.
+    ///
+    ///Use this for polling patterns where you want to do other work while
+    ///waiting:
+    ///
+    ///```text
+    ///loop {
+    ///    if get_fence_status(fence) == VK_SUCCESS { break; }
+    ///    // do other work...
+    ///}
+    ///```
+    ///
+    ///For blocking waits, prefer `wait_for_fences` which is more efficient
+    ///than a spin loop — it lets the CPU sleep until the driver signals.
+    ///
+    ///This call can also return device-lost errors, so check the result
+    ///even in non-error paths.
     pub unsafe fn get_fence_status(&self, fence: Fence) -> VkResult<()> {
         let fp = self
             .commands()
@@ -501,6 +901,35 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Blocks the calling thread until one or all of the given fences are
+    ///signaled, or until the timeout expires.
+    ///
+    ///**`wait_all`**: when `true`, the call returns only after *every*
+    ///fence in the list is signaled. When `false`, it returns as soon as
+    ///*any* one fence is signaled.
+    ///
+    ///**Timeout**: specified in nanoseconds. `u64::MAX` means wait
+    ///indefinitely. A timeout of zero performs a non-blocking check
+    ///(equivalent to polling `get_fence_status` on each fence).
+    ///
+    ///Returns `VK_TIMEOUT` if the timeout expires before the condition is
+    ///met. This is not an error — check the return value and handle it
+    ///(e.g. log a warning or retry).
+    ///
+    ///**Typical frame loop**:
+    ///
+    ///```text
+    ///wait_for_fences(&[frame_fence], true, u64::MAX)
+    ///reset_fences(&[frame_fence])
+    #[doc = "// record and submit..."]
+    ///```
+    ///
+    ///After `wait_for_fences` returns successfully, all GPU work
+    ///associated with those fences is complete and the resources are safe
+    ///to reuse.
     pub unsafe fn wait_for_fences(
         &self,
         p_fences: &[Fence],
@@ -533,6 +962,29 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Creates a semaphore for GPU–GPU synchronization between queue
+    ///submissions. Unlike fences (CPU–GPU), semaphores are invisible to
+    ///the CPU — they are signaled and waited on entirely within
+    ///`queue_submit` or `queue_present_khr`.
+    ///
+    ///**Binary semaphores** (the default) have two states: signaled and
+    ///unsignaled. A submission signals the semaphore, and a later
+    ///submission waits on it, which also resets it to unsignaled.
+    ///
+    ///**Timeline semaphores** (Vulkan 1.2+) have a monotonically
+    ///increasing 64-bit counter. Create one by chaining
+    ///`SemaphoreTypeCreateInfo` with `SEMAPHORE_TYPE_TIMELINE`. Timeline
+    ///semaphores can be waited on and signaled from the CPU as well via
+    ///`wait_semaphores` and `signal_semaphore`.
+    ///
+    ///Common uses:
+    ///
+    ///- Synchronize between a graphics queue submit and a present.
+    ///- Order a transfer upload before a render pass that consumes it.
+    ///- Coordinate work across different queue families.
     pub unsafe fn create_semaphore(
         &self,
         p_create_info: &SemaphoreCreateInfo,
@@ -554,6 +1006,14 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `semaphore` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Destroys a semaphore. The semaphore must not be referenced by any
+    ///pending queue submission — either as a wait or signal semaphore.
+    ///
+    ///Wait for all submissions that use this semaphore to complete (via
+    ///fences or `device_wait_idle`) before destroying it.
     pub unsafe fn destroy_semaphore(
         &self,
         semaphore: Semaphore,
@@ -675,6 +1135,26 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Creates a pool of query slots. Queries let you measure GPU
+    ///performance and gather statistics without stalling the pipeline.
+    ///
+    ///**Query types**:
+    ///
+    ///- `OCCLUSION`: counts how many samples pass the depth test. Useful
+    ///  for visibility culling — render a bounding box, check the count.
+    ///- `PIPELINE_STATISTICS`: counts shader invocations, primitives,
+    ///  clipping, etc. Must be enabled via
+    ///  `pipeline_statistics_query` device feature.
+    ///- `TIMESTAMP`: records a GPU timestamp. Use two timestamps and the
+    ///  `timestamp_period` device property to measure elapsed time.
+    ///
+    ///Queries must be reset before use with `cmd_reset_query_pool` (or
+    ///`reset_query_pool` on Vulkan 1.2+). Results are retrieved with
+    ///`get_query_pool_results` or copied into a buffer with
+    ///`cmd_copy_query_pool_results`.
     pub unsafe fn create_query_pool(
         &self,
         p_create_info: &QueryPoolCreateInfo,
@@ -696,6 +1176,12 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `queryPool` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Destroys a query pool and frees its resources. All command buffers
+    ///that reference this pool must have completed execution before
+    ///destroying it.
     pub unsafe fn destroy_query_pool(
         &self,
         query_pool: QueryPool,
@@ -721,6 +1207,32 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Reads query results from a query pool into a host buffer. This is
+    ///the CPU-side retrieval path — for GPU-side copies into a device
+    ///buffer, use `cmd_copy_query_pool_results` instead.
+    ///
+    ///**Key flags**:
+    ///
+    ///- `QUERY_RESULT_64`: return 64-bit results. Always use this for
+    ///  timestamp and pipeline statistics queries to avoid overflow.
+    ///- `QUERY_RESULT_WAIT`: block until all requested queries are
+    ///  available. Without this flag, unavailable queries return
+    ///  `VK_NOT_READY` and their slots are left untouched.
+    ///- `QUERY_RESULT_WITH_AVAILABILITY`: append an availability value
+    ///  after each result (non-zero if available). Useful for polling
+    ///  without blocking.
+    ///- `QUERY_RESULT_PARTIAL`: return whatever data is available even
+    ///  for incomplete queries. Only meaningful for occlusion queries.
+    ///
+    ///**Stride**: the `stride` parameter is the byte distance between
+    ///successive query results in your output buffer. It must be at least
+    ///large enough to hold the result plus the optional availability value.
+    ///
+    ///Queries that have not been started or not yet completed return
+    ///`VK_NOT_READY` unless `QUERY_RESULT_WAIT` is set.
     pub unsafe fn get_query_pool_results(
         &self,
         query_pool: QueryPool,
@@ -825,6 +1337,20 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `buffer` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Destroys a buffer object. The buffer must not be in use by any
+    ///pending GPU work — wait on the relevant fences or call
+    ///`device_wait_idle` before destroying.
+    ///
+    ///Destroying a buffer does **not** free its backing memory. Call
+    ///`free_memory` separately (or let your sub-allocator reclaim the
+    ///region).
+    ///
+    ///Destroy order: destroy the buffer first, then free the memory. Not
+    ///the reverse — freeing memory while a buffer is still bound to it is
+    ///undefined behaviour.
     pub unsafe fn destroy_buffer(&self, buffer: Buffer, allocator: Option<&AllocationCallbacks>) {
         let fp = self
             .commands()
@@ -892,6 +1418,25 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///After creating an image you must bind memory to it before use:
+    ///
+    ///1. Query requirements with `get_image_memory_requirements`.
+    ///2. Allocate from a compatible memory type with `allocate_memory`.
+    ///3. Bind with `bind_image_memory`.
+    ///
+    ///Choose `IMAGE_TILING_OPTIMAL` for GPU-side textures and render targets.
+    ///Use `IMAGE_TILING_LINEAR` only when you need direct CPU access to the
+    ///texel layout (e.g. CPU readback), and check format support first with
+    ///`get_physical_device_image_format_properties`.
+    ///
+    ///The `initial_layout` must be `UNDEFINED` or `PREINITIALIZED`.
+    ///Most applications use `UNDEFINED` and transition via a pipeline barrier.
+    ///
+    ///Destroy with `destroy_image` when no longer needed. Do not destroy an
+    ///image that is still referenced by a framebuffer or image view.
     pub unsafe fn create_image(
         &self,
         p_create_info: &ImageCreateInfo,
@@ -913,6 +1458,23 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `image` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Destroys an image object. The image must not be in use by any
+    ///pending GPU work, and all image views referencing this image must
+    ///already be destroyed.
+    ///
+    ///Destroying an image does **not** free its backing memory. Call
+    ///`free_memory` separately after destroying the image.
+    ///
+    ///Safe teardown order for an image:
+    ///
+    ///1. Wait for all GPU work using the image to complete.
+    ///2. Destroy all `ImageView` objects referencing the image.
+    ///3. Destroy any `Framebuffer` objects that included those views.
+    ///4. `destroy_image`.
+    ///5. Free or reclaim the backing memory.
     pub unsafe fn destroy_image(&self, image: Image, allocator: Option<&AllocationCallbacks>) {
         let fp = self
             .commands()
@@ -953,6 +1515,26 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///An image view selects a subset of an image's subresources and
+    ///reinterprets them for a specific use (sampling, color attachment, etc.).
+    ///
+    ///Common pitfalls:
+    ///
+    ///- **Aspect mask**: use `COLOR` for color formats, `DEPTH` and/or
+    ///  `STENCIL` for depth/stencil formats. Getting this wrong causes
+    ///  validation errors that are not always obvious.
+    ///- **Format compatibility**: the view format must be compatible with the
+    ///  image's format. Using `IMAGE_CREATE_MUTABLE_FORMAT` on the image
+    ///  relaxes this to any format in the same size-compatibility class.
+    ///- **View type vs image type**: a 2D image can back a `VIEW_TYPE_2D` or
+    ///  `VIEW_TYPE_2D_ARRAY`. A 3D image cannot be viewed as 2D without
+    ///  `VK_EXT_image_2d_view_of_3d`.
+    ///
+    ///Destroy with `destroy_image_view` when no longer needed. Destroy image
+    ///views *before* destroying the underlying image.
     pub unsafe fn create_image_view(
         &self,
         p_create_info: &ImageViewCreateInfo,
@@ -999,6 +1581,19 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///The input must be valid SPIR-V bytecode. The `code` slice is `&[u32]`
+    ///and must be aligned to 4 bytes — which Rust's `&[u32]` guarantees.
+    ///
+    ///Use the `bytecode::read_spv` helper to load a `.spv` file from disk
+    ///with correct alignment.
+    ///
+    ///Shader modules can be destroyed immediately after pipeline creation;
+    ///the driver copies what it needs during `create_graphics_pipelines` or
+    ///`create_compute_pipelines`. Destroying early keeps the handle count
+    ///low.
     pub unsafe fn create_shader_module(
         &self,
         p_create_info: &ShaderModuleCreateInfo,
@@ -1274,6 +1869,28 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineCache` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Graphics pipeline creation is the most expensive Vulkan object creation
+    ///call. Batch multiple pipelines into a single call when possible,the
+    ///driver can often parallelise compilation internally.
+    ///
+    ///**Pipeline cache**: always pass a `PipelineCache`. Even an empty cache
+    ///helps on the first run; on subsequent runs it avoids redundant shader
+    ///compilation entirely. Serialize the cache to disk between application
+    ///sessions with `get_pipeline_cache_data`.
+    ///
+    ///**Dynamic state**: mark states like viewport, scissor, and blend
+    ///constants as dynamic to reduce the number of pipeline permutations.
+    ///Vulkan 1.3 makes viewport and scissor dynamic by default via
+    ///`VK_DYNAMIC_STATE_VIEWPORT_WITH_COUNT` and
+    ///`VK_DYNAMIC_STATE_SCISSOR_WITH_COUNT`.
+    ///
+    ///If creation fails for one pipeline in a batch, the call returns an
+    ///error but may still populate some output handles. Check
+    ///`VK_PIPELINE_COMPILE_REQUIRED` when using
+    ///`VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT`.
     pub unsafe fn create_graphics_pipelines(
         &self,
         pipeline_cache: PipelineCache,
@@ -1480,6 +2097,29 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///A descriptor set layout defines the shape of a descriptor set: which
+    ///binding numbers exist, what descriptor type each binding holds, and
+    ///at which shader stages each binding is visible.
+    ///
+    ///**Binding tips**:
+    ///
+    ///- Keep `stage_flags` as narrow as possible. Declaring a binding
+    ///  visible to all stages when only the fragment shader uses it wastes
+    ///  driver resources on some implementations.
+    ///- Use `DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER` for simple texture
+    ///  sampling. Separate sampler + sampled image bindings offer more
+    ///  flexibility when you want to reuse samplers across many textures.
+    ///- Array descriptors (`descriptor_count > 1`) map to GLSL arrays.
+    ///  Useful for bindless or material-table patterns.
+    ///
+    ///Layouts are immutable after creation and can be shared across
+    ///multiple pipeline layouts and descriptor set allocations.
+    ///
+    ///Destroy with `destroy_descriptor_set_layout` when no pipeline layout
+    ///or pending descriptor set allocation still references it.
     pub unsafe fn create_descriptor_set_layout(
         &self,
         p_create_info: &DescriptorSetLayoutCreateInfo,
@@ -1595,6 +2235,29 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Allocates descriptor sets from a descriptor pool. Each set is backed
+    ///by one of the `set_layouts` in the allocate info.
+    ///
+    ///Common failure causes:
+    ///
+    ///- **Pool exhaustion**: the pool does not have enough descriptors of
+    ///  the required types, or the maximum set count has been reached.
+    ///  Returns `VK_ERROR_OUT_OF_POOL_MEMORY`. Pre-calculate pool sizes
+    ///  carefully or use `VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT`
+    ///  to allow freeing and reallocation.
+    ///- **Fragmentation**: even with enough total descriptors, internal
+    ///  fragmentation can cause allocation failure. Resetting the entire
+    ///  pool with `reset_descriptor_pool` defragments it.
+    ///
+    ///Descriptor sets become invalid when their parent pool is destroyed
+    ///or reset. Do not submit command buffers that reference descriptor
+    ///sets from a pool that has been reset.
+    ///
+    ///For frequently-updated descriptors, consider
+    ///`VK_KHR_push_descriptor` which avoids set allocation entirely.
     pub unsafe fn allocate_descriptor_sets(
         &self,
         p_allocate_info: &DescriptorSetAllocateInfo,
@@ -1674,6 +2337,26 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///A framebuffer binds concrete image views to the attachment slots
+    ///defined by a render pass. The number and format of attachments must
+    ///match the render pass exactly — mismatches cause validation errors.
+    ///
+    ///**Dimensions**: `width`, `height`, and `layers` must be less than
+    ///or equal to the corresponding dimensions of every attached image
+    ///view. They define the renderable area for `cmd_begin_render_pass`.
+    ///
+    ///**Lifetime**: the framebuffer must stay alive for the entire
+    ///duration of any render pass instance that uses it. In practice,
+    ///framebuffers are typically recreated when the swapchain is resized.
+    ///
+    ///**Imageless framebuffers** (Vulkan 1.2+): create the framebuffer
+    ///with `FRAMEBUFFER_CREATE_IMAGELESS` and no attachments. Concrete
+    ///image views are then supplied at `cmd_begin_render_pass` time via
+    ///`RenderPassAttachmentBeginInfo`. This avoids recreating framebuffers
+    ///on swapchain resize.
     pub unsafe fn create_framebuffer(
         &self,
         p_create_info: &FramebufferCreateInfo,
@@ -1719,6 +2402,29 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///A render pass describes the attachments, subpasses, and dependencies
+    ///used during rendering. It does not reference actual images — those
+    ///are bound later via a framebuffer.
+    ///
+    ///Key design points:
+    ///
+    ///- **`load_op` / `store_op`**: use `DONT_CARE` for attachments whose
+    ///  prior contents are irrelevant (e.g. a transient depth buffer). This
+    ///  lets tile-based GPUs skip loads/stores, which is significant on
+    ///  mobile.
+    ///- **`initial_layout` / `final_layout`**: Vulkan inserts implicit layout
+    ///  transitions at render pass boundaries. Set these to match your actual
+    ///  usage to avoid unnecessary transitions. `UNDEFINED` for `initial_layout`
+    ///  is fine when `load_op` is `CLEAR` or `DONT_CARE`.
+    ///- **Subpass dependencies**: the implicit external dependencies
+    ///  (`VK_SUBPASS_EXTERNAL`) are often insufficient. Add explicit
+    ///  dependencies when subsequent passes read the output.
+    ///
+    ///For dynamic rendering (Vulkan 1.3+), consider `cmd_begin_rendering`
+    ///instead, which avoids the need for render pass and framebuffer objects.
     pub unsafe fn create_render_pass(
         &self,
         p_create_info: &RenderPassCreateInfo,
@@ -1797,6 +2503,28 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///A command pool provides the memory backing for command buffers
+    ///allocated from it. Pools are tied to a single queue family — command
+    ///buffers allocated from the pool can only be submitted to queues of
+    ///that family.
+    ///
+    ///**Flags**:
+    ///
+    ///- `TRANSIENT`: hint that command buffers are short-lived and reset or
+    ///  freed frequently. Lets the driver use a faster allocation strategy.
+    ///- `RESET_COMMAND_BUFFER`: allows individual command buffers to be
+    ///  reset via `reset_command_buffer`. Without this flag you must reset
+    ///  the entire pool with `reset_command_pool`.
+    ///
+    ///A common pattern is one pool per frame-in-flight per thread: reset the
+    ///whole pool at the start of each frame instead of managing individual
+    ///command buffer lifetimes.
+    ///
+    ///Command pools are **not thread-safe**. If multiple threads record
+    ///commands concurrently, each thread needs its own pool.
     pub unsafe fn create_command_pool(
         &self,
         p_create_info: &CommandPoolCreateInfo,
@@ -1865,6 +2593,25 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Allocates one or more command buffers from a command pool. The
+    ///`command_buffer_count` and output slice length must match.
+    ///
+    ///**Level**:
+    ///
+    ///- `PRIMARY`: submitted directly to a queue via `queue_submit`.
+    ///- `SECONDARY`: recorded separately and executed inside a primary
+    ///  buffer via `cmd_execute_commands`. Useful for pre-recording
+    ///  draw calls that are reused across frames.
+    ///
+    ///All allocated command buffers start in the *initial* state and must
+    ///be recorded with `begin_command_buffer` before submission.
+    ///
+    ///Command buffers are freed either individually with
+    ///`free_command_buffers` or implicitly when the parent pool is
+    ///destroyed or reset.
     pub unsafe fn allocate_command_buffers(
         &self,
         p_allocate_info: &CommandBufferAllocateInfo,
@@ -1915,6 +2662,31 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Usage Notes
+    ///
+    ///Begins recording commands into a command buffer. The command buffer
+    ///must be in the *initial* state — either freshly allocated, or reset
+    ///via `reset_command_buffer` / `reset_command_pool`.
+    ///
+    ///**Flags**:
+    ///
+    ///- `ONE_TIME_SUBMIT`: the command buffer will be submitted once and
+    ///  then reset or freed. Lets the driver skip internal tracking it
+    ///  would otherwise need for resubmission.
+    ///- `SIMULTANEOUS_USE`: the command buffer can be pending execution on
+    ///  multiple queues simultaneously. Required for secondary command
+    ///  buffers reused across multiple primary buffers.
+    ///
+    ///**Inheritance info**: only required for secondary command buffers.
+    ///When recording a secondary buffer that will execute inside a render
+    ///pass, set `render_pass`, `subpass`, and optionally `framebuffer` in
+    ///the `CommandBufferInheritanceInfo`. For primary buffers the
+    ///inheritance info is ignored.
+    ///
+    ///Calling `begin_command_buffer` on a buffer that is already recording
+    ///is an error. Calling it on a buffer in the *executable* state
+    ///implicitly resets it first (if the pool allows it).
     pub unsafe fn begin_command_buffer(
         &self,
         command_buffer: CommandBuffer,
