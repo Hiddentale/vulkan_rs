@@ -6563,10 +6563,6 @@ impl ExternalFenceHandleTypeFlagBits {
     pub const OPAQUE_WIN32_KMT: Self = Self(4u32);
     ///Bit 3.
     pub const SYNC_FD: Self = Self(8u32);
-    ///Bit 4.
-    pub const SCI_SYNC_OBJ: Self = Self(16u32);
-    ///Bit 5.
-    pub const SCI_SYNC_FENCE: Self = Self(32u32);
 }
 impl core::ops::BitOr for ExternalFenceHandleTypeFlagBits {
     type Output = Self;
@@ -6649,22 +6645,6 @@ impl core::fmt::Debug for ExternalFenceHandleTypeFlagBits {
             }
             f.write_str("SYNC_FD")?;
             remaining &= !Self::SYNC_FD.0;
-            first = false;
-        }
-        if remaining & Self::SCI_SYNC_OBJ.0 != 0 {
-            if !first {
-                f.write_str(" | ")?;
-            }
-            f.write_str("SCI_SYNC_OBJ")?;
-            remaining &= !Self::SCI_SYNC_OBJ.0;
-            first = false;
-        }
-        if remaining & Self::SCI_SYNC_FENCE.0 != 0 {
-            if !first {
-                f.write_str(" | ")?;
-            }
-            f.write_str("SCI_SYNC_FENCE")?;
-            remaining &= !Self::SCI_SYNC_FENCE.0;
             first = false;
         }
         if remaining != 0u32 {
@@ -6968,8 +6948,6 @@ impl ExternalMemoryHandleTypeFlagBits {
     pub const ZIRCON_VMO_BIT: Self = Self(2048u32);
     ///Bit 12.
     pub const RDMA_ADDRESS: Self = Self(4096u32);
-    ///Bit 13.
-    pub const SCI_BUF: Self = Self(8192u32);
     ///Bit 15.
     pub const OH_NATIVE_BUFFER_BIT: Self = Self(32768u32);
     ///Bit 14.
@@ -7134,14 +7112,6 @@ impl core::fmt::Debug for ExternalMemoryHandleTypeFlagBits {
             }
             f.write_str("RDMA_ADDRESS")?;
             remaining &= !Self::RDMA_ADDRESS.0;
-            first = false;
-        }
-        if remaining & Self::SCI_BUF.0 != 0 {
-            if !first {
-                f.write_str(" | ")?;
-            }
-            f.write_str("SCI_BUF")?;
-            remaining &= !Self::SCI_BUF.0;
             first = false;
         }
         if remaining & Self::OH_NATIVE_BUFFER_BIT.0 != 0 {
@@ -7472,8 +7442,6 @@ impl ExternalSemaphoreHandleTypeFlagBits {
     pub const SYNC_FD: Self = Self(16u32);
     ///Bit 7.
     pub const ZIRCON_EVENT_BIT: Self = Self(128u32);
-    ///Bit 5.
-    pub const SCI_SYNC_OBJ: Self = Self(32u32);
 }
 impl core::ops::BitOr for ExternalSemaphoreHandleTypeFlagBits {
     type Output = Self;
@@ -7572,14 +7540,6 @@ impl core::fmt::Debug for ExternalSemaphoreHandleTypeFlagBits {
             }
             f.write_str("ZIRCON_EVENT_BIT")?;
             remaining &= !Self::ZIRCON_EVENT_BIT.0;
-            first = false;
-        }
-        if remaining & Self::SCI_SYNC_OBJ.0 != 0 {
-            if !first {
-                f.write_str(" | ")?;
-            }
-            f.write_str("SCI_SYNC_OBJ")?;
-            remaining &= !Self::SCI_SYNC_OBJ.0;
             first = false;
         }
         if remaining != 0u32 {

@@ -5509,7 +5509,7 @@ impl ApplicationParametersEXT {
     pub fn builder<'a>() -> ApplicationParametersEXTBuilder<'a> {
         ApplicationParametersEXTBuilder {
             inner: ApplicationParametersEXT {
-                s_type: StructureType::from_raw(1000435000i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6208,7 +6208,7 @@ impl ExportMemorySciBufInfoNV {
     pub fn builder<'a>() -> ExportMemorySciBufInfoNVBuilder<'a> {
         ExportMemorySciBufInfoNVBuilder {
             inner: ExportMemorySciBufInfoNV {
-                s_type: StructureType::from_raw(1000374001i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6261,7 +6261,7 @@ impl ImportMemorySciBufInfoNV {
     pub fn builder<'a>() -> ImportMemorySciBufInfoNVBuilder<'a> {
         ImportMemorySciBufInfoNVBuilder {
             inner: ImportMemorySciBufInfoNV {
-                s_type: StructureType::from_raw(1000374000i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6319,7 +6319,7 @@ impl MemoryGetSciBufInfoNV {
     pub fn builder<'a>() -> MemoryGetSciBufInfoNVBuilder<'a> {
         MemoryGetSciBufInfoNVBuilder {
             inner: MemoryGetSciBufInfoNV {
-                s_type: StructureType::from_raw(1000374002i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6377,7 +6377,7 @@ impl MemorySciBufPropertiesNV {
     pub fn builder<'a>() -> MemorySciBufPropertiesNVBuilder<'a> {
         MemorySciBufPropertiesNVBuilder {
             inner: MemorySciBufPropertiesNV {
-                s_type: StructureType::from_raw(1000374003i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -6430,7 +6430,7 @@ impl PhysicalDeviceExternalMemorySciBufFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder {
             inner: PhysicalDeviceExternalMemorySciBufFeaturesNV {
-                s_type: StructureType::from_raw(1000374004i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11194,7 +11194,7 @@ impl ExportFenceSciSyncInfoNV {
     pub fn builder<'a>() -> ExportFenceSciSyncInfoNVBuilder<'a> {
         ExportFenceSciSyncInfoNVBuilder {
             inner: ExportFenceSciSyncInfoNV {
-                s_type: StructureType::from_raw(1000373001i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11247,7 +11247,7 @@ impl ImportFenceSciSyncInfoNV {
     pub fn builder<'a>() -> ImportFenceSciSyncInfoNVBuilder<'a> {
         ImportFenceSciSyncInfoNVBuilder {
             inner: ImportFenceSciSyncInfoNV {
-                s_type: StructureType::from_raw(1000373000i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11310,7 +11310,7 @@ impl FenceGetSciSyncInfoNV {
     pub fn builder<'a>() -> FenceGetSciSyncInfoNVBuilder<'a> {
         FenceGetSciSyncInfoNVBuilder {
             inner: FenceGetSciSyncInfoNV {
-                s_type: StructureType::from_raw(1000373002i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11368,7 +11368,7 @@ impl ExportSemaphoreSciSyncInfoNV {
     pub fn builder<'a>() -> ExportSemaphoreSciSyncInfoNVBuilder<'a> {
         ExportSemaphoreSciSyncInfoNVBuilder {
             inner: ExportSemaphoreSciSyncInfoNV {
-                s_type: StructureType::from_raw(1000373005i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11421,7 +11421,7 @@ impl ImportSemaphoreSciSyncInfoNV {
     pub fn builder<'a>() -> ImportSemaphoreSciSyncInfoNVBuilder<'a> {
         ImportSemaphoreSciSyncInfoNVBuilder {
             inner: ImportSemaphoreSciSyncInfoNV {
-                s_type: StructureType::from_raw(1000373004i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11484,7 +11484,7 @@ impl SemaphoreGetSciSyncInfoNV {
     pub fn builder<'a>() -> SemaphoreGetSciSyncInfoNVBuilder<'a> {
         SemaphoreGetSciSyncInfoNVBuilder {
             inner: SemaphoreGetSciSyncInfoNV {
-                s_type: StructureType::from_raw(1000373006i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11542,7 +11542,7 @@ impl SciSyncAttributesInfoNV {
     pub fn builder<'a>() -> SciSyncAttributesInfoNVBuilder<'a> {
         SciSyncAttributesInfoNVBuilder {
             inner: SciSyncAttributesInfoNV {
-                s_type: StructureType::from_raw(1000373003i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11600,7 +11600,7 @@ impl PhysicalDeviceExternalSciSyncFeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalSciSyncFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalSciSyncFeaturesNVBuilder {
             inner: PhysicalDeviceExternalSciSyncFeaturesNV {
-                s_type: StructureType::from_raw(1000373007i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11668,7 +11668,7 @@ impl PhysicalDeviceExternalSciSync2FeaturesNV {
     pub fn builder<'a>() -> PhysicalDeviceExternalSciSync2FeaturesNVBuilder<'a> {
         PhysicalDeviceExternalSciSync2FeaturesNVBuilder {
             inner: PhysicalDeviceExternalSciSync2FeaturesNV {
-                s_type: StructureType::from_raw(1000489002i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11736,7 +11736,7 @@ impl SemaphoreSciSyncPoolCreateInfoNV {
     pub fn builder<'a>() -> SemaphoreSciSyncPoolCreateInfoNVBuilder<'a> {
         SemaphoreSciSyncPoolCreateInfoNVBuilder {
             inner: SemaphoreSciSyncPoolCreateInfoNV {
-                s_type: StructureType::from_raw(1000489000i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11789,7 +11789,7 @@ impl SemaphoreSciSyncCreateInfoNV {
     pub fn builder<'a>() -> SemaphoreSciSyncCreateInfoNVBuilder<'a> {
         SemaphoreSciSyncCreateInfoNVBuilder {
             inner: SemaphoreSciSyncCreateInfoNV {
-                s_type: StructureType::from_raw(1000489001i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -11849,7 +11849,7 @@ impl DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
     > {
         DeviceSemaphoreSciSyncPoolReservationCreateInfoNVBuilder {
             inner: DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
-                s_type: StructureType::from_raw(1000489003i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,
@@ -35447,7 +35447,7 @@ impl RefreshObjectListKHR {
     pub fn builder<'a>() -> RefreshObjectListKHRBuilder<'a> {
         RefreshObjectListKHRBuilder {
             inner: RefreshObjectListKHR {
-                s_type: StructureType::from_raw(1000308000i32),
+                s_type: Default::default(),
                 ..Default::default()
             },
             _marker: core::marker::PhantomData,

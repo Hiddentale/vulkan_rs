@@ -5612,8 +5612,6 @@ impl Default for LayerSettingEXT {
     }
 }
 ///[`VkApplicationParametersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkApplicationParametersEXT.html)
-/**
-Provided by **VK_EXT_application_parameters**.*/
 ///
 ///# Extends
 ///- [`ApplicationInfo`]
@@ -5635,7 +5633,7 @@ impl Default for ApplicationParametersEXT {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000435000i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             vendor_id: Default::default(),
             device_id: Default::default(),
@@ -5966,8 +5964,6 @@ impl Default for ExportMemoryWin32HandleInfoNV {
     }
 }
 ///[`VkExportMemorySciBufInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMemorySciBufInfoNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 ///
 ///# Extends
 ///- [`MemoryAllocateInfo`]
@@ -5985,15 +5981,13 @@ impl Default for ExportMemorySciBufInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000374001i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             p_attributes: Default::default(),
         }
     }
 }
 ///[`VkImportMemorySciBufInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImportMemorySciBufInfoNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 ///
 ///# Extends
 ///- [`MemoryAllocateInfo`]
@@ -6012,7 +6006,7 @@ impl Default for ImportMemorySciBufInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000374000i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             handle: Default::default(),
@@ -6020,8 +6014,6 @@ impl Default for ImportMemorySciBufInfoNV {
     }
 }
 ///[`VkMemoryGetSciBufInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryGetSciBufInfoNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryGetSciBufInfoNV")]
@@ -6037,7 +6029,7 @@ impl Default for MemoryGetSciBufInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000374002i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             memory: Default::default(),
             handle_type: Default::default(),
@@ -6045,8 +6037,6 @@ impl Default for MemoryGetSciBufInfoNV {
     }
 }
 ///[`VkMemorySciBufPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemorySciBufPropertiesNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemorySciBufPropertiesNV")]
@@ -6061,15 +6051,13 @@ impl Default for MemorySciBufPropertiesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000374003i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             memory_type_bits: Default::default(),
         }
     }
 }
 ///[`VkPhysicalDeviceExternalMemorySciBufFeaturesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceExternalMemorySciBufFeaturesNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceFeatures2`]
@@ -6089,7 +6077,7 @@ impl Default for PhysicalDeviceExternalMemorySciBufFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000374004i32),
+            s_type: Default::default(),
             p_next: core::ptr::null_mut(),
             sci_buf_import: Default::default(),
             sci_buf_export: Default::default(),
@@ -9329,8 +9317,6 @@ impl Default for FenceGetFdInfoKHR {
     }
 }
 ///[`VkExportFenceSciSyncInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportFenceSciSyncInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Extends
 ///- [`FenceCreateInfo`]
@@ -9348,15 +9334,13 @@ impl Default for ExportFenceSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373001i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             p_attributes: Default::default(),
         }
     }
 }
 ///[`VkImportFenceSciSyncInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImportFenceSciSyncInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkImportFenceSciSyncInfoNV")]
@@ -9374,7 +9358,7 @@ impl Default for ImportFenceSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373000i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             fence: Default::default(),
             handle_type: Default::default(),
@@ -9383,8 +9367,6 @@ impl Default for ImportFenceSciSyncInfoNV {
     }
 }
 ///[`VkFenceGetSciSyncInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceGetSciSyncInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkFenceGetSciSyncInfoNV")]
@@ -9400,7 +9382,7 @@ impl Default for FenceGetSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373002i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             fence: Default::default(),
             handle_type: Default::default(),
@@ -9408,8 +9390,6 @@ impl Default for FenceGetSciSyncInfoNV {
     }
 }
 ///[`VkExportSemaphoreSciSyncInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportSemaphoreSciSyncInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Extends
 ///- [`SemaphoreCreateInfo`]
@@ -9427,15 +9407,13 @@ impl Default for ExportSemaphoreSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373005i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             p_attributes: Default::default(),
         }
     }
 }
 ///[`VkImportSemaphoreSciSyncInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImportSemaphoreSciSyncInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkImportSemaphoreSciSyncInfoNV")]
@@ -9453,7 +9431,7 @@ impl Default for ImportSemaphoreSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373004i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             handle_type: Default::default(),
@@ -9462,8 +9440,6 @@ impl Default for ImportSemaphoreSciSyncInfoNV {
     }
 }
 ///[`VkSemaphoreGetSciSyncInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreGetSciSyncInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSemaphoreGetSciSyncInfoNV")]
@@ -9479,7 +9455,7 @@ impl Default for SemaphoreGetSciSyncInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373006i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             handle_type: Default::default(),
@@ -9487,8 +9463,6 @@ impl Default for SemaphoreGetSciSyncInfoNV {
     }
 }
 ///[`VkSciSyncAttributesInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSciSyncAttributesInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSciSyncAttributesInfoNV")]
@@ -9504,7 +9478,7 @@ impl Default for SciSyncAttributesInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373003i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             client_type: Default::default(),
             primitive_type: Default::default(),
@@ -9512,8 +9486,6 @@ impl Default for SciSyncAttributesInfoNV {
     }
 }
 ///[`VkPhysicalDeviceExternalSciSyncFeaturesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceExternalSciSyncFeaturesNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceFeatures2`]
@@ -9535,7 +9507,7 @@ impl Default for PhysicalDeviceExternalSciSyncFeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000373007i32),
+            s_type: Default::default(),
             p_next: core::ptr::null_mut(),
             sci_sync_fence: Default::default(),
             sci_sync_semaphore: Default::default(),
@@ -9545,8 +9517,6 @@ impl Default for PhysicalDeviceExternalSciSyncFeaturesNV {
     }
 }
 ///[`VkPhysicalDeviceExternalSciSync2FeaturesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceExternalSciSync2FeaturesNV.html)
-/**
-Provided by **VK_NV_external_sci_sync2**.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceFeatures2`]
@@ -9568,7 +9538,7 @@ impl Default for PhysicalDeviceExternalSciSync2FeaturesNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000489002i32),
+            s_type: Default::default(),
             p_next: core::ptr::null_mut(),
             sci_sync_fence: Default::default(),
             sci_sync_semaphore2: Default::default(),
@@ -9578,8 +9548,6 @@ impl Default for PhysicalDeviceExternalSciSync2FeaturesNV {
     }
 }
 ///[`VkSemaphoreSciSyncPoolCreateInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreSciSyncPoolCreateInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync2**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSemaphoreSciSyncPoolCreateInfoNV")]
@@ -9594,15 +9562,13 @@ impl Default for SemaphoreSciSyncPoolCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000489000i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             handle: Default::default(),
         }
     }
 }
 ///[`VkSemaphoreSciSyncCreateInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreSciSyncCreateInfoNV.html)
-/**
-Provided by **VK_NV_external_sci_sync2**.*/
 ///
 ///# Extends
 ///- [`SemaphoreCreateInfo`]
@@ -9621,7 +9587,7 @@ impl Default for SemaphoreSciSyncCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000489001i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             semaphore_pool: Default::default(),
             p_fence: core::ptr::null(),
@@ -9646,7 +9612,7 @@ impl Default for DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000489003i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             semaphore_sci_sync_pool_request_count: Default::default(),
         }
@@ -22416,8 +22382,6 @@ impl Default for PipelineLibraryCreateInfoKHR {
     }
 }
 ///[`VkRefreshObjectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRefreshObjectKHR.html)
-/**
-Provided by **VK_KHR_object_refresh**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkRefreshObjectKHR")]
@@ -22434,8 +22398,6 @@ impl Default for RefreshObjectKHR {
     }
 }
 ///[`VkRefreshObjectListKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRefreshObjectListKHR.html)
-/**
-Provided by **VK_KHR_object_refresh**.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkRefreshObjectListKHR")]
@@ -22452,7 +22414,7 @@ impl Default for RefreshObjectListKHR {
     #[inline]
     fn default() -> Self {
         Self {
-            s_type: StructureType::from_raw(1000308000i32),
+            s_type: Default::default(),
             p_next: core::ptr::null(),
             object_count: Default::default(),
             p_objects: core::ptr::null(),

@@ -1135,8 +1135,6 @@ impl crate::Instance {
         };
     }
     ///Wraps [`vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV.html).
-    /**
-    Provided by **VK_NV_external_memory_sci_buf**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -1167,8 +1165,6 @@ impl crate::Instance {
         })
     }
     ///Wraps [`vkGetPhysicalDeviceSciBufAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciBufAttributesNV.html).
-    /**
-    Provided by **VK_NV_external_memory_sci_buf**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1238,8 +1234,6 @@ impl crate::Instance {
         };
     }
     ///Wraps [`vkGetPhysicalDeviceSciSyncAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciSyncAttributesNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -1927,8 +1921,6 @@ impl crate::Instance {
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
     ///Wraps [`vkGetPhysicalDeviceRefreshableObjectTypesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceRefreshableObjectTypesKHR.html).
-    /**
-    Provided by **VK_KHR_object_refresh**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`

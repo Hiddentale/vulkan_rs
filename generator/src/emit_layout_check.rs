@@ -29,8 +29,7 @@ fn untestable_extensions(registry: &VkRegistry) -> HashSet<String> {
         .iter()
         .filter(|ext| {
             ext.platform.is_some()
-                || !ext.supported.contains("vulkan")
-                || ext.supported == "vulkansc"
+                || !ext.supported.split(',').any(|p| p.trim() == "vulkan")
         })
         .map(|ext| ext.name.clone())
         .collect()
@@ -302,5 +301,74 @@ mod tests {
         // No field offsets
         assert!(!c.contains("offsetof"));
         assert!(!rs.contains("offset_of!"));
+    }
+
+    #[test]
+    fn untestable_extensions_filters_vulkansc_only() {
+        use crate::parse::ExtensionDef;
+
+        let reg = VkRegistry {
+            extensions: vec![
+                ExtensionDef {
+                    name: "VK_KHR_swapchain".to_string(),
+                    number: 1,
+                    ext_type: None,
+                    platform: None,
+                    depends: None,
+                    promoted_to: None,
+                    deprecated_by: None,
+                    supported: "vulkan".to_string(),
+                    items: vec![],
+                },
+                ExtensionDef {
+                    name: "VKSC_something".to_string(),
+                    number: 2,
+                    ext_type: None,
+                    platform: None,
+                    depends: None,
+                    promoted_to: None,
+                    deprecated_by: None,
+                    supported: "vulkansc".to_string(),
+                    items: vec![],
+                },
+                ExtensionDef {
+                    name: "VK_KHR_both".to_string(),
+                    number: 3,
+                    ext_type: None,
+                    platform: None,
+                    depends: None,
+                    promoted_to: None,
+                    deprecated_by: None,
+                    supported: "vulkan,vulkansc".to_string(),
+                    items: vec![],
+                },
+                ExtensionDef {
+                    name: "VK_KHR_wayland".to_string(),
+                    number: 4,
+                    ext_type: None,
+                    platform: Some("wayland".to_string()),
+                    depends: None,
+                    promoted_to: None,
+                    deprecated_by: None,
+                    supported: "vulkan".to_string(),
+                    items: vec![],
+                },
+            ],
+            structs: vec![],
+            handles: vec![],
+            enums: vec![],
+            bitmasks: vec![],
+            commands: vec![],
+            constants: vec![],
+            func_pointers: vec![],
+            platforms: vec![],
+            aliases: vec![],
+            base_types: Default::default(),
+        };
+        let skip = untestable_extensions(&reg);
+        assert!(!skip.contains("VK_KHR_swapchain"), "standard vulkan should pass");
+        assert!(skip.contains("VKSC_something"), "vulkansc-only should be skipped");
+        assert!(!skip.contains("VK_KHR_both"), "vulkan,vulkansc should pass");
+        assert!(skip.contains("VK_KHR_wayland"), "platform extension should be skipped");
     }
 }

@@ -4174,8 +4174,6 @@ impl crate::Device {
         Ok(out)
     }
     ///Wraps [`vkGetMemorySciBufNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemorySciBufNV.html).
-    /**
-    Provided by **VK_NV_external_memory_sci_buf**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -4427,8 +4425,6 @@ impl crate::Device {
         check(unsafe { fp(self.handle(), p_import_fence_fd_info) })
     }
     ///Wraps [`vkGetFenceSciSyncFenceNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceSciSyncFenceNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -4451,8 +4447,6 @@ impl crate::Device {
         Ok(out)
     }
     ///Wraps [`vkGetFenceSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceSciSyncObjNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -4475,8 +4469,6 @@ impl crate::Device {
         Ok(out)
     }
     ///Wraps [`vkImportFenceSciSyncFenceNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceSciSyncFenceNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -4497,8 +4489,6 @@ impl crate::Device {
         check(unsafe { fp(self.handle(), p_import_fence_sci_sync_info) })
     }
     ///Wraps [`vkImportFenceSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceSciSyncObjNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -4519,8 +4509,6 @@ impl crate::Device {
         check(unsafe { fp(self.handle(), p_import_fence_sci_sync_info) })
     }
     ///Wraps [`vkGetSemaphoreSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreSciSyncObjNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -4543,8 +4531,6 @@ impl crate::Device {
         Ok(out)
     }
     ///Wraps [`vkImportSemaphoreSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreSciSyncObjNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -4566,8 +4552,6 @@ impl crate::Device {
         check(unsafe { fp(self.handle(), p_import_semaphore_sci_sync_info) })
     }
     ///Wraps [`vkCreateSemaphoreSciSyncPoolNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSemaphoreSciSyncPoolNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -4592,8 +4576,6 @@ impl crate::Device {
         Ok(out)
     }
     ///Wraps [`vkDestroySemaphoreSciSyncPoolNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySemaphoreSciSyncPoolNV.html).
-    /**
-    Provided by **VK_NV_external_sci_sync2**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -9431,8 +9413,6 @@ impl crate::Device {
         unsafe { fp(command_buffer, p_resolve_image_info) };
     }
     ///Wraps [`vkCmdRefreshObjectsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdRefreshObjectsKHR.html).
-    /**
-    Provided by **VK_KHR_object_refresh**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.

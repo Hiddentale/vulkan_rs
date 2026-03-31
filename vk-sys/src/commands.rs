@@ -3899,8 +3899,6 @@ pub type PFN_vkGetMemoryRemoteAddressNV = Option<
     ) -> Result,
 >;
 ///[`vkGetMemorySciBufNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemorySciBufNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -3917,8 +3915,6 @@ pub type PFN_vkGetMemorySciBufNV = Option<
     ) -> Result,
 >;
 ///[`vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -3937,8 +3933,6 @@ pub type PFN_vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV = Option<
     ) -> Result,
 >;
 ///[`vkGetPhysicalDeviceSciBufAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciBufAttributesNV.html)
-/**
-Provided by **VK_NV_external_memory_sci_buf**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4160,8 +4154,6 @@ pub type PFN_vkImportFenceFdKHR = Option<
     ) -> Result,
 >;
 ///[`vkGetFenceSciSyncFenceNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceSciSyncFenceNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4179,8 +4171,6 @@ pub type PFN_vkGetFenceSciSyncFenceNV = Option<
     ) -> Result,
 >;
 ///[`vkGetFenceSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceSciSyncObjNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4198,8 +4188,6 @@ pub type PFN_vkGetFenceSciSyncObjNV = Option<
     ) -> Result,
 >;
 ///[`vkImportFenceSciSyncFenceNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceSciSyncFenceNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4216,8 +4204,6 @@ pub type PFN_vkImportFenceSciSyncFenceNV = Option<
     ) -> Result,
 >;
 ///[`vkImportFenceSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceSciSyncObjNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4234,8 +4220,6 @@ pub type PFN_vkImportFenceSciSyncObjNV = Option<
     ) -> Result,
 >;
 ///[`vkGetSemaphoreSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreSciSyncObjNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4253,8 +4237,6 @@ pub type PFN_vkGetSemaphoreSciSyncObjNV = Option<
     ) -> Result,
 >;
 ///[`vkImportSemaphoreSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreSciSyncObjNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4272,8 +4254,6 @@ pub type PFN_vkImportSemaphoreSciSyncObjNV = Option<
     ) -> Result,
 >;
 ///[`vkGetPhysicalDeviceSciSyncAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciSyncAttributesNV.html)
-/**
-Provided by **VK_NV_external_sci_sync**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4290,8 +4270,6 @@ pub type PFN_vkGetPhysicalDeviceSciSyncAttributesNV = Option<
     ) -> Result,
 >;
 ///[`vkCreateSemaphoreSciSyncPoolNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSemaphoreSciSyncPoolNV.html)
-/**
-Provided by **VK_NV_external_sci_sync2**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`
@@ -4310,8 +4288,6 @@ pub type PFN_vkCreateSemaphoreSciSyncPoolNV = Option<
     ) -> Result,
 >;
 ///[`vkDestroySemaphoreSciSyncPoolNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySemaphoreSciSyncPoolNV.html)
-/**
-Provided by **VK_NV_external_sci_sync2**.*/
 ///
 ///# Thread Safety
 ///- `semaphorePool` must be externally synchronized
@@ -8026,8 +8002,6 @@ pub type PFN_vkCmdResolveImage2 = Option<
     ),
 >;
 ///[`vkCmdRefreshObjectsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdRefreshObjectsKHR.html)
-/**
-Provided by **VK_KHR_object_refresh**.*/
 ///
 ///# Thread Safety
 ///- `commandBuffer` must be externally synchronized
@@ -8038,8 +8012,6 @@ pub type PFN_vkCmdRefreshObjectsKHR = Option<
     ),
 >;
 ///[`vkGetPhysicalDeviceRefreshableObjectTypesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceRefreshableObjectTypesKHR.html)
-/**
-Provided by **VK_KHR_object_refresh**.*/
 ///
 ///# Success Codes
 ///- `VK_SUCCESS`

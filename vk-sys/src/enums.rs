@@ -3828,8 +3828,6 @@ impl ObjectType {
     pub const OPTICAL_FLOW_SESSION: Self = Self(1000464000i32);
     pub const SHADER: Self = Self(1000482000i32);
     pub const PIPELINE_BINARY: Self = Self(1000483000i32);
-    ///VkSemaphoreSciSyncPoolNV
-    pub const SEMAPHORE_SCI_SYNC_POOL: Self = Self(1000489000i32);
     pub const DATA_GRAPH_PIPELINE_SESSION: Self = Self(1000507000i32);
     pub const EXTERNAL_COMPUTE_QUEUE: Self = Self(1000556000i32);
     pub const INDIRECT_EXECUTION_SET: Self = Self(1000572001i32);
@@ -3899,7 +3897,6 @@ impl core::fmt::Debug for ObjectType {
             1000464000i32 => f.write_str("OPTICAL_FLOW_SESSION"),
             1000482000i32 => f.write_str("SHADER"),
             1000483000i32 => f.write_str("PIPELINE_BINARY"),
-            1000489000i32 => f.write_str("SEMAPHORE_SCI_SYNC_POOL"),
             1000507000i32 => f.write_str("DATA_GRAPH_PIPELINE_SESSION"),
             1000556000i32 => f.write_str("EXTERNAL_COMPUTE_QUEUE"),
             1000572001i32 => f.write_str("INDIRECT_EXECUTION_SET"),
@@ -6198,7 +6195,6 @@ impl StructureType {
     pub const TEXTURE_LOD_GATHER_FORMAT_PROPERTIES: Self = Self(1000041000i32);
     pub const STREAM_DESCRIPTOR_SURFACE_CREATE_INFO: Self = Self(1000049000i32);
     pub const PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES: Self = Self(1000050000i32);
-    pub const PRIVATE_VENDOR_INFO_PLACEHOLDER_OFFSET_0: Self = Self(1000051000i32);
     pub const IMPORT_MEMORY_WIN32_HANDLE_INFO: Self = Self(1000057000i32);
     pub const EXPORT_MEMORY_WIN32_HANDLE_INFO: Self = Self(1000057001i32);
     pub const WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO: Self = Self(1000058000i32);
@@ -6595,7 +6591,6 @@ impl StructureType {
     pub const CUDA_LAUNCH_INFO: Self = Self(1000307002i32);
     pub const PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES: Self = Self(1000307003i32);
     pub const PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES: Self = Self(1000307004i32);
-    pub const REFRESH_OBJECT_LIST: Self = Self(1000308000i32);
     pub const PHYSICAL_DEVICE_TILE_SHADING_FEATURES: Self = Self(1000309000i32);
     pub const PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES: Self = Self(1000309001i32);
     pub const RENDER_PASS_TILE_SHADING_CREATE_INFO: Self = Self(1000309002i32);
@@ -6751,22 +6746,6 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES: Self = Self(1000371001i32);
     pub const PIPELINE_PROPERTIES_IDENTIFIER: Self = Self(1000372000i32);
     pub const PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES: Self = Self(1000372001i32);
-    pub const IMPORT_FENCE_SCI_SYNC_INFO: Self = Self(1000373000i32);
-    pub const EXPORT_FENCE_SCI_SYNC_INFO: Self = Self(1000373001i32);
-    pub const FENCE_GET_SCI_SYNC_INFO: Self = Self(1000373002i32);
-    pub const SCI_SYNC_ATTRIBUTES_INFO: Self = Self(1000373003i32);
-    pub const IMPORT_SEMAPHORE_SCI_SYNC_INFO: Self = Self(1000373004i32);
-    pub const EXPORT_SEMAPHORE_SCI_SYNC_INFO: Self = Self(1000373005i32);
-    pub const SEMAPHORE_GET_SCI_SYNC_INFO: Self = Self(1000373006i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_FEATURES: Self = Self(1000373007i32);
-    pub const IMPORT_MEMORY_SCI_BUF_INFO: Self = Self(1000374000i32);
-    pub const EXPORT_MEMORY_SCI_BUF_INFO: Self = Self(1000374001i32);
-    pub const MEMORY_GET_SCI_BUF_INFO: Self = Self(1000374002i32);
-    pub const MEMORY_SCI_BUF_PROPERTIES: Self = Self(1000374003i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES: Self = Self(
-        1000374004i32,
-    );
-    pub const PHYSICAL_DEVICE_EXTERNAL_SCI_BUF_FEATURES: Self = Self::PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES;
     pub const PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES: Self = Self(1000375000i32);
     pub const FRAME_BOUNDARY: Self = Self(1000375001i32);
     pub const PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES: Self = Self(
@@ -6878,7 +6857,6 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES: Self = Self(
         1000434000i32,
     );
-    pub const APPLICATION_PARAMETERS: Self = Self(1000435000i32);
     pub const PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES: Self = Self(
         1000437000i32,
     );
@@ -7000,12 +6978,6 @@ impl StructureType {
     pub const AMIGO_PROFILING_SUBMIT_INFO: Self = Self(1000485001i32);
     pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES: Self = Self(
         1000488000i32,
-    );
-    pub const SEMAPHORE_SCI_SYNC_POOL_CREATE_INFO: Self = Self(1000489000i32);
-    pub const SEMAPHORE_SCI_SYNC_CREATE_INFO: Self = Self(1000489001i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES: Self = Self(1000489002i32);
-    pub const DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO: Self = Self(
-        1000489003i32,
     );
     pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES: Self = Self(
         1000490000i32,
@@ -7843,7 +7815,6 @@ impl core::fmt::Debug for StructureType {
             1000041000i32 => f.write_str("TEXTURE_LOD_GATHER_FORMAT_PROPERTIES"),
             1000049000i32 => f.write_str("STREAM_DESCRIPTOR_SURFACE_CREATE_INFO"),
             1000050000i32 => f.write_str("PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES"),
-            1000051000i32 => f.write_str("PRIVATE_VENDOR_INFO_PLACEHOLDER_OFFSET_0"),
             1000057000i32 => f.write_str("IMPORT_MEMORY_WIN32_HANDLE_INFO"),
             1000057001i32 => f.write_str("EXPORT_MEMORY_WIN32_HANDLE_INFO"),
             1000058000i32 => f.write_str("WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO"),
@@ -8259,7 +8230,6 @@ impl core::fmt::Debug for StructureType {
             1000307002i32 => f.write_str("CUDA_LAUNCH_INFO"),
             1000307003i32 => f.write_str("PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES"),
             1000307004i32 => f.write_str("PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES"),
-            1000308000i32 => f.write_str("REFRESH_OBJECT_LIST"),
             1000309000i32 => f.write_str("PHYSICAL_DEVICE_TILE_SHADING_FEATURES"),
             1000309001i32 => f.write_str("PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES"),
             1000309002i32 => f.write_str("RENDER_PASS_TILE_SHADING_CREATE_INFO"),
@@ -8419,21 +8389,6 @@ impl core::fmt::Debug for StructureType {
             1000371001i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES"),
             1000372000i32 => f.write_str("PIPELINE_PROPERTIES_IDENTIFIER"),
             1000372001i32 => f.write_str("PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES"),
-            1000373000i32 => f.write_str("IMPORT_FENCE_SCI_SYNC_INFO"),
-            1000373001i32 => f.write_str("EXPORT_FENCE_SCI_SYNC_INFO"),
-            1000373002i32 => f.write_str("FENCE_GET_SCI_SYNC_INFO"),
-            1000373003i32 => f.write_str("SCI_SYNC_ATTRIBUTES_INFO"),
-            1000373004i32 => f.write_str("IMPORT_SEMAPHORE_SCI_SYNC_INFO"),
-            1000373005i32 => f.write_str("EXPORT_SEMAPHORE_SCI_SYNC_INFO"),
-            1000373006i32 => f.write_str("SEMAPHORE_GET_SCI_SYNC_INFO"),
-            1000373007i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_FEATURES"),
-            1000374000i32 => f.write_str("IMPORT_MEMORY_SCI_BUF_INFO"),
-            1000374001i32 => f.write_str("EXPORT_MEMORY_SCI_BUF_INFO"),
-            1000374002i32 => f.write_str("MEMORY_GET_SCI_BUF_INFO"),
-            1000374003i32 => f.write_str("MEMORY_SCI_BUF_PROPERTIES"),
-            1000374004i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES")
-            }
             1000375000i32 => f.write_str("PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES"),
             1000375001i32 => f.write_str("FRAME_BOUNDARY"),
             1000376000i32 => {
@@ -8553,7 +8508,6 @@ impl core::fmt::Debug for StructureType {
             1000434000i32 => {
                 f.write_str("PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES")
             }
-            1000435000i32 => f.write_str("APPLICATION_PARAMETERS"),
             1000437000i32 => {
                 f.write_str(
                     "PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES",
@@ -8682,12 +8636,6 @@ impl core::fmt::Debug for StructureType {
             1000485001i32 => f.write_str("AMIGO_PROFILING_SUBMIT_INFO"),
             1000488000i32 => {
                 f.write_str("PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES")
-            }
-            1000489000i32 => f.write_str("SEMAPHORE_SCI_SYNC_POOL_CREATE_INFO"),
-            1000489001i32 => f.write_str("SEMAPHORE_SCI_SYNC_CREATE_INFO"),
-            1000489002i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES"),
-            1000489003i32 => {
-                f.write_str("DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO")
             }
             1000490000i32 => {
                 f.write_str("PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES")

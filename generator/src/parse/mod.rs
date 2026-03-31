@@ -391,8 +391,12 @@ fn is_non_vulkan_api(api: Option<&str>) -> bool {
 }
 
 fn is_vulkan_extension(ext: &Extension) -> bool {
-    match ext.supported.as_deref() {
-        Some(s) => s.contains("vulkan"),
+    is_vulkan_supported(ext.supported.as_deref())
+}
+
+fn is_vulkan_supported(supported: Option<&str>) -> bool {
+    match supported {
+        Some(s) => s.split(',').any(|part| part.trim() == "vulkan"),
         None => true,
     }
 }
@@ -476,6 +480,59 @@ mod tests {
     }
 
     // -----------------------------------------------------------------------
+    // is_vulkan_supported
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn vulkan_supported_standard() {
+        assert!(is_vulkan_supported(Some("vulkan")));
+    }
+
+    #[test]
+    fn vulkan_supported_comma_list() {
+        assert!(is_vulkan_supported(Some("vulkan,vulkansc")));
+    }
+
+    #[test]
+    fn vulkan_supported_rejects_vulkansc_only() {
+        assert!(!is_vulkan_supported(Some("vulkansc")));
+    }
+
+    #[test]
+    fn vulkan_supported_rejects_disabled() {
+        assert!(!is_vulkan_supported(Some("disabled")));
+    }
+
+    #[test]
+    fn vulkan_supported_none_defaults_true() {
+        assert!(is_vulkan_supported(None));
+    }
+
+    // -----------------------------------------------------------------------
+    // is_non_vulkan_api
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn non_vulkan_api_none_is_vulkan() {
+        assert!(!is_non_vulkan_api(None));
+    }
+
+    #[test]
+    fn non_vulkan_api_vulkan() {
+        assert!(!is_non_vulkan_api(Some("vulkan")));
+    }
+
+    #[test]
+    fn non_vulkan_api_vulkansc_only() {
+        assert!(is_non_vulkan_api(Some("vulkansc")));
+    }
+
+    #[test]
+    fn non_vulkan_api_comma_list_with_vulkan() {
+        assert!(!is_non_vulkan_api(Some("vulkan,vulkansc")));
+    }
+
+    // -----------------------------------------------------------------------
     // Registry-level: counts and existence
     // -----------------------------------------------------------------------
 
@@ -515,6 +572,19 @@ mod tests {
     #[test]
     fn registry_has_platforms() {
         assert!(registry().platforms.len() > 10, "expected 10+ platforms");
+    }
+
+    #[test]
+    fn no_vulkansc_only_extensions_collected() {
+        let reg = registry();
+        for ext in &reg.extensions {
+            assert!(
+                ext.supported.split(',').any(|p| p.trim() == "vulkan"),
+                "vulkansc-only extension collected: {} (supported={})",
+                ext.name,
+                ext.supported,
+            );
+        }
     }
 
     // -----------------------------------------------------------------------
