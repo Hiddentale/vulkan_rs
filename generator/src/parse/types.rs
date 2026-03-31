@@ -20,9 +20,9 @@ pub(super) fn collect_types(
             _ => continue,
         };
 
-        // Skip non-vulkan API types.
+        // Skip non-vulkan API types (exact match to avoid "vulkansc" substring hit).
         if let Some(ref api) = ty.api
-            && !api.contains("vulkan")
+            && !api.split(',').any(|part| part.trim() == "vulkan")
         {
             continue;
         }

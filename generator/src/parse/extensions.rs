@@ -222,12 +222,9 @@ pub fn parse_func_pointers(xml_text: &str) -> Vec<FuncPointerDef> {
     let mut rest = xml_text;
     while let Some(marker_pos) = rest.find(marker) {
         let before = &rest[..marker_pos];
-        let type_start = match before.rfind("<type") {
-            Some(s) => s,
-            None => {
-                rest = &rest[marker_pos + marker.len()..];
-                continue;
-            }
+        let Some(type_start) = before.rfind("<type") else {
+            rest = &rest[marker_pos + marker.len()..];
+            continue;
         };
 
         let from_block = &rest[type_start..];

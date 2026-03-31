@@ -183,7 +183,6 @@ fn emit_bit_constant(bit: &BitmaskBit, prefix: &str, is_64: bool) -> Option<Toke
 
 fn emit_debug_check(bit: &BitmaskBit, prefix: &str) -> Option<TokenStream> {
     let rust_name = strip_bit_prefix(&bit.name, prefix)?;
-    let label = rust_name.clone();
 
     // Only emit debug checks for actual bit values, not aliases or zero values.
     match &bit.value {
@@ -196,7 +195,7 @@ fn emit_debug_check(bit: &BitmaskBit, prefix: &str) -> Option<TokenStream> {
     Some(quote! {
         if remaining & Self::#ident.0 != 0 {
             if !first { f.write_str(" | ")?; }
-            f.write_str(#label)?;
+            f.write_str(#rust_name)?;
             remaining &= !Self::#ident.0;
             first = false;
         }

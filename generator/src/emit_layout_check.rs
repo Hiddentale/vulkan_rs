@@ -28,8 +28,7 @@ fn untestable_extensions(registry: &VkRegistry) -> HashSet<String> {
         .extensions
         .iter()
         .filter(|ext| {
-            ext.platform.is_some()
-                || !ext.supported.split(',').any(|p| p.trim() == "vulkan")
+            ext.platform.is_some() || !ext.supported.split(',').any(|p| p.trim() == "vulkan")
         })
         .map(|ext| ext.name.clone())
         .collect()
@@ -366,9 +365,18 @@ mod tests {
             base_types: Default::default(),
         };
         let skip = untestable_extensions(&reg);
-        assert!(!skip.contains("VK_KHR_swapchain"), "standard vulkan should pass");
-        assert!(skip.contains("VKSC_something"), "vulkansc-only should be skipped");
+        assert!(
+            !skip.contains("VK_KHR_swapchain"),
+            "standard vulkan should pass"
+        );
+        assert!(
+            skip.contains("VKSC_something"),
+            "vulkansc-only should be skipped"
+        );
         assert!(!skip.contains("VK_KHR_both"), "vulkan,vulkansc should pass");
-        assert!(skip.contains("VK_KHR_wayland"), "platform extension should be skipped");
+        assert!(
+            skip.contains("VK_KHR_wayland"),
+            "platform extension should be skipped"
+        );
     }
 }

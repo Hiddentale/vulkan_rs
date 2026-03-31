@@ -149,18 +149,17 @@ fn emit_setter(member: &MemberDef, parent: &StructDef) -> TokenStream {
 
 fn emit_simple_setter(member: &MemberDef) -> TokenStream {
     let rust_name = member_name(&member.name);
-    let setter_ident = if is_rust_keyword(&rust_name) {
+    let ident = if is_rust_keyword(&rust_name) {
         format_ident!("r#{}", rust_name)
     } else {
         format_ident!("{}", rust_name)
     };
-    let field_ident = setter_ident.clone();
     let ty = resolve_member_type(member);
 
     quote! {
         #[inline]
-        pub fn #setter_ident(mut self, value: #ty) -> Self {
-            self.inner.#field_ident = value;
+        pub fn #ident(mut self, value: #ty) -> Self {
+            self.inner.#ident = value;
             self
         }
     }
