@@ -171,3 +171,34 @@ fn bitmask_64bit_has_high_bit_constants() {
         "PipelineStageFlagBits2 should have constants above u32::MAX"
     );
 }
+
+// ── Union layouts ─────────────────────────────────────────────────
+// Union size = largest member, alignment = most-aligned member.
+
+// ClearColorValue: float32[4] | int32[4] | uint32[4] — all 16 bytes, align 4
+#[test]
+fn clear_color_value_layout() {
+    assert_eq!(size_of::<structs::ClearColorValue>(), 16);
+    assert_eq!(align_of::<structs::ClearColorValue>(), 4);
+}
+
+// ClearValue: ClearColorValue(16) | ClearDepthStencilValue(8) = 16, align 4
+#[test]
+fn clear_value_layout() {
+    assert_eq!(size_of::<structs::ClearValue>(), 16);
+    assert_eq!(align_of::<structs::ClearValue>(), 4);
+}
+
+// DeviceOrHostAddressKHR: u64 | *mut c_void = 8, align 8
+#[test]
+fn device_or_host_address_layout() {
+    assert_eq!(size_of::<structs::DeviceOrHostAddressKHR>(), 8);
+    assert_eq!(align_of::<structs::DeviceOrHostAddressKHR>(), 8);
+}
+
+// PerformanceCounterResultKHR: i32|i64|u32|u64|f32|f64 = 8, align 8
+#[test]
+fn performance_counter_result_layout() {
+    assert_eq!(size_of::<structs::PerformanceCounterResultKHR>(), 8);
+    assert_eq!(align_of::<structs::PerformanceCounterResultKHR>(), 8);
+}
