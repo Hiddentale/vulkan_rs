@@ -243,6 +243,13 @@ jobs:
       - name: Install system dependencies
         run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
 
+      - name: Install matching Vulkan headers
+        run: |
+          # System headers may be older than our vk.xml. Install latest
+          # Vulkan-Headers to ensure all types are defined.
+          git clone --depth 1 https://github.com/KhronosGroup/Vulkan-Headers.git /tmp/vulkan-headers
+          sudo cp -r /tmp/vulkan-headers/include/vulkan /usr/include/vulkan
+
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -251,7 +258,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Compile C layout checker
-        run: cc -o c_layout_check vk-sys/tests/c_layout_check.c -I/usr/include -lvulkan
+        run: cc -o c_layout_check vk-sys/tests/c_layout_check.c -I/usr/include
 
       - name: Generate C layout output
         run: ./c_layout_check > c_layouts.txt
