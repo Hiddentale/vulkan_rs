@@ -106,6 +106,10 @@ fn update_lib_rs(out_dir: &Path) {
 //! Raw Vulkan FFI types generated from `vk.xml`.
 //!
 //! Do not edit by hand — regenerate with the `generator` crate.
+//!
+//! Every type carries a spec link, and structs include metadata from
+//! vk.xml: extension provenance, pNext chain relationships, member
+//! annotations (optional, length-of, thread safety).
 
 #![no_std]
 #![allow(non_camel_case_types)]

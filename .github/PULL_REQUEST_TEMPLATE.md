@@ -17,6 +17,13 @@
 - [ ] I added tests for new functionality
 - [ ] I updated relevant documentation
 
+## Documentation Checklist
+- [ ] All new public items have doc comments (see [CONTRIBUTING.md](../CONTRIBUTING.md))
+- [ ] `# Safety` section on all `unsafe` functions
+- [ ] `# Errors` section on all `Result`-returning functions
+- [ ] Examples compile: `cargo test --doc`
+- [ ] No broken doc links: `RUSTDOCFLAGS="-D warnings" cargo doc --no-deps`
+
 ## Screenshots (if applicable)
 
 ## Questions for Reviewers

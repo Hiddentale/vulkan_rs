@@ -223,6 +223,18 @@ fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
         doc_lines.push(quote! { #[doc = #line] });
     }
 
+    // Doc overrides: append hand-written content from doc_overrides/{vkCommandName}.md.
+    let overrides_dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
+    let override_path = overrides_dir.join(format!("{}.md", &cmd.name));
+    if override_path.exists() {
+        if let Ok(content) = std::fs::read_to_string(&override_path) {
+            doc_lines.push(quote! { #[doc = ""] });
+            for line in content.lines() {
+                doc_lines.push(quote! { #[doc = #line] });
+            }
+        }
+    }
+
     quote! { #(#doc_lines)* }
 }
 

@@ -609,7 +609,8 @@ fn all_wrapper_methods_have_spec_links() {
                 .split('(')
                 .next()
                 .unwrap_or("");
-            let start = i.saturating_sub(20);
+            // Doc overrides can push the spec link further back.
+            let start = i.saturating_sub(50);
             let has_link = lines[start..i]
                 .iter()
                 .any(|l| l.contains("registry.khronos.org"));
