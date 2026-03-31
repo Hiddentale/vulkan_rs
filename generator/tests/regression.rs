@@ -540,3 +540,88 @@ fn command_aliases_have_fallback_loading() {
         missing.join("\n  ")
     );
 }
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 14: All structs have spec links
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every struct in the generated output must have a Khronos spec link
+/// in a preceding doc comment. Missing links mean the generator's doc
+/// pipeline broke for that type.
+#[test]
+fn all_structs_have_spec_links() {
+    let structs_rs = read_generated("vk-sys/src/structs.rs");
+
+    let mut missing = Vec::new();
+    let lines: Vec<&str> = structs_rs.lines().collect();
+    for (i, line) in lines.iter().enumerate() {
+        let trimmed = line.trim();
+        if let Some(rest) = trimmed.strip_prefix("pub struct ") {
+            let name = rest
+                .split(|c: char| c == '{' || c == '(' || c == '<' || c.is_whitespace())
+                .next()
+                .unwrap_or("");
+            if name.is_empty()
+                || name == "BaseOutStructure"
+                || name == "BaseInStructure"
+                || name.starts_with("StdVideo")
+            {
+                continue;
+            }
+            // Search preceding lines for a spec link.
+            // Some structs have very long Extended By lists (300+ lines).
+            let start = i.saturating_sub(500);
+            let has_link = lines[start..i]
+                .iter()
+                .any(|l| l.contains("registry.khronos.org"));
+            if !has_link {
+                missing.push(name.to_string());
+            }
+        }
+    }
+
+    assert!(
+        missing.is_empty(),
+        "Structs missing spec links:\n  {}",
+        missing.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 15: All wrapper methods have spec links
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every generated wrapper method must have a Khronos spec link.
+#[test]
+fn all_wrapper_methods_have_spec_links() {
+    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let all = format!("{instance_wrappers}\n{device_wrappers}");
+
+    let mut missing = Vec::new();
+    let lines: Vec<&str> = all.lines().collect();
+    for (i, line) in lines.iter().enumerate() {
+        let trimmed = line.trim();
+        if trimmed.starts_with("pub unsafe fn ") {
+            let name = trimmed
+                .strip_prefix("pub unsafe fn ")
+                .unwrap_or("")
+                .split('(')
+                .next()
+                .unwrap_or("");
+            let start = i.saturating_sub(20);
+            let has_link = lines[start..i]
+                .iter()
+                .any(|l| l.contains("registry.khronos.org"));
+            if !has_link {
+                missing.push(name.to_string());
+            }
+        }
+    }
+
+    assert!(
+        missing.is_empty(),
+        "Wrapper methods missing spec links:\n  {}",
+        missing.join("\n  ")
+    );
+}

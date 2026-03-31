@@ -1,6 +1,5 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
-#![allow(clippy::missing_safety_doc)]
 use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
@@ -8,6 +7,12 @@ use crate::vk::enums::*;
 use crate::vk::handles::*;
 use crate::vk::structs::*;
 impl crate::Entry {
+    ///Wraps [`vkGetExternalComputeQueueDataNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExternalComputeQueueDataNV.html).
+    /**
+    Provided by **VK_NV_external_compute_queue**.*/
+    ///
+    ///# Safety
+    ///- `externalQueue` (self) must be valid and not destroyed.
     pub unsafe fn get_external_compute_queue_data_nv(
         &self,
         external_queue: ExternalComputeQueueNV,

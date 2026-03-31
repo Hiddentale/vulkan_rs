@@ -1,6 +1,5 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
-#![allow(clippy::missing_safety_doc)]
 use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
@@ -8,6 +7,13 @@ use crate::vk::enums::*;
 use crate::vk::handles::*;
 use crate::vk::structs::*;
 impl crate::Instance {
+    ///Wraps [`vkDestroyInstance`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyInstance.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
+    ///- `instance` must be externally synchronized.
     pub unsafe fn destroy_instance(&self, allocator: Option<&AllocationCallbacks>) {
         let fp = self
             .commands()
@@ -16,6 +22,19 @@ impl crate::Instance {
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), alloc_ptr) };
     }
+    ///Wraps [`vkEnumeratePhysicalDevices`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDevices.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn enumerate_physical_devices(&self) -> VkResult<Vec<PhysicalDevice>> {
         let fp = self
             .commands()
@@ -23,6 +42,12 @@ impl crate::Instance {
             .expect("vkEnumeratePhysicalDevices not loaded");
         enumerate_two_call(|count, data| unsafe { fp(self.handle(), count, data) })
     }
+    ///Wraps [`vkGetInstanceProcAddr`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetInstanceProcAddr.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn get_instance_proc_addr(&self, p_name: *const core::ffi::c_char) {
         let fp = self
             .commands()
@@ -30,6 +55,12 @@ impl crate::Instance {
             .expect("vkGetInstanceProcAddr not loaded");
         unsafe { fp(self.handle(), p_name) };
     }
+    ///Wraps [`vkGetPhysicalDeviceProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -42,6 +73,12 @@ impl crate::Instance {
         unsafe { fp(physical_device, &mut out) };
         out
     }
+    ///Wraps [`vkGetPhysicalDeviceQueueFamilyProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_queue_family_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -52,6 +89,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceQueueFamilyProperties not loaded");
         fill_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceMemoryProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMemoryProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_memory_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -64,6 +107,12 @@ impl crate::Instance {
         unsafe { fp(physical_device, &mut out) };
         out
     }
+    ///Wraps [`vkGetPhysicalDeviceFeatures`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_features(
         &self,
         physical_device: PhysicalDevice,
@@ -76,6 +125,12 @@ impl crate::Instance {
         unsafe { fp(physical_device, &mut out) };
         out
     }
+    ///Wraps [`vkGetPhysicalDeviceFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFormatProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_format_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -89,6 +144,19 @@ impl crate::Instance {
         unsafe { fp(physical_device, format, &mut out) };
         out
     }
+    ///Wraps [`vkGetPhysicalDeviceImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceImageFormatProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_image_format_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -116,6 +184,18 @@ impl crate::Instance {
         })?;
         Ok(out)
     }
+    ///Wraps [`vkEnumerateDeviceLayerProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateDeviceLayerProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn enumerate_device_layer_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -126,6 +206,19 @@ impl crate::Instance {
             .expect("vkEnumerateDeviceLayerProperties not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkEnumerateDeviceExtensionProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateDeviceExtensionProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_LAYER_NOT_PRESENT`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn enumerate_device_extension_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -137,6 +230,12 @@ impl crate::Instance {
             .expect("vkEnumerateDeviceExtensionProperties not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, p_layer_name, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_0**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_sparse_image_format_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -163,6 +262,18 @@ impl crate::Instance {
             )
         })
     }
+    ///Wraps [`vkCreateSurfaceOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSurfaceOHOS.html).
+    /**
+    Provided by **VK_OHOS_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_surface_ohos(
         &self,
         p_create_info: &SurfaceCreateInfoOHOS,
@@ -177,6 +288,18 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceDisplayPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPropertiesKHR.html).
+    /**
+    Provided by **VK_KHR_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_display_properties_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -187,6 +310,18 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceDisplayPropertiesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceDisplayPlanePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html).
+    /**
+    Provided by **VK_KHR_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_display_plane_properties_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -197,6 +332,18 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceDisplayPlanePropertiesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetDisplayPlaneSupportedDisplaysKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneSupportedDisplaysKHR.html).
+    /**
+    Provided by **VK_KHR_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_display_plane_supported_displays_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -208,6 +355,18 @@ impl crate::Instance {
             .expect("vkGetDisplayPlaneSupportedDisplaysKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, plane_index, count, data) })
     }
+    ///Wraps [`vkGetDisplayModePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayModePropertiesKHR.html).
+    /**
+    Provided by **VK_KHR_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_display_mode_properties_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -219,6 +378,20 @@ impl crate::Instance {
             .expect("vkGetDisplayModePropertiesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, display, count, data) })
     }
+    ///Wraps [`vkCreateDisplayModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDisplayModeKHR.html).
+    /**
+    Provided by **VK_KHR_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///- `display` must be externally synchronized.
     pub unsafe fn create_display_mode_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -235,6 +408,19 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, display, p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetDisplayPlaneCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneCapabilitiesKHR.html).
+    /**
+    Provided by **VK_KHR_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///- `mode` must be externally synchronized.
     pub unsafe fn get_display_plane_capabilities_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -249,6 +435,18 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, mode, plane_index, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkCreateDisplayPlaneSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDisplayPlaneSurfaceKHR.html).
+    /**
+    Provided by **VK_KHR_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_display_plane_surface_khr(
         &self,
         p_create_info: &DisplaySurfaceCreateInfoKHR,
@@ -263,6 +461,19 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfaceSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceSupportKHR.html).
+    /**
+    Provided by **VK_KHR_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_support_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -277,6 +488,19 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, queue_family_index, surface, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html).
+    /**
+    Provided by **VK_KHR_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_capabilities_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -290,6 +514,19 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, surface, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfaceFormatsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceFormatsKHR.html).
+    /**
+    Provided by **VK_KHR_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_formats_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -301,6 +538,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSurfaceFormatsKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfacePresentModesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfacePresentModesKHR.html).
+    /**
+    Provided by **VK_KHR_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_present_modes_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -312,6 +562,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSurfacePresentModesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
     }
+    ///Wraps [`vkCreateViSurfaceNN`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateViSurfaceNN.html).
+    /**
+    Provided by **VK_NN_vi_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_vi_surface_nn(
         &self,
         p_create_info: &ViSurfaceCreateInfoNN,
@@ -326,6 +589,12 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html).
+    /**
+    Provided by **VK_KHR_wayland_surface**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_wayland_presentation_support_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -339,6 +608,18 @@ impl crate::Instance {
         unsafe { fp(physical_device, queue_family_index, &mut out) };
         out
     }
+    ///Wraps [`vkCreateUbmSurfaceSEC`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateUbmSurfaceSEC.html).
+    /**
+    Provided by **VK_SEC_ubm_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_ubm_surface_sec(
         &self,
         p_create_info: &UbmSurfaceCreateInfoSEC,
@@ -353,6 +634,12 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceUbmPresentationSupportSEC`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceUbmPresentationSupportSEC.html).
+    /**
+    Provided by **VK_SEC_ubm_surface**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_ubm_presentation_support_sec(
         &self,
         physical_device: PhysicalDevice,
@@ -366,6 +653,12 @@ impl crate::Instance {
         unsafe { fp(physical_device, queue_family_index, &mut out) };
         out
     }
+    ///Wraps [`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceWin32PresentationSupportKHR.html).
+    /**
+    Provided by **VK_KHR_win32_surface**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_win32_presentation_support_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -377,6 +670,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceWin32PresentationSupportKHR not loaded");
         unsafe { fp(physical_device, queue_family_index) };
     }
+    ///Wraps [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceXlibPresentationSupportKHR.html).
+    /**
+    Provided by **VK_KHR_xlib_surface**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_xlib_presentation_support_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -391,6 +690,12 @@ impl crate::Instance {
         unsafe { fp(physical_device, queue_family_index, &mut out, visual_id) };
         out
     }
+    ///Wraps [`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceXcbPresentationSupportKHR.html).
+    /**
+    Provided by **VK_KHR_xcb_surface**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_xcb_presentation_support_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -405,6 +710,18 @@ impl crate::Instance {
         unsafe { fp(physical_device, queue_family_index, &mut out, visual_id) };
         out
     }
+    ///Wraps [`vkCreateDirectFBSurfaceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDirectFBSurfaceEXT.html).
+    /**
+    Provided by **VK_EXT_directfb_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_direct_fb_surface_ext(
         &self,
         p_create_info: &DirectFBSurfaceCreateInfoEXT,
@@ -419,6 +736,12 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceDirectFBPresentationSupportEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html).
+    /**
+    Provided by **VK_EXT_directfb_surface**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_direct_fb_presentation_support_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -432,6 +755,18 @@ impl crate::Instance {
         unsafe { fp(physical_device, queue_family_index, &mut out) };
         out
     }
+    ///Wraps [`vkCreateImagePipeSurfaceFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateImagePipeSurfaceFUCHSIA.html).
+    /**
+    Provided by **VK_FUCHSIA_imagepipe_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_image_pipe_surface_fuchsia(
         &self,
         p_create_info: &ImagePipeSurfaceCreateInfoFUCHSIA,
@@ -446,6 +781,19 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkCreateStreamDescriptorSurfaceGGP`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateStreamDescriptorSurfaceGGP.html).
+    /**
+    Provided by **VK_GGP_stream_descriptor_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_stream_descriptor_surface_ggp(
         &self,
         p_create_info: &StreamDescriptorSurfaceCreateInfoGGP,
@@ -460,6 +808,18 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkCreateScreenSurfaceQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateScreenSurfaceQNX.html).
+    /**
+    Provided by **VK_QNX_screen_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_screen_surface_qnx(
         &self,
         p_create_info: &ScreenSurfaceCreateInfoQNX,
@@ -474,6 +834,12 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceScreenPresentationSupportQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceScreenPresentationSupportQNX.html).
+    /**
+    Provided by **VK_QNX_screen_surface**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_screen_presentation_support_qnx(
         &self,
         physical_device: PhysicalDevice,
@@ -487,6 +853,17 @@ impl crate::Instance {
         unsafe { fp(physical_device, queue_family_index, &mut out) };
         out
     }
+    ///Wraps [`vkCreateDebugReportCallbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDebugReportCallbackEXT.html).
+    /**
+    Provided by **VK_EXT_debug_report**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_debug_report_callback_ext(
         &self,
         p_create_info: &DebugReportCallbackCreateInfoEXT,
@@ -501,6 +878,13 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkDestroyDebugReportCallbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDebugReportCallbackEXT.html).
+    /**
+    Provided by **VK_EXT_debug_report**.*/
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
+    ///- `callback` must be externally synchronized.
     pub unsafe fn destroy_debug_report_callback_ext(
         &self,
         callback: DebugReportCallbackEXT,
@@ -513,6 +897,12 @@ impl crate::Instance {
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), callback, alloc_ptr) };
     }
+    ///Wraps [`vkDebugReportMessageEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugReportMessageEXT.html).
+    /**
+    Provided by **VK_EXT_debug_report**.*/
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn debug_report_message_ext(
         &self,
         flags: DebugReportFlagsEXT,
@@ -540,6 +930,19 @@ impl crate::Instance {
             )
         };
     }
+    ///Wraps [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html).
+    /**
+    Provided by **VK_NV_external_memory_capabilities**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_external_image_format_properties_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -569,6 +972,12 @@ impl crate::Instance {
         })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceFeatures2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_features2(
         &self,
         physical_device: PhysicalDevice,
@@ -580,6 +989,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceFeatures2 not loaded");
         unsafe { fp(physical_device, p_features) };
     }
+    ///Wraps [`vkGetPhysicalDeviceProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_properties2(
         &self,
         physical_device: PhysicalDevice,
@@ -591,6 +1006,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceProperties2 not loaded");
         unsafe { fp(physical_device, p_properties) };
     }
+    ///Wraps [`vkGetPhysicalDeviceFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFormatProperties2.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_format_properties2(
         &self,
         physical_device: PhysicalDevice,
@@ -603,6 +1024,24 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceFormatProperties2 not loaded");
         unsafe { fp(physical_device, format, p_format_properties) };
     }
+    ///Wraps [`vkGetPhysicalDeviceImageFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceImageFormatProperties2.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+    ///- `VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_image_format_properties2(
         &self,
         physical_device: PhysicalDevice,
@@ -621,6 +1060,12 @@ impl crate::Instance {
             )
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceQueueFamilyProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyProperties2.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_queue_family_properties2(
         &self,
         physical_device: PhysicalDevice,
@@ -631,6 +1076,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceQueueFamilyProperties2 not loaded");
         fill_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceMemoryProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMemoryProperties2.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_memory_properties2(
         &self,
         physical_device: PhysicalDevice,
@@ -642,6 +1093,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceMemoryProperties2 not loaded");
         unsafe { fp(physical_device, p_memory_properties) };
     }
+    ///Wraps [`vkGetPhysicalDeviceSparseImageFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties2.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_sparse_image_format_properties2(
         &self,
         physical_device: PhysicalDevice,
@@ -653,6 +1110,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSparseImageFormatProperties2 not loaded");
         fill_two_call(|count, data| unsafe { fp(physical_device, p_format_info, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceExternalBufferProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalBufferProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_external_buffer_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -671,6 +1134,18 @@ impl crate::Instance {
             )
         };
     }
+    ///Wraps [`vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV.html).
+    /**
+    Provided by **VK_NV_external_memory_sci_buf**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_external_memory_sci_buf_properties_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -691,6 +1166,18 @@ impl crate::Instance {
             )
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceSciBufAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciBufAttributesNV.html).
+    /**
+    Provided by **VK_NV_external_memory_sci_buf**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_sci_buf_attributes_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -702,6 +1189,12 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSciBufAttributesNV not loaded");
         check(unsafe { fp(physical_device, p_attributes) })
     }
+    ///Wraps [`vkGetPhysicalDeviceExternalSemaphoreProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalSemaphoreProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_external_semaphore_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -720,6 +1213,12 @@ impl crate::Instance {
             )
         };
     }
+    ///Wraps [`vkGetPhysicalDeviceExternalFenceProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalFenceProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_external_fence_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -738,6 +1237,17 @@ impl crate::Instance {
             )
         };
     }
+    ///Wraps [`vkGetPhysicalDeviceSciSyncAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciSyncAttributesNV.html).
+    /**
+    Provided by **VK_NV_external_sci_sync**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_sci_sync_attributes_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -750,6 +1260,16 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSciSyncAttributesNV not loaded");
         check(unsafe { fp(physical_device, p_sci_sync_attributes_info, p_attributes) })
     }
+    ///Wraps [`vkReleaseDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseDisplayEXT.html).
+    /**
+    Provided by **VK_EXT_direct_mode_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn release_display_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -761,6 +1281,18 @@ impl crate::Instance {
             .expect("vkReleaseDisplayEXT not loaded");
         check(unsafe { fp(physical_device, display) })
     }
+    ///Wraps [`vkAcquireXlibDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireXlibDisplayEXT.html).
+    /**
+    Provided by **VK_EXT_acquire_xlib_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn acquire_xlib_display_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -774,6 +1306,17 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, &mut out, display) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetRandROutputDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRandROutputDisplayEXT.html).
+    /**
+    Provided by **VK_EXT_acquire_xlib_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_rand_r_output_display_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -788,6 +1331,19 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, dpy, rr_output, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkAcquireWinrtDisplayNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireWinrtDisplayNV.html).
+    /**
+    Provided by **VK_NV_acquire_winrt_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_DEVICE_LOST`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn acquire_winrt_display_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -799,6 +1355,19 @@ impl crate::Instance {
             .expect("vkAcquireWinrtDisplayNV not loaded");
         check(unsafe { fp(physical_device, display) })
     }
+    ///Wraps [`vkGetWinrtDisplayNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetWinrtDisplayNV.html).
+    /**
+    Provided by **VK_NV_acquire_winrt_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_DEVICE_LOST`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_winrt_display_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -812,6 +1381,19 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, device_relative_id, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2EXT.html).
+    /**
+    Provided by **VK_EXT_display_surface_counter**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_capabilities2_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -824,6 +1406,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSurfaceCapabilities2EXT not loaded");
         check(unsafe { fp(physical_device, surface, p_surface_capabilities) })
     }
+    ///Wraps [`vkEnumeratePhysicalDeviceGroups`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceGroups.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_1**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn enumerate_physical_device_groups(
         &self,
     ) -> VkResult<Vec<PhysicalDeviceGroupProperties>> {
@@ -833,6 +1428,19 @@ impl crate::Instance {
             .expect("vkEnumeratePhysicalDeviceGroups not loaded");
         enumerate_two_call(|count, data| unsafe { fp(self.handle(), count, data) })
     }
+    ///Wraps [`vkGetPhysicalDevicePresentRectanglesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDevicePresentRectanglesKHR.html).
+    /**
+    Provided by **VK_KHR_swapchain**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///- `surface` must be externally synchronized.
     pub unsafe fn get_physical_device_present_rectangles_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -844,6 +1452,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDevicePresentRectanglesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
     }
+    ///Wraps [`vkCreateIOSSurfaceMVK`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIOSSurfaceMVK.html).
+    /**
+    Provided by **VK_MVK_ios_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_ios_surface_mvk(
         &self,
         p_create_info: &IOSSurfaceCreateInfoMVK,
@@ -858,6 +1479,19 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkCreateMacOSSurfaceMVK`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMacOSSurfaceMVK.html).
+    /**
+    Provided by **VK_MVK_macos_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_mac_os_surface_mvk(
         &self,
         p_create_info: &MacOSSurfaceCreateInfoMVK,
@@ -872,6 +1506,12 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMultisamplePropertiesEXT.html).
+    /**
+    Provided by **VK_EXT_sample_locations**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_multisample_properties_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -884,6 +1524,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceMultisamplePropertiesEXT not loaded");
         unsafe { fp(physical_device, samples, p_multisample_properties) };
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html).
+    /**
+    Provided by **VK_KHR_get_surface_capabilities2**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_capabilities2_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -896,6 +1549,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSurfaceCapabilities2KHR not loaded");
         check(unsafe { fp(physical_device, p_surface_info, p_surface_capabilities) })
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfaceFormats2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceFormats2KHR.html).
+    /**
+    Provided by **VK_KHR_get_surface_capabilities2**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_formats2_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -909,6 +1575,18 @@ impl crate::Instance {
             fp(physical_device, p_surface_info, count, data)
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceDisplayProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayProperties2KHR.html).
+    /**
+    Provided by **VK_KHR_get_display_properties2**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_display_properties2_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -919,6 +1597,18 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceDisplayProperties2KHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceDisplayPlaneProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html).
+    /**
+    Provided by **VK_KHR_get_display_properties2**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_display_plane_properties2_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -929,6 +1619,18 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceDisplayPlaneProperties2KHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetDisplayModeProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayModeProperties2KHR.html).
+    /**
+    Provided by **VK_KHR_get_display_properties2**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_display_mode_properties2_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -940,6 +1642,18 @@ impl crate::Instance {
             .expect("vkGetDisplayModeProperties2KHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, display, count, data) })
     }
+    ///Wraps [`vkGetDisplayPlaneCapabilities2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneCapabilities2KHR.html).
+    /**
+    Provided by **VK_KHR_get_display_properties2**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_display_plane_capabilities2_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -952,6 +1666,18 @@ impl crate::Instance {
             .expect("vkGetDisplayPlaneCapabilities2KHR not loaded");
         check(unsafe { fp(physical_device, p_display_plane_info, p_capabilities) })
     }
+    ///Wraps [`vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html).
+    /**
+    Provided by **VK_KHR_calibrated_timestamps**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_calibrateable_time_domains_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -962,6 +1688,17 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceCalibrateableTimeDomainsKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkCreateDebugUtilsMessengerEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDebugUtilsMessengerEXT.html).
+    /**
+    Provided by **VK_EXT_debug_utils**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_debug_utils_messenger_ext(
         &self,
         p_create_info: &DebugUtilsMessengerCreateInfoEXT,
@@ -976,6 +1713,13 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkDestroyDebugUtilsMessengerEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDebugUtilsMessengerEXT.html).
+    /**
+    Provided by **VK_EXT_debug_utils**.*/
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
+    ///- `messenger` must be externally synchronized.
     pub unsafe fn destroy_debug_utils_messenger_ext(
         &self,
         messenger: DebugUtilsMessengerEXT,
@@ -988,6 +1732,12 @@ impl crate::Instance {
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), messenger, alloc_ptr) };
     }
+    ///Wraps [`vkSubmitDebugUtilsMessageEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSubmitDebugUtilsMessageEXT.html).
+    /**
+    Provided by **VK_EXT_debug_utils**.*/
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn submit_debug_utils_message_ext(
         &self,
         message_severity: DebugUtilsMessageSeverityFlagBitsEXT,
@@ -1007,6 +1757,18 @@ impl crate::Instance {
             )
         };
     }
+    ///Wraps [`vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html).
+    /**
+    Provided by **VK_NV_cooperative_matrix**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_cooperative_matrix_properties_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -1017,6 +1779,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceCooperativeMatrixPropertiesNV not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceSurfacePresentModes2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfacePresentModes2EXT.html).
+    /**
+    Provided by **VK_EXT_full_screen_exclusive**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_SURFACE_LOST_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_surface_present_modes2_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -1030,6 +1805,19 @@ impl crate::Instance {
             fp(physical_device, p_surface_info, count, data)
         })
     }
+    ///Wraps [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html).
+    /**
+    Provided by **VK_KHR_performance_query**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn enumerate_physical_device_queue_family_performance_query_counters_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1050,6 +1838,12 @@ impl crate::Instance {
             )
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html).
+    /**
+    Provided by **VK_KHR_performance_query**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_queue_family_performance_query_passes_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1063,6 +1857,18 @@ impl crate::Instance {
         unsafe { fp(physical_device, p_performance_query_create_info, &mut out) };
         out
     }
+    ///Wraps [`vkCreateHeadlessSurfaceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateHeadlessSurfaceEXT.html).
+    /**
+    Provided by **VK_EXT_headless_surface**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `instance` (self) must be valid and not destroyed.
     pub unsafe fn create_headless_surface_ext(
         &self,
         p_create_info: &HeadlessSurfaceCreateInfoEXT,
@@ -1077,6 +1883,18 @@ impl crate::Instance {
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html).
+    /**
+    Provided by **VK_NV_coverage_reduction_mode**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_supported_framebuffer_mixed_samples_combinations_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -1087,6 +1905,17 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceToolProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceToolProperties.html).
+    /**
+    Provided by **VK_BASE_VERSION_1_3**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_tool_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -1097,6 +1926,16 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceToolProperties not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceRefreshableObjectTypesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceRefreshableObjectTypesKHR.html).
+    /**
+    Provided by **VK_KHR_object_refresh**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_refreshable_object_types_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1107,6 +1946,17 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceRefreshableObjectTypesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceFragmentShadingRatesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFragmentShadingRatesKHR.html).
+    /**
+    Provided by **VK_KHR_fragment_shading_rate**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_fragment_shading_rates_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1117,6 +1967,22 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceFragmentShadingRatesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceVideoCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoCapabilitiesKHR.html).
+    /**
+    Provided by **VK_KHR_video_queue**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_video_capabilities_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1129,6 +1995,23 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceVideoCapabilitiesKHR not loaded");
         check(unsafe { fp(physical_device, p_video_profile, p_capabilities) })
     }
+    ///Wraps [`vkGetPhysicalDeviceVideoFormatPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html).
+    /**
+    Provided by **VK_KHR_video_queue**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_video_format_properties_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1142,6 +2025,22 @@ impl crate::Instance {
             fp(physical_device, p_video_format_info, count, data)
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR.html).
+    /**
+    Provided by **VK_KHR_video_encode_queue**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_video_encode_quality_level_properties_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1160,6 +2059,17 @@ impl crate::Instance {
             )
         })
     }
+    ///Wraps [`vkAcquireDrmDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireDrmDisplayEXT.html).
+    /**
+    Provided by **VK_EXT_acquire_drm_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn acquire_drm_display_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -1172,6 +2082,18 @@ impl crate::Instance {
             .expect("vkAcquireDrmDisplayEXT not loaded");
         check(unsafe { fp(physical_device, drm_fd, display) })
     }
+    ///Wraps [`vkGetDrmDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDrmDisplayEXT.html).
+    /**
+    Provided by **VK_EXT_acquire_drm_display**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_drm_display_ext(
         &self,
         physical_device: PhysicalDevice,
@@ -1186,6 +2108,19 @@ impl crate::Instance {
         check(unsafe { fp(physical_device, drm_fd, connector_id, &mut out) })?;
         Ok(out)
     }
+    ///Wraps [`vkGetPhysicalDeviceOpticalFlowImageFormatsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html).
+    /**
+    Provided by **VK_NV_optical_flow**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_EXTENSION_NOT_PRESENT`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_optical_flow_image_formats_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -1204,6 +2139,18 @@ impl crate::Instance {
             )
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html).
+    /**
+    Provided by **VK_KHR_cooperative_matrix**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_cooperative_matrix_properties_khr(
         &self,
         physical_device: PhysicalDevice,
@@ -1214,6 +2161,18 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV.html).
+    /**
+    Provided by **VK_NV_cooperative_matrix2**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_cooperative_matrix_flexible_dimensions_properties_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -1226,6 +2185,18 @@ impl crate::Instance {
             );
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceCooperativeVectorPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html).
+    /**
+    Provided by **VK_NV_cooperative_vector**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_cooperative_vector_properties_nv(
         &self,
         physical_device: PhysicalDevice,
@@ -1236,6 +2207,19 @@ impl crate::Instance {
             .expect("vkGetPhysicalDeviceCooperativeVectorPropertiesNV not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM.html).
+    /**
+    Provided by **VK_ARM_shader_instrumentation**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn enumerate_physical_device_shader_instrumentation_metrics_arm(
         &self,
         physical_device: PhysicalDevice,
@@ -1246,6 +2230,12 @@ impl crate::Instance {
             .expect("vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
+    ///Wraps [`vkGetPhysicalDeviceExternalTensorPropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalTensorPropertiesARM.html).
+    /**
+    Provided by **VK_ARM_tensors**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_external_tensor_properties_arm(
         &self,
         physical_device: PhysicalDevice,
@@ -1264,6 +2254,18 @@ impl crate::Instance {
             )
         };
     }
+    ///Wraps [`vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html).
+    /**
+    Provided by **VK_ARM_data_graph**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_queue_family_data_graph_properties_arm(
         &self,
         physical_device: PhysicalDevice,
@@ -1277,6 +2279,12 @@ impl crate::Instance {
             fp(physical_device, queue_family_index, count, data)
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html).
+    /**
+    Provided by **VK_ARM_data_graph**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_queue_family_data_graph_processing_engine_properties_arm(
         &self,
         physical_device: PhysicalDevice,
@@ -1297,6 +2305,19 @@ impl crate::Instance {
             )
         };
     }
+    ///Wraps [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM.html).
+    /**
+    Provided by **VK_ARM_performance_counters_by_region**.*/
+    ///
+    ///# Errors
+    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+    ///- `VK_ERROR_INITIALIZATION_FAILED`
+    ///- `VK_ERROR_UNKNOWN`
+    ///- `VK_ERROR_VALIDATION_FAILED`
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn enumerate_physical_device_queue_family_performance_counters_by_region_arm(
         &self,
         physical_device: PhysicalDevice,
@@ -1319,6 +2340,12 @@ impl crate::Instance {
             )
         })
     }
+    ///Wraps [`vkGetPhysicalDeviceDescriptorSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDescriptorSizeEXT.html).
+    /**
+    Provided by **VK_EXT_descriptor_heap**.*/
+    ///
+    ///# Safety
+    ///- `physicalDevice` (self) must be valid and not destroyed.
     pub unsafe fn get_physical_device_descriptor_size_ext(
         &self,
         physical_device: PhysicalDevice,

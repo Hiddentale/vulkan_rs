@@ -3,6 +3,7 @@ use super::enums::*;
 use super::handles::*;
 use super::bitmasks::*;
 use super::constants::*;
+///Builder for [`ApplicationInfo`] with lifetime-tied pNext safety.
 pub struct ApplicationInfoBuilder<'a> {
     inner: ApplicationInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46,7 +47,7 @@ impl<'a> ApplicationInfoBuilder<'a> {
         self.inner.api_version = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ApplicationInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsApplicationInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -72,6 +73,7 @@ impl<'a> core::ops::DerefMut for ApplicationInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceQueueCreateInfo`] with lifetime-tied pNext safety.
 pub struct DeviceQueueCreateInfoBuilder<'a> {
     inner: DeviceQueueCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -106,7 +108,7 @@ impl<'a> DeviceQueueCreateInfoBuilder<'a> {
         self.inner.p_queue_priorities = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceQueueCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceQueueCreateInfo>(
         mut self,
@@ -135,6 +137,7 @@ impl<'a> core::ops::DerefMut for DeviceQueueCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceCreateInfo`] with lifetime-tied pNext safety.
 pub struct DeviceCreateInfoBuilder<'a> {
     inner: DeviceCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -195,7 +198,7 @@ impl<'a> DeviceCreateInfoBuilder<'a> {
         self.inner.p_enabled_features = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -221,6 +224,7 @@ impl<'a> core::ops::DerefMut for DeviceCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`InstanceCreateInfo`] with lifetime-tied pNext safety.
 pub struct InstanceCreateInfoBuilder<'a> {
     inner: InstanceCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -275,7 +279,7 @@ impl<'a> InstanceCreateInfoBuilder<'a> {
         self.inner.pp_enabled_extension_names = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`InstanceCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsInstanceCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -301,6 +305,7 @@ impl<'a> core::ops::DerefMut for InstanceCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryAllocateInfo`] with lifetime-tied pNext safety.
 pub struct MemoryAllocateInfoBuilder<'a> {
     inner: MemoryAllocateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -329,7 +334,7 @@ impl<'a> MemoryAllocateInfoBuilder<'a> {
         self.inner.memory_type_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryAllocateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryAllocateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -355,6 +360,7 @@ impl<'a> core::ops::DerefMut for MemoryAllocateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MappedMemoryRange`] with lifetime-tied pNext safety.
 pub struct MappedMemoryRangeBuilder<'a> {
     inner: MappedMemoryRange,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -388,7 +394,7 @@ impl<'a> MappedMemoryRangeBuilder<'a> {
         self.inner.size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MappedMemoryRange`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMappedMemoryRange>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -414,6 +420,7 @@ impl<'a> core::ops::DerefMut for MappedMemoryRangeBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`WriteDescriptorSet`] with lifetime-tied pNext safety.
 pub struct WriteDescriptorSetBuilder<'a> {
     inner: WriteDescriptorSet,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -470,7 +477,7 @@ impl<'a> WriteDescriptorSetBuilder<'a> {
         self.inner.p_texel_buffer_view = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteDescriptorSet`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteDescriptorSet>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -496,6 +503,7 @@ impl<'a> core::ops::DerefMut for WriteDescriptorSetBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyDescriptorSet`] with lifetime-tied pNext safety.
 pub struct CopyDescriptorSetBuilder<'a> {
     inner: CopyDescriptorSet,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -549,7 +557,7 @@ impl<'a> CopyDescriptorSetBuilder<'a> {
         self.inner.descriptor_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyDescriptorSet`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyDescriptorSet>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -575,6 +583,7 @@ impl<'a> core::ops::DerefMut for CopyDescriptorSetBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferUsageFlags2CreateInfo`] with lifetime-tied pNext safety.
 pub struct BufferUsageFlags2CreateInfoBuilder<'a> {
     inner: BufferUsageFlags2CreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -598,7 +607,7 @@ impl<'a> BufferUsageFlags2CreateInfoBuilder<'a> {
         self.inner.usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferUsageFlags2CreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferUsageFlags2CreateInfo>(
         mut self,
@@ -627,6 +636,7 @@ impl<'a> core::ops::DerefMut for BufferUsageFlags2CreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferCreateInfo`] with lifetime-tied pNext safety.
 pub struct BufferCreateInfoBuilder<'a> {
     inner: BufferCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -671,7 +681,7 @@ impl<'a> BufferCreateInfoBuilder<'a> {
         self.inner.p_queue_family_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -697,6 +707,7 @@ impl<'a> core::ops::DerefMut for BufferCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferViewCreateInfo`] with lifetime-tied pNext safety.
 pub struct BufferViewCreateInfoBuilder<'a> {
     inner: BufferViewCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -740,7 +751,7 @@ impl<'a> BufferViewCreateInfoBuilder<'a> {
         self.inner.range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferViewCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferViewCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -766,6 +777,7 @@ impl<'a> core::ops::DerefMut for BufferViewCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryBarrier`] with lifetime-tied pNext safety.
 pub struct MemoryBarrierBuilder<'a> {
     inner: MemoryBarrier,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -794,7 +806,7 @@ impl<'a> MemoryBarrierBuilder<'a> {
         self.inner.dst_access_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryBarrier`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryBarrier>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -820,6 +832,7 @@ impl<'a> core::ops::DerefMut for MemoryBarrierBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferMemoryBarrier`] with lifetime-tied pNext safety.
 pub struct BufferMemoryBarrierBuilder<'a> {
     inner: BufferMemoryBarrier,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -873,7 +886,7 @@ impl<'a> BufferMemoryBarrierBuilder<'a> {
         self.inner.size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferMemoryBarrier`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferMemoryBarrier>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -899,6 +912,7 @@ impl<'a> core::ops::DerefMut for BufferMemoryBarrierBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageMemoryBarrier`] with lifetime-tied pNext safety.
 pub struct ImageMemoryBarrierBuilder<'a> {
     inner: ImageMemoryBarrier,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -957,7 +971,7 @@ impl<'a> ImageMemoryBarrierBuilder<'a> {
         self.inner.subresource_range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageMemoryBarrier`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageMemoryBarrier>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -983,6 +997,7 @@ impl<'a> core::ops::DerefMut for ImageMemoryBarrierBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageCreateInfo`] with lifetime-tied pNext safety.
 pub struct ImageCreateInfoBuilder<'a> {
     inner: ImageCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1062,7 +1077,7 @@ impl<'a> ImageCreateInfoBuilder<'a> {
         self.inner.initial_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -1088,6 +1103,7 @@ impl<'a> core::ops::DerefMut for ImageCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageViewCreateInfo`] with lifetime-tied pNext safety.
 pub struct ImageViewCreateInfoBuilder<'a> {
     inner: ImageViewCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1136,7 +1152,7 @@ impl<'a> ImageViewCreateInfoBuilder<'a> {
         self.inner.subresource_range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -1162,6 +1178,7 @@ impl<'a> core::ops::DerefMut for ImageViewCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindSparseInfo`] with lifetime-tied pNext safety.
 pub struct BindSparseInfoBuilder<'a> {
     inner: BindSparseInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1213,7 +1230,7 @@ impl<'a> BindSparseInfoBuilder<'a> {
         self.inner.p_signal_semaphores = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindSparseInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindSparseInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -1239,6 +1256,7 @@ impl<'a> core::ops::DerefMut for BindSparseInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyMemoryIndirectInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyMemoryIndirectInfoKHRBuilder<'a> {
     inner: CopyMemoryIndirectInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1277,7 +1295,7 @@ impl<'a> CopyMemoryIndirectInfoKHRBuilder<'a> {
         self.inner.copy_address_range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyMemoryIndirectInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyMemoryIndirectInfoKHR>(
         mut self,
@@ -1306,6 +1324,7 @@ impl<'a> core::ops::DerefMut for CopyMemoryIndirectInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyMemoryToImageIndirectInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyMemoryToImageIndirectInfoKHRBuilder<'a> {
     inner: CopyMemoryToImageIndirectInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1350,7 +1369,7 @@ impl<'a> CopyMemoryToImageIndirectInfoKHRBuilder<'a> {
         self.inner.p_image_subresources = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyMemoryToImageIndirectInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyMemoryToImageIndirectInfoKHR>(
         mut self,
@@ -1379,6 +1398,7 @@ impl<'a> core::ops::DerefMut for CopyMemoryToImageIndirectInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ShaderModuleCreateInfo`] with lifetime-tied pNext safety.
 pub struct ShaderModuleCreateInfoBuilder<'a> {
     inner: ShaderModuleCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1412,7 +1432,7 @@ impl<'a> ShaderModuleCreateInfoBuilder<'a> {
         self.inner.p_code = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ShaderModuleCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsShaderModuleCreateInfo>(
         mut self,
@@ -1441,6 +1461,7 @@ impl<'a> core::ops::DerefMut for ShaderModuleCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetLayoutCreateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorSetLayoutCreateInfoBuilder<'a> {
     inner: DescriptorSetLayoutCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1470,7 +1491,7 @@ impl<'a> DescriptorSetLayoutCreateInfoBuilder<'a> {
         self.inner.p_bindings = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorSetLayoutCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorSetLayoutCreateInfo>(
         mut self,
@@ -1499,6 +1520,7 @@ impl<'a> core::ops::DerefMut for DescriptorSetLayoutCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorPoolCreateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorPoolCreateInfoBuilder<'a> {
     inner: DescriptorPoolCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1533,7 +1555,7 @@ impl<'a> DescriptorPoolCreateInfoBuilder<'a> {
         self.inner.p_pool_sizes = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorPoolCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorPoolCreateInfo>(
         mut self,
@@ -1562,6 +1584,7 @@ impl<'a> core::ops::DerefMut for DescriptorPoolCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetAllocateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorSetAllocateInfoBuilder<'a> {
     inner: DescriptorSetAllocateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1591,7 +1614,7 @@ impl<'a> DescriptorSetAllocateInfoBuilder<'a> {
         self.inner.p_set_layouts = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorSetAllocateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorSetAllocateInfo>(
         mut self,
@@ -1620,6 +1643,7 @@ impl<'a> core::ops::DerefMut for DescriptorSetAllocateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineShaderStageCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineShaderStageCreateInfoBuilder<'a> {
     inner: PipelineShaderStageCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1663,7 +1687,7 @@ impl<'a> PipelineShaderStageCreateInfoBuilder<'a> {
         self.inner.p_specialization_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineShaderStageCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineShaderStageCreateInfo>(
         mut self,
@@ -1692,6 +1716,7 @@ impl<'a> core::ops::DerefMut for PipelineShaderStageCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ComputePipelineCreateInfo`] with lifetime-tied pNext safety.
 pub struct ComputePipelineCreateInfoBuilder<'a> {
     inner: ComputePipelineCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1735,7 +1760,7 @@ impl<'a> ComputePipelineCreateInfoBuilder<'a> {
         self.inner.base_pipeline_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ComputePipelineCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsComputePipelineCreateInfo>(
         mut self,
@@ -1764,6 +1789,7 @@ impl<'a> core::ops::DerefMut for ComputePipelineCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ComputePipelineIndirectBufferInfoNV`] with lifetime-tied pNext safety.
 pub struct ComputePipelineIndirectBufferInfoNVBuilder<'a> {
     inner: ComputePipelineIndirectBufferInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1797,7 +1823,7 @@ impl<'a> ComputePipelineIndirectBufferInfoNVBuilder<'a> {
         self.inner.pipeline_device_address_capture_replay = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ComputePipelineIndirectBufferInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsComputePipelineIndirectBufferInfoNV>(
         mut self,
@@ -1826,6 +1852,7 @@ impl<'a> core::ops::DerefMut for ComputePipelineIndirectBufferInfoNVBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PipelineCreateFlags2CreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineCreateFlags2CreateInfoBuilder<'a> {
     inner: PipelineCreateFlags2CreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1849,7 +1876,7 @@ impl<'a> PipelineCreateFlags2CreateInfoBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCreateFlags2CreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCreateFlags2CreateInfo>(
         mut self,
@@ -1878,6 +1905,7 @@ impl<'a> core::ops::DerefMut for PipelineCreateFlags2CreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineVertexInputStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineVertexInputStateCreateInfoBuilder<'a> {
     inner: PipelineVertexInputStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1919,7 +1947,7 @@ impl<'a> PipelineVertexInputStateCreateInfoBuilder<'a> {
         self.inner.p_vertex_attribute_descriptions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineVertexInputStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineVertexInputStateCreateInfo>(
         mut self,
@@ -1948,6 +1976,7 @@ impl<'a> core::ops::DerefMut for PipelineVertexInputStateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineInputAssemblyStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineInputAssemblyStateCreateInfoBuilder<'a> {
     inner: PipelineInputAssemblyStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -1981,7 +2010,7 @@ impl<'a> PipelineInputAssemblyStateCreateInfoBuilder<'a> {
         self.inner.primitive_restart_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineInputAssemblyStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineInputAssemblyStateCreateInfo>(
         mut self,
@@ -2010,6 +2039,7 @@ impl<'a> core::ops::DerefMut for PipelineInputAssemblyStateCreateInfoBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PipelineTessellationStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineTessellationStateCreateInfoBuilder<'a> {
     inner: PipelineTessellationStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2038,7 +2068,7 @@ impl<'a> PipelineTessellationStateCreateInfoBuilder<'a> {
         self.inner.patch_control_points = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineTessellationStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineTessellationStateCreateInfo>(
         mut self,
@@ -2067,6 +2097,7 @@ impl<'a> core::ops::DerefMut for PipelineTessellationStateCreateInfoBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineViewportStateCreateInfoBuilder<'a> {
     inner: PipelineViewportStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2102,7 +2133,7 @@ impl<'a> PipelineViewportStateCreateInfoBuilder<'a> {
         self.inner.p_scissors = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportStateCreateInfo>(
         mut self,
@@ -2131,6 +2162,7 @@ impl<'a> core::ops::DerefMut for PipelineViewportStateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineRasterizationStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineRasterizationStateCreateInfoBuilder<'a> {
     inner: PipelineRasterizationStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2204,7 +2236,7 @@ impl<'a> PipelineRasterizationStateCreateInfoBuilder<'a> {
         self.inner.line_width = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRasterizationStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRasterizationStateCreateInfo>(
         mut self,
@@ -2233,6 +2265,7 @@ impl<'a> core::ops::DerefMut for PipelineRasterizationStateCreateInfoBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PipelineMultisampleStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineMultisampleStateCreateInfoBuilder<'a> {
     inner: PipelineMultisampleStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2286,7 +2319,7 @@ impl<'a> PipelineMultisampleStateCreateInfoBuilder<'a> {
         self.inner.alpha_to_one_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineMultisampleStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineMultisampleStateCreateInfo>(
         mut self,
@@ -2315,6 +2348,7 @@ impl<'a> core::ops::DerefMut for PipelineMultisampleStateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineColorBlendStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineColorBlendStateCreateInfoBuilder<'a> {
     inner: PipelineColorBlendStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2362,7 +2396,7 @@ impl<'a> PipelineColorBlendStateCreateInfoBuilder<'a> {
         self.inner.blend_constants = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineColorBlendStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineColorBlendStateCreateInfo>(
         mut self,
@@ -2391,6 +2425,7 @@ impl<'a> core::ops::DerefMut for PipelineColorBlendStateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineDynamicStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineDynamicStateCreateInfoBuilder<'a> {
     inner: PipelineDynamicStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2420,7 +2455,7 @@ impl<'a> PipelineDynamicStateCreateInfoBuilder<'a> {
         self.inner.p_dynamic_states = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineDynamicStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineDynamicStateCreateInfo>(
         mut self,
@@ -2449,6 +2484,7 @@ impl<'a> core::ops::DerefMut for PipelineDynamicStateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineDepthStencilStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineDepthStencilStateCreateInfoBuilder<'a> {
     inner: PipelineDepthStencilStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2517,7 +2553,7 @@ impl<'a> PipelineDepthStencilStateCreateInfoBuilder<'a> {
         self.inner.max_depth_bounds = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineDepthStencilStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineDepthStencilStateCreateInfo>(
         mut self,
@@ -2546,6 +2582,7 @@ impl<'a> core::ops::DerefMut for PipelineDepthStencilStateCreateInfoBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`GraphicsPipelineCreateInfo`] with lifetime-tied pNext safety.
 pub struct GraphicsPipelineCreateInfoBuilder<'a> {
     inner: GraphicsPipelineCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2672,7 +2709,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self.inner.base_pipeline_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GraphicsPipelineCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGraphicsPipelineCreateInfo>(
         mut self,
@@ -2701,6 +2738,7 @@ impl<'a> core::ops::DerefMut for GraphicsPipelineCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCacheCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineCacheCreateInfoBuilder<'a> {
     inner: PipelineCacheCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2730,7 +2768,7 @@ impl<'a> PipelineCacheCreateInfoBuilder<'a> {
         self.inner.p_initial_data = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCacheCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCacheCreateInfo>(
         mut self,
@@ -2759,6 +2797,7 @@ impl<'a> core::ops::DerefMut for PipelineCacheCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineBinaryCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineBinaryCreateInfoKHRBuilder<'a> {
     inner: PipelineBinaryCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2798,7 +2837,7 @@ impl<'a> PipelineBinaryCreateInfoKHRBuilder<'a> {
         self.inner.p_pipeline_create_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineBinaryCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineBinaryCreateInfoKHR>(
         mut self,
@@ -2827,6 +2866,7 @@ impl<'a> core::ops::DerefMut for PipelineBinaryCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineBinaryHandlesInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineBinaryHandlesInfoKHRBuilder<'a> {
     inner: PipelineBinaryHandlesInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2851,7 +2891,7 @@ impl<'a> PipelineBinaryHandlesInfoKHRBuilder<'a> {
         self.inner.p_pipeline_binaries = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineBinaryHandlesInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineBinaryHandlesInfoKHR>(
         mut self,
@@ -2880,6 +2920,7 @@ impl<'a> core::ops::DerefMut for PipelineBinaryHandlesInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineBinaryKeyKHR`] with lifetime-tied pNext safety.
 pub struct PipelineBinaryKeyKHRBuilder<'a> {
     inner: PipelineBinaryKeyKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2911,7 +2952,7 @@ impl<'a> PipelineBinaryKeyKHRBuilder<'a> {
         self.inner.key = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineBinaryKeyKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineBinaryKeyKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -2937,6 +2978,7 @@ impl<'a> core::ops::DerefMut for PipelineBinaryKeyKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineBinaryInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineBinaryInfoKHRBuilder<'a> {
     inner: PipelineBinaryInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -2961,7 +3003,7 @@ impl<'a> PipelineBinaryInfoKHRBuilder<'a> {
         self.inner.p_pipeline_binaries = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineBinaryInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineBinaryInfoKHR>(
         mut self,
@@ -2990,6 +3032,7 @@ impl<'a> core::ops::DerefMut for PipelineBinaryInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ReleaseCapturedPipelineDataInfoKHR`] with lifetime-tied pNext safety.
 pub struct ReleaseCapturedPipelineDataInfoKHRBuilder<'a> {
     inner: ReleaseCapturedPipelineDataInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3013,7 +3056,7 @@ impl<'a> ReleaseCapturedPipelineDataInfoKHRBuilder<'a> {
         self.inner.pipeline = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ReleaseCapturedPipelineDataInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsReleaseCapturedPipelineDataInfoKHR>(
         mut self,
@@ -3042,6 +3085,7 @@ impl<'a> core::ops::DerefMut for ReleaseCapturedPipelineDataInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineBinaryDataInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineBinaryDataInfoKHRBuilder<'a> {
     inner: PipelineBinaryDataInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3065,7 +3109,7 @@ impl<'a> PipelineBinaryDataInfoKHRBuilder<'a> {
         self.inner.pipeline_binary = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineBinaryDataInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineBinaryDataInfoKHR>(
         mut self,
@@ -3094,6 +3138,7 @@ impl<'a> core::ops::DerefMut for PipelineBinaryDataInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineCreateInfoKHRBuilder<'a> {
     inner: PipelineCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3112,7 +3157,7 @@ impl PipelineCreateInfoKHR {
     }
 }
 impl<'a> PipelineCreateInfoKHRBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCreateInfoKHR>(
         mut self,
@@ -3141,6 +3186,7 @@ impl<'a> core::ops::DerefMut for PipelineCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineLayoutCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineLayoutCreateInfoBuilder<'a> {
     inner: PipelineLayoutCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3176,7 +3222,7 @@ impl<'a> PipelineLayoutCreateInfoBuilder<'a> {
         self.inner.p_push_constant_ranges = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineLayoutCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineLayoutCreateInfo>(
         mut self,
@@ -3205,6 +3251,7 @@ impl<'a> core::ops::DerefMut for PipelineLayoutCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SamplerCreateInfo`] with lifetime-tied pNext safety.
 pub struct SamplerCreateInfoBuilder<'a> {
     inner: SamplerCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3303,7 +3350,7 @@ impl<'a> SamplerCreateInfoBuilder<'a> {
         self.inner.unnormalized_coordinates = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -3329,6 +3376,7 @@ impl<'a> core::ops::DerefMut for SamplerCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandPoolCreateInfo`] with lifetime-tied pNext safety.
 pub struct CommandPoolCreateInfoBuilder<'a> {
     inner: CommandPoolCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3357,7 +3405,7 @@ impl<'a> CommandPoolCreateInfoBuilder<'a> {
         self.inner.queue_family_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandPoolCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandPoolCreateInfo>(
         mut self,
@@ -3386,6 +3434,7 @@ impl<'a> core::ops::DerefMut for CommandPoolCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferAllocateInfo`] with lifetime-tied pNext safety.
 pub struct CommandBufferAllocateInfoBuilder<'a> {
     inner: CommandBufferAllocateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3419,7 +3468,7 @@ impl<'a> CommandBufferAllocateInfoBuilder<'a> {
         self.inner.command_buffer_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferAllocateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferAllocateInfo>(
         mut self,
@@ -3448,6 +3497,7 @@ impl<'a> core::ops::DerefMut for CommandBufferAllocateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferInheritanceInfo`] with lifetime-tied pNext safety.
 pub struct CommandBufferInheritanceInfoBuilder<'a> {
     inner: CommandBufferInheritanceInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3496,7 +3546,7 @@ impl<'a> CommandBufferInheritanceInfoBuilder<'a> {
         self.inner.pipeline_statistics = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferInheritanceInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferInheritanceInfo>(
         mut self,
@@ -3525,6 +3575,7 @@ impl<'a> core::ops::DerefMut for CommandBufferInheritanceInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferBeginInfo`] with lifetime-tied pNext safety.
 pub struct CommandBufferBeginInfoBuilder<'a> {
     inner: CommandBufferBeginInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3556,7 +3607,7 @@ impl<'a> CommandBufferBeginInfoBuilder<'a> {
         self.inner.p_inheritance_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferBeginInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferBeginInfo>(
         mut self,
@@ -3585,6 +3636,7 @@ impl<'a> core::ops::DerefMut for CommandBufferBeginInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassBeginInfo`] with lifetime-tied pNext safety.
 pub struct RenderPassBeginInfoBuilder<'a> {
     inner: RenderPassBeginInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3624,7 +3676,7 @@ impl<'a> RenderPassBeginInfoBuilder<'a> {
         self.inner.p_clear_values = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassBeginInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassBeginInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -3650,6 +3702,7 @@ impl<'a> core::ops::DerefMut for RenderPassBeginInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassCreateInfo`] with lifetime-tied pNext safety.
 pub struct RenderPassCreateInfoBuilder<'a> {
     inner: RenderPassCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3691,7 +3744,7 @@ impl<'a> RenderPassCreateInfoBuilder<'a> {
         self.inner.p_dependencies = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -3717,6 +3770,7 @@ impl<'a> core::ops::DerefMut for RenderPassCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`EventCreateInfo`] with lifetime-tied pNext safety.
 pub struct EventCreateInfoBuilder<'a> {
     inner: EventCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3740,7 +3794,7 @@ impl<'a> EventCreateInfoBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`EventCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsEventCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -3766,6 +3820,7 @@ impl<'a> core::ops::DerefMut for EventCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FenceCreateInfo`] with lifetime-tied pNext safety.
 pub struct FenceCreateInfoBuilder<'a> {
     inner: FenceCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3789,7 +3844,7 @@ impl<'a> FenceCreateInfoBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FenceCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFenceCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -3815,6 +3870,7 @@ impl<'a> core::ops::DerefMut for FenceCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreCreateInfo`] with lifetime-tied pNext safety.
 pub struct SemaphoreCreateInfoBuilder<'a> {
     inner: SemaphoreCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3838,7 +3894,7 @@ impl<'a> SemaphoreCreateInfoBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -3864,6 +3920,7 @@ impl<'a> core::ops::DerefMut for SemaphoreCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueryPoolCreateInfo`] with lifetime-tied pNext safety.
 pub struct QueryPoolCreateInfoBuilder<'a> {
     inner: QueryPoolCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3902,7 +3959,7 @@ impl<'a> QueryPoolCreateInfoBuilder<'a> {
         self.inner.pipeline_statistics = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`QueryPoolCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsQueryPoolCreateInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -3928,6 +3985,7 @@ impl<'a> core::ops::DerefMut for QueryPoolCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FramebufferCreateInfo`] with lifetime-tied pNext safety.
 pub struct FramebufferCreateInfoBuilder<'a> {
     inner: FramebufferCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -3977,7 +4035,7 @@ impl<'a> FramebufferCreateInfoBuilder<'a> {
         self.inner.layers = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FramebufferCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFramebufferCreateInfo>(
         mut self,
@@ -4006,6 +4064,7 @@ impl<'a> core::ops::DerefMut for FramebufferCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubmitInfo`] with lifetime-tied pNext safety.
 pub struct SubmitInfoBuilder<'a> {
     inner: SubmitInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4048,7 +4107,7 @@ impl<'a> SubmitInfoBuilder<'a> {
         self.inner.p_signal_semaphores = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubmitInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubmitInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -4074,6 +4133,7 @@ impl<'a> core::ops::DerefMut for SubmitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayModeCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct DisplayModeCreateInfoKHRBuilder<'a> {
     inner: DisplayModeCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4102,7 +4162,7 @@ impl<'a> DisplayModeCreateInfoKHRBuilder<'a> {
         self.inner.parameters = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DisplayModeCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDisplayModeCreateInfoKHR>(
         mut self,
@@ -4131,6 +4191,7 @@ impl<'a> core::ops::DerefMut for DisplayModeCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplaySurfaceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct DisplaySurfaceCreateInfoKHRBuilder<'a> {
     inner: DisplaySurfaceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4189,7 +4250,7 @@ impl<'a> DisplaySurfaceCreateInfoKHRBuilder<'a> {
         self.inner.image_extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DisplaySurfaceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDisplaySurfaceCreateInfoKHR>(
         mut self,
@@ -4218,6 +4279,7 @@ impl<'a> core::ops::DerefMut for DisplaySurfaceCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplaySurfaceStereoCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct DisplaySurfaceStereoCreateInfoNVBuilder<'a> {
     inner: DisplaySurfaceStereoCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4241,7 +4303,7 @@ impl<'a> DisplaySurfaceStereoCreateInfoNVBuilder<'a> {
         self.inner.stereo_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DisplaySurfaceStereoCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDisplaySurfaceStereoCreateInfoNV>(
         mut self,
@@ -4270,6 +4332,7 @@ impl<'a> core::ops::DerefMut for DisplaySurfaceStereoCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayPresentInfoKHR`] with lifetime-tied pNext safety.
 pub struct DisplayPresentInfoKHRBuilder<'a> {
     inner: DisplayPresentInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4303,7 +4366,7 @@ impl<'a> DisplayPresentInfoKHRBuilder<'a> {
         self.inner.persistent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DisplayPresentInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDisplayPresentInfoKHR>(
         mut self,
@@ -4332,6 +4395,7 @@ impl<'a> core::ops::DerefMut for DisplayPresentInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AndroidSurfaceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct AndroidSurfaceCreateInfoKHRBuilder<'a> {
     inner: AndroidSurfaceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4360,7 +4424,7 @@ impl<'a> AndroidSurfaceCreateInfoKHRBuilder<'a> {
         self.inner.window = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AndroidSurfaceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAndroidSurfaceCreateInfoKHR>(
         mut self,
@@ -4389,6 +4453,7 @@ impl<'a> core::ops::DerefMut for AndroidSurfaceCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ViSurfaceCreateInfoNN`] with lifetime-tied pNext safety.
 pub struct ViSurfaceCreateInfoNNBuilder<'a> {
     inner: ViSurfaceCreateInfoNN,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4417,7 +4482,7 @@ impl<'a> ViSurfaceCreateInfoNNBuilder<'a> {
         self.inner.window = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ViSurfaceCreateInfoNN`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsViSurfaceCreateInfoNN>(
         mut self,
@@ -4446,6 +4511,7 @@ impl<'a> core::ops::DerefMut for ViSurfaceCreateInfoNNBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`WaylandSurfaceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct WaylandSurfaceCreateInfoKHRBuilder<'a> {
     inner: WaylandSurfaceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4479,7 +4545,7 @@ impl<'a> WaylandSurfaceCreateInfoKHRBuilder<'a> {
         self.inner.surface = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WaylandSurfaceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWaylandSurfaceCreateInfoKHR>(
         mut self,
@@ -4508,6 +4574,7 @@ impl<'a> core::ops::DerefMut for WaylandSurfaceCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`UbmSurfaceCreateInfoSEC`] with lifetime-tied pNext safety.
 pub struct UbmSurfaceCreateInfoSECBuilder<'a> {
     inner: UbmSurfaceCreateInfoSEC,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4541,7 +4608,7 @@ impl<'a> UbmSurfaceCreateInfoSECBuilder<'a> {
         self.inner.surface = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`UbmSurfaceCreateInfoSEC`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsUbmSurfaceCreateInfoSEC>(
         mut self,
@@ -4570,6 +4637,7 @@ impl<'a> core::ops::DerefMut for UbmSurfaceCreateInfoSECBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`Win32SurfaceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct Win32SurfaceCreateInfoKHRBuilder<'a> {
     inner: Win32SurfaceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4603,7 +4671,7 @@ impl<'a> Win32SurfaceCreateInfoKHRBuilder<'a> {
         self.inner.hwnd = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`Win32SurfaceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWin32SurfaceCreateInfoKHR>(
         mut self,
@@ -4632,6 +4700,7 @@ impl<'a> core::ops::DerefMut for Win32SurfaceCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`XlibSurfaceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct XlibSurfaceCreateInfoKHRBuilder<'a> {
     inner: XlibSurfaceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4665,7 +4734,7 @@ impl<'a> XlibSurfaceCreateInfoKHRBuilder<'a> {
         self.inner.window = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`XlibSurfaceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsXlibSurfaceCreateInfoKHR>(
         mut self,
@@ -4694,6 +4763,7 @@ impl<'a> core::ops::DerefMut for XlibSurfaceCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`XcbSurfaceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct XcbSurfaceCreateInfoKHRBuilder<'a> {
     inner: XcbSurfaceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4727,7 +4797,7 @@ impl<'a> XcbSurfaceCreateInfoKHRBuilder<'a> {
         self.inner.window = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`XcbSurfaceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsXcbSurfaceCreateInfoKHR>(
         mut self,
@@ -4756,6 +4826,7 @@ impl<'a> core::ops::DerefMut for XcbSurfaceCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DirectFBSurfaceCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct DirectFBSurfaceCreateInfoEXTBuilder<'a> {
     inner: DirectFBSurfaceCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4789,7 +4860,7 @@ impl<'a> DirectFBSurfaceCreateInfoEXTBuilder<'a> {
         self.inner.surface = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DirectFBSurfaceCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDirectFBSurfaceCreateInfoEXT>(
         mut self,
@@ -4818,6 +4889,7 @@ impl<'a> core::ops::DerefMut for DirectFBSurfaceCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImagePipeSurfaceCreateInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct ImagePipeSurfaceCreateInfoFUCHSIABuilder<'a> {
     inner: ImagePipeSurfaceCreateInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4846,7 +4918,7 @@ impl<'a> ImagePipeSurfaceCreateInfoFUCHSIABuilder<'a> {
         self.inner.image_pipe_handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImagePipeSurfaceCreateInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImagePipeSurfaceCreateInfoFUCHSIA>(
         mut self,
@@ -4875,6 +4947,7 @@ impl<'a> core::ops::DerefMut for ImagePipeSurfaceCreateInfoFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`StreamDescriptorSurfaceCreateInfoGGP`] with lifetime-tied pNext safety.
 pub struct StreamDescriptorSurfaceCreateInfoGGPBuilder<'a> {
     inner: StreamDescriptorSurfaceCreateInfoGGP,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4903,7 +4976,7 @@ impl<'a> StreamDescriptorSurfaceCreateInfoGGPBuilder<'a> {
         self.inner.stream_descriptor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`StreamDescriptorSurfaceCreateInfoGGP`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsStreamDescriptorSurfaceCreateInfoGGP>(
         mut self,
@@ -4932,6 +5005,7 @@ impl<'a> core::ops::DerefMut for StreamDescriptorSurfaceCreateInfoGGPBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`ScreenSurfaceCreateInfoQNX`] with lifetime-tied pNext safety.
 pub struct ScreenSurfaceCreateInfoQNXBuilder<'a> {
     inner: ScreenSurfaceCreateInfoQNX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -4965,7 +5039,7 @@ impl<'a> ScreenSurfaceCreateInfoQNXBuilder<'a> {
         self.inner.window = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ScreenSurfaceCreateInfoQNX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsScreenSurfaceCreateInfoQNX>(
         mut self,
@@ -4994,6 +5068,7 @@ impl<'a> core::ops::DerefMut for ScreenSurfaceCreateInfoQNXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct SwapchainCreateInfoKHRBuilder<'a> {
     inner: SwapchainCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5088,7 +5163,7 @@ impl<'a> SwapchainCreateInfoKHRBuilder<'a> {
         self.inner.old_swapchain = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainCreateInfoKHR>(
         mut self,
@@ -5117,6 +5192,7 @@ impl<'a> core::ops::DerefMut for SwapchainCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentInfoKHR`] with lifetime-tied pNext safety.
 pub struct PresentInfoKHRBuilder<'a> {
     inner: PresentInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5159,7 +5235,7 @@ impl<'a> PresentInfoKHRBuilder<'a> {
         self.inner.p_results = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -5185,6 +5261,7 @@ impl<'a> core::ops::DerefMut for PresentInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugReportCallbackCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct DebugReportCallbackCreateInfoEXTBuilder<'a> {
     inner: DebugReportCallbackCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5218,7 +5295,7 @@ impl<'a> DebugReportCallbackCreateInfoEXTBuilder<'a> {
         self.inner.p_user_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugReportCallbackCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugReportCallbackCreateInfoEXT>(
         mut self,
@@ -5247,6 +5324,7 @@ impl<'a> core::ops::DerefMut for DebugReportCallbackCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ValidationFlagsEXT`] with lifetime-tied pNext safety.
 pub struct ValidationFlagsEXTBuilder<'a> {
     inner: ValidationFlagsEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5274,7 +5352,7 @@ impl<'a> ValidationFlagsEXTBuilder<'a> {
         self.inner.p_disabled_validation_checks = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ValidationFlagsEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsValidationFlagsEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -5300,6 +5378,7 @@ impl<'a> core::ops::DerefMut for ValidationFlagsEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ValidationFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct ValidationFeaturesEXTBuilder<'a> {
     inner: ValidationFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5336,7 +5415,7 @@ impl<'a> ValidationFeaturesEXTBuilder<'a> {
         self.inner.p_disabled_validation_features = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ValidationFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsValidationFeaturesEXT>(
         mut self,
@@ -5365,6 +5444,7 @@ impl<'a> core::ops::DerefMut for ValidationFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`LayerSettingsCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct LayerSettingsCreateInfoEXTBuilder<'a> {
     inner: LayerSettingsCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5389,7 +5469,7 @@ impl<'a> LayerSettingsCreateInfoEXTBuilder<'a> {
         self.inner.p_settings = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`LayerSettingsCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsLayerSettingsCreateInfoEXT>(
         mut self,
@@ -5418,6 +5498,7 @@ impl<'a> core::ops::DerefMut for LayerSettingsCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ApplicationParametersEXT`] with lifetime-tied pNext safety.
 pub struct ApplicationParametersEXTBuilder<'a> {
     inner: ApplicationParametersEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5456,7 +5537,7 @@ impl<'a> ApplicationParametersEXTBuilder<'a> {
         self.inner.value = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ApplicationParametersEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsApplicationParametersEXT>(
         mut self,
@@ -5485,6 +5566,7 @@ impl<'a> core::ops::DerefMut for ApplicationParametersEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineRasterizationStateRasterizationOrderAMD`] with lifetime-tied pNext safety.
 pub struct PipelineRasterizationStateRasterizationOrderAMDBuilder<'a> {
     inner: PipelineRasterizationStateRasterizationOrderAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5508,7 +5590,7 @@ impl<'a> PipelineRasterizationStateRasterizationOrderAMDBuilder<'a> {
         self.inner.rasterization_order = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRasterizationStateRasterizationOrderAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRasterizationStateRasterizationOrderAMD>(
         mut self,
@@ -5539,6 +5621,7 @@ for PipelineRasterizationStateRasterizationOrderAMDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugMarkerObjectNameInfoEXT`] with lifetime-tied pNext safety.
 pub struct DebugMarkerObjectNameInfoEXTBuilder<'a> {
     inner: DebugMarkerObjectNameInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5572,7 +5655,7 @@ impl<'a> DebugMarkerObjectNameInfoEXTBuilder<'a> {
         self.inner.p_object_name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugMarkerObjectNameInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugMarkerObjectNameInfoEXT>(
         mut self,
@@ -5601,6 +5684,7 @@ impl<'a> core::ops::DerefMut for DebugMarkerObjectNameInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugMarkerObjectTagInfoEXT`] with lifetime-tied pNext safety.
 pub struct DebugMarkerObjectTagInfoEXTBuilder<'a> {
     inner: DebugMarkerObjectTagInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5640,7 +5724,7 @@ impl<'a> DebugMarkerObjectTagInfoEXTBuilder<'a> {
         self.inner.p_tag = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugMarkerObjectTagInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugMarkerObjectTagInfoEXT>(
         mut self,
@@ -5669,6 +5753,7 @@ impl<'a> core::ops::DerefMut for DebugMarkerObjectTagInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugMarkerMarkerInfoEXT`] with lifetime-tied pNext safety.
 pub struct DebugMarkerMarkerInfoEXTBuilder<'a> {
     inner: DebugMarkerMarkerInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5697,7 +5782,7 @@ impl<'a> DebugMarkerMarkerInfoEXTBuilder<'a> {
         self.inner.color = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugMarkerMarkerInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugMarkerMarkerInfoEXT>(
         mut self,
@@ -5726,6 +5811,7 @@ impl<'a> core::ops::DerefMut for DebugMarkerMarkerInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DedicatedAllocationImageCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct DedicatedAllocationImageCreateInfoNVBuilder<'a> {
     inner: DedicatedAllocationImageCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5749,7 +5835,7 @@ impl<'a> DedicatedAllocationImageCreateInfoNVBuilder<'a> {
         self.inner.dedicated_allocation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DedicatedAllocationImageCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDedicatedAllocationImageCreateInfoNV>(
         mut self,
@@ -5778,6 +5864,7 @@ impl<'a> core::ops::DerefMut for DedicatedAllocationImageCreateInfoNVBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`DedicatedAllocationBufferCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct DedicatedAllocationBufferCreateInfoNVBuilder<'a> {
     inner: DedicatedAllocationBufferCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5801,7 +5888,7 @@ impl<'a> DedicatedAllocationBufferCreateInfoNVBuilder<'a> {
         self.inner.dedicated_allocation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DedicatedAllocationBufferCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDedicatedAllocationBufferCreateInfoNV>(
         mut self,
@@ -5830,6 +5917,7 @@ impl<'a> core::ops::DerefMut for DedicatedAllocationBufferCreateInfoNVBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`DedicatedAllocationMemoryAllocateInfoNV`] with lifetime-tied pNext safety.
 pub struct DedicatedAllocationMemoryAllocateInfoNVBuilder<'a> {
     inner: DedicatedAllocationMemoryAllocateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5858,7 +5946,7 @@ impl<'a> DedicatedAllocationMemoryAllocateInfoNVBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DedicatedAllocationMemoryAllocateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDedicatedAllocationMemoryAllocateInfoNV>(
         mut self,
@@ -5887,6 +5975,7 @@ impl<'a> core::ops::DerefMut for DedicatedAllocationMemoryAllocateInfoNVBuilder<
         &mut self.inner
     }
 }
+///Builder for [`ExternalMemoryImageCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct ExternalMemoryImageCreateInfoNVBuilder<'a> {
     inner: ExternalMemoryImageCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5910,7 +5999,7 @@ impl<'a> ExternalMemoryImageCreateInfoNVBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalMemoryImageCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalMemoryImageCreateInfoNV>(
         mut self,
@@ -5939,6 +6028,7 @@ impl<'a> core::ops::DerefMut for ExternalMemoryImageCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMemoryAllocateInfoNV`] with lifetime-tied pNext safety.
 pub struct ExportMemoryAllocateInfoNVBuilder<'a> {
     inner: ExportMemoryAllocateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -5962,7 +6052,7 @@ impl<'a> ExportMemoryAllocateInfoNVBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMemoryAllocateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMemoryAllocateInfoNV>(
         mut self,
@@ -5991,6 +6081,7 @@ impl<'a> core::ops::DerefMut for ExportMemoryAllocateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMemoryWin32HandleInfoNV`] with lifetime-tied pNext safety.
 pub struct ImportMemoryWin32HandleInfoNVBuilder<'a> {
     inner: ImportMemoryWin32HandleInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6019,7 +6110,7 @@ impl<'a> ImportMemoryWin32HandleInfoNVBuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemoryWin32HandleInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemoryWin32HandleInfoNV>(
         mut self,
@@ -6048,6 +6139,7 @@ impl<'a> core::ops::DerefMut for ImportMemoryWin32HandleInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMemoryWin32HandleInfoNV`] with lifetime-tied pNext safety.
 pub struct ExportMemoryWin32HandleInfoNVBuilder<'a> {
     inner: ExportMemoryWin32HandleInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6076,7 +6168,7 @@ impl<'a> ExportMemoryWin32HandleInfoNVBuilder<'a> {
         self.inner.dw_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMemoryWin32HandleInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMemoryWin32HandleInfoNV>(
         mut self,
@@ -6105,6 +6197,7 @@ impl<'a> core::ops::DerefMut for ExportMemoryWin32HandleInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMemorySciBufInfoNV`] with lifetime-tied pNext safety.
 pub struct ExportMemorySciBufInfoNVBuilder<'a> {
     inner: ExportMemorySciBufInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6128,7 +6221,7 @@ impl<'a> ExportMemorySciBufInfoNVBuilder<'a> {
         self.inner.p_attributes = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMemorySciBufInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMemorySciBufInfoNV>(
         mut self,
@@ -6157,6 +6250,7 @@ impl<'a> core::ops::DerefMut for ExportMemorySciBufInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMemorySciBufInfoNV`] with lifetime-tied pNext safety.
 pub struct ImportMemorySciBufInfoNVBuilder<'a> {
     inner: ImportMemorySciBufInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6185,7 +6279,7 @@ impl<'a> ImportMemorySciBufInfoNVBuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemorySciBufInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemorySciBufInfoNV>(
         mut self,
@@ -6214,6 +6308,7 @@ impl<'a> core::ops::DerefMut for ImportMemorySciBufInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetSciBufInfoNV`] with lifetime-tied pNext safety.
 pub struct MemoryGetSciBufInfoNVBuilder<'a> {
     inner: MemoryGetSciBufInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6242,7 +6337,7 @@ impl<'a> MemoryGetSciBufInfoNVBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetSciBufInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetSciBufInfoNV>(
         mut self,
@@ -6271,6 +6366,7 @@ impl<'a> core::ops::DerefMut for MemoryGetSciBufInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemorySciBufPropertiesNV`] with lifetime-tied pNext safety.
 pub struct MemorySciBufPropertiesNVBuilder<'a> {
     inner: MemorySciBufPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6294,7 +6390,7 @@ impl<'a> MemorySciBufPropertiesNVBuilder<'a> {
         self.inner.memory_type_bits = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemorySciBufPropertiesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemorySciBufPropertiesNV>(
         mut self,
@@ -6323,6 +6419,7 @@ impl<'a> core::ops::DerefMut for MemorySciBufPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalMemorySciBufFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceExternalMemorySciBufFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6351,7 +6448,7 @@ impl<'a> PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
         self.inner.sci_buf_export = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalMemorySciBufFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalMemorySciBufFeaturesNV>(
         mut self,
@@ -6381,6 +6478,7 @@ for PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`Win32KeyedMutexAcquireReleaseInfoNV`] with lifetime-tied pNext safety.
 pub struct Win32KeyedMutexAcquireReleaseInfoNVBuilder<'a> {
     inner: Win32KeyedMutexAcquireReleaseInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6429,7 +6527,7 @@ impl<'a> Win32KeyedMutexAcquireReleaseInfoNVBuilder<'a> {
         self.inner.p_release_keys = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`Win32KeyedMutexAcquireReleaseInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWin32KeyedMutexAcquireReleaseInfoNV>(
         mut self,
@@ -6458,6 +6556,7 @@ impl<'a> core::ops::DerefMut for Win32KeyedMutexAcquireReleaseInfoNVBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDeviceGeneratedCommandsFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceDeviceGeneratedCommandsFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6481,7 +6580,7 @@ impl<'a> PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder<'a> {
         self.inner.device_generated_commands = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceGeneratedCommandsFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDeviceGeneratedCommandsFeaturesNV>(
         mut self,
@@ -6512,6 +6611,7 @@ for PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PushConstantBankInfoNV`] with lifetime-tied pNext safety.
 pub struct PushConstantBankInfoNVBuilder<'a> {
     inner: PushConstantBankInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6535,7 +6635,7 @@ impl<'a> PushConstantBankInfoNVBuilder<'a> {
         self.inner.bank = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PushConstantBankInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPushConstantBankInfoNV>(
         mut self,
@@ -6564,6 +6664,7 @@ impl<'a> core::ops::DerefMut for PushConstantBankInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePushConstantBankFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePushConstantBankFeaturesNVBuilder<'a> {
     inner: PhysicalDevicePushConstantBankFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6587,7 +6688,7 @@ impl<'a> PhysicalDevicePushConstantBankFeaturesNVBuilder<'a> {
         self.inner.push_constant_bank = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePushConstantBankFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePushConstantBankFeaturesNV>(
         mut self,
@@ -6616,6 +6717,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePushConstantBankFeaturesNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePushConstantBankPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePushConstantBankPropertiesNVBuilder<'a> {
     inner: PhysicalDevicePushConstantBankPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6668,6 +6770,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePushConstantBankPropertiesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6703,7 +6806,7 @@ impl<'a> PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVBuilder<'a> {
         self.inner.device_generated_compute_capture_replay = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV>(
         mut self,
@@ -6734,6 +6837,7 @@ for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DevicePrivateDataCreateInfo`] with lifetime-tied pNext safety.
 pub struct DevicePrivateDataCreateInfoBuilder<'a> {
     inner: DevicePrivateDataCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6757,7 +6861,7 @@ impl<'a> DevicePrivateDataCreateInfoBuilder<'a> {
         self.inner.private_data_slot_request_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DevicePrivateDataCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDevicePrivateDataCreateInfo>(
         mut self,
@@ -6786,6 +6890,7 @@ impl<'a> core::ops::DerefMut for DevicePrivateDataCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PrivateDataSlotCreateInfo`] with lifetime-tied pNext safety.
 pub struct PrivateDataSlotCreateInfoBuilder<'a> {
     inner: PrivateDataSlotCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6809,7 +6914,7 @@ impl<'a> PrivateDataSlotCreateInfoBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PrivateDataSlotCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPrivateDataSlotCreateInfo>(
         mut self,
@@ -6838,6 +6943,7 @@ impl<'a> core::ops::DerefMut for PrivateDataSlotCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePrivateDataFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePrivateDataFeaturesBuilder<'a> {
     inner: PhysicalDevicePrivateDataFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6861,7 +6967,7 @@ impl<'a> PhysicalDevicePrivateDataFeaturesBuilder<'a> {
         self.inner.private_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePrivateDataFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePrivateDataFeatures>(
         mut self,
@@ -6890,6 +6996,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePrivateDataFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDeviceGeneratedCommandsPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceDeviceGeneratedCommandsPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6971,6 +7078,7 @@ for PhysicalDeviceDeviceGeneratedCommandsPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceClusterAccelerationStructureFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceClusterAccelerationStructureFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceClusterAccelerationStructureFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -6996,7 +7104,7 @@ impl<'a> PhysicalDeviceClusterAccelerationStructureFeaturesNVBuilder<'a> {
         self.inner.cluster_acceleration_structure = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceClusterAccelerationStructureFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceClusterAccelerationStructureFeaturesNV>(
         mut self,
@@ -7027,6 +7135,7 @@ for PhysicalDeviceClusterAccelerationStructureFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceClusterAccelerationStructurePropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceClusterAccelerationStructurePropertiesNVBuilder<'a> {
     inner: PhysicalDeviceClusterAccelerationStructurePropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7103,6 +7212,7 @@ for PhysicalDeviceClusterAccelerationStructurePropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RayTracingPipelineClusterAccelerationStructureCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a> {
     inner: RayTracingPipelineClusterAccelerationStructureCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7128,7 +7238,7 @@ impl<'a> RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a> {
         self.inner.allow_cluster_acceleration_structure = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RayTracingPipelineClusterAccelerationStructureCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsRayTracingPipelineClusterAccelerationStructureCreateInfoNV,
@@ -7158,6 +7268,7 @@ for RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ClusterAccelerationStructureClustersBottomLevelInputNV`] with lifetime-tied pNext safety.
 pub struct ClusterAccelerationStructureClustersBottomLevelInputNVBuilder<'a> {
     inner: ClusterAccelerationStructureClustersBottomLevelInputNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7188,7 +7299,7 @@ impl<'a> ClusterAccelerationStructureClustersBottomLevelInputNVBuilder<'a> {
         self.inner.max_cluster_count_per_acceleration_structure = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ClusterAccelerationStructureClustersBottomLevelInputNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsClusterAccelerationStructureClustersBottomLevelInputNV>(
         mut self,
@@ -7219,6 +7330,7 @@ for ClusterAccelerationStructureClustersBottomLevelInputNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ClusterAccelerationStructureTriangleClusterInputNV`] with lifetime-tied pNext safety.
 pub struct ClusterAccelerationStructureTriangleClusterInputNVBuilder<'a> {
     inner: ClusterAccelerationStructureTriangleClusterInputNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7279,7 +7391,7 @@ impl<'a> ClusterAccelerationStructureTriangleClusterInputNVBuilder<'a> {
         self.inner.min_position_truncate_bit_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ClusterAccelerationStructureTriangleClusterInputNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsClusterAccelerationStructureTriangleClusterInputNV>(
         mut self,
@@ -7310,6 +7422,7 @@ for ClusterAccelerationStructureTriangleClusterInputNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ClusterAccelerationStructureMoveObjectsInputNV`] with lifetime-tied pNext safety.
 pub struct ClusterAccelerationStructureMoveObjectsInputNVBuilder<'a> {
     inner: ClusterAccelerationStructureMoveObjectsInputNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7343,7 +7456,7 @@ impl<'a> ClusterAccelerationStructureMoveObjectsInputNVBuilder<'a> {
         self.inner.max_moved_bytes = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ClusterAccelerationStructureMoveObjectsInputNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsClusterAccelerationStructureMoveObjectsInputNV>(
         mut self,
@@ -7373,6 +7486,7 @@ for ClusterAccelerationStructureMoveObjectsInputNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ClusterAccelerationStructureInputInfoNV`] with lifetime-tied pNext safety.
 pub struct ClusterAccelerationStructureInputInfoNVBuilder<'a> {
     inner: ClusterAccelerationStructureInputInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7416,7 +7530,7 @@ impl<'a> ClusterAccelerationStructureInputInfoNVBuilder<'a> {
         self.inner.op_input = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ClusterAccelerationStructureInputInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsClusterAccelerationStructureInputInfoNV>(
         mut self,
@@ -7445,6 +7559,7 @@ impl<'a> core::ops::DerefMut for ClusterAccelerationStructureInputInfoNVBuilder<
         &mut self.inner
     }
 }
+///Builder for [`ClusterAccelerationStructureCommandsInfoNV`] with lifetime-tied pNext safety.
 pub struct ClusterAccelerationStructureCommandsInfoNVBuilder<'a> {
     inner: ClusterAccelerationStructureCommandsInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7506,7 +7621,7 @@ impl<'a> ClusterAccelerationStructureCommandsInfoNVBuilder<'a> {
         self.inner.address_resolution_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ClusterAccelerationStructureCommandsInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsClusterAccelerationStructureCommandsInfoNV>(
         mut self,
@@ -7535,6 +7650,7 @@ impl<'a> core::ops::DerefMut for ClusterAccelerationStructureCommandsInfoNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultiDrawPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultiDrawPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceMultiDrawPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7572,6 +7688,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMultiDrawPropertiesEXTBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`GraphicsShaderGroupCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct GraphicsShaderGroupCreateInfoNVBuilder<'a> {
     inner: GraphicsShaderGroupCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7612,7 +7729,7 @@ impl<'a> GraphicsShaderGroupCreateInfoNVBuilder<'a> {
         self.inner.p_tessellation_state = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GraphicsShaderGroupCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGraphicsShaderGroupCreateInfoNV>(
         mut self,
@@ -7641,6 +7758,7 @@ impl<'a> core::ops::DerefMut for GraphicsShaderGroupCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GraphicsPipelineShaderGroupsCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct GraphicsPipelineShaderGroupsCreateInfoNVBuilder<'a> {
     inner: GraphicsPipelineShaderGroupsCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7671,7 +7789,7 @@ impl<'a> GraphicsPipelineShaderGroupsCreateInfoNVBuilder<'a> {
         self.inner.p_pipelines = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GraphicsPipelineShaderGroupsCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGraphicsPipelineShaderGroupsCreateInfoNV>(
         mut self,
@@ -7700,6 +7818,7 @@ impl<'a> core::ops::DerefMut for GraphicsPipelineShaderGroupsCreateInfoNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`IndirectCommandsLayoutTokenNV`] with lifetime-tied pNext safety.
 pub struct IndirectCommandsLayoutTokenNVBuilder<'a> {
     inner: IndirectCommandsLayoutTokenNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7780,7 +7899,7 @@ impl<'a> IndirectCommandsLayoutTokenNVBuilder<'a> {
         self.inner.p_index_type_values = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectCommandsLayoutTokenNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectCommandsLayoutTokenNV>(
         mut self,
@@ -7809,6 +7928,7 @@ impl<'a> core::ops::DerefMut for IndirectCommandsLayoutTokenNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`IndirectCommandsLayoutCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct IndirectCommandsLayoutCreateInfoNVBuilder<'a> {
     inner: IndirectCommandsLayoutCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7849,7 +7969,7 @@ impl<'a> IndirectCommandsLayoutCreateInfoNVBuilder<'a> {
         self.inner.p_stream_strides = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectCommandsLayoutCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectCommandsLayoutCreateInfoNV>(
         mut self,
@@ -7878,6 +7998,7 @@ impl<'a> core::ops::DerefMut for IndirectCommandsLayoutCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeneratedCommandsInfoNV`] with lifetime-tied pNext safety.
 pub struct GeneratedCommandsInfoNVBuilder<'a> {
     inner: GeneratedCommandsInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -7957,7 +8078,7 @@ impl<'a> GeneratedCommandsInfoNVBuilder<'a> {
         self.inner.sequences_index_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeneratedCommandsInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeneratedCommandsInfoNV>(
         mut self,
@@ -7986,6 +8107,7 @@ impl<'a> core::ops::DerefMut for GeneratedCommandsInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeneratedCommandsMemoryRequirementsInfoNV`] with lifetime-tied pNext safety.
 pub struct GeneratedCommandsMemoryRequirementsInfoNVBuilder<'a> {
     inner: GeneratedCommandsMemoryRequirementsInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8024,7 +8146,7 @@ impl<'a> GeneratedCommandsMemoryRequirementsInfoNVBuilder<'a> {
         self.inner.max_sequences_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeneratedCommandsMemoryRequirementsInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeneratedCommandsMemoryRequirementsInfoNV>(
         mut self,
@@ -8053,6 +8175,7 @@ impl<'a> core::ops::DerefMut for GeneratedCommandsMemoryRequirementsInfoNVBuilde
         &mut self.inner
     }
 }
+///Builder for [`PipelineIndirectDeviceAddressInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineIndirectDeviceAddressInfoNVBuilder<'a> {
     inner: PipelineIndirectDeviceAddressInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8081,7 +8204,7 @@ impl<'a> PipelineIndirectDeviceAddressInfoNVBuilder<'a> {
         self.inner.pipeline = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineIndirectDeviceAddressInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineIndirectDeviceAddressInfoNV>(
         mut self,
@@ -8110,6 +8233,7 @@ impl<'a> core::ops::DerefMut for PipelineIndirectDeviceAddressInfoNVBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFeatures2`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFeatures2Builder<'a> {
     inner: PhysicalDeviceFeatures2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8133,7 +8257,7 @@ impl<'a> PhysicalDeviceFeatures2Builder<'a> {
         self.inner.features = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFeatures2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFeatures2>(
         mut self,
@@ -8162,6 +8286,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFeatures2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceProperties2`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceProperties2Builder<'a> {
     inner: PhysicalDeviceProperties2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8199,6 +8324,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceProperties2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FormatProperties2`] with lifetime-tied pNext safety.
 pub struct FormatProperties2Builder<'a> {
     inner: FormatProperties2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8236,6 +8362,7 @@ impl<'a> core::ops::DerefMut for FormatProperties2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageFormatProperties2`] with lifetime-tied pNext safety.
 pub struct ImageFormatProperties2Builder<'a> {
     inner: ImageFormatProperties2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8273,6 +8400,7 @@ impl<'a> core::ops::DerefMut for ImageFormatProperties2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageFormatInfo2`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageFormatInfo2Builder<'a> {
     inner: PhysicalDeviceImageFormatInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8316,7 +8444,7 @@ impl<'a> PhysicalDeviceImageFormatInfo2Builder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageFormatInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageFormatInfo2>(
         mut self,
@@ -8345,6 +8473,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageFormatInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyProperties2`] with lifetime-tied pNext safety.
 pub struct QueueFamilyProperties2Builder<'a> {
     inner: QueueFamilyProperties2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8382,6 +8511,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyProperties2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMemoryProperties2`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMemoryProperties2Builder<'a> {
     inner: PhysicalDeviceMemoryProperties2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8419,6 +8549,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMemoryProperties2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SparseImageFormatProperties2`] with lifetime-tied pNext safety.
 pub struct SparseImageFormatProperties2Builder<'a> {
     inner: SparseImageFormatProperties2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8456,6 +8587,7 @@ impl<'a> core::ops::DerefMut for SparseImageFormatProperties2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSparseImageFormatInfo2`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSparseImageFormatInfo2Builder<'a> {
     inner: PhysicalDeviceSparseImageFormatInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8499,7 +8631,7 @@ impl<'a> PhysicalDeviceSparseImageFormatInfo2Builder<'a> {
         self.inner.tiling = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSparseImageFormatInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSparseImageFormatInfo2>(
         mut self,
@@ -8528,6 +8660,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSparseImageFormatInfo2Builder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePushDescriptorProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePushDescriptorPropertiesBuilder<'a> {
     inner: PhysicalDevicePushDescriptorProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8565,6 +8698,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePushDescriptorPropertiesBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDriverProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDriverPropertiesBuilder<'a> {
     inner: PhysicalDeviceDriverProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8623,6 +8757,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDriverPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentRegionsKHR`] with lifetime-tied pNext safety.
 pub struct PresentRegionsKHRBuilder<'a> {
     inner: PresentRegionsKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8647,7 +8782,7 @@ impl<'a> PresentRegionsKHRBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentRegionsKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentRegionsKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -8673,6 +8808,7 @@ impl<'a> core::ops::DerefMut for PresentRegionsKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVariablePointersFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
     inner: PhysicalDeviceVariablePointersFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8701,7 +8837,7 @@ impl<'a> PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
         self.inner.variable_pointers = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVariablePointersFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVariablePointersFeatures>(
         mut self,
@@ -8730,6 +8866,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVariablePointersFeaturesBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalImageFormatInfo`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalImageFormatInfoBuilder<'a> {
     inner: PhysicalDeviceExternalImageFormatInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8753,7 +8890,7 @@ impl<'a> PhysicalDeviceExternalImageFormatInfoBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalImageFormatInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalImageFormatInfo>(
         mut self,
@@ -8782,6 +8919,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalImageFormatInfoBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`ExternalImageFormatProperties`] with lifetime-tied pNext safety.
 pub struct ExternalImageFormatPropertiesBuilder<'a> {
     inner: ExternalImageFormatProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8822,6 +8960,7 @@ impl<'a> core::ops::DerefMut for ExternalImageFormatPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalBufferInfo`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalBufferInfoBuilder<'a> {
     inner: PhysicalDeviceExternalBufferInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8855,7 +8994,7 @@ impl<'a> PhysicalDeviceExternalBufferInfoBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalBufferInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalBufferInfo>(
         mut self,
@@ -8884,6 +9023,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalBufferInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalBufferProperties`] with lifetime-tied pNext safety.
 pub struct ExternalBufferPropertiesBuilder<'a> {
     inner: ExternalBufferProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8924,6 +9064,7 @@ impl<'a> core::ops::DerefMut for ExternalBufferPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceIDProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceIDPropertiesBuilder<'a> {
     inner: PhysicalDeviceIDProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -8981,6 +9122,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceIDPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalMemoryImageCreateInfo`] with lifetime-tied pNext safety.
 pub struct ExternalMemoryImageCreateInfoBuilder<'a> {
     inner: ExternalMemoryImageCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9004,7 +9146,7 @@ impl<'a> ExternalMemoryImageCreateInfoBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalMemoryImageCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalMemoryImageCreateInfo>(
         mut self,
@@ -9033,6 +9175,7 @@ impl<'a> core::ops::DerefMut for ExternalMemoryImageCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalMemoryBufferCreateInfo`] with lifetime-tied pNext safety.
 pub struct ExternalMemoryBufferCreateInfoBuilder<'a> {
     inner: ExternalMemoryBufferCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9056,7 +9199,7 @@ impl<'a> ExternalMemoryBufferCreateInfoBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalMemoryBufferCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalMemoryBufferCreateInfo>(
         mut self,
@@ -9085,6 +9228,7 @@ impl<'a> core::ops::DerefMut for ExternalMemoryBufferCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMemoryAllocateInfo`] with lifetime-tied pNext safety.
 pub struct ExportMemoryAllocateInfoBuilder<'a> {
     inner: ExportMemoryAllocateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9108,7 +9252,7 @@ impl<'a> ExportMemoryAllocateInfoBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMemoryAllocateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMemoryAllocateInfo>(
         mut self,
@@ -9137,6 +9281,7 @@ impl<'a> core::ops::DerefMut for ExportMemoryAllocateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMemoryWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct ImportMemoryWin32HandleInfoKHRBuilder<'a> {
     inner: ImportMemoryWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9170,7 +9315,7 @@ impl<'a> ImportMemoryWin32HandleInfoKHRBuilder<'a> {
         self.inner.name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemoryWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemoryWin32HandleInfoKHR>(
         mut self,
@@ -9199,6 +9344,7 @@ impl<'a> core::ops::DerefMut for ImportMemoryWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMemoryWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct ExportMemoryWin32HandleInfoKHRBuilder<'a> {
     inner: ExportMemoryWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9232,7 +9378,7 @@ impl<'a> ExportMemoryWin32HandleInfoKHRBuilder<'a> {
         self.inner.name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMemoryWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMemoryWin32HandleInfoKHR>(
         mut self,
@@ -9261,6 +9407,7 @@ impl<'a> core::ops::DerefMut for ExportMemoryWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMemoryZirconHandleInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct ImportMemoryZirconHandleInfoFUCHSIABuilder<'a> {
     inner: ImportMemoryZirconHandleInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9289,7 +9436,7 @@ impl<'a> ImportMemoryZirconHandleInfoFUCHSIABuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemoryZirconHandleInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemoryZirconHandleInfoFUCHSIA>(
         mut self,
@@ -9318,6 +9465,7 @@ impl<'a> core::ops::DerefMut for ImportMemoryZirconHandleInfoFUCHSIABuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`MemoryZirconHandlePropertiesFUCHSIA`] with lifetime-tied pNext safety.
 pub struct MemoryZirconHandlePropertiesFUCHSIABuilder<'a> {
     inner: MemoryZirconHandlePropertiesFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9355,6 +9503,7 @@ impl<'a> core::ops::DerefMut for MemoryZirconHandlePropertiesFUCHSIABuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetZirconHandleInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct MemoryGetZirconHandleInfoFUCHSIABuilder<'a> {
     inner: MemoryGetZirconHandleInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9383,7 +9532,7 @@ impl<'a> MemoryGetZirconHandleInfoFUCHSIABuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetZirconHandleInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetZirconHandleInfoFUCHSIA>(
         mut self,
@@ -9412,6 +9561,7 @@ impl<'a> core::ops::DerefMut for MemoryGetZirconHandleInfoFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryWin32HandlePropertiesKHR`] with lifetime-tied pNext safety.
 pub struct MemoryWin32HandlePropertiesKHRBuilder<'a> {
     inner: MemoryWin32HandlePropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9449,6 +9599,7 @@ impl<'a> core::ops::DerefMut for MemoryWin32HandlePropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct MemoryGetWin32HandleInfoKHRBuilder<'a> {
     inner: MemoryGetWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9477,7 +9628,7 @@ impl<'a> MemoryGetWin32HandleInfoKHRBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetWin32HandleInfoKHR>(
         mut self,
@@ -9506,6 +9657,7 @@ impl<'a> core::ops::DerefMut for MemoryGetWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMemoryFdInfoKHR`] with lifetime-tied pNext safety.
 pub struct ImportMemoryFdInfoKHRBuilder<'a> {
     inner: ImportMemoryFdInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9534,7 +9686,7 @@ impl<'a> ImportMemoryFdInfoKHRBuilder<'a> {
         self.inner.fd = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemoryFdInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemoryFdInfoKHR>(
         mut self,
@@ -9563,6 +9715,7 @@ impl<'a> core::ops::DerefMut for ImportMemoryFdInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryFdPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct MemoryFdPropertiesKHRBuilder<'a> {
     inner: MemoryFdPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9600,6 +9753,7 @@ impl<'a> core::ops::DerefMut for MemoryFdPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetFdInfoKHR`] with lifetime-tied pNext safety.
 pub struct MemoryGetFdInfoKHRBuilder<'a> {
     inner: MemoryGetFdInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9628,7 +9782,7 @@ impl<'a> MemoryGetFdInfoKHRBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetFdInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetFdInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -9654,6 +9808,7 @@ impl<'a> core::ops::DerefMut for MemoryGetFdInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`Win32KeyedMutexAcquireReleaseInfoKHR`] with lifetime-tied pNext safety.
 pub struct Win32KeyedMutexAcquireReleaseInfoKHRBuilder<'a> {
     inner: Win32KeyedMutexAcquireReleaseInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9702,7 +9857,7 @@ impl<'a> Win32KeyedMutexAcquireReleaseInfoKHRBuilder<'a> {
         self.inner.p_release_keys = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`Win32KeyedMutexAcquireReleaseInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWin32KeyedMutexAcquireReleaseInfoKHR>(
         mut self,
@@ -9731,6 +9886,7 @@ impl<'a> core::ops::DerefMut for Win32KeyedMutexAcquireReleaseInfoKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`ImportMemoryMetalHandleInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImportMemoryMetalHandleInfoEXTBuilder<'a> {
     inner: ImportMemoryMetalHandleInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9759,7 +9915,7 @@ impl<'a> ImportMemoryMetalHandleInfoEXTBuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemoryMetalHandleInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemoryMetalHandleInfoEXT>(
         mut self,
@@ -9788,6 +9944,7 @@ impl<'a> core::ops::DerefMut for ImportMemoryMetalHandleInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryMetalHandlePropertiesEXT`] with lifetime-tied pNext safety.
 pub struct MemoryMetalHandlePropertiesEXTBuilder<'a> {
     inner: MemoryMetalHandlePropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9825,6 +9982,7 @@ impl<'a> core::ops::DerefMut for MemoryMetalHandlePropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetMetalHandleInfoEXT`] with lifetime-tied pNext safety.
 pub struct MemoryGetMetalHandleInfoEXTBuilder<'a> {
     inner: MemoryGetMetalHandleInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9853,7 +10011,7 @@ impl<'a> MemoryGetMetalHandleInfoEXTBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetMetalHandleInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetMetalHandleInfoEXT>(
         mut self,
@@ -9882,6 +10040,7 @@ impl<'a> core::ops::DerefMut for MemoryGetMetalHandleInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalSemaphoreInfo`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalSemaphoreInfoBuilder<'a> {
     inner: PhysicalDeviceExternalSemaphoreInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9905,7 +10064,7 @@ impl<'a> PhysicalDeviceExternalSemaphoreInfoBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalSemaphoreInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalSemaphoreInfo>(
         mut self,
@@ -9934,6 +10093,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalSemaphoreInfoBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`ExternalSemaphoreProperties`] with lifetime-tied pNext safety.
 pub struct ExternalSemaphorePropertiesBuilder<'a> {
     inner: ExternalSemaphoreProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -9990,6 +10150,7 @@ impl<'a> core::ops::DerefMut for ExternalSemaphorePropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportSemaphoreCreateInfo`] with lifetime-tied pNext safety.
 pub struct ExportSemaphoreCreateInfoBuilder<'a> {
     inner: ExportSemaphoreCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10013,7 +10174,7 @@ impl<'a> ExportSemaphoreCreateInfoBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportSemaphoreCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportSemaphoreCreateInfo>(
         mut self,
@@ -10042,6 +10203,7 @@ impl<'a> core::ops::DerefMut for ExportSemaphoreCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportSemaphoreWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct ImportSemaphoreWin32HandleInfoKHRBuilder<'a> {
     inner: ImportSemaphoreWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10085,7 +10247,7 @@ impl<'a> ImportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         self.inner.name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportSemaphoreWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportSemaphoreWin32HandleInfoKHR>(
         mut self,
@@ -10114,6 +10276,7 @@ impl<'a> core::ops::DerefMut for ImportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportSemaphoreWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct ExportSemaphoreWin32HandleInfoKHRBuilder<'a> {
     inner: ExportSemaphoreWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10147,7 +10310,7 @@ impl<'a> ExportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         self.inner.name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportSemaphoreWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportSemaphoreWin32HandleInfoKHR>(
         mut self,
@@ -10176,6 +10339,7 @@ impl<'a> core::ops::DerefMut for ExportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`D3D12FenceSubmitInfoKHR`] with lifetime-tied pNext safety.
 pub struct D3D12FenceSubmitInfoKHRBuilder<'a> {
     inner: D3D12FenceSubmitInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10206,7 +10370,7 @@ impl<'a> D3D12FenceSubmitInfoKHRBuilder<'a> {
         self.inner.p_signal_semaphore_values = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`D3D12FenceSubmitInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsD3D12FenceSubmitInfoKHR>(
         mut self,
@@ -10235,6 +10399,7 @@ impl<'a> core::ops::DerefMut for D3D12FenceSubmitInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreGetWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct SemaphoreGetWin32HandleInfoKHRBuilder<'a> {
     inner: SemaphoreGetWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10263,7 +10428,7 @@ impl<'a> SemaphoreGetWin32HandleInfoKHRBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreGetWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreGetWin32HandleInfoKHR>(
         mut self,
@@ -10292,6 +10457,7 @@ impl<'a> core::ops::DerefMut for SemaphoreGetWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportSemaphoreFdInfoKHR`] with lifetime-tied pNext safety.
 pub struct ImportSemaphoreFdInfoKHRBuilder<'a> {
     inner: ImportSemaphoreFdInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10330,7 +10496,7 @@ impl<'a> ImportSemaphoreFdInfoKHRBuilder<'a> {
         self.inner.fd = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportSemaphoreFdInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportSemaphoreFdInfoKHR>(
         mut self,
@@ -10359,6 +10525,7 @@ impl<'a> core::ops::DerefMut for ImportSemaphoreFdInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreGetFdInfoKHR`] with lifetime-tied pNext safety.
 pub struct SemaphoreGetFdInfoKHRBuilder<'a> {
     inner: SemaphoreGetFdInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10387,7 +10554,7 @@ impl<'a> SemaphoreGetFdInfoKHRBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreGetFdInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreGetFdInfoKHR>(
         mut self,
@@ -10416,6 +10583,7 @@ impl<'a> core::ops::DerefMut for SemaphoreGetFdInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportSemaphoreZirconHandleInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct ImportSemaphoreZirconHandleInfoFUCHSIABuilder<'a> {
     inner: ImportSemaphoreZirconHandleInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10454,7 +10622,7 @@ impl<'a> ImportSemaphoreZirconHandleInfoFUCHSIABuilder<'a> {
         self.inner.zircon_handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportSemaphoreZirconHandleInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportSemaphoreZirconHandleInfoFUCHSIA>(
         mut self,
@@ -10483,6 +10651,7 @@ impl<'a> core::ops::DerefMut for ImportSemaphoreZirconHandleInfoFUCHSIABuilder<'
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreGetZirconHandleInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct SemaphoreGetZirconHandleInfoFUCHSIABuilder<'a> {
     inner: SemaphoreGetZirconHandleInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10511,7 +10680,7 @@ impl<'a> SemaphoreGetZirconHandleInfoFUCHSIABuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreGetZirconHandleInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreGetZirconHandleInfoFUCHSIA>(
         mut self,
@@ -10540,6 +10709,7 @@ impl<'a> core::ops::DerefMut for SemaphoreGetZirconHandleInfoFUCHSIABuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalFenceInfo`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalFenceInfoBuilder<'a> {
     inner: PhysicalDeviceExternalFenceInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10563,7 +10733,7 @@ impl<'a> PhysicalDeviceExternalFenceInfoBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalFenceInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalFenceInfo>(
         mut self,
@@ -10592,6 +10762,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalFenceInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalFenceProperties`] with lifetime-tied pNext safety.
 pub struct ExternalFencePropertiesBuilder<'a> {
     inner: ExternalFenceProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10645,6 +10816,7 @@ impl<'a> core::ops::DerefMut for ExternalFencePropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportFenceCreateInfo`] with lifetime-tied pNext safety.
 pub struct ExportFenceCreateInfoBuilder<'a> {
     inner: ExportFenceCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10668,7 +10840,7 @@ impl<'a> ExportFenceCreateInfoBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportFenceCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportFenceCreateInfo>(
         mut self,
@@ -10697,6 +10869,7 @@ impl<'a> core::ops::DerefMut for ExportFenceCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportFenceWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct ImportFenceWin32HandleInfoKHRBuilder<'a> {
     inner: ImportFenceWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10740,7 +10913,7 @@ impl<'a> ImportFenceWin32HandleInfoKHRBuilder<'a> {
         self.inner.name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportFenceWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportFenceWin32HandleInfoKHR>(
         mut self,
@@ -10769,6 +10942,7 @@ impl<'a> core::ops::DerefMut for ImportFenceWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportFenceWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct ExportFenceWin32HandleInfoKHRBuilder<'a> {
     inner: ExportFenceWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10802,7 +10976,7 @@ impl<'a> ExportFenceWin32HandleInfoKHRBuilder<'a> {
         self.inner.name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportFenceWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportFenceWin32HandleInfoKHR>(
         mut self,
@@ -10831,6 +11005,7 @@ impl<'a> core::ops::DerefMut for ExportFenceWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FenceGetWin32HandleInfoKHR`] with lifetime-tied pNext safety.
 pub struct FenceGetWin32HandleInfoKHRBuilder<'a> {
     inner: FenceGetWin32HandleInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10859,7 +11034,7 @@ impl<'a> FenceGetWin32HandleInfoKHRBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FenceGetWin32HandleInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFenceGetWin32HandleInfoKHR>(
         mut self,
@@ -10888,6 +11063,7 @@ impl<'a> core::ops::DerefMut for FenceGetWin32HandleInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportFenceFdInfoKHR`] with lifetime-tied pNext safety.
 pub struct ImportFenceFdInfoKHRBuilder<'a> {
     inner: ImportFenceFdInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10926,7 +11102,7 @@ impl<'a> ImportFenceFdInfoKHRBuilder<'a> {
         self.inner.fd = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportFenceFdInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportFenceFdInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -10952,6 +11128,7 @@ impl<'a> core::ops::DerefMut for ImportFenceFdInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FenceGetFdInfoKHR`] with lifetime-tied pNext safety.
 pub struct FenceGetFdInfoKHRBuilder<'a> {
     inner: FenceGetFdInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -10980,7 +11157,7 @@ impl<'a> FenceGetFdInfoKHRBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FenceGetFdInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFenceGetFdInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -11006,6 +11183,7 @@ impl<'a> core::ops::DerefMut for FenceGetFdInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportFenceSciSyncInfoNV`] with lifetime-tied pNext safety.
 pub struct ExportFenceSciSyncInfoNVBuilder<'a> {
     inner: ExportFenceSciSyncInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11029,7 +11207,7 @@ impl<'a> ExportFenceSciSyncInfoNVBuilder<'a> {
         self.inner.p_attributes = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportFenceSciSyncInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportFenceSciSyncInfoNV>(
         mut self,
@@ -11058,6 +11236,7 @@ impl<'a> core::ops::DerefMut for ExportFenceSciSyncInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportFenceSciSyncInfoNV`] with lifetime-tied pNext safety.
 pub struct ImportFenceSciSyncInfoNVBuilder<'a> {
     inner: ImportFenceSciSyncInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11091,7 +11270,7 @@ impl<'a> ImportFenceSciSyncInfoNVBuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportFenceSciSyncInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportFenceSciSyncInfoNV>(
         mut self,
@@ -11120,6 +11299,7 @@ impl<'a> core::ops::DerefMut for ImportFenceSciSyncInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FenceGetSciSyncInfoNV`] with lifetime-tied pNext safety.
 pub struct FenceGetSciSyncInfoNVBuilder<'a> {
     inner: FenceGetSciSyncInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11148,7 +11328,7 @@ impl<'a> FenceGetSciSyncInfoNVBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FenceGetSciSyncInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFenceGetSciSyncInfoNV>(
         mut self,
@@ -11177,6 +11357,7 @@ impl<'a> core::ops::DerefMut for FenceGetSciSyncInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportSemaphoreSciSyncInfoNV`] with lifetime-tied pNext safety.
 pub struct ExportSemaphoreSciSyncInfoNVBuilder<'a> {
     inner: ExportSemaphoreSciSyncInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11200,7 +11381,7 @@ impl<'a> ExportSemaphoreSciSyncInfoNVBuilder<'a> {
         self.inner.p_attributes = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportSemaphoreSciSyncInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportSemaphoreSciSyncInfoNV>(
         mut self,
@@ -11229,6 +11410,7 @@ impl<'a> core::ops::DerefMut for ExportSemaphoreSciSyncInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportSemaphoreSciSyncInfoNV`] with lifetime-tied pNext safety.
 pub struct ImportSemaphoreSciSyncInfoNVBuilder<'a> {
     inner: ImportSemaphoreSciSyncInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11262,7 +11444,7 @@ impl<'a> ImportSemaphoreSciSyncInfoNVBuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportSemaphoreSciSyncInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportSemaphoreSciSyncInfoNV>(
         mut self,
@@ -11291,6 +11473,7 @@ impl<'a> core::ops::DerefMut for ImportSemaphoreSciSyncInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreGetSciSyncInfoNV`] with lifetime-tied pNext safety.
 pub struct SemaphoreGetSciSyncInfoNVBuilder<'a> {
     inner: SemaphoreGetSciSyncInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11319,7 +11502,7 @@ impl<'a> SemaphoreGetSciSyncInfoNVBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreGetSciSyncInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreGetSciSyncInfoNV>(
         mut self,
@@ -11348,6 +11531,7 @@ impl<'a> core::ops::DerefMut for SemaphoreGetSciSyncInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SciSyncAttributesInfoNV`] with lifetime-tied pNext safety.
 pub struct SciSyncAttributesInfoNVBuilder<'a> {
     inner: SciSyncAttributesInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11376,7 +11560,7 @@ impl<'a> SciSyncAttributesInfoNVBuilder<'a> {
         self.inner.primitive_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SciSyncAttributesInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSciSyncAttributesInfoNV>(
         mut self,
@@ -11405,6 +11589,7 @@ impl<'a> core::ops::DerefMut for SciSyncAttributesInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalSciSyncFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalSciSyncFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceExternalSciSyncFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11443,7 +11628,7 @@ impl<'a> PhysicalDeviceExternalSciSyncFeaturesNVBuilder<'a> {
         self.inner.sci_sync_export = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalSciSyncFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalSciSyncFeaturesNV>(
         mut self,
@@ -11472,6 +11657,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalSciSyncFeaturesNVBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalSciSync2FeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalSciSync2FeaturesNVBuilder<'a> {
     inner: PhysicalDeviceExternalSciSync2FeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11510,7 +11696,7 @@ impl<'a> PhysicalDeviceExternalSciSync2FeaturesNVBuilder<'a> {
         self.inner.sci_sync_export = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalSciSync2FeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalSciSync2FeaturesNV>(
         mut self,
@@ -11539,6 +11725,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalSciSync2FeaturesNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreSciSyncPoolCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct SemaphoreSciSyncPoolCreateInfoNVBuilder<'a> {
     inner: SemaphoreSciSyncPoolCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11562,7 +11749,7 @@ impl<'a> SemaphoreSciSyncPoolCreateInfoNVBuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreSciSyncPoolCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreSciSyncPoolCreateInfoNV>(
         mut self,
@@ -11591,6 +11778,7 @@ impl<'a> core::ops::DerefMut for SemaphoreSciSyncPoolCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreSciSyncCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct SemaphoreSciSyncCreateInfoNVBuilder<'a> {
     inner: SemaphoreSciSyncCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11619,7 +11807,7 @@ impl<'a> SemaphoreSciSyncCreateInfoNVBuilder<'a> {
         self.inner.p_fence = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreSciSyncCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreSciSyncCreateInfoNV>(
         mut self,
@@ -11648,6 +11836,7 @@ impl<'a> core::ops::DerefMut for SemaphoreSciSyncCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceSemaphoreSciSyncPoolReservationCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct DeviceSemaphoreSciSyncPoolReservationCreateInfoNVBuilder<'a> {
     inner: DeviceSemaphoreSciSyncPoolReservationCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11673,7 +11862,7 @@ impl<'a> DeviceSemaphoreSciSyncPoolReservationCreateInfoNVBuilder<'a> {
         self.inner.semaphore_sci_sync_pool_request_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceSemaphoreSciSyncPoolReservationCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceSemaphoreSciSyncPoolReservationCreateInfoNV>(
         mut self,
@@ -11704,6 +11893,7 @@ for DeviceSemaphoreSciSyncPoolReservationCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultiviewFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultiviewFeaturesBuilder<'a> {
     inner: PhysicalDeviceMultiviewFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11737,7 +11927,7 @@ impl<'a> PhysicalDeviceMultiviewFeaturesBuilder<'a> {
         self.inner.multiview_tessellation_shader = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiviewFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMultiviewFeatures>(
         mut self,
@@ -11766,6 +11956,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMultiviewFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultiviewProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultiviewPropertiesBuilder<'a> {
     inner: PhysicalDeviceMultiviewProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11808,6 +11999,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMultiviewPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassMultiviewCreateInfo`] with lifetime-tied pNext safety.
 pub struct RenderPassMultiviewCreateInfoBuilder<'a> {
     inner: RenderPassMultiviewCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11844,7 +12036,7 @@ impl<'a> RenderPassMultiviewCreateInfoBuilder<'a> {
         self.inner.p_correlation_masks = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassMultiviewCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassMultiviewCreateInfo>(
         mut self,
@@ -11873,6 +12065,7 @@ impl<'a> core::ops::DerefMut for RenderPassMultiviewCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceCapabilities2EXT`] with lifetime-tied pNext safety.
 pub struct SurfaceCapabilities2EXTBuilder<'a> {
     inner: SurfaceCapabilities2EXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11960,6 +12153,7 @@ impl<'a> core::ops::DerefMut for SurfaceCapabilities2EXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayPowerInfoEXT`] with lifetime-tied pNext safety.
 pub struct DisplayPowerInfoEXTBuilder<'a> {
     inner: DisplayPowerInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -11983,7 +12177,7 @@ impl<'a> DisplayPowerInfoEXTBuilder<'a> {
         self.inner.power_state = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DisplayPowerInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDisplayPowerInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -12009,6 +12203,7 @@ impl<'a> core::ops::DerefMut for DisplayPowerInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceEventInfoEXT`] with lifetime-tied pNext safety.
 pub struct DeviceEventInfoEXTBuilder<'a> {
     inner: DeviceEventInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12032,7 +12227,7 @@ impl<'a> DeviceEventInfoEXTBuilder<'a> {
         self.inner.device_event = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceEventInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceEventInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -12058,6 +12253,7 @@ impl<'a> core::ops::DerefMut for DeviceEventInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayEventInfoEXT`] with lifetime-tied pNext safety.
 pub struct DisplayEventInfoEXTBuilder<'a> {
     inner: DisplayEventInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12081,7 +12277,7 @@ impl<'a> DisplayEventInfoEXTBuilder<'a> {
         self.inner.display_event = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DisplayEventInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDisplayEventInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -12107,6 +12303,7 @@ impl<'a> core::ops::DerefMut for DisplayEventInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainCounterCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct SwapchainCounterCreateInfoEXTBuilder<'a> {
     inner: SwapchainCounterCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12130,7 +12327,7 @@ impl<'a> SwapchainCounterCreateInfoEXTBuilder<'a> {
         self.inner.surface_counters = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainCounterCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainCounterCreateInfoEXT>(
         mut self,
@@ -12159,6 +12356,7 @@ impl<'a> core::ops::DerefMut for SwapchainCounterCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceGroupProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceGroupPropertiesBuilder<'a> {
     inner: PhysicalDeviceGroupProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12209,6 +12407,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceGroupPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryAllocateFlagsInfo`] with lifetime-tied pNext safety.
 pub struct MemoryAllocateFlagsInfoBuilder<'a> {
     inner: MemoryAllocateFlagsInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12237,7 +12436,7 @@ impl<'a> MemoryAllocateFlagsInfoBuilder<'a> {
         self.inner.device_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryAllocateFlagsInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryAllocateFlagsInfo>(
         mut self,
@@ -12266,6 +12465,7 @@ impl<'a> core::ops::DerefMut for MemoryAllocateFlagsInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindBufferMemoryInfo`] with lifetime-tied pNext safety.
 pub struct BindBufferMemoryInfoBuilder<'a> {
     inner: BindBufferMemoryInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12299,7 +12499,7 @@ impl<'a> BindBufferMemoryInfoBuilder<'a> {
         self.inner.memory_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindBufferMemoryInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindBufferMemoryInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -12325,6 +12525,7 @@ impl<'a> core::ops::DerefMut for BindBufferMemoryInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindBufferMemoryDeviceGroupInfo`] with lifetime-tied pNext safety.
 pub struct BindBufferMemoryDeviceGroupInfoBuilder<'a> {
     inner: BindBufferMemoryDeviceGroupInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12349,7 +12550,7 @@ impl<'a> BindBufferMemoryDeviceGroupInfoBuilder<'a> {
         self.inner.p_device_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindBufferMemoryDeviceGroupInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindBufferMemoryDeviceGroupInfo>(
         mut self,
@@ -12378,6 +12579,7 @@ impl<'a> core::ops::DerefMut for BindBufferMemoryDeviceGroupInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindImageMemoryInfo`] with lifetime-tied pNext safety.
 pub struct BindImageMemoryInfoBuilder<'a> {
     inner: BindImageMemoryInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12411,7 +12613,7 @@ impl<'a> BindImageMemoryInfoBuilder<'a> {
         self.inner.memory_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindImageMemoryInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindImageMemoryInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -12437,6 +12639,7 @@ impl<'a> core::ops::DerefMut for BindImageMemoryInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindImageMemoryDeviceGroupInfo`] with lifetime-tied pNext safety.
 pub struct BindImageMemoryDeviceGroupInfoBuilder<'a> {
     inner: BindImageMemoryDeviceGroupInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12467,7 +12670,7 @@ impl<'a> BindImageMemoryDeviceGroupInfoBuilder<'a> {
         self.inner.p_split_instance_bind_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindImageMemoryDeviceGroupInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindImageMemoryDeviceGroupInfo>(
         mut self,
@@ -12496,6 +12699,7 @@ impl<'a> core::ops::DerefMut for BindImageMemoryDeviceGroupInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupRenderPassBeginInfo`] with lifetime-tied pNext safety.
 pub struct DeviceGroupRenderPassBeginInfoBuilder<'a> {
     inner: DeviceGroupRenderPassBeginInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12525,7 +12729,7 @@ impl<'a> DeviceGroupRenderPassBeginInfoBuilder<'a> {
         self.inner.p_device_render_areas = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceGroupRenderPassBeginInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceGroupRenderPassBeginInfo>(
         mut self,
@@ -12554,6 +12758,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupRenderPassBeginInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupCommandBufferBeginInfo`] with lifetime-tied pNext safety.
 pub struct DeviceGroupCommandBufferBeginInfoBuilder<'a> {
     inner: DeviceGroupCommandBufferBeginInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12577,7 +12782,7 @@ impl<'a> DeviceGroupCommandBufferBeginInfoBuilder<'a> {
         self.inner.device_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceGroupCommandBufferBeginInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceGroupCommandBufferBeginInfo>(
         mut self,
@@ -12606,6 +12811,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupCommandBufferBeginInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupSubmitInfo`] with lifetime-tied pNext safety.
 pub struct DeviceGroupSubmitInfoBuilder<'a> {
     inner: DeviceGroupSubmitInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12642,7 +12848,7 @@ impl<'a> DeviceGroupSubmitInfoBuilder<'a> {
         self.inner.p_signal_semaphore_device_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceGroupSubmitInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceGroupSubmitInfo>(
         mut self,
@@ -12671,6 +12877,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupSubmitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupBindSparseInfo`] with lifetime-tied pNext safety.
 pub struct DeviceGroupBindSparseInfoBuilder<'a> {
     inner: DeviceGroupBindSparseInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12699,7 +12906,7 @@ impl<'a> DeviceGroupBindSparseInfoBuilder<'a> {
         self.inner.memory_device_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceGroupBindSparseInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceGroupBindSparseInfo>(
         mut self,
@@ -12728,6 +12935,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupBindSparseInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupPresentCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct DeviceGroupPresentCapabilitiesKHRBuilder<'a> {
     inner: DeviceGroupPresentCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12770,6 +12978,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupPresentCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageSwapchainCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct ImageSwapchainCreateInfoKHRBuilder<'a> {
     inner: ImageSwapchainCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12793,7 +13002,7 @@ impl<'a> ImageSwapchainCreateInfoKHRBuilder<'a> {
         self.inner.swapchain = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageSwapchainCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageSwapchainCreateInfoKHR>(
         mut self,
@@ -12822,6 +13031,7 @@ impl<'a> core::ops::DerefMut for ImageSwapchainCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindImageMemorySwapchainInfoKHR`] with lifetime-tied pNext safety.
 pub struct BindImageMemorySwapchainInfoKHRBuilder<'a> {
     inner: BindImageMemorySwapchainInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12850,7 +13060,7 @@ impl<'a> BindImageMemorySwapchainInfoKHRBuilder<'a> {
         self.inner.image_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindImageMemorySwapchainInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindImageMemorySwapchainInfoKHR>(
         mut self,
@@ -12879,6 +13089,7 @@ impl<'a> core::ops::DerefMut for BindImageMemorySwapchainInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AcquireNextImageInfoKHR`] with lifetime-tied pNext safety.
 pub struct AcquireNextImageInfoKHRBuilder<'a> {
     inner: AcquireNextImageInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12922,7 +13133,7 @@ impl<'a> AcquireNextImageInfoKHRBuilder<'a> {
         self.inner.device_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AcquireNextImageInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAcquireNextImageInfoKHR>(
         mut self,
@@ -12951,6 +13162,7 @@ impl<'a> core::ops::DerefMut for AcquireNextImageInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupPresentInfoKHR`] with lifetime-tied pNext safety.
 pub struct DeviceGroupPresentInfoKHRBuilder<'a> {
     inner: DeviceGroupPresentInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -12980,7 +13192,7 @@ impl<'a> DeviceGroupPresentInfoKHRBuilder<'a> {
         self.inner.mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceGroupPresentInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceGroupPresentInfoKHR>(
         mut self,
@@ -13009,6 +13221,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupPresentInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupDeviceCreateInfo`] with lifetime-tied pNext safety.
 pub struct DeviceGroupDeviceCreateInfoBuilder<'a> {
     inner: DeviceGroupDeviceCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13033,7 +13246,7 @@ impl<'a> DeviceGroupDeviceCreateInfoBuilder<'a> {
         self.inner.p_physical_devices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceGroupDeviceCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceGroupDeviceCreateInfo>(
         mut self,
@@ -13062,6 +13275,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupDeviceCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceGroupSwapchainCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct DeviceGroupSwapchainCreateInfoKHRBuilder<'a> {
     inner: DeviceGroupSwapchainCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13085,7 +13299,7 @@ impl<'a> DeviceGroupSwapchainCreateInfoKHRBuilder<'a> {
         self.inner.modes = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceGroupSwapchainCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceGroupSwapchainCreateInfoKHR>(
         mut self,
@@ -13114,6 +13328,7 @@ impl<'a> core::ops::DerefMut for DeviceGroupSwapchainCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorUpdateTemplateCreateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorUpdateTemplateCreateInfoBuilder<'a> {
     inner: DescriptorUpdateTemplateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13171,7 +13386,7 @@ impl<'a> DescriptorUpdateTemplateCreateInfoBuilder<'a> {
         self.inner.set = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorUpdateTemplateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorUpdateTemplateCreateInfo>(
         mut self,
@@ -13200,6 +13415,7 @@ impl<'a> core::ops::DerefMut for DescriptorUpdateTemplateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentIdFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentIdFeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePresentIdFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13223,7 +13439,7 @@ impl<'a> PhysicalDevicePresentIdFeaturesKHRBuilder<'a> {
         self.inner.present_id = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentIdFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentIdFeaturesKHR>(
         mut self,
@@ -13252,6 +13468,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentIdFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentIdKHR`] with lifetime-tied pNext safety.
 pub struct PresentIdKHRBuilder<'a> {
     inner: PresentIdKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13276,7 +13493,7 @@ impl<'a> PresentIdKHRBuilder<'a> {
         self.inner.p_present_ids = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentIdKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentIdKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -13302,6 +13519,7 @@ impl<'a> core::ops::DerefMut for PresentIdKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentId2FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentId2FeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePresentId2FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13325,7 +13543,7 @@ impl<'a> PhysicalDevicePresentId2FeaturesKHRBuilder<'a> {
         self.inner.present_id2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentId2FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentId2FeaturesKHR>(
         mut self,
@@ -13354,6 +13572,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentId2FeaturesKHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PresentId2KHR`] with lifetime-tied pNext safety.
 pub struct PresentId2KHRBuilder<'a> {
     inner: PresentId2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13378,7 +13597,7 @@ impl<'a> PresentId2KHRBuilder<'a> {
         self.inner.p_present_ids = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentId2KHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentId2KHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -13404,6 +13623,7 @@ impl<'a> core::ops::DerefMut for PresentId2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentWait2InfoKHR`] with lifetime-tied pNext safety.
 pub struct PresentWait2InfoKHRBuilder<'a> {
     inner: PresentWait2InfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13432,7 +13652,7 @@ impl<'a> PresentWait2InfoKHRBuilder<'a> {
         self.inner.timeout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentWait2InfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentWait2InfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -13458,6 +13678,7 @@ impl<'a> core::ops::DerefMut for PresentWait2InfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentWaitFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentWaitFeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePresentWaitFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13481,7 +13702,7 @@ impl<'a> PhysicalDevicePresentWaitFeaturesKHRBuilder<'a> {
         self.inner.present_wait = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentWaitFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentWaitFeaturesKHR>(
         mut self,
@@ -13510,6 +13731,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentWaitFeaturesKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentWait2FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentWait2FeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePresentWait2FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13533,7 +13755,7 @@ impl<'a> PhysicalDevicePresentWait2FeaturesKHRBuilder<'a> {
         self.inner.present_wait2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentWait2FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentWait2FeaturesKHR>(
         mut self,
@@ -13562,6 +13784,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentWait2FeaturesKHRBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentTimingFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentTimingFeaturesEXTBuilder<'a> {
     inner: PhysicalDevicePresentTimingFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13595,7 +13818,7 @@ impl<'a> PhysicalDevicePresentTimingFeaturesEXTBuilder<'a> {
         self.inner.present_at_relative_time = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentTimingFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentTimingFeaturesEXT>(
         mut self,
@@ -13624,6 +13847,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentTimingFeaturesEXTBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PresentTimingSurfaceCapabilitiesEXT`] with lifetime-tied pNext safety.
 pub struct PresentTimingSurfaceCapabilitiesEXTBuilder<'a> {
     inner: PresentTimingSurfaceCapabilitiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13676,6 +13900,7 @@ impl<'a> core::ops::DerefMut for PresentTimingSurfaceCapabilitiesEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`SwapchainTimingPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct SwapchainTimingPropertiesEXTBuilder<'a> {
     inner: SwapchainTimingPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13718,6 +13943,7 @@ impl<'a> core::ops::DerefMut for SwapchainTimingPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainTimeDomainPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct SwapchainTimeDomainPropertiesEXTBuilder<'a> {
     inner: SwapchainTimeDomainPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13762,6 +13988,7 @@ impl<'a> core::ops::DerefMut for SwapchainTimeDomainPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PastPresentationTimingInfoEXT`] with lifetime-tied pNext safety.
 pub struct PastPresentationTimingInfoEXTBuilder<'a> {
     inner: PastPresentationTimingInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13790,7 +14017,7 @@ impl<'a> PastPresentationTimingInfoEXTBuilder<'a> {
         self.inner.swapchain = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PastPresentationTimingInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPastPresentationTimingInfoEXT>(
         mut self,
@@ -13819,6 +14046,7 @@ impl<'a> core::ops::DerefMut for PastPresentationTimingInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PastPresentationTimingPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PastPresentationTimingPropertiesEXTBuilder<'a> {
     inner: PastPresentationTimingPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13870,6 +14098,7 @@ impl<'a> core::ops::DerefMut for PastPresentationTimingPropertiesEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PastPresentationTimingEXT`] with lifetime-tied pNext safety.
 pub struct PastPresentationTimingEXTBuilder<'a> {
     inner: PastPresentationTimingEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13933,6 +14162,7 @@ impl<'a> core::ops::DerefMut for PastPresentationTimingEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentTimingsInfoEXT`] with lifetime-tied pNext safety.
 pub struct PresentTimingsInfoEXTBuilder<'a> {
     inner: PresentTimingsInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -13957,7 +14187,7 @@ impl<'a> PresentTimingsInfoEXTBuilder<'a> {
         self.inner.p_timing_infos = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentTimingsInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentTimingsInfoEXT>(
         mut self,
@@ -13986,6 +14216,7 @@ impl<'a> core::ops::DerefMut for PresentTimingsInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentTimingInfoEXT`] with lifetime-tied pNext safety.
 pub struct PresentTimingInfoEXTBuilder<'a> {
     inner: PresentTimingInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14032,7 +14263,7 @@ impl<'a> PresentTimingInfoEXTBuilder<'a> {
         self.inner.target_time_domain_present_stage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentTimingInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentTimingInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -14058,6 +14289,7 @@ impl<'a> core::ops::DerefMut for PresentTimingInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainCalibratedTimestampInfoEXT`] with lifetime-tied pNext safety.
 pub struct SwapchainCalibratedTimestampInfoEXTBuilder<'a> {
     inner: SwapchainCalibratedTimestampInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14091,7 +14323,7 @@ impl<'a> SwapchainCalibratedTimestampInfoEXTBuilder<'a> {
         self.inner.time_domain_id = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainCalibratedTimestampInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainCalibratedTimestampInfoEXT>(
         mut self,
@@ -14120,6 +14352,7 @@ impl<'a> core::ops::DerefMut for SwapchainCalibratedTimestampInfoEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`HdrMetadataEXT`] with lifetime-tied pNext safety.
 pub struct HdrMetadataEXTBuilder<'a> {
     inner: HdrMetadataEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14178,7 +14411,7 @@ impl<'a> HdrMetadataEXTBuilder<'a> {
         self.inner.max_frame_average_light_level = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`HdrMetadataEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsHdrMetadataEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -14204,6 +14437,7 @@ impl<'a> core::ops::DerefMut for HdrMetadataEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`HdrVividDynamicMetadataHUAWEI`] with lifetime-tied pNext safety.
 pub struct HdrVividDynamicMetadataHUAWEIBuilder<'a> {
     inner: HdrVividDynamicMetadataHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14228,7 +14462,7 @@ impl<'a> HdrVividDynamicMetadataHUAWEIBuilder<'a> {
         self.inner.p_dynamic_metadata = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`HdrVividDynamicMetadataHUAWEI`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsHdrVividDynamicMetadataHUAWEI>(
         mut self,
@@ -14257,6 +14491,7 @@ impl<'a> core::ops::DerefMut for HdrVividDynamicMetadataHUAWEIBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayNativeHdrSurfaceCapabilitiesAMD`] with lifetime-tied pNext safety.
 pub struct DisplayNativeHdrSurfaceCapabilitiesAMDBuilder<'a> {
     inner: DisplayNativeHdrSurfaceCapabilitiesAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14294,6 +14529,7 @@ impl<'a> core::ops::DerefMut for DisplayNativeHdrSurfaceCapabilitiesAMDBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`SwapchainDisplayNativeHdrCreateInfoAMD`] with lifetime-tied pNext safety.
 pub struct SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'a> {
     inner: SwapchainDisplayNativeHdrCreateInfoAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14317,7 +14553,7 @@ impl<'a> SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'a> {
         self.inner.local_dimming_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainDisplayNativeHdrCreateInfoAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainDisplayNativeHdrCreateInfoAMD>(
         mut self,
@@ -14346,6 +14582,7 @@ impl<'a> core::ops::DerefMut for SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PresentTimesInfoGOOGLE`] with lifetime-tied pNext safety.
 pub struct PresentTimesInfoGOOGLEBuilder<'a> {
     inner: PresentTimesInfoGOOGLE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14370,7 +14607,7 @@ impl<'a> PresentTimesInfoGOOGLEBuilder<'a> {
         self.inner.p_times = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentTimesInfoGOOGLE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentTimesInfoGOOGLE>(
         mut self,
@@ -14399,6 +14636,7 @@ impl<'a> core::ops::DerefMut for PresentTimesInfoGOOGLEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`IOSSurfaceCreateInfoMVK`] with lifetime-tied pNext safety.
 pub struct IOSSurfaceCreateInfoMVKBuilder<'a> {
     inner: IOSSurfaceCreateInfoMVK,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14427,7 +14665,7 @@ impl<'a> IOSSurfaceCreateInfoMVKBuilder<'a> {
         self.inner.p_view = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IOSSurfaceCreateInfoMVK`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIOSSurfaceCreateInfoMVK>(
         mut self,
@@ -14456,6 +14694,7 @@ impl<'a> core::ops::DerefMut for IOSSurfaceCreateInfoMVKBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MacOSSurfaceCreateInfoMVK`] with lifetime-tied pNext safety.
 pub struct MacOSSurfaceCreateInfoMVKBuilder<'a> {
     inner: MacOSSurfaceCreateInfoMVK,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14484,7 +14723,7 @@ impl<'a> MacOSSurfaceCreateInfoMVKBuilder<'a> {
         self.inner.p_view = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MacOSSurfaceCreateInfoMVK`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMacOSSurfaceCreateInfoMVK>(
         mut self,
@@ -14513,6 +14752,7 @@ impl<'a> core::ops::DerefMut for MacOSSurfaceCreateInfoMVKBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MetalSurfaceCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct MetalSurfaceCreateInfoEXTBuilder<'a> {
     inner: MetalSurfaceCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14541,7 +14781,7 @@ impl<'a> MetalSurfaceCreateInfoEXTBuilder<'a> {
         self.inner.p_layer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MetalSurfaceCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMetalSurfaceCreateInfoEXT>(
         mut self,
@@ -14570,6 +14810,7 @@ impl<'a> core::ops::DerefMut for MetalSurfaceCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportWScalingStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportWScalingStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14599,7 +14840,7 @@ impl<'a> PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
         self.inner.p_viewport_w_scalings = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportWScalingStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportWScalingStateCreateInfoNV>(
         mut self,
@@ -14628,6 +14869,7 @@ impl<'a> core::ops::DerefMut for PipelineViewportWScalingStateCreateInfoNVBuilde
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportSwizzleStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportSwizzleStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportSwizzleStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14657,7 +14899,7 @@ impl<'a> PipelineViewportSwizzleStateCreateInfoNVBuilder<'a> {
         self.inner.p_viewport_swizzles = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportSwizzleStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportSwizzleStateCreateInfoNV>(
         mut self,
@@ -14686,6 +14928,7 @@ impl<'a> core::ops::DerefMut for PipelineViewportSwizzleStateCreateInfoNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDiscardRectanglePropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDiscardRectanglePropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceDiscardRectanglePropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14723,6 +14966,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDiscardRectanglePropertiesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PipelineDiscardRectangleStateCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineDiscardRectangleStateCreateInfoEXTBuilder<'a> {
     inner: PipelineDiscardRectangleStateCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14757,7 +15001,7 @@ impl<'a> PipelineDiscardRectangleStateCreateInfoEXTBuilder<'a> {
         self.inner.p_discard_rectangles = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineDiscardRectangleStateCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineDiscardRectangleStateCreateInfoEXT>(
         mut self,
@@ -14786,6 +15030,7 @@ impl<'a> core::ops::DerefMut for PipelineDiscardRectangleStateCreateInfoEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder<'a> {
     inner: PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14827,6 +15072,7 @@ for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassInputAttachmentAspectCreateInfo`] with lifetime-tied pNext safety.
 pub struct RenderPassInputAttachmentAspectCreateInfoBuilder<'a> {
     inner: RenderPassInputAttachmentAspectCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14854,7 +15100,7 @@ impl<'a> RenderPassInputAttachmentAspectCreateInfoBuilder<'a> {
         self.inner.p_aspect_references = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassInputAttachmentAspectCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassInputAttachmentAspectCreateInfo>(
         mut self,
@@ -14883,6 +15129,7 @@ impl<'a> core::ops::DerefMut for RenderPassInputAttachmentAspectCreateInfoBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSurfaceInfo2KHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSurfaceInfo2KHRBuilder<'a> {
     inner: PhysicalDeviceSurfaceInfo2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14906,7 +15153,7 @@ impl<'a> PhysicalDeviceSurfaceInfo2KHRBuilder<'a> {
         self.inner.surface = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSurfaceInfo2KHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSurfaceInfo2KHR>(
         mut self,
@@ -14935,6 +15182,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSurfaceInfo2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceCapabilities2KHR`] with lifetime-tied pNext safety.
 pub struct SurfaceCapabilities2KHRBuilder<'a> {
     inner: SurfaceCapabilities2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -14972,6 +15220,7 @@ impl<'a> core::ops::DerefMut for SurfaceCapabilities2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceFormat2KHR`] with lifetime-tied pNext safety.
 pub struct SurfaceFormat2KHRBuilder<'a> {
     inner: SurfaceFormat2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15009,6 +15258,7 @@ impl<'a> core::ops::DerefMut for SurfaceFormat2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayProperties2KHR`] with lifetime-tied pNext safety.
 pub struct DisplayProperties2KHRBuilder<'a> {
     inner: DisplayProperties2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15046,6 +15296,7 @@ impl<'a> core::ops::DerefMut for DisplayProperties2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayPlaneProperties2KHR`] with lifetime-tied pNext safety.
 pub struct DisplayPlaneProperties2KHRBuilder<'a> {
     inner: DisplayPlaneProperties2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15083,6 +15334,7 @@ impl<'a> core::ops::DerefMut for DisplayPlaneProperties2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayModeProperties2KHR`] with lifetime-tied pNext safety.
 pub struct DisplayModeProperties2KHRBuilder<'a> {
     inner: DisplayModeProperties2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15120,6 +15372,7 @@ impl<'a> core::ops::DerefMut for DisplayModeProperties2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayModeStereoPropertiesNV`] with lifetime-tied pNext safety.
 pub struct DisplayModeStereoPropertiesNVBuilder<'a> {
     inner: DisplayModeStereoPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15157,6 +15410,7 @@ impl<'a> core::ops::DerefMut for DisplayModeStereoPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayPlaneInfo2KHR`] with lifetime-tied pNext safety.
 pub struct DisplayPlaneInfo2KHRBuilder<'a> {
     inner: DisplayPlaneInfo2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15185,7 +15439,7 @@ impl<'a> DisplayPlaneInfo2KHRBuilder<'a> {
         self.inner.plane_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DisplayPlaneInfo2KHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDisplayPlaneInfo2KHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -15211,6 +15465,7 @@ impl<'a> core::ops::DerefMut for DisplayPlaneInfo2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayPlaneCapabilities2KHR`] with lifetime-tied pNext safety.
 pub struct DisplayPlaneCapabilities2KHRBuilder<'a> {
     inner: DisplayPlaneCapabilities2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15248,6 +15503,7 @@ impl<'a> core::ops::DerefMut for DisplayPlaneCapabilities2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SharedPresentSurfaceCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct SharedPresentSurfaceCapabilitiesKHRBuilder<'a> {
     inner: SharedPresentSurfaceCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15288,6 +15544,7 @@ impl<'a> core::ops::DerefMut for SharedPresentSurfaceCapabilitiesKHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevice16BitStorageFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDevice16BitStorageFeaturesBuilder<'a> {
     inner: PhysicalDevice16BitStorageFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15326,7 +15583,7 @@ impl<'a> PhysicalDevice16BitStorageFeaturesBuilder<'a> {
         self.inner.storage_input_output16 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevice16BitStorageFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevice16BitStorageFeatures>(
         mut self,
@@ -15355,6 +15612,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevice16BitStorageFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSubgroupProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSubgroupPropertiesBuilder<'a> {
     inner: PhysicalDeviceSubgroupProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15407,6 +15665,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSubgroupPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderSubgroupExtendedTypesFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderSubgroupExtendedTypesFeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderSubgroupExtendedTypesFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15432,7 +15691,7 @@ impl<'a> PhysicalDeviceShaderSubgroupExtendedTypesFeaturesBuilder<'a> {
         self.inner.shader_subgroup_extended_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupExtendedTypesFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderSubgroupExtendedTypesFeatures>(
         mut self,
@@ -15463,6 +15722,7 @@ for PhysicalDeviceShaderSubgroupExtendedTypesFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferMemoryRequirementsInfo2`] with lifetime-tied pNext safety.
 pub struct BufferMemoryRequirementsInfo2Builder<'a> {
     inner: BufferMemoryRequirementsInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15486,7 +15746,7 @@ impl<'a> BufferMemoryRequirementsInfo2Builder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferMemoryRequirementsInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferMemoryRequirementsInfo2>(
         mut self,
@@ -15515,6 +15775,7 @@ impl<'a> core::ops::DerefMut for BufferMemoryRequirementsInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceBufferMemoryRequirements`] with lifetime-tied pNext safety.
 pub struct DeviceBufferMemoryRequirementsBuilder<'a> {
     inner: DeviceBufferMemoryRequirements,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15538,7 +15799,7 @@ impl<'a> DeviceBufferMemoryRequirementsBuilder<'a> {
         self.inner.p_create_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceBufferMemoryRequirements`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceBufferMemoryRequirements>(
         mut self,
@@ -15567,6 +15828,7 @@ impl<'a> core::ops::DerefMut for DeviceBufferMemoryRequirementsBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageMemoryRequirementsInfo2`] with lifetime-tied pNext safety.
 pub struct ImageMemoryRequirementsInfo2Builder<'a> {
     inner: ImageMemoryRequirementsInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15590,7 +15852,7 @@ impl<'a> ImageMemoryRequirementsInfo2Builder<'a> {
         self.inner.image = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageMemoryRequirementsInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageMemoryRequirementsInfo2>(
         mut self,
@@ -15619,6 +15881,7 @@ impl<'a> core::ops::DerefMut for ImageMemoryRequirementsInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageSparseMemoryRequirementsInfo2`] with lifetime-tied pNext safety.
 pub struct ImageSparseMemoryRequirementsInfo2Builder<'a> {
     inner: ImageSparseMemoryRequirementsInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15642,7 +15905,7 @@ impl<'a> ImageSparseMemoryRequirementsInfo2Builder<'a> {
         self.inner.image = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageSparseMemoryRequirementsInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageSparseMemoryRequirementsInfo2>(
         mut self,
@@ -15671,6 +15934,7 @@ impl<'a> core::ops::DerefMut for ImageSparseMemoryRequirementsInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceImageMemoryRequirements`] with lifetime-tied pNext safety.
 pub struct DeviceImageMemoryRequirementsBuilder<'a> {
     inner: DeviceImageMemoryRequirements,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15699,7 +15963,7 @@ impl<'a> DeviceImageMemoryRequirementsBuilder<'a> {
         self.inner.plane_aspect = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceImageMemoryRequirements`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceImageMemoryRequirements>(
         mut self,
@@ -15728,6 +15992,7 @@ impl<'a> core::ops::DerefMut for DeviceImageMemoryRequirementsBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryRequirements2`] with lifetime-tied pNext safety.
 pub struct MemoryRequirements2Builder<'a> {
     inner: MemoryRequirements2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15765,6 +16030,7 @@ impl<'a> core::ops::DerefMut for MemoryRequirements2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SparseImageMemoryRequirements2`] with lifetime-tied pNext safety.
 pub struct SparseImageMemoryRequirements2Builder<'a> {
     inner: SparseImageMemoryRequirements2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15802,6 +16068,7 @@ impl<'a> core::ops::DerefMut for SparseImageMemoryRequirements2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePointClippingProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePointClippingPropertiesBuilder<'a> {
     inner: PhysicalDevicePointClippingProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15839,6 +16106,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePointClippingPropertiesBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`MemoryDedicatedRequirements`] with lifetime-tied pNext safety.
 pub struct MemoryDedicatedRequirementsBuilder<'a> {
     inner: MemoryDedicatedRequirements,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15881,6 +16149,7 @@ impl<'a> core::ops::DerefMut for MemoryDedicatedRequirementsBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryDedicatedAllocateInfo`] with lifetime-tied pNext safety.
 pub struct MemoryDedicatedAllocateInfoBuilder<'a> {
     inner: MemoryDedicatedAllocateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15909,7 +16178,7 @@ impl<'a> MemoryDedicatedAllocateInfoBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryDedicatedAllocateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryDedicatedAllocateInfo>(
         mut self,
@@ -15938,6 +16207,7 @@ impl<'a> core::ops::DerefMut for MemoryDedicatedAllocateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageViewUsageCreateInfo`] with lifetime-tied pNext safety.
 pub struct ImageViewUsageCreateInfoBuilder<'a> {
     inner: ImageViewUsageCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -15961,7 +16231,7 @@ impl<'a> ImageViewUsageCreateInfoBuilder<'a> {
         self.inner.usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewUsageCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewUsageCreateInfo>(
         mut self,
@@ -15990,6 +16260,7 @@ impl<'a> core::ops::DerefMut for ImageViewUsageCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageViewSlicedCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImageViewSlicedCreateInfoEXTBuilder<'a> {
     inner: ImageViewSlicedCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16018,7 +16289,7 @@ impl<'a> ImageViewSlicedCreateInfoEXTBuilder<'a> {
         self.inner.slice_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewSlicedCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewSlicedCreateInfoEXT>(
         mut self,
@@ -16047,6 +16318,7 @@ impl<'a> core::ops::DerefMut for ImageViewSlicedCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineTessellationDomainOriginStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineTessellationDomainOriginStateCreateInfoBuilder<'a> {
     inner: PipelineTessellationDomainOriginStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16070,7 +16342,7 @@ impl<'a> PipelineTessellationDomainOriginStateCreateInfoBuilder<'a> {
         self.inner.domain_origin = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineTessellationDomainOriginStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineTessellationDomainOriginStateCreateInfo>(
         mut self,
@@ -16101,6 +16373,7 @@ for PipelineTessellationDomainOriginStateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SamplerYcbcrConversionInfo`] with lifetime-tied pNext safety.
 pub struct SamplerYcbcrConversionInfoBuilder<'a> {
     inner: SamplerYcbcrConversionInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16124,7 +16397,7 @@ impl<'a> SamplerYcbcrConversionInfoBuilder<'a> {
         self.inner.conversion = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerYcbcrConversionInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerYcbcrConversionInfo>(
         mut self,
@@ -16153,6 +16426,7 @@ impl<'a> core::ops::DerefMut for SamplerYcbcrConversionInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SamplerYcbcrConversionCreateInfo`] with lifetime-tied pNext safety.
 pub struct SamplerYcbcrConversionCreateInfoBuilder<'a> {
     inner: SamplerYcbcrConversionCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16211,7 +16485,7 @@ impl<'a> SamplerYcbcrConversionCreateInfoBuilder<'a> {
         self.inner.force_explicit_reconstruction = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerYcbcrConversionCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerYcbcrConversionCreateInfo>(
         mut self,
@@ -16240,6 +16514,7 @@ impl<'a> core::ops::DerefMut for SamplerYcbcrConversionCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindImagePlaneMemoryInfo`] with lifetime-tied pNext safety.
 pub struct BindImagePlaneMemoryInfoBuilder<'a> {
     inner: BindImagePlaneMemoryInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16263,7 +16538,7 @@ impl<'a> BindImagePlaneMemoryInfoBuilder<'a> {
         self.inner.plane_aspect = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindImagePlaneMemoryInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindImagePlaneMemoryInfo>(
         mut self,
@@ -16292,6 +16567,7 @@ impl<'a> core::ops::DerefMut for BindImagePlaneMemoryInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImagePlaneMemoryRequirementsInfo`] with lifetime-tied pNext safety.
 pub struct ImagePlaneMemoryRequirementsInfoBuilder<'a> {
     inner: ImagePlaneMemoryRequirementsInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16315,7 +16591,7 @@ impl<'a> ImagePlaneMemoryRequirementsInfoBuilder<'a> {
         self.inner.plane_aspect = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImagePlaneMemoryRequirementsInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImagePlaneMemoryRequirementsInfo>(
         mut self,
@@ -16344,6 +16620,7 @@ impl<'a> core::ops::DerefMut for ImagePlaneMemoryRequirementsInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSamplerYcbcrConversionFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder<'a> {
     inner: PhysicalDeviceSamplerYcbcrConversionFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16367,7 +16644,7 @@ impl<'a> PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder<'a> {
         self.inner.sampler_ycbcr_conversion = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSamplerYcbcrConversionFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSamplerYcbcrConversionFeatures>(
         mut self,
@@ -16397,6 +16674,7 @@ for PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SamplerYcbcrConversionImageFormatProperties`] with lifetime-tied pNext safety.
 pub struct SamplerYcbcrConversionImageFormatPropertiesBuilder<'a> {
     inner: SamplerYcbcrConversionImageFormatProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16434,6 +16712,7 @@ impl<'a> core::ops::DerefMut for SamplerYcbcrConversionImageFormatPropertiesBuil
         &mut self.inner
     }
 }
+///Builder for [`TextureLODGatherFormatPropertiesAMD`] with lifetime-tied pNext safety.
 pub struct TextureLODGatherFormatPropertiesAMDBuilder<'a> {
     inner: TextureLODGatherFormatPropertiesAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16471,6 +16750,7 @@ impl<'a> core::ops::DerefMut for TextureLODGatherFormatPropertiesAMDBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`ConditionalRenderingBeginInfoEXT`] with lifetime-tied pNext safety.
 pub struct ConditionalRenderingBeginInfoEXTBuilder<'a> {
     inner: ConditionalRenderingBeginInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16504,7 +16784,7 @@ impl<'a> ConditionalRenderingBeginInfoEXTBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ConditionalRenderingBeginInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsConditionalRenderingBeginInfoEXT>(
         mut self,
@@ -16533,6 +16813,7 @@ impl<'a> core::ops::DerefMut for ConditionalRenderingBeginInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ProtectedSubmitInfo`] with lifetime-tied pNext safety.
 pub struct ProtectedSubmitInfoBuilder<'a> {
     inner: ProtectedSubmitInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16556,7 +16837,7 @@ impl<'a> ProtectedSubmitInfoBuilder<'a> {
         self.inner.protected_submit = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ProtectedSubmitInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsProtectedSubmitInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -16582,6 +16863,7 @@ impl<'a> core::ops::DerefMut for ProtectedSubmitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceProtectedMemoryFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceProtectedMemoryFeaturesBuilder<'a> {
     inner: PhysicalDeviceProtectedMemoryFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16605,7 +16887,7 @@ impl<'a> PhysicalDeviceProtectedMemoryFeaturesBuilder<'a> {
         self.inner.protected_memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceProtectedMemoryFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceProtectedMemoryFeatures>(
         mut self,
@@ -16634,6 +16916,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceProtectedMemoryFeaturesBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceProtectedMemoryProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceProtectedMemoryPropertiesBuilder<'a> {
     inner: PhysicalDeviceProtectedMemoryProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16671,6 +16954,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceProtectedMemoryPropertiesBuilder<
         &mut self.inner
     }
 }
+///Builder for [`DeviceQueueInfo2`] with lifetime-tied pNext safety.
 pub struct DeviceQueueInfo2Builder<'a> {
     inner: DeviceQueueInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16704,7 +16988,7 @@ impl<'a> DeviceQueueInfo2Builder<'a> {
         self.inner.queue_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceQueueInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceQueueInfo2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -16730,6 +17014,7 @@ impl<'a> core::ops::DerefMut for DeviceQueueInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCoverageToColorStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineCoverageToColorStateCreateInfoNVBuilder<'a> {
     inner: PipelineCoverageToColorStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16763,7 +17048,7 @@ impl<'a> PipelineCoverageToColorStateCreateInfoNVBuilder<'a> {
         self.inner.coverage_to_color_location = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCoverageToColorStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCoverageToColorStateCreateInfoNV>(
         mut self,
@@ -16792,6 +17077,7 @@ impl<'a> core::ops::DerefMut for PipelineCoverageToColorStateCreateInfoNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSamplerFilterMinmaxProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSamplerFilterMinmaxPropertiesBuilder<'a> {
     inner: PhysicalDeviceSamplerFilterMinmaxProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16834,6 +17120,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSamplerFilterMinmaxPropertiesBuil
         &mut self.inner
     }
 }
+///Builder for [`SampleLocationsInfoEXT`] with lifetime-tied pNext safety.
 pub struct SampleLocationsInfoEXTBuilder<'a> {
     inner: SampleLocationsInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16868,7 +17155,7 @@ impl<'a> SampleLocationsInfoEXTBuilder<'a> {
         self.inner.p_sample_locations = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SampleLocationsInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSampleLocationsInfoEXT>(
         mut self,
@@ -16897,6 +17184,7 @@ impl<'a> core::ops::DerefMut for SampleLocationsInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassSampleLocationsBeginInfoEXT`] with lifetime-tied pNext safety.
 pub struct RenderPassSampleLocationsBeginInfoEXTBuilder<'a> {
     inner: RenderPassSampleLocationsBeginInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16933,7 +17221,7 @@ impl<'a> RenderPassSampleLocationsBeginInfoEXTBuilder<'a> {
         self.inner.p_post_subpass_sample_locations = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassSampleLocationsBeginInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassSampleLocationsBeginInfoEXT>(
         mut self,
@@ -16962,6 +17250,7 @@ impl<'a> core::ops::DerefMut for RenderPassSampleLocationsBeginInfoEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PipelineSampleLocationsStateCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineSampleLocationsStateCreateInfoEXTBuilder<'a> {
     inner: PipelineSampleLocationsStateCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -16990,7 +17279,7 @@ impl<'a> PipelineSampleLocationsStateCreateInfoEXTBuilder<'a> {
         self.inner.sample_locations_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineSampleLocationsStateCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineSampleLocationsStateCreateInfoEXT>(
         mut self,
@@ -17019,6 +17308,7 @@ impl<'a> core::ops::DerefMut for PipelineSampleLocationsStateCreateInfoEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSampleLocationsPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSampleLocationsPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceSampleLocationsPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17076,6 +17366,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSampleLocationsPropertiesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`MultisamplePropertiesEXT`] with lifetime-tied pNext safety.
 pub struct MultisamplePropertiesEXTBuilder<'a> {
     inner: MultisamplePropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17113,6 +17404,7 @@ impl<'a> core::ops::DerefMut for MultisamplePropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SamplerReductionModeCreateInfo`] with lifetime-tied pNext safety.
 pub struct SamplerReductionModeCreateInfoBuilder<'a> {
     inner: SamplerReductionModeCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17136,7 +17428,7 @@ impl<'a> SamplerReductionModeCreateInfoBuilder<'a> {
         self.inner.reduction_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerReductionModeCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerReductionModeCreateInfo>(
         mut self,
@@ -17165,6 +17457,7 @@ impl<'a> core::ops::DerefMut for SamplerReductionModeCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceBlendOperationAdvancedFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceBlendOperationAdvancedFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17188,7 +17481,7 @@ impl<'a> PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder<'a> {
         self.inner.advanced_blend_coherent_operations = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBlendOperationAdvancedFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceBlendOperationAdvancedFeaturesEXT>(
         mut self,
@@ -17219,6 +17512,7 @@ for PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultiDrawFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultiDrawFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceMultiDrawFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17242,7 +17536,7 @@ impl<'a> PhysicalDeviceMultiDrawFeaturesEXTBuilder<'a> {
         self.inner.multi_draw = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiDrawFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMultiDrawFeaturesEXT>(
         mut self,
@@ -17271,6 +17565,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMultiDrawFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceBlendOperationAdvancedPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceBlendOperationAdvancedPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceBlendOperationAdvancedPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17337,6 +17632,7 @@ for PhysicalDeviceBlendOperationAdvancedPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineColorBlendAdvancedStateCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineColorBlendAdvancedStateCreateInfoEXTBuilder<'a> {
     inner: PipelineColorBlendAdvancedStateCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17370,7 +17666,7 @@ impl<'a> PipelineColorBlendAdvancedStateCreateInfoEXTBuilder<'a> {
         self.inner.blend_overlap = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineColorBlendAdvancedStateCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineColorBlendAdvancedStateCreateInfoEXT>(
         mut self,
@@ -17400,6 +17696,7 @@ for PipelineColorBlendAdvancedStateCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceInlineUniformBlockFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceInlineUniformBlockFeaturesBuilder<'a> {
     inner: PhysicalDeviceInlineUniformBlockFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17431,7 +17728,7 @@ impl<'a> PhysicalDeviceInlineUniformBlockFeaturesBuilder<'a> {
         self.inner.descriptor_binding_inline_uniform_block_update_after_bind = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInlineUniformBlockFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceInlineUniformBlockFeatures>(
         mut self,
@@ -17460,6 +17757,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceInlineUniformBlockFeaturesBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceInlineUniformBlockProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceInlineUniformBlockPropertiesBuilder<'a> {
     inner: PhysicalDeviceInlineUniformBlockProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17523,6 +17821,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceInlineUniformBlockPropertiesBuild
         &mut self.inner
     }
 }
+///Builder for [`WriteDescriptorSetInlineUniformBlock`] with lifetime-tied pNext safety.
 pub struct WriteDescriptorSetInlineUniformBlockBuilder<'a> {
     inner: WriteDescriptorSetInlineUniformBlock,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17547,7 +17846,7 @@ impl<'a> WriteDescriptorSetInlineUniformBlockBuilder<'a> {
         self.inner.p_data = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteDescriptorSetInlineUniformBlock`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteDescriptorSetInlineUniformBlock>(
         mut self,
@@ -17576,6 +17875,7 @@ impl<'a> core::ops::DerefMut for WriteDescriptorSetInlineUniformBlockBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`DescriptorPoolInlineUniformBlockCreateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorPoolInlineUniformBlockCreateInfoBuilder<'a> {
     inner: DescriptorPoolInlineUniformBlockCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17599,7 +17899,7 @@ impl<'a> DescriptorPoolInlineUniformBlockCreateInfoBuilder<'a> {
         self.inner.max_inline_uniform_block_bindings = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorPoolInlineUniformBlockCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorPoolInlineUniformBlockCreateInfo>(
         mut self,
@@ -17628,6 +17928,7 @@ impl<'a> core::ops::DerefMut for DescriptorPoolInlineUniformBlockCreateInfoBuild
         &mut self.inner
     }
 }
+///Builder for [`PipelineCoverageModulationStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineCoverageModulationStateCreateInfoNVBuilder<'a> {
     inner: PipelineCoverageModulationStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17667,7 +17968,7 @@ impl<'a> PipelineCoverageModulationStateCreateInfoNVBuilder<'a> {
         self.inner.p_coverage_modulation_table = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCoverageModulationStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCoverageModulationStateCreateInfoNV>(
         mut self,
@@ -17696,6 +17997,7 @@ impl<'a> core::ops::DerefMut for PipelineCoverageModulationStateCreateInfoNVBuil
         &mut self.inner
     }
 }
+///Builder for [`ImageFormatListCreateInfo`] with lifetime-tied pNext safety.
 pub struct ImageFormatListCreateInfoBuilder<'a> {
     inner: ImageFormatListCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17720,7 +18022,7 @@ impl<'a> ImageFormatListCreateInfoBuilder<'a> {
         self.inner.p_view_formats = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageFormatListCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageFormatListCreateInfo>(
         mut self,
@@ -17749,6 +18051,7 @@ impl<'a> core::ops::DerefMut for ImageFormatListCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ValidationCacheCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ValidationCacheCreateInfoEXTBuilder<'a> {
     inner: ValidationCacheCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17778,7 +18081,7 @@ impl<'a> ValidationCacheCreateInfoEXTBuilder<'a> {
         self.inner.p_initial_data = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ValidationCacheCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsValidationCacheCreateInfoEXT>(
         mut self,
@@ -17807,6 +18110,7 @@ impl<'a> core::ops::DerefMut for ValidationCacheCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ShaderModuleValidationCacheCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ShaderModuleValidationCacheCreateInfoEXTBuilder<'a> {
     inner: ShaderModuleValidationCacheCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17830,7 +18134,7 @@ impl<'a> ShaderModuleValidationCacheCreateInfoEXTBuilder<'a> {
         self.inner.validation_cache = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ShaderModuleValidationCacheCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsShaderModuleValidationCacheCreateInfoEXT>(
         mut self,
@@ -17859,6 +18163,7 @@ impl<'a> core::ops::DerefMut for ShaderModuleValidationCacheCreateInfoEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance3Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance3PropertiesBuilder<'a> {
     inner: PhysicalDeviceMaintenance3Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17901,6 +18206,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance3PropertiesBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance4Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance4FeaturesBuilder<'a> {
     inner: PhysicalDeviceMaintenance4Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17924,7 +18230,7 @@ impl<'a> PhysicalDeviceMaintenance4FeaturesBuilder<'a> {
         self.inner.maintenance4 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance4Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMaintenance4Features>(
         mut self,
@@ -17953,6 +18259,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance4FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance4Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance4PropertiesBuilder<'a> {
     inner: PhysicalDeviceMaintenance4Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -17990,6 +18297,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance4PropertiesBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance5Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance5FeaturesBuilder<'a> {
     inner: PhysicalDeviceMaintenance5Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18013,7 +18321,7 @@ impl<'a> PhysicalDeviceMaintenance5FeaturesBuilder<'a> {
         self.inner.maintenance5 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance5Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMaintenance5Features>(
         mut self,
@@ -18042,6 +18350,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance5FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance5Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance5PropertiesBuilder<'a> {
     inner: PhysicalDeviceMaintenance5Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18113,6 +18422,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance5PropertiesBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance6Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance6FeaturesBuilder<'a> {
     inner: PhysicalDeviceMaintenance6Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18136,7 +18446,7 @@ impl<'a> PhysicalDeviceMaintenance6FeaturesBuilder<'a> {
         self.inner.maintenance6 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance6Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMaintenance6Features>(
         mut self,
@@ -18165,6 +18475,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance6FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance6Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance6PropertiesBuilder<'a> {
     inner: PhysicalDeviceMaintenance6Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18212,6 +18523,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance6PropertiesBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance7FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance7FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceMaintenance7FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18235,7 +18547,7 @@ impl<'a> PhysicalDeviceMaintenance7FeaturesKHRBuilder<'a> {
         self.inner.maintenance7 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance7FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMaintenance7FeaturesKHR>(
         mut self,
@@ -18264,6 +18576,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance7FeaturesKHRBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance7PropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance7PropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceMaintenance7PropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18351,6 +18664,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance7PropertiesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLayeredApiPropertiesListKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLayeredApiPropertiesListKHRBuilder<'a> {
     inner: PhysicalDeviceLayeredApiPropertiesListKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18378,7 +18692,7 @@ impl<'a> PhysicalDeviceLayeredApiPropertiesListKHRBuilder<'a> {
         self.inner.p_layered_apis = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLayeredApiPropertiesListKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceLayeredApiPropertiesListKHR>(
         mut self,
@@ -18407,6 +18721,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceLayeredApiPropertiesListKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLayeredApiPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLayeredApiPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceLayeredApiPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18462,6 +18777,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceLayeredApiPropertiesKHRBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLayeredApiVulkanPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLayeredApiVulkanPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceLayeredApiVulkanPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18499,6 +18815,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceLayeredApiVulkanPropertiesKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance8FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance8FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceMaintenance8FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18522,7 +18839,7 @@ impl<'a> PhysicalDeviceMaintenance8FeaturesKHRBuilder<'a> {
         self.inner.maintenance8 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance8FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMaintenance8FeaturesKHR>(
         mut self,
@@ -18551,6 +18868,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance8FeaturesKHRBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance9FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance9FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceMaintenance9FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18574,7 +18892,7 @@ impl<'a> PhysicalDeviceMaintenance9FeaturesKHRBuilder<'a> {
         self.inner.maintenance9 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance9FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMaintenance9FeaturesKHR>(
         mut self,
@@ -18603,6 +18921,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance9FeaturesKHRBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance9PropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance9PropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceMaintenance9PropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18648,6 +18967,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance9PropertiesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance10PropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance10PropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceMaintenance10PropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18698,6 +19018,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance10PropertiesKHRBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMaintenance10FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMaintenance10FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceMaintenance10FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18721,7 +19042,7 @@ impl<'a> PhysicalDeviceMaintenance10FeaturesKHRBuilder<'a> {
         self.inner.maintenance10 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance10FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMaintenance10FeaturesKHR>(
         mut self,
@@ -18750,6 +19071,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMaintenance10FeaturesKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyOwnershipTransferPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct QueueFamilyOwnershipTransferPropertiesKHRBuilder<'a> {
     inner: QueueFamilyOwnershipTransferPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18787,6 +19109,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyOwnershipTransferPropertiesKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`RenderingAreaInfo`] with lifetime-tied pNext safety.
 pub struct RenderingAreaInfoBuilder<'a> {
     inner: RenderingAreaInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18826,7 +19149,7 @@ impl<'a> RenderingAreaInfoBuilder<'a> {
         self.inner.stencil_attachment_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingAreaInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingAreaInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -18852,6 +19175,7 @@ impl<'a> core::ops::DerefMut for RenderingAreaInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetLayoutSupport`] with lifetime-tied pNext safety.
 pub struct DescriptorSetLayoutSupportBuilder<'a> {
     inner: DescriptorSetLayoutSupport,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18889,6 +19213,7 @@ impl<'a> core::ops::DerefMut for DescriptorSetLayoutSupportBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderDrawParametersFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderDrawParametersFeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderDrawParametersFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18912,7 +19237,7 @@ impl<'a> PhysicalDeviceShaderDrawParametersFeaturesBuilder<'a> {
         self.inner.shader_draw_parameters = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderDrawParametersFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderDrawParametersFeatures>(
         mut self,
@@ -18941,6 +19266,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderDrawParametersFeaturesBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderFloat16Int8Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderFloat16Int8FeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderFloat16Int8Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -18969,7 +19295,7 @@ impl<'a> PhysicalDeviceShaderFloat16Int8FeaturesBuilder<'a> {
         self.inner.shader_int8 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFloat16Int8Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderFloat16Int8Features>(
         mut self,
@@ -18998,6 +19324,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderFloat16Int8FeaturesBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFloatControlsProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFloatControlsPropertiesBuilder<'a> {
     inner: PhysicalDeviceFloatControlsProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19121,6 +19448,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFloatControlsPropertiesBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceHostQueryResetFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceHostQueryResetFeaturesBuilder<'a> {
     inner: PhysicalDeviceHostQueryResetFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19144,7 +19472,7 @@ impl<'a> PhysicalDeviceHostQueryResetFeaturesBuilder<'a> {
         self.inner.host_query_reset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHostQueryResetFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceHostQueryResetFeatures>(
         mut self,
@@ -19173,6 +19501,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceHostQueryResetFeaturesBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`NativeBufferANDROID`] with lifetime-tied pNext safety.
 pub struct NativeBufferANDROIDBuilder<'a> {
     inner: NativeBufferANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19216,7 +19545,7 @@ impl<'a> NativeBufferANDROIDBuilder<'a> {
         self.inner.usage2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`NativeBufferANDROID`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsNativeBufferANDROID>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -19242,6 +19571,7 @@ impl<'a> core::ops::DerefMut for NativeBufferANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainImageCreateInfoANDROID`] with lifetime-tied pNext safety.
 pub struct SwapchainImageCreateInfoANDROIDBuilder<'a> {
     inner: SwapchainImageCreateInfoANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19265,7 +19595,7 @@ impl<'a> SwapchainImageCreateInfoANDROIDBuilder<'a> {
         self.inner.usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainImageCreateInfoANDROID`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainImageCreateInfoANDROID>(
         mut self,
@@ -19294,6 +19624,7 @@ impl<'a> core::ops::DerefMut for SwapchainImageCreateInfoANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentationPropertiesANDROID`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentationPropertiesANDROIDBuilder<'a> {
     inner: PhysicalDevicePresentationPropertiesANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19331,6 +19662,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentationPropertiesANDROIDBuil
         &mut self.inner
     }
 }
+///Builder for [`DeviceQueueGlobalPriorityCreateInfo`] with lifetime-tied pNext safety.
 pub struct DeviceQueueGlobalPriorityCreateInfoBuilder<'a> {
     inner: DeviceQueueGlobalPriorityCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19354,7 +19686,7 @@ impl<'a> DeviceQueueGlobalPriorityCreateInfoBuilder<'a> {
         self.inner.global_priority = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceQueueGlobalPriorityCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceQueueGlobalPriorityCreateInfo>(
         mut self,
@@ -19383,6 +19715,7 @@ impl<'a> core::ops::DerefMut for DeviceQueueGlobalPriorityCreateInfoBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceGlobalPriorityQueryFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceGlobalPriorityQueryFeaturesBuilder<'a> {
     inner: PhysicalDeviceGlobalPriorityQueryFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19406,7 +19739,7 @@ impl<'a> PhysicalDeviceGlobalPriorityQueryFeaturesBuilder<'a> {
         self.inner.global_priority_query = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceGlobalPriorityQueryFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceGlobalPriorityQueryFeatures>(
         mut self,
@@ -19435,6 +19768,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceGlobalPriorityQueryFeaturesBuilde
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyGlobalPriorityProperties`] with lifetime-tied pNext safety.
 pub struct QueueFamilyGlobalPriorityPropertiesBuilder<'a> {
     inner: QueueFamilyGlobalPriorityProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19480,6 +19814,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyGlobalPriorityPropertiesBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`DebugUtilsObjectNameInfoEXT`] with lifetime-tied pNext safety.
 pub struct DebugUtilsObjectNameInfoEXTBuilder<'a> {
     inner: DebugUtilsObjectNameInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19513,7 +19848,7 @@ impl<'a> DebugUtilsObjectNameInfoEXTBuilder<'a> {
         self.inner.p_object_name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugUtilsObjectNameInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugUtilsObjectNameInfoEXT>(
         mut self,
@@ -19542,6 +19877,7 @@ impl<'a> core::ops::DerefMut for DebugUtilsObjectNameInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugUtilsObjectTagInfoEXT`] with lifetime-tied pNext safety.
 pub struct DebugUtilsObjectTagInfoEXTBuilder<'a> {
     inner: DebugUtilsObjectTagInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19581,7 +19917,7 @@ impl<'a> DebugUtilsObjectTagInfoEXTBuilder<'a> {
         self.inner.p_tag = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugUtilsObjectTagInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugUtilsObjectTagInfoEXT>(
         mut self,
@@ -19610,6 +19946,7 @@ impl<'a> core::ops::DerefMut for DebugUtilsObjectTagInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugUtilsLabelEXT`] with lifetime-tied pNext safety.
 pub struct DebugUtilsLabelEXTBuilder<'a> {
     inner: DebugUtilsLabelEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19638,7 +19975,7 @@ impl<'a> DebugUtilsLabelEXTBuilder<'a> {
         self.inner.color = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugUtilsLabelEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugUtilsLabelEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -19664,6 +20001,7 @@ impl<'a> core::ops::DerefMut for DebugUtilsLabelEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugUtilsMessengerCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct DebugUtilsMessengerCreateInfoEXTBuilder<'a> {
     inner: DebugUtilsMessengerCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19710,7 +20048,7 @@ impl<'a> DebugUtilsMessengerCreateInfoEXTBuilder<'a> {
         self.inner.p_user_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugUtilsMessengerCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugUtilsMessengerCreateInfoEXT>(
         mut self,
@@ -19739,6 +20077,7 @@ impl<'a> core::ops::DerefMut for DebugUtilsMessengerCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DebugUtilsMessengerCallbackDataEXT`] with lifetime-tied pNext safety.
 pub struct DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
     inner: DebugUtilsMessengerCallbackDataEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19795,7 +20134,7 @@ impl<'a> DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         self.inner.p_objects = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DebugUtilsMessengerCallbackDataEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDebugUtilsMessengerCallbackDataEXT>(
         mut self,
@@ -19824,6 +20163,7 @@ impl<'a> core::ops::DerefMut for DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDeviceMemoryReportFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDeviceMemoryReportFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19847,7 +20187,7 @@ impl<'a> PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder<'a> {
         self.inner.device_memory_report = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceMemoryReportFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDeviceMemoryReportFeaturesEXT>(
         mut self,
@@ -19876,6 +20216,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDeviceMemoryReportFeaturesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`DeviceDeviceMemoryReportCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct DeviceDeviceMemoryReportCreateInfoEXTBuilder<'a> {
     inner: DeviceDeviceMemoryReportCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -19912,7 +20253,7 @@ impl<'a> DeviceDeviceMemoryReportCreateInfoEXTBuilder<'a> {
         self.inner.p_user_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceDeviceMemoryReportCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceDeviceMemoryReportCreateInfoEXT>(
         mut self,
@@ -19941,6 +20282,7 @@ impl<'a> core::ops::DerefMut for DeviceDeviceMemoryReportCreateInfoEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`DeviceMemoryReportCallbackDataEXT`] with lifetime-tied pNext safety.
 pub struct DeviceMemoryReportCallbackDataEXTBuilder<'a> {
     inner: DeviceMemoryReportCallbackDataEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20008,6 +20350,7 @@ impl<'a> core::ops::DerefMut for DeviceMemoryReportCallbackDataEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMemoryHostPointerInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImportMemoryHostPointerInfoEXTBuilder<'a> {
     inner: ImportMemoryHostPointerInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20036,7 +20379,7 @@ impl<'a> ImportMemoryHostPointerInfoEXTBuilder<'a> {
         self.inner.p_host_pointer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemoryHostPointerInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemoryHostPointerInfoEXT>(
         mut self,
@@ -20065,6 +20408,7 @@ impl<'a> core::ops::DerefMut for ImportMemoryHostPointerInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryHostPointerPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct MemoryHostPointerPropertiesEXTBuilder<'a> {
     inner: MemoryHostPointerPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20102,6 +20446,7 @@ impl<'a> core::ops::DerefMut for MemoryHostPointerPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalMemoryHostPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalMemoryHostPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceExternalMemoryHostPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20140,6 +20485,7 @@ for PhysicalDeviceExternalMemoryHostPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceConservativeRasterizationPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceConservativeRasterizationPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceConservativeRasterizationPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20224,6 +20570,7 @@ for PhysicalDeviceConservativeRasterizationPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CalibratedTimestampInfoKHR`] with lifetime-tied pNext safety.
 pub struct CalibratedTimestampInfoKHRBuilder<'a> {
     inner: CalibratedTimestampInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20247,7 +20594,7 @@ impl<'a> CalibratedTimestampInfoKHRBuilder<'a> {
         self.inner.time_domain = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CalibratedTimestampInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCalibratedTimestampInfoKHR>(
         mut self,
@@ -20276,6 +20623,7 @@ impl<'a> core::ops::DerefMut for CalibratedTimestampInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderCorePropertiesAMD`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderCorePropertiesAMDBuilder<'a> {
     inner: PhysicalDeviceShaderCorePropertiesAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20378,6 +20726,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderCorePropertiesAMDBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderCoreProperties2AMD`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderCoreProperties2AMDBuilder<'a> {
     inner: PhysicalDeviceShaderCoreProperties2AMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20420,6 +20769,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderCoreProperties2AMDBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PipelineRasterizationConservativeStateCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineRasterizationConservativeStateCreateInfoEXTBuilder<'a> {
     inner: PipelineRasterizationConservativeStateCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20461,7 +20811,7 @@ impl<'a> PipelineRasterizationConservativeStateCreateInfoEXTBuilder<'a> {
         self.inner.extra_primitive_overestimation_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRasterizationConservativeStateCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRasterizationConservativeStateCreateInfoEXT>(
         mut self,
@@ -20492,6 +20842,7 @@ for PipelineRasterizationConservativeStateCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorIndexingFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorIndexingFeaturesBuilder<'a> {
     inner: PhysicalDeviceDescriptorIndexingFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20655,7 +21006,7 @@ impl<'a> PhysicalDeviceDescriptorIndexingFeaturesBuilder<'a> {
         self.inner.runtime_descriptor_array = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorIndexingFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDescriptorIndexingFeatures>(
         mut self,
@@ -20684,6 +21035,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDescriptorIndexingFeaturesBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorIndexingProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorIndexingPropertiesBuilder<'a> {
     inner: PhysicalDeviceDescriptorIndexingProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20885,6 +21237,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDescriptorIndexingPropertiesBuild
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetLayoutBindingFlagsCreateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorSetLayoutBindingFlagsCreateInfoBuilder<'a> {
     inner: DescriptorSetLayoutBindingFlagsCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20909,7 +21262,7 @@ impl<'a> DescriptorSetLayoutBindingFlagsCreateInfoBuilder<'a> {
         self.inner.p_binding_flags = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorSetLayoutBindingFlagsCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorSetLayoutBindingFlagsCreateInfo>(
         mut self,
@@ -20938,6 +21291,7 @@ impl<'a> core::ops::DerefMut for DescriptorSetLayoutBindingFlagsCreateInfoBuilde
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetVariableDescriptorCountAllocateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorSetVariableDescriptorCountAllocateInfoBuilder<'a> {
     inner: DescriptorSetVariableDescriptorCountAllocateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -20962,7 +21316,7 @@ impl<'a> DescriptorSetVariableDescriptorCountAllocateInfoBuilder<'a> {
         self.inner.p_descriptor_counts = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorSetVariableDescriptorCountAllocateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorSetVariableDescriptorCountAllocateInfo>(
         mut self,
@@ -20993,6 +21347,7 @@ for DescriptorSetVariableDescriptorCountAllocateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetVariableDescriptorCountLayoutSupport`] with lifetime-tied pNext safety.
 pub struct DescriptorSetVariableDescriptorCountLayoutSupportBuilder<'a> {
     inner: DescriptorSetVariableDescriptorCountLayoutSupport,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21034,6 +21389,7 @@ for DescriptorSetVariableDescriptorCountLayoutSupportBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AttachmentDescription2`] with lifetime-tied pNext safety.
 pub struct AttachmentDescription2Builder<'a> {
     inner: AttachmentDescription2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21097,7 +21453,7 @@ impl<'a> AttachmentDescription2Builder<'a> {
         self.inner.final_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AttachmentDescription2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAttachmentDescription2>(
         mut self,
@@ -21126,6 +21482,7 @@ impl<'a> core::ops::DerefMut for AttachmentDescription2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AttachmentReference2`] with lifetime-tied pNext safety.
 pub struct AttachmentReference2Builder<'a> {
     inner: AttachmentReference2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21159,7 +21516,7 @@ impl<'a> AttachmentReference2Builder<'a> {
         self.inner.aspect_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AttachmentReference2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAttachmentReference2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -21185,6 +21542,7 @@ impl<'a> core::ops::DerefMut for AttachmentReference2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubpassDescription2`] with lifetime-tied pNext safety.
 pub struct SubpassDescription2Builder<'a> {
     inner: SubpassDescription2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21250,7 +21608,7 @@ impl<'a> SubpassDescription2Builder<'a> {
         self.inner.p_preserve_attachments = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubpassDescription2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubpassDescription2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -21276,6 +21634,7 @@ impl<'a> core::ops::DerefMut for SubpassDescription2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubpassDependency2`] with lifetime-tied pNext safety.
 pub struct SubpassDependency2Builder<'a> {
     inner: SubpassDependency2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21334,7 +21693,7 @@ impl<'a> SubpassDependency2Builder<'a> {
         self.inner.view_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubpassDependency2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubpassDependency2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -21360,6 +21719,7 @@ impl<'a> core::ops::DerefMut for SubpassDependency2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassCreateInfo2`] with lifetime-tied pNext safety.
 pub struct RenderPassCreateInfo2Builder<'a> {
     inner: RenderPassCreateInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21407,7 +21767,7 @@ impl<'a> RenderPassCreateInfo2Builder<'a> {
         self.inner.p_correlated_view_masks = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassCreateInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassCreateInfo2>(
         mut self,
@@ -21436,6 +21796,7 @@ impl<'a> core::ops::DerefMut for RenderPassCreateInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubpassBeginInfo`] with lifetime-tied pNext safety.
 pub struct SubpassBeginInfoBuilder<'a> {
     inner: SubpassBeginInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21459,7 +21820,7 @@ impl<'a> SubpassBeginInfoBuilder<'a> {
         self.inner.contents = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubpassBeginInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubpassBeginInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -21485,6 +21846,7 @@ impl<'a> core::ops::DerefMut for SubpassBeginInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubpassEndInfo`] with lifetime-tied pNext safety.
 pub struct SubpassEndInfoBuilder<'a> {
     inner: SubpassEndInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21503,7 +21865,7 @@ impl SubpassEndInfo {
     }
 }
 impl<'a> SubpassEndInfoBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubpassEndInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubpassEndInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -21529,6 +21891,7 @@ impl<'a> core::ops::DerefMut for SubpassEndInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTimelineSemaphoreFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTimelineSemaphoreFeaturesBuilder<'a> {
     inner: PhysicalDeviceTimelineSemaphoreFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21552,7 +21915,7 @@ impl<'a> PhysicalDeviceTimelineSemaphoreFeaturesBuilder<'a> {
         self.inner.timeline_semaphore = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTimelineSemaphoreFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTimelineSemaphoreFeatures>(
         mut self,
@@ -21581,6 +21944,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTimelineSemaphoreFeaturesBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTimelineSemaphoreProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTimelineSemaphorePropertiesBuilder<'a> {
     inner: PhysicalDeviceTimelineSemaphoreProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21618,6 +21982,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTimelineSemaphorePropertiesBuilde
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreTypeCreateInfo`] with lifetime-tied pNext safety.
 pub struct SemaphoreTypeCreateInfoBuilder<'a> {
     inner: SemaphoreTypeCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21646,7 +22011,7 @@ impl<'a> SemaphoreTypeCreateInfoBuilder<'a> {
         self.inner.initial_value = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreTypeCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreTypeCreateInfo>(
         mut self,
@@ -21675,6 +22040,7 @@ impl<'a> core::ops::DerefMut for SemaphoreTypeCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TimelineSemaphoreSubmitInfo`] with lifetime-tied pNext safety.
 pub struct TimelineSemaphoreSubmitInfoBuilder<'a> {
     inner: TimelineSemaphoreSubmitInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21705,7 +22071,7 @@ impl<'a> TimelineSemaphoreSubmitInfoBuilder<'a> {
         self.inner.p_signal_semaphore_values = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TimelineSemaphoreSubmitInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTimelineSemaphoreSubmitInfo>(
         mut self,
@@ -21734,6 +22100,7 @@ impl<'a> core::ops::DerefMut for TimelineSemaphoreSubmitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreWaitInfo`] with lifetime-tied pNext safety.
 pub struct SemaphoreWaitInfoBuilder<'a> {
     inner: SemaphoreWaitInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21769,7 +22136,7 @@ impl<'a> SemaphoreWaitInfoBuilder<'a> {
         self.inner.p_values = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreWaitInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreWaitInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -21795,6 +22162,7 @@ impl<'a> core::ops::DerefMut for SemaphoreWaitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreSignalInfo`] with lifetime-tied pNext safety.
 pub struct SemaphoreSignalInfoBuilder<'a> {
     inner: SemaphoreSignalInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21823,7 +22191,7 @@ impl<'a> SemaphoreSignalInfoBuilder<'a> {
         self.inner.value = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreSignalInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreSignalInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -21849,6 +22217,7 @@ impl<'a> core::ops::DerefMut for SemaphoreSignalInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineVertexInputDivisorStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineVertexInputDivisorStateCreateInfoBuilder<'a> {
     inner: PipelineVertexInputDivisorStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21876,7 +22245,7 @@ impl<'a> PipelineVertexInputDivisorStateCreateInfoBuilder<'a> {
         self.inner.p_vertex_binding_divisors = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineVertexInputDivisorStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineVertexInputDivisorStateCreateInfo>(
         mut self,
@@ -21905,6 +22274,7 @@ impl<'a> core::ops::DerefMut for PipelineVertexInputDivisorStateCreateInfoBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVertexAttributeDivisorPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVertexAttributeDivisorPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceVertexAttributeDivisorPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21946,6 +22316,7 @@ for PhysicalDeviceVertexAttributeDivisorPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVertexAttributeDivisorProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVertexAttributeDivisorPropertiesBuilder<'a> {
     inner: PhysicalDeviceVertexAttributeDivisorProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -21989,6 +22360,7 @@ for PhysicalDeviceVertexAttributeDivisorPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePCIBusInfoPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePCIBusInfoPropertiesEXTBuilder<'a> {
     inner: PhysicalDevicePCIBusInfoPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22041,6 +22413,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePCIBusInfoPropertiesEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`ImportAndroidHardwareBufferInfoANDROID`] with lifetime-tied pNext safety.
 pub struct ImportAndroidHardwareBufferInfoANDROIDBuilder<'a> {
     inner: ImportAndroidHardwareBufferInfoANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22064,7 +22437,7 @@ impl<'a> ImportAndroidHardwareBufferInfoANDROIDBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportAndroidHardwareBufferInfoANDROID`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportAndroidHardwareBufferInfoANDROID>(
         mut self,
@@ -22093,6 +22466,7 @@ impl<'a> core::ops::DerefMut for ImportAndroidHardwareBufferInfoANDROIDBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`AndroidHardwareBufferUsageANDROID`] with lifetime-tied pNext safety.
 pub struct AndroidHardwareBufferUsageANDROIDBuilder<'a> {
     inner: AndroidHardwareBufferUsageANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22130,6 +22504,7 @@ impl<'a> core::ops::DerefMut for AndroidHardwareBufferUsageANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AndroidHardwareBufferPropertiesANDROID`] with lifetime-tied pNext safety.
 pub struct AndroidHardwareBufferPropertiesANDROIDBuilder<'a> {
     inner: AndroidHardwareBufferPropertiesANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22172,6 +22547,7 @@ impl<'a> core::ops::DerefMut for AndroidHardwareBufferPropertiesANDROIDBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetAndroidHardwareBufferInfoANDROID`] with lifetime-tied pNext safety.
 pub struct MemoryGetAndroidHardwareBufferInfoANDROIDBuilder<'a> {
     inner: MemoryGetAndroidHardwareBufferInfoANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22195,7 +22571,7 @@ impl<'a> MemoryGetAndroidHardwareBufferInfoANDROIDBuilder<'a> {
         self.inner.memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetAndroidHardwareBufferInfoANDROID`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetAndroidHardwareBufferInfoANDROID>(
         mut self,
@@ -22224,6 +22600,7 @@ impl<'a> core::ops::DerefMut for MemoryGetAndroidHardwareBufferInfoANDROIDBuilde
         &mut self.inner
     }
 }
+///Builder for [`AndroidHardwareBufferFormatPropertiesANDROID`] with lifetime-tied pNext safety.
 pub struct AndroidHardwareBufferFormatPropertiesANDROIDBuilder<'a> {
     inner: AndroidHardwareBufferFormatPropertiesANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22300,6 +22677,7 @@ for AndroidHardwareBufferFormatPropertiesANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferInheritanceConditionalRenderingInfoEXT`] with lifetime-tied pNext safety.
 pub struct CommandBufferInheritanceConditionalRenderingInfoEXTBuilder<'a> {
     inner: CommandBufferInheritanceConditionalRenderingInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22325,7 +22703,7 @@ impl<'a> CommandBufferInheritanceConditionalRenderingInfoEXTBuilder<'a> {
         self.inner.conditional_rendering_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferInheritanceConditionalRenderingInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferInheritanceConditionalRenderingInfoEXT>(
         mut self,
@@ -22356,6 +22734,7 @@ for CommandBufferInheritanceConditionalRenderingInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalFormatANDROID`] with lifetime-tied pNext safety.
 pub struct ExternalFormatANDROIDBuilder<'a> {
     inner: ExternalFormatANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22379,7 +22758,7 @@ impl<'a> ExternalFormatANDROIDBuilder<'a> {
         self.inner.external_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalFormatANDROID`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalFormatANDROID>(
         mut self,
@@ -22408,6 +22787,7 @@ impl<'a> core::ops::DerefMut for ExternalFormatANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevice8BitStorageFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDevice8BitStorageFeaturesBuilder<'a> {
     inner: PhysicalDevice8BitStorageFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22441,7 +22821,7 @@ impl<'a> PhysicalDevice8BitStorageFeaturesBuilder<'a> {
         self.inner.storage_push_constant8 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevice8BitStorageFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevice8BitStorageFeatures>(
         mut self,
@@ -22470,6 +22850,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevice8BitStorageFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceConditionalRenderingFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceConditionalRenderingFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceConditionalRenderingFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22498,7 +22879,7 @@ impl<'a> PhysicalDeviceConditionalRenderingFeaturesEXTBuilder<'a> {
         self.inner.inherited_conditional_rendering = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceConditionalRenderingFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceConditionalRenderingFeaturesEXT>(
         mut self,
@@ -22528,6 +22909,7 @@ for PhysicalDeviceConditionalRenderingFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkanMemoryModelFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkanMemoryModelFeaturesBuilder<'a> {
     inner: PhysicalDeviceVulkanMemoryModelFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22564,7 +22946,7 @@ impl<'a> PhysicalDeviceVulkanMemoryModelFeaturesBuilder<'a> {
         self.inner.vulkan_memory_model_availability_visibility_chains = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkanMemoryModelFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVulkanMemoryModelFeatures>(
         mut self,
@@ -22593,6 +22975,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkanMemoryModelFeaturesBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderAtomicInt64Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderAtomicInt64FeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderAtomicInt64Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22621,7 +23004,7 @@ impl<'a> PhysicalDeviceShaderAtomicInt64FeaturesBuilder<'a> {
         self.inner.shader_shared_int64_atomics = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicInt64Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderAtomicInt64Features>(
         mut self,
@@ -22650,6 +23033,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderAtomicInt64FeaturesBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderAtomicFloatFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderAtomicFloatFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22728,7 +23112,7 @@ impl<'a> PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder<'a> {
         self.inner.sparse_image_float32_atomic_add = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicFloatFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderAtomicFloatFeaturesEXT>(
         mut self,
@@ -22757,6 +23141,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderAtomicFloatFeaturesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderAtomicFloat2FeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderAtomicFloat2FeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22835,7 +23220,7 @@ impl<'a> PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder<'a> {
         self.inner.sparse_image_float32_atomic_min_max = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicFloat2FeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderAtomicFloat2FeaturesEXT>(
         mut self,
@@ -22864,6 +23249,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVertexAttributeDivisorFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVertexAttributeDivisorFeaturesBuilder<'a> {
     inner: PhysicalDeviceVertexAttributeDivisorFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22892,7 +23278,7 @@ impl<'a> PhysicalDeviceVertexAttributeDivisorFeaturesBuilder<'a> {
         self.inner.vertex_attribute_instance_rate_zero_divisor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVertexAttributeDivisorFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVertexAttributeDivisorFeatures>(
         mut self,
@@ -22922,6 +23308,7 @@ for PhysicalDeviceVertexAttributeDivisorFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyCheckpointPropertiesNV`] with lifetime-tied pNext safety.
 pub struct QueueFamilyCheckpointPropertiesNVBuilder<'a> {
     inner: QueueFamilyCheckpointPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -22959,6 +23346,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyCheckpointPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CheckpointDataNV`] with lifetime-tied pNext safety.
 pub struct CheckpointDataNVBuilder<'a> {
     inner: CheckpointDataNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23001,6 +23389,7 @@ impl<'a> core::ops::DerefMut for CheckpointDataNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDepthStencilResolveProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDepthStencilResolvePropertiesBuilder<'a> {
     inner: PhysicalDeviceDepthStencilResolveProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23053,6 +23442,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDepthStencilResolvePropertiesBuil
         &mut self.inner
     }
 }
+///Builder for [`SubpassDescriptionDepthStencilResolve`] with lifetime-tied pNext safety.
 pub struct SubpassDescriptionDepthStencilResolveBuilder<'a> {
     inner: SubpassDescriptionDepthStencilResolve,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23089,7 +23479,7 @@ impl<'a> SubpassDescriptionDepthStencilResolveBuilder<'a> {
         self.inner.p_depth_stencil_resolve_attachment = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubpassDescriptionDepthStencilResolve`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubpassDescriptionDepthStencilResolve>(
         mut self,
@@ -23118,6 +23508,7 @@ impl<'a> core::ops::DerefMut for SubpassDescriptionDepthStencilResolveBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`ImageViewASTCDecodeModeEXT`] with lifetime-tied pNext safety.
 pub struct ImageViewASTCDecodeModeEXTBuilder<'a> {
     inner: ImageViewASTCDecodeModeEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23141,7 +23532,7 @@ impl<'a> ImageViewASTCDecodeModeEXTBuilder<'a> {
         self.inner.decode_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewASTCDecodeModeEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewASTCDecodeModeEXT>(
         mut self,
@@ -23170,6 +23561,7 @@ impl<'a> core::ops::DerefMut for ImageViewASTCDecodeModeEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceASTCDecodeFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceASTCDecodeFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceASTCDecodeFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23193,7 +23585,7 @@ impl<'a> PhysicalDeviceASTCDecodeFeaturesEXTBuilder<'a> {
         self.inner.decode_mode_shared_exponent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceASTCDecodeFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceASTCDecodeFeaturesEXT>(
         mut self,
@@ -23222,6 +23614,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceASTCDecodeFeaturesEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTransformFeedbackFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTransformFeedbackFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceTransformFeedbackFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23250,7 +23643,7 @@ impl<'a> PhysicalDeviceTransformFeedbackFeaturesEXTBuilder<'a> {
         self.inner.geometry_streams = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTransformFeedbackFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTransformFeedbackFeaturesEXT>(
         mut self,
@@ -23279,6 +23672,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTransformFeedbackFeaturesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTransformFeedbackPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTransformFeedbackPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceTransformFeedbackPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23362,6 +23756,7 @@ for PhysicalDeviceTransformFeedbackPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineRasterizationStateStreamCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineRasterizationStateStreamCreateInfoEXTBuilder<'a> {
     inner: PipelineRasterizationStateStreamCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23393,7 +23788,7 @@ impl<'a> PipelineRasterizationStateStreamCreateInfoEXTBuilder<'a> {
         self.inner.rasterization_stream = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRasterizationStateStreamCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRasterizationStateStreamCreateInfoEXT>(
         mut self,
@@ -23423,6 +23818,7 @@ for PipelineRasterizationStateStreamCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRepresentativeFragmentTestFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRepresentativeFragmentTestFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceRepresentativeFragmentTestFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23448,7 +23844,7 @@ impl<'a> PhysicalDeviceRepresentativeFragmentTestFeaturesNVBuilder<'a> {
         self.inner.representative_fragment_test = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRepresentativeFragmentTestFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRepresentativeFragmentTestFeaturesNV>(
         mut self,
@@ -23479,6 +23875,7 @@ for PhysicalDeviceRepresentativeFragmentTestFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineRepresentativeFragmentTestStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineRepresentativeFragmentTestStateCreateInfoNVBuilder<'a> {
     inner: PipelineRepresentativeFragmentTestStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23504,7 +23901,7 @@ impl<'a> PipelineRepresentativeFragmentTestStateCreateInfoNVBuilder<'a> {
         self.inner.representative_fragment_test_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRepresentativeFragmentTestStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRepresentativeFragmentTestStateCreateInfoNV>(
         mut self,
@@ -23535,6 +23932,7 @@ for PipelineRepresentativeFragmentTestStateCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExclusiveScissorFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExclusiveScissorFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceExclusiveScissorFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23558,7 +23956,7 @@ impl<'a> PhysicalDeviceExclusiveScissorFeaturesNVBuilder<'a> {
         self.inner.exclusive_scissor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExclusiveScissorFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExclusiveScissorFeaturesNV>(
         mut self,
@@ -23587,6 +23985,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExclusiveScissorFeaturesNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportExclusiveScissorStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportExclusiveScissorStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportExclusiveScissorStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23613,7 +24012,7 @@ impl<'a> PipelineViewportExclusiveScissorStateCreateInfoNVBuilder<'a> {
         self.inner.p_exclusive_scissors = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportExclusiveScissorStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportExclusiveScissorStateCreateInfoNV>(
         mut self,
@@ -23644,6 +24043,7 @@ for PipelineViewportExclusiveScissorStateCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCornerSampledImageFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCornerSampledImageFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCornerSampledImageFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23667,7 +24067,7 @@ impl<'a> PhysicalDeviceCornerSampledImageFeaturesNVBuilder<'a> {
         self.inner.corner_sampled_image = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCornerSampledImageFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCornerSampledImageFeaturesNV>(
         mut self,
@@ -23696,6 +24096,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCornerSampledImageFeaturesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceComputeShaderDerivativesFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceComputeShaderDerivativesFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceComputeShaderDerivativesFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23726,7 +24127,7 @@ impl<'a> PhysicalDeviceComputeShaderDerivativesFeaturesKHRBuilder<'a> {
         self.inner.compute_derivative_group_linear = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceComputeShaderDerivativesFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceComputeShaderDerivativesFeaturesKHR>(
         mut self,
@@ -23757,6 +24158,7 @@ for PhysicalDeviceComputeShaderDerivativesFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceComputeShaderDerivativesPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceComputeShaderDerivativesPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceComputeShaderDerivativesPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23798,6 +24200,7 @@ for PhysicalDeviceComputeShaderDerivativesPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderImageFootprintFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderImageFootprintFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceShaderImageFootprintFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23821,7 +24224,7 @@ impl<'a> PhysicalDeviceShaderImageFootprintFeaturesNVBuilder<'a> {
         self.inner.image_footprint = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderImageFootprintFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderImageFootprintFeaturesNV>(
         mut self,
@@ -23851,6 +24254,7 @@ for PhysicalDeviceShaderImageFootprintFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23876,7 +24280,7 @@ impl<'a> PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNVBuilder<'a> {
         self.inner.dedicated_allocation_image_aliasing = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV>(
         mut self,
@@ -23907,6 +24311,7 @@ for PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCopyMemoryIndirectFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceCopyMemoryIndirectFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23935,7 +24340,7 @@ impl<'a> PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder<'a> {
         self.inner.indirect_memory_to_image_copy = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCopyMemoryIndirectFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCopyMemoryIndirectFeaturesKHR>(
         mut self,
@@ -23964,6 +24369,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCopyMemoryIndirectFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCopyMemoryIndirectFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -23987,7 +24393,7 @@ impl<'a> PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder<'a> {
         self.inner.indirect_copy = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCopyMemoryIndirectFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCopyMemoryIndirectFeaturesNV>(
         mut self,
@@ -24016,6 +24422,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCopyMemoryIndirectFeaturesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCopyMemoryIndirectPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCopyMemoryIndirectPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceCopyMemoryIndirectPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24054,6 +24461,7 @@ for PhysicalDeviceCopyMemoryIndirectPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMemoryDecompressionFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceMemoryDecompressionFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24077,7 +24485,7 @@ impl<'a> PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder<'a> {
         self.inner.memory_decompression = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMemoryDecompressionFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMemoryDecompressionFeaturesEXT>(
         mut self,
@@ -24107,6 +24515,7 @@ for PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMemoryDecompressionPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceMemoryDecompressionPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24153,6 +24562,7 @@ for PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportShadingRateImageStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportShadingRateImageStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportShadingRateImageStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24184,7 +24594,7 @@ impl<'a> PipelineViewportShadingRateImageStateCreateInfoNVBuilder<'a> {
         self.inner.p_shading_rate_palettes = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportShadingRateImageStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportShadingRateImageStateCreateInfoNV>(
         mut self,
@@ -24215,6 +24625,7 @@ for PipelineViewportShadingRateImageStateCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShadingRateImageFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShadingRateImageFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceShadingRateImageFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24243,7 +24654,7 @@ impl<'a> PhysicalDeviceShadingRateImageFeaturesNVBuilder<'a> {
         self.inner.shading_rate_coarse_sample_order = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShadingRateImageFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShadingRateImageFeaturesNV>(
         mut self,
@@ -24272,6 +24683,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShadingRateImageFeaturesNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShadingRateImagePropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShadingRateImagePropertiesNVBuilder<'a> {
     inner: PhysicalDeviceShadingRateImagePropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24319,6 +24731,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShadingRateImagePropertiesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceInvocationMaskFeaturesHUAWEI`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder<'a> {
     inner: PhysicalDeviceInvocationMaskFeaturesHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24342,7 +24755,7 @@ impl<'a> PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder<'a> {
         self.inner.invocation_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInvocationMaskFeaturesHUAWEI`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceInvocationMaskFeaturesHUAWEI>(
         mut self,
@@ -24371,6 +24784,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceInvocationMaskFeaturesHUAWEIBuild
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportCoarseSampleOrderStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportCoarseSampleOrderStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportCoarseSampleOrderStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24405,7 +24819,7 @@ impl<'a> PipelineViewportCoarseSampleOrderStateCreateInfoNVBuilder<'a> {
         self.inner.p_custom_sample_orders = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportCoarseSampleOrderStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportCoarseSampleOrderStateCreateInfoNV>(
         mut self,
@@ -24436,6 +24850,7 @@ for PipelineViewportCoarseSampleOrderStateCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMeshShaderFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMeshShaderFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceMeshShaderFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24464,7 +24879,7 @@ impl<'a> PhysicalDeviceMeshShaderFeaturesNVBuilder<'a> {
         self.inner.mesh_shader = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMeshShaderFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMeshShaderFeaturesNV>(
         mut self,
@@ -24493,6 +24908,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMeshShaderFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMeshShaderPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMeshShaderPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceMeshShaderPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24590,6 +25006,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMeshShaderPropertiesNVBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMeshShaderFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMeshShaderFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceMeshShaderFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24633,7 +25050,7 @@ impl<'a> PhysicalDeviceMeshShaderFeaturesEXTBuilder<'a> {
         self.inner.mesh_shader_queries = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMeshShaderFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMeshShaderFeaturesEXT>(
         mut self,
@@ -24662,6 +25079,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMeshShaderFeaturesEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMeshShaderPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceMeshShaderPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24834,6 +25252,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`RayTracingShaderGroupCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct RayTracingShaderGroupCreateInfoNVBuilder<'a> {
     inner: RayTracingShaderGroupCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24877,7 +25296,7 @@ impl<'a> RayTracingShaderGroupCreateInfoNVBuilder<'a> {
         self.inner.intersection_shader = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RayTracingShaderGroupCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRayTracingShaderGroupCreateInfoNV>(
         mut self,
@@ -24906,6 +25325,7 @@ impl<'a> core::ops::DerefMut for RayTracingShaderGroupCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RayTracingShaderGroupCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct RayTracingShaderGroupCreateInfoKHRBuilder<'a> {
     inner: RayTracingShaderGroupCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -24957,7 +25377,7 @@ impl<'a> RayTracingShaderGroupCreateInfoKHRBuilder<'a> {
         self.inner.p_shader_group_capture_replay_handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RayTracingShaderGroupCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRayTracingShaderGroupCreateInfoKHR>(
         mut self,
@@ -24986,6 +25406,7 @@ impl<'a> core::ops::DerefMut for RayTracingShaderGroupCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RayTracingPipelineCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct RayTracingPipelineCreateInfoNVBuilder<'a> {
     inner: RayTracingPipelineCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25041,7 +25462,7 @@ impl<'a> RayTracingPipelineCreateInfoNVBuilder<'a> {
         self.inner.base_pipeline_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RayTracingPipelineCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRayTracingPipelineCreateInfoNV>(
         mut self,
@@ -25070,6 +25491,7 @@ impl<'a> core::ops::DerefMut for RayTracingPipelineCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RayTracingPipelineCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct RayTracingPipelineCreateInfoKHRBuilder<'a> {
     inner: RayTracingPipelineCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25146,7 +25568,7 @@ impl<'a> RayTracingPipelineCreateInfoKHRBuilder<'a> {
         self.inner.base_pipeline_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RayTracingPipelineCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRayTracingPipelineCreateInfoKHR>(
         mut self,
@@ -25175,6 +25597,7 @@ impl<'a> core::ops::DerefMut for RayTracingPipelineCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeometryTrianglesNV`] with lifetime-tied pNext safety.
 pub struct GeometryTrianglesNVBuilder<'a> {
     inner: GeometryTrianglesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25248,7 +25671,7 @@ impl<'a> GeometryTrianglesNVBuilder<'a> {
         self.inner.transform_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeometryTrianglesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeometryTrianglesNV>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -25274,6 +25697,7 @@ impl<'a> core::ops::DerefMut for GeometryTrianglesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeometryAABBNV`] with lifetime-tied pNext safety.
 pub struct GeometryAABBNVBuilder<'a> {
     inner: GeometryAABBNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25312,7 +25736,7 @@ impl<'a> GeometryAABBNVBuilder<'a> {
         self.inner.offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeometryAABBNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeometryAABBNV>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -25338,6 +25762,7 @@ impl<'a> core::ops::DerefMut for GeometryAABBNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeometryNV`] with lifetime-tied pNext safety.
 pub struct GeometryNVBuilder<'a> {
     inner: GeometryNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25371,7 +25796,7 @@ impl<'a> GeometryNVBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeometryNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeometryNV>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -25397,6 +25822,7 @@ impl<'a> core::ops::DerefMut for GeometryNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureInfoNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureInfoNVBuilder<'a> {
     inner: AccelerationStructureInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25436,7 +25862,7 @@ impl<'a> AccelerationStructureInfoNVBuilder<'a> {
         self.inner.p_geometries = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureInfoNV>(
         mut self,
@@ -25465,6 +25891,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureCreateInfoNVBuilder<'a> {
     inner: AccelerationStructureCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25493,7 +25920,7 @@ impl<'a> AccelerationStructureCreateInfoNVBuilder<'a> {
         self.inner.info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureCreateInfoNV>(
         mut self,
@@ -25522,6 +25949,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindAccelerationStructureMemoryInfoNV`] with lifetime-tied pNext safety.
 pub struct BindAccelerationStructureMemoryInfoNVBuilder<'a> {
     inner: BindAccelerationStructureMemoryInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25561,7 +25989,7 @@ impl<'a> BindAccelerationStructureMemoryInfoNVBuilder<'a> {
         self.inner.p_device_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindAccelerationStructureMemoryInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindAccelerationStructureMemoryInfoNV>(
         mut self,
@@ -25590,6 +26018,7 @@ impl<'a> core::ops::DerefMut for BindAccelerationStructureMemoryInfoNVBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`WriteDescriptorSetAccelerationStructureKHR`] with lifetime-tied pNext safety.
 pub struct WriteDescriptorSetAccelerationStructureKHRBuilder<'a> {
     inner: WriteDescriptorSetAccelerationStructureKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25617,7 +26046,7 @@ impl<'a> WriteDescriptorSetAccelerationStructureKHRBuilder<'a> {
         self.inner.p_acceleration_structures = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteDescriptorSetAccelerationStructureKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteDescriptorSetAccelerationStructureKHR>(
         mut self,
@@ -25646,6 +26075,7 @@ impl<'a> core::ops::DerefMut for WriteDescriptorSetAccelerationStructureKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`WriteDescriptorSetAccelerationStructureNV`] with lifetime-tied pNext safety.
 pub struct WriteDescriptorSetAccelerationStructureNVBuilder<'a> {
     inner: WriteDescriptorSetAccelerationStructureNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25673,7 +26103,7 @@ impl<'a> WriteDescriptorSetAccelerationStructureNVBuilder<'a> {
         self.inner.p_acceleration_structures = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteDescriptorSetAccelerationStructureNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteDescriptorSetAccelerationStructureNV>(
         mut self,
@@ -25702,6 +26132,7 @@ impl<'a> core::ops::DerefMut for WriteDescriptorSetAccelerationStructureNVBuilde
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureMemoryRequirementsInfoNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureMemoryRequirementsInfoNVBuilder<'a> {
     inner: AccelerationStructureMemoryRequirementsInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25733,7 +26164,7 @@ impl<'a> AccelerationStructureMemoryRequirementsInfoNVBuilder<'a> {
         self.inner.acceleration_structure = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureMemoryRequirementsInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureMemoryRequirementsInfoNV>(
         mut self,
@@ -25763,6 +26194,7 @@ for AccelerationStructureMemoryRequirementsInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceAccelerationStructureFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceAccelerationStructureFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceAccelerationStructureFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25809,7 +26241,7 @@ impl<'a> PhysicalDeviceAccelerationStructureFeaturesKHRBuilder<'a> {
         self.inner.descriptor_binding_acceleration_structure_update_after_bind = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAccelerationStructureFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceAccelerationStructureFeaturesKHR>(
         mut self,
@@ -25839,6 +26271,7 @@ for PhysicalDeviceAccelerationStructureFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingPipelineFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceRayTracingPipelineFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25888,7 +26321,7 @@ impl<'a> PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder<'a> {
         self.inner.ray_traversal_primitive_culling = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingPipelineFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingPipelineFeaturesKHR>(
         mut self,
@@ -25917,6 +26350,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRayTracingPipelineFeaturesKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayQueryFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayQueryFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceRayQueryFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -25940,7 +26374,7 @@ impl<'a> PhysicalDeviceRayQueryFeaturesKHRBuilder<'a> {
         self.inner.ray_query = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayQueryFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayQueryFeaturesKHR>(
         mut self,
@@ -25969,6 +26403,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRayQueryFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceAccelerationStructurePropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceAccelerationStructurePropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceAccelerationStructurePropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26055,6 +26490,7 @@ for PhysicalDeviceAccelerationStructurePropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingPipelinePropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingPipelinePropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceRayTracingPipelinePropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26128,6 +26564,7 @@ for PhysicalDeviceRayTracingPipelinePropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceRayTracingPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26200,6 +26637,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRayTracingPropertiesNVBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingMaintenance1FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceRayTracingMaintenance1FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26228,7 +26666,7 @@ impl<'a> PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
         self.inner.ray_tracing_pipeline_trace_rays_indirect2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingMaintenance1FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingMaintenance1FeaturesKHR>(
         mut self,
@@ -26259,6 +26697,7 @@ for PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DrmFormatModifierPropertiesListEXT`] with lifetime-tied pNext safety.
 pub struct DrmFormatModifierPropertiesListEXTBuilder<'a> {
     inner: DrmFormatModifierPropertiesListEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26300,6 +26739,7 @@ impl<'a> core::ops::DerefMut for DrmFormatModifierPropertiesListEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageDrmFormatModifierInfoEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageDrmFormatModifierInfoEXTBuilder<'a> {
     inner: PhysicalDeviceImageDrmFormatModifierInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26334,7 +26774,7 @@ impl<'a> PhysicalDeviceImageDrmFormatModifierInfoEXTBuilder<'a> {
         self.inner.p_queue_family_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageDrmFormatModifierInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageDrmFormatModifierInfoEXT>(
         mut self,
@@ -26363,6 +26803,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageDrmFormatModifierInfoEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`ImageDrmFormatModifierListCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImageDrmFormatModifierListCreateInfoEXTBuilder<'a> {
     inner: ImageDrmFormatModifierListCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26387,7 +26828,7 @@ impl<'a> ImageDrmFormatModifierListCreateInfoEXTBuilder<'a> {
         self.inner.p_drm_format_modifiers = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageDrmFormatModifierListCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageDrmFormatModifierListCreateInfoEXT>(
         mut self,
@@ -26416,6 +26857,7 @@ impl<'a> core::ops::DerefMut for ImageDrmFormatModifierListCreateInfoEXTBuilder<
         &mut self.inner
     }
 }
+///Builder for [`ImageDrmFormatModifierExplicitCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImageDrmFormatModifierExplicitCreateInfoEXTBuilder<'a> {
     inner: ImageDrmFormatModifierExplicitCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26445,7 +26887,7 @@ impl<'a> ImageDrmFormatModifierExplicitCreateInfoEXTBuilder<'a> {
         self.inner.p_plane_layouts = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageDrmFormatModifierExplicitCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageDrmFormatModifierExplicitCreateInfoEXT>(
         mut self,
@@ -26474,6 +26916,7 @@ impl<'a> core::ops::DerefMut for ImageDrmFormatModifierExplicitCreateInfoEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`ImageDrmFormatModifierPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct ImageDrmFormatModifierPropertiesEXTBuilder<'a> {
     inner: ImageDrmFormatModifierPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26511,6 +26954,7 @@ impl<'a> core::ops::DerefMut for ImageDrmFormatModifierPropertiesEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`ImageStencilUsageCreateInfo`] with lifetime-tied pNext safety.
 pub struct ImageStencilUsageCreateInfoBuilder<'a> {
     inner: ImageStencilUsageCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26534,7 +26978,7 @@ impl<'a> ImageStencilUsageCreateInfoBuilder<'a> {
         self.inner.stencil_usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageStencilUsageCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageStencilUsageCreateInfo>(
         mut self,
@@ -26563,6 +27007,7 @@ impl<'a> core::ops::DerefMut for ImageStencilUsageCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceMemoryOverallocationCreateInfoAMD`] with lifetime-tied pNext safety.
 pub struct DeviceMemoryOverallocationCreateInfoAMDBuilder<'a> {
     inner: DeviceMemoryOverallocationCreateInfoAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26589,7 +27034,7 @@ impl<'a> DeviceMemoryOverallocationCreateInfoAMDBuilder<'a> {
         self.inner.overallocation_behavior = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceMemoryOverallocationCreateInfoAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceMemoryOverallocationCreateInfoAMD>(
         mut self,
@@ -26618,6 +27063,7 @@ impl<'a> core::ops::DerefMut for DeviceMemoryOverallocationCreateInfoAMDBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMapFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMapFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26651,7 +27097,7 @@ impl<'a> PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder<'a> {
         self.inner.fragment_density_map_non_subsampled_images = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMapFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentDensityMapFeaturesEXT>(
         mut self,
@@ -26680,6 +27126,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFragmentDensityMapFeaturesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMap2FeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMap2FeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26703,7 +27150,7 @@ impl<'a> PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder<'a> {
         self.inner.fragment_density_map_deferred = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMap2FeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentDensityMap2FeaturesEXT>(
         mut self,
@@ -26733,6 +27180,7 @@ for PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMapOffsetFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26758,7 +27206,7 @@ impl<'a> PhysicalDeviceFragmentDensityMapOffsetFeaturesEXTBuilder<'a> {
         self.inner.fragment_density_map_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT>(
         mut self,
@@ -26789,6 +27237,7 @@ for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMapPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMapPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26837,6 +27286,7 @@ for PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMap2PropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMap2PropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26890,6 +27340,7 @@ for PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMapOffsetPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26931,6 +27382,7 @@ for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassFragmentDensityMapCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct RenderPassFragmentDensityMapCreateInfoEXTBuilder<'a> {
     inner: RenderPassFragmentDensityMapCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -26957,7 +27409,7 @@ impl<'a> RenderPassFragmentDensityMapCreateInfoEXTBuilder<'a> {
         self.inner.fragment_density_map_attachment = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassFragmentDensityMapCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassFragmentDensityMapCreateInfoEXT>(
         mut self,
@@ -26986,6 +27438,7 @@ impl<'a> core::ops::DerefMut for RenderPassFragmentDensityMapCreateInfoEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`RenderPassFragmentDensityMapOffsetEndInfoEXT`] with lifetime-tied pNext safety.
 pub struct RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder<'a> {
     inner: RenderPassFragmentDensityMapOffsetEndInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27010,7 +27463,7 @@ impl<'a> RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder<'a> {
         self.inner.p_fragment_density_offsets = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassFragmentDensityMapOffsetEndInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassFragmentDensityMapOffsetEndInfoEXT>(
         mut self,
@@ -27040,6 +27493,7 @@ for RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceScalarBlockLayoutFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceScalarBlockLayoutFeaturesBuilder<'a> {
     inner: PhysicalDeviceScalarBlockLayoutFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27063,7 +27517,7 @@ impl<'a> PhysicalDeviceScalarBlockLayoutFeaturesBuilder<'a> {
         self.inner.scalar_block_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceScalarBlockLayoutFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceScalarBlockLayoutFeatures>(
         mut self,
@@ -27092,6 +27546,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceScalarBlockLayoutFeaturesBuilder<
         &mut self.inner
     }
 }
+///Builder for [`SurfaceProtectedCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct SurfaceProtectedCapabilitiesKHRBuilder<'a> {
     inner: SurfaceProtectedCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27129,6 +27584,7 @@ impl<'a> core::ops::DerefMut for SurfaceProtectedCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceUniformBufferStandardLayoutFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceUniformBufferStandardLayoutFeaturesBuilder<'a> {
     inner: PhysicalDeviceUniformBufferStandardLayoutFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27154,7 +27610,7 @@ impl<'a> PhysicalDeviceUniformBufferStandardLayoutFeaturesBuilder<'a> {
         self.inner.uniform_buffer_standard_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceUniformBufferStandardLayoutFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceUniformBufferStandardLayoutFeatures>(
         mut self,
@@ -27185,6 +27641,7 @@ for PhysicalDeviceUniformBufferStandardLayoutFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDepthClipEnableFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDepthClipEnableFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDepthClipEnableFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27208,7 +27665,7 @@ impl<'a> PhysicalDeviceDepthClipEnableFeaturesEXTBuilder<'a> {
         self.inner.depth_clip_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClipEnableFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDepthClipEnableFeaturesEXT>(
         mut self,
@@ -27237,6 +27694,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDepthClipEnableFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PipelineRasterizationDepthClipStateCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineRasterizationDepthClipStateCreateInfoEXTBuilder<'a> {
     inner: PipelineRasterizationDepthClipStateCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27268,7 +27726,7 @@ impl<'a> PipelineRasterizationDepthClipStateCreateInfoEXTBuilder<'a> {
         self.inner.depth_clip_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRasterizationDepthClipStateCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRasterizationDepthClipStateCreateInfoEXT>(
         mut self,
@@ -27299,6 +27757,7 @@ for PipelineRasterizationDepthClipStateCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMemoryBudgetPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMemoryBudgetPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceMemoryBudgetPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27341,6 +27800,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMemoryBudgetPropertiesEXTBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMemoryPriorityFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMemoryPriorityFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceMemoryPriorityFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27364,7 +27824,7 @@ impl<'a> PhysicalDeviceMemoryPriorityFeaturesEXTBuilder<'a> {
         self.inner.memory_priority = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMemoryPriorityFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMemoryPriorityFeaturesEXT>(
         mut self,
@@ -27393,6 +27853,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMemoryPriorityFeaturesEXTBuilder<
         &mut self.inner
     }
 }
+///Builder for [`MemoryPriorityAllocateInfoEXT`] with lifetime-tied pNext safety.
 pub struct MemoryPriorityAllocateInfoEXTBuilder<'a> {
     inner: MemoryPriorityAllocateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27416,7 +27877,7 @@ impl<'a> MemoryPriorityAllocateInfoEXTBuilder<'a> {
         self.inner.priority = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryPriorityAllocateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryPriorityAllocateInfoEXT>(
         mut self,
@@ -27445,6 +27906,7 @@ impl<'a> core::ops::DerefMut for MemoryPriorityAllocateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePageableDeviceLocalMemoryFeaturesEXTBuilder<'a> {
     inner: PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27470,7 +27932,7 @@ impl<'a> PhysicalDevicePageableDeviceLocalMemoryFeaturesEXTBuilder<'a> {
         self.inner.pageable_device_local_memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT>(
         mut self,
@@ -27501,6 +27963,7 @@ for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceBufferDeviceAddressFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceBufferDeviceAddressFeaturesBuilder<'a> {
     inner: PhysicalDeviceBufferDeviceAddressFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27534,7 +27997,7 @@ impl<'a> PhysicalDeviceBufferDeviceAddressFeaturesBuilder<'a> {
         self.inner.buffer_device_address_multi_device = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBufferDeviceAddressFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceBufferDeviceAddressFeatures>(
         mut self,
@@ -27563,6 +28026,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceBufferDeviceAddressFeaturesBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceBufferDeviceAddressFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceBufferDeviceAddressFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27596,7 +28060,7 @@ impl<'a> PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder<'a> {
         self.inner.buffer_device_address_multi_device = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBufferDeviceAddressFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceBufferDeviceAddressFeaturesEXT>(
         mut self,
@@ -27626,6 +28090,7 @@ for PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferDeviceAddressInfo`] with lifetime-tied pNext safety.
 pub struct BufferDeviceAddressInfoBuilder<'a> {
     inner: BufferDeviceAddressInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27649,7 +28114,7 @@ impl<'a> BufferDeviceAddressInfoBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferDeviceAddressInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferDeviceAddressInfo>(
         mut self,
@@ -27678,6 +28143,7 @@ impl<'a> core::ops::DerefMut for BufferDeviceAddressInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferOpaqueCaptureAddressCreateInfo`] with lifetime-tied pNext safety.
 pub struct BufferOpaqueCaptureAddressCreateInfoBuilder<'a> {
     inner: BufferOpaqueCaptureAddressCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27701,7 +28167,7 @@ impl<'a> BufferOpaqueCaptureAddressCreateInfoBuilder<'a> {
         self.inner.opaque_capture_address = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferOpaqueCaptureAddressCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferOpaqueCaptureAddressCreateInfo>(
         mut self,
@@ -27730,6 +28196,7 @@ impl<'a> core::ops::DerefMut for BufferOpaqueCaptureAddressCreateInfoBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`BufferDeviceAddressCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct BufferDeviceAddressCreateInfoEXTBuilder<'a> {
     inner: BufferDeviceAddressCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27753,7 +28220,7 @@ impl<'a> BufferDeviceAddressCreateInfoEXTBuilder<'a> {
         self.inner.device_address = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferDeviceAddressCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferDeviceAddressCreateInfoEXT>(
         mut self,
@@ -27782,6 +28249,7 @@ impl<'a> core::ops::DerefMut for BufferDeviceAddressCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageViewImageFormatInfoEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageViewImageFormatInfoEXTBuilder<'a> {
     inner: PhysicalDeviceImageViewImageFormatInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27805,7 +28273,7 @@ impl<'a> PhysicalDeviceImageViewImageFormatInfoEXTBuilder<'a> {
         self.inner.image_view_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageViewImageFormatInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageViewImageFormatInfoEXT>(
         mut self,
@@ -27834,6 +28302,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageViewImageFormatInfoEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`FilterCubicImageViewImageFormatPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct FilterCubicImageViewImageFormatPropertiesEXTBuilder<'a> {
     inner: FilterCubicImageViewImageFormatPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27877,6 +28346,7 @@ for FilterCubicImageViewImageFormatPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImagelessFramebufferFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImagelessFramebufferFeaturesBuilder<'a> {
     inner: PhysicalDeviceImagelessFramebufferFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27900,7 +28370,7 @@ impl<'a> PhysicalDeviceImagelessFramebufferFeaturesBuilder<'a> {
         self.inner.imageless_framebuffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImagelessFramebufferFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImagelessFramebufferFeatures>(
         mut self,
@@ -27929,6 +28399,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImagelessFramebufferFeaturesBuild
         &mut self.inner
     }
 }
+///Builder for [`FramebufferAttachmentsCreateInfo`] with lifetime-tied pNext safety.
 pub struct FramebufferAttachmentsCreateInfoBuilder<'a> {
     inner: FramebufferAttachmentsCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -27956,7 +28427,7 @@ impl<'a> FramebufferAttachmentsCreateInfoBuilder<'a> {
         self.inner.p_attachment_image_infos = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FramebufferAttachmentsCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFramebufferAttachmentsCreateInfo>(
         mut self,
@@ -27985,6 +28456,7 @@ impl<'a> core::ops::DerefMut for FramebufferAttachmentsCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FramebufferAttachmentImageInfo`] with lifetime-tied pNext safety.
 pub struct FramebufferAttachmentImageInfoBuilder<'a> {
     inner: FramebufferAttachmentImageInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28034,7 +28506,7 @@ impl<'a> FramebufferAttachmentImageInfoBuilder<'a> {
         self.inner.p_view_formats = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FramebufferAttachmentImageInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFramebufferAttachmentImageInfo>(
         mut self,
@@ -28063,6 +28535,7 @@ impl<'a> core::ops::DerefMut for FramebufferAttachmentImageInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassAttachmentBeginInfo`] with lifetime-tied pNext safety.
 pub struct RenderPassAttachmentBeginInfoBuilder<'a> {
     inner: RenderPassAttachmentBeginInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28087,7 +28560,7 @@ impl<'a> RenderPassAttachmentBeginInfoBuilder<'a> {
         self.inner.p_attachments = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassAttachmentBeginInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassAttachmentBeginInfo>(
         mut self,
@@ -28116,6 +28589,7 @@ impl<'a> core::ops::DerefMut for RenderPassAttachmentBeginInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTextureCompressionASTCHDRFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder<'a> {
     inner: PhysicalDeviceTextureCompressionASTCHDRFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28139,7 +28613,7 @@ impl<'a> PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder<'a> {
         self.inner.texture_compression_astc_hdr = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTextureCompressionASTCHDRFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTextureCompressionASTCHDRFeatures>(
         mut self,
@@ -28170,6 +28644,7 @@ for PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeMatrixFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeMatrixFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCooperativeMatrixFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28198,7 +28673,7 @@ impl<'a> PhysicalDeviceCooperativeMatrixFeaturesNVBuilder<'a> {
         self.inner.cooperative_matrix_robust_buffer_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrixFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCooperativeMatrixFeaturesNV>(
         mut self,
@@ -28227,6 +28702,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCooperativeMatrixFeaturesNVBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeMatrixPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeMatrixPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceCooperativeMatrixPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28267,6 +28743,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCooperativeMatrixPropertiesNVBuil
         &mut self.inner
     }
 }
+///Builder for [`CooperativeMatrixPropertiesNV`] with lifetime-tied pNext safety.
 pub struct CooperativeMatrixPropertiesNVBuilder<'a> {
     inner: CooperativeMatrixPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28339,6 +28816,7 @@ impl<'a> core::ops::DerefMut for CooperativeMatrixPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceYcbcrImageArraysFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceYcbcrImageArraysFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28362,7 +28840,7 @@ impl<'a> PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder<'a> {
         self.inner.ycbcr_image_arrays = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceYcbcrImageArraysFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceYcbcrImageArraysFeaturesEXT>(
         mut self,
@@ -28391,6 +28869,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`ImageViewHandleInfoNVX`] with lifetime-tied pNext safety.
 pub struct ImageViewHandleInfoNVXBuilder<'a> {
     inner: ImageViewHandleInfoNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28424,7 +28903,7 @@ impl<'a> ImageViewHandleInfoNVXBuilder<'a> {
         self.inner.sampler = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewHandleInfoNVX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewHandleInfoNVX>(
         mut self,
@@ -28453,6 +28932,7 @@ impl<'a> core::ops::DerefMut for ImageViewHandleInfoNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageViewAddressPropertiesNVX`] with lifetime-tied pNext safety.
 pub struct ImageViewAddressPropertiesNVXBuilder<'a> {
     inner: ImageViewAddressPropertiesNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28495,6 +28975,7 @@ impl<'a> core::ops::DerefMut for ImageViewAddressPropertiesNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentFrameTokenGGP`] with lifetime-tied pNext safety.
 pub struct PresentFrameTokenGGPBuilder<'a> {
     inner: PresentFrameTokenGGP,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28518,7 +28999,7 @@ impl<'a> PresentFrameTokenGGPBuilder<'a> {
         self.inner.frame_token = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PresentFrameTokenGGP`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPresentFrameTokenGGP>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -28544,6 +29025,7 @@ impl<'a> core::ops::DerefMut for PresentFrameTokenGGPBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCreationFeedbackCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineCreationFeedbackCreateInfoBuilder<'a> {
     inner: PipelineCreationFeedbackCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28579,7 +29061,7 @@ impl<'a> PipelineCreationFeedbackCreateInfoBuilder<'a> {
         self.inner.p_pipeline_stage_creation_feedbacks = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCreationFeedbackCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCreationFeedbackCreateInfo>(
         mut self,
@@ -28608,6 +29090,7 @@ impl<'a> core::ops::DerefMut for PipelineCreationFeedbackCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceFullScreenExclusiveInfoEXT`] with lifetime-tied pNext safety.
 pub struct SurfaceFullScreenExclusiveInfoEXTBuilder<'a> {
     inner: SurfaceFullScreenExclusiveInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28631,7 +29114,7 @@ impl<'a> SurfaceFullScreenExclusiveInfoEXTBuilder<'a> {
         self.inner.full_screen_exclusive = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfaceFullScreenExclusiveInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfaceFullScreenExclusiveInfoEXT>(
         mut self,
@@ -28660,6 +29143,7 @@ impl<'a> core::ops::DerefMut for SurfaceFullScreenExclusiveInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceFullScreenExclusiveWin32InfoEXT`] with lifetime-tied pNext safety.
 pub struct SurfaceFullScreenExclusiveWin32InfoEXTBuilder<'a> {
     inner: SurfaceFullScreenExclusiveWin32InfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28683,7 +29167,7 @@ impl<'a> SurfaceFullScreenExclusiveWin32InfoEXTBuilder<'a> {
         self.inner.hmonitor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfaceFullScreenExclusiveWin32InfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfaceFullScreenExclusiveWin32InfoEXT>(
         mut self,
@@ -28712,6 +29196,7 @@ impl<'a> core::ops::DerefMut for SurfaceFullScreenExclusiveWin32InfoEXTBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`SurfaceCapabilitiesFullScreenExclusiveEXT`] with lifetime-tied pNext safety.
 pub struct SurfaceCapabilitiesFullScreenExclusiveEXTBuilder<'a> {
     inner: SurfaceCapabilitiesFullScreenExclusiveEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28749,6 +29234,7 @@ impl<'a> core::ops::DerefMut for SurfaceCapabilitiesFullScreenExclusiveEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentBarrierFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentBarrierFeaturesNVBuilder<'a> {
     inner: PhysicalDevicePresentBarrierFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28772,7 +29258,7 @@ impl<'a> PhysicalDevicePresentBarrierFeaturesNVBuilder<'a> {
         self.inner.present_barrier = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentBarrierFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentBarrierFeaturesNV>(
         mut self,
@@ -28801,6 +29287,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentBarrierFeaturesNVBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`SurfaceCapabilitiesPresentBarrierNV`] with lifetime-tied pNext safety.
 pub struct SurfaceCapabilitiesPresentBarrierNVBuilder<'a> {
     inner: SurfaceCapabilitiesPresentBarrierNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28838,6 +29325,7 @@ impl<'a> core::ops::DerefMut for SurfaceCapabilitiesPresentBarrierNVBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`SwapchainPresentBarrierCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct SwapchainPresentBarrierCreateInfoNVBuilder<'a> {
     inner: SwapchainPresentBarrierCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28861,7 +29349,7 @@ impl<'a> SwapchainPresentBarrierCreateInfoNVBuilder<'a> {
         self.inner.present_barrier_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainPresentBarrierCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainPresentBarrierCreateInfoNV>(
         mut self,
@@ -28890,6 +29378,7 @@ impl<'a> core::ops::DerefMut for SwapchainPresentBarrierCreateInfoNVBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePerformanceQueryFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePerformanceQueryFeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePerformanceQueryFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28918,7 +29407,7 @@ impl<'a> PhysicalDevicePerformanceQueryFeaturesKHRBuilder<'a> {
         self.inner.performance_counter_multiple_query_pools = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePerformanceQueryFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePerformanceQueryFeaturesKHR>(
         mut self,
@@ -28947,6 +29436,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePerformanceQueryFeaturesKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePerformanceQueryPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePerformanceQueryPropertiesKHRBuilder<'a> {
     inner: PhysicalDevicePerformanceQueryPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -28984,6 +29474,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePerformanceQueryPropertiesKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`PerformanceCounterKHR`] with lifetime-tied pNext safety.
 pub struct PerformanceCounterKHRBuilder<'a> {
     inner: PerformanceCounterKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29036,6 +29527,7 @@ impl<'a> core::ops::DerefMut for PerformanceCounterKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceCounterDescriptionKHR`] with lifetime-tied pNext safety.
 pub struct PerformanceCounterDescriptionKHRBuilder<'a> {
     inner: PerformanceCounterDescriptionKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29097,6 +29589,7 @@ impl<'a> core::ops::DerefMut for PerformanceCounterDescriptionKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueryPoolPerformanceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct QueryPoolPerformanceCreateInfoKHRBuilder<'a> {
     inner: QueryPoolPerformanceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29126,7 +29619,7 @@ impl<'a> QueryPoolPerformanceCreateInfoKHRBuilder<'a> {
         self.inner.p_counter_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`QueryPoolPerformanceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsQueryPoolPerformanceCreateInfoKHR>(
         mut self,
@@ -29155,6 +29648,7 @@ impl<'a> core::ops::DerefMut for QueryPoolPerformanceCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AcquireProfilingLockInfoKHR`] with lifetime-tied pNext safety.
 pub struct AcquireProfilingLockInfoKHRBuilder<'a> {
     inner: AcquireProfilingLockInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29183,7 +29677,7 @@ impl<'a> AcquireProfilingLockInfoKHRBuilder<'a> {
         self.inner.timeout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AcquireProfilingLockInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAcquireProfilingLockInfoKHR>(
         mut self,
@@ -29212,6 +29706,7 @@ impl<'a> core::ops::DerefMut for AcquireProfilingLockInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceQuerySubmitInfoKHR`] with lifetime-tied pNext safety.
 pub struct PerformanceQuerySubmitInfoKHRBuilder<'a> {
     inner: PerformanceQuerySubmitInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29235,7 +29730,7 @@ impl<'a> PerformanceQuerySubmitInfoKHRBuilder<'a> {
         self.inner.counter_pass_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerformanceQuerySubmitInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerformanceQuerySubmitInfoKHR>(
         mut self,
@@ -29264,6 +29759,7 @@ impl<'a> core::ops::DerefMut for PerformanceQuerySubmitInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceQueryReservationInfoKHR`] with lifetime-tied pNext safety.
 pub struct PerformanceQueryReservationInfoKHRBuilder<'a> {
     inner: PerformanceQueryReservationInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29287,7 +29783,7 @@ impl<'a> PerformanceQueryReservationInfoKHRBuilder<'a> {
         self.inner.max_performance_queries_per_pool = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerformanceQueryReservationInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerformanceQueryReservationInfoKHR>(
         mut self,
@@ -29316,6 +29812,7 @@ impl<'a> core::ops::DerefMut for PerformanceQueryReservationInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`HeadlessSurfaceCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct HeadlessSurfaceCreateInfoEXTBuilder<'a> {
     inner: HeadlessSurfaceCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29339,7 +29836,7 @@ impl<'a> HeadlessSurfaceCreateInfoEXTBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`HeadlessSurfaceCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsHeadlessSurfaceCreateInfoEXT>(
         mut self,
@@ -29368,6 +29865,7 @@ impl<'a> core::ops::DerefMut for HeadlessSurfaceCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCoverageReductionModeFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCoverageReductionModeFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCoverageReductionModeFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29391,7 +29889,7 @@ impl<'a> PhysicalDeviceCoverageReductionModeFeaturesNVBuilder<'a> {
         self.inner.coverage_reduction_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCoverageReductionModeFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCoverageReductionModeFeaturesNV>(
         mut self,
@@ -29421,6 +29919,7 @@ for PhysicalDeviceCoverageReductionModeFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCoverageReductionStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineCoverageReductionStateCreateInfoNVBuilder<'a> {
     inner: PipelineCoverageReductionStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29449,7 +29948,7 @@ impl<'a> PipelineCoverageReductionStateCreateInfoNVBuilder<'a> {
         self.inner.coverage_reduction_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCoverageReductionStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCoverageReductionStateCreateInfoNV>(
         mut self,
@@ -29478,6 +29977,7 @@ impl<'a> core::ops::DerefMut for PipelineCoverageReductionStateCreateInfoNVBuild
         &mut self.inner
     }
 }
+///Builder for [`FramebufferMixedSamplesCombinationNV`] with lifetime-tied pNext safety.
 pub struct FramebufferMixedSamplesCombinationNVBuilder<'a> {
     inner: FramebufferMixedSamplesCombinationNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29530,6 +30030,7 @@ impl<'a> core::ops::DerefMut for FramebufferMixedSamplesCombinationNVBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<'a> {
     inner: PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29555,7 +30056,7 @@ impl<'a> PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<'a> {
         self.inner.shader_integer_functions2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL>(
         mut self,
@@ -29586,6 +30087,7 @@ for PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`InitializePerformanceApiInfoINTEL`] with lifetime-tied pNext safety.
 pub struct InitializePerformanceApiInfoINTELBuilder<'a> {
     inner: InitializePerformanceApiInfoINTEL,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29609,7 +30111,7 @@ impl<'a> InitializePerformanceApiInfoINTELBuilder<'a> {
         self.inner.p_user_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`InitializePerformanceApiInfoINTEL`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsInitializePerformanceApiInfoINTEL>(
         mut self,
@@ -29638,6 +30140,7 @@ impl<'a> core::ops::DerefMut for InitializePerformanceApiInfoINTELBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueryPoolPerformanceQueryCreateInfoINTEL`] with lifetime-tied pNext safety.
 pub struct QueryPoolPerformanceQueryCreateInfoINTELBuilder<'a> {
     inner: QueryPoolPerformanceQueryCreateInfoINTEL,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29664,7 +30167,7 @@ impl<'a> QueryPoolPerformanceQueryCreateInfoINTELBuilder<'a> {
         self.inner.performance_counters_sampling = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`QueryPoolPerformanceQueryCreateInfoINTEL`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsQueryPoolPerformanceQueryCreateInfoINTEL>(
         mut self,
@@ -29693,6 +30196,7 @@ impl<'a> core::ops::DerefMut for QueryPoolPerformanceQueryCreateInfoINTELBuilder
         &mut self.inner
     }
 }
+///Builder for [`PerformanceMarkerInfoINTEL`] with lifetime-tied pNext safety.
 pub struct PerformanceMarkerInfoINTELBuilder<'a> {
     inner: PerformanceMarkerInfoINTEL,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29716,7 +30220,7 @@ impl<'a> PerformanceMarkerInfoINTELBuilder<'a> {
         self.inner.marker = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerformanceMarkerInfoINTEL`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerformanceMarkerInfoINTEL>(
         mut self,
@@ -29745,6 +30249,7 @@ impl<'a> core::ops::DerefMut for PerformanceMarkerInfoINTELBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceStreamMarkerInfoINTEL`] with lifetime-tied pNext safety.
 pub struct PerformanceStreamMarkerInfoINTELBuilder<'a> {
     inner: PerformanceStreamMarkerInfoINTEL,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29768,7 +30273,7 @@ impl<'a> PerformanceStreamMarkerInfoINTELBuilder<'a> {
         self.inner.marker = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerformanceStreamMarkerInfoINTEL`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerformanceStreamMarkerInfoINTEL>(
         mut self,
@@ -29797,6 +30302,7 @@ impl<'a> core::ops::DerefMut for PerformanceStreamMarkerInfoINTELBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceOverrideInfoINTEL`] with lifetime-tied pNext safety.
 pub struct PerformanceOverrideInfoINTELBuilder<'a> {
     inner: PerformanceOverrideInfoINTEL,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29830,7 +30336,7 @@ impl<'a> PerformanceOverrideInfoINTELBuilder<'a> {
         self.inner.parameter = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerformanceOverrideInfoINTEL`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerformanceOverrideInfoINTEL>(
         mut self,
@@ -29859,6 +30365,7 @@ impl<'a> core::ops::DerefMut for PerformanceOverrideInfoINTELBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceConfigurationAcquireInfoINTEL`] with lifetime-tied pNext safety.
 pub struct PerformanceConfigurationAcquireInfoINTELBuilder<'a> {
     inner: PerformanceConfigurationAcquireInfoINTEL,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29882,7 +30389,7 @@ impl<'a> PerformanceConfigurationAcquireInfoINTELBuilder<'a> {
         self.inner.r#type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerformanceConfigurationAcquireInfoINTEL`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerformanceConfigurationAcquireInfoINTEL>(
         mut self,
@@ -29911,6 +30418,7 @@ impl<'a> core::ops::DerefMut for PerformanceConfigurationAcquireInfoINTELBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderClockFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderClockFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderClockFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29939,7 +30447,7 @@ impl<'a> PhysicalDeviceShaderClockFeaturesKHRBuilder<'a> {
         self.inner.shader_device_clock = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderClockFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderClockFeaturesKHR>(
         mut self,
@@ -29968,6 +30476,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderClockFeaturesKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceIndexTypeUint8Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceIndexTypeUint8FeaturesBuilder<'a> {
     inner: PhysicalDeviceIndexTypeUint8Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -29991,7 +30500,7 @@ impl<'a> PhysicalDeviceIndexTypeUint8FeaturesBuilder<'a> {
         self.inner.index_type_uint8 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceIndexTypeUint8Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceIndexTypeUint8Features>(
         mut self,
@@ -30020,6 +30529,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceIndexTypeUint8FeaturesBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderSMBuiltinsPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderSMBuiltinsPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceShaderSMBuiltinsPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30062,6 +30572,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderSMBuiltinsPropertiesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderSMBuiltinsFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceShaderSMBuiltinsFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30085,7 +30596,7 @@ impl<'a> PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder<'a> {
         self.inner.shader_sm_builtins = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSMBuiltinsFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderSMBuiltinsFeaturesNV>(
         mut self,
@@ -30114,6 +30625,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShaderInterlockFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceFragmentShaderInterlockFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30147,7 +30659,7 @@ impl<'a> PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder<'a> {
         self.inner.fragment_shader_shading_rate_interlock = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShaderInterlockFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentShaderInterlockFeaturesEXT>(
         mut self,
@@ -30178,6 +30690,7 @@ for PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSeparateDepthStencilLayoutsFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSeparateDepthStencilLayoutsFeaturesBuilder<'a> {
     inner: PhysicalDeviceSeparateDepthStencilLayoutsFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30203,7 +30716,7 @@ impl<'a> PhysicalDeviceSeparateDepthStencilLayoutsFeaturesBuilder<'a> {
         self.inner.separate_depth_stencil_layouts = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSeparateDepthStencilLayoutsFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSeparateDepthStencilLayoutsFeatures>(
         mut self,
@@ -30234,6 +30747,7 @@ for PhysicalDeviceSeparateDepthStencilLayoutsFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AttachmentReferenceStencilLayout`] with lifetime-tied pNext safety.
 pub struct AttachmentReferenceStencilLayoutBuilder<'a> {
     inner: AttachmentReferenceStencilLayout,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30257,7 +30771,7 @@ impl<'a> AttachmentReferenceStencilLayoutBuilder<'a> {
         self.inner.stencil_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AttachmentReferenceStencilLayout`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAttachmentReferenceStencilLayout>(
         mut self,
@@ -30286,6 +30800,7 @@ impl<'a> core::ops::DerefMut for AttachmentReferenceStencilLayoutBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePrimitiveTopologyListRestartFeaturesEXTBuilder<'a> {
     inner: PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30316,7 +30831,7 @@ impl<'a> PhysicalDevicePrimitiveTopologyListRestartFeaturesEXTBuilder<'a> {
         self.inner.primitive_topology_patch_list_restart = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT>(
         mut self,
@@ -30347,6 +30862,7 @@ for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AttachmentDescriptionStencilLayout`] with lifetime-tied pNext safety.
 pub struct AttachmentDescriptionStencilLayoutBuilder<'a> {
     inner: AttachmentDescriptionStencilLayout,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30375,7 +30891,7 @@ impl<'a> AttachmentDescriptionStencilLayoutBuilder<'a> {
         self.inner.stencil_final_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AttachmentDescriptionStencilLayout`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAttachmentDescriptionStencilLayout>(
         mut self,
@@ -30404,6 +30920,7 @@ impl<'a> core::ops::DerefMut for AttachmentDescriptionStencilLayoutBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineExecutablePropertiesFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineExecutablePropertiesFeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePipelineExecutablePropertiesFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30429,7 +30946,7 @@ impl<'a> PhysicalDevicePipelineExecutablePropertiesFeaturesKHRBuilder<'a> {
         self.inner.pipeline_executable_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineExecutablePropertiesFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineExecutablePropertiesFeaturesKHR>(
         mut self,
@@ -30460,6 +30977,7 @@ for PhysicalDevicePipelineExecutablePropertiesFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineInfoKHRBuilder<'a> {
     inner: PipelineInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30483,7 +31001,7 @@ impl<'a> PipelineInfoKHRBuilder<'a> {
         self.inner.pipeline = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -30509,6 +31027,7 @@ impl<'a> core::ops::DerefMut for PipelineInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineExecutablePropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PipelineExecutablePropertiesKHRBuilder<'a> {
     inner: PipelineExecutablePropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30567,6 +31086,7 @@ impl<'a> core::ops::DerefMut for PipelineExecutablePropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineExecutableInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineExecutableInfoKHRBuilder<'a> {
     inner: PipelineExecutableInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30595,7 +31115,7 @@ impl<'a> PipelineExecutableInfoKHRBuilder<'a> {
         self.inner.executable_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineExecutableInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineExecutableInfoKHR>(
         mut self,
@@ -30624,6 +31144,7 @@ impl<'a> core::ops::DerefMut for PipelineExecutableInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineExecutableStatisticKHR`] with lifetime-tied pNext safety.
 pub struct PipelineExecutableStatisticKHRBuilder<'a> {
     inner: PipelineExecutableStatisticKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30682,6 +31203,7 @@ impl<'a> core::ops::DerefMut for PipelineExecutableStatisticKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineExecutableInternalRepresentationKHR`] with lifetime-tied pNext safety.
 pub struct PipelineExecutableInternalRepresentationKHRBuilder<'a> {
     inner: PipelineExecutableInternalRepresentationKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30741,6 +31263,7 @@ impl<'a> core::ops::DerefMut for PipelineExecutableInternalRepresentationKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderDemoteToHelperInvocationFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderDemoteToHelperInvocationFeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderDemoteToHelperInvocationFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30766,7 +31289,7 @@ impl<'a> PhysicalDeviceShaderDemoteToHelperInvocationFeaturesBuilder<'a> {
         self.inner.shader_demote_to_helper_invocation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderDemoteToHelperInvocationFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderDemoteToHelperInvocationFeatures>(
         mut self,
@@ -30797,6 +31320,7 @@ for PhysicalDeviceShaderDemoteToHelperInvocationFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTexelBufferAlignmentFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceTexelBufferAlignmentFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30820,7 +31344,7 @@ impl<'a> PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder<'a> {
         self.inner.texel_buffer_alignment = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTexelBufferAlignmentFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTexelBufferAlignmentFeaturesEXT>(
         mut self,
@@ -30850,6 +31374,7 @@ for PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTexelBufferAlignmentProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTexelBufferAlignmentPropertiesBuilder<'a> {
     inner: PhysicalDeviceTexelBufferAlignmentProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30909,6 +31434,7 @@ for PhysicalDeviceTexelBufferAlignmentPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSubgroupSizeControlFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSubgroupSizeControlFeaturesBuilder<'a> {
     inner: PhysicalDeviceSubgroupSizeControlFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -30937,7 +31463,7 @@ impl<'a> PhysicalDeviceSubgroupSizeControlFeaturesBuilder<'a> {
         self.inner.compute_full_subgroups = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSubgroupSizeControlFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSubgroupSizeControlFeatures>(
         mut self,
@@ -30966,6 +31492,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSubgroupSizeControlFeaturesBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSubgroupSizeControlProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSubgroupSizeControlPropertiesBuilder<'a> {
     inner: PhysicalDeviceSubgroupSizeControlProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31018,6 +31545,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSubgroupSizeControlPropertiesBuil
         &mut self.inner
     }
 }
+///Builder for [`PipelineShaderStageRequiredSubgroupSizeCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineShaderStageRequiredSubgroupSizeCreateInfoBuilder<'a> {
     inner: PipelineShaderStageRequiredSubgroupSizeCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31043,7 +31571,7 @@ impl<'a> PipelineShaderStageRequiredSubgroupSizeCreateInfoBuilder<'a> {
         self.inner.required_subgroup_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineShaderStageRequiredSubgroupSizeCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineShaderStageRequiredSubgroupSizeCreateInfo>(
         mut self,
@@ -31074,6 +31602,7 @@ for PipelineShaderStageRequiredSubgroupSizeCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubpassShadingPipelineCreateInfoHUAWEI`] with lifetime-tied pNext safety.
 pub struct SubpassShadingPipelineCreateInfoHUAWEIBuilder<'a> {
     inner: SubpassShadingPipelineCreateInfoHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31102,7 +31631,7 @@ impl<'a> SubpassShadingPipelineCreateInfoHUAWEIBuilder<'a> {
         self.inner.subpass = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubpassShadingPipelineCreateInfoHUAWEI`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubpassShadingPipelineCreateInfoHUAWEI>(
         mut self,
@@ -31131,6 +31660,7 @@ impl<'a> core::ops::DerefMut for SubpassShadingPipelineCreateInfoHUAWEIBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSubpassShadingPropertiesHUAWEI`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSubpassShadingPropertiesHUAWEIBuilder<'a> {
     inner: PhysicalDeviceSubpassShadingPropertiesHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31172,6 +31702,7 @@ for PhysicalDeviceSubpassShadingPropertiesHUAWEIBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceClusterCullingShaderPropertiesHUAWEI`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceClusterCullingShaderPropertiesHUAWEIBuilder<'a> {
     inner: PhysicalDeviceClusterCullingShaderPropertiesHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31228,6 +31759,7 @@ for PhysicalDeviceClusterCullingShaderPropertiesHUAWEIBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryOpaqueCaptureAddressAllocateInfo`] with lifetime-tied pNext safety.
 pub struct MemoryOpaqueCaptureAddressAllocateInfoBuilder<'a> {
     inner: MemoryOpaqueCaptureAddressAllocateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31251,7 +31783,7 @@ impl<'a> MemoryOpaqueCaptureAddressAllocateInfoBuilder<'a> {
         self.inner.opaque_capture_address = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryOpaqueCaptureAddressAllocateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryOpaqueCaptureAddressAllocateInfo>(
         mut self,
@@ -31280,6 +31812,7 @@ impl<'a> core::ops::DerefMut for MemoryOpaqueCaptureAddressAllocateInfoBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`DeviceMemoryOpaqueCaptureAddressInfo`] with lifetime-tied pNext safety.
 pub struct DeviceMemoryOpaqueCaptureAddressInfoBuilder<'a> {
     inner: DeviceMemoryOpaqueCaptureAddressInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31303,7 +31836,7 @@ impl<'a> DeviceMemoryOpaqueCaptureAddressInfoBuilder<'a> {
         self.inner.memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceMemoryOpaqueCaptureAddressInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceMemoryOpaqueCaptureAddressInfo>(
         mut self,
@@ -31332,6 +31865,7 @@ impl<'a> core::ops::DerefMut for DeviceMemoryOpaqueCaptureAddressInfoBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLineRasterizationFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLineRasterizationFeaturesBuilder<'a> {
     inner: PhysicalDeviceLineRasterizationFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31380,7 +31914,7 @@ impl<'a> PhysicalDeviceLineRasterizationFeaturesBuilder<'a> {
         self.inner.stippled_smooth_lines = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLineRasterizationFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceLineRasterizationFeatures>(
         mut self,
@@ -31409,6 +31943,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceLineRasterizationFeaturesBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLineRasterizationProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLineRasterizationPropertiesBuilder<'a> {
     inner: PhysicalDeviceLineRasterizationProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31446,6 +31981,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceLineRasterizationPropertiesBuilde
         &mut self.inner
     }
 }
+///Builder for [`PipelineRasterizationLineStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineRasterizationLineStateCreateInfoBuilder<'a> {
     inner: PipelineRasterizationLineStateCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31484,7 +32020,7 @@ impl<'a> PipelineRasterizationLineStateCreateInfoBuilder<'a> {
         self.inner.line_stipple_pattern = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRasterizationLineStateCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRasterizationLineStateCreateInfo>(
         mut self,
@@ -31513,6 +32049,7 @@ impl<'a> core::ops::DerefMut for PipelineRasterizationLineStateCreateInfoBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineCreationCacheControlFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineCreationCacheControlFeaturesBuilder<'a> {
     inner: PhysicalDevicePipelineCreationCacheControlFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31538,7 +32075,7 @@ impl<'a> PhysicalDevicePipelineCreationCacheControlFeaturesBuilder<'a> {
         self.inner.pipeline_creation_cache_control = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineCreationCacheControlFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineCreationCacheControlFeatures>(
         mut self,
@@ -31569,6 +32106,7 @@ for PhysicalDevicePipelineCreationCacheControlFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan11Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan11FeaturesBuilder<'a> {
     inner: PhysicalDeviceVulkan11Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31647,7 +32185,7 @@ impl<'a> PhysicalDeviceVulkan11FeaturesBuilder<'a> {
         self.inner.shader_draw_parameters = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan11Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVulkan11Features>(
         mut self,
@@ -31676,6 +32214,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan11FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan11Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan11PropertiesBuilder<'a> {
     inner: PhysicalDeviceVulkan11Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -31783,6 +32322,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan11PropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan12Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan12FeaturesBuilder<'a> {
     inner: PhysicalDeviceVulkan12Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -32084,7 +32624,7 @@ impl<'a> PhysicalDeviceVulkan12FeaturesBuilder<'a> {
         self.inner.subgroup_broadcast_dynamic_id = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan12Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVulkan12Features>(
         mut self,
@@ -32113,6 +32653,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan12FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan12Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan12PropertiesBuilder<'a> {
     inner: PhysicalDeviceVulkan12Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -32474,6 +33015,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan12PropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan13Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan13FeaturesBuilder<'a> {
     inner: PhysicalDeviceVulkan13Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -32570,7 +33112,7 @@ impl<'a> PhysicalDeviceVulkan13FeaturesBuilder<'a> {
         self.inner.maintenance4 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan13Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVulkan13Features>(
         mut self,
@@ -32599,6 +33141,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan13FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan13Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan13PropertiesBuilder<'a> {
     inner: PhysicalDeviceVulkan13Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -32962,6 +33505,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan13PropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan14Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan14FeaturesBuilder<'a> {
     inner: PhysicalDeviceVulkan14Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33085,7 +33629,7 @@ impl<'a> PhysicalDeviceVulkan14FeaturesBuilder<'a> {
         self.inner.push_descriptor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan14Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVulkan14Features>(
         mut self,
@@ -33114,6 +33658,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan14FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkan14Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkan14PropertiesBuilder<'a> {
     inner: PhysicalDeviceVulkan14Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33293,6 +33838,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkan14PropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCompilerControlCreateInfoAMD`] with lifetime-tied pNext safety.
 pub struct PipelineCompilerControlCreateInfoAMDBuilder<'a> {
     inner: PipelineCompilerControlCreateInfoAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33319,7 +33865,7 @@ impl<'a> PipelineCompilerControlCreateInfoAMDBuilder<'a> {
         self.inner.compiler_control_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineCompilerControlCreateInfoAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineCompilerControlCreateInfoAMD>(
         mut self,
@@ -33348,6 +33894,7 @@ impl<'a> core::ops::DerefMut for PipelineCompilerControlCreateInfoAMDBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCoherentMemoryFeaturesAMD`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCoherentMemoryFeaturesAMDBuilder<'a> {
     inner: PhysicalDeviceCoherentMemoryFeaturesAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33371,7 +33918,7 @@ impl<'a> PhysicalDeviceCoherentMemoryFeaturesAMDBuilder<'a> {
         self.inner.device_coherent_memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCoherentMemoryFeaturesAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCoherentMemoryFeaturesAMD>(
         mut self,
@@ -33400,6 +33947,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCoherentMemoryFeaturesAMDBuilder<
         &mut self.inner
     }
 }
+///Builder for [`FaultData`] with lifetime-tied pNext safety.
 pub struct FaultDataBuilder<'a> {
     inner: FaultData,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33442,6 +33990,7 @@ impl<'a> core::ops::DerefMut for FaultDataBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FaultCallbackInfo`] with lifetime-tied pNext safety.
 pub struct FaultCallbackInfoBuilder<'a> {
     inner: FaultCallbackInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33471,7 +34020,7 @@ impl<'a> FaultCallbackInfoBuilder<'a> {
         self.inner.pfn_fault_callback = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FaultCallbackInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFaultCallbackInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -33497,6 +34046,7 @@ impl<'a> core::ops::DerefMut for FaultCallbackInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceToolProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceToolPropertiesBuilder<'a> {
     inner: PhysicalDeviceToolProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33566,6 +34116,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceToolPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SamplerCustomBorderColorCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct SamplerCustomBorderColorCreateInfoEXTBuilder<'a> {
     inner: SamplerCustomBorderColorCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33594,7 +34145,7 @@ impl<'a> SamplerCustomBorderColorCreateInfoEXTBuilder<'a> {
         self.inner.format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerCustomBorderColorCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerCustomBorderColorCreateInfoEXT>(
         mut self,
@@ -33623,6 +34174,7 @@ impl<'a> core::ops::DerefMut for SamplerCustomBorderColorCreateInfoEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCustomBorderColorPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCustomBorderColorPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceCustomBorderColorPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33661,6 +34213,7 @@ for PhysicalDeviceCustomBorderColorPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCustomBorderColorFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCustomBorderColorFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceCustomBorderColorFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33689,7 +34242,7 @@ impl<'a> PhysicalDeviceCustomBorderColorFeaturesEXTBuilder<'a> {
         self.inner.custom_border_color_without_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCustomBorderColorFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCustomBorderColorFeaturesEXT>(
         mut self,
@@ -33718,6 +34271,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCustomBorderColorFeaturesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`SamplerBorderColorComponentMappingCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct SamplerBorderColorComponentMappingCreateInfoEXTBuilder<'a> {
     inner: SamplerBorderColorComponentMappingCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33746,7 +34300,7 @@ impl<'a> SamplerBorderColorComponentMappingCreateInfoEXTBuilder<'a> {
         self.inner.srgb = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerBorderColorComponentMappingCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerBorderColorComponentMappingCreateInfoEXT>(
         mut self,
@@ -33777,6 +34331,7 @@ for SamplerBorderColorComponentMappingCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceBorderColorSwizzleFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceBorderColorSwizzleFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33805,7 +34360,7 @@ impl<'a> PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder<'a> {
         self.inner.border_color_swizzle_from_image = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBorderColorSwizzleFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceBorderColorSwizzleFeaturesEXT>(
         mut self,
@@ -33834,6 +34389,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceBorderColorSwizzleFeaturesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureGeometryTrianglesDataKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureGeometryTrianglesDataKHRBuilder<'a> {
     inner: AccelerationStructureGeometryTrianglesDataKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33887,7 +34443,7 @@ impl<'a> AccelerationStructureGeometryTrianglesDataKHRBuilder<'a> {
         self.inner.transform_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureGeometryTrianglesDataKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureGeometryTrianglesDataKHR>(
         mut self,
@@ -33917,6 +34473,7 @@ for AccelerationStructureGeometryTrianglesDataKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureGeometryAabbsDataKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureGeometryAabbsDataKHRBuilder<'a> {
     inner: AccelerationStructureGeometryAabbsDataKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -33945,7 +34502,7 @@ impl<'a> AccelerationStructureGeometryAabbsDataKHRBuilder<'a> {
         self.inner.stride = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureGeometryAabbsDataKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureGeometryAabbsDataKHR>(
         mut self,
@@ -33974,6 +34531,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureGeometryAabbsDataKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureGeometryInstancesDataKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureGeometryInstancesDataKHRBuilder<'a> {
     inner: AccelerationStructureGeometryInstancesDataKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34002,7 +34560,7 @@ impl<'a> AccelerationStructureGeometryInstancesDataKHRBuilder<'a> {
         self.inner.data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureGeometryInstancesDataKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureGeometryInstancesDataKHR>(
         mut self,
@@ -34032,6 +34590,7 @@ for AccelerationStructureGeometryInstancesDataKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureGeometryLinearSweptSpheresDataNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureGeometryLinearSweptSpheresDataNVBuilder<'a> {
     inner: AccelerationStructureGeometryLinearSweptSpheresDataNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34107,7 +34666,7 @@ impl<'a> AccelerationStructureGeometryLinearSweptSpheresDataNVBuilder<'a> {
         self.inner.end_caps_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureGeometryLinearSweptSpheresDataNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureGeometryLinearSweptSpheresDataNV>(
         mut self,
@@ -34138,6 +34697,7 @@ for AccelerationStructureGeometryLinearSweptSpheresDataNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureGeometrySpheresDataNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureGeometrySpheresDataNVBuilder<'a> {
     inner: AccelerationStructureGeometrySpheresDataNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34201,7 +34761,7 @@ impl<'a> AccelerationStructureGeometrySpheresDataNVBuilder<'a> {
         self.inner.index_stride = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureGeometrySpheresDataNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureGeometrySpheresDataNV>(
         mut self,
@@ -34230,6 +34790,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureGeometrySpheresDataNVBuild
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureGeometryKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureGeometryKHRBuilder<'a> {
     inner: AccelerationStructureGeometryKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34263,7 +34824,7 @@ impl<'a> AccelerationStructureGeometryKHRBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureGeometryKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureGeometryKHR>(
         mut self,
@@ -34292,6 +34853,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureGeometryKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureBuildGeometryInfoKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureBuildGeometryInfoKHRBuilder<'a> {
     inner: AccelerationStructureBuildGeometryInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34360,7 +34922,7 @@ impl<'a> AccelerationStructureBuildGeometryInfoKHRBuilder<'a> {
         self.inner.scratch_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureBuildGeometryInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureBuildGeometryInfoKHR>(
         mut self,
@@ -34389,6 +34951,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureBuildGeometryInfoKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureCreateInfoKHRBuilder<'a> {
     inner: AccelerationStructureCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34437,7 +35000,7 @@ impl<'a> AccelerationStructureCreateInfoKHRBuilder<'a> {
         self.inner.device_address = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureCreateInfoKHR>(
         mut self,
@@ -34466,6 +35029,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureDeviceAddressInfoKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureDeviceAddressInfoKHRBuilder<'a> {
     inner: AccelerationStructureDeviceAddressInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34489,7 +35053,7 @@ impl<'a> AccelerationStructureDeviceAddressInfoKHRBuilder<'a> {
         self.inner.acceleration_structure = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureDeviceAddressInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureDeviceAddressInfoKHR>(
         mut self,
@@ -34518,6 +35082,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureDeviceAddressInfoKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureVersionInfoKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureVersionInfoKHRBuilder<'a> {
     inner: AccelerationStructureVersionInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34541,7 +35106,7 @@ impl<'a> AccelerationStructureVersionInfoKHRBuilder<'a> {
         self.inner.p_version_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureVersionInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureVersionInfoKHR>(
         mut self,
@@ -34570,6 +35135,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureVersionInfoKHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`CopyAccelerationStructureInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyAccelerationStructureInfoKHRBuilder<'a> {
     inner: CopyAccelerationStructureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34603,7 +35169,7 @@ impl<'a> CopyAccelerationStructureInfoKHRBuilder<'a> {
         self.inner.mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyAccelerationStructureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyAccelerationStructureInfoKHR>(
         mut self,
@@ -34632,6 +35198,7 @@ impl<'a> core::ops::DerefMut for CopyAccelerationStructureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyAccelerationStructureToMemoryInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyAccelerationStructureToMemoryInfoKHRBuilder<'a> {
     inner: CopyAccelerationStructureToMemoryInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34665,7 +35232,7 @@ impl<'a> CopyAccelerationStructureToMemoryInfoKHRBuilder<'a> {
         self.inner.mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyAccelerationStructureToMemoryInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyAccelerationStructureToMemoryInfoKHR>(
         mut self,
@@ -34694,6 +35261,7 @@ impl<'a> core::ops::DerefMut for CopyAccelerationStructureToMemoryInfoKHRBuilder
         &mut self.inner
     }
 }
+///Builder for [`CopyMemoryToAccelerationStructureInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyMemoryToAccelerationStructureInfoKHRBuilder<'a> {
     inner: CopyMemoryToAccelerationStructureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34727,7 +35295,7 @@ impl<'a> CopyMemoryToAccelerationStructureInfoKHRBuilder<'a> {
         self.inner.mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyMemoryToAccelerationStructureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyMemoryToAccelerationStructureInfoKHR>(
         mut self,
@@ -34756,6 +35324,7 @@ impl<'a> core::ops::DerefMut for CopyMemoryToAccelerationStructureInfoKHRBuilder
         &mut self.inner
     }
 }
+///Builder for [`RayTracingPipelineInterfaceCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct RayTracingPipelineInterfaceCreateInfoKHRBuilder<'a> {
     inner: RayTracingPipelineInterfaceCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34784,7 +35353,7 @@ impl<'a> RayTracingPipelineInterfaceCreateInfoKHRBuilder<'a> {
         self.inner.max_pipeline_ray_hit_attribute_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RayTracingPipelineInterfaceCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRayTracingPipelineInterfaceCreateInfoKHR>(
         mut self,
@@ -34813,6 +35382,7 @@ impl<'a> core::ops::DerefMut for RayTracingPipelineInterfaceCreateInfoKHRBuilder
         &mut self.inner
     }
 }
+///Builder for [`PipelineLibraryCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineLibraryCreateInfoKHRBuilder<'a> {
     inner: PipelineLibraryCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34837,7 +35407,7 @@ impl<'a> PipelineLibraryCreateInfoKHRBuilder<'a> {
         self.inner.p_libraries = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineLibraryCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineLibraryCreateInfoKHR>(
         mut self,
@@ -34866,6 +35436,7 @@ impl<'a> core::ops::DerefMut for PipelineLibraryCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RefreshObjectListKHR`] with lifetime-tied pNext safety.
 pub struct RefreshObjectListKHRBuilder<'a> {
     inner: RefreshObjectListKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34890,7 +35461,7 @@ impl<'a> RefreshObjectListKHRBuilder<'a> {
         self.inner.p_objects = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RefreshObjectListKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRefreshObjectListKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -34916,6 +35487,7 @@ impl<'a> core::ops::DerefMut for RefreshObjectListKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExtendedDynamicStateFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceExtendedDynamicStateFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -34939,7 +35511,7 @@ impl<'a> PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder<'a> {
         self.inner.extended_dynamic_state = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedDynamicStateFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExtendedDynamicStateFeaturesEXT>(
         mut self,
@@ -34969,6 +35541,7 @@ for PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExtendedDynamicState2FeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceExtendedDynamicState2FeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35002,7 +35575,7 @@ impl<'a> PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder<'a> {
         self.inner.extended_dynamic_state2_patch_control_points = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedDynamicState2FeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExtendedDynamicState2FeaturesEXT>(
         mut self,
@@ -35032,6 +35605,7 @@ for PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExtendedDynamicState3FeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceExtendedDynamicState3FeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35253,7 +35827,7 @@ impl<'a> PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder<'a> {
         self.inner.extended_dynamic_state3_shading_rate_image_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedDynamicState3FeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExtendedDynamicState3FeaturesEXT>(
         mut self,
@@ -35283,6 +35857,7 @@ for PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExtendedDynamicState3PropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceExtendedDynamicState3PropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35322,6 +35897,7 @@ for PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassTransformBeginInfoQCOM`] with lifetime-tied pNext safety.
 pub struct RenderPassTransformBeginInfoQCOMBuilder<'a> {
     inner: RenderPassTransformBeginInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35345,7 +35921,7 @@ impl<'a> RenderPassTransformBeginInfoQCOMBuilder<'a> {
         self.inner.transform = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassTransformBeginInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassTransformBeginInfoQCOM>(
         mut self,
@@ -35374,6 +35950,7 @@ impl<'a> core::ops::DerefMut for RenderPassTransformBeginInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyCommandTransformInfoQCOM`] with lifetime-tied pNext safety.
 pub struct CopyCommandTransformInfoQCOMBuilder<'a> {
     inner: CopyCommandTransformInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35397,7 +35974,7 @@ impl<'a> CopyCommandTransformInfoQCOMBuilder<'a> {
         self.inner.transform = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyCommandTransformInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyCommandTransformInfoQCOM>(
         mut self,
@@ -35426,6 +36003,7 @@ impl<'a> core::ops::DerefMut for CopyCommandTransformInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferInheritanceRenderPassTransformInfoQCOM`] with lifetime-tied pNext safety.
 pub struct CommandBufferInheritanceRenderPassTransformInfoQCOMBuilder<'a> {
     inner: CommandBufferInheritanceRenderPassTransformInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35456,7 +36034,7 @@ impl<'a> CommandBufferInheritanceRenderPassTransformInfoQCOMBuilder<'a> {
         self.inner.render_area = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferInheritanceRenderPassTransformInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferInheritanceRenderPassTransformInfoQCOM>(
         mut self,
@@ -35487,6 +36065,7 @@ for CommandBufferInheritanceRenderPassTransformInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePartitionedAccelerationStructureFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePartitionedAccelerationStructureFeaturesNVBuilder<'a> {
     inner: PhysicalDevicePartitionedAccelerationStructureFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35512,7 +36091,7 @@ impl<'a> PhysicalDevicePartitionedAccelerationStructureFeaturesNVBuilder<'a> {
         self.inner.partitioned_acceleration_structure = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePartitionedAccelerationStructureFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePartitionedAccelerationStructureFeaturesNV>(
         mut self,
@@ -35543,6 +36122,7 @@ for PhysicalDevicePartitionedAccelerationStructureFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePartitionedAccelerationStructurePropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePartitionedAccelerationStructurePropertiesNVBuilder<'a> {
     inner: PhysicalDevicePartitionedAccelerationStructurePropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35584,6 +36164,7 @@ for PhysicalDevicePartitionedAccelerationStructurePropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PartitionedAccelerationStructureFlagsNV`] with lifetime-tied pNext safety.
 pub struct PartitionedAccelerationStructureFlagsNVBuilder<'a> {
     inner: PartitionedAccelerationStructureFlagsNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35607,7 +36188,7 @@ impl<'a> PartitionedAccelerationStructureFlagsNVBuilder<'a> {
         self.inner.enable_partition_translation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PartitionedAccelerationStructureFlagsNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPartitionedAccelerationStructureFlagsNV>(
         mut self,
@@ -35636,6 +36217,7 @@ impl<'a> core::ops::DerefMut for PartitionedAccelerationStructureFlagsNVBuilder<
         &mut self.inner
     }
 }
+///Builder for [`WriteDescriptorSetPartitionedAccelerationStructureNV`] with lifetime-tied pNext safety.
 pub struct WriteDescriptorSetPartitionedAccelerationStructureNVBuilder<'a> {
     inner: WriteDescriptorSetPartitionedAccelerationStructureNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35662,7 +36244,7 @@ impl<'a> WriteDescriptorSetPartitionedAccelerationStructureNVBuilder<'a> {
         self.inner.p_acceleration_structures = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteDescriptorSetPartitionedAccelerationStructureNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteDescriptorSetPartitionedAccelerationStructureNV>(
         mut self,
@@ -35693,6 +36275,7 @@ for WriteDescriptorSetPartitionedAccelerationStructureNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PartitionedAccelerationStructureInstancesInputNV`] with lifetime-tied pNext safety.
 pub struct PartitionedAccelerationStructureInstancesInputNVBuilder<'a> {
     inner: PartitionedAccelerationStructureInstancesInputNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35736,7 +36319,7 @@ impl<'a> PartitionedAccelerationStructureInstancesInputNVBuilder<'a> {
         self.inner.max_instance_in_global_partition_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PartitionedAccelerationStructureInstancesInputNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPartitionedAccelerationStructureInstancesInputNV>(
         mut self,
@@ -35767,6 +36350,7 @@ for PartitionedAccelerationStructureInstancesInputNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BuildPartitionedAccelerationStructureInfoNV`] with lifetime-tied pNext safety.
 pub struct BuildPartitionedAccelerationStructureInfoNVBuilder<'a> {
     inner: BuildPartitionedAccelerationStructureInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35818,7 +36402,7 @@ impl<'a> BuildPartitionedAccelerationStructureInfoNVBuilder<'a> {
         self.inner.src_infos_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BuildPartitionedAccelerationStructureInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBuildPartitionedAccelerationStructureInfoNV>(
         mut self,
@@ -35847,6 +36431,7 @@ impl<'a> core::ops::DerefMut for BuildPartitionedAccelerationStructureInfoNVBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDiagnosticsConfigFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceDiagnosticsConfigFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35870,7 +36455,7 @@ impl<'a> PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder<'a> {
         self.inner.diagnostics_config = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDiagnosticsConfigFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDiagnosticsConfigFeaturesNV>(
         mut self,
@@ -35899,6 +36484,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDiagnosticsConfigFeaturesNVBuilde
         &mut self.inner
     }
 }
+///Builder for [`DeviceDiagnosticsConfigCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct DeviceDiagnosticsConfigCreateInfoNVBuilder<'a> {
     inner: DeviceDiagnosticsConfigCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35922,7 +36508,7 @@ impl<'a> DeviceDiagnosticsConfigCreateInfoNVBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceDiagnosticsConfigCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceDiagnosticsConfigCreateInfoNV>(
         mut self,
@@ -35951,6 +36537,7 @@ impl<'a> core::ops::DerefMut for DeviceDiagnosticsConfigCreateInfoNVBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PipelineOfflineCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineOfflineCreateInfoBuilder<'a> {
     inner: PipelineOfflineCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -35984,7 +36571,7 @@ impl<'a> PipelineOfflineCreateInfoBuilder<'a> {
         self.inner.pool_entry_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineOfflineCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineOfflineCreateInfo>(
         mut self,
@@ -36013,6 +36600,7 @@ impl<'a> core::ops::DerefMut for PipelineOfflineCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesBuilder<'a> {
     inner: PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36038,7 +36626,7 @@ impl<'a> PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesBuilder<'a> {
         self.inner.shader_zero_initialize_workgroup_memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures>(
         mut self,
@@ -36069,6 +36657,7 @@ for PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36094,7 +36683,7 @@ impl<'a> PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHRBuilder<'a> {
         self.inner.shader_subgroup_uniform_control_flow = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR,
@@ -36124,6 +36713,7 @@ for PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRobustness2FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRobustness2FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceRobustness2FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36157,7 +36747,7 @@ impl<'a> PhysicalDeviceRobustness2FeaturesKHRBuilder<'a> {
         self.inner.null_descriptor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRobustness2FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRobustness2FeaturesKHR>(
         mut self,
@@ -36186,6 +36776,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRobustness2FeaturesKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRobustness2PropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRobustness2PropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceRobustness2PropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36228,6 +36819,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRobustness2PropertiesKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageRobustnessFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageRobustnessFeaturesBuilder<'a> {
     inner: PhysicalDeviceImageRobustnessFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36251,7 +36843,7 @@ impl<'a> PhysicalDeviceImageRobustnessFeaturesBuilder<'a> {
         self.inner.robust_image_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageRobustnessFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageRobustnessFeatures>(
         mut self,
@@ -36280,6 +36872,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageRobustnessFeaturesBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36323,7 +36916,7 @@ impl<'a> PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRBuilder<'a> {
         self.inner.workgroup_memory_explicit_layout16_bit_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR>(
         mut self,
@@ -36354,6 +36947,7 @@ for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePortabilitySubsetFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePortabilitySubsetFeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePortabilitySubsetFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36447,7 +37041,7 @@ impl<'a> PhysicalDevicePortabilitySubsetFeaturesKHRBuilder<'a> {
         self.inner.vertex_attribute_access_beyond_stride = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePortabilitySubsetFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePortabilitySubsetFeaturesKHR>(
         mut self,
@@ -36476,6 +37070,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePortabilitySubsetFeaturesKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePortabilitySubsetPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePortabilitySubsetPropertiesKHRBuilder<'a> {
     inner: PhysicalDevicePortabilitySubsetPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36514,6 +37109,7 @@ for PhysicalDevicePortabilitySubsetPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevice4444FormatsFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevice4444FormatsFeaturesEXTBuilder<'a> {
     inner: PhysicalDevice4444FormatsFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36542,7 +37138,7 @@ impl<'a> PhysicalDevice4444FormatsFeaturesEXTBuilder<'a> {
         self.inner.format_a4b4g4r4 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevice4444FormatsFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevice4444FormatsFeaturesEXT>(
         mut self,
@@ -36571,6 +37167,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevice4444FormatsFeaturesEXTBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSubpassShadingFeaturesHUAWEI`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder<'a> {
     inner: PhysicalDeviceSubpassShadingFeaturesHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36594,7 +37191,7 @@ impl<'a> PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder<'a> {
         self.inner.subpass_shading = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSubpassShadingFeaturesHUAWEI`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSubpassShadingFeaturesHUAWEI>(
         mut self,
@@ -36623,6 +37220,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSubpassShadingFeaturesHUAWEIBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceClusterCullingShaderFeaturesHUAWEI`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder<'a> {
     inner: PhysicalDeviceClusterCullingShaderFeaturesHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36651,7 +37249,7 @@ impl<'a> PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder<'a> {
         self.inner.multiview_cluster_culling_shader = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceClusterCullingShaderFeaturesHUAWEI`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceClusterCullingShaderFeaturesHUAWEI>(
         mut self,
@@ -36682,6 +37280,7 @@ for PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEIBuilder<'a> {
     inner: PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36707,7 +37306,7 @@ impl<'a> PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEIBuilder<'a> {
         self.inner.cluster_shading_rate = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI>(
         mut self,
@@ -36738,6 +37337,7 @@ for PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEIBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferCopy2`] with lifetime-tied pNext safety.
 pub struct BufferCopy2Builder<'a> {
     inner: BufferCopy2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36771,7 +37371,7 @@ impl<'a> BufferCopy2Builder<'a> {
         self.inner.size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferCopy2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferCopy2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -36797,6 +37397,7 @@ impl<'a> core::ops::DerefMut for BufferCopy2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageCopy2`] with lifetime-tied pNext safety.
 pub struct ImageCopy2Builder<'a> {
     inner: ImageCopy2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36840,7 +37441,7 @@ impl<'a> ImageCopy2Builder<'a> {
         self.inner.extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageCopy2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageCopy2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -36866,6 +37467,7 @@ impl<'a> core::ops::DerefMut for ImageCopy2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageBlit2`] with lifetime-tied pNext safety.
 pub struct ImageBlit2Builder<'a> {
     inner: ImageBlit2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36904,7 +37506,7 @@ impl<'a> ImageBlit2Builder<'a> {
         self.inner.dst_offsets = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageBlit2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageBlit2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -36930,6 +37532,7 @@ impl<'a> core::ops::DerefMut for ImageBlit2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferImageCopy2`] with lifetime-tied pNext safety.
 pub struct BufferImageCopy2Builder<'a> {
     inner: BufferImageCopy2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -36978,7 +37581,7 @@ impl<'a> BufferImageCopy2Builder<'a> {
         self.inner.image_extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferImageCopy2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferImageCopy2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -37004,6 +37607,7 @@ impl<'a> core::ops::DerefMut for BufferImageCopy2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageResolve2`] with lifetime-tied pNext safety.
 pub struct ImageResolve2Builder<'a> {
     inner: ImageResolve2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37047,7 +37651,7 @@ impl<'a> ImageResolve2Builder<'a> {
         self.inner.extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageResolve2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageResolve2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -37073,6 +37677,7 @@ impl<'a> core::ops::DerefMut for ImageResolve2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyBufferInfo2`] with lifetime-tied pNext safety.
 pub struct CopyBufferInfo2Builder<'a> {
     inner: CopyBufferInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37107,7 +37712,7 @@ impl<'a> CopyBufferInfo2Builder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyBufferInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyBufferInfo2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -37133,6 +37738,7 @@ impl<'a> core::ops::DerefMut for CopyBufferInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyImageInfo2`] with lifetime-tied pNext safety.
 pub struct CopyImageInfo2Builder<'a> {
     inner: CopyImageInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37177,7 +37783,7 @@ impl<'a> CopyImageInfo2Builder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyImageInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyImageInfo2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -37203,6 +37809,7 @@ impl<'a> core::ops::DerefMut for CopyImageInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BlitImageInfo2`] with lifetime-tied pNext safety.
 pub struct BlitImageInfo2Builder<'a> {
     inner: BlitImageInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37252,7 +37859,7 @@ impl<'a> BlitImageInfo2Builder<'a> {
         self.inner.filter = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BlitImageInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBlitImageInfo2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -37278,6 +37885,7 @@ impl<'a> core::ops::DerefMut for BlitImageInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyBufferToImageInfo2`] with lifetime-tied pNext safety.
 pub struct CopyBufferToImageInfo2Builder<'a> {
     inner: CopyBufferToImageInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37317,7 +37925,7 @@ impl<'a> CopyBufferToImageInfo2Builder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyBufferToImageInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyBufferToImageInfo2>(
         mut self,
@@ -37346,6 +37954,7 @@ impl<'a> core::ops::DerefMut for CopyBufferToImageInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyImageToBufferInfo2`] with lifetime-tied pNext safety.
 pub struct CopyImageToBufferInfo2Builder<'a> {
     inner: CopyImageToBufferInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37385,7 +37994,7 @@ impl<'a> CopyImageToBufferInfo2Builder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyImageToBufferInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyImageToBufferInfo2>(
         mut self,
@@ -37414,6 +38023,7 @@ impl<'a> core::ops::DerefMut for CopyImageToBufferInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ResolveImageInfo2`] with lifetime-tied pNext safety.
 pub struct ResolveImageInfo2Builder<'a> {
     inner: ResolveImageInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37458,7 +38068,7 @@ impl<'a> ResolveImageInfo2Builder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ResolveImageInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsResolveImageInfo2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -37484,6 +38094,7 @@ impl<'a> core::ops::DerefMut for ResolveImageInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderImageAtomicInt64FeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderImageAtomicInt64FeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37512,7 +38123,7 @@ impl<'a> PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder<'a> {
         self.inner.sparse_image_int64_atomics = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderImageAtomicInt64FeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderImageAtomicInt64FeaturesEXT>(
         mut self,
@@ -37543,6 +38154,7 @@ for PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FragmentShadingRateAttachmentInfoKHR`] with lifetime-tied pNext safety.
 pub struct FragmentShadingRateAttachmentInfoKHRBuilder<'a> {
     inner: FragmentShadingRateAttachmentInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37574,7 +38186,7 @@ impl<'a> FragmentShadingRateAttachmentInfoKHRBuilder<'a> {
         self.inner.shading_rate_attachment_texel_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FragmentShadingRateAttachmentInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFragmentShadingRateAttachmentInfoKHR>(
         mut self,
@@ -37603,6 +38215,7 @@ impl<'a> core::ops::DerefMut for FragmentShadingRateAttachmentInfoKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PipelineFragmentShadingRateStateCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineFragmentShadingRateStateCreateInfoKHRBuilder<'a> {
     inner: PipelineFragmentShadingRateStateCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37634,7 +38247,7 @@ impl<'a> PipelineFragmentShadingRateStateCreateInfoKHRBuilder<'a> {
         self.inner.combiner_ops = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineFragmentShadingRateStateCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineFragmentShadingRateStateCreateInfoKHR>(
         mut self,
@@ -37664,6 +38277,7 @@ for PipelineFragmentShadingRateStateCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShadingRateFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceFragmentShadingRateFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37697,7 +38311,7 @@ impl<'a> PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder<'a> {
         self.inner.attachment_fragment_shading_rate = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShadingRateFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentShadingRateFeaturesKHR>(
         mut self,
@@ -37727,6 +38341,7 @@ for PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShadingRatePropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceFragmentShadingRatePropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37872,6 +38487,7 @@ for PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShadingRateKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShadingRateKHRBuilder<'a> {
     inner: PhysicalDeviceFragmentShadingRateKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37914,6 +38530,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFragmentShadingRateKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderTerminateInvocationFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderTerminateInvocationFeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderTerminateInvocationFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -37937,7 +38554,7 @@ impl<'a> PhysicalDeviceShaderTerminateInvocationFeaturesBuilder<'a> {
         self.inner.shader_terminate_invocation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderTerminateInvocationFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderTerminateInvocationFeatures>(
         mut self,
@@ -37968,6 +38585,7 @@ for PhysicalDeviceShaderTerminateInvocationFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShadingRateEnumsFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceFragmentShadingRateEnumsFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38001,7 +38619,7 @@ impl<'a> PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder<'a> {
         self.inner.no_invocation_fragment_shading_rates = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShadingRateEnumsFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentShadingRateEnumsFeaturesNV>(
         mut self,
@@ -38032,6 +38650,7 @@ for PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShadingRateEnumsPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShadingRateEnumsPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceFragmentShadingRateEnumsPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38076,6 +38695,7 @@ for PhysicalDeviceFragmentShadingRateEnumsPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineFragmentShadingRateEnumStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder<'a> {
     inner: PipelineFragmentShadingRateEnumStateCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38112,7 +38732,7 @@ impl<'a> PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder<'a> {
         self.inner.combiner_ops = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineFragmentShadingRateEnumStateCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineFragmentShadingRateEnumStateCreateInfoNV>(
         mut self,
@@ -38143,6 +38763,7 @@ for PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureBuildSizesInfoKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureBuildSizesInfoKHRBuilder<'a> {
     inner: AccelerationStructureBuildSizesInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38190,6 +38811,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureBuildSizesInfoKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImage2DViewOf3DFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceImage2DViewOf3DFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38218,7 +38840,7 @@ impl<'a> PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder<'a> {
         self.inner.sampler2_d_view_of3_d = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImage2DViewOf3DFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImage2DViewOf3DFeaturesEXT>(
         mut self,
@@ -38247,6 +38869,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageSlicedViewOf3DFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceImageSlicedViewOf3DFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38270,7 +38893,7 @@ impl<'a> PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder<'a> {
         self.inner.image_sliced_view_of3_d = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageSlicedViewOf3DFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageSlicedViewOf3DFeaturesEXT>(
         mut self,
@@ -38300,6 +38923,7 @@ for PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38325,7 +38949,7 @@ impl<'a> PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXTBuilder<'a> 
         self.inner.attachment_feedback_loop_dynamic_state = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT,
@@ -38355,6 +38979,7 @@ for PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLegacyVertexAttributesFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceLegacyVertexAttributesFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38378,7 +39003,7 @@ impl<'a> PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder<'a> {
         self.inner.legacy_vertex_attributes = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLegacyVertexAttributesFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceLegacyVertexAttributesFeaturesEXT>(
         mut self,
@@ -38409,6 +39034,7 @@ for PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLegacyVertexAttributesPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLegacyVertexAttributesPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceLegacyVertexAttributesPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38450,6 +39076,7 @@ for PhysicalDeviceLegacyVertexAttributesPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMutableDescriptorTypeFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceMutableDescriptorTypeFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38473,7 +39100,7 @@ impl<'a> PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
         self.inner.mutable_descriptor_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMutableDescriptorTypeFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMutableDescriptorTypeFeaturesEXT>(
         mut self,
@@ -38503,6 +39130,7 @@ for PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MutableDescriptorTypeCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct MutableDescriptorTypeCreateInfoEXTBuilder<'a> {
     inner: MutableDescriptorTypeCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38530,7 +39158,7 @@ impl<'a> MutableDescriptorTypeCreateInfoEXTBuilder<'a> {
         self.inner.p_mutable_descriptor_type_lists = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MutableDescriptorTypeCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMutableDescriptorTypeCreateInfoEXT>(
         mut self,
@@ -38559,6 +39187,7 @@ impl<'a> core::ops::DerefMut for MutableDescriptorTypeCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDepthClipControlFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDepthClipControlFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDepthClipControlFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38582,7 +39211,7 @@ impl<'a> PhysicalDeviceDepthClipControlFeaturesEXTBuilder<'a> {
         self.inner.depth_clip_control = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClipControlFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDepthClipControlFeaturesEXT>(
         mut self,
@@ -38611,6 +39240,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDepthClipControlFeaturesEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38636,7 +39266,7 @@ impl<'a> PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXTBuilder<'a> {
         self.inner.zero_initialize_device_memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT>(
         mut self,
@@ -38667,6 +39297,7 @@ for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BeginCustomResolveInfoEXT`] with lifetime-tied pNext safety.
 pub struct BeginCustomResolveInfoEXTBuilder<'a> {
     inner: BeginCustomResolveInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38685,7 +39316,7 @@ impl BeginCustomResolveInfoEXT {
     }
 }
 impl<'a> BeginCustomResolveInfoEXTBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BeginCustomResolveInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBeginCustomResolveInfoEXT>(
         mut self,
@@ -38714,6 +39345,7 @@ impl<'a> core::ops::DerefMut for BeginCustomResolveInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCustomResolveFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCustomResolveFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceCustomResolveFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38737,7 +39369,7 @@ impl<'a> PhysicalDeviceCustomResolveFeaturesEXTBuilder<'a> {
         self.inner.custom_resolve = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCustomResolveFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCustomResolveFeaturesEXT>(
         mut self,
@@ -38766,6 +39398,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCustomResolveFeaturesEXTBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`CustomResolveCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct CustomResolveCreateInfoEXTBuilder<'a> {
     inner: CustomResolveCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38805,7 +39438,7 @@ impl<'a> CustomResolveCreateInfoEXTBuilder<'a> {
         self.inner.stencil_attachment_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CustomResolveCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCustomResolveCreateInfoEXT>(
         mut self,
@@ -38834,6 +39467,7 @@ impl<'a> core::ops::DerefMut for CustomResolveCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -38862,7 +39496,7 @@ impl<'a> PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder<'a> {
         self.inner.dynamic_generated_pipeline_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT>(
         mut self,
@@ -38893,6 +39527,7 @@ for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39004,6 +39639,7 @@ for PhysicalDeviceDeviceGeneratedCommandsPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeneratedCommandsPipelineInfoEXT`] with lifetime-tied pNext safety.
 pub struct GeneratedCommandsPipelineInfoEXTBuilder<'a> {
     inner: GeneratedCommandsPipelineInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39027,7 +39663,7 @@ impl<'a> GeneratedCommandsPipelineInfoEXTBuilder<'a> {
         self.inner.pipeline = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeneratedCommandsPipelineInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeneratedCommandsPipelineInfoEXT>(
         mut self,
@@ -39056,6 +39692,7 @@ impl<'a> core::ops::DerefMut for GeneratedCommandsPipelineInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeneratedCommandsShaderInfoEXT`] with lifetime-tied pNext safety.
 pub struct GeneratedCommandsShaderInfoEXTBuilder<'a> {
     inner: GeneratedCommandsShaderInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39080,7 +39717,7 @@ impl<'a> GeneratedCommandsShaderInfoEXTBuilder<'a> {
         self.inner.p_shaders = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeneratedCommandsShaderInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeneratedCommandsShaderInfoEXT>(
         mut self,
@@ -39109,6 +39746,7 @@ impl<'a> core::ops::DerefMut for GeneratedCommandsShaderInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeneratedCommandsMemoryRequirementsInfoEXT`] with lifetime-tied pNext safety.
 pub struct GeneratedCommandsMemoryRequirementsInfoEXTBuilder<'a> {
     inner: GeneratedCommandsMemoryRequirementsInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39147,7 +39785,7 @@ impl<'a> GeneratedCommandsMemoryRequirementsInfoEXTBuilder<'a> {
         self.inner.max_draw_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeneratedCommandsMemoryRequirementsInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeneratedCommandsMemoryRequirementsInfoEXT>(
         mut self,
@@ -39176,6 +39814,7 @@ impl<'a> core::ops::DerefMut for GeneratedCommandsMemoryRequirementsInfoEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`IndirectExecutionSetPipelineInfoEXT`] with lifetime-tied pNext safety.
 pub struct IndirectExecutionSetPipelineInfoEXTBuilder<'a> {
     inner: IndirectExecutionSetPipelineInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39204,7 +39843,7 @@ impl<'a> IndirectExecutionSetPipelineInfoEXTBuilder<'a> {
         self.inner.max_pipeline_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectExecutionSetPipelineInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectExecutionSetPipelineInfoEXT>(
         mut self,
@@ -39233,6 +39872,7 @@ impl<'a> core::ops::DerefMut for IndirectExecutionSetPipelineInfoEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`IndirectExecutionSetShaderLayoutInfoEXT`] with lifetime-tied pNext safety.
 pub struct IndirectExecutionSetShaderLayoutInfoEXTBuilder<'a> {
     inner: IndirectExecutionSetShaderLayoutInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39257,7 +39897,7 @@ impl<'a> IndirectExecutionSetShaderLayoutInfoEXTBuilder<'a> {
         self.inner.p_set_layouts = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectExecutionSetShaderLayoutInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectExecutionSetShaderLayoutInfoEXT>(
         mut self,
@@ -39286,6 +39926,7 @@ impl<'a> core::ops::DerefMut for IndirectExecutionSetShaderLayoutInfoEXTBuilder<
         &mut self.inner
     }
 }
+///Builder for [`IndirectExecutionSetShaderInfoEXT`] with lifetime-tied pNext safety.
 pub struct IndirectExecutionSetShaderInfoEXTBuilder<'a> {
     inner: IndirectExecutionSetShaderInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39330,7 +39971,7 @@ impl<'a> IndirectExecutionSetShaderInfoEXTBuilder<'a> {
         self.inner.p_push_constant_ranges = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectExecutionSetShaderInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectExecutionSetShaderInfoEXT>(
         mut self,
@@ -39359,6 +40000,7 @@ impl<'a> core::ops::DerefMut for IndirectExecutionSetShaderInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`IndirectExecutionSetCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct IndirectExecutionSetCreateInfoEXTBuilder<'a> {
     inner: IndirectExecutionSetCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39387,7 +40029,7 @@ impl<'a> IndirectExecutionSetCreateInfoEXTBuilder<'a> {
         self.inner.info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectExecutionSetCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectExecutionSetCreateInfoEXT>(
         mut self,
@@ -39416,6 +40058,7 @@ impl<'a> core::ops::DerefMut for IndirectExecutionSetCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GeneratedCommandsInfoEXT`] with lifetime-tied pNext safety.
 pub struct GeneratedCommandsInfoEXTBuilder<'a> {
     inner: GeneratedCommandsInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39484,7 +40127,7 @@ impl<'a> GeneratedCommandsInfoEXTBuilder<'a> {
         self.inner.max_draw_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GeneratedCommandsInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGeneratedCommandsInfoEXT>(
         mut self,
@@ -39513,6 +40156,7 @@ impl<'a> core::ops::DerefMut for GeneratedCommandsInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`WriteIndirectExecutionSetPipelineEXT`] with lifetime-tied pNext safety.
 pub struct WriteIndirectExecutionSetPipelineEXTBuilder<'a> {
     inner: WriteIndirectExecutionSetPipelineEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39541,7 +40185,7 @@ impl<'a> WriteIndirectExecutionSetPipelineEXTBuilder<'a> {
         self.inner.pipeline = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteIndirectExecutionSetPipelineEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteIndirectExecutionSetPipelineEXT>(
         mut self,
@@ -39570,6 +40214,7 @@ impl<'a> core::ops::DerefMut for WriteIndirectExecutionSetPipelineEXTBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`WriteIndirectExecutionSetShaderEXT`] with lifetime-tied pNext safety.
 pub struct WriteIndirectExecutionSetShaderEXTBuilder<'a> {
     inner: WriteIndirectExecutionSetShaderEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39598,7 +40243,7 @@ impl<'a> WriteIndirectExecutionSetShaderEXTBuilder<'a> {
         self.inner.shader = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteIndirectExecutionSetShaderEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteIndirectExecutionSetShaderEXT>(
         mut self,
@@ -39627,6 +40272,7 @@ impl<'a> core::ops::DerefMut for WriteIndirectExecutionSetShaderEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`IndirectCommandsLayoutCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct IndirectCommandsLayoutCreateInfoEXTBuilder<'a> {
     inner: IndirectCommandsLayoutCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39671,7 +40317,7 @@ impl<'a> IndirectCommandsLayoutCreateInfoEXTBuilder<'a> {
         self.inner.p_tokens = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectCommandsLayoutCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectCommandsLayoutCreateInfoEXT>(
         mut self,
@@ -39700,6 +40346,7 @@ impl<'a> core::ops::DerefMut for IndirectCommandsLayoutCreateInfoEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`IndirectCommandsLayoutTokenEXT`] with lifetime-tied pNext safety.
 pub struct IndirectCommandsLayoutTokenEXTBuilder<'a> {
     inner: IndirectCommandsLayoutTokenEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39733,7 +40380,7 @@ impl<'a> IndirectCommandsLayoutTokenEXTBuilder<'a> {
         self.inner.offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectCommandsLayoutTokenEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectCommandsLayoutTokenEXT>(
         mut self,
@@ -39762,6 +40409,7 @@ impl<'a> core::ops::DerefMut for IndirectCommandsLayoutTokenEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportDepthClipControlCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineViewportDepthClipControlCreateInfoEXTBuilder<'a> {
     inner: PipelineViewportDepthClipControlCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39785,7 +40433,7 @@ impl<'a> PipelineViewportDepthClipControlCreateInfoEXTBuilder<'a> {
         self.inner.negative_one_to_one = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportDepthClipControlCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportDepthClipControlCreateInfoEXT>(
         mut self,
@@ -39815,6 +40463,7 @@ for PipelineViewportDepthClipControlCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDepthClampControlFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDepthClampControlFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDepthClampControlFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39838,7 +40487,7 @@ impl<'a> PhysicalDeviceDepthClampControlFeaturesEXTBuilder<'a> {
         self.inner.depth_clamp_control = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClampControlFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDepthClampControlFeaturesEXT>(
         mut self,
@@ -39867,6 +40516,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDepthClampControlFeaturesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`PipelineViewportDepthClampControlCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
     inner: PipelineViewportDepthClampControlCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39895,7 +40545,7 @@ impl<'a> PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
         self.inner.p_depth_clamp_range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineViewportDepthClampControlCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineViewportDepthClampControlCreateInfoEXT>(
         mut self,
@@ -39925,6 +40575,7 @@ for PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVertexInputDynamicStateFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceVertexInputDynamicStateFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -39948,7 +40599,7 @@ impl<'a> PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder<'a> {
         self.inner.vertex_input_dynamic_state = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVertexInputDynamicStateFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVertexInputDynamicStateFeaturesEXT>(
         mut self,
@@ -39979,6 +40630,7 @@ for PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalMemoryRDMAFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceExternalMemoryRDMAFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40002,7 +40654,7 @@ impl<'a> PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder<'a> {
         self.inner.external_memory_rdma = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalMemoryRDMAFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalMemoryRDMAFeaturesNV>(
         mut self,
@@ -40031,6 +40683,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalMemoryRDMAFeaturesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40056,7 +40709,7 @@ impl<'a> PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHRBuilder<'a> {
         self.inner.shader_relaxed_extended_instruction = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR,
@@ -40086,6 +40739,7 @@ for PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VertexInputBindingDescription2EXT`] with lifetime-tied pNext safety.
 pub struct VertexInputBindingDescription2EXTBuilder<'a> {
     inner: VertexInputBindingDescription2EXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40124,7 +40778,7 @@ impl<'a> VertexInputBindingDescription2EXTBuilder<'a> {
         self.inner.divisor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VertexInputBindingDescription2EXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVertexInputBindingDescription2EXT>(
         mut self,
@@ -40153,6 +40807,7 @@ impl<'a> core::ops::DerefMut for VertexInputBindingDescription2EXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VertexInputAttributeDescription2EXT`] with lifetime-tied pNext safety.
 pub struct VertexInputAttributeDescription2EXTBuilder<'a> {
     inner: VertexInputAttributeDescription2EXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40191,7 +40846,7 @@ impl<'a> VertexInputAttributeDescription2EXTBuilder<'a> {
         self.inner.offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VertexInputAttributeDescription2EXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVertexInputAttributeDescription2EXT>(
         mut self,
@@ -40220,6 +40875,7 @@ impl<'a> core::ops::DerefMut for VertexInputAttributeDescription2EXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceColorWriteEnableFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceColorWriteEnableFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceColorWriteEnableFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40243,7 +40899,7 @@ impl<'a> PhysicalDeviceColorWriteEnableFeaturesEXTBuilder<'a> {
         self.inner.color_write_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceColorWriteEnableFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceColorWriteEnableFeaturesEXT>(
         mut self,
@@ -40272,6 +40928,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceColorWriteEnableFeaturesEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PipelineColorWriteCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineColorWriteCreateInfoEXTBuilder<'a> {
     inner: PipelineColorWriteCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40296,7 +40953,7 @@ impl<'a> PipelineColorWriteCreateInfoEXTBuilder<'a> {
         self.inner.p_color_write_enables = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineColorWriteCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineColorWriteCreateInfoEXT>(
         mut self,
@@ -40325,6 +40982,7 @@ impl<'a> core::ops::DerefMut for PipelineColorWriteCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryBarrier2`] with lifetime-tied pNext safety.
 pub struct MemoryBarrier2Builder<'a> {
     inner: MemoryBarrier2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40363,7 +41021,7 @@ impl<'a> MemoryBarrier2Builder<'a> {
         self.inner.dst_access_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryBarrier2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryBarrier2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -40389,6 +41047,7 @@ impl<'a> core::ops::DerefMut for MemoryBarrier2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageMemoryBarrier2`] with lifetime-tied pNext safety.
 pub struct ImageMemoryBarrier2Builder<'a> {
     inner: ImageMemoryBarrier2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40457,7 +41116,7 @@ impl<'a> ImageMemoryBarrier2Builder<'a> {
         self.inner.subresource_range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageMemoryBarrier2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageMemoryBarrier2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -40483,6 +41142,7 @@ impl<'a> core::ops::DerefMut for ImageMemoryBarrier2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferMemoryBarrier2`] with lifetime-tied pNext safety.
 pub struct BufferMemoryBarrier2Builder<'a> {
     inner: BufferMemoryBarrier2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40546,7 +41206,7 @@ impl<'a> BufferMemoryBarrier2Builder<'a> {
         self.inner.size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferMemoryBarrier2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferMemoryBarrier2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -40572,6 +41232,7 @@ impl<'a> core::ops::DerefMut for BufferMemoryBarrier2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryBarrierAccessFlags3KHR`] with lifetime-tied pNext safety.
 pub struct MemoryBarrierAccessFlags3KHRBuilder<'a> {
     inner: MemoryBarrierAccessFlags3KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40600,7 +41261,7 @@ impl<'a> MemoryBarrierAccessFlags3KHRBuilder<'a> {
         self.inner.dst_access_mask3 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryBarrierAccessFlags3KHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryBarrierAccessFlags3KHR>(
         mut self,
@@ -40629,6 +41290,7 @@ impl<'a> core::ops::DerefMut for MemoryBarrierAccessFlags3KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DependencyInfo`] with lifetime-tied pNext safety.
 pub struct DependencyInfoBuilder<'a> {
     inner: DependencyInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40670,7 +41332,7 @@ impl<'a> DependencyInfoBuilder<'a> {
         self.inner.p_image_memory_barriers = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DependencyInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDependencyInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -40696,6 +41358,7 @@ impl<'a> core::ops::DerefMut for DependencyInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SemaphoreSubmitInfo`] with lifetime-tied pNext safety.
 pub struct SemaphoreSubmitInfoBuilder<'a> {
     inner: SemaphoreSubmitInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40734,7 +41397,7 @@ impl<'a> SemaphoreSubmitInfoBuilder<'a> {
         self.inner.device_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SemaphoreSubmitInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSemaphoreSubmitInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -40760,6 +41423,7 @@ impl<'a> core::ops::DerefMut for SemaphoreSubmitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferSubmitInfo`] with lifetime-tied pNext safety.
 pub struct CommandBufferSubmitInfoBuilder<'a> {
     inner: CommandBufferSubmitInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40788,7 +41452,7 @@ impl<'a> CommandBufferSubmitInfoBuilder<'a> {
         self.inner.device_mask = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferSubmitInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferSubmitInfo>(
         mut self,
@@ -40817,6 +41481,7 @@ impl<'a> core::ops::DerefMut for CommandBufferSubmitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubmitInfo2`] with lifetime-tied pNext safety.
 pub struct SubmitInfo2Builder<'a> {
     inner: SubmitInfo2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40858,7 +41523,7 @@ impl<'a> SubmitInfo2Builder<'a> {
         self.inner.p_signal_semaphore_infos = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubmitInfo2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubmitInfo2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -40884,6 +41549,7 @@ impl<'a> core::ops::DerefMut for SubmitInfo2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyCheckpointProperties2NV`] with lifetime-tied pNext safety.
 pub struct QueueFamilyCheckpointProperties2NVBuilder<'a> {
     inner: QueueFamilyCheckpointProperties2NV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40924,6 +41590,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyCheckpointProperties2NVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CheckpointData2NV`] with lifetime-tied pNext safety.
 pub struct CheckpointData2NVBuilder<'a> {
     inner: CheckpointData2NV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40966,6 +41633,7 @@ impl<'a> core::ops::DerefMut for CheckpointData2NVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSynchronization2Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSynchronization2FeaturesBuilder<'a> {
     inner: PhysicalDeviceSynchronization2Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -40989,7 +41657,7 @@ impl<'a> PhysicalDeviceSynchronization2FeaturesBuilder<'a> {
         self.inner.synchronization2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSynchronization2Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSynchronization2Features>(
         mut self,
@@ -41018,6 +41686,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSynchronization2FeaturesBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceUnifiedImageLayoutsFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceUnifiedImageLayoutsFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41046,7 +41715,7 @@ impl<'a> PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder<'a> {
         self.inner.unified_image_layouts_video = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceUnifiedImageLayoutsFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceUnifiedImageLayoutsFeaturesKHR>(
         mut self,
@@ -41076,6 +41745,7 @@ for PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceHostImageCopyFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceHostImageCopyFeaturesBuilder<'a> {
     inner: PhysicalDeviceHostImageCopyFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41099,7 +41769,7 @@ impl<'a> PhysicalDeviceHostImageCopyFeaturesBuilder<'a> {
         self.inner.host_image_copy = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHostImageCopyFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceHostImageCopyFeatures>(
         mut self,
@@ -41128,6 +41798,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceHostImageCopyFeaturesBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceHostImageCopyProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceHostImageCopyPropertiesBuilder<'a> {
     inner: PhysicalDeviceHostImageCopyProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41171,7 +41842,7 @@ impl<'a> PhysicalDeviceHostImageCopyPropertiesBuilder<'a> {
         self.inner.identical_memory_type_requirements = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHostImageCopyProperties`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceHostImageCopyProperties>(
         mut self,
@@ -41200,6 +41871,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceHostImageCopyPropertiesBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`MemoryToImageCopy`] with lifetime-tied pNext safety.
 pub struct MemoryToImageCopyBuilder<'a> {
     inner: MemoryToImageCopy,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41248,7 +41920,7 @@ impl<'a> MemoryToImageCopyBuilder<'a> {
         self.inner.image_extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryToImageCopy`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryToImageCopy>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -41274,6 +41946,7 @@ impl<'a> core::ops::DerefMut for MemoryToImageCopyBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageToMemoryCopy`] with lifetime-tied pNext safety.
 pub struct ImageToMemoryCopyBuilder<'a> {
     inner: ImageToMemoryCopy,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41322,7 +41995,7 @@ impl<'a> ImageToMemoryCopyBuilder<'a> {
         self.inner.image_extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageToMemoryCopy`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageToMemoryCopy>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -41348,6 +42021,7 @@ impl<'a> core::ops::DerefMut for ImageToMemoryCopyBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyMemoryToImageInfo`] with lifetime-tied pNext safety.
 pub struct CopyMemoryToImageInfoBuilder<'a> {
     inner: CopyMemoryToImageInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41387,7 +42061,7 @@ impl<'a> CopyMemoryToImageInfoBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyMemoryToImageInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyMemoryToImageInfo>(
         mut self,
@@ -41416,6 +42090,7 @@ impl<'a> core::ops::DerefMut for CopyMemoryToImageInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyImageToMemoryInfo`] with lifetime-tied pNext safety.
 pub struct CopyImageToMemoryInfoBuilder<'a> {
     inner: CopyImageToMemoryInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41455,7 +42130,7 @@ impl<'a> CopyImageToMemoryInfoBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyImageToMemoryInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyImageToMemoryInfo>(
         mut self,
@@ -41484,6 +42159,7 @@ impl<'a> core::ops::DerefMut for CopyImageToMemoryInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyImageToImageInfo`] with lifetime-tied pNext safety.
 pub struct CopyImageToImageInfoBuilder<'a> {
     inner: CopyImageToImageInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41533,7 +42209,7 @@ impl<'a> CopyImageToImageInfoBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyImageToImageInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyImageToImageInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -41559,6 +42235,7 @@ impl<'a> core::ops::DerefMut for CopyImageToImageInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`HostImageLayoutTransitionInfo`] with lifetime-tied pNext safety.
 pub struct HostImageLayoutTransitionInfoBuilder<'a> {
     inner: HostImageLayoutTransitionInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41597,7 +42274,7 @@ impl<'a> HostImageLayoutTransitionInfoBuilder<'a> {
         self.inner.subresource_range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`HostImageLayoutTransitionInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsHostImageLayoutTransitionInfo>(
         mut self,
@@ -41626,6 +42303,7 @@ impl<'a> core::ops::DerefMut for HostImageLayoutTransitionInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubresourceHostMemcpySize`] with lifetime-tied pNext safety.
 pub struct SubresourceHostMemcpySizeBuilder<'a> {
     inner: SubresourceHostMemcpySize,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41663,6 +42341,7 @@ impl<'a> core::ops::DerefMut for SubresourceHostMemcpySizeBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`HostImageCopyDevicePerformanceQuery`] with lifetime-tied pNext safety.
 pub struct HostImageCopyDevicePerformanceQueryBuilder<'a> {
     inner: HostImageCopyDevicePerformanceQuery,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41705,6 +42384,7 @@ impl<'a> core::ops::DerefMut for HostImageCopyDevicePerformanceQueryBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkanSC10Properties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkanSC10PropertiesBuilder<'a> {
     inner: PhysicalDeviceVulkanSC10Properties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41833,6 +42513,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkanSC10PropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelinePoolSize`] with lifetime-tied pNext safety.
 pub struct PipelinePoolSizeBuilder<'a> {
     inner: PipelinePoolSize,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -41861,7 +42542,7 @@ impl<'a> PipelinePoolSizeBuilder<'a> {
         self.inner.pool_entry_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelinePoolSize`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelinePoolSize>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -41887,6 +42568,7 @@ impl<'a> core::ops::DerefMut for PipelinePoolSizeBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceObjectReservationCreateInfo`] with lifetime-tied pNext safety.
 pub struct DeviceObjectReservationCreateInfoBuilder<'a> {
     inner: DeviceObjectReservationCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42108,7 +42790,7 @@ impl<'a> DeviceObjectReservationCreateInfoBuilder<'a> {
         self.inner.max_immutable_samplers_per_descriptor_set_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceObjectReservationCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceObjectReservationCreateInfo>(
         mut self,
@@ -42137,6 +42819,7 @@ impl<'a> core::ops::DerefMut for DeviceObjectReservationCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandPoolMemoryReservationCreateInfo`] with lifetime-tied pNext safety.
 pub struct CommandPoolMemoryReservationCreateInfoBuilder<'a> {
     inner: CommandPoolMemoryReservationCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42165,7 +42848,7 @@ impl<'a> CommandPoolMemoryReservationCreateInfoBuilder<'a> {
         self.inner.command_pool_max_command_buffers = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandPoolMemoryReservationCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandPoolMemoryReservationCreateInfo>(
         mut self,
@@ -42194,6 +42877,7 @@ impl<'a> core::ops::DerefMut for CommandPoolMemoryReservationCreateInfoBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`CommandPoolMemoryConsumption`] with lifetime-tied pNext safety.
 pub struct CommandPoolMemoryConsumptionBuilder<'a> {
     inner: CommandPoolMemoryConsumption,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42241,6 +42925,7 @@ impl<'a> core::ops::DerefMut for CommandPoolMemoryConsumptionBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVulkanSC10Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVulkanSC10FeaturesBuilder<'a> {
     inner: PhysicalDeviceVulkanSC10Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42264,7 +42949,7 @@ impl<'a> PhysicalDeviceVulkanSC10FeaturesBuilder<'a> {
         self.inner.shader_atomic_instructions = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkanSC10Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVulkanSC10Features>(
         mut self,
@@ -42293,6 +42978,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVulkanSC10FeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePrimitivesGeneratedQueryFeaturesEXTBuilder<'a> {
     inner: PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42334,7 +43020,7 @@ impl<'a> PhysicalDevicePrimitivesGeneratedQueryFeaturesEXTBuilder<'a> {
         self.inner.primitives_generated_query_with_non_zero_streams = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT>(
         mut self,
@@ -42365,6 +43051,7 @@ for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLegacyDitheringFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLegacyDitheringFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceLegacyDitheringFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42388,7 +43075,7 @@ impl<'a> PhysicalDeviceLegacyDitheringFeaturesEXTBuilder<'a> {
         self.inner.legacy_dithering = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLegacyDitheringFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceLegacyDitheringFeaturesEXT>(
         mut self,
@@ -42417,6 +43104,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceLegacyDitheringFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42442,7 +43130,7 @@ impl<'a> PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXTBuilder<'a> {
         self.inner.multisampled_render_to_single_sampled = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT,
@@ -42472,6 +43160,7 @@ for PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceCapabilitiesPresentId2KHR`] with lifetime-tied pNext safety.
 pub struct SurfaceCapabilitiesPresentId2KHRBuilder<'a> {
     inner: SurfaceCapabilitiesPresentId2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42495,7 +43184,7 @@ impl<'a> SurfaceCapabilitiesPresentId2KHRBuilder<'a> {
         self.inner.present_id2_supported = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfaceCapabilitiesPresentId2KHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfaceCapabilitiesPresentId2KHR>(
         mut self,
@@ -42524,6 +43213,7 @@ impl<'a> core::ops::DerefMut for SurfaceCapabilitiesPresentId2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceCapabilitiesPresentWait2KHR`] with lifetime-tied pNext safety.
 pub struct SurfaceCapabilitiesPresentWait2KHRBuilder<'a> {
     inner: SurfaceCapabilitiesPresentWait2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42547,7 +43237,7 @@ impl<'a> SurfaceCapabilitiesPresentWait2KHRBuilder<'a> {
         self.inner.present_wait2_supported = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfaceCapabilitiesPresentWait2KHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfaceCapabilitiesPresentWait2KHR>(
         mut self,
@@ -42576,6 +43266,7 @@ impl<'a> core::ops::DerefMut for SurfaceCapabilitiesPresentWait2KHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubpassResolvePerformanceQueryEXT`] with lifetime-tied pNext safety.
 pub struct SubpassResolvePerformanceQueryEXTBuilder<'a> {
     inner: SubpassResolvePerformanceQueryEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42613,6 +43304,7 @@ impl<'a> core::ops::DerefMut for SubpassResolvePerformanceQueryEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MultisampledRenderToSingleSampledInfoEXT`] with lifetime-tied pNext safety.
 pub struct MultisampledRenderToSingleSampledInfoEXTBuilder<'a> {
     inner: MultisampledRenderToSingleSampledInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42641,7 +43333,7 @@ impl<'a> MultisampledRenderToSingleSampledInfoEXTBuilder<'a> {
         self.inner.rasterization_samples = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MultisampledRenderToSingleSampledInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMultisampledRenderToSingleSampledInfoEXT>(
         mut self,
@@ -42670,6 +43362,7 @@ impl<'a> core::ops::DerefMut for MultisampledRenderToSingleSampledInfoEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineProtectedAccessFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineProtectedAccessFeaturesBuilder<'a> {
     inner: PhysicalDevicePipelineProtectedAccessFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42693,7 +43386,7 @@ impl<'a> PhysicalDevicePipelineProtectedAccessFeaturesBuilder<'a> {
         self.inner.pipeline_protected_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineProtectedAccessFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineProtectedAccessFeatures>(
         mut self,
@@ -42723,6 +43416,7 @@ for PhysicalDevicePipelineProtectedAccessFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyVideoPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct QueueFamilyVideoPropertiesKHRBuilder<'a> {
     inner: QueueFamilyVideoPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42760,6 +43454,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyVideoPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyQueryResultStatusPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct QueueFamilyQueryResultStatusPropertiesKHRBuilder<'a> {
     inner: QueueFamilyQueryResultStatusPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42797,6 +43492,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyQueryResultStatusPropertiesKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`VideoProfileListInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoProfileListInfoKHRBuilder<'a> {
     inner: VideoProfileListInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42821,7 +43517,7 @@ impl<'a> VideoProfileListInfoKHRBuilder<'a> {
         self.inner.p_profiles = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoProfileListInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoProfileListInfoKHR>(
         mut self,
@@ -42850,6 +43546,7 @@ impl<'a> core::ops::DerefMut for VideoProfileListInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoFormatInfoKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoFormatInfoKHRBuilder<'a> {
     inner: PhysicalDeviceVideoFormatInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42873,7 +43570,7 @@ impl<'a> PhysicalDeviceVideoFormatInfoKHRBuilder<'a> {
         self.inner.image_usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoFormatInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoFormatInfoKHR>(
         mut self,
@@ -42902,6 +43599,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVideoFormatInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoFormatPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoFormatPropertiesKHRBuilder<'a> {
     inner: VideoFormatPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -42964,6 +43662,7 @@ impl<'a> core::ops::DerefMut for VideoFormatPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeQuantizationMapCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeQuantizationMapCapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeQuantizationMapCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43001,6 +43700,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeQuantizationMapCapabilitiesKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264QuantizationMapCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264QuantizationMapCapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeH264QuantizationMapCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43044,6 +43744,7 @@ for VideoEncodeH264QuantizationMapCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265QuantizationMapCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265QuantizationMapCapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeH265QuantizationMapCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43087,6 +43788,7 @@ for VideoEncodeH265QuantizationMapCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1QuantizationMapCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1QuantizationMapCapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeAV1QuantizationMapCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43130,6 +43832,7 @@ for VideoEncodeAV1QuantizationMapCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoFormatQuantizationMapPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoFormatQuantizationMapPropertiesKHRBuilder<'a> {
     inner: VideoFormatQuantizationMapPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43167,6 +43870,7 @@ impl<'a> core::ops::DerefMut for VideoFormatQuantizationMapPropertiesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`VideoFormatH265QuantizationMapPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoFormatH265QuantizationMapPropertiesKHRBuilder<'a> {
     inner: VideoFormatH265QuantizationMapPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43207,6 +43911,7 @@ impl<'a> core::ops::DerefMut for VideoFormatH265QuantizationMapPropertiesKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`VideoFormatAV1QuantizationMapPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoFormatAV1QuantizationMapPropertiesKHRBuilder<'a> {
     inner: VideoFormatAV1QuantizationMapPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43247,6 +43952,7 @@ impl<'a> core::ops::DerefMut for VideoFormatAV1QuantizationMapPropertiesKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoProfileInfoKHRBuilder<'a> {
     inner: VideoProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43288,7 +43994,7 @@ impl<'a> VideoProfileInfoKHRBuilder<'a> {
         self.inner.chroma_bit_depth = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoProfileInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -43314,6 +44020,7 @@ impl<'a> core::ops::DerefMut for VideoProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoCapabilitiesKHRBuilder<'a> {
     inner: VideoCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43391,6 +44098,7 @@ impl<'a> core::ops::DerefMut for VideoCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoSessionMemoryRequirementsKHR`] with lifetime-tied pNext safety.
 pub struct VideoSessionMemoryRequirementsKHRBuilder<'a> {
     inner: VideoSessionMemoryRequirementsKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43433,6 +44141,7 @@ impl<'a> core::ops::DerefMut for VideoSessionMemoryRequirementsKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindVideoSessionMemoryInfoKHR`] with lifetime-tied pNext safety.
 pub struct BindVideoSessionMemoryInfoKHRBuilder<'a> {
     inner: BindVideoSessionMemoryInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43471,7 +44180,7 @@ impl<'a> BindVideoSessionMemoryInfoKHRBuilder<'a> {
         self.inner.memory_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindVideoSessionMemoryInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindVideoSessionMemoryInfoKHR>(
         mut self,
@@ -43500,6 +44209,7 @@ impl<'a> core::ops::DerefMut for BindVideoSessionMemoryInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoPictureResourceInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoPictureResourceInfoKHRBuilder<'a> {
     inner: VideoPictureResourceInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43538,7 +44248,7 @@ impl<'a> VideoPictureResourceInfoKHRBuilder<'a> {
         self.inner.image_view_binding = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoPictureResourceInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoPictureResourceInfoKHR>(
         mut self,
@@ -43567,6 +44277,7 @@ impl<'a> core::ops::DerefMut for VideoPictureResourceInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoReferenceSlotInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoReferenceSlotInfoKHRBuilder<'a> {
     inner: VideoReferenceSlotInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43598,7 +44309,7 @@ impl<'a> VideoReferenceSlotInfoKHRBuilder<'a> {
         self.inner.p_picture_resource = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoReferenceSlotInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoReferenceSlotInfoKHR>(
         mut self,
@@ -43627,6 +44338,7 @@ impl<'a> core::ops::DerefMut for VideoReferenceSlotInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeCapabilitiesKHRBuilder<'a> {
     inner: VideoDecodeCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43664,6 +44376,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeUsageInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeUsageInfoKHRBuilder<'a> {
     inner: VideoDecodeUsageInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43687,7 +44400,7 @@ impl<'a> VideoDecodeUsageInfoKHRBuilder<'a> {
         self.inner.video_usage_hints = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeUsageInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeUsageInfoKHR>(
         mut self,
@@ -43716,6 +44429,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeUsageInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeInfoKHRBuilder<'a> {
     inner: VideoDecodeInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43773,7 +44487,7 @@ impl<'a> VideoDecodeInfoKHRBuilder<'a> {
         self.inner.p_reference_slots = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -43799,6 +44513,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoMaintenance1FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceVideoMaintenance1FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43822,7 +44537,7 @@ impl<'a> PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder<'a> {
         self.inner.video_maintenance1 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoMaintenance1FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoMaintenance1FeaturesKHR>(
         mut self,
@@ -43851,6 +44566,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVideoMaintenance1FeaturesKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoMaintenance2FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceVideoMaintenance2FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43874,7 +44590,7 @@ impl<'a> PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder<'a> {
         self.inner.video_maintenance2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoMaintenance2FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoMaintenance2FeaturesKHR>(
         mut self,
@@ -43903,6 +44619,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVideoMaintenance2FeaturesKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoInlineQueryInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoInlineQueryInfoKHRBuilder<'a> {
     inner: VideoInlineQueryInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43936,7 +44653,7 @@ impl<'a> VideoInlineQueryInfoKHRBuilder<'a> {
         self.inner.query_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoInlineQueryInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoInlineQueryInfoKHR>(
         mut self,
@@ -43965,6 +44682,7 @@ impl<'a> core::ops::DerefMut for VideoInlineQueryInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH264ProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH264ProfileInfoKHRBuilder<'a> {
     inner: VideoDecodeH264ProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -43996,7 +44714,7 @@ impl<'a> VideoDecodeH264ProfileInfoKHRBuilder<'a> {
         self.inner.picture_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH264ProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH264ProfileInfoKHR>(
         mut self,
@@ -44025,6 +44743,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH264ProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH264CapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH264CapabilitiesKHRBuilder<'a> {
     inner: VideoDecodeH264CapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44067,6 +44786,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH264CapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH264SessionParametersAddInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH264SessionParametersAddInfoKHRBuilder<'a> {
     inner: VideoDecodeH264SessionParametersAddInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44097,7 +44817,7 @@ impl<'a> VideoDecodeH264SessionParametersAddInfoKHRBuilder<'a> {
         self.inner.p_std_pp_ss = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH264SessionParametersAddInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH264SessionParametersAddInfoKHR>(
         mut self,
@@ -44126,6 +44846,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH264SessionParametersAddInfoKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH264SessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoDecodeH264SessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44162,7 +44883,7 @@ impl<'a> VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.p_parameters_add_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH264SessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH264SessionParametersCreateInfoKHR>(
         mut self,
@@ -44192,6 +44913,7 @@ for VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH264InlineSessionParametersInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH264InlineSessionParametersInfoKHRBuilder<'a> {
     inner: VideoDecodeH264InlineSessionParametersInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44220,7 +44942,7 @@ impl<'a> VideoDecodeH264InlineSessionParametersInfoKHRBuilder<'a> {
         self.inner.p_std_pps = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH264InlineSessionParametersInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH264InlineSessionParametersInfoKHR>(
         mut self,
@@ -44250,6 +44972,7 @@ for VideoDecodeH264InlineSessionParametersInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH264PictureInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH264PictureInfoKHRBuilder<'a> {
     inner: VideoDecodeH264PictureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44282,7 +45005,7 @@ impl<'a> VideoDecodeH264PictureInfoKHRBuilder<'a> {
         self.inner.p_slice_offsets = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH264PictureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH264PictureInfoKHR>(
         mut self,
@@ -44311,6 +45034,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH264PictureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH264DpbSlotInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH264DpbSlotInfoKHRBuilder<'a> {
     inner: VideoDecodeH264DpbSlotInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44337,7 +45061,7 @@ impl<'a> VideoDecodeH264DpbSlotInfoKHRBuilder<'a> {
         self.inner.p_std_reference_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH264DpbSlotInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH264DpbSlotInfoKHR>(
         mut self,
@@ -44366,6 +45090,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH264DpbSlotInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH265ProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH265ProfileInfoKHRBuilder<'a> {
     inner: VideoDecodeH265ProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44389,7 +45114,7 @@ impl<'a> VideoDecodeH265ProfileInfoKHRBuilder<'a> {
         self.inner.std_profile_idc = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH265ProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH265ProfileInfoKHR>(
         mut self,
@@ -44418,6 +45143,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH265ProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH265CapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH265CapabilitiesKHRBuilder<'a> {
     inner: VideoDecodeH265CapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44455,6 +45181,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH265CapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH265SessionParametersAddInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH265SessionParametersAddInfoKHRBuilder<'a> {
     inner: VideoDecodeH265SessionParametersAddInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44491,7 +45218,7 @@ impl<'a> VideoDecodeH265SessionParametersAddInfoKHRBuilder<'a> {
         self.inner.p_std_pp_ss = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH265SessionParametersAddInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH265SessionParametersAddInfoKHR>(
         mut self,
@@ -44520,6 +45247,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH265SessionParametersAddInfoKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH265SessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoDecodeH265SessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44561,7 +45289,7 @@ impl<'a> VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.p_parameters_add_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH265SessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH265SessionParametersCreateInfoKHR>(
         mut self,
@@ -44591,6 +45319,7 @@ for VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH265InlineSessionParametersInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH265InlineSessionParametersInfoKHRBuilder<'a> {
     inner: VideoDecodeH265InlineSessionParametersInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44624,7 +45353,7 @@ impl<'a> VideoDecodeH265InlineSessionParametersInfoKHRBuilder<'a> {
         self.inner.p_std_pps = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH265InlineSessionParametersInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH265InlineSessionParametersInfoKHR>(
         mut self,
@@ -44654,6 +45383,7 @@ for VideoDecodeH265InlineSessionParametersInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH265PictureInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH265PictureInfoKHRBuilder<'a> {
     inner: VideoDecodeH265PictureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44686,7 +45416,7 @@ impl<'a> VideoDecodeH265PictureInfoKHRBuilder<'a> {
         self.inner.p_slice_segment_offsets = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH265PictureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH265PictureInfoKHR>(
         mut self,
@@ -44715,6 +45445,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH265PictureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeH265DpbSlotInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeH265DpbSlotInfoKHRBuilder<'a> {
     inner: VideoDecodeH265DpbSlotInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44741,7 +45472,7 @@ impl<'a> VideoDecodeH265DpbSlotInfoKHRBuilder<'a> {
         self.inner.p_std_reference_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeH265DpbSlotInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeH265DpbSlotInfoKHR>(
         mut self,
@@ -44770,6 +45501,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeH265DpbSlotInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoDecodeVP9FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceVideoDecodeVP9FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44793,7 +45525,7 @@ impl<'a> PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder<'a> {
         self.inner.video_decode_vp9 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoDecodeVP9FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoDecodeVP9FeaturesKHR>(
         mut self,
@@ -44822,6 +45554,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeVP9ProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeVP9ProfileInfoKHRBuilder<'a> {
     inner: VideoDecodeVP9ProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44845,7 +45578,7 @@ impl<'a> VideoDecodeVP9ProfileInfoKHRBuilder<'a> {
         self.inner.std_profile = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeVP9ProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeVP9ProfileInfoKHR>(
         mut self,
@@ -44874,6 +45607,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeVP9ProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeVP9CapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeVP9CapabilitiesKHRBuilder<'a> {
     inner: VideoDecodeVP9CapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44911,6 +45645,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeVP9CapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeVP9PictureInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeVP9PictureInfoKHRBuilder<'a> {
     inner: VideoDecodeVP9PictureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -44960,7 +45695,7 @@ impl<'a> VideoDecodeVP9PictureInfoKHRBuilder<'a> {
         self.inner.tiles_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeVP9PictureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeVP9PictureInfoKHR>(
         mut self,
@@ -44989,6 +45724,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeVP9PictureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeAV1ProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeAV1ProfileInfoKHRBuilder<'a> {
     inner: VideoDecodeAV1ProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45017,7 +45753,7 @@ impl<'a> VideoDecodeAV1ProfileInfoKHRBuilder<'a> {
         self.inner.film_grain_support = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeAV1ProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeAV1ProfileInfoKHR>(
         mut self,
@@ -45046,6 +45782,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeAV1ProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeAV1CapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeAV1CapabilitiesKHRBuilder<'a> {
     inner: VideoDecodeAV1CapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45083,6 +45820,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeAV1CapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeAV1SessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoDecodeAV1SessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45109,7 +45847,7 @@ impl<'a> VideoDecodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.p_std_sequence_header = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeAV1SessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeAV1SessionParametersCreateInfoKHR>(
         mut self,
@@ -45139,6 +45877,7 @@ for VideoDecodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeAV1InlineSessionParametersInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeAV1InlineSessionParametersInfoKHRBuilder<'a> {
     inner: VideoDecodeAV1InlineSessionParametersInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45165,7 +45904,7 @@ impl<'a> VideoDecodeAV1InlineSessionParametersInfoKHRBuilder<'a> {
         self.inner.p_std_sequence_header = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeAV1InlineSessionParametersInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeAV1InlineSessionParametersInfoKHR>(
         mut self,
@@ -45195,6 +45934,7 @@ for VideoDecodeAV1InlineSessionParametersInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeAV1PictureInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeAV1PictureInfoKHRBuilder<'a> {
     inner: VideoDecodeAV1PictureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45246,7 +45986,7 @@ impl<'a> VideoDecodeAV1PictureInfoKHRBuilder<'a> {
         self.inner.p_tile_sizes = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeAV1PictureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeAV1PictureInfoKHR>(
         mut self,
@@ -45275,6 +46015,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeAV1PictureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoDecodeAV1DpbSlotInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoDecodeAV1DpbSlotInfoKHRBuilder<'a> {
     inner: VideoDecodeAV1DpbSlotInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45301,7 +46042,7 @@ impl<'a> VideoDecodeAV1DpbSlotInfoKHRBuilder<'a> {
         self.inner.p_std_reference_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoDecodeAV1DpbSlotInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoDecodeAV1DpbSlotInfoKHR>(
         mut self,
@@ -45330,6 +46071,7 @@ impl<'a> core::ops::DerefMut for VideoDecodeAV1DpbSlotInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoSessionCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoSessionCreateInfoKHRBuilder<'a> {
     inner: VideoSessionCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45393,7 +46135,7 @@ impl<'a> VideoSessionCreateInfoKHRBuilder<'a> {
         self.inner.p_std_header_version = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoSessionCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoSessionCreateInfoKHR>(
         mut self,
@@ -45422,6 +46164,7 @@ impl<'a> core::ops::DerefMut for VideoSessionCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoSessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoSessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoSessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45458,7 +46201,7 @@ impl<'a> VideoSessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.video_session = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoSessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoSessionParametersCreateInfoKHR>(
         mut self,
@@ -45487,6 +46230,7 @@ impl<'a> core::ops::DerefMut for VideoSessionParametersCreateInfoKHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`VideoSessionParametersUpdateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoSessionParametersUpdateInfoKHRBuilder<'a> {
     inner: VideoSessionParametersUpdateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45510,7 +46254,7 @@ impl<'a> VideoSessionParametersUpdateInfoKHRBuilder<'a> {
         self.inner.update_sequence_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoSessionParametersUpdateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoSessionParametersUpdateInfoKHR>(
         mut self,
@@ -45539,6 +46283,7 @@ impl<'a> core::ops::DerefMut for VideoSessionParametersUpdateInfoKHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeSessionParametersGetInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeSessionParametersGetInfoKHRBuilder<'a> {
     inner: VideoEncodeSessionParametersGetInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45562,7 +46307,7 @@ impl<'a> VideoEncodeSessionParametersGetInfoKHRBuilder<'a> {
         self.inner.video_session_parameters = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeSessionParametersGetInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeSessionParametersGetInfoKHR>(
         mut self,
@@ -45591,6 +46336,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeSessionParametersGetInfoKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeSessionParametersFeedbackInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeSessionParametersFeedbackInfoKHRBuilder<'a> {
     inner: VideoEncodeSessionParametersFeedbackInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45628,6 +46374,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeSessionParametersFeedbackInfoKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`VideoBeginCodingInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoBeginCodingInfoKHRBuilder<'a> {
     inner: VideoBeginCodingInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45667,7 +46414,7 @@ impl<'a> VideoBeginCodingInfoKHRBuilder<'a> {
         self.inner.p_reference_slots = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoBeginCodingInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoBeginCodingInfoKHR>(
         mut self,
@@ -45696,6 +46443,7 @@ impl<'a> core::ops::DerefMut for VideoBeginCodingInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEndCodingInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEndCodingInfoKHRBuilder<'a> {
     inner: VideoEndCodingInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45719,7 +46467,7 @@ impl<'a> VideoEndCodingInfoKHRBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEndCodingInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEndCodingInfoKHR>(
         mut self,
@@ -45748,6 +46496,7 @@ impl<'a> core::ops::DerefMut for VideoEndCodingInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoCodingControlInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoCodingControlInfoKHRBuilder<'a> {
     inner: VideoCodingControlInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45771,7 +46520,7 @@ impl<'a> VideoCodingControlInfoKHRBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoCodingControlInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoCodingControlInfoKHR>(
         mut self,
@@ -45800,6 +46549,7 @@ impl<'a> core::ops::DerefMut for VideoCodingControlInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeUsageInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeUsageInfoKHRBuilder<'a> {
     inner: VideoEncodeUsageInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45833,7 +46583,7 @@ impl<'a> VideoEncodeUsageInfoKHRBuilder<'a> {
         self.inner.tuning_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeUsageInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeUsageInfoKHR>(
         mut self,
@@ -45862,6 +46612,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeUsageInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeInfoKHRBuilder<'a> {
     inner: VideoEncodeInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45924,7 +46675,7 @@ impl<'a> VideoEncodeInfoKHRBuilder<'a> {
         self.inner.preceding_externally_encoded_bytes = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -45950,6 +46701,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeQuantizationMapInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeQuantizationMapInfoKHRBuilder<'a> {
     inner: VideoEncodeQuantizationMapInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -45978,7 +46730,7 @@ impl<'a> VideoEncodeQuantizationMapInfoKHRBuilder<'a> {
         self.inner.quantization_map_extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeQuantizationMapInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeQuantizationMapInfoKHR>(
         mut self,
@@ -46007,6 +46759,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeQuantizationMapInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeQuantizationMapSessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeQuantizationMapSessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeQuantizationMapSessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46032,7 +46785,7 @@ impl<'a> VideoEncodeQuantizationMapSessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.quantization_map_texel_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeQuantizationMapSessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeQuantizationMapSessionParametersCreateInfoKHR>(
         mut self,
@@ -46063,6 +46816,7 @@ for VideoEncodeQuantizationMapSessionParametersCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46088,7 +46842,7 @@ impl<'a> PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHRBuilder<'a> {
         self.inner.video_encode_quantization_map = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR>(
         mut self,
@@ -46119,6 +46873,7 @@ for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueryPoolVideoEncodeFeedbackCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilder<'a> {
     inner: QueryPoolVideoEncodeFeedbackCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46142,7 +46897,7 @@ impl<'a> QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilder<'a> {
         self.inner.encode_feedback_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`QueryPoolVideoEncodeFeedbackCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsQueryPoolVideoEncodeFeedbackCreateInfoKHR>(
         mut self,
@@ -46171,6 +46926,7 @@ impl<'a> core::ops::DerefMut for QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeQualityLevelInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeQualityLevelInfoKHRBuilder<'a> {
     inner: VideoEncodeQualityLevelInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46194,7 +46950,7 @@ impl<'a> VideoEncodeQualityLevelInfoKHRBuilder<'a> {
         self.inner.quality_level = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeQualityLevelInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeQualityLevelInfoKHR>(
         mut self,
@@ -46223,6 +46979,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeQualityLevelInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoEncodeQualityLevelInfoKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
     inner: PhysicalDeviceVideoEncodeQualityLevelInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46251,7 +47008,7 @@ impl<'a> PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
         self.inner.quality_level = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeQualityLevelInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoEncodeQualityLevelInfoKHR>(
         mut self,
@@ -46281,6 +47038,7 @@ for PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeQualityLevelPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeQualityLevelPropertiesKHRBuilder<'a> {
     inner: VideoEncodeQualityLevelPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46326,6 +47084,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeQualityLevelPropertiesKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeRateControlInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeRateControlInfoKHRBuilder<'a> {
     inner: VideoEncodeRateControlInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46373,7 +47132,7 @@ impl<'a> VideoEncodeRateControlInfoKHRBuilder<'a> {
         self.inner.initial_virtual_buffer_size_in_ms = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeRateControlInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeRateControlInfoKHR>(
         mut self,
@@ -46402,6 +47161,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeRateControlInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeRateControlLayerInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeRateControlLayerInfoKHRBuilder<'a> {
     inner: VideoEncodeRateControlLayerInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46440,7 +47200,7 @@ impl<'a> VideoEncodeRateControlLayerInfoKHRBuilder<'a> {
         self.inner.frame_rate_denominator = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeRateControlLayerInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeRateControlLayerInfoKHR>(
         mut self,
@@ -46469,6 +47229,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeRateControlLayerInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeCapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46542,6 +47303,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeCapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264CapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264CapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeH264CapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46639,6 +47401,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264CapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264QualityLevelPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264QualityLevelPropertiesKHRBuilder<'a> {
     inner: VideoEncodeH264QualityLevelPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46719,6 +47482,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264QualityLevelPropertiesKHRBuilder
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264SessionCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264SessionCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeH264SessionCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46747,7 +47511,7 @@ impl<'a> VideoEncodeH264SessionCreateInfoKHRBuilder<'a> {
         self.inner.max_level_idc = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264SessionCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264SessionCreateInfoKHR>(
         mut self,
@@ -46776,6 +47540,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264SessionCreateInfoKHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264SessionParametersAddInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264SessionParametersAddInfoKHRBuilder<'a> {
     inner: VideoEncodeH264SessionParametersAddInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46806,7 +47571,7 @@ impl<'a> VideoEncodeH264SessionParametersAddInfoKHRBuilder<'a> {
         self.inner.p_std_pp_ss = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264SessionParametersAddInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264SessionParametersAddInfoKHR>(
         mut self,
@@ -46835,6 +47600,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264SessionParametersAddInfoKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264SessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeH264SessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46871,7 +47637,7 @@ impl<'a> VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.p_parameters_add_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264SessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264SessionParametersCreateInfoKHR>(
         mut self,
@@ -46901,6 +47667,7 @@ for VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264SessionParametersGetInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264SessionParametersGetInfoKHRBuilder<'a> {
     inner: VideoEncodeH264SessionParametersGetInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -46939,7 +47706,7 @@ impl<'a> VideoEncodeH264SessionParametersGetInfoKHRBuilder<'a> {
         self.inner.std_pps_id = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264SessionParametersGetInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264SessionParametersGetInfoKHR>(
         mut self,
@@ -46968,6 +47735,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264SessionParametersGetInfoKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264SessionParametersFeedbackInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder<'a> {
     inner: VideoEncodeH264SessionParametersFeedbackInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47012,6 +47780,7 @@ for VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264DpbSlotInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264DpbSlotInfoKHRBuilder<'a> {
     inner: VideoEncodeH264DpbSlotInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47038,7 +47807,7 @@ impl<'a> VideoEncodeH264DpbSlotInfoKHRBuilder<'a> {
         self.inner.p_std_reference_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264DpbSlotInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264DpbSlotInfoKHR>(
         mut self,
@@ -47067,6 +47836,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264DpbSlotInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264PictureInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264PictureInfoKHRBuilder<'a> {
     inner: VideoEncodeH264PictureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47107,7 +47877,7 @@ impl<'a> VideoEncodeH264PictureInfoKHRBuilder<'a> {
         self.inner.generate_prefix_nalu = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264PictureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264PictureInfoKHR>(
         mut self,
@@ -47136,6 +47906,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264PictureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264ProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264ProfileInfoKHRBuilder<'a> {
     inner: VideoEncodeH264ProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47159,7 +47930,7 @@ impl<'a> VideoEncodeH264ProfileInfoKHRBuilder<'a> {
         self.inner.std_profile_idc = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264ProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264ProfileInfoKHR>(
         mut self,
@@ -47188,6 +47959,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264ProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264NaluSliceInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264NaluSliceInfoKHRBuilder<'a> {
     inner: VideoEncodeH264NaluSliceInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47219,7 +47991,7 @@ impl<'a> VideoEncodeH264NaluSliceInfoKHRBuilder<'a> {
         self.inner.p_std_slice_header = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264NaluSliceInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264NaluSliceInfoKHR>(
         mut self,
@@ -47248,6 +48020,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264NaluSliceInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264RateControlInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264RateControlInfoKHRBuilder<'a> {
     inner: VideoEncodeH264RateControlInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47291,7 +48064,7 @@ impl<'a> VideoEncodeH264RateControlInfoKHRBuilder<'a> {
         self.inner.temporal_layer_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264RateControlInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264RateControlInfoKHR>(
         mut self,
@@ -47320,6 +48093,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264RateControlInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264GopRemainingFrameInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264GopRemainingFrameInfoKHRBuilder<'a> {
     inner: VideoEncodeH264GopRemainingFrameInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47358,7 +48132,7 @@ impl<'a> VideoEncodeH264GopRemainingFrameInfoKHRBuilder<'a> {
         self.inner.gop_remaining_b = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264GopRemainingFrameInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264GopRemainingFrameInfoKHR>(
         mut self,
@@ -47387,6 +48161,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264GopRemainingFrameInfoKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264RateControlLayerInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
     inner: VideoEncodeH264RateControlLayerInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47435,7 +48210,7 @@ impl<'a> VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
         self.inner.max_frame_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH264RateControlLayerInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH264RateControlLayerInfoKHR>(
         mut self,
@@ -47464,6 +48239,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264RateControlLayerInfoKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265CapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265CapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeH265CapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47579,6 +48355,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265CapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265QualityLevelPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265QualityLevelPropertiesKHRBuilder<'a> {
     inner: VideoEncodeH265QualityLevelPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47654,6 +48431,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265QualityLevelPropertiesKHRBuilder
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265SessionCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265SessionCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeH265SessionCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47682,7 +48460,7 @@ impl<'a> VideoEncodeH265SessionCreateInfoKHRBuilder<'a> {
         self.inner.max_level_idc = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265SessionCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265SessionCreateInfoKHR>(
         mut self,
@@ -47711,6 +48489,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265SessionCreateInfoKHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265SessionParametersAddInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265SessionParametersAddInfoKHRBuilder<'a> {
     inner: VideoEncodeH265SessionParametersAddInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47747,7 +48526,7 @@ impl<'a> VideoEncodeH265SessionParametersAddInfoKHRBuilder<'a> {
         self.inner.p_std_pp_ss = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265SessionParametersAddInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265SessionParametersAddInfoKHR>(
         mut self,
@@ -47776,6 +48555,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265SessionParametersAddInfoKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265SessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeH265SessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47817,7 +48597,7 @@ impl<'a> VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.p_parameters_add_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265SessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265SessionParametersCreateInfoKHR>(
         mut self,
@@ -47847,6 +48627,7 @@ for VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265SessionParametersGetInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265SessionParametersGetInfoKHRBuilder<'a> {
     inner: VideoEncodeH265SessionParametersGetInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47895,7 +48676,7 @@ impl<'a> VideoEncodeH265SessionParametersGetInfoKHRBuilder<'a> {
         self.inner.std_pps_id = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265SessionParametersGetInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265SessionParametersGetInfoKHR>(
         mut self,
@@ -47924,6 +48705,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265SessionParametersGetInfoKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265SessionParametersFeedbackInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder<'a> {
     inner: VideoEncodeH265SessionParametersFeedbackInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -47973,6 +48755,7 @@ for VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265PictureInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265PictureInfoKHRBuilder<'a> {
     inner: VideoEncodeH265PictureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48008,7 +48791,7 @@ impl<'a> VideoEncodeH265PictureInfoKHRBuilder<'a> {
         self.inner.p_std_picture_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265PictureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265PictureInfoKHR>(
         mut self,
@@ -48037,6 +48820,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265PictureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265NaluSliceSegmentInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265NaluSliceSegmentInfoKHRBuilder<'a> {
     inner: VideoEncodeH265NaluSliceSegmentInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48068,7 +48852,7 @@ impl<'a> VideoEncodeH265NaluSliceSegmentInfoKHRBuilder<'a> {
         self.inner.p_std_slice_segment_header = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265NaluSliceSegmentInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265NaluSliceSegmentInfoKHR>(
         mut self,
@@ -48097,6 +48881,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265NaluSliceSegmentInfoKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265RateControlInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265RateControlInfoKHRBuilder<'a> {
     inner: VideoEncodeH265RateControlInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48140,7 +48925,7 @@ impl<'a> VideoEncodeH265RateControlInfoKHRBuilder<'a> {
         self.inner.sub_layer_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265RateControlInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265RateControlInfoKHR>(
         mut self,
@@ -48169,6 +48954,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265RateControlInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265GopRemainingFrameInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265GopRemainingFrameInfoKHRBuilder<'a> {
     inner: VideoEncodeH265GopRemainingFrameInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48207,7 +48993,7 @@ impl<'a> VideoEncodeH265GopRemainingFrameInfoKHRBuilder<'a> {
         self.inner.gop_remaining_b = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265GopRemainingFrameInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265GopRemainingFrameInfoKHR>(
         mut self,
@@ -48236,6 +49022,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265GopRemainingFrameInfoKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265RateControlLayerInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
     inner: VideoEncodeH265RateControlLayerInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48284,7 +49071,7 @@ impl<'a> VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
         self.inner.max_frame_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265RateControlLayerInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265RateControlLayerInfoKHR>(
         mut self,
@@ -48313,6 +49100,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265RateControlLayerInfoKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265ProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265ProfileInfoKHRBuilder<'a> {
     inner: VideoEncodeH265ProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48336,7 +49124,7 @@ impl<'a> VideoEncodeH265ProfileInfoKHRBuilder<'a> {
         self.inner.std_profile_idc = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265ProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265ProfileInfoKHR>(
         mut self,
@@ -48365,6 +49153,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265ProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH265DpbSlotInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH265DpbSlotInfoKHRBuilder<'a> {
     inner: VideoEncodeH265DpbSlotInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48391,7 +49180,7 @@ impl<'a> VideoEncodeH265DpbSlotInfoKHRBuilder<'a> {
         self.inner.p_std_reference_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeH265DpbSlotInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeH265DpbSlotInfoKHR>(
         mut self,
@@ -48420,6 +49209,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeH265DpbSlotInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1CapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1CapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeAV1CapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48584,6 +49374,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1CapabilitiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1QualityLevelPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1QualityLevelPropertiesKHRBuilder<'a> {
     inner: VideoEncodeAV1QualityLevelPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48715,6 +49506,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1QualityLevelPropertiesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoEncodeAV1FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceVideoEncodeAV1FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48738,7 +49530,7 @@ impl<'a> PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder<'a> {
         self.inner.video_encode_av1 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeAV1FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoEncodeAV1FeaturesKHR>(
         mut self,
@@ -48767,6 +49559,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1SessionCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1SessionCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1SessionCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48795,7 +49588,7 @@ impl<'a> VideoEncodeAV1SessionCreateInfoKHRBuilder<'a> {
         self.inner.max_level = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1SessionCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1SessionCreateInfoKHR>(
         mut self,
@@ -48824,6 +49617,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1SessionCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1SessionParametersCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1SessionParametersCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48867,7 +49661,7 @@ impl<'a> VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         self.inner.p_std_operating_points = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1SessionParametersCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1SessionParametersCreateInfoKHR>(
         mut self,
@@ -48897,6 +49691,7 @@ for VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1DpbSlotInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1DpbSlotInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1DpbSlotInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -48923,7 +49718,7 @@ impl<'a> VideoEncodeAV1DpbSlotInfoKHRBuilder<'a> {
         self.inner.p_std_reference_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1DpbSlotInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1DpbSlotInfoKHR>(
         mut self,
@@ -48952,6 +49747,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1DpbSlotInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1PictureInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1PictureInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1PictureInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49014,7 +49810,7 @@ impl<'a> VideoEncodeAV1PictureInfoKHRBuilder<'a> {
         self.inner.generate_obu_extension_header = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1PictureInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1PictureInfoKHR>(
         mut self,
@@ -49043,6 +49839,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1PictureInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1ProfileInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1ProfileInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1ProfileInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49066,7 +49863,7 @@ impl<'a> VideoEncodeAV1ProfileInfoKHRBuilder<'a> {
         self.inner.std_profile = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1ProfileInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1ProfileInfoKHR>(
         mut self,
@@ -49095,6 +49892,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1ProfileInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1RateControlInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1RateControlInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49138,7 +49936,7 @@ impl<'a> VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
         self.inner.temporal_layer_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1RateControlInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1RateControlInfoKHR>(
         mut self,
@@ -49167,6 +49965,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1GopRemainingFrameInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1GopRemainingFrameInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1GopRemainingFrameInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49205,7 +50004,7 @@ impl<'a> VideoEncodeAV1GopRemainingFrameInfoKHRBuilder<'a> {
         self.inner.gop_remaining_bipredictive = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1GopRemainingFrameInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1GopRemainingFrameInfoKHR>(
         mut self,
@@ -49234,6 +50033,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1GopRemainingFrameInfoKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeAV1RateControlLayerInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
     inner: VideoEncodeAV1RateControlLayerInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49282,7 +50082,7 @@ impl<'a> VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
         self.inner.max_frame_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1RateControlLayerInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeAV1RateControlLayerInfoKHR>(
         mut self,
@@ -49311,6 +50111,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceInheritedViewportScissorFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceInheritedViewportScissorFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49334,7 +50135,7 @@ impl<'a> PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder<'a> {
         self.inner.inherited_viewport_scissor2_d = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInheritedViewportScissorFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceInheritedViewportScissorFeaturesNV>(
         mut self,
@@ -49365,6 +50166,7 @@ for PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferInheritanceViewportScissorInfoNV`] with lifetime-tied pNext safety.
 pub struct CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
     inner: CommandBufferInheritanceViewportScissorInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49398,7 +50200,7 @@ impl<'a> CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
         self.inner.p_viewport_depths = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferInheritanceViewportScissorInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferInheritanceViewportScissorInfoNV>(
         mut self,
@@ -49428,6 +50230,7 @@ for CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49451,7 +50254,7 @@ impl<'a> PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder<'a> {
         self.inner.ycbcr2plane444_formats = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT>(
         mut self,
@@ -49481,6 +50284,7 @@ for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceProvokingVertexFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceProvokingVertexFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceProvokingVertexFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49509,7 +50313,7 @@ impl<'a> PhysicalDeviceProvokingVertexFeaturesEXTBuilder<'a> {
         self.inner.transform_feedback_preserves_provoking_vertex = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceProvokingVertexFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceProvokingVertexFeaturesEXT>(
         mut self,
@@ -49538,6 +50342,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceProvokingVertexFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceProvokingVertexPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceProvokingVertexPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceProvokingVertexPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49583,6 +50388,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceProvokingVertexPropertiesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`PipelineRasterizationProvokingVertexStateCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineRasterizationProvokingVertexStateCreateInfoEXTBuilder<'a> {
     inner: PipelineRasterizationProvokingVertexStateCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49608,7 +50414,7 @@ impl<'a> PipelineRasterizationProvokingVertexStateCreateInfoEXTBuilder<'a> {
         self.inner.provoking_vertex_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRasterizationProvokingVertexStateCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRasterizationProvokingVertexStateCreateInfoEXT>(
         mut self,
@@ -49639,6 +50445,7 @@ for PipelineRasterizationProvokingVertexStateCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeIntraRefreshCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeIntraRefreshCapabilitiesKHRBuilder<'a> {
     inner: VideoEncodeIntraRefreshCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49699,6 +50506,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeIntraRefreshCapabilitiesKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeSessionIntraRefreshCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeSessionIntraRefreshCreateInfoKHRBuilder<'a> {
     inner: VideoEncodeSessionIntraRefreshCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49725,7 +50533,7 @@ impl<'a> VideoEncodeSessionIntraRefreshCreateInfoKHRBuilder<'a> {
         self.inner.intra_refresh_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeSessionIntraRefreshCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeSessionIntraRefreshCreateInfoKHR>(
         mut self,
@@ -49754,6 +50562,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeSessionIntraRefreshCreateInfoKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeIntraRefreshInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeIntraRefreshInfoKHRBuilder<'a> {
     inner: VideoEncodeIntraRefreshInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49782,7 +50591,7 @@ impl<'a> VideoEncodeIntraRefreshInfoKHRBuilder<'a> {
         self.inner.intra_refresh_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeIntraRefreshInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeIntraRefreshInfoKHR>(
         mut self,
@@ -49811,6 +50620,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeIntraRefreshInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoReferenceIntraRefreshInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoReferenceIntraRefreshInfoKHRBuilder<'a> {
     inner: VideoReferenceIntraRefreshInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49834,7 +50644,7 @@ impl<'a> VideoReferenceIntraRefreshInfoKHRBuilder<'a> {
         self.inner.dirty_intra_refresh_regions = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoReferenceIntraRefreshInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoReferenceIntraRefreshInfoKHR>(
         mut self,
@@ -49863,6 +50673,7 @@ impl<'a> core::ops::DerefMut for VideoReferenceIntraRefreshInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49886,7 +50697,7 @@ impl<'a> PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder<'a> {
         self.inner.video_encode_intra_refresh = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR>(
         mut self,
@@ -49917,6 +50728,7 @@ for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CuModuleCreateInfoNVX`] with lifetime-tied pNext safety.
 pub struct CuModuleCreateInfoNVXBuilder<'a> {
     inner: CuModuleCreateInfoNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49941,7 +50753,7 @@ impl<'a> CuModuleCreateInfoNVXBuilder<'a> {
         self.inner.p_data = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CuModuleCreateInfoNVX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCuModuleCreateInfoNVX>(
         mut self,
@@ -49970,6 +50782,7 @@ impl<'a> core::ops::DerefMut for CuModuleCreateInfoNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CuModuleTexturingModeCreateInfoNVX`] with lifetime-tied pNext safety.
 pub struct CuModuleTexturingModeCreateInfoNVXBuilder<'a> {
     inner: CuModuleTexturingModeCreateInfoNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -49993,7 +50806,7 @@ impl<'a> CuModuleTexturingModeCreateInfoNVXBuilder<'a> {
         self.inner.use64bit_texturing = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CuModuleTexturingModeCreateInfoNVX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCuModuleTexturingModeCreateInfoNVX>(
         mut self,
@@ -50022,6 +50835,7 @@ impl<'a> core::ops::DerefMut for CuModuleTexturingModeCreateInfoNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CuFunctionCreateInfoNVX`] with lifetime-tied pNext safety.
 pub struct CuFunctionCreateInfoNVXBuilder<'a> {
     inner: CuFunctionCreateInfoNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50050,7 +50864,7 @@ impl<'a> CuFunctionCreateInfoNVXBuilder<'a> {
         self.inner.p_name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CuFunctionCreateInfoNVX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCuFunctionCreateInfoNVX>(
         mut self,
@@ -50079,6 +50893,7 @@ impl<'a> core::ops::DerefMut for CuFunctionCreateInfoNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CuLaunchInfoNVX`] with lifetime-tied pNext safety.
 pub struct CuLaunchInfoNVXBuilder<'a> {
     inner: CuLaunchInfoNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50157,7 +50972,7 @@ impl<'a> CuLaunchInfoNVXBuilder<'a> {
         self.inner.p_extras = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CuLaunchInfoNVX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCuLaunchInfoNVX>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -50183,6 +50998,7 @@ impl<'a> core::ops::DerefMut for CuLaunchInfoNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorBufferFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorBufferFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDescriptorBufferFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50221,7 +51037,7 @@ impl<'a> PhysicalDeviceDescriptorBufferFeaturesEXTBuilder<'a> {
         self.inner.descriptor_buffer_push_descriptors = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorBufferFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDescriptorBufferFeaturesEXT>(
         mut self,
@@ -50250,6 +51066,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDescriptorBufferFeaturesEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorBufferPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorBufferPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceDescriptorBufferPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50453,6 +51270,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDescriptorBufferPropertiesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorBufferDensityMapPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50497,6 +51315,7 @@ for PhysicalDeviceDescriptorBufferDensityMapPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorAddressInfoEXT`] with lifetime-tied pNext safety.
 pub struct DescriptorAddressInfoEXTBuilder<'a> {
     inner: DescriptorAddressInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50530,7 +51349,7 @@ impl<'a> DescriptorAddressInfoEXTBuilder<'a> {
         self.inner.format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorAddressInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorAddressInfoEXT>(
         mut self,
@@ -50559,6 +51378,7 @@ impl<'a> core::ops::DerefMut for DescriptorAddressInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorBufferBindingInfoEXT`] with lifetime-tied pNext safety.
 pub struct DescriptorBufferBindingInfoEXTBuilder<'a> {
     inner: DescriptorBufferBindingInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50587,7 +51407,7 @@ impl<'a> DescriptorBufferBindingInfoEXTBuilder<'a> {
         self.inner.usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorBufferBindingInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorBufferBindingInfoEXT>(
         mut self,
@@ -50616,6 +51436,7 @@ impl<'a> core::ops::DerefMut for DescriptorBufferBindingInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorBufferBindingPushDescriptorBufferHandleEXT`] with lifetime-tied pNext safety.
 pub struct DescriptorBufferBindingPushDescriptorBufferHandleEXTBuilder<'a> {
     inner: DescriptorBufferBindingPushDescriptorBufferHandleEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50641,7 +51462,7 @@ impl<'a> DescriptorBufferBindingPushDescriptorBufferHandleEXTBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorBufferBindingPushDescriptorBufferHandleEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorBufferBindingPushDescriptorBufferHandleEXT>(
         mut self,
@@ -50672,6 +51493,7 @@ for DescriptorBufferBindingPushDescriptorBufferHandleEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorGetInfoEXT`] with lifetime-tied pNext safety.
 pub struct DescriptorGetInfoEXTBuilder<'a> {
     inner: DescriptorGetInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50700,7 +51522,7 @@ impl<'a> DescriptorGetInfoEXTBuilder<'a> {
         self.inner.data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorGetInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorGetInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -50726,6 +51548,7 @@ impl<'a> core::ops::DerefMut for DescriptorGetInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferCaptureDescriptorDataInfoEXT`] with lifetime-tied pNext safety.
 pub struct BufferCaptureDescriptorDataInfoEXTBuilder<'a> {
     inner: BufferCaptureDescriptorDataInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50749,7 +51572,7 @@ impl<'a> BufferCaptureDescriptorDataInfoEXTBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferCaptureDescriptorDataInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferCaptureDescriptorDataInfoEXT>(
         mut self,
@@ -50778,6 +51601,7 @@ impl<'a> core::ops::DerefMut for BufferCaptureDescriptorDataInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageCaptureDescriptorDataInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImageCaptureDescriptorDataInfoEXTBuilder<'a> {
     inner: ImageCaptureDescriptorDataInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50801,7 +51625,7 @@ impl<'a> ImageCaptureDescriptorDataInfoEXTBuilder<'a> {
         self.inner.image = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageCaptureDescriptorDataInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageCaptureDescriptorDataInfoEXT>(
         mut self,
@@ -50830,6 +51654,7 @@ impl<'a> core::ops::DerefMut for ImageCaptureDescriptorDataInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageViewCaptureDescriptorDataInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImageViewCaptureDescriptorDataInfoEXTBuilder<'a> {
     inner: ImageViewCaptureDescriptorDataInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50853,7 +51678,7 @@ impl<'a> ImageViewCaptureDescriptorDataInfoEXTBuilder<'a> {
         self.inner.image_view = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewCaptureDescriptorDataInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewCaptureDescriptorDataInfoEXT>(
         mut self,
@@ -50882,6 +51707,7 @@ impl<'a> core::ops::DerefMut for ImageViewCaptureDescriptorDataInfoEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`SamplerCaptureDescriptorDataInfoEXT`] with lifetime-tied pNext safety.
 pub struct SamplerCaptureDescriptorDataInfoEXTBuilder<'a> {
     inner: SamplerCaptureDescriptorDataInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50905,7 +51731,7 @@ impl<'a> SamplerCaptureDescriptorDataInfoEXTBuilder<'a> {
         self.inner.sampler = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerCaptureDescriptorDataInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerCaptureDescriptorDataInfoEXT>(
         mut self,
@@ -50934,6 +51760,7 @@ impl<'a> core::ops::DerefMut for SamplerCaptureDescriptorDataInfoEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureCaptureDescriptorDataInfoEXT`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureCaptureDescriptorDataInfoEXTBuilder<'a> {
     inner: AccelerationStructureCaptureDescriptorDataInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -50964,7 +51791,7 @@ impl<'a> AccelerationStructureCaptureDescriptorDataInfoEXTBuilder<'a> {
         self.inner.acceleration_structure_nv = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureCaptureDescriptorDataInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureCaptureDescriptorDataInfoEXT>(
         mut self,
@@ -50995,6 +51822,7 @@ for AccelerationStructureCaptureDescriptorDataInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`OpaqueCaptureDescriptorDataCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct OpaqueCaptureDescriptorDataCreateInfoEXTBuilder<'a> {
     inner: OpaqueCaptureDescriptorDataCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51021,7 +51849,7 @@ impl<'a> OpaqueCaptureDescriptorDataCreateInfoEXTBuilder<'a> {
         self.inner.opaque_capture_descriptor_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`OpaqueCaptureDescriptorDataCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsOpaqueCaptureDescriptorDataCreateInfoEXT>(
         mut self,
@@ -51050,6 +51878,7 @@ impl<'a> core::ops::DerefMut for OpaqueCaptureDescriptorDataCreateInfoEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderIntegerDotProductFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderIntegerDotProductFeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderIntegerDotProductFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51073,7 +51902,7 @@ impl<'a> PhysicalDeviceShaderIntegerDotProductFeaturesBuilder<'a> {
         self.inner.shader_integer_dot_product = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderIntegerDotProductFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderIntegerDotProductFeatures>(
         mut self,
@@ -51103,6 +51932,7 @@ for PhysicalDeviceShaderIntegerDotProductFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderIntegerDotProductProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderIntegerDotProductPropertiesBuilder<'a> {
     inner: PhysicalDeviceShaderIntegerDotProductProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51381,6 +52211,7 @@ for PhysicalDeviceShaderIntegerDotProductPropertiesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDrmPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDrmPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceDrmPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51443,6 +52274,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDrmPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShaderBarycentricFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShaderBarycentricFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceFragmentShaderBarycentricFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51468,7 +52300,7 @@ impl<'a> PhysicalDeviceFragmentShaderBarycentricFeaturesKHRBuilder<'a> {
         self.inner.fragment_shader_barycentric = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShaderBarycentricFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentShaderBarycentricFeaturesKHR>(
         mut self,
@@ -51499,6 +52331,7 @@ for PhysicalDeviceFragmentShaderBarycentricFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentShaderBarycentricPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentShaderBarycentricPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceFragmentShaderBarycentricPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51543,6 +52376,7 @@ for PhysicalDeviceFragmentShaderBarycentricPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderFmaFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderFmaFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderFmaFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51576,7 +52410,7 @@ impl<'a> PhysicalDeviceShaderFmaFeaturesKHRBuilder<'a> {
         self.inner.shader_fma_float64 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFmaFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderFmaFeaturesKHR>(
         mut self,
@@ -51605,6 +52439,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderFmaFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingMotionBlurFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceRayTracingMotionBlurFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51636,7 +52471,7 @@ impl<'a> PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder<'a> {
         self.inner.ray_tracing_motion_blur_pipeline_trace_rays_indirect = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingMotionBlurFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingMotionBlurFeaturesNV>(
         mut self,
@@ -51666,6 +52501,7 @@ for PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingValidationFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingValidationFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceRayTracingValidationFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51689,7 +52525,7 @@ impl<'a> PhysicalDeviceRayTracingValidationFeaturesNVBuilder<'a> {
         self.inner.ray_tracing_validation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingValidationFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingValidationFeaturesNV>(
         mut self,
@@ -51719,6 +52555,7 @@ for PhysicalDeviceRayTracingValidationFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51749,7 +52586,7 @@ impl<'a> PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNVBuilder<'a> {
         self.inner.linear_swept_spheres = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV>(
         mut self,
@@ -51780,6 +52617,7 @@ for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureGeometryMotionTrianglesDataNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureGeometryMotionTrianglesDataNVBuilder<'a> {
     inner: AccelerationStructureGeometryMotionTrianglesDataNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51805,7 +52643,7 @@ impl<'a> AccelerationStructureGeometryMotionTrianglesDataNVBuilder<'a> {
         self.inner.vertex_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureGeometryMotionTrianglesDataNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureGeometryMotionTrianglesDataNV>(
         mut self,
@@ -51836,6 +52674,7 @@ for AccelerationStructureGeometryMotionTrianglesDataNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureMotionInfoNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureMotionInfoNVBuilder<'a> {
     inner: AccelerationStructureMotionInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51864,7 +52703,7 @@ impl<'a> AccelerationStructureMotionInfoNVBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureMotionInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureMotionInfoNV>(
         mut self,
@@ -51893,6 +52732,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureMotionInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetRemoteAddressInfoNV`] with lifetime-tied pNext safety.
 pub struct MemoryGetRemoteAddressInfoNVBuilder<'a> {
     inner: MemoryGetRemoteAddressInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51921,7 +52761,7 @@ impl<'a> MemoryGetRemoteAddressInfoNVBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetRemoteAddressInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetRemoteAddressInfoNV>(
         mut self,
@@ -51950,6 +52790,7 @@ impl<'a> core::ops::DerefMut for MemoryGetRemoteAddressInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMemoryBufferCollectionFUCHSIA`] with lifetime-tied pNext safety.
 pub struct ImportMemoryBufferCollectionFUCHSIABuilder<'a> {
     inner: ImportMemoryBufferCollectionFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -51978,7 +52819,7 @@ impl<'a> ImportMemoryBufferCollectionFUCHSIABuilder<'a> {
         self.inner.index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMemoryBufferCollectionFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMemoryBufferCollectionFUCHSIA>(
         mut self,
@@ -52007,6 +52848,7 @@ impl<'a> core::ops::DerefMut for ImportMemoryBufferCollectionFUCHSIABuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`BufferCollectionImageCreateInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct BufferCollectionImageCreateInfoFUCHSIABuilder<'a> {
     inner: BufferCollectionImageCreateInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52035,7 +52877,7 @@ impl<'a> BufferCollectionImageCreateInfoFUCHSIABuilder<'a> {
         self.inner.index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferCollectionImageCreateInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferCollectionImageCreateInfoFUCHSIA>(
         mut self,
@@ -52064,6 +52906,7 @@ impl<'a> core::ops::DerefMut for BufferCollectionImageCreateInfoFUCHSIABuilder<'
         &mut self.inner
     }
 }
+///Builder for [`BufferCollectionBufferCreateInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct BufferCollectionBufferCreateInfoFUCHSIABuilder<'a> {
     inner: BufferCollectionBufferCreateInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52092,7 +52935,7 @@ impl<'a> BufferCollectionBufferCreateInfoFUCHSIABuilder<'a> {
         self.inner.index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferCollectionBufferCreateInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferCollectionBufferCreateInfoFUCHSIA>(
         mut self,
@@ -52121,6 +52964,7 @@ impl<'a> core::ops::DerefMut for BufferCollectionBufferCreateInfoFUCHSIABuilder<
         &mut self.inner
     }
 }
+///Builder for [`BufferCollectionCreateInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct BufferCollectionCreateInfoFUCHSIABuilder<'a> {
     inner: BufferCollectionCreateInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52144,7 +52988,7 @@ impl<'a> BufferCollectionCreateInfoFUCHSIABuilder<'a> {
         self.inner.collection_token = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferCollectionCreateInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferCollectionCreateInfoFUCHSIA>(
         mut self,
@@ -52173,6 +53017,7 @@ impl<'a> core::ops::DerefMut for BufferCollectionCreateInfoFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferCollectionPropertiesFUCHSIA`] with lifetime-tied pNext safety.
 pub struct BufferCollectionPropertiesFUCHSIABuilder<'a> {
     inner: BufferCollectionPropertiesFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52263,6 +53108,7 @@ impl<'a> core::ops::DerefMut for BufferCollectionPropertiesFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferConstraintsInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct BufferConstraintsInfoFUCHSIABuilder<'a> {
     inner: BufferConstraintsInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52299,7 +53145,7 @@ impl<'a> BufferConstraintsInfoFUCHSIABuilder<'a> {
         self.inner.buffer_collection_constraints = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferConstraintsInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferConstraintsInfoFUCHSIA>(
         mut self,
@@ -52328,6 +53174,7 @@ impl<'a> core::ops::DerefMut for BufferConstraintsInfoFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SysmemColorSpaceFUCHSIA`] with lifetime-tied pNext safety.
 pub struct SysmemColorSpaceFUCHSIABuilder<'a> {
     inner: SysmemColorSpaceFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52351,7 +53198,7 @@ impl<'a> SysmemColorSpaceFUCHSIABuilder<'a> {
         self.inner.color_space = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SysmemColorSpaceFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSysmemColorSpaceFUCHSIA>(
         mut self,
@@ -52380,6 +53227,7 @@ impl<'a> core::ops::DerefMut for SysmemColorSpaceFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageFormatConstraintsInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct ImageFormatConstraintsInfoFUCHSIABuilder<'a> {
     inner: ImageFormatConstraintsInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52424,7 +53272,7 @@ impl<'a> ImageFormatConstraintsInfoFUCHSIABuilder<'a> {
         self.inner.p_color_spaces = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageFormatConstraintsInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageFormatConstraintsInfoFUCHSIA>(
         mut self,
@@ -52453,6 +53301,7 @@ impl<'a> core::ops::DerefMut for ImageFormatConstraintsInfoFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageConstraintsInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct ImageConstraintsInfoFUCHSIABuilder<'a> {
     inner: ImageConstraintsInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52493,7 +53342,7 @@ impl<'a> ImageConstraintsInfoFUCHSIABuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageConstraintsInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageConstraintsInfoFUCHSIA>(
         mut self,
@@ -52522,6 +53371,7 @@ impl<'a> core::ops::DerefMut for ImageConstraintsInfoFUCHSIABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BufferCollectionConstraintsInfoFUCHSIA`] with lifetime-tied pNext safety.
 pub struct BufferCollectionConstraintsInfoFUCHSIABuilder<'a> {
     inner: BufferCollectionConstraintsInfoFUCHSIA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52565,7 +53415,7 @@ impl<'a> BufferCollectionConstraintsInfoFUCHSIABuilder<'a> {
         self.inner.min_buffer_count_for_shared_slack = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BufferCollectionConstraintsInfoFUCHSIA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBufferCollectionConstraintsInfoFUCHSIA>(
         mut self,
@@ -52594,6 +53444,7 @@ impl<'a> core::ops::DerefMut for BufferCollectionConstraintsInfoFUCHSIABuilder<'
         &mut self.inner
     }
 }
+///Builder for [`CudaModuleCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct CudaModuleCreateInfoNVBuilder<'a> {
     inner: CudaModuleCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52618,7 +53469,7 @@ impl<'a> CudaModuleCreateInfoNVBuilder<'a> {
         self.inner.p_data = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CudaModuleCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCudaModuleCreateInfoNV>(
         mut self,
@@ -52647,6 +53498,7 @@ impl<'a> core::ops::DerefMut for CudaModuleCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CudaFunctionCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct CudaFunctionCreateInfoNVBuilder<'a> {
     inner: CudaFunctionCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52675,7 +53527,7 @@ impl<'a> CudaFunctionCreateInfoNVBuilder<'a> {
         self.inner.p_name = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CudaFunctionCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCudaFunctionCreateInfoNV>(
         mut self,
@@ -52704,6 +53556,7 @@ impl<'a> core::ops::DerefMut for CudaFunctionCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CudaLaunchInfoNV`] with lifetime-tied pNext safety.
 pub struct CudaLaunchInfoNVBuilder<'a> {
     inner: CudaLaunchInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52782,7 +53635,7 @@ impl<'a> CudaLaunchInfoNVBuilder<'a> {
         self.inner.p_extras = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CudaLaunchInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCudaLaunchInfoNV>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -52808,6 +53661,7 @@ impl<'a> core::ops::DerefMut for CudaLaunchInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRGBA10X6FormatsFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceRGBA10X6FormatsFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52831,7 +53685,7 @@ impl<'a> PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder<'a> {
         self.inner.format_rgba10x6_without_y_cb_cr_sampler = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRGBA10X6FormatsFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRGBA10X6FormatsFeaturesEXT>(
         mut self,
@@ -52860,6 +53714,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`FormatProperties3`] with lifetime-tied pNext safety.
 pub struct FormatProperties3Builder<'a> {
     inner: FormatProperties3,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52907,6 +53762,7 @@ impl<'a> core::ops::DerefMut for FormatProperties3Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DrmFormatModifierPropertiesList2EXT`] with lifetime-tied pNext safety.
 pub struct DrmFormatModifierPropertiesList2EXTBuilder<'a> {
     inner: DrmFormatModifierPropertiesList2EXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -52948,6 +53804,7 @@ impl<'a> core::ops::DerefMut for DrmFormatModifierPropertiesList2EXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`AndroidHardwareBufferFormatProperties2ANDROID`] with lifetime-tied pNext safety.
 pub struct AndroidHardwareBufferFormatProperties2ANDROIDBuilder<'a> {
     inner: AndroidHardwareBufferFormatProperties2ANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53024,6 +53881,7 @@ for AndroidHardwareBufferFormatProperties2ANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineRenderingCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineRenderingCreateInfoBuilder<'a> {
     inner: PipelineRenderingCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53063,7 +53921,7 @@ impl<'a> PipelineRenderingCreateInfoBuilder<'a> {
         self.inner.stencil_attachment_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRenderingCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRenderingCreateInfo>(
         mut self,
@@ -53092,6 +53950,7 @@ impl<'a> core::ops::DerefMut for PipelineRenderingCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingInfo`] with lifetime-tied pNext safety.
 pub struct RenderingInfoBuilder<'a> {
     inner: RenderingInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53149,7 +54008,7 @@ impl<'a> RenderingInfoBuilder<'a> {
         self.inner.p_stencil_attachment = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -53175,6 +54034,7 @@ impl<'a> core::ops::DerefMut for RenderingInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingEndInfoKHR`] with lifetime-tied pNext safety.
 pub struct RenderingEndInfoKHRBuilder<'a> {
     inner: RenderingEndInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53193,7 +54053,7 @@ impl RenderingEndInfoKHR {
     }
 }
 impl<'a> RenderingEndInfoKHRBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingEndInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingEndInfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -53219,6 +54079,7 @@ impl<'a> core::ops::DerefMut for RenderingEndInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingAttachmentInfo`] with lifetime-tied pNext safety.
 pub struct RenderingAttachmentInfoBuilder<'a> {
     inner: RenderingAttachmentInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53277,7 +54138,7 @@ impl<'a> RenderingAttachmentInfoBuilder<'a> {
         self.inner.clear_value = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingAttachmentInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingAttachmentInfo>(
         mut self,
@@ -53306,6 +54167,7 @@ impl<'a> core::ops::DerefMut for RenderingAttachmentInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingFragmentShadingRateAttachmentInfoKHR`] with lifetime-tied pNext safety.
 pub struct RenderingFragmentShadingRateAttachmentInfoKHRBuilder<'a> {
     inner: RenderingFragmentShadingRateAttachmentInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53339,7 +54201,7 @@ impl<'a> RenderingFragmentShadingRateAttachmentInfoKHRBuilder<'a> {
         self.inner.shading_rate_attachment_texel_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingFragmentShadingRateAttachmentInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingFragmentShadingRateAttachmentInfoKHR>(
         mut self,
@@ -53369,6 +54231,7 @@ for RenderingFragmentShadingRateAttachmentInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingFragmentDensityMapAttachmentInfoEXT`] with lifetime-tied pNext safety.
 pub struct RenderingFragmentDensityMapAttachmentInfoEXTBuilder<'a> {
     inner: RenderingFragmentDensityMapAttachmentInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53397,7 +54260,7 @@ impl<'a> RenderingFragmentDensityMapAttachmentInfoEXTBuilder<'a> {
         self.inner.image_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingFragmentDensityMapAttachmentInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingFragmentDensityMapAttachmentInfoEXT>(
         mut self,
@@ -53427,6 +54290,7 @@ for RenderingFragmentDensityMapAttachmentInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDynamicRenderingFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDynamicRenderingFeaturesBuilder<'a> {
     inner: PhysicalDeviceDynamicRenderingFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53450,7 +54314,7 @@ impl<'a> PhysicalDeviceDynamicRenderingFeaturesBuilder<'a> {
         self.inner.dynamic_rendering = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDynamicRenderingFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDynamicRenderingFeatures>(
         mut self,
@@ -53479,6 +54343,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDynamicRenderingFeaturesBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferInheritanceRenderingInfo`] with lifetime-tied pNext safety.
 pub struct CommandBufferInheritanceRenderingInfoBuilder<'a> {
     inner: CommandBufferInheritanceRenderingInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53528,7 +54393,7 @@ impl<'a> CommandBufferInheritanceRenderingInfoBuilder<'a> {
         self.inner.rasterization_samples = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferInheritanceRenderingInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferInheritanceRenderingInfo>(
         mut self,
@@ -53557,6 +54422,7 @@ impl<'a> core::ops::DerefMut for CommandBufferInheritanceRenderingInfoBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`AttachmentSampleCountInfoAMD`] with lifetime-tied pNext safety.
 pub struct AttachmentSampleCountInfoAMDBuilder<'a> {
     inner: AttachmentSampleCountInfoAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53589,7 +54455,7 @@ impl<'a> AttachmentSampleCountInfoAMDBuilder<'a> {
         self.inner.depth_stencil_attachment_samples = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AttachmentSampleCountInfoAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAttachmentSampleCountInfoAMD>(
         mut self,
@@ -53618,6 +54484,7 @@ impl<'a> core::ops::DerefMut for AttachmentSampleCountInfoAMDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MultiviewPerViewAttributesInfoNVX`] with lifetime-tied pNext safety.
 pub struct MultiviewPerViewAttributesInfoNVXBuilder<'a> {
     inner: MultiviewPerViewAttributesInfoNVX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53646,7 +54513,7 @@ impl<'a> MultiviewPerViewAttributesInfoNVXBuilder<'a> {
         self.inner.per_view_attributes_position_x_only = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MultiviewPerViewAttributesInfoNVX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMultiviewPerViewAttributesInfoNVX>(
         mut self,
@@ -53675,6 +54542,7 @@ impl<'a> core::ops::DerefMut for MultiviewPerViewAttributesInfoNVXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageViewMinLodFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageViewMinLodFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceImageViewMinLodFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53698,7 +54566,7 @@ impl<'a> PhysicalDeviceImageViewMinLodFeaturesEXTBuilder<'a> {
         self.inner.min_lod = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageViewMinLodFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageViewMinLodFeaturesEXT>(
         mut self,
@@ -53727,6 +54595,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageViewMinLodFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`ImageViewMinLodCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImageViewMinLodCreateInfoEXTBuilder<'a> {
     inner: ImageViewMinLodCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53750,7 +54619,7 @@ impl<'a> ImageViewMinLodCreateInfoEXTBuilder<'a> {
         self.inner.min_lod = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewMinLodCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewMinLodCreateInfoEXT>(
         mut self,
@@ -53779,6 +54648,7 @@ impl<'a> core::ops::DerefMut for ImageViewMinLodCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53814,7 +54684,7 @@ impl<'a> PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTBuilder<'a> 
         self.inner.rasterization_order_stencil_attachment_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT,
@@ -53844,6 +54714,7 @@ for PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLinearColorAttachmentFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceLinearColorAttachmentFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53867,7 +54738,7 @@ impl<'a> PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder<'a> {
         self.inner.linear_color_attachment = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLinearColorAttachmentFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceLinearColorAttachmentFeaturesNV>(
         mut self,
@@ -53897,6 +54768,7 @@ for PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53920,7 +54792,7 @@ impl<'a> PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder<'a> {
         self.inner.graphics_pipeline_library = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT>(
         mut self,
@@ -53951,6 +54823,7 @@ for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineBinaryFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineBinaryFeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePipelineBinaryFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -53974,7 +54847,7 @@ impl<'a> PhysicalDevicePipelineBinaryFeaturesKHRBuilder<'a> {
         self.inner.pipeline_binaries = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineBinaryFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineBinaryFeaturesKHR>(
         mut self,
@@ -54003,6 +54876,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePipelineBinaryFeaturesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`DevicePipelineBinaryInternalCacheControlKHR`] with lifetime-tied pNext safety.
 pub struct DevicePipelineBinaryInternalCacheControlKHRBuilder<'a> {
     inner: DevicePipelineBinaryInternalCacheControlKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54026,7 +54900,7 @@ impl<'a> DevicePipelineBinaryInternalCacheControlKHRBuilder<'a> {
         self.inner.disable_internal_cache = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DevicePipelineBinaryInternalCacheControlKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDevicePipelineBinaryInternalCacheControlKHR>(
         mut self,
@@ -54055,6 +54929,7 @@ impl<'a> core::ops::DerefMut for DevicePipelineBinaryInternalCacheControlKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineBinaryPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineBinaryPropertiesKHRBuilder<'a> {
     inner: PhysicalDevicePipelineBinaryPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54112,6 +54987,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePipelineBinaryPropertiesKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceGraphicsPipelineLibraryPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54161,6 +55037,7 @@ for PhysicalDeviceGraphicsPipelineLibraryPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GraphicsPipelineLibraryCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct GraphicsPipelineLibraryCreateInfoEXTBuilder<'a> {
     inner: GraphicsPipelineLibraryCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54184,7 +55061,7 @@ impl<'a> GraphicsPipelineLibraryCreateInfoEXTBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GraphicsPipelineLibraryCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGraphicsPipelineLibraryCreateInfoEXT>(
         mut self,
@@ -54213,6 +55090,7 @@ impl<'a> core::ops::DerefMut for GraphicsPipelineLibraryCreateInfoEXTBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorSetHostMappingFeaturesVALVEBuilder<'a> {
     inner: PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54238,7 +55116,7 @@ impl<'a> PhysicalDeviceDescriptorSetHostMappingFeaturesVALVEBuilder<'a> {
         self.inner.descriptor_set_host_mapping = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE>(
         mut self,
@@ -54269,6 +55147,7 @@ for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetBindingReferenceVALVE`] with lifetime-tied pNext safety.
 pub struct DescriptorSetBindingReferenceVALVEBuilder<'a> {
     inner: DescriptorSetBindingReferenceVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54297,7 +55176,7 @@ impl<'a> DescriptorSetBindingReferenceVALVEBuilder<'a> {
         self.inner.binding = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorSetBindingReferenceVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorSetBindingReferenceVALVE>(
         mut self,
@@ -54326,6 +55205,7 @@ impl<'a> core::ops::DerefMut for DescriptorSetBindingReferenceVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetLayoutHostMappingInfoVALVE`] with lifetime-tied pNext safety.
 pub struct DescriptorSetLayoutHostMappingInfoVALVEBuilder<'a> {
     inner: DescriptorSetLayoutHostMappingInfoVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54354,7 +55234,7 @@ impl<'a> DescriptorSetLayoutHostMappingInfoVALVEBuilder<'a> {
         self.inner.descriptor_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorSetLayoutHostMappingInfoVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorSetLayoutHostMappingInfoVALVE>(
         mut self,
@@ -54383,6 +55263,7 @@ impl<'a> core::ops::DerefMut for DescriptorSetLayoutHostMappingInfoVALVEBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceNestedCommandBufferFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceNestedCommandBufferFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54416,7 +55297,7 @@ impl<'a> PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder<'a> {
         self.inner.nested_command_buffer_simultaneous_use = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceNestedCommandBufferFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceNestedCommandBufferFeaturesEXT>(
         mut self,
@@ -54446,6 +55327,7 @@ for PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceNestedCommandBufferPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceNestedCommandBufferPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceNestedCommandBufferPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54484,6 +55366,7 @@ for PhysicalDeviceNestedCommandBufferPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderModuleIdentifierFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderModuleIdentifierFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54507,7 +55390,7 @@ impl<'a> PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder<'a> {
         self.inner.shader_module_identifier = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderModuleIdentifierFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderModuleIdentifierFeaturesEXT>(
         mut self,
@@ -54538,6 +55421,7 @@ for PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderModuleIdentifierPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderModuleIdentifierPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderModuleIdentifierPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54582,6 +55466,7 @@ for PhysicalDeviceShaderModuleIdentifierPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineShaderStageModuleIdentifierCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder<'a> {
     inner: PipelineShaderStageModuleIdentifierCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54606,7 +55491,7 @@ impl<'a> PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder<'a> {
         self.inner.p_identifier = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineShaderStageModuleIdentifierCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineShaderStageModuleIdentifierCreateInfoEXT>(
         mut self,
@@ -54637,6 +55522,7 @@ for PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ShaderModuleIdentifierEXT`] with lifetime-tied pNext safety.
 pub struct ShaderModuleIdentifierEXTBuilder<'a> {
     inner: ShaderModuleIdentifierEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54682,6 +55568,7 @@ impl<'a> core::ops::DerefMut for ShaderModuleIdentifierEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageCompressionControlEXT`] with lifetime-tied pNext safety.
 pub struct ImageCompressionControlEXTBuilder<'a> {
     inner: ImageCompressionControlEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54714,7 +55601,7 @@ impl<'a> ImageCompressionControlEXTBuilder<'a> {
         self.inner.p_fixed_rate_flags = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageCompressionControlEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageCompressionControlEXT>(
         mut self,
@@ -54743,6 +55630,7 @@ impl<'a> core::ops::DerefMut for ImageCompressionControlEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageCompressionControlFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageCompressionControlFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceImageCompressionControlFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54766,7 +55654,7 @@ impl<'a> PhysicalDeviceImageCompressionControlFeaturesEXTBuilder<'a> {
         self.inner.image_compression_control = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageCompressionControlFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageCompressionControlFeaturesEXT>(
         mut self,
@@ -54797,6 +55685,7 @@ for PhysicalDeviceImageCompressionControlFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageCompressionPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct ImageCompressionPropertiesEXTBuilder<'a> {
     inner: ImageCompressionPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54842,6 +55731,7 @@ impl<'a> core::ops::DerefMut for ImageCompressionPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageCompressionControlSwapchainFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54867,7 +55757,7 @@ impl<'a> PhysicalDeviceImageCompressionControlSwapchainFeaturesEXTBuilder<'a> {
         self.inner.image_compression_control_swapchain = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT,
@@ -54897,6 +55787,7 @@ for PhysicalDeviceImageCompressionControlSwapchainFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageSubresource2`] with lifetime-tied pNext safety.
 pub struct ImageSubresource2Builder<'a> {
     inner: ImageSubresource2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54920,7 +55811,7 @@ impl<'a> ImageSubresource2Builder<'a> {
         self.inner.image_subresource = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageSubresource2`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageSubresource2>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -54946,6 +55837,7 @@ impl<'a> core::ops::DerefMut for ImageSubresource2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubresourceLayout2`] with lifetime-tied pNext safety.
 pub struct SubresourceLayout2Builder<'a> {
     inner: SubresourceLayout2,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -54983,6 +55875,7 @@ impl<'a> core::ops::DerefMut for SubresourceLayout2Builder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassCreationControlEXT`] with lifetime-tied pNext safety.
 pub struct RenderPassCreationControlEXTBuilder<'a> {
     inner: RenderPassCreationControlEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55006,7 +55899,7 @@ impl<'a> RenderPassCreationControlEXTBuilder<'a> {
         self.inner.disallow_merging = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassCreationControlEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassCreationControlEXT>(
         mut self,
@@ -55035,6 +55928,7 @@ impl<'a> core::ops::DerefMut for RenderPassCreationControlEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassCreationFeedbackCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
     inner: RenderPassCreationFeedbackCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55061,7 +55955,7 @@ impl<'a> RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
         self.inner.p_render_pass_feedback = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassCreationFeedbackCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassCreationFeedbackCreateInfoEXT>(
         mut self,
@@ -55090,6 +55984,7 @@ impl<'a> core::ops::DerefMut for RenderPassCreationFeedbackCreateInfoEXTBuilder<
         &mut self.inner
     }
 }
+///Builder for [`RenderPassSubpassFeedbackCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct RenderPassSubpassFeedbackCreateInfoEXTBuilder<'a> {
     inner: RenderPassSubpassFeedbackCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55116,7 +56011,7 @@ impl<'a> RenderPassSubpassFeedbackCreateInfoEXTBuilder<'a> {
         self.inner.p_subpass_feedback = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassSubpassFeedbackCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassSubpassFeedbackCreateInfoEXT>(
         mut self,
@@ -55145,6 +56040,7 @@ impl<'a> core::ops::DerefMut for RenderPassSubpassFeedbackCreateInfoEXTBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSubpassMergeFeedbackFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceSubpassMergeFeedbackFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55168,7 +56064,7 @@ impl<'a> PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder<'a> {
         self.inner.subpass_merge_feedback = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSubpassMergeFeedbackFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSubpassMergeFeedbackFeaturesEXT>(
         mut self,
@@ -55198,6 +56094,7 @@ for PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MicromapBuildInfoEXT`] with lifetime-tied pNext safety.
 pub struct MicromapBuildInfoEXTBuilder<'a> {
     inner: MicromapBuildInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55267,7 +56164,7 @@ impl<'a> MicromapBuildInfoEXTBuilder<'a> {
         self.inner.triangle_array_stride = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MicromapBuildInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMicromapBuildInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -55293,6 +56190,7 @@ impl<'a> core::ops::DerefMut for MicromapBuildInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MicromapCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct MicromapCreateInfoEXTBuilder<'a> {
     inner: MicromapCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55341,7 +56239,7 @@ impl<'a> MicromapCreateInfoEXTBuilder<'a> {
         self.inner.device_address = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MicromapCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMicromapCreateInfoEXT>(
         mut self,
@@ -55370,6 +56268,7 @@ impl<'a> core::ops::DerefMut for MicromapCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MicromapVersionInfoEXT`] with lifetime-tied pNext safety.
 pub struct MicromapVersionInfoEXTBuilder<'a> {
     inner: MicromapVersionInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55393,7 +56292,7 @@ impl<'a> MicromapVersionInfoEXTBuilder<'a> {
         self.inner.p_version_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MicromapVersionInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMicromapVersionInfoEXT>(
         mut self,
@@ -55422,6 +56321,7 @@ impl<'a> core::ops::DerefMut for MicromapVersionInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyMicromapInfoEXT`] with lifetime-tied pNext safety.
 pub struct CopyMicromapInfoEXTBuilder<'a> {
     inner: CopyMicromapInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55455,7 +56355,7 @@ impl<'a> CopyMicromapInfoEXTBuilder<'a> {
         self.inner.mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyMicromapInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyMicromapInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -55481,6 +56381,7 @@ impl<'a> core::ops::DerefMut for CopyMicromapInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyMicromapToMemoryInfoEXT`] with lifetime-tied pNext safety.
 pub struct CopyMicromapToMemoryInfoEXTBuilder<'a> {
     inner: CopyMicromapToMemoryInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55514,7 +56415,7 @@ impl<'a> CopyMicromapToMemoryInfoEXTBuilder<'a> {
         self.inner.mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyMicromapToMemoryInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyMicromapToMemoryInfoEXT>(
         mut self,
@@ -55543,6 +56444,7 @@ impl<'a> core::ops::DerefMut for CopyMicromapToMemoryInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyMemoryToMicromapInfoEXT`] with lifetime-tied pNext safety.
 pub struct CopyMemoryToMicromapInfoEXTBuilder<'a> {
     inner: CopyMemoryToMicromapInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55576,7 +56478,7 @@ impl<'a> CopyMemoryToMicromapInfoEXTBuilder<'a> {
         self.inner.mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyMemoryToMicromapInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyMemoryToMicromapInfoEXT>(
         mut self,
@@ -55605,6 +56507,7 @@ impl<'a> core::ops::DerefMut for CopyMemoryToMicromapInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MicromapBuildSizesInfoEXT`] with lifetime-tied pNext safety.
 pub struct MicromapBuildSizesInfoEXTBuilder<'a> {
     inner: MicromapBuildSizesInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55638,7 +56541,7 @@ impl<'a> MicromapBuildSizesInfoEXTBuilder<'a> {
         self.inner.discardable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MicromapBuildSizesInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMicromapBuildSizesInfoEXT>(
         mut self,
@@ -55667,6 +56570,7 @@ impl<'a> core::ops::DerefMut for MicromapBuildSizesInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceOpacityMicromapFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceOpacityMicromapFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceOpacityMicromapFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55700,7 +56604,7 @@ impl<'a> PhysicalDeviceOpacityMicromapFeaturesEXTBuilder<'a> {
         self.inner.micromap_host_commands = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceOpacityMicromapFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceOpacityMicromapFeaturesEXT>(
         mut self,
@@ -55729,6 +56633,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceOpacityMicromapFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceOpacityMicromapPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceOpacityMicromapPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceOpacityMicromapPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55771,6 +56676,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceOpacityMicromapPropertiesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureTrianglesOpacityMicromapEXT`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureTrianglesOpacityMicromapEXTBuilder<'a> {
     inner: AccelerationStructureTrianglesOpacityMicromapEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55825,7 +56731,7 @@ impl<'a> AccelerationStructureTrianglesOpacityMicromapEXTBuilder<'a> {
         self.inner.micromap = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureTrianglesOpacityMicromapEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureTrianglesOpacityMicromapEXT>(
         mut self,
@@ -55856,6 +56762,7 @@ for AccelerationStructureTrianglesOpacityMicromapEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDisplacementMicromapFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDisplacementMicromapFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceDisplacementMicromapFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55879,7 +56786,7 @@ impl<'a> PhysicalDeviceDisplacementMicromapFeaturesNVBuilder<'a> {
         self.inner.displacement_micromap = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDisplacementMicromapFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDisplacementMicromapFeaturesNV>(
         mut self,
@@ -55909,6 +56816,7 @@ for PhysicalDeviceDisplacementMicromapFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDisplacementMicromapPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDisplacementMicromapPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceDisplacementMicromapPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -55947,6 +56855,7 @@ for PhysicalDeviceDisplacementMicromapPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureTrianglesDisplacementMicromapNV`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureTrianglesDisplacementMicromapNVBuilder<'a> {
     inner: AccelerationStructureTrianglesDisplacementMicromapNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56052,7 +56961,7 @@ impl<'a> AccelerationStructureTrianglesDisplacementMicromapNVBuilder<'a> {
         self.inner.micromap = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureTrianglesDisplacementMicromapNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureTrianglesDisplacementMicromapNV>(
         mut self,
@@ -56083,6 +56992,7 @@ for AccelerationStructureTrianglesDisplacementMicromapNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelinePropertiesIdentifierEXT`] with lifetime-tied pNext safety.
 pub struct PipelinePropertiesIdentifierEXTBuilder<'a> {
     inner: PipelinePropertiesIdentifierEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56120,6 +57030,7 @@ impl<'a> core::ops::DerefMut for PipelinePropertiesIdentifierEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelinePropertiesFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelinePropertiesFeaturesEXTBuilder<'a> {
     inner: PhysicalDevicePipelinePropertiesFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56143,7 +57054,7 @@ impl<'a> PhysicalDevicePipelinePropertiesFeaturesEXTBuilder<'a> {
         self.inner.pipeline_properties_identifier = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelinePropertiesFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelinePropertiesFeaturesEXT>(
         mut self,
@@ -56172,6 +57083,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePipelinePropertiesFeaturesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMDBuilder<'a> {
     inner: PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56197,7 +57109,7 @@ impl<'a> PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMDBuilder<'a> {
         self.inner.shader_early_and_late_fragment_tests = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD>(
         mut self,
@@ -56228,6 +57140,7 @@ for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalMemoryAcquireUnmodifiedEXT`] with lifetime-tied pNext safety.
 pub struct ExternalMemoryAcquireUnmodifiedEXTBuilder<'a> {
     inner: ExternalMemoryAcquireUnmodifiedEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56251,7 +57164,7 @@ impl<'a> ExternalMemoryAcquireUnmodifiedEXTBuilder<'a> {
         self.inner.acquire_unmodified_memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalMemoryAcquireUnmodifiedEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalMemoryAcquireUnmodifiedEXT>(
         mut self,
@@ -56280,6 +57193,7 @@ impl<'a> core::ops::DerefMut for ExternalMemoryAcquireUnmodifiedEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalObjectCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalObjectCreateInfoEXTBuilder<'a> {
     inner: ExportMetalObjectCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56306,7 +57220,7 @@ impl<'a> ExportMetalObjectCreateInfoEXTBuilder<'a> {
         self.inner.export_object_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalObjectCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalObjectCreateInfoEXT>(
         mut self,
@@ -56335,6 +57249,7 @@ impl<'a> core::ops::DerefMut for ExportMetalObjectCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalObjectsInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalObjectsInfoEXTBuilder<'a> {
     inner: ExportMetalObjectsInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56353,7 +57268,7 @@ impl ExportMetalObjectsInfoEXT {
     }
 }
 impl<'a> ExportMetalObjectsInfoEXTBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalObjectsInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalObjectsInfoEXT>(
         mut self,
@@ -56382,6 +57297,7 @@ impl<'a> core::ops::DerefMut for ExportMetalObjectsInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalDeviceInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalDeviceInfoEXTBuilder<'a> {
     inner: ExportMetalDeviceInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56405,7 +57321,7 @@ impl<'a> ExportMetalDeviceInfoEXTBuilder<'a> {
         self.inner.mtl_device = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalDeviceInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalDeviceInfoEXT>(
         mut self,
@@ -56434,6 +57350,7 @@ impl<'a> core::ops::DerefMut for ExportMetalDeviceInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalCommandQueueInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalCommandQueueInfoEXTBuilder<'a> {
     inner: ExportMetalCommandQueueInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56462,7 +57379,7 @@ impl<'a> ExportMetalCommandQueueInfoEXTBuilder<'a> {
         self.inner.mtl_command_queue = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalCommandQueueInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalCommandQueueInfoEXT>(
         mut self,
@@ -56491,6 +57408,7 @@ impl<'a> core::ops::DerefMut for ExportMetalCommandQueueInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalBufferInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalBufferInfoEXTBuilder<'a> {
     inner: ExportMetalBufferInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56519,7 +57437,7 @@ impl<'a> ExportMetalBufferInfoEXTBuilder<'a> {
         self.inner.mtl_buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalBufferInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalBufferInfoEXT>(
         mut self,
@@ -56548,6 +57466,7 @@ impl<'a> core::ops::DerefMut for ExportMetalBufferInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMetalBufferInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImportMetalBufferInfoEXTBuilder<'a> {
     inner: ImportMetalBufferInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56571,7 +57490,7 @@ impl<'a> ImportMetalBufferInfoEXTBuilder<'a> {
         self.inner.mtl_buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMetalBufferInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMetalBufferInfoEXT>(
         mut self,
@@ -56600,6 +57519,7 @@ impl<'a> core::ops::DerefMut for ImportMetalBufferInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalTextureInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalTextureInfoEXTBuilder<'a> {
     inner: ExportMetalTextureInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56643,7 +57563,7 @@ impl<'a> ExportMetalTextureInfoEXTBuilder<'a> {
         self.inner.mtl_texture = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalTextureInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalTextureInfoEXT>(
         mut self,
@@ -56672,6 +57592,7 @@ impl<'a> core::ops::DerefMut for ExportMetalTextureInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMetalTextureInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImportMetalTextureInfoEXTBuilder<'a> {
     inner: ImportMetalTextureInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56700,7 +57621,7 @@ impl<'a> ImportMetalTextureInfoEXTBuilder<'a> {
         self.inner.mtl_texture = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMetalTextureInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMetalTextureInfoEXT>(
         mut self,
@@ -56729,6 +57650,7 @@ impl<'a> core::ops::DerefMut for ImportMetalTextureInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalIOSurfaceInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalIOSurfaceInfoEXTBuilder<'a> {
     inner: ExportMetalIOSurfaceInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56757,7 +57679,7 @@ impl<'a> ExportMetalIOSurfaceInfoEXTBuilder<'a> {
         self.inner.io_surface = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalIOSurfaceInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalIOSurfaceInfoEXT>(
         mut self,
@@ -56786,6 +57708,7 @@ impl<'a> core::ops::DerefMut for ExportMetalIOSurfaceInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMetalIOSurfaceInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImportMetalIOSurfaceInfoEXTBuilder<'a> {
     inner: ImportMetalIOSurfaceInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56809,7 +57732,7 @@ impl<'a> ImportMetalIOSurfaceInfoEXTBuilder<'a> {
         self.inner.io_surface = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMetalIOSurfaceInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMetalIOSurfaceInfoEXT>(
         mut self,
@@ -56838,6 +57761,7 @@ impl<'a> core::ops::DerefMut for ImportMetalIOSurfaceInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExportMetalSharedEventInfoEXT`] with lifetime-tied pNext safety.
 pub struct ExportMetalSharedEventInfoEXTBuilder<'a> {
     inner: ExportMetalSharedEventInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56871,7 +57795,7 @@ impl<'a> ExportMetalSharedEventInfoEXTBuilder<'a> {
         self.inner.mtl_shared_event = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExportMetalSharedEventInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExportMetalSharedEventInfoEXT>(
         mut self,
@@ -56900,6 +57824,7 @@ impl<'a> core::ops::DerefMut for ExportMetalSharedEventInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportMetalSharedEventInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImportMetalSharedEventInfoEXTBuilder<'a> {
     inner: ImportMetalSharedEventInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56923,7 +57848,7 @@ impl<'a> ImportMetalSharedEventInfoEXTBuilder<'a> {
         self.inner.mtl_shared_event = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportMetalSharedEventInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportMetalSharedEventInfoEXT>(
         mut self,
@@ -56952,6 +57877,7 @@ impl<'a> core::ops::DerefMut for ImportMetalSharedEventInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceNonSeamlessCubeMapFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceNonSeamlessCubeMapFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -56975,7 +57901,7 @@ impl<'a> PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder<'a> {
         self.inner.non_seamless_cube_map = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceNonSeamlessCubeMapFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceNonSeamlessCubeMapFeaturesEXT>(
         mut self,
@@ -57004,6 +57930,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineRobustnessFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineRobustnessFeaturesBuilder<'a> {
     inner: PhysicalDevicePipelineRobustnessFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57027,7 +57954,7 @@ impl<'a> PhysicalDevicePipelineRobustnessFeaturesBuilder<'a> {
         self.inner.pipeline_robustness = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineRobustnessFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineRobustnessFeatures>(
         mut self,
@@ -57056,6 +57983,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePipelineRobustnessFeaturesBuilder
         &mut self.inner
     }
 }
+///Builder for [`PipelineRobustnessCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineRobustnessCreateInfoBuilder<'a> {
     inner: PipelineRobustnessCreateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57094,7 +58022,7 @@ impl<'a> PipelineRobustnessCreateInfoBuilder<'a> {
         self.inner.images = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineRobustnessCreateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineRobustnessCreateInfo>(
         mut self,
@@ -57123,6 +58051,7 @@ impl<'a> core::ops::DerefMut for PipelineRobustnessCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineRobustnessProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineRobustnessPropertiesBuilder<'a> {
     inner: PhysicalDevicePipelineRobustnessProperties,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57187,6 +58116,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePipelineRobustnessPropertiesBuild
         &mut self.inner
     }
 }
+///Builder for [`ImageViewSampleWeightCreateInfoQCOM`] with lifetime-tied pNext safety.
 pub struct ImageViewSampleWeightCreateInfoQCOMBuilder<'a> {
     inner: ImageViewSampleWeightCreateInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57220,7 +58150,7 @@ impl<'a> ImageViewSampleWeightCreateInfoQCOMBuilder<'a> {
         self.inner.num_phases = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageViewSampleWeightCreateInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageViewSampleWeightCreateInfoQCOM>(
         mut self,
@@ -57249,6 +58179,7 @@ impl<'a> core::ops::DerefMut for ImageViewSampleWeightCreateInfoQCOMBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageProcessingFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageProcessingFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceImageProcessingFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57282,7 +58213,7 @@ impl<'a> PhysicalDeviceImageProcessingFeaturesQCOMBuilder<'a> {
         self.inner.texture_block_match = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageProcessingFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageProcessingFeaturesQCOM>(
         mut self,
@@ -57311,6 +58242,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageProcessingFeaturesQCOMBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageProcessingPropertiesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageProcessingPropertiesQCOMBuilder<'a> {
     inner: PhysicalDeviceImageProcessingPropertiesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57363,6 +58295,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageProcessingPropertiesQCOMBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTilePropertiesFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTilePropertiesFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceTilePropertiesFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57386,7 +58319,7 @@ impl<'a> PhysicalDeviceTilePropertiesFeaturesQCOMBuilder<'a> {
         self.inner.tile_properties = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTilePropertiesFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTilePropertiesFeaturesQCOM>(
         mut self,
@@ -57415,6 +58348,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTilePropertiesFeaturesQCOMBuilder
         &mut self.inner
     }
 }
+///Builder for [`TilePropertiesQCOM`] with lifetime-tied pNext safety.
 pub struct TilePropertiesQCOMBuilder<'a> {
     inner: TilePropertiesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57448,7 +58382,7 @@ impl<'a> TilePropertiesQCOMBuilder<'a> {
         self.inner.origin = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TilePropertiesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTilePropertiesQCOM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -57474,6 +58408,7 @@ impl<'a> core::ops::DerefMut for TilePropertiesQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TileMemoryBindInfoQCOM`] with lifetime-tied pNext safety.
 pub struct TileMemoryBindInfoQCOMBuilder<'a> {
     inner: TileMemoryBindInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57497,7 +58432,7 @@ impl<'a> TileMemoryBindInfoQCOMBuilder<'a> {
         self.inner.memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TileMemoryBindInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTileMemoryBindInfoQCOM>(
         mut self,
@@ -57526,6 +58461,7 @@ impl<'a> core::ops::DerefMut for TileMemoryBindInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceAmigoProfilingFeaturesSEC`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceAmigoProfilingFeaturesSECBuilder<'a> {
     inner: PhysicalDeviceAmigoProfilingFeaturesSEC,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57549,7 +58485,7 @@ impl<'a> PhysicalDeviceAmigoProfilingFeaturesSECBuilder<'a> {
         self.inner.amigo_profiling = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAmigoProfilingFeaturesSEC`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceAmigoProfilingFeaturesSEC>(
         mut self,
@@ -57578,6 +58514,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceAmigoProfilingFeaturesSECBuilder<
         &mut self.inner
     }
 }
+///Builder for [`AmigoProfilingSubmitInfoSEC`] with lifetime-tied pNext safety.
 pub struct AmigoProfilingSubmitInfoSECBuilder<'a> {
     inner: AmigoProfilingSubmitInfoSEC,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57606,7 +58543,7 @@ impl<'a> AmigoProfilingSubmitInfoSECBuilder<'a> {
         self.inner.swap_buffer_timestamp = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AmigoProfilingSubmitInfoSEC`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAmigoProfilingSubmitInfoSEC>(
         mut self,
@@ -57635,6 +58572,7 @@ impl<'a> core::ops::DerefMut for AmigoProfilingSubmitInfoSECBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57660,7 +58598,7 @@ impl<'a> PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXTBuilder<'a> {
         self.inner.attachment_feedback_loop_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT>(
         mut self,
@@ -57691,6 +58629,7 @@ for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AttachmentFeedbackLoopInfoEXT`] with lifetime-tied pNext safety.
 pub struct AttachmentFeedbackLoopInfoEXTBuilder<'a> {
     inner: AttachmentFeedbackLoopInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57714,7 +58653,7 @@ impl<'a> AttachmentFeedbackLoopInfoEXTBuilder<'a> {
         self.inner.feedback_loop_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AttachmentFeedbackLoopInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAttachmentFeedbackLoopInfoEXT>(
         mut self,
@@ -57743,6 +58682,7 @@ impl<'a> core::ops::DerefMut for AttachmentFeedbackLoopInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceAddressBindingReportFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceAddressBindingReportFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceAddressBindingReportFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57766,7 +58706,7 @@ impl<'a> PhysicalDeviceAddressBindingReportFeaturesEXTBuilder<'a> {
         self.inner.report_address_binding = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAddressBindingReportFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceAddressBindingReportFeaturesEXT>(
         mut self,
@@ -57796,6 +58736,7 @@ for PhysicalDeviceAddressBindingReportFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingAttachmentFlagsInfoKHR`] with lifetime-tied pNext safety.
 pub struct RenderingAttachmentFlagsInfoKHRBuilder<'a> {
     inner: RenderingAttachmentFlagsInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57819,7 +58760,7 @@ impl<'a> RenderingAttachmentFlagsInfoKHRBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingAttachmentFlagsInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingAttachmentFlagsInfoKHR>(
         mut self,
@@ -57848,6 +58789,7 @@ impl<'a> core::ops::DerefMut for RenderingAttachmentFlagsInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ResolveImageModeInfoKHR`] with lifetime-tied pNext safety.
 pub struct ResolveImageModeInfoKHRBuilder<'a> {
     inner: ResolveImageModeInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57881,7 +58823,7 @@ impl<'a> ResolveImageModeInfoKHRBuilder<'a> {
         self.inner.stencil_resolve_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ResolveImageModeInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsResolveImageModeInfoKHR>(
         mut self,
@@ -57910,6 +58852,7 @@ impl<'a> core::ops::DerefMut for ResolveImageModeInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceAddressBindingCallbackDataEXT`] with lifetime-tied pNext safety.
 pub struct DeviceAddressBindingCallbackDataEXTBuilder<'a> {
     inner: DeviceAddressBindingCallbackDataEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -57948,7 +58891,7 @@ impl<'a> DeviceAddressBindingCallbackDataEXTBuilder<'a> {
         self.inner.binding_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceAddressBindingCallbackDataEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceAddressBindingCallbackDataEXT>(
         mut self,
@@ -57977,6 +58920,7 @@ impl<'a> core::ops::DerefMut for DeviceAddressBindingCallbackDataEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceOpticalFlowFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceOpticalFlowFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceOpticalFlowFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58000,7 +58944,7 @@ impl<'a> PhysicalDeviceOpticalFlowFeaturesNVBuilder<'a> {
         self.inner.optical_flow = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceOpticalFlowFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceOpticalFlowFeaturesNV>(
         mut self,
@@ -58029,6 +58973,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceOpticalFlowFeaturesNVBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceOpticalFlowPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceOpticalFlowPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceOpticalFlowPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58122,6 +59067,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceOpticalFlowPropertiesNVBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`OpticalFlowImageFormatInfoNV`] with lifetime-tied pNext safety.
 pub struct OpticalFlowImageFormatInfoNVBuilder<'a> {
     inner: OpticalFlowImageFormatInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58145,7 +59091,7 @@ impl<'a> OpticalFlowImageFormatInfoNVBuilder<'a> {
         self.inner.usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`OpticalFlowImageFormatInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsOpticalFlowImageFormatInfoNV>(
         mut self,
@@ -58174,6 +59120,7 @@ impl<'a> core::ops::DerefMut for OpticalFlowImageFormatInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`OpticalFlowImageFormatPropertiesNV`] with lifetime-tied pNext safety.
 pub struct OpticalFlowImageFormatPropertiesNVBuilder<'a> {
     inner: OpticalFlowImageFormatPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58211,6 +59158,7 @@ impl<'a> core::ops::DerefMut for OpticalFlowImageFormatPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`OpticalFlowSessionCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct OpticalFlowSessionCreateInfoNVBuilder<'a> {
     inner: OpticalFlowSessionCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58274,7 +59222,7 @@ impl<'a> OpticalFlowSessionCreateInfoNVBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`OpticalFlowSessionCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsOpticalFlowSessionCreateInfoNV>(
         mut self,
@@ -58303,6 +59251,7 @@ impl<'a> core::ops::DerefMut for OpticalFlowSessionCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`OpticalFlowSessionCreatePrivateDataInfoNV`] with lifetime-tied pNext safety.
 pub struct OpticalFlowSessionCreatePrivateDataInfoNVBuilder<'a> {
     inner: OpticalFlowSessionCreatePrivateDataInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58336,7 +59285,7 @@ impl<'a> OpticalFlowSessionCreatePrivateDataInfoNVBuilder<'a> {
         self.inner.p_private_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`OpticalFlowSessionCreatePrivateDataInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsOpticalFlowSessionCreatePrivateDataInfoNV>(
         mut self,
@@ -58365,6 +59314,7 @@ impl<'a> core::ops::DerefMut for OpticalFlowSessionCreatePrivateDataInfoNVBuilde
         &mut self.inner
     }
 }
+///Builder for [`OpticalFlowExecuteInfoNV`] with lifetime-tied pNext safety.
 pub struct OpticalFlowExecuteInfoNVBuilder<'a> {
     inner: OpticalFlowExecuteInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58394,7 +59344,7 @@ impl<'a> OpticalFlowExecuteInfoNVBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`OpticalFlowExecuteInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsOpticalFlowExecuteInfoNV>(
         mut self,
@@ -58423,6 +59373,7 @@ impl<'a> core::ops::DerefMut for OpticalFlowExecuteInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFaultFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceFaultFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58451,7 +59402,7 @@ impl<'a> PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
         self.inner.device_fault_vendor_binary = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFaultFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFaultFeaturesEXT>(
         mut self,
@@ -58480,6 +59431,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceFaultInfoKHR`] with lifetime-tied pNext safety.
 pub struct DeviceFaultInfoKHRBuilder<'a> {
     inner: DeviceFaultInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58545,6 +59497,7 @@ impl<'a> core::ops::DerefMut for DeviceFaultInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceFaultDebugInfoKHR`] with lifetime-tied pNext safety.
 pub struct DeviceFaultDebugInfoKHRBuilder<'a> {
     inner: DeviceFaultDebugInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58583,6 +59536,7 @@ impl<'a> core::ops::DerefMut for DeviceFaultDebugInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceFaultCountsEXT`] with lifetime-tied pNext safety.
 pub struct DeviceFaultCountsEXTBuilder<'a> {
     inner: DeviceFaultCountsEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58616,7 +59570,7 @@ impl<'a> DeviceFaultCountsEXTBuilder<'a> {
         self.inner.vendor_binary_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceFaultCountsEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceFaultCountsEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -58642,6 +59596,7 @@ impl<'a> core::ops::DerefMut for DeviceFaultCountsEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceFaultInfoEXT`] with lifetime-tied pNext safety.
 pub struct DeviceFaultInfoEXTBuilder<'a> {
     inner: DeviceFaultInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58697,6 +59652,7 @@ impl<'a> core::ops::DerefMut for DeviceFaultInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFaultFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFaultFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceFaultFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58735,7 +59691,7 @@ impl<'a> PhysicalDeviceFaultFeaturesKHRBuilder<'a> {
         self.inner.device_fault_device_lost_on_masked = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFaultFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFaultFeaturesKHR>(
         mut self,
@@ -58764,6 +59720,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFaultFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFaultPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFaultPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceFaultPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58801,6 +59758,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFaultPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXTBuilder<'a> {
     inner: PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58826,7 +59784,7 @@ impl<'a> PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXTBuilder<'a> {
         self.inner.pipeline_library_group_handles = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT>(
         mut self,
@@ -58857,6 +59815,7 @@ for PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DepthBiasInfoEXT`] with lifetime-tied pNext safety.
 pub struct DepthBiasInfoEXTBuilder<'a> {
     inner: DepthBiasInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58890,7 +59849,7 @@ impl<'a> DepthBiasInfoEXTBuilder<'a> {
         self.inner.depth_bias_slope_factor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DepthBiasInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDepthBiasInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -58916,6 +59875,7 @@ impl<'a> core::ops::DerefMut for DepthBiasInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DepthBiasRepresentationInfoEXT`] with lifetime-tied pNext safety.
 pub struct DepthBiasRepresentationInfoEXTBuilder<'a> {
     inner: DepthBiasRepresentationInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -58947,7 +59907,7 @@ impl<'a> DepthBiasRepresentationInfoEXTBuilder<'a> {
         self.inner.depth_bias_exact = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DepthBiasRepresentationInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDepthBiasRepresentationInfoEXT>(
         mut self,
@@ -58976,6 +59936,7 @@ impl<'a> core::ops::DerefMut for DepthBiasRepresentationInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DecompressMemoryInfoEXT`] with lifetime-tied pNext safety.
 pub struct DecompressMemoryInfoEXTBuilder<'a> {
     inner: DecompressMemoryInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59008,7 +59969,7 @@ impl<'a> DecompressMemoryInfoEXTBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DecompressMemoryInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDecompressMemoryInfoEXT>(
         mut self,
@@ -59037,6 +59998,7 @@ impl<'a> core::ops::DerefMut for DecompressMemoryInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderCoreBuiltinsPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderCoreBuiltinsPropertiesARMBuilder<'a> {
     inner: PhysicalDeviceShaderCoreBuiltinsPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59085,6 +60047,7 @@ for PhysicalDeviceShaderCoreBuiltinsPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderCoreBuiltinsFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceShaderCoreBuiltinsFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59108,7 +60071,7 @@ impl<'a> PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder<'a> {
         self.inner.shader_core_builtins = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderCoreBuiltinsFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderCoreBuiltinsFeaturesARM>(
         mut self,
@@ -59137,6 +60100,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuil
         &mut self.inner
     }
 }
+///Builder for [`FrameBoundaryEXT`] with lifetime-tied pNext safety.
 pub struct FrameBoundaryEXTBuilder<'a> {
     inner: FrameBoundaryEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59188,7 +60152,7 @@ impl<'a> FrameBoundaryEXTBuilder<'a> {
         self.inner.p_tag = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FrameBoundaryEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFrameBoundaryEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -59214,6 +60178,7 @@ impl<'a> core::ops::DerefMut for FrameBoundaryEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFrameBoundaryFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFrameBoundaryFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceFrameBoundaryFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59237,7 +60202,7 @@ impl<'a> PhysicalDeviceFrameBoundaryFeaturesEXTBuilder<'a> {
         self.inner.frame_boundary = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFrameBoundaryFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFrameBoundaryFeaturesEXT>(
         mut self,
@@ -59266,6 +60231,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFrameBoundaryFeaturesEXTBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59291,7 +60257,7 @@ impl<'a> PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXTBuilder<'a> {
         self.inner.dynamic_rendering_unused_attachments = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT,
@@ -59321,6 +60287,7 @@ for PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceInternallySynchronizedQueuesFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59346,7 +60313,7 @@ impl<'a> PhysicalDeviceInternallySynchronizedQueuesFeaturesKHRBuilder<'a> {
         self.inner.internally_synchronized_queues = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR>(
         mut self,
@@ -59377,6 +60344,7 @@ for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfacePresentModeKHR`] with lifetime-tied pNext safety.
 pub struct SurfacePresentModeKHRBuilder<'a> {
     inner: SurfacePresentModeKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59400,7 +60368,7 @@ impl<'a> SurfacePresentModeKHRBuilder<'a> {
         self.inner.present_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfacePresentModeKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfacePresentModeKHR>(
         mut self,
@@ -59429,6 +60397,7 @@ impl<'a> core::ops::DerefMut for SurfacePresentModeKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfacePresentScalingCapabilitiesKHR`] with lifetime-tied pNext safety.
 pub struct SurfacePresentScalingCapabilitiesKHRBuilder<'a> {
     inner: SurfacePresentScalingCapabilitiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59472,7 +60441,7 @@ impl<'a> SurfacePresentScalingCapabilitiesKHRBuilder<'a> {
         self.inner.max_scaled_image_extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfacePresentScalingCapabilitiesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfacePresentScalingCapabilitiesKHR>(
         mut self,
@@ -59501,6 +60470,7 @@ impl<'a> core::ops::DerefMut for SurfacePresentScalingCapabilitiesKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`SurfacePresentModeCompatibilityKHR`] with lifetime-tied pNext safety.
 pub struct SurfacePresentModeCompatibilityKHRBuilder<'a> {
     inner: SurfacePresentModeCompatibilityKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59525,7 +60495,7 @@ impl<'a> SurfacePresentModeCompatibilityKHRBuilder<'a> {
         self.inner.p_present_modes = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfacePresentModeCompatibilityKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfacePresentModeCompatibilityKHR>(
         mut self,
@@ -59554,6 +60524,7 @@ impl<'a> core::ops::DerefMut for SurfacePresentModeCompatibilityKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSwapchainMaintenance1FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceSwapchainMaintenance1FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59577,7 +60548,7 @@ impl<'a> PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder<'a> {
         self.inner.swapchain_maintenance1 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSwapchainMaintenance1FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSwapchainMaintenance1FeaturesKHR>(
         mut self,
@@ -59607,6 +60578,7 @@ for PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainPresentFenceInfoKHR`] with lifetime-tied pNext safety.
 pub struct SwapchainPresentFenceInfoKHRBuilder<'a> {
     inner: SwapchainPresentFenceInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59631,7 +60603,7 @@ impl<'a> SwapchainPresentFenceInfoKHRBuilder<'a> {
         self.inner.p_fences = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainPresentFenceInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainPresentFenceInfoKHR>(
         mut self,
@@ -59660,6 +60632,7 @@ impl<'a> core::ops::DerefMut for SwapchainPresentFenceInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainPresentModesCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct SwapchainPresentModesCreateInfoKHRBuilder<'a> {
     inner: SwapchainPresentModesCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59684,7 +60657,7 @@ impl<'a> SwapchainPresentModesCreateInfoKHRBuilder<'a> {
         self.inner.p_present_modes = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainPresentModesCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainPresentModesCreateInfoKHR>(
         mut self,
@@ -59713,6 +60686,7 @@ impl<'a> core::ops::DerefMut for SwapchainPresentModesCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainPresentModeInfoKHR`] with lifetime-tied pNext safety.
 pub struct SwapchainPresentModeInfoKHRBuilder<'a> {
     inner: SwapchainPresentModeInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59737,7 +60711,7 @@ impl<'a> SwapchainPresentModeInfoKHRBuilder<'a> {
         self.inner.p_present_modes = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainPresentModeInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainPresentModeInfoKHR>(
         mut self,
@@ -59766,6 +60740,7 @@ impl<'a> core::ops::DerefMut for SwapchainPresentModeInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainPresentScalingCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct SwapchainPresentScalingCreateInfoKHRBuilder<'a> {
     inner: SwapchainPresentScalingCreateInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59799,7 +60774,7 @@ impl<'a> SwapchainPresentScalingCreateInfoKHRBuilder<'a> {
         self.inner.present_gravity_y = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainPresentScalingCreateInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainPresentScalingCreateInfoKHR>(
         mut self,
@@ -59828,6 +60803,7 @@ impl<'a> core::ops::DerefMut for SwapchainPresentScalingCreateInfoKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`ReleaseSwapchainImagesInfoKHR`] with lifetime-tied pNext safety.
 pub struct ReleaseSwapchainImagesInfoKHRBuilder<'a> {
     inner: ReleaseSwapchainImagesInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59857,7 +60833,7 @@ impl<'a> ReleaseSwapchainImagesInfoKHRBuilder<'a> {
         self.inner.p_image_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ReleaseSwapchainImagesInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsReleaseSwapchainImagesInfoKHR>(
         mut self,
@@ -59886,6 +60862,7 @@ impl<'a> core::ops::DerefMut for ReleaseSwapchainImagesInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDepthBiasControlFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDepthBiasControlFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDepthBiasControlFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59927,7 +60904,7 @@ impl<'a> PhysicalDeviceDepthBiasControlFeaturesEXTBuilder<'a> {
         self.inner.depth_bias_exact = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthBiasControlFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDepthBiasControlFeaturesEXT>(
         mut self,
@@ -59956,6 +60933,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDepthBiasControlFeaturesEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingInvocationReorderFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceRayTracingInvocationReorderFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -59981,7 +60959,7 @@ impl<'a> PhysicalDeviceRayTracingInvocationReorderFeaturesEXTBuilder<'a> {
         self.inner.ray_tracing_invocation_reorder = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingInvocationReorderFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingInvocationReorderFeaturesEXT>(
         mut self,
@@ -60012,6 +60990,7 @@ for PhysicalDeviceRayTracingInvocationReorderFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingInvocationReorderFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceRayTracingInvocationReorderFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60037,7 +61016,7 @@ impl<'a> PhysicalDeviceRayTracingInvocationReorderFeaturesNVBuilder<'a> {
         self.inner.ray_tracing_invocation_reorder = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingInvocationReorderFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingInvocationReorderFeaturesNV>(
         mut self,
@@ -60068,6 +61047,7 @@ for PhysicalDeviceRayTracingInvocationReorderFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingInvocationReorderPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceRayTracingInvocationReorderPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60117,6 +61097,7 @@ for PhysicalDeviceRayTracingInvocationReorderPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingInvocationReorderPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceRayTracingInvocationReorderPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60161,6 +61142,7 @@ for PhysicalDeviceRayTracingInvocationReorderPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExtendedSparseAddressSpaceFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60186,7 +61168,7 @@ impl<'a> PhysicalDeviceExtendedSparseAddressSpaceFeaturesNVBuilder<'a> {
         self.inner.extended_sparse_address_space = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV>(
         mut self,
@@ -60217,6 +61199,7 @@ for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExtendedSparseAddressSpacePropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExtendedSparseAddressSpacePropertiesNVBuilder<'a> {
     inner: PhysicalDeviceExtendedSparseAddressSpacePropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60271,6 +61254,7 @@ for PhysicalDeviceExtendedSparseAddressSpacePropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DirectDriverLoadingInfoLUNARG`] with lifetime-tied pNext safety.
 pub struct DirectDriverLoadingInfoLUNARGBuilder<'a> {
     inner: DirectDriverLoadingInfoLUNARG,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60302,7 +61286,7 @@ impl<'a> DirectDriverLoadingInfoLUNARGBuilder<'a> {
         self.inner.pfn_get_instance_proc_addr = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DirectDriverLoadingInfoLUNARG`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDirectDriverLoadingInfoLUNARG>(
         mut self,
@@ -60331,6 +61315,7 @@ impl<'a> core::ops::DerefMut for DirectDriverLoadingInfoLUNARGBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DirectDriverLoadingListLUNARG`] with lifetime-tied pNext safety.
 pub struct DirectDriverLoadingListLUNARGBuilder<'a> {
     inner: DirectDriverLoadingListLUNARG,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60360,7 +61345,7 @@ impl<'a> DirectDriverLoadingListLUNARGBuilder<'a> {
         self.inner.p_drivers = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DirectDriverLoadingListLUNARG`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDirectDriverLoadingListLUNARG>(
         mut self,
@@ -60389,6 +61374,7 @@ impl<'a> core::ops::DerefMut for DirectDriverLoadingListLUNARGBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60414,7 +61400,7 @@ impl<'a> PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOMBuilder<'a> {
         self.inner.multiview_per_view_viewports = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM>(
         mut self,
@@ -60445,6 +61431,7 @@ for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRayTracingPositionFetchFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceRayTracingPositionFetchFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60468,7 +61455,7 @@ impl<'a> PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder<'a> {
         self.inner.ray_tracing_position_fetch = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingPositionFetchFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRayTracingPositionFetchFeaturesKHR>(
         mut self,
@@ -60499,6 +61486,7 @@ for PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceImageSubresourceInfo`] with lifetime-tied pNext safety.
 pub struct DeviceImageSubresourceInfoBuilder<'a> {
     inner: DeviceImageSubresourceInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60527,7 +61515,7 @@ impl<'a> DeviceImageSubresourceInfoBuilder<'a> {
         self.inner.p_subresource = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceImageSubresourceInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceImageSubresourceInfo>(
         mut self,
@@ -60556,6 +61544,7 @@ impl<'a> core::ops::DerefMut for DeviceImageSubresourceInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderCorePropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderCorePropertiesARMBuilder<'a> {
     inner: PhysicalDeviceShaderCorePropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60603,6 +61592,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderCorePropertiesARMBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60628,7 +61618,7 @@ impl<'a> PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOMBuilder<'a> {
         self.inner.multiview_per_view_render_areas = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM>(
         mut self,
@@ -60659,6 +61649,7 @@ for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM`] with lifetime-tied pNext safety.
 pub struct MultiviewPerViewRenderAreasRenderPassBeginInfoQCOMBuilder<'a> {
     inner: MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60685,7 +61676,7 @@ impl<'a> MultiviewPerViewRenderAreasRenderPassBeginInfoQCOMBuilder<'a> {
         self.inner.p_per_view_render_areas = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>(
         mut self,
@@ -60716,6 +61707,7 @@ for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueryLowLatencySupportNV`] with lifetime-tied pNext safety.
 pub struct QueryLowLatencySupportNVBuilder<'a> {
     inner: QueryLowLatencySupportNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60739,7 +61731,7 @@ impl<'a> QueryLowLatencySupportNVBuilder<'a> {
         self.inner.p_queried_low_latency_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`QueryLowLatencySupportNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsQueryLowLatencySupportNV>(
         mut self,
@@ -60768,6 +61760,7 @@ impl<'a> core::ops::DerefMut for QueryLowLatencySupportNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryMapInfo`] with lifetime-tied pNext safety.
 pub struct MemoryMapInfoBuilder<'a> {
     inner: MemoryMapInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60806,7 +61799,7 @@ impl<'a> MemoryMapInfoBuilder<'a> {
         self.inner.size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryMapInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryMapInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -60832,6 +61825,7 @@ impl<'a> core::ops::DerefMut for MemoryMapInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryUnmapInfo`] with lifetime-tied pNext safety.
 pub struct MemoryUnmapInfoBuilder<'a> {
     inner: MemoryUnmapInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60860,7 +61854,7 @@ impl<'a> MemoryUnmapInfoBuilder<'a> {
         self.inner.memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryUnmapInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryUnmapInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -60886,6 +61880,7 @@ impl<'a> core::ops::DerefMut for MemoryUnmapInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderObjectFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderObjectFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderObjectFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60909,7 +61904,7 @@ impl<'a> PhysicalDeviceShaderObjectFeaturesEXTBuilder<'a> {
         self.inner.shader_object = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderObjectFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderObjectFeaturesEXT>(
         mut self,
@@ -60938,6 +61933,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderObjectFeaturesEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderObjectPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderObjectPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderObjectPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -60980,6 +61976,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderObjectPropertiesEXTBuilder<
         &mut self.inner
     }
 }
+///Builder for [`ShaderCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct ShaderCreateInfoEXTBuilder<'a> {
     inner: ShaderCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61046,7 +62043,7 @@ impl<'a> ShaderCreateInfoEXTBuilder<'a> {
         self.inner.p_specialization_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ShaderCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsShaderCreateInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -61072,6 +62069,7 @@ impl<'a> core::ops::DerefMut for ShaderCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderTileImageFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderTileImageFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderTileImageFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61105,7 +62103,7 @@ impl<'a> PhysicalDeviceShaderTileImageFeaturesEXTBuilder<'a> {
         self.inner.shader_tile_image_stencil_read_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderTileImageFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderTileImageFeaturesEXT>(
         mut self,
@@ -61134,6 +62132,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderTileImageFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderTileImagePropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderTileImagePropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderTileImagePropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61184,6 +62183,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderTileImagePropertiesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`ImportScreenBufferInfoQNX`] with lifetime-tied pNext safety.
 pub struct ImportScreenBufferInfoQNXBuilder<'a> {
     inner: ImportScreenBufferInfoQNX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61207,7 +62207,7 @@ impl<'a> ImportScreenBufferInfoQNXBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportScreenBufferInfoQNX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportScreenBufferInfoQNX>(
         mut self,
@@ -61236,6 +62236,7 @@ impl<'a> core::ops::DerefMut for ImportScreenBufferInfoQNXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ScreenBufferPropertiesQNX`] with lifetime-tied pNext safety.
 pub struct ScreenBufferPropertiesQNXBuilder<'a> {
     inner: ScreenBufferPropertiesQNX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61278,6 +62279,7 @@ impl<'a> core::ops::DerefMut for ScreenBufferPropertiesQNXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ScreenBufferFormatPropertiesQNX`] with lifetime-tied pNext safety.
 pub struct ScreenBufferFormatPropertiesQNXBuilder<'a> {
     inner: ScreenBufferFormatPropertiesQNX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61358,6 +62360,7 @@ impl<'a> core::ops::DerefMut for ScreenBufferFormatPropertiesQNXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalFormatQNX`] with lifetime-tied pNext safety.
 pub struct ExternalFormatQNXBuilder<'a> {
     inner: ExternalFormatQNX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61381,7 +62384,7 @@ impl<'a> ExternalFormatQNXBuilder<'a> {
         self.inner.external_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalFormatQNX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalFormatQNX>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -61407,6 +62410,7 @@ impl<'a> core::ops::DerefMut for ExternalFormatQNXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalMemoryScreenBufferFeaturesQNXBuilder<'a> {
     inner: PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61432,7 +62436,7 @@ impl<'a> PhysicalDeviceExternalMemoryScreenBufferFeaturesQNXBuilder<'a> {
         self.inner.screen_buffer_import = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX>(
         mut self,
@@ -61463,6 +62467,7 @@ for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeMatrixFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceCooperativeMatrixFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61491,7 +62496,7 @@ impl<'a> PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder<'a> {
         self.inner.cooperative_matrix_robust_buffer_access = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrixFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCooperativeMatrixFeaturesKHR>(
         mut self,
@@ -61520,6 +62525,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCooperativeMatrixFeaturesKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`CooperativeMatrixPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct CooperativeMatrixPropertiesKHRBuilder<'a> {
     inner: CooperativeMatrixPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61597,6 +62603,7 @@ impl<'a> core::ops::DerefMut for CooperativeMatrixPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeMatrixPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeMatrixPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceCooperativeMatrixPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61638,6 +62645,7 @@ for PhysicalDeviceCooperativeMatrixPropertiesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeMatrixConversionFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61663,7 +62671,7 @@ impl<'a> PhysicalDeviceCooperativeMatrixConversionFeaturesQCOMBuilder<'a> {
         self.inner.cooperative_matrix_conversion = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM>(
         mut self,
@@ -61694,6 +62702,7 @@ for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderEnqueuePropertiesAMDX`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderEnqueuePropertiesAMDXBuilder<'a> {
     inner: PhysicalDeviceShaderEnqueuePropertiesAMDX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61761,6 +62770,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderEnqueuePropertiesAMDXBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderEnqueueFeaturesAMDX`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder<'a> {
     inner: PhysicalDeviceShaderEnqueueFeaturesAMDX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61789,7 +62799,7 @@ impl<'a> PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder<'a> {
         self.inner.shader_mesh_enqueue = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderEnqueueFeaturesAMDX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderEnqueueFeaturesAMDX>(
         mut self,
@@ -61818,6 +62828,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder<
         &mut self.inner
     }
 }
+///Builder for [`ExecutionGraphPipelineCreateInfoAMDX`] with lifetime-tied pNext safety.
 pub struct ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
     inner: ExecutionGraphPipelineCreateInfoAMDX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61867,7 +62878,7 @@ impl<'a> ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
         self.inner.base_pipeline_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExecutionGraphPipelineCreateInfoAMDX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExecutionGraphPipelineCreateInfoAMDX>(
         mut self,
@@ -61896,6 +62907,7 @@ impl<'a> core::ops::DerefMut for ExecutionGraphPipelineCreateInfoAMDXBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PipelineShaderStageNodeCreateInfoAMDX`] with lifetime-tied pNext safety.
 pub struct PipelineShaderStageNodeCreateInfoAMDXBuilder<'a> {
     inner: PipelineShaderStageNodeCreateInfoAMDX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61924,7 +62936,7 @@ impl<'a> PipelineShaderStageNodeCreateInfoAMDXBuilder<'a> {
         self.inner.index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineShaderStageNodeCreateInfoAMDX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineShaderStageNodeCreateInfoAMDX>(
         mut self,
@@ -61953,6 +62965,7 @@ impl<'a> core::ops::DerefMut for PipelineShaderStageNodeCreateInfoAMDXBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`ExecutionGraphPipelineScratchSizeAMDX`] with lifetime-tied pNext safety.
 pub struct ExecutionGraphPipelineScratchSizeAMDXBuilder<'a> {
     inner: ExecutionGraphPipelineScratchSizeAMDX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -61986,7 +62999,7 @@ impl<'a> ExecutionGraphPipelineScratchSizeAMDXBuilder<'a> {
         self.inner.size_granularity = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExecutionGraphPipelineScratchSizeAMDX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExecutionGraphPipelineScratchSizeAMDX>(
         mut self,
@@ -62015,6 +63028,7 @@ impl<'a> core::ops::DerefMut for ExecutionGraphPipelineScratchSizeAMDXBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceAntiLagFeaturesAMD`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceAntiLagFeaturesAMDBuilder<'a> {
     inner: PhysicalDeviceAntiLagFeaturesAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62038,7 +63052,7 @@ impl<'a> PhysicalDeviceAntiLagFeaturesAMDBuilder<'a> {
         self.inner.anti_lag = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAntiLagFeaturesAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceAntiLagFeaturesAMD>(
         mut self,
@@ -62067,6 +63081,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceAntiLagFeaturesAMDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AntiLagDataAMD`] with lifetime-tied pNext safety.
 pub struct AntiLagDataAMDBuilder<'a> {
     inner: AntiLagDataAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62103,7 +63118,7 @@ impl<'a> AntiLagDataAMDBuilder<'a> {
         self.inner.p_presentation_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AntiLagDataAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAntiLagDataAMD>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -62129,6 +63144,7 @@ impl<'a> core::ops::DerefMut for AntiLagDataAMDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AntiLagPresentationInfoAMD`] with lifetime-tied pNext safety.
 pub struct AntiLagPresentationInfoAMDBuilder<'a> {
     inner: AntiLagPresentationInfoAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62157,7 +63173,7 @@ impl<'a> AntiLagPresentationInfoAMDBuilder<'a> {
         self.inner.frame_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AntiLagPresentationInfoAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAntiLagPresentationInfoAMD>(
         mut self,
@@ -62186,6 +63202,7 @@ impl<'a> core::ops::DerefMut for AntiLagPresentationInfoAMDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindMemoryStatus`] with lifetime-tied pNext safety.
 pub struct BindMemoryStatusBuilder<'a> {
     inner: BindMemoryStatus,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62209,7 +63226,7 @@ impl<'a> BindMemoryStatusBuilder<'a> {
         self.inner.p_result = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindMemoryStatus`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindMemoryStatus>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -62235,6 +63252,7 @@ impl<'a> core::ops::DerefMut for BindMemoryStatusBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTileMemoryHeapFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceTileMemoryHeapFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62258,7 +63276,7 @@ impl<'a> PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder<'a> {
         self.inner.tile_memory_heap = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTileMemoryHeapFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTileMemoryHeapFeaturesQCOM>(
         mut self,
@@ -62287,6 +63305,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTileMemoryHeapPropertiesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder<'a> {
     inner: PhysicalDeviceTileMemoryHeapPropertiesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62315,7 +63334,7 @@ impl<'a> PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder<'a> {
         self.inner.tile_buffer_transfers = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTileMemoryHeapPropertiesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTileMemoryHeapPropertiesQCOM>(
         mut self,
@@ -62344,6 +63363,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTileMemoryHeapPropertiesQCOMBuild
         &mut self.inner
     }
 }
+///Builder for [`TileMemorySizeInfoQCOM`] with lifetime-tied pNext safety.
 pub struct TileMemorySizeInfoQCOMBuilder<'a> {
     inner: TileMemorySizeInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62367,7 +63387,7 @@ impl<'a> TileMemorySizeInfoQCOMBuilder<'a> {
         self.inner.size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TileMemorySizeInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTileMemorySizeInfoQCOM>(
         mut self,
@@ -62396,6 +63416,7 @@ impl<'a> core::ops::DerefMut for TileMemorySizeInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TileMemoryRequirementsQCOM`] with lifetime-tied pNext safety.
 pub struct TileMemoryRequirementsQCOMBuilder<'a> {
     inner: TileMemoryRequirementsQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62424,7 +63445,7 @@ impl<'a> TileMemoryRequirementsQCOMBuilder<'a> {
         self.inner.alignment = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TileMemoryRequirementsQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTileMemoryRequirementsQCOM>(
         mut self,
@@ -62453,6 +63474,7 @@ impl<'a> core::ops::DerefMut for TileMemoryRequirementsQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindDescriptorSetsInfo`] with lifetime-tied pNext safety.
 pub struct BindDescriptorSetsInfoBuilder<'a> {
     inner: BindDescriptorSetsInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62498,7 +63520,7 @@ impl<'a> BindDescriptorSetsInfoBuilder<'a> {
         self.inner.p_dynamic_offsets = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindDescriptorSetsInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindDescriptorSetsInfo>(
         mut self,
@@ -62527,6 +63549,7 @@ impl<'a> core::ops::DerefMut for BindDescriptorSetsInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PushConstantsInfo`] with lifetime-tied pNext safety.
 pub struct PushConstantsInfoBuilder<'a> {
     inner: PushConstantsInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62566,7 +63589,7 @@ impl<'a> PushConstantsInfoBuilder<'a> {
         self.inner.p_values = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PushConstantsInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPushConstantsInfo>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -62592,6 +63615,7 @@ impl<'a> core::ops::DerefMut for PushConstantsInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PushDescriptorSetInfo`] with lifetime-tied pNext safety.
 pub struct PushDescriptorSetInfoBuilder<'a> {
     inner: PushDescriptorSetInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62631,7 +63655,7 @@ impl<'a> PushDescriptorSetInfoBuilder<'a> {
         self.inner.p_descriptor_writes = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PushDescriptorSetInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPushDescriptorSetInfo>(
         mut self,
@@ -62660,6 +63684,7 @@ impl<'a> core::ops::DerefMut for PushDescriptorSetInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PushDescriptorSetWithTemplateInfo`] with lifetime-tied pNext safety.
 pub struct PushDescriptorSetWithTemplateInfoBuilder<'a> {
     inner: PushDescriptorSetWithTemplateInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62701,7 +63726,7 @@ impl<'a> PushDescriptorSetWithTemplateInfoBuilder<'a> {
         self.inner.p_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PushDescriptorSetWithTemplateInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPushDescriptorSetWithTemplateInfo>(
         mut self,
@@ -62730,6 +63755,7 @@ impl<'a> core::ops::DerefMut for PushDescriptorSetWithTemplateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SetDescriptorBufferOffsetsInfoEXT`] with lifetime-tied pNext safety.
 pub struct SetDescriptorBufferOffsetsInfoEXTBuilder<'a> {
     inner: SetDescriptorBufferOffsetsInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62775,7 +63801,7 @@ impl<'a> SetDescriptorBufferOffsetsInfoEXTBuilder<'a> {
         self.inner.p_offsets = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SetDescriptorBufferOffsetsInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSetDescriptorBufferOffsetsInfoEXT>(
         mut self,
@@ -62804,6 +63830,7 @@ impl<'a> core::ops::DerefMut for SetDescriptorBufferOffsetsInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindDescriptorBufferEmbeddedSamplersInfoEXT`] with lifetime-tied pNext safety.
 pub struct BindDescriptorBufferEmbeddedSamplersInfoEXTBuilder<'a> {
     inner: BindDescriptorBufferEmbeddedSamplersInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62837,7 +63864,7 @@ impl<'a> BindDescriptorBufferEmbeddedSamplersInfoEXTBuilder<'a> {
         self.inner.set = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindDescriptorBufferEmbeddedSamplersInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindDescriptorBufferEmbeddedSamplersInfoEXT>(
         mut self,
@@ -62866,6 +63893,7 @@ impl<'a> core::ops::DerefMut for BindDescriptorBufferEmbeddedSamplersInfoEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCubicClampFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCubicClampFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceCubicClampFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62889,7 +63917,7 @@ impl<'a> PhysicalDeviceCubicClampFeaturesQCOMBuilder<'a> {
         self.inner.cubic_range_clamp = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCubicClampFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCubicClampFeaturesQCOM>(
         mut self,
@@ -62918,6 +63946,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCubicClampFeaturesQCOMBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceYcbcrDegammaFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceYcbcrDegammaFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62941,7 +63970,7 @@ impl<'a> PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder<'a> {
         self.inner.ycbcr_degamma = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceYcbcrDegammaFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceYcbcrDegammaFeaturesQCOM>(
         mut self,
@@ -62970,6 +63999,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM`] with lifetime-tied pNext safety.
 pub struct SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder<'a> {
     inner: SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -62998,7 +64028,7 @@ impl<'a> SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder<'a> {
         self.inner.enable_cb_cr_degamma = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM>(
         mut self,
@@ -63029,6 +64059,7 @@ for SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCubicWeightsFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCubicWeightsFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceCubicWeightsFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63052,7 +64083,7 @@ impl<'a> PhysicalDeviceCubicWeightsFeaturesQCOMBuilder<'a> {
         self.inner.selectable_cubic_weights = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCubicWeightsFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCubicWeightsFeaturesQCOM>(
         mut self,
@@ -63081,6 +64112,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCubicWeightsFeaturesQCOMBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`SamplerCubicWeightsCreateInfoQCOM`] with lifetime-tied pNext safety.
 pub struct SamplerCubicWeightsCreateInfoQCOMBuilder<'a> {
     inner: SamplerCubicWeightsCreateInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63104,7 +64136,7 @@ impl<'a> SamplerCubicWeightsCreateInfoQCOMBuilder<'a> {
         self.inner.cubic_weights = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerCubicWeightsCreateInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerCubicWeightsCreateInfoQCOM>(
         mut self,
@@ -63133,6 +64165,7 @@ impl<'a> core::ops::DerefMut for SamplerCubicWeightsCreateInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BlitImageCubicWeightsInfoQCOM`] with lifetime-tied pNext safety.
 pub struct BlitImageCubicWeightsInfoQCOMBuilder<'a> {
     inner: BlitImageCubicWeightsInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63156,7 +64189,7 @@ impl<'a> BlitImageCubicWeightsInfoQCOMBuilder<'a> {
         self.inner.cubic_weights = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BlitImageCubicWeightsInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBlitImageCubicWeightsInfoQCOM>(
         mut self,
@@ -63185,6 +64218,7 @@ impl<'a> core::ops::DerefMut for BlitImageCubicWeightsInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageProcessing2FeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageProcessing2FeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceImageProcessing2FeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63208,7 +64242,7 @@ impl<'a> PhysicalDeviceImageProcessing2FeaturesQCOMBuilder<'a> {
         self.inner.texture_block_match2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageProcessing2FeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageProcessing2FeaturesQCOM>(
         mut self,
@@ -63237,6 +64271,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceImageProcessing2FeaturesQCOMBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageProcessing2PropertiesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageProcessing2PropertiesQCOMBuilder<'a> {
     inner: PhysicalDeviceImageProcessing2PropertiesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63275,6 +64310,7 @@ for PhysicalDeviceImageProcessing2PropertiesQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SamplerBlockMatchWindowCreateInfoQCOM`] with lifetime-tied pNext safety.
 pub struct SamplerBlockMatchWindowCreateInfoQCOMBuilder<'a> {
     inner: SamplerBlockMatchWindowCreateInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63306,7 +64342,7 @@ impl<'a> SamplerBlockMatchWindowCreateInfoQCOMBuilder<'a> {
         self.inner.window_compare_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerBlockMatchWindowCreateInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerBlockMatchWindowCreateInfoQCOM>(
         mut self,
@@ -63335,6 +64371,7 @@ impl<'a> core::ops::DerefMut for SamplerBlockMatchWindowCreateInfoQCOMBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorPoolOverallocationFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorPoolOverallocationFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceDescriptorPoolOverallocationFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63360,7 +64397,7 @@ impl<'a> PhysicalDeviceDescriptorPoolOverallocationFeaturesNVBuilder<'a> {
         self.inner.descriptor_pool_overallocation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorPoolOverallocationFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDescriptorPoolOverallocationFeaturesNV>(
         mut self,
@@ -63391,6 +64428,7 @@ for PhysicalDeviceDescriptorPoolOverallocationFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceLayeredDriverPropertiesMSFT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceLayeredDriverPropertiesMSFTBuilder<'a> {
     inner: PhysicalDeviceLayeredDriverPropertiesMSFT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63428,6 +64466,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceLayeredDriverPropertiesMSFTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePerStageDescriptorSetFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder<'a> {
     inner: PhysicalDevicePerStageDescriptorSetFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63456,7 +64495,7 @@ impl<'a> PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder<'a> {
         self.inner.dynamic_pipeline_layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePerStageDescriptorSetFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePerStageDescriptorSetFeaturesNV>(
         mut self,
@@ -63486,6 +64525,7 @@ for PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalFormatResolveFeaturesANDROID`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalFormatResolveFeaturesANDROIDBuilder<'a> {
     inner: PhysicalDeviceExternalFormatResolveFeaturesANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63511,7 +64551,7 @@ impl<'a> PhysicalDeviceExternalFormatResolveFeaturesANDROIDBuilder<'a> {
         self.inner.external_format_resolve = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalFormatResolveFeaturesANDROID`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalFormatResolveFeaturesANDROID>(
         mut self,
@@ -63542,6 +64582,7 @@ for PhysicalDeviceExternalFormatResolveFeaturesANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalFormatResolvePropertiesANDROID`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalFormatResolvePropertiesANDROIDBuilder<'a> {
     inner: PhysicalDeviceExternalFormatResolvePropertiesANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63602,6 +64643,7 @@ for PhysicalDeviceExternalFormatResolvePropertiesANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AndroidHardwareBufferFormatResolvePropertiesANDROID`] with lifetime-tied pNext safety.
 pub struct AndroidHardwareBufferFormatResolvePropertiesANDROIDBuilder<'a> {
     inner: AndroidHardwareBufferFormatResolvePropertiesANDROID,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63643,6 +64685,7 @@ for AndroidHardwareBufferFormatResolvePropertiesANDROIDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`LatencySleepModeInfoNV`] with lifetime-tied pNext safety.
 pub struct LatencySleepModeInfoNVBuilder<'a> {
     inner: LatencySleepModeInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63676,7 +64719,7 @@ impl<'a> LatencySleepModeInfoNVBuilder<'a> {
         self.inner.minimum_interval_us = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`LatencySleepModeInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsLatencySleepModeInfoNV>(
         mut self,
@@ -63705,6 +64748,7 @@ impl<'a> core::ops::DerefMut for LatencySleepModeInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`LatencySleepInfoNV`] with lifetime-tied pNext safety.
 pub struct LatencySleepInfoNVBuilder<'a> {
     inner: LatencySleepInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63733,7 +64777,7 @@ impl<'a> LatencySleepInfoNVBuilder<'a> {
         self.inner.value = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`LatencySleepInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsLatencySleepInfoNV>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -63759,6 +64803,7 @@ impl<'a> core::ops::DerefMut for LatencySleepInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SetLatencyMarkerInfoNV`] with lifetime-tied pNext safety.
 pub struct SetLatencyMarkerInfoNVBuilder<'a> {
     inner: SetLatencyMarkerInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63787,7 +64832,7 @@ impl<'a> SetLatencyMarkerInfoNVBuilder<'a> {
         self.inner.marker = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SetLatencyMarkerInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSetLatencyMarkerInfoNV>(
         mut self,
@@ -63816,6 +64861,7 @@ impl<'a> core::ops::DerefMut for SetLatencyMarkerInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`GetLatencyMarkerInfoNV`] with lifetime-tied pNext safety.
 pub struct GetLatencyMarkerInfoNVBuilder<'a> {
     inner: GetLatencyMarkerInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63840,7 +64886,7 @@ impl<'a> GetLatencyMarkerInfoNVBuilder<'a> {
         self.inner.p_timings = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`GetLatencyMarkerInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsGetLatencyMarkerInfoNV>(
         mut self,
@@ -63869,6 +64915,7 @@ impl<'a> core::ops::DerefMut for GetLatencyMarkerInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`LatencyTimingsFrameReportNV`] with lifetime-tied pNext safety.
 pub struct LatencyTimingsFrameReportNVBuilder<'a> {
     inner: LatencyTimingsFrameReportNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63971,6 +65018,7 @@ impl<'a> core::ops::DerefMut for LatencyTimingsFrameReportNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`OutOfBandQueueTypeInfoNV`] with lifetime-tied pNext safety.
 pub struct OutOfBandQueueTypeInfoNVBuilder<'a> {
     inner: OutOfBandQueueTypeInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -63994,7 +65042,7 @@ impl<'a> OutOfBandQueueTypeInfoNVBuilder<'a> {
         self.inner.queue_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`OutOfBandQueueTypeInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsOutOfBandQueueTypeInfoNV>(
         mut self,
@@ -64023,6 +65071,7 @@ impl<'a> core::ops::DerefMut for OutOfBandQueueTypeInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`LatencySubmissionPresentIdNV`] with lifetime-tied pNext safety.
 pub struct LatencySubmissionPresentIdNVBuilder<'a> {
     inner: LatencySubmissionPresentIdNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64046,7 +65095,7 @@ impl<'a> LatencySubmissionPresentIdNVBuilder<'a> {
         self.inner.present_id = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`LatencySubmissionPresentIdNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsLatencySubmissionPresentIdNV>(
         mut self,
@@ -64075,6 +65124,7 @@ impl<'a> core::ops::DerefMut for LatencySubmissionPresentIdNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainLatencyCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct SwapchainLatencyCreateInfoNVBuilder<'a> {
     inner: SwapchainLatencyCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64098,7 +65148,7 @@ impl<'a> SwapchainLatencyCreateInfoNVBuilder<'a> {
         self.inner.latency_mode_enable = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainLatencyCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainLatencyCreateInfoNV>(
         mut self,
@@ -64127,6 +65177,7 @@ impl<'a> core::ops::DerefMut for SwapchainLatencyCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`LatencySurfaceCapabilitiesNV`] with lifetime-tied pNext safety.
 pub struct LatencySurfaceCapabilitiesNVBuilder<'a> {
     inner: LatencySurfaceCapabilitiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64151,7 +65202,7 @@ impl<'a> LatencySurfaceCapabilitiesNVBuilder<'a> {
         self.inner.p_present_modes = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`LatencySurfaceCapabilitiesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsLatencySurfaceCapabilitiesNV>(
         mut self,
@@ -64180,6 +65231,7 @@ impl<'a> core::ops::DerefMut for LatencySurfaceCapabilitiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCudaKernelLaunchFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCudaKernelLaunchFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64203,7 +65255,7 @@ impl<'a> PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder<'a> {
         self.inner.cuda_kernel_launch_features = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCudaKernelLaunchFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCudaKernelLaunchFeaturesNV>(
         mut self,
@@ -64232,6 +65284,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCudaKernelLaunchPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCudaKernelLaunchPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceCudaKernelLaunchPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64274,6 +65327,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCudaKernelLaunchPropertiesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`DeviceQueueShaderCoreControlCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct DeviceQueueShaderCoreControlCreateInfoARMBuilder<'a> {
     inner: DeviceQueueShaderCoreControlCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64297,7 +65351,7 @@ impl<'a> DeviceQueueShaderCoreControlCreateInfoARMBuilder<'a> {
         self.inner.shader_core_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceQueueShaderCoreControlCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceQueueShaderCoreControlCreateInfoARM>(
         mut self,
@@ -64326,6 +65380,7 @@ impl<'a> core::ops::DerefMut for DeviceQueueShaderCoreControlCreateInfoARMBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSchedulingControlsFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSchedulingControlsFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceSchedulingControlsFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64349,7 +65404,7 @@ impl<'a> PhysicalDeviceSchedulingControlsFeaturesARMBuilder<'a> {
         self.inner.scheduling_controls = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSchedulingControlsFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceSchedulingControlsFeaturesARM>(
         mut self,
@@ -64378,6 +65433,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSchedulingControlsFeaturesARMBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceSchedulingControlsPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceSchedulingControlsPropertiesARMBuilder<'a> {
     inner: PhysicalDeviceSchedulingControlsPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64419,6 +65475,7 @@ for PhysicalDeviceSchedulingControlsPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRelaxedLineRasterizationFeaturesIMG`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRelaxedLineRasterizationFeaturesIMGBuilder<'a> {
     inner: PhysicalDeviceRelaxedLineRasterizationFeaturesIMG,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64444,7 +65501,7 @@ impl<'a> PhysicalDeviceRelaxedLineRasterizationFeaturesIMGBuilder<'a> {
         self.inner.relaxed_line_rasterization = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRelaxedLineRasterizationFeaturesIMG`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRelaxedLineRasterizationFeaturesIMG>(
         mut self,
@@ -64475,6 +65532,7 @@ for PhysicalDeviceRelaxedLineRasterizationFeaturesIMGBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRenderPassStripedFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRenderPassStripedFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceRenderPassStripedFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64498,7 +65556,7 @@ impl<'a> PhysicalDeviceRenderPassStripedFeaturesARMBuilder<'a> {
         self.inner.render_pass_striped = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRenderPassStripedFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRenderPassStripedFeaturesARM>(
         mut self,
@@ -64527,6 +65585,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRenderPassStripedFeaturesARMBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRenderPassStripedPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRenderPassStripedPropertiesARMBuilder<'a> {
     inner: PhysicalDeviceRenderPassStripedPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64570,6 +65629,7 @@ for PhysicalDeviceRenderPassStripedPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassStripeInfoARM`] with lifetime-tied pNext safety.
 pub struct RenderPassStripeInfoARMBuilder<'a> {
     inner: RenderPassStripeInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64593,7 +65653,7 @@ impl<'a> RenderPassStripeInfoARMBuilder<'a> {
         self.inner.stripe_area = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassStripeInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassStripeInfoARM>(
         mut self,
@@ -64622,6 +65682,7 @@ impl<'a> core::ops::DerefMut for RenderPassStripeInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassStripeBeginInfoARM`] with lifetime-tied pNext safety.
 pub struct RenderPassStripeBeginInfoARMBuilder<'a> {
     inner: RenderPassStripeBeginInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64646,7 +65707,7 @@ impl<'a> RenderPassStripeBeginInfoARMBuilder<'a> {
         self.inner.p_stripe_infos = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassStripeBeginInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassStripeBeginInfoARM>(
         mut self,
@@ -64675,6 +65736,7 @@ impl<'a> core::ops::DerefMut for RenderPassStripeBeginInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassStripeSubmitInfoARM`] with lifetime-tied pNext safety.
 pub struct RenderPassStripeSubmitInfoARMBuilder<'a> {
     inner: RenderPassStripeSubmitInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64699,7 +65761,7 @@ impl<'a> RenderPassStripeSubmitInfoARMBuilder<'a> {
         self.inner.p_stripe_semaphore_infos = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassStripeSubmitInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassStripeSubmitInfoARM>(
         mut self,
@@ -64728,6 +65790,7 @@ impl<'a> core::ops::DerefMut for RenderPassStripeSubmitInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineOpacityMicromapFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder<'a> {
     inner: PhysicalDevicePipelineOpacityMicromapFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64751,7 +65814,7 @@ impl<'a> PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder<'a> {
         self.inner.pipeline_opacity_micromap = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineOpacityMicromapFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineOpacityMicromapFeaturesARM>(
         mut self,
@@ -64782,6 +65845,7 @@ for PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderMaximalReconvergenceFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64807,7 +65871,7 @@ impl<'a> PhysicalDeviceShaderMaximalReconvergenceFeaturesKHRBuilder<'a> {
         self.inner.shader_maximal_reconvergence = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR>(
         mut self,
@@ -64838,6 +65902,7 @@ for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderSubgroupRotateFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderSubgroupRotateFeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderSubgroupRotateFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64866,7 +65931,7 @@ impl<'a> PhysicalDeviceShaderSubgroupRotateFeaturesBuilder<'a> {
         self.inner.shader_subgroup_rotate_clustered = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupRotateFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderSubgroupRotateFeatures>(
         mut self,
@@ -64895,6 +65960,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderSubgroupRotateFeaturesBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderExpectAssumeFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderExpectAssumeFeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderExpectAssumeFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64918,7 +65984,7 @@ impl<'a> PhysicalDeviceShaderExpectAssumeFeaturesBuilder<'a> {
         self.inner.shader_expect_assume = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderExpectAssumeFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderExpectAssumeFeatures>(
         mut self,
@@ -64947,6 +66013,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderExpectAssumeFeaturesBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderFloatControls2Features`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderFloatControls2FeaturesBuilder<'a> {
     inner: PhysicalDeviceShaderFloatControls2Features,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -64970,7 +66037,7 @@ impl<'a> PhysicalDeviceShaderFloatControls2FeaturesBuilder<'a> {
         self.inner.shader_float_controls2 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFloatControls2Features`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderFloatControls2Features>(
         mut self,
@@ -64999,6 +66066,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderFloatControls2FeaturesBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDynamicRenderingLocalReadFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder<'a> {
     inner: PhysicalDeviceDynamicRenderingLocalReadFeatures,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65022,7 +66090,7 @@ impl<'a> PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder<'a> {
         self.inner.dynamic_rendering_local_read = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDynamicRenderingLocalReadFeatures`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDynamicRenderingLocalReadFeatures>(
         mut self,
@@ -65053,6 +66121,7 @@ for PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingAttachmentLocationInfo`] with lifetime-tied pNext safety.
 pub struct RenderingAttachmentLocationInfoBuilder<'a> {
     inner: RenderingAttachmentLocationInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65077,7 +66146,7 @@ impl<'a> RenderingAttachmentLocationInfoBuilder<'a> {
         self.inner.p_color_attachment_locations = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingAttachmentLocationInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingAttachmentLocationInfo>(
         mut self,
@@ -65106,6 +66175,7 @@ impl<'a> core::ops::DerefMut for RenderingAttachmentLocationInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderingInputAttachmentIndexInfo`] with lifetime-tied pNext safety.
 pub struct RenderingInputAttachmentIndexInfoBuilder<'a> {
     inner: RenderingInputAttachmentIndexInfo,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65140,7 +66210,7 @@ impl<'a> RenderingInputAttachmentIndexInfoBuilder<'a> {
         self.inner.p_stencil_input_attachment_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderingInputAttachmentIndexInfo`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderingInputAttachmentIndexInfo>(
         mut self,
@@ -65169,6 +66239,7 @@ impl<'a> core::ops::DerefMut for RenderingInputAttachmentIndexInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderQuadControlFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderQuadControlFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderQuadControlFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65192,7 +66263,7 @@ impl<'a> PhysicalDeviceShaderQuadControlFeaturesKHRBuilder<'a> {
         self.inner.shader_quad_control = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderQuadControlFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderQuadControlFeaturesKHR>(
         mut self,
@@ -65221,6 +66292,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderQuadControlFeaturesKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderAtomicFloat16VectorFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65246,7 +66318,7 @@ impl<'a> PhysicalDeviceShaderAtomicFloat16VectorFeaturesNVBuilder<'a> {
         self.inner.shader_float16_vector_atomics = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV>(
         mut self,
@@ -65277,6 +66349,7 @@ for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMapMemoryPlacedFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceMapMemoryPlacedFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65310,7 +66383,7 @@ impl<'a> PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder<'a> {
         self.inner.memory_unmap_reserve = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMapMemoryPlacedFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceMapMemoryPlacedFeaturesEXT>(
         mut self,
@@ -65339,6 +66412,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceMapMemoryPlacedPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceMapMemoryPlacedPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceMapMemoryPlacedPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65376,6 +66450,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceMapMemoryPlacedPropertiesEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`MemoryMapPlacedInfoEXT`] with lifetime-tied pNext safety.
 pub struct MemoryMapPlacedInfoEXTBuilder<'a> {
     inner: MemoryMapPlacedInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65399,7 +66474,7 @@ impl<'a> MemoryMapPlacedInfoEXTBuilder<'a> {
         self.inner.p_placed_address = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryMapPlacedInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryMapPlacedInfoEXT>(
         mut self,
@@ -65428,6 +66503,7 @@ impl<'a> core::ops::DerefMut for MemoryMapPlacedInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderBfloat16FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderBfloat16FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderBfloat16FeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65461,7 +66537,7 @@ impl<'a> PhysicalDeviceShaderBfloat16FeaturesKHRBuilder<'a> {
         self.inner.shader_b_float16_cooperative_matrix = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderBfloat16FeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderBfloat16FeaturesKHR>(
         mut self,
@@ -65490,6 +66566,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderBfloat16FeaturesKHRBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceRawAccessChainsFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRawAccessChainsFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceRawAccessChainsFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65513,7 +66590,7 @@ impl<'a> PhysicalDeviceRawAccessChainsFeaturesNVBuilder<'a> {
         self.inner.shader_raw_access_chains = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRawAccessChainsFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceRawAccessChainsFeaturesNV>(
         mut self,
@@ -65542,6 +66619,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRawAccessChainsFeaturesNVBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCommandBufferInheritanceFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCommandBufferInheritanceFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65565,7 +66643,7 @@ impl<'a> PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder<'a> {
         self.inner.command_buffer_inheritance = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCommandBufferInheritanceFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCommandBufferInheritanceFeaturesNV>(
         mut self,
@@ -65596,6 +66674,7 @@ for PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageAlignmentControlFeaturesMESA`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageAlignmentControlFeaturesMESABuilder<'a> {
     inner: PhysicalDeviceImageAlignmentControlFeaturesMESA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65619,7 +66698,7 @@ impl<'a> PhysicalDeviceImageAlignmentControlFeaturesMESABuilder<'a> {
         self.inner.image_alignment_control = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageAlignmentControlFeaturesMESA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceImageAlignmentControlFeaturesMESA>(
         mut self,
@@ -65650,6 +66729,7 @@ for PhysicalDeviceImageAlignmentControlFeaturesMESABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceImageAlignmentControlPropertiesMESA`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceImageAlignmentControlPropertiesMESABuilder<'a> {
     inner: PhysicalDeviceImageAlignmentControlPropertiesMESA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65691,6 +66771,7 @@ for PhysicalDeviceImageAlignmentControlPropertiesMESABuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageAlignmentControlCreateInfoMESA`] with lifetime-tied pNext safety.
 pub struct ImageAlignmentControlCreateInfoMESABuilder<'a> {
     inner: ImageAlignmentControlCreateInfoMESA,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65714,7 +66795,7 @@ impl<'a> ImageAlignmentControlCreateInfoMESABuilder<'a> {
         self.inner.maximum_requested_alignment = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageAlignmentControlCreateInfoMESA`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageAlignmentControlCreateInfoMESA>(
         mut self,
@@ -65743,6 +66824,7 @@ impl<'a> core::ops::DerefMut for ImageAlignmentControlCreateInfoMESABuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderReplicatedCompositesFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderReplicatedCompositesFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderReplicatedCompositesFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65768,7 +66850,7 @@ impl<'a> PhysicalDeviceShaderReplicatedCompositesFeaturesEXTBuilder<'a> {
         self.inner.shader_replicated_composites = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderReplicatedCompositesFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderReplicatedCompositesFeaturesEXT>(
         mut self,
@@ -65799,6 +66881,7 @@ for PhysicalDeviceShaderReplicatedCompositesFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<'a> {
     inner: PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65824,7 +66907,7 @@ impl<'a> PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<'a> {
         self.inner.present_mode_fifo_latest_ready = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR>(
         mut self,
@@ -65855,6 +66938,7 @@ for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeMatrix2FeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCooperativeMatrix2FeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65908,7 +66992,7 @@ impl<'a> PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder<'a> {
         self.inner.cooperative_matrix_block_loads = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrix2FeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCooperativeMatrix2FeaturesNV>(
         mut self,
@@ -65937,6 +67021,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCooperativeMatrix2FeaturesNVBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeMatrix2PropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeMatrix2PropertiesNVBuilder<'a> {
     inner: PhysicalDeviceCooperativeMatrix2PropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -65994,6 +67079,7 @@ for PhysicalDeviceCooperativeMatrix2PropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CooperativeMatrixFlexibleDimensionsPropertiesNV`] with lifetime-tied pNext safety.
 pub struct CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder<'a> {
     inner: CooperativeMatrixFlexibleDimensionsPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66078,6 +67164,7 @@ for CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceHdrVividFeaturesHUAWEI`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceHdrVividFeaturesHUAWEIBuilder<'a> {
     inner: PhysicalDeviceHdrVividFeaturesHUAWEI,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66101,7 +67188,7 @@ impl<'a> PhysicalDeviceHdrVividFeaturesHUAWEIBuilder<'a> {
         self.inner.hdr_vivid = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHdrVividFeaturesHUAWEI`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceHdrVividFeaturesHUAWEI>(
         mut self,
@@ -66130,6 +67217,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceHdrVividFeaturesHUAWEIBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVertexAttributeRobustnessFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVertexAttributeRobustnessFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceVertexAttributeRobustnessFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66155,7 +67243,7 @@ impl<'a> PhysicalDeviceVertexAttributeRobustnessFeaturesEXTBuilder<'a> {
         self.inner.vertex_attribute_robustness = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVertexAttributeRobustnessFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVertexAttributeRobustnessFeaturesEXT>(
         mut self,
@@ -66186,6 +67274,7 @@ for PhysicalDeviceVertexAttributeRobustnessFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDenseGeometryFormatFeaturesAMDX`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder<'a> {
     inner: PhysicalDeviceDenseGeometryFormatFeaturesAMDX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66209,7 +67298,7 @@ impl<'a> PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder<'a> {
         self.inner.dense_geometry_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDenseGeometryFormatFeaturesAMDX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDenseGeometryFormatFeaturesAMDX>(
         mut self,
@@ -66239,6 +67328,7 @@ for PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureDenseGeometryFormatTrianglesDataAMDX`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureDenseGeometryFormatTrianglesDataAMDXBuilder<'a> {
     inner: AccelerationStructureDenseGeometryFormatTrianglesDataAMDX,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66294,7 +67384,7 @@ impl<'a> AccelerationStructureDenseGeometryFormatTrianglesDataAMDXBuilder<'a> {
         self.inner.format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureDenseGeometryFormatTrianglesDataAMDX`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsAccelerationStructureDenseGeometryFormatTrianglesDataAMDX,
@@ -66324,6 +67414,7 @@ for AccelerationStructureDenseGeometryFormatTrianglesDataAMDXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDepthClampZeroOneFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceDepthClampZeroOneFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66347,7 +67438,7 @@ impl<'a> PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder<'a> {
         self.inner.depth_clamp_zero_one = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClampZeroOneFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDepthClampZeroOneFeaturesKHR>(
         mut self,
@@ -66376,6 +67467,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDepthClampZeroOneFeaturesKHRBuild
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeVectorFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeVectorFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceCooperativeVectorFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66404,7 +67496,7 @@ impl<'a> PhysicalDeviceCooperativeVectorFeaturesNVBuilder<'a> {
         self.inner.cooperative_vector_training = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeVectorFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceCooperativeVectorFeaturesNV>(
         mut self,
@@ -66433,6 +67525,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCooperativeVectorFeaturesNVBuilde
         &mut self.inner
     }
 }
+///Builder for [`CooperativeVectorPropertiesNV`] with lifetime-tied pNext safety.
 pub struct CooperativeVectorPropertiesNVBuilder<'a> {
     inner: CooperativeVectorPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66481,7 +67574,7 @@ impl<'a> CooperativeVectorPropertiesNVBuilder<'a> {
         self.inner.transpose = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CooperativeVectorPropertiesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCooperativeVectorPropertiesNV>(
         mut self,
@@ -66510,6 +67603,7 @@ impl<'a> core::ops::DerefMut for CooperativeVectorPropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceCooperativeVectorPropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceCooperativeVectorPropertiesNVBuilder<'a> {
     inner: PhysicalDeviceCooperativeVectorPropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66571,6 +67665,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceCooperativeVectorPropertiesNVBuil
         &mut self.inner
     }
 }
+///Builder for [`ConvertCooperativeVectorMatrixInfoNV`] with lifetime-tied pNext safety.
 pub struct ConvertCooperativeVectorMatrixInfoNVBuilder<'a> {
     inner: ConvertCooperativeVectorMatrixInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66649,7 +67744,7 @@ impl<'a> ConvertCooperativeVectorMatrixInfoNVBuilder<'a> {
         self.inner.dst_stride = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ConvertCooperativeVectorMatrixInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsConvertCooperativeVectorMatrixInfoNV>(
         mut self,
@@ -66678,6 +67773,7 @@ impl<'a> core::ops::DerefMut for ConvertCooperativeVectorMatrixInfoNVBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTileShadingFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTileShadingFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceTileShadingFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66766,7 +67862,7 @@ impl<'a> PhysicalDeviceTileShadingFeaturesQCOMBuilder<'a> {
         self.inner.tile_shading_image_processing = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTileShadingFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTileShadingFeaturesQCOM>(
         mut self,
@@ -66795,6 +67891,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTileShadingFeaturesQCOMBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTileShadingPropertiesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTileShadingPropertiesQCOMBuilder<'a> {
     inner: PhysicalDeviceTileShadingPropertiesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66847,6 +67944,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTileShadingPropertiesQCOMBuilder<
         &mut self.inner
     }
 }
+///Builder for [`RenderPassTileShadingCreateInfoQCOM`] with lifetime-tied pNext safety.
 pub struct RenderPassTileShadingCreateInfoQCOMBuilder<'a> {
     inner: RenderPassTileShadingCreateInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66875,7 +67973,7 @@ impl<'a> RenderPassTileShadingCreateInfoQCOMBuilder<'a> {
         self.inner.tile_apron_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassTileShadingCreateInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassTileShadingCreateInfoQCOM>(
         mut self,
@@ -66904,6 +68002,7 @@ impl<'a> core::ops::DerefMut for RenderPassTileShadingCreateInfoQCOMBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`PerTileBeginInfoQCOM`] with lifetime-tied pNext safety.
 pub struct PerTileBeginInfoQCOMBuilder<'a> {
     inner: PerTileBeginInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66922,7 +68021,7 @@ impl PerTileBeginInfoQCOM {
     }
 }
 impl<'a> PerTileBeginInfoQCOMBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerTileBeginInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerTileBeginInfoQCOM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -66948,6 +68047,7 @@ impl<'a> core::ops::DerefMut for PerTileBeginInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerTileEndInfoQCOM`] with lifetime-tied pNext safety.
 pub struct PerTileEndInfoQCOMBuilder<'a> {
     inner: PerTileEndInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -66966,7 +68066,7 @@ impl PerTileEndInfoQCOM {
     }
 }
 impl<'a> PerTileEndInfoQCOMBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PerTileEndInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPerTileEndInfoQCOM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -66992,6 +68092,7 @@ impl<'a> core::ops::DerefMut for PerTileEndInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DispatchTileInfoQCOM`] with lifetime-tied pNext safety.
 pub struct DispatchTileInfoQCOMBuilder<'a> {
     inner: DispatchTileInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67010,7 +68111,7 @@ impl DispatchTileInfoQCOM {
     }
 }
 impl<'a> DispatchTileInfoQCOMBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DispatchTileInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDispatchTileInfoQCOM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -67036,6 +68137,7 @@ impl<'a> core::ops::DerefMut for DispatchTileInfoQCOMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVEBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67077,6 +68179,7 @@ for PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVEBuilder<'a> {
     inner: PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67102,7 +68205,7 @@ impl<'a> PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVEBuilder<'a> {
         self.inner.fragment_density_map_layered = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE>(
         mut self,
@@ -67133,6 +68236,7 @@ for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineFragmentDensityMapLayeredCreateInfoVALVE`] with lifetime-tied pNext safety.
 pub struct PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder<'a> {
     inner: PipelineFragmentDensityMapLayeredCreateInfoVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67156,7 +68260,7 @@ impl<'a> PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder<'a> {
         self.inner.max_fragment_density_map_layers = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PipelineFragmentDensityMapLayeredCreateInfoVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPipelineFragmentDensityMapLayeredCreateInfoVALVE>(
         mut self,
@@ -67187,6 +68291,7 @@ for PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SetPresentConfigNV`] with lifetime-tied pNext safety.
 pub struct SetPresentConfigNVBuilder<'a> {
     inner: SetPresentConfigNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67215,7 +68320,7 @@ impl<'a> SetPresentConfigNVBuilder<'a> {
         self.inner.present_config_feedback = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SetPresentConfigNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSetPresentConfigNV>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -67241,6 +68346,7 @@ impl<'a> core::ops::DerefMut for SetPresentConfigNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentMeteringFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentMeteringFeaturesNVBuilder<'a> {
     inner: PhysicalDevicePresentMeteringFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67264,7 +68370,7 @@ impl<'a> PhysicalDevicePresentMeteringFeaturesNVBuilder<'a> {
         self.inner.present_metering = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentMeteringFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePresentMeteringFeaturesNV>(
         mut self,
@@ -67293,6 +68399,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentMeteringFeaturesNVBuilder<
         &mut self.inner
     }
 }
+///Builder for [`ExternalComputeQueueDeviceCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct ExternalComputeQueueDeviceCreateInfoNVBuilder<'a> {
     inner: ExternalComputeQueueDeviceCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67316,7 +68423,7 @@ impl<'a> ExternalComputeQueueDeviceCreateInfoNVBuilder<'a> {
         self.inner.reserved_external_queues = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalComputeQueueDeviceCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalComputeQueueDeviceCreateInfoNV>(
         mut self,
@@ -67345,6 +68452,7 @@ impl<'a> core::ops::DerefMut for ExternalComputeQueueDeviceCreateInfoNVBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`ExternalComputeQueueCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct ExternalComputeQueueCreateInfoNVBuilder<'a> {
     inner: ExternalComputeQueueCreateInfoNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67368,7 +68476,7 @@ impl<'a> ExternalComputeQueueCreateInfoNVBuilder<'a> {
         self.inner.preferred_queue = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalComputeQueueCreateInfoNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalComputeQueueCreateInfoNV>(
         mut self,
@@ -67397,6 +68505,7 @@ impl<'a> core::ops::DerefMut for ExternalComputeQueueCreateInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalComputeQueueDataParamsNV`] with lifetime-tied pNext safety.
 pub struct ExternalComputeQueueDataParamsNVBuilder<'a> {
     inner: ExternalComputeQueueDataParamsNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67420,7 +68529,7 @@ impl<'a> ExternalComputeQueueDataParamsNVBuilder<'a> {
         self.inner.device_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalComputeQueueDataParamsNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalComputeQueueDataParamsNV>(
         mut self,
@@ -67449,6 +68558,7 @@ impl<'a> core::ops::DerefMut for ExternalComputeQueueDataParamsNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalComputeQueuePropertiesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalComputeQueuePropertiesNVBuilder<'a> {
     inner: PhysicalDeviceExternalComputeQueuePropertiesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67492,6 +68602,7 @@ for PhysicalDeviceExternalComputeQueuePropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67517,7 +68628,7 @@ impl<'a> PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXTBuilder<'a> {
         self.inner.shader_uniform_buffer_unsized_array = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT>(
         mut self,
@@ -67548,6 +68659,7 @@ for PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEBuilder<'a> {
     inner: PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67597,7 +68709,7 @@ impl<'a> PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEBuilder<'a> {
         self.inner.shader_mixed_float_dot_product_float8_acc_float32 = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE>(
         mut self,
@@ -67628,6 +68740,7 @@ for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceFormatPackFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceFormatPackFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceFormatPackFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67651,7 +68764,7 @@ impl<'a> PhysicalDeviceFormatPackFeaturesARMBuilder<'a> {
         self.inner.format_pack = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFormatPackFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceFormatPackFeaturesARM>(
         mut self,
@@ -67680,6 +68793,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFormatPackFeaturesARMBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`TensorDescriptionARM`] with lifetime-tied pNext safety.
 pub struct TensorDescriptionARMBuilder<'a> {
     inner: TensorDescriptionARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67725,7 +68839,7 @@ impl<'a> TensorDescriptionARMBuilder<'a> {
         self.inner.usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorDescriptionARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorDescriptionARM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -67751,6 +68865,7 @@ impl<'a> core::ops::DerefMut for TensorDescriptionARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct TensorCreateInfoARMBuilder<'a> {
     inner: TensorCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67790,7 +68905,7 @@ impl<'a> TensorCreateInfoARMBuilder<'a> {
         self.inner.p_queue_family_indices = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorCreateInfoARM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -67816,6 +68931,7 @@ impl<'a> core::ops::DerefMut for TensorCreateInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorViewCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct TensorViewCreateInfoARMBuilder<'a> {
     inner: TensorViewCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67849,7 +68965,7 @@ impl<'a> TensorViewCreateInfoARMBuilder<'a> {
         self.inner.format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorViewCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorViewCreateInfoARM>(
         mut self,
@@ -67878,6 +68994,7 @@ impl<'a> core::ops::DerefMut for TensorViewCreateInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorMemoryRequirementsInfoARM`] with lifetime-tied pNext safety.
 pub struct TensorMemoryRequirementsInfoARMBuilder<'a> {
     inner: TensorMemoryRequirementsInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67901,7 +69018,7 @@ impl<'a> TensorMemoryRequirementsInfoARMBuilder<'a> {
         self.inner.tensor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorMemoryRequirementsInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorMemoryRequirementsInfoARM>(
         mut self,
@@ -67930,6 +69047,7 @@ impl<'a> core::ops::DerefMut for TensorMemoryRequirementsInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindTensorMemoryInfoARM`] with lifetime-tied pNext safety.
 pub struct BindTensorMemoryInfoARMBuilder<'a> {
     inner: BindTensorMemoryInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -67963,7 +69081,7 @@ impl<'a> BindTensorMemoryInfoARMBuilder<'a> {
         self.inner.memory_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindTensorMemoryInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindTensorMemoryInfoARM>(
         mut self,
@@ -67992,6 +69110,7 @@ impl<'a> core::ops::DerefMut for BindTensorMemoryInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`WriteDescriptorSetTensorARM`] with lifetime-tied pNext safety.
 pub struct WriteDescriptorSetTensorARMBuilder<'a> {
     inner: WriteDescriptorSetTensorARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68016,7 +69135,7 @@ impl<'a> WriteDescriptorSetTensorARMBuilder<'a> {
         self.inner.p_tensor_views = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`WriteDescriptorSetTensorARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsWriteDescriptorSetTensorARM>(
         mut self,
@@ -68045,6 +69164,7 @@ impl<'a> core::ops::DerefMut for WriteDescriptorSetTensorARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorFormatPropertiesARM`] with lifetime-tied pNext safety.
 pub struct TensorFormatPropertiesARMBuilder<'a> {
     inner: TensorFormatPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68087,6 +69207,7 @@ impl<'a> core::ops::DerefMut for TensorFormatPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTensorPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTensorPropertiesARMBuilder<'a> {
     inner: PhysicalDeviceTensorPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68193,6 +69314,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTensorPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorMemoryBarrierARM`] with lifetime-tied pNext safety.
 pub struct TensorMemoryBarrierARMBuilder<'a> {
     inner: TensorMemoryBarrierARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68246,7 +69368,7 @@ impl<'a> TensorMemoryBarrierARMBuilder<'a> {
         self.inner.tensor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorMemoryBarrierARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorMemoryBarrierARM>(
         mut self,
@@ -68275,6 +69397,7 @@ impl<'a> core::ops::DerefMut for TensorMemoryBarrierARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorDependencyInfoARM`] with lifetime-tied pNext safety.
 pub struct TensorDependencyInfoARMBuilder<'a> {
     inner: TensorDependencyInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68306,7 +69429,7 @@ impl<'a> TensorDependencyInfoARMBuilder<'a> {
         self.inner.p_tensor_memory_barriers = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorDependencyInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorDependencyInfoARM>(
         mut self,
@@ -68335,6 +69458,7 @@ impl<'a> core::ops::DerefMut for TensorDependencyInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTensorFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTensorFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceTensorFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68389,7 +69513,7 @@ impl<'a> PhysicalDeviceTensorFeaturesARMBuilder<'a> {
         self.inner.tensors = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTensorFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTensorFeaturesARM>(
         mut self,
@@ -68418,6 +69542,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceTensorFeaturesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceTensorMemoryRequirementsARM`] with lifetime-tied pNext safety.
 pub struct DeviceTensorMemoryRequirementsARMBuilder<'a> {
     inner: DeviceTensorMemoryRequirementsARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68441,7 +69566,7 @@ impl<'a> DeviceTensorMemoryRequirementsARMBuilder<'a> {
         self.inner.p_create_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceTensorMemoryRequirementsARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceTensorMemoryRequirementsARM>(
         mut self,
@@ -68470,6 +69595,7 @@ impl<'a> core::ops::DerefMut for DeviceTensorMemoryRequirementsARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyTensorInfoARM`] with lifetime-tied pNext safety.
 pub struct CopyTensorInfoARMBuilder<'a> {
     inner: CopyTensorInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68504,7 +69630,7 @@ impl<'a> CopyTensorInfoARMBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyTensorInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyTensorInfoARM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -68530,6 +69656,7 @@ impl<'a> core::ops::DerefMut for CopyTensorInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorCopyARM`] with lifetime-tied pNext safety.
 pub struct TensorCopyARMBuilder<'a> {
     inner: TensorCopyARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68566,7 +69693,7 @@ impl<'a> TensorCopyARMBuilder<'a> {
         self.inner.p_extent = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorCopyARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorCopyARM>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -68592,6 +69719,7 @@ impl<'a> core::ops::DerefMut for TensorCopyARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryDedicatedAllocateInfoTensorARM`] with lifetime-tied pNext safety.
 pub struct MemoryDedicatedAllocateInfoTensorARMBuilder<'a> {
     inner: MemoryDedicatedAllocateInfoTensorARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68615,7 +69743,7 @@ impl<'a> MemoryDedicatedAllocateInfoTensorARMBuilder<'a> {
         self.inner.tensor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryDedicatedAllocateInfoTensorARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryDedicatedAllocateInfoTensorARM>(
         mut self,
@@ -68644,6 +69772,7 @@ impl<'a> core::ops::DerefMut for MemoryDedicatedAllocateInfoTensorARMBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorBufferTensorPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorBufferTensorPropertiesARMBuilder<'a> {
     inner: PhysicalDeviceDescriptorBufferTensorPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68682,7 +69811,7 @@ impl<'a> PhysicalDeviceDescriptorBufferTensorPropertiesARMBuilder<'a> {
         self.inner.tensor_descriptor_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorBufferTensorPropertiesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDescriptorBufferTensorPropertiesARM>(
         mut self,
@@ -68713,6 +69842,7 @@ for PhysicalDeviceDescriptorBufferTensorPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorBufferTensorFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceDescriptorBufferTensorFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68736,7 +69866,7 @@ impl<'a> PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder<'a> {
         self.inner.descriptor_buffer_tensor_descriptors = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorBufferTensorFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDescriptorBufferTensorFeaturesARM>(
         mut self,
@@ -68767,6 +69897,7 @@ for PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorCaptureDescriptorDataInfoARM`] with lifetime-tied pNext safety.
 pub struct TensorCaptureDescriptorDataInfoARMBuilder<'a> {
     inner: TensorCaptureDescriptorDataInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68790,7 +69921,7 @@ impl<'a> TensorCaptureDescriptorDataInfoARMBuilder<'a> {
         self.inner.tensor = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorCaptureDescriptorDataInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorCaptureDescriptorDataInfoARM>(
         mut self,
@@ -68819,6 +69950,7 @@ impl<'a> core::ops::DerefMut for TensorCaptureDescriptorDataInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TensorViewCaptureDescriptorDataInfoARM`] with lifetime-tied pNext safety.
 pub struct TensorViewCaptureDescriptorDataInfoARMBuilder<'a> {
     inner: TensorViewCaptureDescriptorDataInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68842,7 +69974,7 @@ impl<'a> TensorViewCaptureDescriptorDataInfoARMBuilder<'a> {
         self.inner.tensor_view = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TensorViewCaptureDescriptorDataInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTensorViewCaptureDescriptorDataInfoARM>(
         mut self,
@@ -68871,6 +70003,7 @@ impl<'a> core::ops::DerefMut for TensorViewCaptureDescriptorDataInfoARMBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`DescriptorGetTensorInfoARM`] with lifetime-tied pNext safety.
 pub struct DescriptorGetTensorInfoARMBuilder<'a> {
     inner: DescriptorGetTensorInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68894,7 +70027,7 @@ impl<'a> DescriptorGetTensorInfoARMBuilder<'a> {
         self.inner.tensor_view = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorGetTensorInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorGetTensorInfoARM>(
         mut self,
@@ -68923,6 +70056,7 @@ impl<'a> core::ops::DerefMut for DescriptorGetTensorInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`FrameBoundaryTensorsARM`] with lifetime-tied pNext safety.
 pub struct FrameBoundaryTensorsARMBuilder<'a> {
     inner: FrameBoundaryTensorsARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -68947,7 +70081,7 @@ impl<'a> FrameBoundaryTensorsARMBuilder<'a> {
         self.inner.p_tensors = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`FrameBoundaryTensorsARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsFrameBoundaryTensorsARM>(
         mut self,
@@ -68976,6 +70110,7 @@ impl<'a> core::ops::DerefMut for FrameBoundaryTensorsARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceExternalTensorInfoARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceExternalTensorInfoARMBuilder<'a> {
     inner: PhysicalDeviceExternalTensorInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69009,7 +70144,7 @@ impl<'a> PhysicalDeviceExternalTensorInfoARMBuilder<'a> {
         self.inner.handle_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalTensorInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceExternalTensorInfoARM>(
         mut self,
@@ -69038,6 +70173,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceExternalTensorInfoARMBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`ExternalTensorPropertiesARM`] with lifetime-tied pNext safety.
 pub struct ExternalTensorPropertiesARMBuilder<'a> {
     inner: ExternalTensorPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69064,7 +70200,7 @@ impl<'a> ExternalTensorPropertiesARMBuilder<'a> {
         self.inner.external_memory_properties = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalTensorPropertiesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalTensorPropertiesARM>(
         mut self,
@@ -69093,6 +70229,7 @@ impl<'a> core::ops::DerefMut for ExternalTensorPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalMemoryTensorCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct ExternalMemoryTensorCreateInfoARMBuilder<'a> {
     inner: ExternalMemoryTensorCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69116,7 +70253,7 @@ impl<'a> ExternalMemoryTensorCreateInfoARMBuilder<'a> {
         self.inner.handle_types = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalMemoryTensorCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalMemoryTensorCreateInfoARM>(
         mut self,
@@ -69145,6 +70282,7 @@ impl<'a> core::ops::DerefMut for ExternalMemoryTensorCreateInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderFloat8FeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderFloat8FeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderFloat8FeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69173,7 +70311,7 @@ impl<'a> PhysicalDeviceShaderFloat8FeaturesEXTBuilder<'a> {
         self.inner.shader_float8_cooperative_matrix = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFloat8FeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderFloat8FeaturesEXT>(
         mut self,
@@ -69202,6 +70340,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderFloat8FeaturesEXTBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`SurfaceCreateInfoOHOS`] with lifetime-tied pNext safety.
 pub struct SurfaceCreateInfoOHOSBuilder<'a> {
     inner: SurfaceCreateInfoOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69230,7 +70369,7 @@ impl<'a> SurfaceCreateInfoOHOSBuilder<'a> {
         self.inner.window = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SurfaceCreateInfoOHOS`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSurfaceCreateInfoOHOS>(
         mut self,
@@ -69259,6 +70398,7 @@ impl<'a> core::ops::DerefMut for SurfaceCreateInfoOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDataGraphFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDataGraphFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceDataGraphFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69302,7 +70442,7 @@ impl<'a> PhysicalDeviceDataGraphFeaturesARMBuilder<'a> {
         self.inner.data_graph_shader_module = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDataGraphFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDataGraphFeaturesARM>(
         mut self,
@@ -69331,6 +70471,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDataGraphFeaturesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARMBuilder<'a> {
     inner: DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69366,7 +70507,7 @@ impl<'a> DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARMBuilder<'a>
         self.inner.group_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM,
@@ -69396,6 +70537,7 @@ for DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineConstantARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineConstantARMBuilder<'a> {
     inner: DataGraphPipelineConstantARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69424,7 +70566,7 @@ impl<'a> DataGraphPipelineConstantARMBuilder<'a> {
         self.inner.p_constant_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineConstantARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineConstantARM>(
         mut self,
@@ -69453,6 +70595,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineConstantARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineResourceInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineResourceInfoARMBuilder<'a> {
     inner: DataGraphPipelineResourceInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69486,7 +70629,7 @@ impl<'a> DataGraphPipelineResourceInfoARMBuilder<'a> {
         self.inner.array_element = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineResourceInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineResourceInfoARM>(
         mut self,
@@ -69515,6 +70658,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineResourceInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineCompilerControlCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
     inner: DataGraphPipelineCompilerControlCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69538,7 +70682,7 @@ impl<'a> DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
         self.inner.p_vendor_options = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineCompilerControlCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineCompilerControlCreateInfoARM>(
         mut self,
@@ -69568,6 +70712,7 @@ for DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineCreateInfoARMBuilder<'a> {
     inner: DataGraphPipelineCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69605,7 +70750,7 @@ impl<'a> DataGraphPipelineCreateInfoARMBuilder<'a> {
         self.inner.p_resource_infos = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineCreateInfoARM>(
         mut self,
@@ -69634,6 +70779,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineCreateInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineShaderModuleCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
     inner: DataGraphPipelineShaderModuleCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69673,7 +70819,7 @@ impl<'a> DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
         self.inner.p_constants = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineShaderModuleCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineShaderModuleCreateInfoARM>(
         mut self,
@@ -69702,6 +70848,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineShaderModuleCreateInfoARMBuild
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineSessionCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineSessionCreateInfoARMBuilder<'a> {
     inner: DataGraphPipelineSessionCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69730,7 +70877,7 @@ impl<'a> DataGraphPipelineSessionCreateInfoARMBuilder<'a> {
         self.inner.data_graph_pipeline = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineSessionCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineSessionCreateInfoARM>(
         mut self,
@@ -69759,6 +70906,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineSessionCreateInfoARMBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineSessionBindPointRequirementsInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineSessionBindPointRequirementsInfoARMBuilder<'a> {
     inner: DataGraphPipelineSessionBindPointRequirementsInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69784,7 +70932,7 @@ impl<'a> DataGraphPipelineSessionBindPointRequirementsInfoARMBuilder<'a> {
         self.inner.session = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineSessionBindPointRequirementsInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineSessionBindPointRequirementsInfoARM>(
         mut self,
@@ -69815,6 +70963,7 @@ for DataGraphPipelineSessionBindPointRequirementsInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineSessionBindPointRequirementARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineSessionBindPointRequirementARMBuilder<'a> {
     inner: DataGraphPipelineSessionBindPointRequirementARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69867,6 +71016,7 @@ for DataGraphPipelineSessionBindPointRequirementARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineSessionMemoryRequirementsInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineSessionMemoryRequirementsInfoARMBuilder<'a> {
     inner: DataGraphPipelineSessionMemoryRequirementsInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69902,7 +71052,7 @@ impl<'a> DataGraphPipelineSessionMemoryRequirementsInfoARMBuilder<'a> {
         self.inner.object_index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineSessionMemoryRequirementsInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineSessionMemoryRequirementsInfoARM>(
         mut self,
@@ -69933,6 +71083,7 @@ for DataGraphPipelineSessionMemoryRequirementsInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindDataGraphPipelineSessionMemoryInfoARM`] with lifetime-tied pNext safety.
 pub struct BindDataGraphPipelineSessionMemoryInfoARMBuilder<'a> {
     inner: BindDataGraphPipelineSessionMemoryInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -69976,7 +71127,7 @@ impl<'a> BindDataGraphPipelineSessionMemoryInfoARMBuilder<'a> {
         self.inner.memory_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindDataGraphPipelineSessionMemoryInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindDataGraphPipelineSessionMemoryInfoARM>(
         mut self,
@@ -70005,6 +71156,7 @@ impl<'a> core::ops::DerefMut for BindDataGraphPipelineSessionMemoryInfoARMBuilde
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineInfoARMBuilder<'a> {
     inner: DataGraphPipelineInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70028,7 +71180,7 @@ impl<'a> DataGraphPipelineInfoARMBuilder<'a> {
         self.inner.data_graph_pipeline = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineInfoARM>(
         mut self,
@@ -70057,6 +71209,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelinePropertyQueryResultARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
     inner: DataGraphPipelinePropertyQueryResultARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70091,7 +71244,7 @@ impl<'a> DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
         self.inner.p_data = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelinePropertyQueryResultARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelinePropertyQueryResultARM>(
         mut self,
@@ -70120,6 +71273,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelinePropertyQueryResultARMBuilder<
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineIdentifierCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineIdentifierCreateInfoARMBuilder<'a> {
     inner: DataGraphPipelineIdentifierCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70144,7 +71298,7 @@ impl<'a> DataGraphPipelineIdentifierCreateInfoARMBuilder<'a> {
         self.inner.p_identifier = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineIdentifierCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineIdentifierCreateInfoARM>(
         mut self,
@@ -70173,6 +71327,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineIdentifierCreateInfoARMBuilder
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineDispatchInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineDispatchInfoARMBuilder<'a> {
     inner: DataGraphPipelineDispatchInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70196,7 +71351,7 @@ impl<'a> DataGraphPipelineDispatchInfoARMBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineDispatchInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineDispatchInfoARM>(
         mut self,
@@ -70225,6 +71380,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineDispatchInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyDataGraphPropertiesARM`] with lifetime-tied pNext safety.
 pub struct QueueFamilyDataGraphPropertiesARMBuilder<'a> {
     inner: QueueFamilyDataGraphPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70270,6 +71426,7 @@ impl<'a> core::ops::DerefMut for QueueFamilyDataGraphPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARMBuilder<'a> {
     inner: PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70303,7 +71460,7 @@ impl<'a> PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARMBuilder<'a> {
         self.inner.engine_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<
         T: ExtendsPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM,
@@ -70333,6 +71490,7 @@ for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyDataGraphProcessingEnginePropertiesARM`] with lifetime-tied pNext safety.
 pub struct QueueFamilyDataGraphProcessingEnginePropertiesARMBuilder<'a> {
     inner: QueueFamilyDataGraphProcessingEnginePropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70385,6 +71543,7 @@ for QueueFamilyDataGraphProcessingEnginePropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphProcessingEngineCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct DataGraphProcessingEngineCreateInfoARMBuilder<'a> {
     inner: DataGraphProcessingEngineCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70412,7 +71571,7 @@ impl<'a> DataGraphProcessingEngineCreateInfoARMBuilder<'a> {
         self.inner.p_processing_engines = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphProcessingEngineCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphProcessingEngineCreateInfoARM>(
         mut self,
@@ -70441,6 +71600,7 @@ impl<'a> core::ops::DerefMut for DataGraphProcessingEngineCreateInfoARMBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePipelineCacheIncrementalModeFeaturesSECBuilder<'a> {
     inner: PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70466,7 +71626,7 @@ impl<'a> PhysicalDevicePipelineCacheIncrementalModeFeaturesSECBuilder<'a> {
         self.inner.pipeline_cache_incremental_mode = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC>(
         mut self,
@@ -70497,6 +71657,7 @@ for PhysicalDevicePipelineCacheIncrementalModeFeaturesSECBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DataGraphPipelineBuiltinModelCreateInfoQCOM`] with lifetime-tied pNext safety.
 pub struct DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder<'a> {
     inner: DataGraphPipelineBuiltinModelCreateInfoQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70523,7 +71684,7 @@ impl<'a> DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder<'a> {
         self.inner.p_operation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DataGraphPipelineBuiltinModelCreateInfoQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDataGraphPipelineBuiltinModelCreateInfoQCOM>(
         mut self,
@@ -70552,6 +71713,7 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineBuiltinModelCreateInfoQCOMBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDataGraphModelFeaturesQCOM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDataGraphModelFeaturesQCOMBuilder<'a> {
     inner: PhysicalDeviceDataGraphModelFeaturesQCOM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70575,7 +71737,7 @@ impl<'a> PhysicalDeviceDataGraphModelFeaturesQCOMBuilder<'a> {
         self.inner.data_graph_model = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDataGraphModelFeaturesQCOM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDataGraphModelFeaturesQCOM>(
         mut self,
@@ -70604,6 +71766,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDataGraphModelFeaturesQCOMBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderUntypedPointersFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderUntypedPointersFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70627,7 +71790,7 @@ impl<'a> PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder<'a> {
         self.inner.shader_untyped_pointers = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderUntypedPointersFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderUntypedPointersFeaturesKHR>(
         mut self,
@@ -70657,6 +71820,7 @@ for PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`NativeBufferOHOS`] with lifetime-tied pNext safety.
 pub struct NativeBufferOHOSBuilder<'a> {
     inner: NativeBufferOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70680,7 +71844,7 @@ impl<'a> NativeBufferOHOSBuilder<'a> {
         self.inner.handle = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`NativeBufferOHOS`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsNativeBufferOHOS>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -70706,6 +71870,7 @@ impl<'a> core::ops::DerefMut for NativeBufferOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SwapchainImageCreateInfoOHOS`] with lifetime-tied pNext safety.
 pub struct SwapchainImageCreateInfoOHOSBuilder<'a> {
     inner: SwapchainImageCreateInfoOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70729,7 +71894,7 @@ impl<'a> SwapchainImageCreateInfoOHOSBuilder<'a> {
         self.inner.usage = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SwapchainImageCreateInfoOHOS`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSwapchainImageCreateInfoOHOS>(
         mut self,
@@ -70758,6 +71923,7 @@ impl<'a> core::ops::DerefMut for SwapchainImageCreateInfoOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePresentationPropertiesOHOS`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePresentationPropertiesOHOSBuilder<'a> {
     inner: PhysicalDevicePresentationPropertiesOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70795,6 +71961,7 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePresentationPropertiesOHOSBuilder
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVEBuilder<'a> {
     inner: PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70820,7 +71987,7 @@ impl<'a> PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVEBuilder<'a> {
         self.inner.video_encode_rgb_conversion = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE>(
         mut self,
@@ -70851,6 +72018,7 @@ for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeRgbConversionCapabilitiesVALVE`] with lifetime-tied pNext safety.
 pub struct VideoEncodeRgbConversionCapabilitiesVALVEBuilder<'a> {
     inner: VideoEncodeRgbConversionCapabilitiesVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70912,6 +72080,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeRgbConversionCapabilitiesVALVEBuilde
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeProfileRgbConversionInfoVALVE`] with lifetime-tied pNext safety.
 pub struct VideoEncodeProfileRgbConversionInfoVALVEBuilder<'a> {
     inner: VideoEncodeProfileRgbConversionInfoVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -70935,7 +72104,7 @@ impl<'a> VideoEncodeProfileRgbConversionInfoVALVEBuilder<'a> {
         self.inner.perform_encode_rgb_conversion = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeProfileRgbConversionInfoVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeProfileRgbConversionInfoVALVE>(
         mut self,
@@ -70964,6 +72133,7 @@ impl<'a> core::ops::DerefMut for VideoEncodeProfileRgbConversionInfoVALVEBuilder
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeSessionRgbConversionCreateInfoVALVE`] with lifetime-tied pNext safety.
 pub struct VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder<'a> {
     inner: VideoEncodeSessionRgbConversionCreateInfoVALVE,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71014,7 +72184,7 @@ impl<'a> VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder<'a> {
         self.inner.y_chroma_offset = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`VideoEncodeSessionRgbConversionCreateInfoVALVE`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsVideoEncodeSessionRgbConversionCreateInfoVALVE>(
         mut self,
@@ -71044,6 +72214,7 @@ for VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShader64BitIndexingFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShader64BitIndexingFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71067,7 +72238,7 @@ impl<'a> PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder<'a> {
         self.inner.shader64_bit_indexing = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShader64BitIndexingFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShader64BitIndexingFeaturesEXT>(
         mut self,
@@ -71097,6 +72268,7 @@ for PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`NativeBufferUsageOHOS`] with lifetime-tied pNext safety.
 pub struct NativeBufferUsageOHOSBuilder<'a> {
     inner: NativeBufferUsageOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71134,6 +72306,7 @@ impl<'a> core::ops::DerefMut for NativeBufferUsageOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`NativeBufferPropertiesOHOS`] with lifetime-tied pNext safety.
 pub struct NativeBufferPropertiesOHOSBuilder<'a> {
     inner: NativeBufferPropertiesOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71176,6 +72349,7 @@ impl<'a> core::ops::DerefMut for NativeBufferPropertiesOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`NativeBufferFormatPropertiesOHOS`] with lifetime-tied pNext safety.
 pub struct NativeBufferFormatPropertiesOHOSBuilder<'a> {
     inner: NativeBufferFormatPropertiesOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71251,6 +72425,7 @@ impl<'a> core::ops::DerefMut for NativeBufferFormatPropertiesOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImportNativeBufferInfoOHOS`] with lifetime-tied pNext safety.
 pub struct ImportNativeBufferInfoOHOSBuilder<'a> {
     inner: ImportNativeBufferInfoOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71274,7 +72449,7 @@ impl<'a> ImportNativeBufferInfoOHOSBuilder<'a> {
         self.inner.buffer = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImportNativeBufferInfoOHOS`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImportNativeBufferInfoOHOS>(
         mut self,
@@ -71303,6 +72478,7 @@ impl<'a> core::ops::DerefMut for ImportNativeBufferInfoOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryGetNativeBufferInfoOHOS`] with lifetime-tied pNext safety.
 pub struct MemoryGetNativeBufferInfoOHOSBuilder<'a> {
     inner: MemoryGetNativeBufferInfoOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71326,7 +72502,7 @@ impl<'a> MemoryGetNativeBufferInfoOHOSBuilder<'a> {
         self.inner.memory = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryGetNativeBufferInfoOHOS`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryGetNativeBufferInfoOHOS>(
         mut self,
@@ -71355,6 +72531,7 @@ impl<'a> core::ops::DerefMut for MemoryGetNativeBufferInfoOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ExternalFormatOHOS`] with lifetime-tied pNext safety.
 pub struct ExternalFormatOHOSBuilder<'a> {
     inner: ExternalFormatOHOS,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71378,7 +72555,7 @@ impl<'a> ExternalFormatOHOSBuilder<'a> {
         self.inner.external_format = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ExternalFormatOHOS`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsExternalFormatOHOS>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -71404,6 +72581,7 @@ impl<'a> core::ops::DerefMut for ExternalFormatOHOSBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePerformanceCountersByRegionFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePerformanceCountersByRegionFeaturesARMBuilder<'a> {
     inner: PhysicalDevicePerformanceCountersByRegionFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71429,7 +72607,7 @@ impl<'a> PhysicalDevicePerformanceCountersByRegionFeaturesARMBuilder<'a> {
         self.inner.performance_counters_by_region = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDevicePerformanceCountersByRegionFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDevicePerformanceCountersByRegionFeaturesARM>(
         mut self,
@@ -71460,6 +72638,7 @@ for PhysicalDevicePerformanceCountersByRegionFeaturesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDevicePerformanceCountersByRegionPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDevicePerformanceCountersByRegionPropertiesARMBuilder<'a> {
     inner: PhysicalDevicePerformanceCountersByRegionPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71521,6 +72700,7 @@ for PhysicalDevicePerformanceCountersByRegionPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceCounterARM`] with lifetime-tied pNext safety.
 pub struct PerformanceCounterARMBuilder<'a> {
     inner: PerformanceCounterARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71558,6 +72738,7 @@ impl<'a> core::ops::DerefMut for PerformanceCounterARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PerformanceCounterDescriptionARM`] with lifetime-tied pNext safety.
 pub struct PerformanceCounterDescriptionARMBuilder<'a> {
     inner: PerformanceCounterDescriptionARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71603,6 +72784,7 @@ impl<'a> core::ops::DerefMut for PerformanceCounterDescriptionARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassPerformanceCountersByRegionBeginInfoARM`] with lifetime-tied pNext safety.
 pub struct RenderPassPerformanceCountersByRegionBeginInfoARMBuilder<'a> {
     inner: RenderPassPerformanceCountersByRegionBeginInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71640,7 +72822,7 @@ impl<'a> RenderPassPerformanceCountersByRegionBeginInfoARMBuilder<'a> {
         self.inner.p_counter_indices = slice.as_mut_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`RenderPassPerformanceCountersByRegionBeginInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsRenderPassPerformanceCountersByRegionBeginInfoARM>(
         mut self,
@@ -71671,6 +72853,7 @@ for RenderPassPerformanceCountersByRegionBeginInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ComputeOccupancyPriorityParametersNV`] with lifetime-tied pNext safety.
 pub struct ComputeOccupancyPriorityParametersNVBuilder<'a> {
     inner: ComputeOccupancyPriorityParametersNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71699,7 +72882,7 @@ impl<'a> ComputeOccupancyPriorityParametersNVBuilder<'a> {
         self.inner.occupancy_throttling = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ComputeOccupancyPriorityParametersNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsComputeOccupancyPriorityParametersNV>(
         mut self,
@@ -71728,6 +72911,7 @@ impl<'a> core::ops::DerefMut for ComputeOccupancyPriorityParametersNVBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceComputeOccupancyPriorityFeaturesNV`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder<'a> {
     inner: PhysicalDeviceComputeOccupancyPriorityFeaturesNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71751,7 +72935,7 @@ impl<'a> PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder<'a> {
         self.inner.compute_occupancy_priority = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceComputeOccupancyPriorityFeaturesNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceComputeOccupancyPriorityFeaturesNV>(
         mut self,
@@ -71782,6 +72966,7 @@ for PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderLongVectorFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderLongVectorFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderLongVectorFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71805,7 +72990,7 @@ impl<'a> PhysicalDeviceShaderLongVectorFeaturesEXTBuilder<'a> {
         self.inner.long_vector = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderLongVectorFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderLongVectorFeaturesEXT>(
         mut self,
@@ -71834,6 +73019,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderLongVectorFeaturesEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderLongVectorPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderLongVectorPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderLongVectorPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71871,6 +73057,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderLongVectorPropertiesEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceTextureCompressionASTC3DFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceTextureCompressionASTC3DFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceTextureCompressionASTC3DFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71896,7 +73083,7 @@ impl<'a> PhysicalDeviceTextureCompressionASTC3DFeaturesEXTBuilder<'a> {
         self.inner.texture_compression_astc_3d = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTextureCompressionASTC3DFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceTextureCompressionASTC3DFeaturesEXT>(
         mut self,
@@ -71927,6 +73114,7 @@ for PhysicalDeviceTextureCompressionASTC3DFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -71952,7 +73140,7 @@ impl<'a> PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder<'a> {
         self.inner.shader_subgroup_partitioned = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT>(
         mut self,
@@ -71983,6 +73171,7 @@ for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`TexelBufferDescriptorInfoEXT`] with lifetime-tied pNext safety.
 pub struct TexelBufferDescriptorInfoEXTBuilder<'a> {
     inner: TexelBufferDescriptorInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72011,7 +73200,7 @@ impl<'a> TexelBufferDescriptorInfoEXTBuilder<'a> {
         self.inner.address_range = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`TexelBufferDescriptorInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsTexelBufferDescriptorInfoEXT>(
         mut self,
@@ -72040,6 +73229,7 @@ impl<'a> core::ops::DerefMut for TexelBufferDescriptorInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageDescriptorInfoEXT`] with lifetime-tied pNext safety.
 pub struct ImageDescriptorInfoEXTBuilder<'a> {
     inner: ImageDescriptorInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72068,7 +73258,7 @@ impl<'a> ImageDescriptorInfoEXTBuilder<'a> {
         self.inner.layout = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ImageDescriptorInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsImageDescriptorInfoEXT>(
         mut self,
@@ -72097,6 +73287,7 @@ impl<'a> core::ops::DerefMut for ImageDescriptorInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ResourceDescriptorInfoEXT`] with lifetime-tied pNext safety.
 pub struct ResourceDescriptorInfoEXTBuilder<'a> {
     inner: ResourceDescriptorInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72125,7 +73316,7 @@ impl<'a> ResourceDescriptorInfoEXTBuilder<'a> {
         self.inner.data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ResourceDescriptorInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsResourceDescriptorInfoEXT>(
         mut self,
@@ -72154,6 +73345,7 @@ impl<'a> core::ops::DerefMut for ResourceDescriptorInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindHeapInfoEXT`] with lifetime-tied pNext safety.
 pub struct BindHeapInfoEXTBuilder<'a> {
     inner: BindHeapInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72187,7 +73379,7 @@ impl<'a> BindHeapInfoEXTBuilder<'a> {
         self.inner.reserved_range_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindHeapInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindHeapInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -72213,6 +73405,7 @@ impl<'a> core::ops::DerefMut for BindHeapInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PushDataInfoEXT`] with lifetime-tied pNext safety.
 pub struct PushDataInfoEXTBuilder<'a> {
     inner: PushDataInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72241,7 +73434,7 @@ impl<'a> PushDataInfoEXTBuilder<'a> {
         self.inner.data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PushDataInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPushDataInfoEXT>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -72267,6 +73460,7 @@ impl<'a> core::ops::DerefMut for PushDataInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetAndBindingMappingEXT`] with lifetime-tied pNext safety.
 pub struct DescriptorSetAndBindingMappingEXTBuilder<'a> {
     inner: DescriptorSetAndBindingMappingEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72315,7 +73509,7 @@ impl<'a> DescriptorSetAndBindingMappingEXTBuilder<'a> {
         self.inner.source_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DescriptorSetAndBindingMappingEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDescriptorSetAndBindingMappingEXT>(
         mut self,
@@ -72344,6 +73538,7 @@ impl<'a> core::ops::DerefMut for DescriptorSetAndBindingMappingEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ShaderDescriptorSetAndBindingMappingInfoEXT`] with lifetime-tied pNext safety.
 pub struct ShaderDescriptorSetAndBindingMappingInfoEXTBuilder<'a> {
     inner: ShaderDescriptorSetAndBindingMappingInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72368,7 +73563,7 @@ impl<'a> ShaderDescriptorSetAndBindingMappingInfoEXTBuilder<'a> {
         self.inner.p_mappings = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ShaderDescriptorSetAndBindingMappingInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsShaderDescriptorSetAndBindingMappingInfoEXT>(
         mut self,
@@ -72397,6 +73592,7 @@ impl<'a> core::ops::DerefMut for ShaderDescriptorSetAndBindingMappingInfoEXTBuil
         &mut self.inner
     }
 }
+///Builder for [`SamplerCustomBorderColorIndexCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct SamplerCustomBorderColorIndexCreateInfoEXTBuilder<'a> {
     inner: SamplerCustomBorderColorIndexCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72420,7 +73616,7 @@ impl<'a> SamplerCustomBorderColorIndexCreateInfoEXTBuilder<'a> {
         self.inner.index = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SamplerCustomBorderColorIndexCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSamplerCustomBorderColorIndexCreateInfoEXT>(
         mut self,
@@ -72449,6 +73645,7 @@ impl<'a> core::ops::DerefMut for SamplerCustomBorderColorIndexCreateInfoEXTBuild
         &mut self.inner
     }
 }
+///Builder for [`OpaqueCaptureDataCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
     inner: OpaqueCaptureDataCreateInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72472,7 +73669,7 @@ impl<'a> OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
         self.inner.p_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`OpaqueCaptureDataCreateInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsOpaqueCaptureDataCreateInfoEXT>(
         mut self,
@@ -72501,6 +73698,7 @@ impl<'a> core::ops::DerefMut for OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`IndirectCommandsLayoutPushDataTokenNV`] with lifetime-tied pNext safety.
 pub struct IndirectCommandsLayoutPushDataTokenNVBuilder<'a> {
     inner: IndirectCommandsLayoutPushDataTokenNV,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72529,7 +73727,7 @@ impl<'a> IndirectCommandsLayoutPushDataTokenNVBuilder<'a> {
         self.inner.push_data_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`IndirectCommandsLayoutPushDataTokenNV`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsIndirectCommandsLayoutPushDataTokenNV>(
         mut self,
@@ -72558,6 +73756,7 @@ impl<'a> core::ops::DerefMut for IndirectCommandsLayoutPushDataTokenNVBuilder<'a
         &mut self.inner
     }
 }
+///Builder for [`SubsampledImageFormatPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct SubsampledImageFormatPropertiesEXTBuilder<'a> {
     inner: SubsampledImageFormatPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72581,7 +73780,7 @@ impl<'a> SubsampledImageFormatPropertiesEXTBuilder<'a> {
         self.inner.subsampled_image_descriptor_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`SubsampledImageFormatPropertiesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsSubsampledImageFormatPropertiesEXT>(
         mut self,
@@ -72610,6 +73809,7 @@ impl<'a> core::ops::DerefMut for SubsampledImageFormatPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorHeapFeaturesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorHeapFeaturesEXTBuilder<'a> {
     inner: PhysicalDeviceDescriptorHeapFeaturesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72638,7 +73838,7 @@ impl<'a> PhysicalDeviceDescriptorHeapFeaturesEXTBuilder<'a> {
         self.inner.descriptor_heap_capture_replay = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorHeapFeaturesEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDescriptorHeapFeaturesEXT>(
         mut self,
@@ -72667,6 +73867,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDescriptorHeapFeaturesEXTBuilder<
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorHeapPropertiesEXT`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorHeapPropertiesEXTBuilder<'a> {
     inner: PhysicalDeviceDescriptorHeapPropertiesEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72794,6 +73995,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceDescriptorHeapPropertiesEXTBuilde
         &mut self.inner
     }
 }
+///Builder for [`CommandBufferInheritanceDescriptorHeapInfoEXT`] with lifetime-tied pNext safety.
 pub struct CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
     inner: CommandBufferInheritanceDescriptorHeapInfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72822,7 +74024,7 @@ impl<'a> CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
         self.inner.p_resource_heap_bind_info = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CommandBufferInheritanceDescriptorHeapInfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCommandBufferInheritanceDescriptorHeapInfoEXT>(
         mut self,
@@ -72852,6 +74054,7 @@ for CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDescriptorHeapTensorPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDescriptorHeapTensorPropertiesARMBuilder<'a> {
     inner: PhysicalDeviceDescriptorHeapTensorPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72901,6 +74104,7 @@ for PhysicalDeviceDescriptorHeapTensorPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderInstrumentationFeaturesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderInstrumentationFeaturesARMBuilder<'a> {
     inner: PhysicalDeviceShaderInstrumentationFeaturesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72924,7 +74128,7 @@ impl<'a> PhysicalDeviceShaderInstrumentationFeaturesARMBuilder<'a> {
         self.inner.shader_instrumentation = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderInstrumentationFeaturesARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderInstrumentationFeaturesARM>(
         mut self,
@@ -72954,6 +74158,7 @@ for PhysicalDeviceShaderInstrumentationFeaturesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderInstrumentationPropertiesARM`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderInstrumentationPropertiesARMBuilder<'a> {
     inner: PhysicalDeviceShaderInstrumentationPropertiesARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -72998,6 +74203,7 @@ for PhysicalDeviceShaderInstrumentationPropertiesARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ShaderInstrumentationCreateInfoARM`] with lifetime-tied pNext safety.
 pub struct ShaderInstrumentationCreateInfoARMBuilder<'a> {
     inner: ShaderInstrumentationCreateInfoARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73016,7 +74222,7 @@ impl ShaderInstrumentationCreateInfoARM {
     }
 }
 impl<'a> ShaderInstrumentationCreateInfoARMBuilder<'a> {
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ShaderInstrumentationCreateInfoARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsShaderInstrumentationCreateInfoARM>(
         mut self,
@@ -73045,6 +74251,7 @@ impl<'a> core::ops::DerefMut for ShaderInstrumentationCreateInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ShaderInstrumentationMetricDescriptionARM`] with lifetime-tied pNext safety.
 pub struct ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
     inner: ShaderInstrumentationMetricDescriptionARM,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73079,7 +74286,7 @@ impl<'a> ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
         self.inner.description = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ShaderInstrumentationMetricDescriptionARM`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsShaderInstrumentationMetricDescriptionARM>(
         mut self,
@@ -73108,6 +74315,7 @@ impl<'a> core::ops::DerefMut for ShaderInstrumentationMetricDescriptionARMBuilde
         &mut self.inner
     }
 }
+///Builder for [`DeviceMemoryCopyKHR`] with lifetime-tied pNext safety.
 pub struct DeviceMemoryCopyKHRBuilder<'a> {
     inner: DeviceMemoryCopyKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73146,7 +74354,7 @@ impl<'a> DeviceMemoryCopyKHRBuilder<'a> {
         self.inner.dst_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceMemoryCopyKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceMemoryCopyKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -73172,6 +74380,7 @@ impl<'a> core::ops::DerefMut for DeviceMemoryCopyKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyDeviceMemoryInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyDeviceMemoryInfoKHRBuilder<'a> {
     inner: CopyDeviceMemoryInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73196,7 +74405,7 @@ impl<'a> CopyDeviceMemoryInfoKHRBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyDeviceMemoryInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyDeviceMemoryInfoKHR>(
         mut self,
@@ -73225,6 +74434,7 @@ impl<'a> core::ops::DerefMut for CopyDeviceMemoryInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceMemoryImageCopyKHR`] with lifetime-tied pNext safety.
 pub struct DeviceMemoryImageCopyKHRBuilder<'a> {
     inner: DeviceMemoryImageCopyKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73283,7 +74493,7 @@ impl<'a> DeviceMemoryImageCopyKHRBuilder<'a> {
         self.inner.image_extent = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DeviceMemoryImageCopyKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDeviceMemoryImageCopyKHR>(
         mut self,
@@ -73312,6 +74522,7 @@ impl<'a> core::ops::DerefMut for DeviceMemoryImageCopyKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`CopyDeviceMemoryImageInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyDeviceMemoryImageInfoKHRBuilder<'a> {
     inner: CopyDeviceMemoryImageInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73341,7 +74552,7 @@ impl<'a> CopyDeviceMemoryImageInfoKHRBuilder<'a> {
         self.inner.p_regions = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`CopyDeviceMemoryImageInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsCopyDeviceMemoryImageInfoKHR>(
         mut self,
@@ -73370,6 +74581,7 @@ impl<'a> core::ops::DerefMut for CopyDeviceMemoryImageInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryRangeBarriersInfoKHR`] with lifetime-tied pNext safety.
 pub struct MemoryRangeBarriersInfoKHRBuilder<'a> {
     inner: MemoryRangeBarriersInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73394,7 +74606,7 @@ impl<'a> MemoryRangeBarriersInfoKHRBuilder<'a> {
         self.inner.p_memory_range_barriers = slice.as_ptr();
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryRangeBarriersInfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryRangeBarriersInfoKHR>(
         mut self,
@@ -73423,6 +74635,7 @@ impl<'a> core::ops::DerefMut for MemoryRangeBarriersInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MemoryRangeBarrierKHR`] with lifetime-tied pNext safety.
 pub struct MemoryRangeBarrierKHRBuilder<'a> {
     inner: MemoryRangeBarrierKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73481,7 +74694,7 @@ impl<'a> MemoryRangeBarrierKHRBuilder<'a> {
         self.inner.address_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryRangeBarrierKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryRangeBarrierKHR>(
         mut self,
@@ -73510,6 +74723,7 @@ impl<'a> core::ops::DerefMut for MemoryRangeBarrierKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDeviceAddressCommandsFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceDeviceAddressCommandsFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73533,7 +74747,7 @@ impl<'a> PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder<'a> {
         self.inner.device_address_commands = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceAddressCommandsFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceDeviceAddressCommandsFeaturesKHR>(
         mut self,
@@ -73563,6 +74777,7 @@ for PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ConditionalRenderingBeginInfo2EXT`] with lifetime-tied pNext safety.
 pub struct ConditionalRenderingBeginInfo2EXTBuilder<'a> {
     inner: ConditionalRenderingBeginInfo2EXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73596,7 +74811,7 @@ impl<'a> ConditionalRenderingBeginInfo2EXTBuilder<'a> {
         self.inner.flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`ConditionalRenderingBeginInfo2EXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsConditionalRenderingBeginInfo2EXT>(
         mut self,
@@ -73625,6 +74840,7 @@ impl<'a> core::ops::DerefMut for ConditionalRenderingBeginInfo2EXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureCreateInfo2KHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureCreateInfo2KHRBuilder<'a> {
     inner: AccelerationStructureCreateInfo2KHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73663,7 +74879,7 @@ impl<'a> AccelerationStructureCreateInfo2KHRBuilder<'a> {
         self.inner.r#type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`AccelerationStructureCreateInfo2KHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsAccelerationStructureCreateInfo2KHR>(
         mut self,
@@ -73692,6 +74908,7 @@ impl<'a> core::ops::DerefMut for AccelerationStructureCreateInfo2KHRBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`BindIndexBuffer3InfoKHR`] with lifetime-tied pNext safety.
 pub struct BindIndexBuffer3InfoKHRBuilder<'a> {
     inner: BindIndexBuffer3InfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73725,7 +74942,7 @@ impl<'a> BindIndexBuffer3InfoKHRBuilder<'a> {
         self.inner.index_type = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindIndexBuffer3InfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindIndexBuffer3InfoKHR>(
         mut self,
@@ -73754,6 +74971,7 @@ impl<'a> core::ops::DerefMut for BindIndexBuffer3InfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindVertexBuffer3InfoKHR`] with lifetime-tied pNext safety.
 pub struct BindVertexBuffer3InfoKHRBuilder<'a> {
     inner: BindVertexBuffer3InfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73787,7 +75005,7 @@ impl<'a> BindVertexBuffer3InfoKHRBuilder<'a> {
         self.inner.address_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindVertexBuffer3InfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindVertexBuffer3InfoKHR>(
         mut self,
@@ -73816,6 +75034,7 @@ impl<'a> core::ops::DerefMut for BindVertexBuffer3InfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DrawIndirect2InfoKHR`] with lifetime-tied pNext safety.
 pub struct DrawIndirect2InfoKHRBuilder<'a> {
     inner: DrawIndirect2InfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73849,7 +75068,7 @@ impl<'a> DrawIndirect2InfoKHRBuilder<'a> {
         self.inner.draw_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DrawIndirect2InfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDrawIndirect2InfoKHR>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -73875,6 +75094,7 @@ impl<'a> core::ops::DerefMut for DrawIndirect2InfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DrawIndirectCount2InfoKHR`] with lifetime-tied pNext safety.
 pub struct DrawIndirectCount2InfoKHRBuilder<'a> {
     inner: DrawIndirectCount2InfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73918,7 +75138,7 @@ impl<'a> DrawIndirectCount2InfoKHRBuilder<'a> {
         self.inner.max_draw_count = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DrawIndirectCount2InfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDrawIndirectCount2InfoKHR>(
         mut self,
@@ -73947,6 +75167,7 @@ impl<'a> core::ops::DerefMut for DrawIndirectCount2InfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DispatchIndirect2InfoKHR`] with lifetime-tied pNext safety.
 pub struct DispatchIndirect2InfoKHRBuilder<'a> {
     inner: DispatchIndirect2InfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -73975,7 +75196,7 @@ impl<'a> DispatchIndirect2InfoKHRBuilder<'a> {
         self.inner.address_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`DispatchIndirect2InfoKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsDispatchIndirect2InfoKHR>(
         mut self,
@@ -74004,6 +75225,7 @@ impl<'a> core::ops::DerefMut for DispatchIndirect2InfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BindTransformFeedbackBuffer2InfoEXT`] with lifetime-tied pNext safety.
 pub struct BindTransformFeedbackBuffer2InfoEXTBuilder<'a> {
     inner: BindTransformFeedbackBuffer2InfoEXT,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -74032,7 +75254,7 @@ impl<'a> BindTransformFeedbackBuffer2InfoEXTBuilder<'a> {
         self.inner.address_flags = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`BindTransformFeedbackBuffer2InfoEXT`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsBindTransformFeedbackBuffer2InfoEXT>(
         mut self,
@@ -74061,6 +75283,7 @@ impl<'a> core::ops::DerefMut for BindTransformFeedbackBuffer2InfoEXTBuilder<'a> 
         &mut self.inner
     }
 }
+///Builder for [`MemoryMarkerInfoAMD`] with lifetime-tied pNext safety.
 pub struct MemoryMarkerInfoAMDBuilder<'a> {
     inner: MemoryMarkerInfoAMD,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -74099,7 +75322,7 @@ impl<'a> MemoryMarkerInfoAMDBuilder<'a> {
         self.inner.marker = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`MemoryMarkerInfoAMD`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsMemoryMarkerInfoAMD>(mut self, next: &'a mut T) -> Self {
         unsafe {
@@ -74125,6 +75348,7 @@ impl<'a> core::ops::DerefMut for MemoryMarkerInfoAMDBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderConstantDataFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderConstantDataFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderConstantDataFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -74148,7 +75372,7 @@ impl<'a> PhysicalDeviceShaderConstantDataFeaturesKHRBuilder<'a> {
         self.inner.shader_constant_data = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderConstantDataFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderConstantDataFeaturesKHR>(
         mut self,
@@ -74177,6 +75401,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderConstantDataFeaturesKHRBuil
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderAbortFeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderAbortFeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderAbortFeaturesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -74200,7 +75425,7 @@ impl<'a> PhysicalDeviceShaderAbortFeaturesKHRBuilder<'a> {
         self.inner.shader_abort = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAbortFeaturesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderAbortFeaturesKHR>(
         mut self,
@@ -74229,6 +75454,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderAbortFeaturesKHRBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceShaderAbortPropertiesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceShaderAbortPropertiesKHRBuilder<'a> {
     inner: PhysicalDeviceShaderAbortPropertiesKHR,
     _marker: core::marker::PhantomData<&'a ()>,
@@ -74252,7 +75478,7 @@ impl<'a> PhysicalDeviceShaderAbortPropertiesKHRBuilder<'a> {
         self.inner.max_shader_abort_message_size = value;
         self
     }
-    /// Prepend a struct to the pNext chain.
+    ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAbortPropertiesKHR`]'s **Extended By** section for valid types.
     #[inline]
     pub fn push_next<T: ExtendsPhysicalDeviceShaderAbortPropertiesKHR>(
         mut self,
@@ -74281,6 +75507,7 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceShaderAbortPropertiesKHRBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`DeviceFaultShaderAbortMessageInfoKHR`] with lifetime-tied pNext safety.
 pub struct DeviceFaultShaderAbortMessageInfoKHRBuilder<'a> {
     inner: DeviceFaultShaderAbortMessageInfoKHR,
     _marker: core::marker::PhantomData<&'a ()>,

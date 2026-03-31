@@ -116,7 +116,7 @@ fn emit_file(wrapper_type: &str, methods: TokenStream) -> TokenStream {
     quote! {
         #![allow(unused_imports)]
         #![allow(clippy::too_many_arguments)]
-        #![allow(clippy::missing_safety_doc)]
+        // Safety docs are now generated from vk.xml metadata.
 
         use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
         use crate::vk::bitmasks::*;
@@ -170,12 +170,60 @@ fn emit_method(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -
     let sig_params = emit_signature_params(cmd, roles);
     let ret = emit_return_type(cmd, roles, pattern);
     let body = emit_body(cmd, roles, pattern);
+    let docs = emit_wrapper_docs(cmd, roles);
 
     quote! {
+        #docs
         pub unsafe fn #method_name(&self, #sig_params) #ret {
             #body
         }
     }
+}
+
+/// Build doc comment lines for a wrapper method.
+fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
+    let spec_link = format!(
+        "Wraps [`{name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{name}.html).",
+        name = &cmd.name,
+    );
+
+    let mut doc_lines: Vec<TokenStream> = vec![quote! { #[doc = #spec_link] }];
+
+    // Provided by.
+    if let Some(ref provider) = cmd.provided_by {
+        let line = format!("\nProvided by **{provider}**.");
+        doc_lines.push(quote! { #[doc = #line] });
+    }
+
+    // Error codes → # Errors section.
+    if !cmd.error_codes.is_empty() {
+        doc_lines.push(quote! { #[doc = ""] });
+        doc_lines.push(quote! { #[doc = "# Errors"] });
+        for code in &cmd.error_codes {
+            let line = format!("- `{code}`");
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    // Safety section.
+    let dispatch_handle = cmd.params.first().map(|p| p.name.as_str()).unwrap_or("");
+    let handle_safety = format!("- `{dispatch_handle}` (self) must be valid and not destroyed.");
+    let sync_lines: Vec<String> = cmd
+        .params
+        .iter()
+        .zip(roles.iter())
+        .filter(|(p, _)| p.extern_sync.is_some())
+        .map(|(p, _)| format!("- `{}` must be externally synchronized.", p.name))
+        .collect();
+
+    doc_lines.push(quote! { #[doc = ""] });
+    doc_lines.push(quote! { #[doc = "# Safety"] });
+    doc_lines.push(quote! { #[doc = #handle_safety] });
+    for line in &sync_lines {
+        doc_lines.push(quote! { #[doc = #line] });
+    }
+
+    quote! { #(#doc_lines)* }
 }
 
 // ---------------------------------------------------------------------------

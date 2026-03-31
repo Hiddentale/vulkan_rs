@@ -66,8 +66,12 @@ fn emit_builder(
         } else {
             quote! { self.inner.p_next = <*mut BaseOutStructure>::cast::<core::ffi::c_void>(next_ptr) as *const _; }
         };
+        let push_next_doc = format!(
+            "Prepend a struct to the pNext chain. See [`{}`]'s **Extended By** section for valid types.",
+            &def.name,
+        );
         quote! {
-            /// Prepend a struct to the pNext chain.
+            #[doc = #push_next_doc]
             #[inline]
             pub fn push_next<T: #extends_trait>(mut self, next: &'a mut T) -> Self {
                 unsafe {
@@ -82,7 +86,10 @@ fn emit_builder(
         quote! {}
     };
 
+    let builder_doc = format!("Builder for [`{}`] with lifetime-tied pNext safety.", &def.name);
+
     quote! {
+        #[doc = #builder_doc]
         pub struct #builder_name<'a> {
             inner: #struct_name,
             _marker: core::marker::PhantomData<&'a ()>,
