@@ -10,10 +10,15 @@ use std::collections::{HashMap, HashSet};
 use crate::parse::{StructDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, member_name};
 
-/// Structs to skip entirely — opaque stubs or types with platform-specific
-/// member types that won't resolve in the C headers on Linux.
+/// Structs to skip entirely — opaque stubs, Vulkan SC types, or types with
+/// platform-specific member types that won't resolve in the C headers on Linux.
 fn is_opaque_or_problematic(name: &str) -> bool {
     name.starts_with("StdVideo")
+}
+
+/// Returns true if the provider is a Vulkan SC feature (not standard Vulkan).
+fn is_vulkan_sc_provider(provider: &str) -> bool {
+    provider.starts_with("VKSC_")
 }
 
 /// Build the set of platform-restricted extension names (win32, android, etc.)
@@ -48,7 +53,9 @@ fn testable_structs<'a>(
         .filter(|s| !s.members.is_empty())
         .filter(|s| !is_opaque_or_problematic(&s.name))
         .filter(|s| match &s.provided_by {
-            Some(ext) => !skip_extensions.contains(ext),
+            Some(provider) => {
+                !skip_extensions.contains(provider) && !is_vulkan_sc_provider(provider)
+            }
             None => true,
         })
         .collect()
