@@ -36,11 +36,7 @@ fn no_raw_fallback_for_aliased_flags() {
         .aliases
         .iter()
         .filter(|a| a.name.contains("Flags") && a.target.contains("Flags"))
-        .map(|a| {
-            a.name
-                .strip_prefix("Vk")
-                .unwrap_or(&a.name)
-        })
+        .map(|a| a.name.strip_prefix("Vk").unwrap_or(&a.name))
         .collect();
 
     let mut bad = Vec::new();
@@ -199,8 +195,7 @@ fn no_duplicate_type_definitions() {
                 rest.split(|c: char| c == '{' || c == '<' || c.is_whitespace())
                     .next()
             } else if let Some(rest) = trimmed.strip_prefix("pub type ") {
-                rest.split(|c: char| c == '=' || c.is_whitespace())
-                    .next()
+                rest.split(|c: char| c == '=' || c.is_whitespace()).next()
             } else {
                 None
             };
@@ -255,12 +250,7 @@ fn all_struct_members_resolve() {
     }
     for a in &registry.aliases {
         known.insert(a.name.strip_prefix("Vk").unwrap_or(&a.name).to_string());
-        known.insert(
-            a.target
-                .strip_prefix("Vk")
-                .unwrap_or(&a.target)
-                .to_string(),
-        );
+        known.insert(a.target.strip_prefix("Vk").unwrap_or(&a.target).to_string());
     }
     for fp in &registry.func_pointers {
         known.insert(fp.name.clone());
@@ -271,18 +261,8 @@ fn all_struct_members_resolve() {
 
     // Primitives and known C types.
     let primitives = [
-        "void",
-        "char",
-        "float",
-        "double",
-        "int",
-        "uint8_t",
-        "uint16_t",
-        "uint32_t",
-        "uint64_t",
-        "int32_t",
-        "int64_t",
-        "size_t",
+        "void", "char", "float", "double", "int", "uint8_t", "uint16_t", "uint32_t", "uint64_t",
+        "int32_t", "int64_t", "size_t",
     ];
     for p in &primitives {
         known.insert(p.to_string());
@@ -300,10 +280,7 @@ fn all_struct_members_resolve() {
 
     for s in &registry.structs {
         for m in &s.members {
-            let stripped = m
-                .type_name
-                .strip_prefix("Vk")
-                .unwrap_or(&m.type_name);
+            let stripped = m.type_name.strip_prefix("Vk").unwrap_or(&m.type_name);
             if !known.contains(stripped)
                 && !known.contains(&m.type_name)
                 && !m.type_name.starts_with("StdVideo")
@@ -378,9 +355,7 @@ fn builder_count_does_not_regress() {
 fn type_alias_chains_resolve() {
     let registry = load_registry();
 
-    let strip_vk = |s: &str| -> String {
-        s.strip_prefix("Vk").unwrap_or(s).to_string()
-    };
+    let strip_vk = |s: &str| -> String { s.strip_prefix("Vk").unwrap_or(s).to_string() };
 
     // Concrete types (Vk-stripped): handles, structs, enums, bitmasks, etc.
     let mut concrete: std::collections::HashSet<String> = std::collections::HashSet::new();
@@ -414,9 +389,8 @@ fn type_alias_chains_resolve() {
 
     // Flags types (e.g. AccessFlags2) are resolved to their FlagBits
     // form by the generator, so they're valid even if not in the concrete set.
-    let is_flags_type = |name: &str| -> bool {
-        name.contains("Flags") && !name.contains("FlagBits")
-    };
+    let is_flags_type =
+        |name: &str| -> bool { name.contains("Flags") && !name.contains("FlagBits") };
 
     let mut dangling = Vec::new();
     for a in &registry.aliases {
@@ -467,7 +441,8 @@ fn command_alias_targets_resolve() {
 
     let mut dangling = Vec::new();
     for a in &registry.aliases {
-        if a.kind == generator::parse::AliasKind::Command && !known_commands.contains(a.target.as_str())
+        if a.kind == generator::parse::AliasKind::Command
+            && !known_commands.contains(a.target.as_str())
         {
             dangling.push(format!("{} → {}", a.name, a.target));
         }
