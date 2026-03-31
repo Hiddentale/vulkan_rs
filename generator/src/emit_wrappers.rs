@@ -1292,6 +1292,10 @@ mod tests {
 
         let out_path =
             std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../docs/wrapper_audit.md");
+        if let Some(parent) = out_path.parent() {
+            std::fs::create_dir_all(parent)
+                .unwrap_or_else(|e| panic!("failed to create {}: {e}", parent.display()));
+        }
         std::fs::write(&out_path, &report)
             .unwrap_or_else(|e| panic!("failed to write {}: {e}", out_path.display()));
         println!("Wrote audit report to {}", out_path.display());

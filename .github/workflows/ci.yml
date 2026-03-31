@@ -188,7 +188,7 @@ jobs:
 
       - name: Print coverage summary
         run: |
-          cargo llvm-cov report --workspace \
+          cargo llvm-cov --workspace --no-run \
             --ignore-filename-regex '(vk-sys/src/|vk-engine/src/generated/)'
 
       - name: Upload coverage artifact
