@@ -55,7 +55,30 @@ fn emit_handle(handle: &HandleDef) -> TokenStream {
         (quote! { u64 }, quote! { 0u64 })
     };
 
+    let spec_link = format!(
+        "[`{vk_name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{vk_name}.html)"
+    );
+
+    let dispatch_doc = if handle.dispatchable {
+        "Dispatchable handle (pointer-sized)."
+    } else {
+        "Non-dispatchable handle (u64)."
+    };
+
+    let parent_doc: Vec<TokenStream> = handle
+        .parent
+        .as_deref()
+        .map(|p| {
+            let line = format!("Parent: [`{p}`].");
+            vec![quote! { #[doc = #line] }]
+        })
+        .unwrap_or_default();
+
     quote! {
+        #[doc = #spec_link]
+        #[doc = ""]
+        #[doc = #dispatch_doc]
+        #(#parent_doc)*
         #[repr(transparent)]
         #[derive(Copy, Clone, PartialEq, Eq, Hash)]
         #[doc(alias = #vk_name)]

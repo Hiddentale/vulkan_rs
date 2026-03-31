@@ -5,6 +5,22 @@ use super::structs::*;
 use super::enums::*;
 use super::handles::*;
 use super::bitmasks::*;
+///[`vkCreateInstance`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateInstance.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_LAYER_NOT_PRESENT`
+///- `VK_ERROR_EXTENSION_NOT_PRESENT`
+///- `VK_ERROR_INCOMPATIBLE_DRIVER`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateInstance = Option<
     unsafe extern "system" fn(
         p_create_info: *const InstanceCreateInfo,
@@ -12,12 +28,32 @@ pub type PFN_vkCreateInstance = Option<
         p_instance: *mut Instance,
     ) -> Result,
 >;
+///[`vkDestroyInstance`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyInstance.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `instance` must be externally synchronized
 pub type PFN_vkDestroyInstance = Option<
     unsafe extern "system" fn(
         instance: Instance,
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkEnumeratePhysicalDevices`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDevices.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumeratePhysicalDevices = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -25,24 +61,36 @@ pub type PFN_vkEnumeratePhysicalDevices = Option<
         p_physical_devices: *mut PhysicalDevice,
     ) -> Result,
 >;
+///[`vkGetDeviceProcAddr`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceProcAddr.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetDeviceProcAddr = Option<
     unsafe extern "system" fn(
         device: Device,
         p_name: *const core::ffi::c_char,
     ) -> PFN_vkVoidFunction,
 >;
+///[`vkGetInstanceProcAddr`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetInstanceProcAddr.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetInstanceProcAddr = Option<
     unsafe extern "system" fn(
         instance: Instance,
         p_name: *const core::ffi::c_char,
     ) -> PFN_vkVoidFunction,
 >;
+///[`vkGetPhysicalDeviceProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetPhysicalDeviceProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_properties: *mut PhysicalDeviceProperties,
     ),
 >;
+///[`vkGetPhysicalDeviceQueueFamilyProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -50,18 +98,27 @@ pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties = Option<
         p_queue_family_properties: *mut QueueFamilyProperties,
     ),
 >;
+///[`vkGetPhysicalDeviceMemoryProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMemoryProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetPhysicalDeviceMemoryProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties,
     ),
 >;
+///[`vkGetPhysicalDeviceFeatures`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetPhysicalDeviceFeatures = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_features: *mut PhysicalDeviceFeatures,
     ),
 >;
+///[`vkGetPhysicalDeviceFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFormatProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetPhysicalDeviceFormatProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -69,6 +126,19 @@ pub type PFN_vkGetPhysicalDeviceFormatProperties = Option<
         p_format_properties: *mut FormatProperties,
     ),
 >;
+///[`vkGetPhysicalDeviceImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceImageFormatProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceImageFormatProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -80,6 +150,23 @@ pub type PFN_vkGetPhysicalDeviceImageFormatProperties = Option<
         p_image_format_properties: *mut ImageFormatProperties,
     ) -> Result,
 >;
+///[`vkCreateDevice`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDevice.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_EXTENSION_NOT_PRESENT`
+///- `VK_ERROR_FEATURE_NOT_PRESENT`
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDevice = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -88,18 +175,62 @@ pub type PFN_vkCreateDevice = Option<
         p_device: *mut Device,
     ) -> Result,
 >;
+///[`vkDestroyDevice`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDevice.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `device` must be externally synchronized
 pub type PFN_vkDestroyDevice = Option<
     unsafe extern "system" fn(device: Device, p_allocator: *const AllocationCallbacks),
 >;
+///[`vkEnumerateInstanceVersion`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateInstanceVersion.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumerateInstanceVersion = Option<
     unsafe extern "system" fn(p_api_version: *mut u32) -> Result,
 >;
+///[`vkEnumerateInstanceLayerProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateInstanceLayerProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumerateInstanceLayerProperties = Option<
     unsafe extern "system" fn(
         p_property_count: *mut u32,
         p_properties: *mut LayerProperties,
     ) -> Result,
 >;
+///[`vkEnumerateInstanceExtensionProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateInstanceExtensionProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_LAYER_NOT_PRESENT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumerateInstanceExtensionProperties = Option<
     unsafe extern "system" fn(
         p_layer_name: *const core::ffi::c_char,
@@ -107,6 +238,19 @@ pub type PFN_vkEnumerateInstanceExtensionProperties = Option<
         p_properties: *mut ExtensionProperties,
     ) -> Result,
 >;
+///[`vkEnumerateDeviceLayerProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateDeviceLayerProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumerateDeviceLayerProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -114,6 +258,20 @@ pub type PFN_vkEnumerateDeviceLayerProperties = Option<
         p_properties: *mut LayerProperties,
     ) -> Result,
 >;
+///[`vkEnumerateDeviceExtensionProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateDeviceExtensionProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_LAYER_NOT_PRESENT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumerateDeviceExtensionProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -122,6 +280,9 @@ pub type PFN_vkEnumerateDeviceExtensionProperties = Option<
         p_properties: *mut ExtensionProperties,
     ) -> Result,
 >;
+///[`vkGetDeviceQueue`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceQueue.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetDeviceQueue = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -130,6 +291,23 @@ pub type PFN_vkGetDeviceQueue = Option<
         p_queue: *mut Queue,
     ),
 >;
+///[`vkQueueSubmit`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSubmit.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
+///- `fence` must be externally synchronized
 pub type PFN_vkQueueSubmit = Option<
     unsafe extern "system" fn(
         queue: Queue,
@@ -138,10 +316,53 @@ pub type PFN_vkQueueSubmit = Option<
         fence: Fence,
     ) -> Result,
 >;
+///[`vkQueueWaitIdle`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueWaitIdle.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
 pub type PFN_vkQueueWaitIdle = Option<unsafe extern "system" fn(queue: Queue) -> Result>;
+///[`vkDeviceWaitIdle`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDeviceWaitIdle.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkDeviceWaitIdle = Option<
     unsafe extern "system" fn(device: Device) -> Result,
 >;
+///[`vkAllocateMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAllocateMemory.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAllocateMemory = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -150,6 +371,12 @@ pub type PFN_vkAllocateMemory = Option<
         p_memory: *mut DeviceMemory,
     ) -> Result,
 >;
+///[`vkFreeMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeMemory.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `memory` must be externally synchronized
 pub type PFN_vkFreeMemory = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -157,6 +384,22 @@ pub type PFN_vkFreeMemory = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkMapMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_MEMORY_MAP_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `memory` must be externally synchronized
 pub type PFN_vkMapMemory = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -167,9 +410,27 @@ pub type PFN_vkMapMemory = Option<
         pp_data: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkUnmapMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `memory` must be externally synchronized
 pub type PFN_vkUnmapMemory = Option<
     unsafe extern "system" fn(device: Device, memory: DeviceMemory),
 >;
+///[`vkFlushMappedMemoryRanges`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFlushMappedMemoryRanges.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkFlushMappedMemoryRanges = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -177,6 +438,18 @@ pub type PFN_vkFlushMappedMemoryRanges = Option<
         p_memory_ranges: *const MappedMemoryRange,
     ) -> Result,
 >;
+///[`vkInvalidateMappedMemoryRanges`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkInvalidateMappedMemoryRanges.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkInvalidateMappedMemoryRanges = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -184,6 +457,9 @@ pub type PFN_vkInvalidateMappedMemoryRanges = Option<
         p_memory_ranges: *const MappedMemoryRange,
     ) -> Result,
 >;
+///[`vkGetDeviceMemoryCommitment`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryCommitment.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetDeviceMemoryCommitment = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -191,6 +467,9 @@ pub type PFN_vkGetDeviceMemoryCommitment = Option<
         p_committed_memory_in_bytes: *mut u64,
     ),
 >;
+///[`vkGetBufferMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferMemoryRequirements.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetBufferMemoryRequirements = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -198,6 +477,22 @@ pub type PFN_vkGetBufferMemoryRequirements = Option<
         p_memory_requirements: *mut MemoryRequirements,
     ),
 >;
+///[`vkBindBufferMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `buffer` must be externally synchronized
 pub type PFN_vkBindBufferMemory = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -206,6 +501,9 @@ pub type PFN_vkBindBufferMemory = Option<
         memory_offset: u64,
     ) -> Result,
 >;
+///[`vkGetImageMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageMemoryRequirements.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetImageMemoryRequirements = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -213,6 +511,21 @@ pub type PFN_vkGetImageMemoryRequirements = Option<
         p_memory_requirements: *mut MemoryRequirements,
     ),
 >;
+///[`vkBindImageMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindImageMemory.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `image` must be externally synchronized
 pub type PFN_vkBindImageMemory = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -221,6 +534,9 @@ pub type PFN_vkBindImageMemory = Option<
         memory_offset: u64,
     ) -> Result,
 >;
+///[`vkGetImageSparseMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSparseMemoryRequirements.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetImageSparseMemoryRequirements = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -229,6 +545,9 @@ pub type PFN_vkGetImageSparseMemoryRequirements = Option<
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements,
     ),
 >;
+///[`vkGetPhysicalDeviceSparseImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -241,6 +560,23 @@ pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties = Option<
         p_properties: *mut SparseImageFormatProperties,
     ),
 >;
+///[`vkQueueBindSparse`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueBindSparse.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
+///- `fence` must be externally synchronized
 pub type PFN_vkQueueBindSparse = Option<
     unsafe extern "system" fn(
         queue: Queue,
@@ -249,6 +585,18 @@ pub type PFN_vkQueueBindSparse = Option<
         fence: Fence,
     ) -> Result,
 >;
+///[`vkCreateFence`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateFence.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateFence = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -257,6 +605,12 @@ pub type PFN_vkCreateFence = Option<
         p_fence: *mut Fence,
     ) -> Result,
 >;
+///[`vkDestroyFence`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyFence.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `fence` must be externally synchronized
 pub type PFN_vkDestroyFence = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -264,6 +618,20 @@ pub type PFN_vkDestroyFence = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkResetFences`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetFences.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `pFences` must be externally synchronized
 pub type PFN_vkResetFences = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -271,9 +639,37 @@ pub type PFN_vkResetFences = Option<
         p_fences: *const Fence,
     ) -> Result,
 >;
+///[`vkGetFenceStatus`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceStatus.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_NOT_READY`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetFenceStatus = Option<
     unsafe extern "system" fn(device: Device, fence: Fence) -> Result,
 >;
+///[`vkWaitForFences`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitForFences.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_TIMEOUT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkWaitForFences = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -283,6 +679,18 @@ pub type PFN_vkWaitForFences = Option<
         timeout: u64,
     ) -> Result,
 >;
+///[`vkCreateSemaphore`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSemaphore.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateSemaphore = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -291,6 +699,12 @@ pub type PFN_vkCreateSemaphore = Option<
         p_semaphore: *mut Semaphore,
     ) -> Result,
 >;
+///[`vkDestroySemaphore`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySemaphore.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `semaphore` must be externally synchronized
 pub type PFN_vkDestroySemaphore = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -298,6 +712,18 @@ pub type PFN_vkDestroySemaphore = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateEvent.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateEvent = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -306,6 +732,12 @@ pub type PFN_vkCreateEvent = Option<
         p_event: *mut Event,
     ) -> Result,
 >;
+///[`vkDestroyEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyEvent.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `event` must be externally synchronized
 pub type PFN_vkDestroyEvent = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -313,15 +745,70 @@ pub type PFN_vkDestroyEvent = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetEventStatus`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetEventStatus.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_EVENT_SET`
+///- `VK_EVENT_RESET`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetEventStatus = Option<
     unsafe extern "system" fn(device: Device, event: Event) -> Result,
 >;
+///[`vkSetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetEvent.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `event` must be externally synchronized
 pub type PFN_vkSetEvent = Option<
     unsafe extern "system" fn(device: Device, event: Event) -> Result,
 >;
+///[`vkResetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetEvent.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `event` must be externally synchronized
 pub type PFN_vkResetEvent = Option<
     unsafe extern "system" fn(device: Device, event: Event) -> Result,
 >;
+///[`vkCreateQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateQueryPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateQueryPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -330,6 +817,12 @@ pub type PFN_vkCreateQueryPool = Option<
         p_query_pool: *mut QueryPool,
     ) -> Result,
 >;
+///[`vkDestroyQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyQueryPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `queryPool` must be externally synchronized
 pub type PFN_vkDestroyQueryPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -337,6 +830,20 @@ pub type PFN_vkDestroyQueryPool = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetQueryPoolResults`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetQueryPoolResults.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_NOT_READY`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetQueryPoolResults = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -349,6 +856,9 @@ pub type PFN_vkGetQueryPoolResults = Option<
         flags: QueryResultFlags,
     ) -> Result,
 >;
+///[`vkResetQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetQueryPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_2**.*/
 pub type PFN_vkResetQueryPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -357,6 +867,19 @@ pub type PFN_vkResetQueryPool = Option<
         query_count: u32,
     ),
 >;
+///[`vkCreateBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateBuffer = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -365,6 +888,12 @@ pub type PFN_vkCreateBuffer = Option<
         p_buffer: *mut Buffer,
     ) -> Result,
 >;
+///[`vkDestroyBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `buffer` must be externally synchronized
 pub type PFN_vkDestroyBuffer = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -372,6 +901,18 @@ pub type PFN_vkDestroyBuffer = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateBufferView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateBufferView.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateBufferView = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -380,6 +921,12 @@ pub type PFN_vkCreateBufferView = Option<
         p_view: *mut BufferView,
     ) -> Result,
 >;
+///[`vkDestroyBufferView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyBufferView.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `bufferView` must be externally synchronized
 pub type PFN_vkDestroyBufferView = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -387,6 +934,20 @@ pub type PFN_vkDestroyBufferView = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateImage.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_COMPRESSION_EXHAUSTED_EXT`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateImage = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -395,6 +956,12 @@ pub type PFN_vkCreateImage = Option<
         p_image: *mut Image,
     ) -> Result,
 >;
+///[`vkDestroyImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyImage.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `image` must be externally synchronized
 pub type PFN_vkDestroyImage = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -402,6 +969,9 @@ pub type PFN_vkDestroyImage = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetImageSubresourceLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSubresourceLayout.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
 pub type PFN_vkGetImageSubresourceLayout = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -410,6 +980,19 @@ pub type PFN_vkGetImageSubresourceLayout = Option<
         p_layout: *mut SubresourceLayout,
     ),
 >;
+///[`vkCreateImageView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateImageView.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateImageView = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -418,6 +1001,12 @@ pub type PFN_vkCreateImageView = Option<
         p_view: *mut ImageView,
     ) -> Result,
 >;
+///[`vkDestroyImageView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyImageView.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `imageView` must be externally synchronized
 pub type PFN_vkDestroyImageView = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -425,6 +1014,19 @@ pub type PFN_vkDestroyImageView = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateShaderModule`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShaderModule.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_SHADER_NV`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateShaderModule = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -433,6 +1035,12 @@ pub type PFN_vkCreateShaderModule = Option<
         p_shader_module: *mut ShaderModule,
     ) -> Result,
 >;
+///[`vkDestroyShaderModule`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderModule.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `shaderModule` must be externally synchronized
 pub type PFN_vkDestroyShaderModule = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -440,6 +1048,18 @@ pub type PFN_vkDestroyShaderModule = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreatePipelineCache`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePipelineCache.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreatePipelineCache = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -448,6 +1068,12 @@ pub type PFN_vkCreatePipelineCache = Option<
         p_pipeline_cache: *mut PipelineCache,
     ) -> Result,
 >;
+///[`vkDestroyPipelineCache`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipelineCache.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `pipelineCache` must be externally synchronized
 pub type PFN_vkDestroyPipelineCache = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -455,6 +1081,19 @@ pub type PFN_vkDestroyPipelineCache = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetPipelineCacheData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineCacheData.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPipelineCacheData = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -463,6 +1102,21 @@ pub type PFN_vkGetPipelineCacheData = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkMergePipelineCaches`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMergePipelineCaches.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `dstCache` must be externally synchronized
 pub type PFN_vkMergePipelineCaches = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -471,6 +1125,21 @@ pub type PFN_vkMergePipelineCaches = Option<
         p_src_caches: *const PipelineCache,
     ) -> Result,
 >;
+///[`vkCreatePipelineBinariesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePipelineBinariesKHR.html)
+/**
+Provided by **VK_KHR_pipeline_binary**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///- `VK_PIPELINE_BINARY_MISSING_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreatePipelineBinariesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -479,6 +1148,12 @@ pub type PFN_vkCreatePipelineBinariesKHR = Option<
         p_binaries: *mut PipelineBinaryHandlesInfoKHR,
     ) -> Result,
 >;
+///[`vkDestroyPipelineBinaryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipelineBinaryKHR.html)
+/**
+Provided by **VK_KHR_pipeline_binary**.*/
+///
+///# Thread Safety
+///- `pipelineBinary` must be externally synchronized
 pub type PFN_vkDestroyPipelineBinaryKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -486,6 +1161,18 @@ pub type PFN_vkDestroyPipelineBinaryKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetPipelineKeyKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineKeyKHR.html)
+/**
+Provided by **VK_KHR_pipeline_binary**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPipelineKeyKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -493,6 +1180,19 @@ pub type PFN_vkGetPipelineKeyKHR = Option<
         p_pipeline_key: *mut PipelineBinaryKeyKHR,
     ) -> Result,
 >;
+///[`vkGetPipelineBinaryDataKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineBinaryDataKHR.html)
+/**
+Provided by **VK_KHR_pipeline_binary**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_NOT_ENOUGH_SPACE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPipelineBinaryDataKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -502,6 +1202,16 @@ pub type PFN_vkGetPipelineBinaryDataKHR = Option<
         p_pipeline_binary_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkReleaseCapturedPipelineDataKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseCapturedPipelineDataKHR.html)
+/**
+Provided by **VK_KHR_pipeline_binary**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkReleaseCapturedPipelineDataKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -509,6 +1219,23 @@ pub type PFN_vkReleaseCapturedPipelineDataKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ) -> Result,
 >;
+///[`vkCreateGraphicsPipelines`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateGraphicsPipelines.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_PIPELINE_COMPILE_REQUIRED_EXT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_SHADER_NV`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `pipelineCache` must be externally synchronized
 pub type PFN_vkCreateGraphicsPipelines = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -519,6 +1246,23 @@ pub type PFN_vkCreateGraphicsPipelines = Option<
         p_pipelines: *mut Pipeline,
     ) -> Result,
 >;
+///[`vkCreateComputePipelines`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateComputePipelines.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_PIPELINE_COMPILE_REQUIRED_EXT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_SHADER_NV`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `pipelineCache` must be externally synchronized
 pub type PFN_vkCreateComputePipelines = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -529,6 +1273,19 @@ pub type PFN_vkCreateComputePipelines = Option<
         p_pipelines: *mut Pipeline,
     ) -> Result,
 >;
+///[`vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html)
+/**
+Provided by **VK_HUAWEI_subpass_shading**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -536,6 +1293,12 @@ pub type PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI = Option<
         p_max_workgroup_size: *mut Extent2D,
     ) -> Result,
 >;
+///[`vkDestroyPipeline`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipeline.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `pipeline` must be externally synchronized
 pub type PFN_vkDestroyPipeline = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -543,6 +1306,18 @@ pub type PFN_vkDestroyPipeline = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreatePipelineLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePipelineLayout.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreatePipelineLayout = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -551,6 +1326,12 @@ pub type PFN_vkCreatePipelineLayout = Option<
         p_pipeline_layout: *mut PipelineLayout,
     ) -> Result,
 >;
+///[`vkDestroyPipelineLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipelineLayout.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `pipelineLayout` must be externally synchronized
 pub type PFN_vkDestroyPipelineLayout = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -558,6 +1339,19 @@ pub type PFN_vkDestroyPipelineLayout = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateSampler`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSampler.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateSampler = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -566,6 +1360,12 @@ pub type PFN_vkCreateSampler = Option<
         p_sampler: *mut Sampler,
     ) -> Result,
 >;
+///[`vkDestroySampler`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySampler.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `sampler` must be externally synchronized
 pub type PFN_vkDestroySampler = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -573,6 +1373,18 @@ pub type PFN_vkDestroySampler = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateDescriptorSetLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDescriptorSetLayout.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDescriptorSetLayout = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -581,6 +1393,12 @@ pub type PFN_vkCreateDescriptorSetLayout = Option<
         p_set_layout: *mut DescriptorSetLayout,
     ) -> Result,
 >;
+///[`vkDestroyDescriptorSetLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDescriptorSetLayout.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `descriptorSetLayout` must be externally synchronized
 pub type PFN_vkDestroyDescriptorSetLayout = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -588,6 +1406,19 @@ pub type PFN_vkDestroyDescriptorSetLayout = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateDescriptorPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDescriptorPool.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_FRAGMENTATION_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDescriptorPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -596,6 +1427,12 @@ pub type PFN_vkCreateDescriptorPool = Option<
         p_descriptor_pool: *mut DescriptorPool,
     ) -> Result,
 >;
+///[`vkDestroyDescriptorPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDescriptorPool.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `descriptorPool` must be externally synchronized
 pub type PFN_vkDestroyDescriptorPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -603,6 +1440,19 @@ pub type PFN_vkDestroyDescriptorPool = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkResetDescriptorPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetDescriptorPool.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `descriptorPool` must be externally synchronized
 pub type PFN_vkResetDescriptorPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -610,6 +1460,20 @@ pub type PFN_vkResetDescriptorPool = Option<
         flags: DescriptorPoolResetFlags,
     ) -> Result,
 >;
+///[`vkAllocateDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAllocateDescriptorSets.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_FRAGMENTED_POOL`
+///- `VK_ERROR_OUT_OF_POOL_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAllocateDescriptorSets = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -617,6 +1481,20 @@ pub type PFN_vkAllocateDescriptorSets = Option<
         p_descriptor_sets: *mut DescriptorSet,
     ) -> Result,
 >;
+///[`vkFreeDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeDescriptorSets.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `descriptorPool` must be externally synchronized
+///- `pDescriptorSets` must be externally synchronized
 pub type PFN_vkFreeDescriptorSets = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -625,6 +1503,12 @@ pub type PFN_vkFreeDescriptorSets = Option<
         p_descriptor_sets: *const DescriptorSet,
     ) -> Result,
 >;
+///[`vkUpdateDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateDescriptorSets.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `pDescriptorWrites` must be externally synchronized
 pub type PFN_vkUpdateDescriptorSets = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -634,6 +1518,18 @@ pub type PFN_vkUpdateDescriptorSets = Option<
         p_descriptor_copies: *const CopyDescriptorSet,
     ),
 >;
+///[`vkCreateFramebuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateFramebuffer.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateFramebuffer = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -642,6 +1538,12 @@ pub type PFN_vkCreateFramebuffer = Option<
         p_framebuffer: *mut Framebuffer,
     ) -> Result,
 >;
+///[`vkDestroyFramebuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyFramebuffer.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `framebuffer` must be externally synchronized
 pub type PFN_vkDestroyFramebuffer = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -649,6 +1551,18 @@ pub type PFN_vkDestroyFramebuffer = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRenderPass.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateRenderPass = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -657,6 +1571,12 @@ pub type PFN_vkCreateRenderPass = Option<
         p_render_pass: *mut RenderPass,
     ) -> Result,
 >;
+///[`vkDestroyRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyRenderPass.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `renderPass` must be externally synchronized
 pub type PFN_vkDestroyRenderPass = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -664,6 +1584,9 @@ pub type PFN_vkDestroyRenderPass = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetRenderAreaGranularity`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRenderAreaGranularity.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub type PFN_vkGetRenderAreaGranularity = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -671,6 +1594,9 @@ pub type PFN_vkGetRenderAreaGranularity = Option<
         p_granularity: *mut Extent2D,
     ),
 >;
+///[`vkGetRenderingAreaGranularity`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRenderingAreaGranularity.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub type PFN_vkGetRenderingAreaGranularity = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -678,6 +1604,18 @@ pub type PFN_vkGetRenderingAreaGranularity = Option<
         p_granularity: *mut Extent2D,
     ),
 >;
+///[`vkCreateCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCommandPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateCommandPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -686,6 +1624,12 @@ pub type PFN_vkCreateCommandPool = Option<
         p_command_pool: *mut CommandPool,
     ) -> Result,
 >;
+///[`vkDestroyCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCommandPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandPool` must be externally synchronized
 pub type PFN_vkDestroyCommandPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -693,6 +1637,20 @@ pub type PFN_vkDestroyCommandPool = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkResetCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetCommandPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `commandPool` must be externally synchronized
 pub type PFN_vkResetCommandPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -700,6 +1658,18 @@ pub type PFN_vkResetCommandPool = Option<
         flags: CommandPoolResetFlags,
     ) -> Result,
 >;
+///[`vkAllocateCommandBuffers`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAllocateCommandBuffers.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAllocateCommandBuffers = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -707,6 +1677,13 @@ pub type PFN_vkAllocateCommandBuffers = Option<
         p_command_buffers: *mut CommandBuffer,
     ) -> Result,
 >;
+///[`vkFreeCommandBuffers`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeCommandBuffers.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandPool` must be externally synchronized
+///- `pCommandBuffers` must be externally synchronized
 pub type PFN_vkFreeCommandBuffers = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -715,21 +1692,72 @@ pub type PFN_vkFreeCommandBuffers = Option<
         p_command_buffers: *const CommandBuffer,
     ),
 >;
+///[`vkBeginCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBeginCommandBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkBeginCommandBuffer = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_begin_info: *const CommandBufferBeginInfo,
     ) -> Result,
 >;
+///[`vkEndCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEndCommandBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkEndCommandBuffer = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer) -> Result,
 >;
+///[`vkResetCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetCommandBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkResetCommandBuffer = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         flags: CommandBufferResetFlags,
     ) -> Result,
 >;
+///[`vkCmdBindPipeline`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindPipeline.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindPipeline = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -737,12 +1765,24 @@ pub type PFN_vkCmdBindPipeline = Option<
         pipeline: Pipeline,
     ),
 >;
+///[`vkCmdSetAttachmentFeedbackLoopEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAttachmentFeedbackLoopEnableEXT.html)
+/**
+Provided by **VK_EXT_attachment_feedback_loop_dynamic_state**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         aspect_mask: ImageAspectFlags,
     ),
 >;
+///[`vkCmdSetViewport`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewport.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetViewport = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -751,6 +1791,12 @@ pub type PFN_vkCmdSetViewport = Option<
         p_viewports: *const Viewport,
     ),
 >;
+///[`vkCmdSetScissor`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetScissor.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetScissor = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -759,9 +1805,21 @@ pub type PFN_vkCmdSetScissor = Option<
         p_scissors: *const Rect2D,
     ),
 >;
+///[`vkCmdSetLineWidth`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineWidth.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetLineWidth = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, line_width: f32),
 >;
+///[`vkCmdSetDepthBias`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBias.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthBias = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -770,9 +1828,21 @@ pub type PFN_vkCmdSetDepthBias = Option<
         depth_bias_slope_factor: f32,
     ),
 >;
+///[`vkCmdSetBlendConstants`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetBlendConstants.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetBlendConstants = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, blend_constants: f32),
 >;
+///[`vkCmdSetDepthBounds`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBounds.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthBounds = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -780,6 +1850,12 @@ pub type PFN_vkCmdSetDepthBounds = Option<
         max_depth_bounds: f32,
     ),
 >;
+///[`vkCmdSetStencilCompareMask`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilCompareMask.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetStencilCompareMask = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -787,6 +1863,12 @@ pub type PFN_vkCmdSetStencilCompareMask = Option<
         compare_mask: u32,
     ),
 >;
+///[`vkCmdSetStencilWriteMask`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilWriteMask.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetStencilWriteMask = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -794,6 +1876,12 @@ pub type PFN_vkCmdSetStencilWriteMask = Option<
         write_mask: u32,
     ),
 >;
+///[`vkCmdSetStencilReference`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilReference.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetStencilReference = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -801,6 +1889,12 @@ pub type PFN_vkCmdSetStencilReference = Option<
         reference: u32,
     ),
 >;
+///[`vkCmdBindDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorSets.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindDescriptorSets = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -813,6 +1907,12 @@ pub type PFN_vkCmdBindDescriptorSets = Option<
         p_dynamic_offsets: *const u32,
     ),
 >;
+///[`vkCmdBindIndexBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindIndexBuffer = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -821,6 +1921,12 @@ pub type PFN_vkCmdBindIndexBuffer = Option<
         index_type: IndexType,
     ),
 >;
+///[`vkCmdBindVertexBuffers`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindVertexBuffers = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -830,6 +1936,12 @@ pub type PFN_vkCmdBindVertexBuffers = Option<
         p_offsets: *const u64,
     ),
 >;
+///[`vkCmdDraw`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDraw.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDraw = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -839,6 +1951,12 @@ pub type PFN_vkCmdDraw = Option<
         first_instance: u32,
     ),
 >;
+///[`vkCmdDrawIndexed`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexed.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndexed = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -849,6 +1967,12 @@ pub type PFN_vkCmdDrawIndexed = Option<
         first_instance: u32,
     ),
 >;
+///[`vkCmdDrawMultiEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMultiEXT.html)
+/**
+Provided by **VK_EXT_multi_draw**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMultiEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -859,6 +1983,12 @@ pub type PFN_vkCmdDrawMultiEXT = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdDrawMultiIndexedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMultiIndexedEXT.html)
+/**
+Provided by **VK_EXT_multi_draw**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMultiIndexedEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -870,6 +2000,12 @@ pub type PFN_vkCmdDrawMultiIndexedEXT = Option<
         p_vertex_offset: *const i32,
     ),
 >;
+///[`vkCmdDrawIndirect`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirect.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndirect = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -879,6 +2015,12 @@ pub type PFN_vkCmdDrawIndirect = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdDrawIndexedIndirect`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirect.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndexedIndirect = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -888,6 +2030,12 @@ pub type PFN_vkCmdDrawIndexedIndirect = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdDispatch`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatch.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDispatch = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -896,12 +2044,30 @@ pub type PFN_vkCmdDispatch = Option<
         group_count_z: u32,
     ),
 >;
+///[`vkCmdDispatchIndirect`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchIndirect.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDispatchIndirect = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, buffer: Buffer, offset: u64),
 >;
+///[`vkCmdSubpassShadingHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSubpassShadingHUAWEI.html)
+/**
+Provided by **VK_HUAWEI_subpass_shading**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSubpassShadingHUAWEI = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer),
 >;
+///[`vkCmdDrawClusterHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawClusterHUAWEI.html)
+/**
+Provided by **VK_HUAWEI_cluster_culling_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawClusterHUAWEI = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -910,9 +2076,21 @@ pub type PFN_vkCmdDrawClusterHUAWEI = Option<
         group_count_z: u32,
     ),
 >;
+///[`vkCmdDrawClusterIndirectHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawClusterIndirectHUAWEI.html)
+/**
+Provided by **VK_HUAWEI_cluster_culling_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawClusterIndirectHUAWEI = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, buffer: Buffer, offset: u64),
 >;
+///[`vkCmdUpdatePipelineIndirectBufferNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdUpdatePipelineIndirectBufferNV.html)
+/**
+Provided by **VK_NV_device_generated_commands_compute**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdUpdatePipelineIndirectBufferNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -920,6 +2098,12 @@ pub type PFN_vkCmdUpdatePipelineIndirectBufferNV = Option<
         pipeline: Pipeline,
     ),
 >;
+///[`vkCmdCopyBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyBuffer = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -929,6 +2113,12 @@ pub type PFN_vkCmdCopyBuffer = Option<
         p_regions: *const BufferCopy,
     ),
 >;
+///[`vkCmdCopyImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImage.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyImage = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -940,6 +2130,12 @@ pub type PFN_vkCmdCopyImage = Option<
         p_regions: *const ImageCopy,
     ),
 >;
+///[`vkCmdBlitImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBlitImage.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBlitImage = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -952,6 +2148,12 @@ pub type PFN_vkCmdBlitImage = Option<
         filter: Filter,
     ),
 >;
+///[`vkCmdCopyBufferToImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBufferToImage.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyBufferToImage = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -962,6 +2164,12 @@ pub type PFN_vkCmdCopyBufferToImage = Option<
         p_regions: *const BufferImageCopy,
     ),
 >;
+///[`vkCmdCopyImageToBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImageToBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyImageToBuffer = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -972,6 +2180,12 @@ pub type PFN_vkCmdCopyImageToBuffer = Option<
         p_regions: *const BufferImageCopy,
     ),
 >;
+///[`vkCmdCopyMemoryIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryIndirectNV.html)
+/**
+Provided by **VK_NV_copy_memory_indirect**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryIndirectNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -980,12 +2194,24 @@ pub type PFN_vkCmdCopyMemoryIndirectNV = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdCopyMemoryIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryIndirectKHR.html)
+/**
+Provided by **VK_KHR_copy_memory_indirect**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryIndirectKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_memory_indirect_info: *const CopyMemoryIndirectInfoKHR,
     ),
 >;
+///[`vkCmdCopyMemoryToImageIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToImageIndirectNV.html)
+/**
+Provided by **VK_NV_copy_memory_indirect**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryToImageIndirectNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -997,12 +2223,24 @@ pub type PFN_vkCmdCopyMemoryToImageIndirectNV = Option<
         p_image_subresources: *const ImageSubresourceLayers,
     ),
 >;
+///[`vkCmdCopyMemoryToImageIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToImageIndirectKHR.html)
+/**
+Provided by **VK_KHR_copy_memory_indirect**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryToImageIndirectKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_memory_to_image_indirect_info: *const CopyMemoryToImageIndirectInfoKHR,
     ),
 >;
+///[`vkCmdUpdateBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdUpdateBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdUpdateBuffer = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1012,6 +2250,12 @@ pub type PFN_vkCmdUpdateBuffer = Option<
         p_data: *const core::ffi::c_void,
     ),
 >;
+///[`vkCmdFillBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdFillBuffer.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdFillBuffer = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1021,6 +2265,12 @@ pub type PFN_vkCmdFillBuffer = Option<
         data: u32,
     ),
 >;
+///[`vkCmdClearColorImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdClearColorImage.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdClearColorImage = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1031,6 +2281,12 @@ pub type PFN_vkCmdClearColorImage = Option<
         p_ranges: *const ImageSubresourceRange,
     ),
 >;
+///[`vkCmdClearDepthStencilImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdClearDepthStencilImage.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdClearDepthStencilImage = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1041,6 +2297,12 @@ pub type PFN_vkCmdClearDepthStencilImage = Option<
         p_ranges: *const ImageSubresourceRange,
     ),
 >;
+///[`vkCmdClearAttachments`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdClearAttachments.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdClearAttachments = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1050,6 +2312,12 @@ pub type PFN_vkCmdClearAttachments = Option<
         p_rects: *const ClearRect,
     ),
 >;
+///[`vkCmdResolveImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResolveImage.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdResolveImage = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1061,6 +2329,12 @@ pub type PFN_vkCmdResolveImage = Option<
         p_regions: *const ImageResolve,
     ),
 >;
+///[`vkCmdSetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetEvent = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1068,6 +2342,12 @@ pub type PFN_vkCmdSetEvent = Option<
         stage_mask: PipelineStageFlags,
     ),
 >;
+///[`vkCmdResetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetEvent.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdResetEvent = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1075,6 +2355,12 @@ pub type PFN_vkCmdResetEvent = Option<
         stage_mask: PipelineStageFlags,
     ),
 >;
+///[`vkCmdWaitEvents`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWaitEvents = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1090,6 +2376,12 @@ pub type PFN_vkCmdWaitEvents = Option<
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ),
 >;
+///[`vkCmdPipelineBarrier`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPipelineBarrier.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPipelineBarrier = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1104,6 +2396,12 @@ pub type PFN_vkCmdPipelineBarrier = Option<
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ),
 >;
+///[`vkCmdBeginQuery`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQuery.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginQuery = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1112,6 +2410,12 @@ pub type PFN_vkCmdBeginQuery = Option<
         flags: QueryControlFlags,
     ),
 >;
+///[`vkCmdEndQuery`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQuery.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndQuery = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1119,21 +2423,45 @@ pub type PFN_vkCmdEndQuery = Option<
         query: u32,
     ),
 >;
+///[`vkCmdBeginConditionalRenderingEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginConditionalRenderingEXT.html)
+/**
+Provided by **VK_EXT_conditional_rendering**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginConditionalRenderingEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfoEXT,
     ),
 >;
+///[`vkCmdEndConditionalRenderingEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndConditionalRenderingEXT.html)
+/**
+Provided by **VK_EXT_conditional_rendering**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndConditionalRenderingEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer),
 >;
+///[`vkCmdBeginCustomResolveEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginCustomResolveEXT.html)
+/**
+Provided by **VK_EXT_custom_resolve**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginCustomResolveEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_begin_custom_resolve_info: *const BeginCustomResolveInfoEXT,
     ),
 >;
+///[`vkCmdResetQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetQueryPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdResetQueryPool = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1142,6 +2470,12 @@ pub type PFN_vkCmdResetQueryPool = Option<
         query_count: u32,
     ),
 >;
+///[`vkCmdWriteTimestamp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteTimestamp.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteTimestamp = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1150,6 +2484,12 @@ pub type PFN_vkCmdWriteTimestamp = Option<
         query: u32,
     ),
 >;
+///[`vkCmdCopyQueryPoolResults`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyQueryPoolResults.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyQueryPoolResults = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1162,6 +2502,12 @@ pub type PFN_vkCmdCopyQueryPoolResults = Option<
         flags: QueryResultFlags,
     ),
 >;
+///[`vkCmdPushConstants`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushConstants.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPushConstants = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1172,6 +2518,12 @@ pub type PFN_vkCmdPushConstants = Option<
         p_values: *const core::ffi::c_void,
     ),
 >;
+///[`vkCmdBeginRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginRenderPass = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1179,12 +2531,30 @@ pub type PFN_vkCmdBeginRenderPass = Option<
         contents: SubpassContents,
     ),
 >;
+///[`vkCmdNextSubpass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdNextSubpass = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, contents: SubpassContents),
 >;
+///[`vkCmdEndRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRenderPass.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndRenderPass = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer),
 >;
+///[`vkCmdExecuteCommands`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteCommands.html)
+/**
+Provided by **VK_BASE_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdExecuteCommands = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1192,6 +2562,19 @@ pub type PFN_vkCmdExecuteCommands = Option<
         p_command_buffers: *const CommandBuffer,
     ),
 >;
+///[`vkCreateAndroidSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateAndroidSurfaceKHR.html)
+/**
+Provided by **VK_KHR_android_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateAndroidSurfaceKHR = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1200,6 +2583,18 @@ pub type PFN_vkCreateAndroidSurfaceKHR = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCreateSurfaceOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSurfaceOHOS.html)
+/**
+Provided by **VK_OHOS_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateSurfaceOHOS = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1208,6 +2603,19 @@ pub type PFN_vkCreateSurfaceOHOS = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceDisplayPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPropertiesKHR.html)
+/**
+Provided by **VK_KHR_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceDisplayPropertiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1215,6 +2623,19 @@ pub type PFN_vkGetPhysicalDeviceDisplayPropertiesKHR = Option<
         p_properties: *mut DisplayPropertiesKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceDisplayPlanePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html)
+/**
+Provided by **VK_KHR_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1222,6 +2643,19 @@ pub type PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR = Option<
         p_properties: *mut DisplayPlanePropertiesKHR,
     ) -> Result,
 >;
+///[`vkGetDisplayPlaneSupportedDisplaysKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneSupportedDisplaysKHR.html)
+/**
+Provided by **VK_KHR_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDisplayPlaneSupportedDisplaysKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1230,6 +2664,19 @@ pub type PFN_vkGetDisplayPlaneSupportedDisplaysKHR = Option<
         p_displays: *mut DisplayKHR,
     ) -> Result,
 >;
+///[`vkGetDisplayModePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayModePropertiesKHR.html)
+/**
+Provided by **VK_KHR_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDisplayModePropertiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1238,6 +2685,22 @@ pub type PFN_vkGetDisplayModePropertiesKHR = Option<
         p_properties: *mut DisplayModePropertiesKHR,
     ) -> Result,
 >;
+///[`vkCreateDisplayModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDisplayModeKHR.html)
+/**
+Provided by **VK_KHR_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `display` must be externally synchronized
 pub type PFN_vkCreateDisplayModeKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1247,6 +2710,21 @@ pub type PFN_vkCreateDisplayModeKHR = Option<
         p_mode: *mut DisplayModeKHR,
     ) -> Result,
 >;
+///[`vkGetDisplayPlaneCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneCapabilitiesKHR.html)
+/**
+Provided by **VK_KHR_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `mode` must be externally synchronized
 pub type PFN_vkGetDisplayPlaneCapabilitiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1255,6 +2733,18 @@ pub type PFN_vkGetDisplayPlaneCapabilitiesKHR = Option<
         p_capabilities: *mut DisplayPlaneCapabilitiesKHR,
     ) -> Result,
 >;
+///[`vkCreateDisplayPlaneSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDisplayPlaneSurfaceKHR.html)
+/**
+Provided by **VK_KHR_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDisplayPlaneSurfaceKHR = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1263,6 +2753,21 @@ pub type PFN_vkCreateDisplayPlaneSurfaceKHR = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCreateSharedSwapchainsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSharedSwapchainsKHR.html)
+/**
+Provided by **VK_KHR_display_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INCOMPATIBLE_DISPLAY_KHR`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateSharedSwapchainsKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1272,6 +2777,12 @@ pub type PFN_vkCreateSharedSwapchainsKHR = Option<
         p_swapchains: *mut SwapchainKHR,
     ) -> Result,
 >;
+///[`vkDestroySurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySurfaceKHR.html)
+/**
+Provided by **VK_KHR_surface**.*/
+///
+///# Thread Safety
+///- `surface` must be externally synchronized
 pub type PFN_vkDestroySurfaceKHR = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1279,6 +2790,19 @@ pub type PFN_vkDestroySurfaceKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetPhysicalDeviceSurfaceSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceSupportKHR.html)
+/**
+Provided by **VK_KHR_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfaceSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1287,6 +2811,19 @@ pub type PFN_vkGetPhysicalDeviceSurfaceSupportKHR = Option<
         p_supported: *mut u32,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html)
+/**
+Provided by **VK_KHR_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1294,6 +2831,20 @@ pub type PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR = Option<
         p_surface_capabilities: *mut SurfaceCapabilitiesKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSurfaceFormatsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceFormatsKHR.html)
+/**
+Provided by **VK_KHR_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfaceFormatsKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1302,6 +2853,20 @@ pub type PFN_vkGetPhysicalDeviceSurfaceFormatsKHR = Option<
         p_surface_formats: *mut SurfaceFormatKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSurfacePresentModesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfacePresentModesKHR.html)
+/**
+Provided by **VK_KHR_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfacePresentModesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1310,6 +2875,23 @@ pub type PFN_vkGetPhysicalDeviceSurfacePresentModesKHR = Option<
         p_present_modes: *mut PresentModeKHR,
     ) -> Result,
 >;
+///[`vkCreateSwapchainKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSwapchainKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_COMPRESSION_EXHAUSTED_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateSwapchainKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1318,6 +2900,12 @@ pub type PFN_vkCreateSwapchainKHR = Option<
         p_swapchain: *mut SwapchainKHR,
     ) -> Result,
 >;
+///[`vkDestroySwapchainKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySwapchainKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkDestroySwapchainKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1325,6 +2913,19 @@ pub type PFN_vkDestroySwapchainKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetSwapchainImagesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainImagesKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSwapchainImagesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1333,6 +2934,30 @@ pub type PFN_vkGetSwapchainImagesKHR = Option<
         p_swapchain_images: *mut Image,
     ) -> Result,
 >;
+///[`vkAcquireNextImageKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImageKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_TIMEOUT`
+///- `VK_NOT_READY`
+///- `VK_SUBOPTIMAL_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
+///- `semaphore` must be externally synchronized
+///- `fence` must be externally synchronized
 pub type PFN_vkAcquireNextImageKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1343,12 +2968,46 @@ pub type PFN_vkAcquireNextImageKHR = Option<
         p_image_index: *mut u32,
     ) -> Result,
 >;
+///[`vkQueuePresentKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueuePresentKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_SUBOPTIMAL_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///- `VK_ERROR_PRESENT_TIMING_QUEUE_FULL_EXT`
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
 pub type PFN_vkQueuePresentKHR = Option<
     unsafe extern "system" fn(
         queue: Queue,
         p_present_info: *const PresentInfoKHR,
     ) -> Result,
 >;
+///[`vkCreateViSurfaceNN`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateViSurfaceNN.html)
+/**
+Provided by **VK_NN_vi_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateViSurfaceNN = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1357,6 +3016,18 @@ pub type PFN_vkCreateViSurfaceNN = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCreateWaylandSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateWaylandSurfaceKHR.html)
+/**
+Provided by **VK_KHR_wayland_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateWaylandSurfaceKHR = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1365,6 +3036,9 @@ pub type PFN_vkCreateWaylandSurfaceKHR = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html)
+/**
+Provided by **VK_KHR_wayland_surface**.*/
 pub type PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1372,6 +3046,18 @@ pub type PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = Option<
         display: *mut core::ffi::c_void,
     ) -> u32,
 >;
+///[`vkCreateUbmSurfaceSEC`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateUbmSurfaceSEC.html)
+/**
+Provided by **VK_SEC_ubm_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateUbmSurfaceSEC = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1380,6 +3066,9 @@ pub type PFN_vkCreateUbmSurfaceSEC = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceUbmPresentationSupportSEC`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceUbmPresentationSupportSEC.html)
+/**
+Provided by **VK_SEC_ubm_surface**.*/
 pub type PFN_vkGetPhysicalDeviceUbmPresentationSupportSEC = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1387,6 +3076,18 @@ pub type PFN_vkGetPhysicalDeviceUbmPresentationSupportSEC = Option<
         device: *mut core::ffi::c_void,
     ) -> u32,
 >;
+///[`vkCreateWin32SurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateWin32SurfaceKHR.html)
+/**
+Provided by **VK_KHR_win32_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateWin32SurfaceKHR = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1395,12 +3096,27 @@ pub type PFN_vkCreateWin32SurfaceKHR = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceWin32PresentationSupportKHR.html)
+/**
+Provided by **VK_KHR_win32_surface**.*/
 pub type PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         queue_family_index: u32,
     ) -> u32,
 >;
+///[`vkCreateXlibSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateXlibSurfaceKHR.html)
+/**
+Provided by **VK_KHR_xlib_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateXlibSurfaceKHR = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1409,6 +3125,9 @@ pub type PFN_vkCreateXlibSurfaceKHR = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceXlibPresentationSupportKHR.html)
+/**
+Provided by **VK_KHR_xlib_surface**.*/
 pub type PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1417,6 +3136,18 @@ pub type PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR = Option<
         visual_id: core::ffi::c_ulong,
     ) -> u32,
 >;
+///[`vkCreateXcbSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateXcbSurfaceKHR.html)
+/**
+Provided by **VK_KHR_xcb_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateXcbSurfaceKHR = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1425,6 +3156,9 @@ pub type PFN_vkCreateXcbSurfaceKHR = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceXcbPresentationSupportKHR.html)
+/**
+Provided by **VK_KHR_xcb_surface**.*/
 pub type PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1433,6 +3167,18 @@ pub type PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR = Option<
         visual_id: u32,
     ) -> u32,
 >;
+///[`vkCreateDirectFBSurfaceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDirectFBSurfaceEXT.html)
+/**
+Provided by **VK_EXT_directfb_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDirectFBSurfaceEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1441,6 +3187,9 @@ pub type PFN_vkCreateDirectFBSurfaceEXT = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceDirectFBPresentationSupportEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html)
+/**
+Provided by **VK_EXT_directfb_surface**.*/
 pub type PFN_vkGetPhysicalDeviceDirectFBPresentationSupportEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1448,6 +3197,18 @@ pub type PFN_vkGetPhysicalDeviceDirectFBPresentationSupportEXT = Option<
         dfb: *mut core::ffi::c_void,
     ) -> u32,
 >;
+///[`vkCreateImagePipeSurfaceFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateImagePipeSurfaceFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_imagepipe_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateImagePipeSurfaceFUCHSIA = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1456,6 +3217,19 @@ pub type PFN_vkCreateImagePipeSurfaceFUCHSIA = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCreateStreamDescriptorSurfaceGGP`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateStreamDescriptorSurfaceGGP.html)
+/**
+Provided by **VK_GGP_stream_descriptor_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateStreamDescriptorSurfaceGGP = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1464,6 +3238,18 @@ pub type PFN_vkCreateStreamDescriptorSurfaceGGP = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCreateScreenSurfaceQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateScreenSurfaceQNX.html)
+/**
+Provided by **VK_QNX_screen_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateScreenSurfaceQNX = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1472,6 +3258,9 @@ pub type PFN_vkCreateScreenSurfaceQNX = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceScreenPresentationSupportQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceScreenPresentationSupportQNX.html)
+/**
+Provided by **VK_QNX_screen_surface**.*/
 pub type PFN_vkGetPhysicalDeviceScreenPresentationSupportQNX = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1479,6 +3268,17 @@ pub type PFN_vkGetPhysicalDeviceScreenPresentationSupportQNX = Option<
         window: *mut core::ffi::c_void,
     ) -> u32,
 >;
+///[`vkCreateDebugReportCallbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDebugReportCallbackEXT.html)
+/**
+Provided by **VK_EXT_debug_report**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDebugReportCallbackEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1487,6 +3287,12 @@ pub type PFN_vkCreateDebugReportCallbackEXT = Option<
         p_callback: *mut DebugReportCallbackEXT,
     ) -> Result,
 >;
+///[`vkDestroyDebugReportCallbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDebugReportCallbackEXT.html)
+/**
+Provided by **VK_EXT_debug_report**.*/
+///
+///# Thread Safety
+///- `callback` must be externally synchronized
 pub type PFN_vkDestroyDebugReportCallbackEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1494,6 +3300,9 @@ pub type PFN_vkDestroyDebugReportCallbackEXT = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkDebugReportMessageEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugReportMessageEXT.html)
+/**
+Provided by **VK_EXT_debug_report**.*/
 pub type PFN_vkDebugReportMessageEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -1506,33 +3315,88 @@ pub type PFN_vkDebugReportMessageEXT = Option<
         p_message: *const core::ffi::c_char,
     ),
 >;
+///[`vkDebugMarkerSetObjectNameEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugMarkerSetObjectNameEXT.html)
+/**
+Provided by **VK_EXT_debug_marker**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkDebugMarkerSetObjectNameEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_name_info: *const DebugMarkerObjectNameInfoEXT,
     ) -> Result,
 >;
+///[`vkDebugMarkerSetObjectTagEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugMarkerSetObjectTagEXT.html)
+/**
+Provided by **VK_EXT_debug_marker**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkDebugMarkerSetObjectTagEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_tag_info: *const DebugMarkerObjectTagInfoEXT,
     ) -> Result,
 >;
+///[`vkCmdDebugMarkerBeginEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerBeginEXT.html)
+/**
+Provided by **VK_EXT_debug_marker**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDebugMarkerBeginEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_marker_info: *const DebugMarkerMarkerInfoEXT,
     ),
 >;
+///[`vkCmdDebugMarkerEndEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerEndEXT.html)
+/**
+Provided by **VK_EXT_debug_marker**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDebugMarkerEndEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer),
 >;
+///[`vkCmdDebugMarkerInsertEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerInsertEXT.html)
+/**
+Provided by **VK_EXT_debug_marker**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDebugMarkerInsertEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_marker_info: *const DebugMarkerMarkerInfoEXT,
     ),
 >;
+///[`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html)
+/**
+Provided by **VK_NV_external_memory_capabilities**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1545,6 +3409,18 @@ pub type PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV = Option<
         p_external_image_format_properties: *mut ExternalImageFormatPropertiesNV,
     ) -> Result,
 >;
+///[`vkGetMemoryWin32HandleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandleNV.html)
+/**
+Provided by **VK_NV_external_memory_win32**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryWin32HandleNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1553,6 +3429,12 @@ pub type PFN_vkGetMemoryWin32HandleNV = Option<
         p_handle: *mut isize,
     ) -> Result,
 >;
+///[`vkCmdExecuteGeneratedCommandsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteGeneratedCommandsNV.html)
+/**
+Provided by **VK_NV_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdExecuteGeneratedCommandsNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1560,12 +3442,24 @@ pub type PFN_vkCmdExecuteGeneratedCommandsNV = Option<
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ),
 >;
+///[`vkCmdPreprocessGeneratedCommandsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsNV.html)
+/**
+Provided by **VK_NV_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPreprocessGeneratedCommandsNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ),
 >;
+///[`vkCmdBindPipelineShaderGroupNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindPipelineShaderGroupNV.html)
+/**
+Provided by **VK_NV_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindPipelineShaderGroupNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1574,6 +3468,9 @@ pub type PFN_vkCmdBindPipelineShaderGroupNV = Option<
         group_index: u32,
     ),
 >;
+///[`vkGetGeneratedCommandsMemoryRequirementsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsNV.html)
+/**
+Provided by **VK_NV_device_generated_commands**.*/
 pub type PFN_vkGetGeneratedCommandsMemoryRequirementsNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1581,6 +3478,18 @@ pub type PFN_vkGetGeneratedCommandsMemoryRequirementsNV = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkCreateIndirectCommandsLayoutNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIndirectCommandsLayoutNV.html)
+/**
+Provided by **VK_NV_device_generated_commands**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateIndirectCommandsLayoutNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1589,6 +3498,12 @@ pub type PFN_vkCreateIndirectCommandsLayoutNV = Option<
         p_indirect_commands_layout: *mut IndirectCommandsLayoutNV,
     ) -> Result,
 >;
+///[`vkDestroyIndirectCommandsLayoutNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyIndirectCommandsLayoutNV.html)
+/**
+Provided by **VK_NV_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `indirectCommandsLayout` must be externally synchronized
 pub type PFN_vkDestroyIndirectCommandsLayoutNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1596,6 +3511,12 @@ pub type PFN_vkDestroyIndirectCommandsLayoutNV = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCmdExecuteGeneratedCommandsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteGeneratedCommandsEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdExecuteGeneratedCommandsEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1603,6 +3524,13 @@ pub type PFN_vkCmdExecuteGeneratedCommandsEXT = Option<
         p_generated_commands_info: *const GeneratedCommandsInfoEXT,
     ),
 >;
+///[`vkCmdPreprocessGeneratedCommandsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
+///- `stateCommandBuffer` must be externally synchronized
 pub type PFN_vkCmdPreprocessGeneratedCommandsEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1610,6 +3538,9 @@ pub type PFN_vkCmdPreprocessGeneratedCommandsEXT = Option<
         state_command_buffer: CommandBuffer,
     ),
 >;
+///[`vkGetGeneratedCommandsMemoryRequirementsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
 pub type PFN_vkGetGeneratedCommandsMemoryRequirementsEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1617,6 +3548,18 @@ pub type PFN_vkGetGeneratedCommandsMemoryRequirementsEXT = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkCreateIndirectCommandsLayoutEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIndirectCommandsLayoutEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateIndirectCommandsLayoutEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1625,6 +3568,12 @@ pub type PFN_vkCreateIndirectCommandsLayoutEXT = Option<
         p_indirect_commands_layout: *mut IndirectCommandsLayoutEXT,
     ) -> Result,
 >;
+///[`vkDestroyIndirectCommandsLayoutEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyIndirectCommandsLayoutEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `indirectCommandsLayout` must be externally synchronized
 pub type PFN_vkDestroyIndirectCommandsLayoutEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1632,6 +3581,18 @@ pub type PFN_vkDestroyIndirectCommandsLayoutEXT = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateIndirectExecutionSetEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIndirectExecutionSetEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateIndirectExecutionSetEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1640,6 +3601,12 @@ pub type PFN_vkCreateIndirectExecutionSetEXT = Option<
         p_indirect_execution_set: *mut IndirectExecutionSetEXT,
     ) -> Result,
 >;
+///[`vkDestroyIndirectExecutionSetEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyIndirectExecutionSetEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `indirectExecutionSet` must be externally synchronized
 pub type PFN_vkDestroyIndirectExecutionSetEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1647,6 +3614,12 @@ pub type PFN_vkDestroyIndirectExecutionSetEXT = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkUpdateIndirectExecutionSetPipelineEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateIndirectExecutionSetPipelineEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `indirectExecutionSet` must be externally synchronized
 pub type PFN_vkUpdateIndirectExecutionSetPipelineEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1655,6 +3628,12 @@ pub type PFN_vkUpdateIndirectExecutionSetPipelineEXT = Option<
         p_execution_set_writes: *const WriteIndirectExecutionSetPipelineEXT,
     ),
 >;
+///[`vkUpdateIndirectExecutionSetShaderEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateIndirectExecutionSetShaderEXT.html)
+/**
+Provided by **VK_EXT_device_generated_commands**.*/
+///
+///# Thread Safety
+///- `indirectExecutionSet` must be externally synchronized
 pub type PFN_vkUpdateIndirectExecutionSetShaderEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1663,18 +3642,27 @@ pub type PFN_vkUpdateIndirectExecutionSetShaderEXT = Option<
         p_execution_set_writes: *const WriteIndirectExecutionSetShaderEXT,
     ),
 >;
+///[`vkGetPhysicalDeviceFeatures2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceFeatures2 = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_features: *mut PhysicalDeviceFeatures2,
     ),
 >;
+///[`vkGetPhysicalDeviceProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceProperties2 = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_properties: *mut PhysicalDeviceProperties2,
     ),
 >;
+///[`vkGetPhysicalDeviceFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFormatProperties2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceFormatProperties2 = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1682,6 +3670,24 @@ pub type PFN_vkGetPhysicalDeviceFormatProperties2 = Option<
         p_format_properties: *mut FormatProperties2,
     ),
 >;
+///[`vkGetPhysicalDeviceImageFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceImageFormatProperties2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+///- `VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceImageFormatProperties2 = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1689,6 +3695,9 @@ pub type PFN_vkGetPhysicalDeviceImageFormatProperties2 = Option<
         p_image_format_properties: *mut ImageFormatProperties2,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceQueueFamilyProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyProperties2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties2 = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1696,12 +3705,18 @@ pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties2 = Option<
         p_queue_family_properties: *mut QueueFamilyProperties2,
     ),
 >;
+///[`vkGetPhysicalDeviceMemoryProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMemoryProperties2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceMemoryProperties2 = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ),
 >;
+///[`vkGetPhysicalDeviceSparseImageFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties2 = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1710,6 +3725,12 @@ pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties2 = Option<
         p_properties: *mut SparseImageFormatProperties2,
     ),
 >;
+///[`vkCmdPushDescriptorSet`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSet.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPushDescriptorSet = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -1720,6 +3741,12 @@ pub type PFN_vkCmdPushDescriptorSet = Option<
         p_descriptor_writes: *const WriteDescriptorSet,
     ),
 >;
+///[`vkTrimCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTrimCommandPool.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
+///
+///# Thread Safety
+///- `commandPool` must be externally synchronized
 pub type PFN_vkTrimCommandPool = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1727,6 +3754,9 @@ pub type PFN_vkTrimCommandPool = Option<
         flags: CommandPoolTrimFlags,
     ),
 >;
+///[`vkGetPhysicalDeviceExternalBufferProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalBufferProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceExternalBufferProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1734,6 +3764,18 @@ pub type PFN_vkGetPhysicalDeviceExternalBufferProperties = Option<
         p_external_buffer_properties: *mut ExternalBufferProperties,
     ),
 >;
+///[`vkGetMemoryWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandleKHR.html)
+/**
+Provided by **VK_KHR_external_memory_win32**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryWin32HandleKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1741,6 +3783,18 @@ pub type PFN_vkGetMemoryWin32HandleKHR = Option<
         p_handle: *mut isize,
     ) -> Result,
 >;
+///[`vkGetMemoryWin32HandlePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandlePropertiesKHR.html)
+/**
+Provided by **VK_KHR_external_memory_win32**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryWin32HandlePropertiesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1749,6 +3803,18 @@ pub type PFN_vkGetMemoryWin32HandlePropertiesKHR = Option<
         p_memory_win32_handle_properties: *mut MemoryWin32HandlePropertiesKHR,
     ) -> Result,
 >;
+///[`vkGetMemoryFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryFdKHR.html)
+/**
+Provided by **VK_KHR_external_memory_fd**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1756,6 +3822,18 @@ pub type PFN_vkGetMemoryFdKHR = Option<
         p_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
+///[`vkGetMemoryFdPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryFdPropertiesKHR.html)
+/**
+Provided by **VK_KHR_external_memory_fd**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryFdPropertiesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1764,6 +3842,18 @@ pub type PFN_vkGetMemoryFdPropertiesKHR = Option<
         p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
     ) -> Result,
 >;
+///[`vkGetMemoryZirconHandleFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryZirconHandleFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_external_memory**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryZirconHandleFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1771,6 +3861,17 @@ pub type PFN_vkGetMemoryZirconHandleFUCHSIA = Option<
         p_zircon_handle: *mut u32,
     ) -> Result,
 >;
+///[`vkGetMemoryZirconHandlePropertiesFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryZirconHandlePropertiesFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_external_memory**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryZirconHandlePropertiesFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1779,6 +3880,17 @@ pub type PFN_vkGetMemoryZirconHandlePropertiesFUCHSIA = Option<
         p_memory_zircon_handle_properties: *mut MemoryZirconHandlePropertiesFUCHSIA,
     ) -> Result,
 >;
+///[`vkGetMemoryRemoteAddressNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryRemoteAddressNV.html)
+/**
+Provided by **VK_NV_external_memory_rdma**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryRemoteAddressNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1786,6 +3898,17 @@ pub type PFN_vkGetMemoryRemoteAddressNV = Option<
         p_address: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetMemorySciBufNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemorySciBufNV.html)
+/**
+Provided by **VK_NV_external_memory_sci_buf**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemorySciBufNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1793,6 +3916,18 @@ pub type PFN_vkGetMemorySciBufNV = Option<
         p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV.html)
+/**
+Provided by **VK_NV_external_memory_sci_buf**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1801,12 +3936,27 @@ pub type PFN_vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV = Option<
         p_memory_sci_buf_properties: *mut MemorySciBufPropertiesNV,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSciBufAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciBufAttributesNV.html)
+/**
+Provided by **VK_NV_external_memory_sci_buf**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSciBufAttributesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         p_attributes: *const core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceExternalSemaphoreProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalSemaphoreProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceExternalSemaphoreProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1814,6 +3964,18 @@ pub type PFN_vkGetPhysicalDeviceExternalSemaphoreProperties = Option<
         p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
     ),
 >;
+///[`vkGetSemaphoreWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreWin32HandleKHR.html)
+/**
+Provided by **VK_KHR_external_semaphore_win32**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSemaphoreWin32HandleKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1821,12 +3983,36 @@ pub type PFN_vkGetSemaphoreWin32HandleKHR = Option<
         p_handle: *mut isize,
     ) -> Result,
 >;
+///[`vkImportSemaphoreWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreWin32HandleKHR.html)
+/**
+Provided by **VK_KHR_external_semaphore_win32**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportSemaphoreWin32HandleKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_semaphore_win32_handle_info: *const ImportSemaphoreWin32HandleInfoKHR,
     ) -> Result,
 >;
+///[`vkGetSemaphoreFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreFdKHR.html)
+/**
+Provided by **VK_KHR_external_semaphore_fd**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSemaphoreFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1834,12 +4020,36 @@ pub type PFN_vkGetSemaphoreFdKHR = Option<
         p_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
+///[`vkImportSemaphoreFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreFdKHR.html)
+/**
+Provided by **VK_KHR_external_semaphore_fd**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportSemaphoreFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_semaphore_fd_info: *const ImportSemaphoreFdInfoKHR,
     ) -> Result,
 >;
+///[`vkGetSemaphoreZirconHandleFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreZirconHandleFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_external_semaphore**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSemaphoreZirconHandleFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1847,12 +4057,27 @@ pub type PFN_vkGetSemaphoreZirconHandleFUCHSIA = Option<
         p_zircon_handle: *mut u32,
     ) -> Result,
 >;
+///[`vkImportSemaphoreZirconHandleFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreZirconHandleFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_external_semaphore**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportSemaphoreZirconHandleFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_semaphore_zircon_handle_info: *const ImportSemaphoreZirconHandleInfoFUCHSIA,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceExternalFenceProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalFenceProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetPhysicalDeviceExternalFenceProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1860,6 +4085,18 @@ pub type PFN_vkGetPhysicalDeviceExternalFenceProperties = Option<
         p_external_fence_properties: *mut ExternalFenceProperties,
     ),
 >;
+///[`vkGetFenceWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceWin32HandleKHR.html)
+/**
+Provided by **VK_KHR_external_fence_win32**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetFenceWin32HandleKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1867,12 +4104,36 @@ pub type PFN_vkGetFenceWin32HandleKHR = Option<
         p_handle: *mut isize,
     ) -> Result,
 >;
+///[`vkImportFenceWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceWin32HandleKHR.html)
+/**
+Provided by **VK_KHR_external_fence_win32**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportFenceWin32HandleKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_fence_win32_handle_info: *const ImportFenceWin32HandleInfoKHR,
     ) -> Result,
 >;
+///[`vkGetFenceFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceFdKHR.html)
+/**
+Provided by **VK_KHR_external_fence_fd**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetFenceFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1880,12 +4141,36 @@ pub type PFN_vkGetFenceFdKHR = Option<
         p_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
+///[`vkImportFenceFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceFdKHR.html)
+/**
+Provided by **VK_KHR_external_fence_fd**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportFenceFdKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_fence_fd_info: *const ImportFenceFdInfoKHR,
     ) -> Result,
 >;
+///[`vkGetFenceSciSyncFenceNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceSciSyncFenceNV.html)
+/**
+Provided by **VK_NV_external_sci_sync**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_NOT_PERMITTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetFenceSciSyncFenceNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1893,6 +4178,18 @@ pub type PFN_vkGetFenceSciSyncFenceNV = Option<
         p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetFenceSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceSciSyncObjNV.html)
+/**
+Provided by **VK_NV_external_sci_sync**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_NOT_PERMITTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetFenceSciSyncObjNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1900,18 +4197,54 @@ pub type PFN_vkGetFenceSciSyncObjNV = Option<
         p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkImportFenceSciSyncFenceNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceSciSyncFenceNV.html)
+/**
+Provided by **VK_NV_external_sci_sync**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_NOT_PERMITTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportFenceSciSyncFenceNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_fence_sci_sync_info: *const ImportFenceSciSyncInfoNV,
     ) -> Result,
 >;
+///[`vkImportFenceSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceSciSyncObjNV.html)
+/**
+Provided by **VK_NV_external_sci_sync**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_NOT_PERMITTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportFenceSciSyncObjNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_fence_sci_sync_info: *const ImportFenceSciSyncInfoNV,
     ) -> Result,
 >;
+///[`vkGetSemaphoreSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreSciSyncObjNV.html)
+/**
+Provided by **VK_NV_external_sci_sync**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_NOT_PERMITTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSemaphoreSciSyncObjNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1919,12 +4252,36 @@ pub type PFN_vkGetSemaphoreSciSyncObjNV = Option<
         p_handle: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkImportSemaphoreSciSyncObjNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreSciSyncObjNV.html)
+/**
+Provided by **VK_NV_external_sci_sync**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_NOT_PERMITTED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkImportSemaphoreSciSyncObjNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_import_semaphore_sci_sync_info: *const ImportSemaphoreSciSyncInfoNV,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSciSyncAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciSyncAttributesNV.html)
+/**
+Provided by **VK_NV_external_sci_sync**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSciSyncAttributesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1932,6 +4289,18 @@ pub type PFN_vkGetPhysicalDeviceSciSyncAttributesNV = Option<
         p_attributes: *const core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkCreateSemaphoreSciSyncPoolNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSemaphoreSciSyncPoolNV.html)
+/**
+Provided by **VK_NV_external_sci_sync2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateSemaphoreSciSyncPoolNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1940,6 +4309,12 @@ pub type PFN_vkCreateSemaphoreSciSyncPoolNV = Option<
         p_semaphore_pool: *mut SemaphoreSciSyncPoolNV,
     ) -> Result,
 >;
+///[`vkDestroySemaphoreSciSyncPoolNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySemaphoreSciSyncPoolNV.html)
+/**
+Provided by **VK_NV_external_sci_sync2**.*/
+///
+///# Thread Safety
+///- `semaphorePool` must be externally synchronized
 pub type PFN_vkDestroySemaphoreSciSyncPoolNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1947,12 +4322,34 @@ pub type PFN_vkDestroySemaphoreSciSyncPoolNV = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkReleaseDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseDisplayEXT.html)
+/**
+Provided by **VK_EXT_direct_mode_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkReleaseDisplayEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         display: DisplayKHR,
     ) -> Result,
 >;
+///[`vkAcquireXlibDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireXlibDisplayEXT.html)
+/**
+Provided by **VK_EXT_acquire_xlib_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquireXlibDisplayEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1960,6 +4357,17 @@ pub type PFN_vkAcquireXlibDisplayEXT = Option<
         display: DisplayKHR,
     ) -> Result,
 >;
+///[`vkGetRandROutputDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRandROutputDisplayEXT.html)
+/**
+Provided by **VK_EXT_acquire_xlib_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetRandROutputDisplayEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1968,12 +4376,38 @@ pub type PFN_vkGetRandROutputDisplayEXT = Option<
         p_display: *mut DisplayKHR,
     ) -> Result,
 >;
+///[`vkAcquireWinrtDisplayNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireWinrtDisplayNV.html)
+/**
+Provided by **VK_NV_acquire_winrt_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquireWinrtDisplayNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         display: DisplayKHR,
     ) -> Result,
 >;
+///[`vkGetWinrtDisplayNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetWinrtDisplayNV.html)
+/**
+Provided by **VK_NV_acquire_winrt_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetWinrtDisplayNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -1981,6 +4415,17 @@ pub type PFN_vkGetWinrtDisplayNV = Option<
         p_display: *mut DisplayKHR,
     ) -> Result,
 >;
+///[`vkDisplayPowerControlEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDisplayPowerControlEXT.html)
+/**
+Provided by **VK_EXT_display_control**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkDisplayPowerControlEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1988,6 +4433,17 @@ pub type PFN_vkDisplayPowerControlEXT = Option<
         p_display_power_info: *const DisplayPowerInfoEXT,
     ) -> Result,
 >;
+///[`vkRegisterDeviceEventEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterDeviceEventEXT.html)
+/**
+Provided by **VK_EXT_display_control**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkRegisterDeviceEventEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -1996,6 +4452,17 @@ pub type PFN_vkRegisterDeviceEventEXT = Option<
         p_fence: *mut Fence,
     ) -> Result,
 >;
+///[`vkRegisterDisplayEventEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterDisplayEventEXT.html)
+/**
+Provided by **VK_EXT_display_control**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkRegisterDisplayEventEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2005,6 +4472,19 @@ pub type PFN_vkRegisterDisplayEventEXT = Option<
         p_fence: *mut Fence,
     ) -> Result,
 >;
+///[`vkGetSwapchainCounterEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainCounterEXT.html)
+/**
+Provided by **VK_EXT_display_control**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSwapchainCounterEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2013,6 +4493,19 @@ pub type PFN_vkGetSwapchainCounterEXT = Option<
         p_counter_value: *mut u64,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2EXT.html)
+/**
+Provided by **VK_EXT_display_surface_counter**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2020,6 +4513,20 @@ pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT = Option<
         p_surface_capabilities: *mut SurfaceCapabilities2EXT,
     ) -> Result,
 >;
+///[`vkEnumeratePhysicalDeviceGroups`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceGroups.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumeratePhysicalDeviceGroups = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -2027,6 +4534,9 @@ pub type PFN_vkEnumeratePhysicalDeviceGroups = Option<
         p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
     ) -> Result,
 >;
+///[`vkGetDeviceGroupPeerMemoryFeatures`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPeerMemoryFeatures.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetDeviceGroupPeerMemoryFeatures = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2036,6 +4546,19 @@ pub type PFN_vkGetDeviceGroupPeerMemoryFeatures = Option<
         p_peer_memory_features: *mut PeerMemoryFeatureFlags,
     ),
 >;
+///[`vkBindBufferMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBindBufferMemory2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2043,6 +4566,18 @@ pub type PFN_vkBindBufferMemory2 = Option<
         p_bind_infos: *const BindBufferMemoryInfo,
     ) -> Result,
 >;
+///[`vkBindImageMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindImageMemory2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBindImageMemory2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2050,15 +4585,49 @@ pub type PFN_vkBindImageMemory2 = Option<
         p_bind_infos: *const BindImageMemoryInfo,
     ) -> Result,
 >;
+///[`vkCmdSetDeviceMask`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDeviceMask.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDeviceMask = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, device_mask: u32),
 >;
+///[`vkGetDeviceGroupPresentCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDeviceGroupPresentCapabilitiesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
     ) -> Result,
 >;
+///[`vkGetDeviceGroupSurfacePresentModesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupSurfacePresentModesKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `surface` must be externally synchronized
 pub type PFN_vkGetDeviceGroupSurfacePresentModesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2066,6 +4635,25 @@ pub type PFN_vkGetDeviceGroupSurfacePresentModesKHR = Option<
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> Result,
 >;
+///[`vkAcquireNextImage2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImage2KHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_TIMEOUT`
+///- `VK_NOT_READY`
+///- `VK_SUBOPTIMAL_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquireNextImage2KHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2073,6 +4661,12 @@ pub type PFN_vkAcquireNextImage2KHR = Option<
         p_image_index: *mut u32,
     ) -> Result,
 >;
+///[`vkCmdDispatchBase`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchBase.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_1**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDispatchBase = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2084,6 +4678,22 @@ pub type PFN_vkCmdDispatchBase = Option<
         group_count_z: u32,
     ),
 >;
+///[`vkGetPhysicalDevicePresentRectanglesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDevicePresentRectanglesKHR.html)
+/**
+Provided by **VK_KHR_swapchain**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `surface` must be externally synchronized
 pub type PFN_vkGetPhysicalDevicePresentRectanglesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2092,6 +4702,18 @@ pub type PFN_vkGetPhysicalDevicePresentRectanglesKHR = Option<
         p_rects: *mut Rect2D,
     ) -> Result,
 >;
+///[`vkCreateDescriptorUpdateTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDescriptorUpdateTemplate.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDescriptorUpdateTemplate = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2100,6 +4722,12 @@ pub type PFN_vkCreateDescriptorUpdateTemplate = Option<
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
     ) -> Result,
 >;
+///[`vkDestroyDescriptorUpdateTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDescriptorUpdateTemplate.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_1**.*/
+///
+///# Thread Safety
+///- `descriptorUpdateTemplate` must be externally synchronized
 pub type PFN_vkDestroyDescriptorUpdateTemplate = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2107,6 +4735,12 @@ pub type PFN_vkDestroyDescriptorUpdateTemplate = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkUpdateDescriptorSetWithTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateDescriptorSetWithTemplate.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_1**.*/
+///
+///# Thread Safety
+///- `descriptorSet` must be externally synchronized
 pub type PFN_vkUpdateDescriptorSetWithTemplate = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2115,6 +4749,12 @@ pub type PFN_vkUpdateDescriptorSetWithTemplate = Option<
         p_data: *const core::ffi::c_void,
     ),
 >;
+///[`vkCmdPushDescriptorSetWithTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSetWithTemplate.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPushDescriptorSetWithTemplate = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2124,6 +4764,9 @@ pub type PFN_vkCmdPushDescriptorSetWithTemplate = Option<
         p_data: *const core::ffi::c_void,
     ),
 >;
+///[`vkSetHdrMetadataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetHdrMetadataEXT.html)
+/**
+Provided by **VK_EXT_hdr_metadata**.*/
 pub type PFN_vkSetHdrMetadataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2132,9 +4775,45 @@ pub type PFN_vkSetHdrMetadataEXT = Option<
         p_metadata: *const HdrMetadataEXT,
     ),
 >;
+///[`vkGetSwapchainStatusKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainStatusKHR.html)
+/**
+Provided by **VK_KHR_shared_presentable_image**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_SUBOPTIMAL_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkGetSwapchainStatusKHR = Option<
     unsafe extern "system" fn(device: Device, swapchain: SwapchainKHR) -> Result,
 >;
+///[`vkGetRefreshCycleDurationGOOGLE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRefreshCycleDurationGOOGLE.html)
+/**
+Provided by **VK_GOOGLE_display_timing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkGetRefreshCycleDurationGOOGLE = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2142,6 +4821,24 @@ pub type PFN_vkGetRefreshCycleDurationGOOGLE = Option<
         p_display_timing_properties: *mut RefreshCycleDurationGOOGLE,
     ) -> Result,
 >;
+///[`vkGetPastPresentationTimingGOOGLE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPastPresentationTimingGOOGLE.html)
+/**
+Provided by **VK_GOOGLE_display_timing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkGetPastPresentationTimingGOOGLE = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2150,6 +4847,19 @@ pub type PFN_vkGetPastPresentationTimingGOOGLE = Option<
         p_presentation_timings: *mut PastPresentationTimingGOOGLE,
     ) -> Result,
 >;
+///[`vkCreateIOSSurfaceMVK`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIOSSurfaceMVK.html)
+/**
+Provided by **VK_MVK_ios_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateIOSSurfaceMVK = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -2158,6 +4868,19 @@ pub type PFN_vkCreateIOSSurfaceMVK = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCreateMacOSSurfaceMVK`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMacOSSurfaceMVK.html)
+/**
+Provided by **VK_MVK_macos_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateMacOSSurfaceMVK = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -2166,6 +4889,19 @@ pub type PFN_vkCreateMacOSSurfaceMVK = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCreateMetalSurfaceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMetalSurfaceEXT.html)
+/**
+Provided by **VK_EXT_metal_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateMetalSurfaceEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -2174,6 +4910,12 @@ pub type PFN_vkCreateMetalSurfaceEXT = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkCmdSetViewportWScalingNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWScalingNV.html)
+/**
+Provided by **VK_NV_clip_space_w_scaling**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetViewportWScalingNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2182,6 +4924,12 @@ pub type PFN_vkCmdSetViewportWScalingNV = Option<
         p_viewport_w_scalings: *const ViewportWScalingNV,
     ),
 >;
+///[`vkCmdSetDiscardRectangleEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleEXT.html)
+/**
+Provided by **VK_EXT_discard_rectangles**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDiscardRectangleEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2190,24 +4938,45 @@ pub type PFN_vkCmdSetDiscardRectangleEXT = Option<
         p_discard_rectangles: *const Rect2D,
     ),
 >;
+///[`vkCmdSetDiscardRectangleEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleEnableEXT.html)
+/**
+Provided by **VK_EXT_discard_rectangles**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDiscardRectangleEnableEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         discard_rectangle_enable: u32,
     ),
 >;
+///[`vkCmdSetDiscardRectangleModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleModeEXT.html)
+/**
+Provided by **VK_EXT_discard_rectangles**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDiscardRectangleModeEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         discard_rectangle_mode: DiscardRectangleModeEXT,
     ),
 >;
+///[`vkCmdSetSampleLocationsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleLocationsEXT.html)
+/**
+Provided by **VK_EXT_sample_locations**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetSampleLocationsEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_sample_locations_info: *const SampleLocationsInfoEXT,
     ),
 >;
+///[`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
+/**
+Provided by **VK_EXT_sample_locations**.*/
 pub type PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2215,6 +4984,19 @@ pub type PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT = Option<
         p_multisample_properties: *mut MultisamplePropertiesEXT,
     ),
 >;
+///[`vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html)
+/**
+Provided by **VK_KHR_get_surface_capabilities2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2222,6 +5004,20 @@ pub type PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR = Option<
         p_surface_capabilities: *mut SurfaceCapabilities2KHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSurfaceFormats2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceFormats2KHR.html)
+/**
+Provided by **VK_KHR_get_surface_capabilities2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfaceFormats2KHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2230,6 +5026,19 @@ pub type PFN_vkGetPhysicalDeviceSurfaceFormats2KHR = Option<
         p_surface_formats: *mut SurfaceFormat2KHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceDisplayProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayProperties2KHR.html)
+/**
+Provided by **VK_KHR_get_display_properties2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceDisplayProperties2KHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2237,6 +5046,19 @@ pub type PFN_vkGetPhysicalDeviceDisplayProperties2KHR = Option<
         p_properties: *mut DisplayProperties2KHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceDisplayPlaneProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html)
+/**
+Provided by **VK_KHR_get_display_properties2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2244,6 +5066,19 @@ pub type PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR = Option<
         p_properties: *mut DisplayPlaneProperties2KHR,
     ) -> Result,
 >;
+///[`vkGetDisplayModeProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayModeProperties2KHR.html)
+/**
+Provided by **VK_KHR_get_display_properties2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDisplayModeProperties2KHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2252,6 +5087,18 @@ pub type PFN_vkGetDisplayModeProperties2KHR = Option<
         p_properties: *mut DisplayModeProperties2KHR,
     ) -> Result,
 >;
+///[`vkGetDisplayPlaneCapabilities2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneCapabilities2KHR.html)
+/**
+Provided by **VK_KHR_get_display_properties2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDisplayPlaneCapabilities2KHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2259,6 +5106,9 @@ pub type PFN_vkGetDisplayPlaneCapabilities2KHR = Option<
         p_capabilities: *mut DisplayPlaneCapabilities2KHR,
     ) -> Result,
 >;
+///[`vkGetBufferMemoryRequirements2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferMemoryRequirements2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetBufferMemoryRequirements2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2266,6 +5116,9 @@ pub type PFN_vkGetBufferMemoryRequirements2 = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkGetImageMemoryRequirements2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageMemoryRequirements2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetImageMemoryRequirements2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2273,6 +5126,9 @@ pub type PFN_vkGetImageMemoryRequirements2 = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkGetImageSparseMemoryRequirements2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSparseMemoryRequirements2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetImageSparseMemoryRequirements2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2281,6 +5137,9 @@ pub type PFN_vkGetImageSparseMemoryRequirements2 = Option<
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ),
 >;
+///[`vkGetDeviceBufferMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceBufferMemoryRequirements.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
 pub type PFN_vkGetDeviceBufferMemoryRequirements = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2288,6 +5147,9 @@ pub type PFN_vkGetDeviceBufferMemoryRequirements = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkGetDeviceImageMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceImageMemoryRequirements.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
 pub type PFN_vkGetDeviceImageMemoryRequirements = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2295,6 +5157,9 @@ pub type PFN_vkGetDeviceImageMemoryRequirements = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkGetDeviceImageSparseMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceImageSparseMemoryRequirements.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
 pub type PFN_vkGetDeviceImageSparseMemoryRequirements = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2303,6 +5168,18 @@ pub type PFN_vkGetDeviceImageSparseMemoryRequirements = Option<
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ),
 >;
+///[`vkCreateSamplerYcbcrConversion`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSamplerYcbcrConversion.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateSamplerYcbcrConversion = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2311,6 +5188,12 @@ pub type PFN_vkCreateSamplerYcbcrConversion = Option<
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
     ) -> Result,
 >;
+///[`vkDestroySamplerYcbcrConversion`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySamplerYcbcrConversion.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_1**.*/
+///
+///# Thread Safety
+///- `ycbcrConversion` must be externally synchronized
 pub type PFN_vkDestroySamplerYcbcrConversion = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2318,6 +5201,9 @@ pub type PFN_vkDestroySamplerYcbcrConversion = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetDeviceQueue2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceQueue2.html)
+/**
+Provided by **VK_BASE_VERSION_1_1**.*/
 pub type PFN_vkGetDeviceQueue2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2325,6 +5211,17 @@ pub type PFN_vkGetDeviceQueue2 = Option<
         p_queue: *mut Queue,
     ),
 >;
+///[`vkCreateValidationCacheEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateValidationCacheEXT.html)
+/**
+Provided by **VK_EXT_validation_cache**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateValidationCacheEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2333,6 +5230,12 @@ pub type PFN_vkCreateValidationCacheEXT = Option<
         p_validation_cache: *mut ValidationCacheEXT,
     ) -> Result,
 >;
+///[`vkDestroyValidationCacheEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyValidationCacheEXT.html)
+/**
+Provided by **VK_EXT_validation_cache**.*/
+///
+///# Thread Safety
+///- `validationCache` must be externally synchronized
 pub type PFN_vkDestroyValidationCacheEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2340,6 +5243,19 @@ pub type PFN_vkDestroyValidationCacheEXT = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetValidationCacheDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetValidationCacheDataEXT.html)
+/**
+Provided by **VK_EXT_validation_cache**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetValidationCacheDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2348,6 +5264,21 @@ pub type PFN_vkGetValidationCacheDataEXT = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkMergeValidationCachesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMergeValidationCachesEXT.html)
+/**
+Provided by **VK_EXT_validation_cache**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `dstCache` must be externally synchronized
 pub type PFN_vkMergeValidationCachesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2356,6 +5287,9 @@ pub type PFN_vkMergeValidationCachesEXT = Option<
         p_src_caches: *const ValidationCacheEXT,
     ) -> Result,
 >;
+///[`vkGetDescriptorSetLayoutSupport`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutSupport.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub type PFN_vkGetDescriptorSetLayoutSupport = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2363,6 +5297,7 @@ pub type PFN_vkGetDescriptorSetLayoutSupport = Option<
         p_support: *mut DescriptorSetLayoutSupport,
     ),
 >;
+///[`vkGetSwapchainGrallocUsageANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainGrallocUsageANDROID.html)
 pub type PFN_vkGetSwapchainGrallocUsageANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2371,6 +5306,7 @@ pub type PFN_vkGetSwapchainGrallocUsageANDROID = Option<
         gralloc_usage: *mut core::ffi::c_int,
     ) -> Result,
 >;
+///[`vkGetSwapchainGrallocUsage2ANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainGrallocUsage2ANDROID.html)
 pub type PFN_vkGetSwapchainGrallocUsage2ANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2381,6 +5317,7 @@ pub type PFN_vkGetSwapchainGrallocUsage2ANDROID = Option<
         gralloc_producer_usage: *mut u64,
     ) -> Result,
 >;
+///[`vkAcquireImageANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireImageANDROID.html)
 pub type PFN_vkAcquireImageANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2390,6 +5327,7 @@ pub type PFN_vkAcquireImageANDROID = Option<
         fence: Fence,
     ) -> Result,
 >;
+///[`vkQueueSignalReleaseImageANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSignalReleaseImageANDROID.html)
 pub type PFN_vkQueueSignalReleaseImageANDROID = Option<
     unsafe extern "system" fn(
         queue: Queue,
@@ -2399,6 +5337,19 @@ pub type PFN_vkQueueSignalReleaseImageANDROID = Option<
         p_native_fence_fd: *mut core::ffi::c_int,
     ) -> Result,
 >;
+///[`vkGetShaderInfoAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderInfoAMD.html)
+/**
+Provided by **VK_AMD_shader_info**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_FEATURE_NOT_PRESENT`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetShaderInfoAMD = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2409,6 +5360,9 @@ pub type PFN_vkGetShaderInfoAMD = Option<
         p_info: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkSetLocalDimmingAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetLocalDimmingAMD.html)
+/**
+Provided by **VK_AMD_display_native_hdr**.*/
 pub type PFN_vkSetLocalDimmingAMD = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2416,6 +5370,19 @@ pub type PFN_vkSetLocalDimmingAMD = Option<
         local_dimming_enable: u32,
     ),
 >;
+///[`vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html)
+/**
+Provided by **VK_KHR_calibrated_timestamps**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2423,6 +5390,18 @@ pub type PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR = Option<
         p_time_domains: *mut TimeDomainKHR,
     ) -> Result,
 >;
+///[`vkGetCalibratedTimestampsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetCalibratedTimestampsKHR.html)
+/**
+Provided by **VK_KHR_calibrated_timestamps**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetCalibratedTimestampsKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2432,42 +5411,116 @@ pub type PFN_vkGetCalibratedTimestampsKHR = Option<
         p_max_deviation: *mut u64,
     ) -> Result,
 >;
+///[`vkSetDebugUtilsObjectNameEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetDebugUtilsObjectNameEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `pNameInfo` must be externally synchronized
 pub type PFN_vkSetDebugUtilsObjectNameEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_name_info: *const DebugUtilsObjectNameInfoEXT,
     ) -> Result,
 >;
+///[`vkSetDebugUtilsObjectTagEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetDebugUtilsObjectTagEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkSetDebugUtilsObjectTagEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_tag_info: *const DebugUtilsObjectTagInfoEXT,
     ) -> Result,
 >;
+///[`vkQueueBeginDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueBeginDebugUtilsLabelEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
 pub type PFN_vkQueueBeginDebugUtilsLabelEXT = Option<
     unsafe extern "system" fn(queue: Queue, p_label_info: *const DebugUtilsLabelEXT),
 >;
+///[`vkQueueEndDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueEndDebugUtilsLabelEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
 pub type PFN_vkQueueEndDebugUtilsLabelEXT = Option<
     unsafe extern "system" fn(queue: Queue),
 >;
+///[`vkQueueInsertDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueInsertDebugUtilsLabelEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
 pub type PFN_vkQueueInsertDebugUtilsLabelEXT = Option<
     unsafe extern "system" fn(queue: Queue, p_label_info: *const DebugUtilsLabelEXT),
 >;
+///[`vkCmdBeginDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginDebugUtilsLabelEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginDebugUtilsLabelEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_label_info: *const DebugUtilsLabelEXT,
     ),
 >;
+///[`vkCmdEndDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndDebugUtilsLabelEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndDebugUtilsLabelEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer),
 >;
+///[`vkCmdInsertDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdInsertDebugUtilsLabelEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdInsertDebugUtilsLabelEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_label_info: *const DebugUtilsLabelEXT,
     ),
 >;
+///[`vkCreateDebugUtilsMessengerEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDebugUtilsMessengerEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDebugUtilsMessengerEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -2476,6 +5529,12 @@ pub type PFN_vkCreateDebugUtilsMessengerEXT = Option<
         p_messenger: *mut DebugUtilsMessengerEXT,
     ) -> Result,
 >;
+///[`vkDestroyDebugUtilsMessengerEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDebugUtilsMessengerEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
+///
+///# Thread Safety
+///- `messenger` must be externally synchronized
 pub type PFN_vkDestroyDebugUtilsMessengerEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -2483,6 +5542,9 @@ pub type PFN_vkDestroyDebugUtilsMessengerEXT = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkSubmitDebugUtilsMessageEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSubmitDebugUtilsMessageEXT.html)
+/**
+Provided by **VK_EXT_debug_utils**.*/
 pub type PFN_vkSubmitDebugUtilsMessageEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -2491,6 +5553,18 @@ pub type PFN_vkSubmitDebugUtilsMessageEXT = Option<
         p_callback_data: *const DebugUtilsMessengerCallbackDataEXT,
     ),
 >;
+///[`vkGetMemoryHostPointerPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryHostPointerPropertiesEXT.html)
+/**
+Provided by **VK_EXT_external_memory_host**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryHostPointerPropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2499,6 +5573,12 @@ pub type PFN_vkGetMemoryHostPointerPropertiesEXT = Option<
         p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
     ) -> Result,
 >;
+///[`vkCmdWriteBufferMarkerAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteBufferMarkerAMD.html)
+/**
+Provided by **VK_AMD_buffer_marker**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteBufferMarkerAMD = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2508,6 +5588,18 @@ pub type PFN_vkCmdWriteBufferMarkerAMD = Option<
         marker: u32,
     ),
 >;
+///[`vkCreateRenderPass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRenderPass2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateRenderPass2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2516,6 +5608,12 @@ pub type PFN_vkCreateRenderPass2 = Option<
         p_render_pass: *mut RenderPass,
     ) -> Result,
 >;
+///[`vkCmdBeginRenderPass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginRenderPass2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2523,6 +5621,12 @@ pub type PFN_vkCmdBeginRenderPass2 = Option<
         p_subpass_begin_info: *const SubpassBeginInfo,
     ),
 >;
+///[`vkCmdNextSubpass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdNextSubpass2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2530,12 +5634,31 @@ pub type PFN_vkCmdNextSubpass2 = Option<
         p_subpass_end_info: *const SubpassEndInfo,
     ),
 >;
+///[`vkCmdEndRenderPass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRenderPass2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndRenderPass2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_subpass_end_info: *const SubpassEndInfo,
     ),
 >;
+///[`vkGetSemaphoreCounterValue`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreCounterValue.html)
+/**
+Provided by **VK_BASE_VERSION_1_2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSemaphoreCounterValue = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2543,6 +5666,20 @@ pub type PFN_vkGetSemaphoreCounterValue = Option<
         p_value: *mut u64,
     ) -> Result,
 >;
+///[`vkWaitSemaphores`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitSemaphores.html)
+/**
+Provided by **VK_BASE_VERSION_1_2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_TIMEOUT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkWaitSemaphores = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2550,12 +5687,36 @@ pub type PFN_vkWaitSemaphores = Option<
         timeout: u64,
     ) -> Result,
 >;
+///[`vkSignalSemaphore`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSignalSemaphore.html)
+/**
+Provided by **VK_BASE_VERSION_1_2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkSignalSemaphore = Option<
     unsafe extern "system" fn(
         device: Device,
         p_signal_info: *const SemaphoreSignalInfo,
     ) -> Result,
 >;
+///[`vkGetAndroidHardwareBufferPropertiesANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAndroidHardwareBufferPropertiesANDROID.html)
+/**
+Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetAndroidHardwareBufferPropertiesANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2563,6 +5724,18 @@ pub type PFN_vkGetAndroidHardwareBufferPropertiesANDROID = Option<
         p_properties: *mut AndroidHardwareBufferPropertiesANDROID,
     ) -> Result,
 >;
+///[`vkGetMemoryAndroidHardwareBufferANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryAndroidHardwareBufferANDROID.html)
+/**
+Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryAndroidHardwareBufferANDROID = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2570,6 +5743,12 @@ pub type PFN_vkGetMemoryAndroidHardwareBufferANDROID = Option<
         p_buffer: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkCmdDrawIndirectCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectCount.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndirectCount = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2581,6 +5760,12 @@ pub type PFN_vkCmdDrawIndirectCount = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdDrawIndexedIndirectCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirectCount.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndexedIndirectCount = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2592,12 +5777,21 @@ pub type PFN_vkCmdDrawIndexedIndirectCount = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdSetCheckpointNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCheckpointNV.html)
+/**
+Provided by **VK_NV_device_diagnostic_checkpoints**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCheckpointNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_checkpoint_marker: *const core::ffi::c_void,
     ),
 >;
+///[`vkGetQueueCheckpointDataNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetQueueCheckpointDataNV.html)
+/**
+Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 pub type PFN_vkGetQueueCheckpointDataNV = Option<
     unsafe extern "system" fn(
         queue: Queue,
@@ -2605,6 +5799,12 @@ pub type PFN_vkGetQueueCheckpointDataNV = Option<
         p_checkpoint_data: *mut CheckpointDataNV,
     ),
 >;
+///[`vkCmdBindTransformFeedbackBuffersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindTransformFeedbackBuffersEXT.html)
+/**
+Provided by **VK_EXT_transform_feedback**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindTransformFeedbackBuffersEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2615,6 +5815,12 @@ pub type PFN_vkCmdBindTransformFeedbackBuffersEXT = Option<
         p_sizes: *const u64,
     ),
 >;
+///[`vkCmdBeginTransformFeedbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginTransformFeedbackEXT.html)
+/**
+Provided by **VK_EXT_transform_feedback**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginTransformFeedbackEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2624,6 +5830,12 @@ pub type PFN_vkCmdBeginTransformFeedbackEXT = Option<
         p_counter_buffer_offsets: *const u64,
     ),
 >;
+///[`vkCmdEndTransformFeedbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndTransformFeedbackEXT.html)
+/**
+Provided by **VK_EXT_transform_feedback**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndTransformFeedbackEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2633,6 +5845,12 @@ pub type PFN_vkCmdEndTransformFeedbackEXT = Option<
         p_counter_buffer_offsets: *const u64,
     ),
 >;
+///[`vkCmdBeginQueryIndexedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQueryIndexedEXT.html)
+/**
+Provided by **VK_EXT_transform_feedback**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginQueryIndexedEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2642,6 +5860,12 @@ pub type PFN_vkCmdBeginQueryIndexedEXT = Option<
         index: u32,
     ),
 >;
+///[`vkCmdEndQueryIndexedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQueryIndexedEXT.html)
+/**
+Provided by **VK_EXT_transform_feedback**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndQueryIndexedEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2650,6 +5874,12 @@ pub type PFN_vkCmdEndQueryIndexedEXT = Option<
         index: u32,
     ),
 >;
+///[`vkCmdDrawIndirectByteCountEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectByteCountEXT.html)
+/**
+Provided by **VK_EXT_transform_feedback**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndirectByteCountEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2661,6 +5891,12 @@ pub type PFN_vkCmdDrawIndirectByteCountEXT = Option<
         vertex_stride: u32,
     ),
 >;
+///[`vkCmdSetExclusiveScissorNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetExclusiveScissorNV.html)
+/**
+Provided by **VK_NV_scissor_exclusive**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetExclusiveScissorNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2669,6 +5905,12 @@ pub type PFN_vkCmdSetExclusiveScissorNV = Option<
         p_exclusive_scissors: *const Rect2D,
     ),
 >;
+///[`vkCmdSetExclusiveScissorEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetExclusiveScissorEnableNV.html)
+/**
+Provided by **VK_NV_scissor_exclusive**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetExclusiveScissorEnableNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2677,6 +5919,12 @@ pub type PFN_vkCmdSetExclusiveScissorEnableNV = Option<
         p_exclusive_scissor_enables: *const u32,
     ),
 >;
+///[`vkCmdBindShadingRateImageNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindShadingRateImageNV.html)
+/**
+Provided by **VK_NV_shading_rate_image**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindShadingRateImageNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2684,6 +5932,12 @@ pub type PFN_vkCmdBindShadingRateImageNV = Option<
         image_layout: ImageLayout,
     ),
 >;
+///[`vkCmdSetViewportShadingRatePaletteNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportShadingRatePaletteNV.html)
+/**
+Provided by **VK_NV_shading_rate_image**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetViewportShadingRatePaletteNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2692,6 +5946,12 @@ pub type PFN_vkCmdSetViewportShadingRatePaletteNV = Option<
         p_shading_rate_palettes: *const ShadingRatePaletteNV,
     ),
 >;
+///[`vkCmdSetCoarseSampleOrderNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoarseSampleOrderNV.html)
+/**
+Provided by **VK_NV_shading_rate_image**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCoarseSampleOrderNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2700,6 +5960,12 @@ pub type PFN_vkCmdSetCoarseSampleOrderNV = Option<
         p_custom_sample_orders: *const CoarseSampleOrderCustomNV,
     ),
 >;
+///[`vkCmdDrawMeshTasksNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksNV.html)
+/**
+Provided by **VK_NV_mesh_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2707,6 +5973,12 @@ pub type PFN_vkCmdDrawMeshTasksNV = Option<
         first_task: u32,
     ),
 >;
+///[`vkCmdDrawMeshTasksIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectNV.html)
+/**
+Provided by **VK_NV_mesh_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksIndirectNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2716,6 +5988,12 @@ pub type PFN_vkCmdDrawMeshTasksIndirectNV = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdDrawMeshTasksIndirectCountNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCountNV.html)
+/**
+Provided by **VK_NV_mesh_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksIndirectCountNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2727,6 +6005,12 @@ pub type PFN_vkCmdDrawMeshTasksIndirectCountNV = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdDrawMeshTasksEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksEXT.html)
+/**
+Provided by **VK_EXT_mesh_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2735,6 +6019,12 @@ pub type PFN_vkCmdDrawMeshTasksEXT = Option<
         group_count_z: u32,
     ),
 >;
+///[`vkCmdDrawMeshTasksIndirectEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectEXT.html)
+/**
+Provided by **VK_EXT_mesh_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksIndirectEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2744,6 +6034,12 @@ pub type PFN_vkCmdDrawMeshTasksIndirectEXT = Option<
         stride: u32,
     ),
 >;
+///[`vkCmdDrawMeshTasksIndirectCountEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCountEXT.html)
+/**
+Provided by **VK_EXT_mesh_shader**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksIndirectCountEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2755,9 +6051,32 @@ pub type PFN_vkCmdDrawMeshTasksIndirectCountEXT = Option<
         stride: u32,
     ),
 >;
+///[`vkCompileDeferredNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCompileDeferredNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCompileDeferredNV = Option<
     unsafe extern "system" fn(device: Device, pipeline: Pipeline, shader: u32) -> Result,
 >;
+///[`vkCreateAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateAccelerationStructureNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateAccelerationStructureNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2766,6 +6085,12 @@ pub type PFN_vkCreateAccelerationStructureNV = Option<
         p_acceleration_structure: *mut AccelerationStructureNV,
     ) -> Result,
 >;
+///[`vkCmdBindInvocationMaskHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindInvocationMaskHUAWEI.html)
+/**
+Provided by **VK_HUAWEI_invocation_mask**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindInvocationMaskHUAWEI = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2773,6 +6098,12 @@ pub type PFN_vkCmdBindInvocationMaskHUAWEI = Option<
         image_layout: ImageLayout,
     ),
 >;
+///[`vkDestroyAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyAccelerationStructureKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `accelerationStructure` must be externally synchronized
 pub type PFN_vkDestroyAccelerationStructureKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2780,6 +6111,12 @@ pub type PFN_vkDestroyAccelerationStructureKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkDestroyAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyAccelerationStructureNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Thread Safety
+///- `accelerationStructure` must be externally synchronized
 pub type PFN_vkDestroyAccelerationStructureNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2787,6 +6124,9 @@ pub type PFN_vkDestroyAccelerationStructureNV = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetAccelerationStructureMemoryRequirementsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureMemoryRequirementsNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
 pub type PFN_vkGetAccelerationStructureMemoryRequirementsNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2794,6 +6134,18 @@ pub type PFN_vkGetAccelerationStructureMemoryRequirementsNV = Option<
         p_memory_requirements: *mut MemoryRequirements2KHR,
     ),
 >;
+///[`vkBindAccelerationStructureMemoryNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindAccelerationStructureMemoryNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBindAccelerationStructureMemoryNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2801,6 +6153,12 @@ pub type PFN_vkBindAccelerationStructureMemoryNV = Option<
         p_bind_infos: *const BindAccelerationStructureMemoryInfoNV,
     ) -> Result,
 >;
+///[`vkCmdCopyAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyAccelerationStructureNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyAccelerationStructureNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2809,12 +6167,32 @@ pub type PFN_vkCmdCopyAccelerationStructureNV = Option<
         mode: CopyAccelerationStructureModeKHR,
     ),
 >;
+///[`vkCmdCopyAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyAccelerationStructureKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyAccelerationStructureKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const CopyAccelerationStructureInfoKHR,
     ),
 >;
+///[`vkCopyAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyAccelerationStructureKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyAccelerationStructureKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2822,12 +6200,32 @@ pub type PFN_vkCopyAccelerationStructureKHR = Option<
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) -> Result,
 >;
+///[`vkCmdCopyAccelerationStructureToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyAccelerationStructureToMemoryKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyAccelerationStructureToMemoryKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ),
 >;
+///[`vkCopyAccelerationStructureToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyAccelerationStructureToMemoryKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyAccelerationStructureToMemoryKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2835,12 +6233,32 @@ pub type PFN_vkCopyAccelerationStructureToMemoryKHR = Option<
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) -> Result,
 >;
+///[`vkCmdCopyMemoryToAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToAccelerationStructureKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryToAccelerationStructureKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ),
 >;
+///[`vkCopyMemoryToAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToAccelerationStructureKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyMemoryToAccelerationStructureKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2848,6 +6266,12 @@ pub type PFN_vkCopyMemoryToAccelerationStructureKHR = Option<
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) -> Result,
 >;
+///[`vkCmdWriteAccelerationStructuresPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteAccelerationStructuresPropertiesKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteAccelerationStructuresPropertiesKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2858,6 +6282,12 @@ pub type PFN_vkCmdWriteAccelerationStructuresPropertiesKHR = Option<
         first_query: u32,
     ),
 >;
+///[`vkCmdWriteAccelerationStructuresPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteAccelerationStructuresPropertiesNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteAccelerationStructuresPropertiesNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2868,6 +6298,12 @@ pub type PFN_vkCmdWriteAccelerationStructuresPropertiesNV = Option<
         first_query: u32,
     ),
 >;
+///[`vkCmdBuildAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildAccelerationStructureNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBuildAccelerationStructureNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2881,6 +6317,18 @@ pub type PFN_vkCmdBuildAccelerationStructureNV = Option<
         scratch_offset: u64,
     ),
 >;
+///[`vkWriteAccelerationStructuresPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteAccelerationStructuresPropertiesKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkWriteAccelerationStructuresPropertiesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2892,6 +6340,12 @@ pub type PFN_vkWriteAccelerationStructuresPropertiesKHR = Option<
         stride: usize,
     ) -> Result,
 >;
+///[`vkCmdTraceRaysKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysKHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_pipeline**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdTraceRaysKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2904,6 +6358,12 @@ pub type PFN_vkCmdTraceRaysKHR = Option<
         depth: u32,
     ),
 >;
+///[`vkCmdTraceRaysNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdTraceRaysNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2923,6 +6383,18 @@ pub type PFN_vkCmdTraceRaysNV = Option<
         depth: u32,
     ),
 >;
+///[`vkGetRayTracingShaderGroupHandlesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingShaderGroupHandlesKHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_pipeline**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetRayTracingShaderGroupHandlesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2933,6 +6405,18 @@ pub type PFN_vkGetRayTracingShaderGroupHandlesKHR = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetRayTracingCaptureReplayShaderGroupHandlesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingCaptureReplayShaderGroupHandlesKHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_pipeline**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2943,6 +6427,18 @@ pub type PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetAccelerationStructureHandleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureHandleNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetAccelerationStructureHandleNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2951,6 +6447,23 @@ pub type PFN_vkGetAccelerationStructureHandleNV = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkCreateRayTracingPipelinesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRayTracingPipelinesNV.html)
+/**
+Provided by **VK_NV_ray_tracing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_PIPELINE_COMPILE_REQUIRED_EXT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_SHADER_NV`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `pipelineCache` must be externally synchronized
 pub type PFN_vkCreateRayTracingPipelinesNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2961,6 +6474,25 @@ pub type PFN_vkCreateRayTracingPipelinesNV = Option<
         p_pipelines: *mut Pipeline,
     ) -> Result,
 >;
+///[`vkCreateRayTracingPipelinesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRayTracingPipelinesKHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_pipeline**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///- `VK_PIPELINE_COMPILE_REQUIRED_EXT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `pipelineCache` must be externally synchronized
 pub type PFN_vkCreateRayTracingPipelinesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -2972,6 +6504,19 @@ pub type PFN_vkCreateRayTracingPipelinesKHR = Option<
         p_pipelines: *mut Pipeline,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html)
+/**
+Provided by **VK_NV_cooperative_matrix**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -2979,6 +6524,12 @@ pub type PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV = Option<
         p_properties: *mut CooperativeMatrixPropertiesNV,
     ) -> Result,
 >;
+///[`vkCmdTraceRaysIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysIndirectKHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_pipeline**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdTraceRaysIndirectKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -2989,12 +6540,21 @@ pub type PFN_vkCmdTraceRaysIndirectKHR = Option<
         indirect_device_address: u64,
     ),
 >;
+///[`vkCmdTraceRaysIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysIndirect2KHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_maintenance1**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdTraceRaysIndirect2KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         indirect_device_address: u64,
     ),
 >;
+///[`vkGetClusterAccelerationStructureBuildSizesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetClusterAccelerationStructureBuildSizesNV.html)
+/**
+Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub type PFN_vkGetClusterAccelerationStructureBuildSizesNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3002,12 +6562,21 @@ pub type PFN_vkGetClusterAccelerationStructureBuildSizesNV = Option<
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ),
 >;
+///[`vkCmdBuildClusterAccelerationStructureIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildClusterAccelerationStructureIndirectNV.html)
+/**
+Provided by **VK_NV_cluster_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBuildClusterAccelerationStructureIndirectNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_command_infos: *const ClusterAccelerationStructureCommandsInfoNV,
     ),
 >;
+///[`vkGetDeviceAccelerationStructureCompatibilityKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceAccelerationStructureCompatibilityKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
 pub type PFN_vkGetDeviceAccelerationStructureCompatibilityKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3015,6 +6584,9 @@ pub type PFN_vkGetDeviceAccelerationStructureCompatibilityKHR = Option<
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ),
 >;
+///[`vkGetRayTracingShaderGroupStackSizeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingShaderGroupStackSizeKHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_pipeline**.*/
 pub type PFN_vkGetRayTracingShaderGroupStackSizeKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3023,21 +6595,44 @@ pub type PFN_vkGetRayTracingShaderGroupStackSizeKHR = Option<
         group_shader: ShaderGroupShaderKHR,
     ) -> u64,
 >;
+///[`vkCmdSetRayTracingPipelineStackSizeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRayTracingPipelineStackSizeKHR.html)
+/**
+Provided by **VK_KHR_ray_tracing_pipeline**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetRayTracingPipelineStackSizeKHR = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, pipeline_stack_size: u32),
 >;
+///[`vkGetImageViewHandleNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewHandleNVX.html)
+/**
+Provided by **VK_NVX_image_view_handle**.*/
 pub type PFN_vkGetImageViewHandleNVX = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const ImageViewHandleInfoNVX,
     ) -> u32,
 >;
+///[`vkGetImageViewHandle64NVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewHandle64NVX.html)
+/**
+Provided by **VK_NVX_image_view_handle**.*/
 pub type PFN_vkGetImageViewHandle64NVX = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const ImageViewHandleInfoNVX,
     ) -> u64,
 >;
+///[`vkGetImageViewAddressNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewAddressNVX.html)
+/**
+Provided by **VK_NVX_image_view_handle**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetImageViewAddressNVX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3045,6 +6640,9 @@ pub type PFN_vkGetImageViewAddressNVX = Option<
         p_properties: *mut ImageViewAddressPropertiesNVX,
     ) -> Result,
 >;
+///[`vkGetDeviceCombinedImageSamplerIndexNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceCombinedImageSamplerIndexNVX.html)
+/**
+Provided by **VK_NVX_image_view_handle**.*/
 pub type PFN_vkGetDeviceCombinedImageSamplerIndexNVX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3052,6 +6650,20 @@ pub type PFN_vkGetDeviceCombinedImageSamplerIndexNVX = Option<
         sampler_index: u64,
     ) -> u64,
 >;
+///[`vkGetPhysicalDeviceSurfacePresentModes2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfacePresentModes2EXT.html)
+/**
+Provided by **VK_EXT_full_screen_exclusive**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3060,6 +6672,19 @@ pub type PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT = Option<
         p_present_modes: *mut PresentModeKHR,
     ) -> Result,
 >;
+///[`vkGetDeviceGroupSurfacePresentModes2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupSurfacePresentModes2EXT.html)
+/**
+Provided by **VK_EXT_full_screen_exclusive**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDeviceGroupSurfacePresentModes2EXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3067,12 +6692,53 @@ pub type PFN_vkGetDeviceGroupSurfacePresentModes2EXT = Option<
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> Result,
 >;
+///[`vkAcquireFullScreenExclusiveModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireFullScreenExclusiveModeEXT.html)
+/**
+Provided by **VK_EXT_full_screen_exclusive**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquireFullScreenExclusiveModeEXT = Option<
     unsafe extern "system" fn(device: Device, swapchain: SwapchainKHR) -> Result,
 >;
+///[`vkReleaseFullScreenExclusiveModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseFullScreenExclusiveModeEXT.html)
+/**
+Provided by **VK_EXT_full_screen_exclusive**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkReleaseFullScreenExclusiveModeEXT = Option<
     unsafe extern "system" fn(device: Device, swapchain: SwapchainKHR) -> Result,
 >;
+///[`vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html)
+/**
+Provided by **VK_KHR_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3082,6 +6748,9 @@ pub type PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR = O
         p_counter_descriptions: *mut PerformanceCounterDescriptionKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html)
+/**
+Provided by **VK_KHR_performance_query**.*/
 pub type PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3089,15 +6758,41 @@ pub type PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR = Option<
         p_num_passes: *mut u32,
     ),
 >;
+///[`vkAcquireProfilingLockKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireProfilingLockKHR.html)
+/**
+Provided by **VK_KHR_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_TIMEOUT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquireProfilingLockKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const AcquireProfilingLockInfoKHR,
     ) -> Result,
 >;
+///[`vkReleaseProfilingLockKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseProfilingLockKHR.html)
+/**
+Provided by **VK_KHR_performance_query**.*/
 pub type PFN_vkReleaseProfilingLockKHR = Option<
     unsafe extern "system" fn(device: Device),
 >;
+///[`vkGetImageDrmFormatModifierPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageDrmFormatModifierPropertiesEXT.html)
+/**
+Provided by **VK_EXT_image_drm_format_modifier**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetImageDrmFormatModifierPropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3105,18 +6800,36 @@ pub type PFN_vkGetImageDrmFormatModifierPropertiesEXT = Option<
         p_properties: *mut ImageDrmFormatModifierPropertiesEXT,
     ) -> Result,
 >;
+///[`vkGetBufferOpaqueCaptureAddress`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferOpaqueCaptureAddress.html)
+/**
+Provided by **VK_BASE_VERSION_1_2**.*/
 pub type PFN_vkGetBufferOpaqueCaptureAddress = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64,
 >;
+///[`vkGetBufferDeviceAddress`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferDeviceAddress.html)
+/**
+Provided by **VK_BASE_VERSION_1_2**.*/
 pub type PFN_vkGetBufferDeviceAddress = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64,
 >;
+///[`vkCreateHeadlessSurfaceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateHeadlessSurfaceEXT.html)
+/**
+Provided by **VK_EXT_headless_surface**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateHeadlessSurfaceEXT = Option<
     unsafe extern "system" fn(
         instance: Instance,
@@ -3125,6 +6838,19 @@ pub type PFN_vkCreateHeadlessSurfaceEXT = Option<
         p_surface: *mut SurfaceKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html)
+/**
+Provided by **VK_NV_coverage_reduction_mode**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3132,33 +6858,105 @@ pub type PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV =
         p_combinations: *mut FramebufferMixedSamplesCombinationNV,
     ) -> Result,
 >;
+///[`vkInitializePerformanceApiINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkInitializePerformanceApiINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkInitializePerformanceApiINTEL = Option<
     unsafe extern "system" fn(
         device: Device,
         p_initialize_info: *const InitializePerformanceApiInfoINTEL,
     ) -> Result,
 >;
+///[`vkUninitializePerformanceApiINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUninitializePerformanceApiINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
 pub type PFN_vkUninitializePerformanceApiINTEL = Option<
     unsafe extern "system" fn(device: Device),
 >;
+///[`vkCmdSetPerformanceMarkerINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceMarkerINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetPerformanceMarkerINTEL = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_marker_info: *const PerformanceMarkerInfoINTEL,
     ) -> Result,
 >;
+///[`vkCmdSetPerformanceStreamMarkerINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceStreamMarkerINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetPerformanceStreamMarkerINTEL = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_marker_info: *const PerformanceStreamMarkerInfoINTEL,
     ) -> Result,
 >;
+///[`vkCmdSetPerformanceOverrideINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceOverrideINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetPerformanceOverrideINTEL = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_override_info: *const PerformanceOverrideInfoINTEL,
     ) -> Result,
 >;
+///[`vkAcquirePerformanceConfigurationINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquirePerformanceConfigurationINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquirePerformanceConfigurationINTEL = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3166,18 +6964,60 @@ pub type PFN_vkAcquirePerformanceConfigurationINTEL = Option<
         p_configuration: *mut PerformanceConfigurationINTEL,
     ) -> Result,
 >;
+///[`vkReleasePerformanceConfigurationINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleasePerformanceConfigurationINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `configuration` must be externally synchronized
 pub type PFN_vkReleasePerformanceConfigurationINTEL = Option<
     unsafe extern "system" fn(
         device: Device,
         configuration: PerformanceConfigurationINTEL,
     ) -> Result,
 >;
+///[`vkQueueSetPerformanceConfigurationINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSetPerformanceConfigurationINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
 pub type PFN_vkQueueSetPerformanceConfigurationINTEL = Option<
     unsafe extern "system" fn(
         queue: Queue,
         configuration: PerformanceConfigurationINTEL,
     ) -> Result,
 >;
+///[`vkGetPerformanceParameterINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPerformanceParameterINTEL.html)
+/**
+Provided by **VK_INTEL_performance_query**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPerformanceParameterINTEL = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3185,12 +7025,28 @@ pub type PFN_vkGetPerformanceParameterINTEL = Option<
         p_value: *mut PerformanceValueINTEL,
     ) -> Result,
 >;
+///[`vkGetDeviceMemoryOpaqueCaptureAddress`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html)
+/**
+Provided by **VK_BASE_VERSION_1_2**.*/
 pub type PFN_vkGetDeviceMemoryOpaqueCaptureAddress = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64,
 >;
+///[`vkGetPipelineExecutablePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineExecutablePropertiesKHR.html)
+/**
+Provided by **VK_KHR_pipeline_executable_properties**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPipelineExecutablePropertiesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3199,6 +7055,19 @@ pub type PFN_vkGetPipelineExecutablePropertiesKHR = Option<
         p_properties: *mut PipelineExecutablePropertiesKHR,
     ) -> Result,
 >;
+///[`vkGetPipelineExecutableStatisticsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineExecutableStatisticsKHR.html)
+/**
+Provided by **VK_KHR_pipeline_executable_properties**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPipelineExecutableStatisticsKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3207,6 +7076,19 @@ pub type PFN_vkGetPipelineExecutableStatisticsKHR = Option<
         p_statistics: *mut PipelineExecutableStatisticKHR,
     ) -> Result,
 >;
+///[`vkGetPipelineExecutableInternalRepresentationsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineExecutableInternalRepresentationsKHR.html)
+/**
+Provided by **VK_KHR_pipeline_executable_properties**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPipelineExecutableInternalRepresentationsKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3215,6 +7097,12 @@ pub type PFN_vkGetPipelineExecutableInternalRepresentationsKHR = Option<
         p_internal_representations: *mut PipelineExecutableInternalRepresentationKHR,
     ) -> Result,
 >;
+///[`vkCmdSetLineStipple`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineStipple.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetLineStipple = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3222,6 +7110,19 @@ pub type PFN_vkCmdSetLineStipple = Option<
         line_stipple_pattern: u16,
     ),
 >;
+///[`vkGetFaultData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFaultData.html)
+/**
+Provided by **VKSC_VERSION_1_0**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetFaultData = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3231,6 +7132,18 @@ pub type PFN_vkGetFaultData = Option<
         p_faults: *mut FaultData,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceToolProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceToolProperties.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceToolProperties = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3238,6 +7151,18 @@ pub type PFN_vkGetPhysicalDeviceToolProperties = Option<
         p_tool_properties: *mut PhysicalDeviceToolProperties,
     ) -> Result,
 >;
+///[`vkCreateAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateAccelerationStructureKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateAccelerationStructureKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3246,6 +7171,12 @@ pub type PFN_vkCreateAccelerationStructureKHR = Option<
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> Result,
 >;
+///[`vkCmdBuildAccelerationStructuresKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildAccelerationStructuresKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBuildAccelerationStructuresKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3254,6 +7185,12 @@ pub type PFN_vkCmdBuildAccelerationStructuresKHR = Option<
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
     ),
 >;
+///[`vkCmdBuildAccelerationStructuresIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildAccelerationStructuresIndirectKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBuildAccelerationStructuresIndirectKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3264,6 +7201,20 @@ pub type PFN_vkCmdBuildAccelerationStructuresIndirectKHR = Option<
         pp_max_primitive_counts: *const *const u32,
     ),
 >;
+///[`vkBuildAccelerationStructuresKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBuildAccelerationStructuresKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBuildAccelerationStructuresKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3273,12 +7224,26 @@ pub type PFN_vkBuildAccelerationStructuresKHR = Option<
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
     ) -> Result,
 >;
+///[`vkGetAccelerationStructureDeviceAddressKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureDeviceAddressKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
 pub type PFN_vkGetAccelerationStructureDeviceAddressKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const AccelerationStructureDeviceAddressInfoKHR,
     ) -> u64,
 >;
+///[`vkCreateDeferredOperationKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDeferredOperationKHR.html)
+/**
+Provided by **VK_KHR_deferred_host_operations**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDeferredOperationKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3286,6 +7251,12 @@ pub type PFN_vkCreateDeferredOperationKHR = Option<
         p_deferred_operation: *mut DeferredOperationKHR,
     ) -> Result,
 >;
+///[`vkDestroyDeferredOperationKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDeferredOperationKHR.html)
+/**
+Provided by **VK_KHR_deferred_host_operations**.*/
+///
+///# Thread Safety
+///- `operation` must be externally synchronized
 pub type PFN_vkDestroyDeferredOperationKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3293,15 +7264,46 @@ pub type PFN_vkDestroyDeferredOperationKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetDeferredOperationMaxConcurrencyKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeferredOperationMaxConcurrencyKHR.html)
+/**
+Provided by **VK_KHR_deferred_host_operations**.*/
 pub type PFN_vkGetDeferredOperationMaxConcurrencyKHR = Option<
     unsafe extern "system" fn(device: Device, operation: DeferredOperationKHR) -> u32,
 >;
+///[`vkGetDeferredOperationResultKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeferredOperationResultKHR.html)
+/**
+Provided by **VK_KHR_deferred_host_operations**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_NOT_READY`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDeferredOperationResultKHR = Option<
     unsafe extern "system" fn(device: Device, operation: DeferredOperationKHR) -> Result,
 >;
+///[`vkDeferredOperationJoinKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDeferredOperationJoinKHR.html)
+/**
+Provided by **VK_KHR_deferred_host_operations**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_THREAD_DONE_KHR`
+///- `VK_THREAD_IDLE_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkDeferredOperationJoinKHR = Option<
     unsafe extern "system" fn(device: Device, operation: DeferredOperationKHR) -> Result,
 >;
+///[`vkGetPipelineIndirectMemoryRequirementsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineIndirectMemoryRequirementsNV.html)
+/**
+Provided by **VK_NV_device_generated_commands_compute**.*/
 pub type PFN_vkGetPipelineIndirectMemoryRequirementsNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3309,27 +7311,57 @@ pub type PFN_vkGetPipelineIndirectMemoryRequirementsNV = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkGetPipelineIndirectDeviceAddressNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineIndirectDeviceAddressNV.html)
+/**
+Provided by **VK_NV_device_generated_commands_compute**.*/
 pub type PFN_vkGetPipelineIndirectDeviceAddressNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const PipelineIndirectDeviceAddressInfoNV,
     ) -> u64,
 >;
+///[`vkAntiLagUpdateAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAntiLagUpdateAMD.html)
+/**
+Provided by **VK_AMD_anti_lag**.*/
 pub type PFN_vkAntiLagUpdateAMD = Option<
     unsafe extern "system" fn(device: Device, p_data: *const AntiLagDataAMD),
 >;
+///[`vkCmdSetCullMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCullMode.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCullMode = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, cull_mode: CullModeFlags),
 >;
+///[`vkCmdSetFrontFace`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFace.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetFrontFace = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, front_face: FrontFace),
 >;
+///[`vkCmdSetPrimitiveTopology`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPrimitiveTopology.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetPrimitiveTopology = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         primitive_topology: PrimitiveTopology,
     ),
 >;
+///[`vkCmdSetViewportWithCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWithCount.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetViewportWithCount = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3337,6 +7369,12 @@ pub type PFN_vkCmdSetViewportWithCount = Option<
         p_viewports: *const Viewport,
     ),
 >;
+///[`vkCmdSetScissorWithCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetScissorWithCount.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetScissorWithCount = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3344,6 +7382,12 @@ pub type PFN_vkCmdSetScissorWithCount = Option<
         p_scissors: *const Rect2D,
     ),
 >;
+///[`vkCmdBindIndexBuffer2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindIndexBuffer2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3353,6 +7397,12 @@ pub type PFN_vkCmdBindIndexBuffer2 = Option<
         index_type: IndexType,
     ),
 >;
+///[`vkCmdBindVertexBuffers2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindVertexBuffers2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3364,24 +7414,60 @@ pub type PFN_vkCmdBindVertexBuffers2 = Option<
         p_strides: *const u64,
     ),
 >;
+///[`vkCmdSetDepthTestEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthTestEnable.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthTestEnable = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, depth_test_enable: u32),
 >;
+///[`vkCmdSetDepthWriteEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthWriteEnable.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthWriteEnable = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, depth_write_enable: u32),
 >;
+///[`vkCmdSetDepthCompareOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthCompareOp.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthCompareOp = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, depth_compare_op: CompareOp),
 >;
+///[`vkCmdSetDepthBoundsTestEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBoundsTestEnable.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthBoundsTestEnable = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         depth_bounds_test_enable: u32,
     ),
 >;
+///[`vkCmdSetStencilTestEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilTestEnable.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetStencilTestEnable = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, stencil_test_enable: u32),
 >;
+///[`vkCmdSetStencilOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOp.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetStencilOp = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3392,45 +7478,105 @@ pub type PFN_vkCmdSetStencilOp = Option<
         compare_op: CompareOp,
     ),
 >;
+///[`vkCmdSetPatchControlPointsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPatchControlPointsEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state2**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetPatchControlPointsEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, patch_control_points: u32),
 >;
+///[`vkCmdSetRasterizerDiscardEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizerDiscardEnable.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetRasterizerDiscardEnable = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         rasterizer_discard_enable: u32,
     ),
 >;
+///[`vkCmdSetDepthBiasEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBiasEnable.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthBiasEnable = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, depth_bias_enable: u32),
 >;
+///[`vkCmdSetLogicOpEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state2**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetLogicOpEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, logic_op: LogicOp),
 >;
+///[`vkCmdSetPrimitiveRestartEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPrimitiveRestartEnable.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetPrimitiveRestartEnable = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         primitive_restart_enable: u32,
     ),
 >;
+///[`vkCmdSetTessellationDomainOriginEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetTessellationDomainOriginEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetTessellationDomainOriginEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         domain_origin: TessellationDomainOrigin,
     ),
 >;
+///[`vkCmdSetDepthClampEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClampEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthClampEnableEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, depth_clamp_enable: u32),
 >;
+///[`vkCmdSetPolygonModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPolygonModeEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetPolygonModeEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, polygon_mode: PolygonMode),
 >;
+///[`vkCmdSetRasterizationSamplesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizationSamplesEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetRasterizationSamplesEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         rasterization_samples: SampleCountFlagBits,
     ),
 >;
+///[`vkCmdSetSampleMaskEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleMaskEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetSampleMaskEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3438,18 +7584,42 @@ pub type PFN_vkCmdSetSampleMaskEXT = Option<
         p_sample_mask: *const u32,
     ),
 >;
+///[`vkCmdSetAlphaToCoverageEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAlphaToCoverageEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetAlphaToCoverageEnableEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         alpha_to_coverage_enable: u32,
     ),
 >;
+///[`vkCmdSetAlphaToOneEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAlphaToOneEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetAlphaToOneEnableEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, alpha_to_one_enable: u32),
 >;
+///[`vkCmdSetLogicOpEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetLogicOpEnableEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, logic_op_enable: u32),
 >;
+///[`vkCmdSetColorBlendEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetColorBlendEnableEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3458,6 +7628,12 @@ pub type PFN_vkCmdSetColorBlendEnableEXT = Option<
         p_color_blend_enables: *const u32,
     ),
 >;
+///[`vkCmdSetColorBlendEquationEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendEquationEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetColorBlendEquationEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3466,6 +7642,12 @@ pub type PFN_vkCmdSetColorBlendEquationEXT = Option<
         p_color_blend_equations: *const ColorBlendEquationEXT,
     ),
 >;
+///[`vkCmdSetColorWriteMaskEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorWriteMaskEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetColorWriteMaskEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3474,30 +7656,66 @@ pub type PFN_vkCmdSetColorWriteMaskEXT = Option<
         p_color_write_masks: *const ColorComponentFlags,
     ),
 >;
+///[`vkCmdSetRasterizationStreamEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizationStreamEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetRasterizationStreamEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, rasterization_stream: u32),
 >;
+///[`vkCmdSetConservativeRasterizationModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetConservativeRasterizationModeEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetConservativeRasterizationModeEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         conservative_rasterization_mode: ConservativeRasterizationModeEXT,
     ),
 >;
+///[`vkCmdSetExtraPrimitiveOverestimationSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         extra_primitive_overestimation_size: f32,
     ),
 >;
+///[`vkCmdSetDepthClipEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClipEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthClipEnableEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, depth_clip_enable: u32),
 >;
+///[`vkCmdSetSampleLocationsEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleLocationsEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetSampleLocationsEnableEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         sample_locations_enable: u32,
     ),
 >;
+///[`vkCmdSetColorBlendAdvancedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendAdvancedEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetColorBlendAdvancedEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3506,30 +7724,66 @@ pub type PFN_vkCmdSetColorBlendAdvancedEXT = Option<
         p_color_blend_advanced: *const ColorBlendAdvancedEXT,
     ),
 >;
+///[`vkCmdSetProvokingVertexModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetProvokingVertexModeEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetProvokingVertexModeEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         provoking_vertex_mode: ProvokingVertexModeEXT,
     ),
 >;
+///[`vkCmdSetLineRasterizationModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineRasterizationModeEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetLineRasterizationModeEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         line_rasterization_mode: LineRasterizationModeEXT,
     ),
 >;
+///[`vkCmdSetLineStippleEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineStippleEnableEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetLineStippleEnableEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, stippled_line_enable: u32),
 >;
+///[`vkCmdSetDepthClipNegativeOneToOneEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClipNegativeOneToOneEXT.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthClipNegativeOneToOneEXT = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer, negative_one_to_one: u32),
 >;
+///[`vkCmdSetViewportWScalingEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWScalingEnableNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetViewportWScalingEnableNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         viewport_w_scaling_enable: u32,
     ),
 >;
+///[`vkCmdSetViewportSwizzleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportSwizzleNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetViewportSwizzleNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3538,30 +7792,60 @@ pub type PFN_vkCmdSetViewportSwizzleNV = Option<
         p_viewport_swizzles: *const ViewportSwizzleNV,
     ),
 >;
+///[`vkCmdSetCoverageToColorEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageToColorEnableNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCoverageToColorEnableNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         coverage_to_color_enable: u32,
     ),
 >;
+///[`vkCmdSetCoverageToColorLocationNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageToColorLocationNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCoverageToColorLocationNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         coverage_to_color_location: u32,
     ),
 >;
+///[`vkCmdSetCoverageModulationModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationModeNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCoverageModulationModeNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         coverage_modulation_mode: CoverageModulationModeNV,
     ),
 >;
+///[`vkCmdSetCoverageModulationTableEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationTableEnableNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCoverageModulationTableEnableNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         coverage_modulation_table_enable: u32,
     ),
 >;
+///[`vkCmdSetCoverageModulationTableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationTableNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCoverageModulationTableNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3569,24 +7853,53 @@ pub type PFN_vkCmdSetCoverageModulationTableNV = Option<
         p_coverage_modulation_table: *const f32,
     ),
 >;
+///[`vkCmdSetShadingRateImageEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetShadingRateImageEnableNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetShadingRateImageEnableNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         shading_rate_image_enable: u32,
     ),
 >;
+///[`vkCmdSetCoverageReductionModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageReductionModeNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetCoverageReductionModeNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         coverage_reduction_mode: CoverageReductionModeNV,
     ),
 >;
+///[`vkCmdSetRepresentativeFragmentTestEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRepresentativeFragmentTestEnableNV.html)
+/**
+Provided by **VK_EXT_extended_dynamic_state3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetRepresentativeFragmentTestEnableNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         representative_fragment_test_enable: u32,
     ),
 >;
+///[`vkCreatePrivateDataSlot`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePrivateDataSlot.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreatePrivateDataSlot = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3595,6 +7908,12 @@ pub type PFN_vkCreatePrivateDataSlot = Option<
         p_private_data_slot: *mut PrivateDataSlot,
     ) -> Result,
 >;
+///[`vkDestroyPrivateDataSlot`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPrivateDataSlot.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `privateDataSlot` must be externally synchronized
 pub type PFN_vkDestroyPrivateDataSlot = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3602,6 +7921,17 @@ pub type PFN_vkDestroyPrivateDataSlot = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkSetPrivateData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateData.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkSetPrivateData = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3611,6 +7941,9 @@ pub type PFN_vkSetPrivateData = Option<
         data: u64,
     ) -> Result,
 >;
+///[`vkGetPrivateData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateData.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
 pub type PFN_vkGetPrivateData = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3620,48 +7953,101 @@ pub type PFN_vkGetPrivateData = Option<
         p_data: *mut u64,
     ),
 >;
+///[`vkCmdCopyBuffer2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBuffer2.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyBuffer2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_buffer_info: *const CopyBufferInfo2,
     ),
 >;
+///[`vkCmdCopyImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImage2.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyImage2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_image_info: *const CopyImageInfo2,
     ),
 >;
+///[`vkCmdBlitImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBlitImage2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBlitImage2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_blit_image_info: *const BlitImageInfo2,
     ),
 >;
+///[`vkCmdCopyBufferToImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBufferToImage2.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyBufferToImage2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_buffer_to_image_info: *const CopyBufferToImageInfo2,
     ),
 >;
+///[`vkCmdCopyImageToBuffer2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImageToBuffer2.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyImageToBuffer2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_image_to_buffer_info: *const CopyImageToBufferInfo2,
     ),
 >;
+///[`vkCmdResolveImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResolveImage2.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdResolveImage2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_resolve_image_info: *const ResolveImageInfo2,
     ),
 >;
+///[`vkCmdRefreshObjectsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdRefreshObjectsKHR.html)
+/**
+Provided by **VK_KHR_object_refresh**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdRefreshObjectsKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_refresh_objects: *const RefreshObjectListKHR,
     ),
 >;
+///[`vkGetPhysicalDeviceRefreshableObjectTypesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceRefreshableObjectTypesKHR.html)
+/**
+Provided by **VK_KHR_object_refresh**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceRefreshableObjectTypesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3669,6 +8055,12 @@ pub type PFN_vkGetPhysicalDeviceRefreshableObjectTypesKHR = Option<
         p_refreshable_object_types: *mut ObjectType,
     ) -> Result,
 >;
+///[`vkCmdSetFragmentShadingRateKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFragmentShadingRateKHR.html)
+/**
+Provided by **VK_KHR_fragment_shading_rate**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetFragmentShadingRateKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3676,6 +8068,18 @@ pub type PFN_vkCmdSetFragmentShadingRateKHR = Option<
         combiner_ops: FragmentShadingRateCombinerOpKHR,
     ),
 >;
+///[`vkGetPhysicalDeviceFragmentShadingRatesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFragmentShadingRatesKHR.html)
+/**
+Provided by **VK_KHR_fragment_shading_rate**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3683,6 +8087,12 @@ pub type PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR = Option<
         p_fragment_shading_rates: *mut PhysicalDeviceFragmentShadingRateKHR,
     ) -> Result,
 >;
+///[`vkCmdSetFragmentShadingRateEnumNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFragmentShadingRateEnumNV.html)
+/**
+Provided by **VK_NV_fragment_shading_rate_enums**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetFragmentShadingRateEnumNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3690,6 +8100,9 @@ pub type PFN_vkCmdSetFragmentShadingRateEnumNV = Option<
         combiner_ops: FragmentShadingRateCombinerOpKHR,
     ),
 >;
+///[`vkGetAccelerationStructureBuildSizesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureBuildSizesKHR.html)
+/**
+Provided by **VK_KHR_acceleration_structure**.*/
 pub type PFN_vkGetAccelerationStructureBuildSizesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3699,6 +8112,12 @@ pub type PFN_vkGetAccelerationStructureBuildSizesKHR = Option<
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ),
 >;
+///[`vkCmdSetVertexInputEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetVertexInputEXT.html)
+/**
+Provided by **VK_EXT_vertex_input_dynamic_state**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetVertexInputEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3708,6 +8127,12 @@ pub type PFN_vkCmdSetVertexInputEXT = Option<
         p_vertex_attribute_descriptions: *const VertexInputAttributeDescription2EXT,
     ),
 >;
+///[`vkCmdSetColorWriteEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorWriteEnableEXT.html)
+/**
+Provided by **VK_EXT_color_write_enable**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetColorWriteEnableEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3715,6 +8140,12 @@ pub type PFN_vkCmdSetColorWriteEnableEXT = Option<
         p_color_write_enables: *const u32,
     ),
 >;
+///[`vkCmdSetEvent2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetEvent2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3722,6 +8153,12 @@ pub type PFN_vkCmdSetEvent2 = Option<
         p_dependency_info: *const DependencyInfo,
     ),
 >;
+///[`vkCmdResetEvent2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetEvent2.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdResetEvent2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3729,6 +8166,12 @@ pub type PFN_vkCmdResetEvent2 = Option<
         stage_mask: PipelineStageFlags2,
     ),
 >;
+///[`vkCmdWaitEvents2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents2.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWaitEvents2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3737,12 +8180,35 @@ pub type PFN_vkCmdWaitEvents2 = Option<
         p_dependency_infos: *const DependencyInfo,
     ),
 >;
+///[`vkCmdPipelineBarrier2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPipelineBarrier2.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPipelineBarrier2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_dependency_info: *const DependencyInfo,
     ),
 >;
+///[`vkQueueSubmit2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSubmit2.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `queue` must be externally synchronized
+///- `fence` must be externally synchronized
 pub type PFN_vkQueueSubmit2 = Option<
     unsafe extern "system" fn(
         queue: Queue,
@@ -3751,6 +8217,12 @@ pub type PFN_vkQueueSubmit2 = Option<
         fence: Fence,
     ) -> Result,
 >;
+///[`vkCmdWriteTimestamp2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteTimestamp2.html)
+/**
+Provided by **VK_BASE_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteTimestamp2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3759,6 +8231,12 @@ pub type PFN_vkCmdWriteTimestamp2 = Option<
         query: u32,
     ),
 >;
+///[`vkCmdWriteBufferMarker2AMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteBufferMarker2AMD.html)
+/**
+Provided by **VK_AMD_buffer_marker**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteBufferMarker2AMD = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3768,6 +8246,9 @@ pub type PFN_vkCmdWriteBufferMarker2AMD = Option<
         marker: u32,
     ),
 >;
+///[`vkGetQueueCheckpointData2NV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetQueueCheckpointData2NV.html)
+/**
+Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 pub type PFN_vkGetQueueCheckpointData2NV = Option<
     unsafe extern "system" fn(
         queue: Queue,
@@ -3775,24 +8256,80 @@ pub type PFN_vkGetQueueCheckpointData2NV = Option<
         p_checkpoint_data: *mut CheckpointData2NV,
     ),
 >;
+///[`vkCopyMemoryToImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToImage.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_MEMORY_MAP_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyMemoryToImage = Option<
     unsafe extern "system" fn(
         device: Device,
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
     ) -> Result,
 >;
+///[`vkCopyImageToMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyImageToMemory.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_MEMORY_MAP_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyImageToMemory = Option<
     unsafe extern "system" fn(
         device: Device,
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
     ) -> Result,
 >;
+///[`vkCopyImageToImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyImageToImage.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_MEMORY_MAP_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyImageToImage = Option<
     unsafe extern "system" fn(
         device: Device,
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
     ) -> Result,
 >;
+///[`vkTransitionImageLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTransitionImageLayout.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_MEMORY_MAP_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkTransitionImageLayout = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3800,6 +8337,13 @@ pub type PFN_vkTransitionImageLayout = Option<
         p_transitions: *const HostImageLayoutTransitionInfo,
     ) -> Result,
 >;
+///[`vkGetCommandPoolMemoryConsumption`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetCommandPoolMemoryConsumption.html)
+/**
+Provided by **VKSC_VERSION_1_0**.*/
+///
+///# Thread Safety
+///- `commandPool` must be externally synchronized
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkGetCommandPoolMemoryConsumption = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3808,6 +8352,22 @@ pub type PFN_vkGetCommandPoolMemoryConsumption = Option<
         p_consumption: *mut CommandPoolMemoryConsumption,
     ),
 >;
+///[`vkGetPhysicalDeviceVideoCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoCapabilitiesKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3815,6 +8375,24 @@ pub type PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR = Option<
         p_capabilities: *mut VideoCapabilitiesKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceVideoFormatPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3823,6 +8401,22 @@ pub type PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR = Option<
         p_video_format_properties: *mut VideoFormatPropertiesKHR,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR.html)
+/**
+Provided by **VK_KHR_video_encode_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -3830,6 +8424,21 @@ pub type PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR = Option<
         p_quality_level_properties: *mut VideoEncodeQualityLevelPropertiesKHR,
     ) -> Result,
 >;
+///[`vkCreateVideoSessionKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateVideoSessionKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR`
+///- `VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateVideoSessionKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3838,6 +8447,12 @@ pub type PFN_vkCreateVideoSessionKHR = Option<
         p_video_session: *mut VideoSessionKHR,
     ) -> Result,
 >;
+///[`vkDestroyVideoSessionKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyVideoSessionKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Thread Safety
+///- `videoSession` must be externally synchronized
 pub type PFN_vkDestroyVideoSessionKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3845,6 +8460,20 @@ pub type PFN_vkDestroyVideoSessionKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateVideoSessionParametersKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateVideoSessionParametersKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3853,6 +8482,19 @@ pub type PFN_vkCreateVideoSessionParametersKHR = Option<
         p_video_session_parameters: *mut VideoSessionParametersKHR,
     ) -> Result,
 >;
+///[`vkUpdateVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateVideoSessionParametersKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkUpdateVideoSessionParametersKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3860,6 +8502,19 @@ pub type PFN_vkUpdateVideoSessionParametersKHR = Option<
         p_update_info: *const VideoSessionParametersUpdateInfoKHR,
     ) -> Result,
 >;
+///[`vkGetEncodedVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetEncodedVideoSessionParametersKHR.html)
+/**
+Provided by **VK_KHR_video_encode_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetEncodedVideoSessionParametersKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3869,6 +8524,12 @@ pub type PFN_vkGetEncodedVideoSessionParametersKHR = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkDestroyVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyVideoSessionParametersKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Thread Safety
+///- `videoSessionParameters` must be externally synchronized
 pub type PFN_vkDestroyVideoSessionParametersKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3876,6 +8537,17 @@ pub type PFN_vkDestroyVideoSessionParametersKHR = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetVideoSessionMemoryRequirementsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetVideoSessionMemoryRequirementsKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetVideoSessionMemoryRequirementsKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3884,6 +8556,21 @@ pub type PFN_vkGetVideoSessionMemoryRequirementsKHR = Option<
         p_memory_requirements: *mut VideoSessionMemoryRequirementsKHR,
     ) -> Result,
 >;
+///[`vkBindVideoSessionMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindVideoSessionMemoryKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `videoSession` must be externally synchronized
 pub type PFN_vkBindVideoSessionMemoryKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3892,36 +8579,72 @@ pub type PFN_vkBindVideoSessionMemoryKHR = Option<
         p_bind_session_memory_infos: *const BindVideoSessionMemoryInfoKHR,
     ) -> Result,
 >;
+///[`vkCmdDecodeVideoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecodeVideoKHR.html)
+/**
+Provided by **VK_KHR_video_decode_queue**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDecodeVideoKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_decode_info: *const VideoDecodeInfoKHR,
     ),
 >;
+///[`vkCmdBeginVideoCodingKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginVideoCodingKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginVideoCodingKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_begin_info: *const VideoBeginCodingInfoKHR,
     ),
 >;
+///[`vkCmdControlVideoCodingKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdControlVideoCodingKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdControlVideoCodingKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_coding_control_info: *const VideoCodingControlInfoKHR,
     ),
 >;
+///[`vkCmdEndVideoCodingKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndVideoCodingKHR.html)
+/**
+Provided by **VK_KHR_video_queue**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndVideoCodingKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_end_coding_info: *const VideoEndCodingInfoKHR,
     ),
 >;
+///[`vkCmdEncodeVideoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEncodeVideoKHR.html)
+/**
+Provided by **VK_KHR_video_encode_queue**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEncodeVideoKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_encode_info: *const VideoEncodeInfoKHR,
     ),
 >;
+///[`vkCmdDecompressMemoryNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryNV.html)
+/**
+Provided by **VK_NV_memory_decompression**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDecompressMemoryNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3929,6 +8652,12 @@ pub type PFN_vkCmdDecompressMemoryNV = Option<
         p_decompress_memory_regions: *const DecompressMemoryRegionNV,
     ),
 >;
+///[`vkCmdDecompressMemoryIndirectCountNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryIndirectCountNV.html)
+/**
+Provided by **VK_NV_memory_decompression**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDecompressMemoryIndirectCountNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3937,6 +8666,9 @@ pub type PFN_vkCmdDecompressMemoryIndirectCountNV = Option<
         stride: u32,
     ),
 >;
+///[`vkGetPartitionedAccelerationStructuresBuildSizesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html)
+/**
+Provided by **VK_NV_partitioned_acceleration_structure**.*/
 pub type PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3944,18 +8676,36 @@ pub type PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV = Option<
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ),
 >;
+///[`vkCmdBuildPartitionedAccelerationStructuresNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildPartitionedAccelerationStructuresNV.html)
+/**
+Provided by **VK_NV_partitioned_acceleration_structure**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBuildPartitionedAccelerationStructuresNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_build_info: *const BuildPartitionedAccelerationStructureInfoNV,
     ),
 >;
+///[`vkCmdDecompressMemoryEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryEXT.html)
+/**
+Provided by **VK_EXT_memory_decompression**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDecompressMemoryEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_decompress_memory_info_ext: *const DecompressMemoryInfoEXT,
     ),
 >;
+///[`vkCmdDecompressMemoryIndirectCountEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryIndirectCountEXT.html)
+/**
+Provided by **VK_EXT_memory_decompression**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDecompressMemoryIndirectCountEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -3966,6 +8716,18 @@ pub type PFN_vkCmdDecompressMemoryIndirectCountEXT = Option<
         stride: u32,
     ),
 >;
+///[`vkCreateCuModuleNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCuModuleNVX.html)
+/**
+Provided by **VK_NVX_binary_import**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateCuModuleNVX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3974,6 +8736,18 @@ pub type PFN_vkCreateCuModuleNVX = Option<
         p_module: *mut CuModuleNVX,
     ) -> Result,
 >;
+///[`vkCreateCuFunctionNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCuFunctionNVX.html)
+/**
+Provided by **VK_NVX_binary_import**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateCuFunctionNVX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3982,6 +8756,9 @@ pub type PFN_vkCreateCuFunctionNVX = Option<
         p_function: *mut CuFunctionNVX,
     ) -> Result,
 >;
+///[`vkDestroyCuModuleNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCuModuleNVX.html)
+/**
+Provided by **VK_NVX_binary_import**.*/
 pub type PFN_vkDestroyCuModuleNVX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3989,6 +8766,9 @@ pub type PFN_vkDestroyCuModuleNVX = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkDestroyCuFunctionNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCuFunctionNVX.html)
+/**
+Provided by **VK_NVX_binary_import**.*/
 pub type PFN_vkDestroyCuFunctionNVX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -3996,12 +8776,18 @@ pub type PFN_vkDestroyCuFunctionNVX = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCmdCuLaunchKernelNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCuLaunchKernelNVX.html)
+/**
+Provided by **VK_NVX_binary_import**.*/
 pub type PFN_vkCmdCuLaunchKernelNVX = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_launch_info: *const CuLaunchInfoNVX,
     ),
 >;
+///[`vkGetDescriptorSetLayoutSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutSizeEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
 pub type PFN_vkGetDescriptorSetLayoutSizeEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4009,6 +8795,9 @@ pub type PFN_vkGetDescriptorSetLayoutSizeEXT = Option<
         p_layout_size_in_bytes: *mut u64,
     ),
 >;
+///[`vkGetDescriptorSetLayoutBindingOffsetEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutBindingOffsetEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
 pub type PFN_vkGetDescriptorSetLayoutBindingOffsetEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4017,6 +8806,9 @@ pub type PFN_vkGetDescriptorSetLayoutBindingOffsetEXT = Option<
         p_offset: *mut u64,
     ),
 >;
+///[`vkGetDescriptorEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
 pub type PFN_vkGetDescriptorEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4025,6 +8817,12 @@ pub type PFN_vkGetDescriptorEXT = Option<
         p_descriptor: *mut core::ffi::c_void,
     ),
 >;
+///[`vkCmdBindDescriptorBuffersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBuffersEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindDescriptorBuffersEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4032,6 +8830,12 @@ pub type PFN_vkCmdBindDescriptorBuffersEXT = Option<
         p_binding_infos: *const DescriptorBufferBindingInfoEXT,
     ),
 >;
+///[`vkCmdSetDescriptorBufferOffsetsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDescriptorBufferOffsetsEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDescriptorBufferOffsetsEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4043,6 +8847,12 @@ pub type PFN_vkCmdSetDescriptorBufferOffsetsEXT = Option<
         p_offsets: *const u64,
     ),
 >;
+///[`vkCmdBindDescriptorBufferEmbeddedSamplersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBufferEmbeddedSamplersEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4051,6 +8861,18 @@ pub type PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT = Option<
         set: u32,
     ),
 >;
+///[`vkGetBufferOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferOpaqueCaptureDescriptorDataEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4058,6 +8880,18 @@ pub type PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetImageOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageOpaqueCaptureDescriptorDataEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetImageOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4065,6 +8899,18 @@ pub type PFN_vkGetImageOpaqueCaptureDescriptorDataEXT = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetImageViewOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4072,6 +8918,18 @@ pub type PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetSamplerOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSamplerOpaqueCaptureDescriptorDataEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4079,6 +8937,18 @@ pub type PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT.html)
+/**
+Provided by **VK_EXT_descriptor_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4086,9 +8956,23 @@ pub type PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkSetDeviceMemoryPriorityEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetDeviceMemoryPriorityEXT.html)
+/**
+Provided by **VK_EXT_pageable_device_local_memory**.*/
 pub type PFN_vkSetDeviceMemoryPriorityEXT = Option<
     unsafe extern "system" fn(device: Device, memory: DeviceMemory, priority: f32),
 >;
+///[`vkAcquireDrmDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireDrmDisplayEXT.html)
+/**
+Provided by **VK_EXT_acquire_drm_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquireDrmDisplayEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4096,6 +8980,18 @@ pub type PFN_vkAcquireDrmDisplayEXT = Option<
         display: DisplayKHR,
     ) -> Result,
 >;
+///[`vkGetDrmDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDrmDisplayEXT.html)
+/**
+Provided by **VK_EXT_acquire_drm_display**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDrmDisplayEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4104,6 +9000,27 @@ pub type PFN_vkGetDrmDisplayEXT = Option<
         display: *mut DisplayKHR,
     ) -> Result,
 >;
+///[`vkWaitForPresent2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitForPresent2KHR.html)
+/**
+Provided by **VK_KHR_present_wait2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_TIMEOUT`
+///- `VK_SUBOPTIMAL_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkWaitForPresent2KHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4111,6 +9028,27 @@ pub type PFN_vkWaitForPresent2KHR = Option<
         p_present_wait2_info: *const PresentWait2InfoKHR,
     ) -> Result,
 >;
+///[`vkWaitForPresentKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitForPresentKHR.html)
+/**
+Provided by **VK_KHR_present_wait**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_TIMEOUT`
+///- `VK_SUBOPTIMAL_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkWaitForPresentKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4119,6 +9057,19 @@ pub type PFN_vkWaitForPresentKHR = Option<
         timeout: u64,
     ) -> Result,
 >;
+///[`vkCreateBufferCollectionFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateBufferCollectionFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_buffer_collection**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateBufferCollectionFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4127,6 +9078,19 @@ pub type PFN_vkCreateBufferCollectionFUCHSIA = Option<
         p_collection: *mut BufferCollectionFUCHSIA,
     ) -> Result,
 >;
+///[`vkSetBufferCollectionBufferConstraintsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetBufferCollectionBufferConstraintsFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_buffer_collection**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkSetBufferCollectionBufferConstraintsFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4134,6 +9098,19 @@ pub type PFN_vkSetBufferCollectionBufferConstraintsFUCHSIA = Option<
         p_buffer_constraints_info: *const BufferConstraintsInfoFUCHSIA,
     ) -> Result,
 >;
+///[`vkSetBufferCollectionImageConstraintsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetBufferCollectionImageConstraintsFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_buffer_collection**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkSetBufferCollectionImageConstraintsFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4141,6 +9118,9 @@ pub type PFN_vkSetBufferCollectionImageConstraintsFUCHSIA = Option<
         p_image_constraints_info: *const ImageConstraintsInfoFUCHSIA,
     ) -> Result,
 >;
+///[`vkDestroyBufferCollectionFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyBufferCollectionFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub type PFN_vkDestroyBufferCollectionFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4148,6 +9128,18 @@ pub type PFN_vkDestroyBufferCollectionFUCHSIA = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetBufferCollectionPropertiesFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferCollectionPropertiesFUCHSIA.html)
+/**
+Provided by **VK_FUCHSIA_buffer_collection**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetBufferCollectionPropertiesFUCHSIA = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4155,6 +9147,18 @@ pub type PFN_vkGetBufferCollectionPropertiesFUCHSIA = Option<
         p_properties: *mut BufferCollectionPropertiesFUCHSIA,
     ) -> Result,
 >;
+///[`vkCreateCudaModuleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCudaModuleNV.html)
+/**
+Provided by **VK_NV_cuda_kernel_launch**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateCudaModuleNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4163,6 +9167,18 @@ pub type PFN_vkCreateCudaModuleNV = Option<
         p_module: *mut CudaModuleNV,
     ) -> Result,
 >;
+///[`vkGetCudaModuleCacheNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetCudaModuleCacheNV.html)
+/**
+Provided by **VK_NV_cuda_kernel_launch**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetCudaModuleCacheNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4171,6 +9187,18 @@ pub type PFN_vkGetCudaModuleCacheNV = Option<
         p_cache_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkCreateCudaFunctionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCudaFunctionNV.html)
+/**
+Provided by **VK_NV_cuda_kernel_launch**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateCudaFunctionNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4179,6 +9207,9 @@ pub type PFN_vkCreateCudaFunctionNV = Option<
         p_function: *mut CudaFunctionNV,
     ) -> Result,
 >;
+///[`vkDestroyCudaModuleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCudaModuleNV.html)
+/**
+Provided by **VK_NV_cuda_kernel_launch**.*/
 pub type PFN_vkDestroyCudaModuleNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4186,6 +9217,9 @@ pub type PFN_vkDestroyCudaModuleNV = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkDestroyCudaFunctionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCudaFunctionNV.html)
+/**
+Provided by **VK_NV_cuda_kernel_launch**.*/
 pub type PFN_vkDestroyCudaFunctionNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4193,27 +9227,51 @@ pub type PFN_vkDestroyCudaFunctionNV = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCmdCudaLaunchKernelNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCudaLaunchKernelNV.html)
+/**
+Provided by **VK_NV_cuda_kernel_launch**.*/
 pub type PFN_vkCmdCudaLaunchKernelNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_launch_info: *const CudaLaunchInfoNV,
     ),
 >;
+///[`vkCmdBeginRendering`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginRendering = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_rendering_info: *const RenderingInfo,
     ),
 >;
+///[`vkCmdEndRendering`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRendering.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndRendering = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer),
 >;
+///[`vkCmdEndRendering2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRendering2KHR.html)
+/**
+Provided by **VK_KHR_maintenance10**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndRendering2KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_rendering_end_info: *const RenderingEndInfoKHR,
     ),
 >;
+///[`vkGetDescriptorSetLayoutHostMappingInfoVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutHostMappingInfoVALVE.html)
+/**
+Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
 pub type PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4221,6 +9279,9 @@ pub type PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE = Option<
         p_host_mapping: *mut DescriptorSetLayoutHostMappingInfoVALVE,
     ),
 >;
+///[`vkGetDescriptorSetHostMappingVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetHostMappingVALVE.html)
+/**
+Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
 pub type PFN_vkGetDescriptorSetHostMappingVALVE = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4228,6 +9289,18 @@ pub type PFN_vkGetDescriptorSetHostMappingVALVE = Option<
         pp_data: *mut *mut core::ffi::c_void,
     ),
 >;
+///[`vkCreateMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMicromapEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateMicromapEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4236,6 +9309,12 @@ pub type PFN_vkCreateMicromapEXT = Option<
         p_micromap: *mut MicromapEXT,
     ) -> Result,
 >;
+///[`vkCmdBuildMicromapsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildMicromapsEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBuildMicromapsEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4243,6 +9322,20 @@ pub type PFN_vkCmdBuildMicromapsEXT = Option<
         p_infos: *const MicromapBuildInfoEXT,
     ),
 >;
+///[`vkBuildMicromapsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBuildMicromapsEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBuildMicromapsEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4251,6 +9344,12 @@ pub type PFN_vkBuildMicromapsEXT = Option<
         p_infos: *const MicromapBuildInfoEXT,
     ) -> Result,
 >;
+///[`vkDestroyMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyMicromapEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Thread Safety
+///- `micromap` must be externally synchronized
 pub type PFN_vkDestroyMicromapEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4258,12 +9357,32 @@ pub type PFN_vkDestroyMicromapEXT = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCmdCopyMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMicromapEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const CopyMicromapInfoEXT,
     ),
 >;
+///[`vkCopyMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyMicromapEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4271,12 +9390,32 @@ pub type PFN_vkCopyMicromapEXT = Option<
         p_info: *const CopyMicromapInfoEXT,
     ) -> Result,
 >;
+///[`vkCmdCopyMicromapToMemoryEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapToMemoryEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMicromapToMemoryEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ),
 >;
+///[`vkCopyMicromapToMemoryEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapToMemoryEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyMicromapToMemoryEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4284,12 +9423,32 @@ pub type PFN_vkCopyMicromapToMemoryEXT = Option<
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) -> Result,
 >;
+///[`vkCmdCopyMemoryToMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToMicromapEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryToMicromapEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ),
 >;
+///[`vkCopyMemoryToMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToMicromapEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_OPERATION_DEFERRED_KHR`
+///- `VK_OPERATION_NOT_DEFERRED_KHR`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCopyMemoryToMicromapEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4297,6 +9456,12 @@ pub type PFN_vkCopyMemoryToMicromapEXT = Option<
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) -> Result,
 >;
+///[`vkCmdWriteMicromapsPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteMicromapsPropertiesEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteMicromapsPropertiesEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4307,6 +9472,18 @@ pub type PFN_vkCmdWriteMicromapsPropertiesEXT = Option<
         first_query: u32,
     ),
 >;
+///[`vkWriteMicromapsPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteMicromapsPropertiesEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkWriteMicromapsPropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4318,6 +9495,9 @@ pub type PFN_vkWriteMicromapsPropertiesEXT = Option<
         stride: usize,
     ) -> Result,
 >;
+///[`vkGetDeviceMicromapCompatibilityEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMicromapCompatibilityEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
 pub type PFN_vkGetDeviceMicromapCompatibilityEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4325,6 +9505,9 @@ pub type PFN_vkGetDeviceMicromapCompatibilityEXT = Option<
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ),
 >;
+///[`vkGetMicromapBuildSizesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMicromapBuildSizesEXT.html)
+/**
+Provided by **VK_EXT_opacity_micromap**.*/
 pub type PFN_vkGetMicromapBuildSizesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4333,6 +9516,9 @@ pub type PFN_vkGetMicromapBuildSizesEXT = Option<
         p_size_info: *mut MicromapBuildSizesInfoEXT,
     ),
 >;
+///[`vkGetShaderModuleIdentifierEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderModuleIdentifierEXT.html)
+/**
+Provided by **VK_EXT_shader_module_identifier**.*/
 pub type PFN_vkGetShaderModuleIdentifierEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4340,6 +9526,9 @@ pub type PFN_vkGetShaderModuleIdentifierEXT = Option<
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ),
 >;
+///[`vkGetShaderModuleCreateInfoIdentifierEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderModuleCreateInfoIdentifierEXT.html)
+/**
+Provided by **VK_EXT_shader_module_identifier**.*/
 pub type PFN_vkGetShaderModuleCreateInfoIdentifierEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4347,6 +9536,9 @@ pub type PFN_vkGetShaderModuleCreateInfoIdentifierEXT = Option<
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ),
 >;
+///[`vkGetImageSubresourceLayout2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSubresourceLayout2.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
 pub type PFN_vkGetImageSubresourceLayout2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4355,6 +9547,17 @@ pub type PFN_vkGetImageSubresourceLayout2 = Option<
         p_layout: *mut SubresourceLayout2,
     ),
 >;
+///[`vkGetPipelinePropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelinePropertiesEXT.html)
+/**
+Provided by **VK_EXT_pipeline_properties**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPipelinePropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4362,18 +9565,38 @@ pub type PFN_vkGetPipelinePropertiesEXT = Option<
         p_pipeline_properties: *mut BaseOutStructure,
     ) -> Result,
 >;
+///[`vkExportMetalObjectsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkExportMetalObjectsEXT.html)
+/**
+Provided by **VK_EXT_metal_objects**.*/
 pub type PFN_vkExportMetalObjectsEXT = Option<
     unsafe extern "system" fn(
         device: Device,
         p_metal_objects_info: *mut ExportMetalObjectsInfoEXT,
     ),
 >;
+///[`vkCmdBindTileMemoryQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindTileMemoryQCOM.html)
+/**
+Provided by **VK_QCOM_tile_memory_heap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindTileMemoryQCOM = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_tile_memory_bind_info: *const TileMemoryBindInfoQCOM,
     ),
 >;
+///[`vkGetFramebufferTilePropertiesQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFramebufferTilePropertiesQCOM.html)
+/**
+Provided by **VK_QCOM_tile_properties**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetFramebufferTilePropertiesQCOM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4382,6 +9605,16 @@ pub type PFN_vkGetFramebufferTilePropertiesQCOM = Option<
         p_properties: *mut TilePropertiesQCOM,
     ) -> Result,
 >;
+///[`vkGetDynamicRenderingTilePropertiesQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDynamicRenderingTilePropertiesQCOM.html)
+/**
+Provided by **VK_QCOM_tile_properties**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDynamicRenderingTilePropertiesQCOM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4389,6 +9622,20 @@ pub type PFN_vkGetDynamicRenderingTilePropertiesQCOM = Option<
         p_properties: *mut TilePropertiesQCOM,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceOpticalFlowImageFormatsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html)
+/**
+Provided by **VK_NV_optical_flow**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_EXTENSION_NOT_PRESENT`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_FORMAT_NOT_SUPPORTED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4397,6 +9644,18 @@ pub type PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV = Option<
         p_image_format_properties: *mut OpticalFlowImageFormatPropertiesNV,
     ) -> Result,
 >;
+///[`vkCreateOpticalFlowSessionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateOpticalFlowSessionNV.html)
+/**
+Provided by **VK_NV_optical_flow**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateOpticalFlowSessionNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4405,6 +9664,9 @@ pub type PFN_vkCreateOpticalFlowSessionNV = Option<
         p_session: *mut OpticalFlowSessionNV,
     ) -> Result,
 >;
+///[`vkDestroyOpticalFlowSessionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyOpticalFlowSessionNV.html)
+/**
+Provided by **VK_NV_optical_flow**.*/
 pub type PFN_vkDestroyOpticalFlowSessionNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4412,6 +9674,18 @@ pub type PFN_vkDestroyOpticalFlowSessionNV = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkBindOpticalFlowSessionImageNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindOpticalFlowSessionImageNV.html)
+/**
+Provided by **VK_NV_optical_flow**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBindOpticalFlowSessionImageNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4421,6 +9695,9 @@ pub type PFN_vkBindOpticalFlowSessionImageNV = Option<
         layout: ImageLayout,
     ) -> Result,
 >;
+///[`vkCmdOpticalFlowExecuteNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdOpticalFlowExecuteNV.html)
+/**
+Provided by **VK_NV_optical_flow**.*/
 pub type PFN_vkCmdOpticalFlowExecuteNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4428,6 +9705,18 @@ pub type PFN_vkCmdOpticalFlowExecuteNV = Option<
         p_execute_info: *const OpticalFlowExecuteInfoNV,
     ),
 >;
+///[`vkGetDeviceFaultInfoEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceFaultInfoEXT.html)
+/**
+Provided by **VK_EXT_device_fault**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDeviceFaultInfoEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4435,6 +9724,19 @@ pub type PFN_vkGetDeviceFaultInfoEXT = Option<
         p_fault_info: *mut DeviceFaultInfoEXT,
     ) -> Result,
 >;
+///[`vkGetDeviceFaultReportsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceFaultReportsKHR.html)
+/**
+Provided by **VK_KHR_device_fault**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///- `VK_TIMEOUT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDeviceFaultReportsKHR = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4443,24 +9745,57 @@ pub type PFN_vkGetDeviceFaultReportsKHR = Option<
         p_fault_info: *mut DeviceFaultInfoKHR,
     ) -> Result,
 >;
+///[`vkGetDeviceFaultDebugInfoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceFaultDebugInfoKHR.html)
+/**
+Provided by **VK_KHR_device_fault**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_NOT_ENOUGH_SPACE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDeviceFaultDebugInfoKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_debug_info: *mut DeviceFaultDebugInfoKHR,
     ) -> Result,
 >;
+///[`vkCmdSetDepthBias2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBias2EXT.html)
+/**
+Provided by **VK_EXT_depth_bias_control**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthBias2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_depth_bias_info: *const DepthBiasInfoEXT,
     ),
 >;
+///[`vkReleaseSwapchainImagesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseSwapchainImagesKHR.html)
+/**
+Provided by **VK_KHR_swapchain_maintenance1**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkReleaseSwapchainImagesKHR = Option<
     unsafe extern "system" fn(
         device: Device,
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
     ) -> Result,
 >;
+///[`vkGetDeviceImageSubresourceLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceImageSubresourceLayout.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
 pub type PFN_vkGetDeviceImageSubresourceLayout = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4468,6 +9803,19 @@ pub type PFN_vkGetDeviceImageSubresourceLayout = Option<
         p_layout: *mut SubresourceLayout2,
     ),
 >;
+///[`vkMapMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory2.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_MEMORY_MAP_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkMapMemory2 = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4475,12 +9823,37 @@ pub type PFN_vkMapMemory2 = Option<
         pp_data: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkUnmapMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory2.html)
+/**
+Provided by **VK_BASE_VERSION_1_4**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_MEMORY_MAP_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkUnmapMemory2 = Option<
     unsafe extern "system" fn(
         device: Device,
         p_memory_unmap_info: *const MemoryUnmapInfo,
     ) -> Result,
 >;
+///[`vkCreateShadersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShadersEXT.html)
+/**
+Provided by **VK_EXT_shader_object**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPATIBLE_SHADER_BINARY_EXT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateShadersEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4490,6 +9863,12 @@ pub type PFN_vkCreateShadersEXT = Option<
         p_shaders: *mut ShaderEXT,
     ) -> Result,
 >;
+///[`vkDestroyShaderEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderEXT.html)
+/**
+Provided by **VK_EXT_shader_object**.*/
+///
+///# Thread Safety
+///- `shader` must be externally synchronized
 pub type PFN_vkDestroyShaderEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4497,6 +9876,19 @@ pub type PFN_vkDestroyShaderEXT = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetShaderBinaryDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderBinaryDataEXT.html)
+/**
+Provided by **VK_EXT_shader_object**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetShaderBinaryDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4505,6 +9897,12 @@ pub type PFN_vkGetShaderBinaryDataEXT = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkCmdBindShadersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindShadersEXT.html)
+/**
+Provided by **VK_EXT_shader_object**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindShadersEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4513,6 +9911,22 @@ pub type PFN_vkCmdBindShadersEXT = Option<
         p_shaders: *const ShaderEXT,
     ),
 >;
+///[`vkSetSwapchainPresentTimingQueueSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetSwapchainPresentTimingQueueSizeEXT.html)
+/**
+Provided by **VK_EXT_present_timing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_NOT_READY`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkSetSwapchainPresentTimingQueueSizeEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4520,6 +9934,23 @@ pub type PFN_vkSetSwapchainPresentTimingQueueSizeEXT = Option<
         size: u32,
     ) -> Result,
 >;
+///[`vkGetSwapchainTimingPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainTimingPropertiesEXT.html)
+/**
+Provided by **VK_EXT_present_timing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_NOT_READY`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkGetSwapchainTimingPropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4528,6 +9959,23 @@ pub type PFN_vkGetSwapchainTimingPropertiesEXT = Option<
         p_swapchain_timing_properties_counter: *mut u64,
     ) -> Result,
 >;
+///[`vkGetSwapchainTimeDomainPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainTimeDomainPropertiesEXT.html)
+/**
+Provided by **VK_EXT_present_timing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `swapchain` must be externally synchronized
 pub type PFN_vkGetSwapchainTimeDomainPropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4536,6 +9984,20 @@ pub type PFN_vkGetSwapchainTimeDomainPropertiesEXT = Option<
         p_time_domains_counter: *mut u64,
     ) -> Result,
 >;
+///[`vkGetPastPresentationTimingEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPastPresentationTimingEXT.html)
+/**
+Provided by **VK_EXT_present_timing**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_DEVICE_LOST`
+///- `VK_ERROR_OUT_OF_DATE_KHR`
+///- `VK_ERROR_SURFACE_LOST_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPastPresentationTimingEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4543,6 +10005,18 @@ pub type PFN_vkGetPastPresentationTimingEXT = Option<
         p_past_presentation_timing_properties: *mut PastPresentationTimingPropertiesEXT,
     ) -> Result,
 >;
+///[`vkGetScreenBufferPropertiesQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetScreenBufferPropertiesQNX.html)
+/**
+Provided by **VK_QNX_external_memory_screen_buffer**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetScreenBufferPropertiesQNX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4550,6 +10024,19 @@ pub type PFN_vkGetScreenBufferPropertiesQNX = Option<
         p_properties: *mut ScreenBufferPropertiesQNX,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html)
+/**
+Provided by **VK_KHR_cooperative_matrix**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4557,6 +10044,17 @@ pub type PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR = Option<
         p_properties: *mut CooperativeMatrixPropertiesKHR,
     ) -> Result,
 >;
+///[`vkGetExecutionGraphPipelineScratchSizeAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExecutionGraphPipelineScratchSizeAMDX.html)
+/**
+Provided by **VK_AMDX_shader_enqueue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetExecutionGraphPipelineScratchSizeAMDX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4564,6 +10062,17 @@ pub type PFN_vkGetExecutionGraphPipelineScratchSizeAMDX = Option<
         p_size_info: *mut ExecutionGraphPipelineScratchSizeAMDX,
     ) -> Result,
 >;
+///[`vkGetExecutionGraphPipelineNodeIndexAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExecutionGraphPipelineNodeIndexAMDX.html)
+/**
+Provided by **VK_AMDX_shader_enqueue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetExecutionGraphPipelineNodeIndexAMDX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4572,6 +10081,22 @@ pub type PFN_vkGetExecutionGraphPipelineNodeIndexAMDX = Option<
         p_node_index: *mut u32,
     ) -> Result,
 >;
+///[`vkCreateExecutionGraphPipelinesAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateExecutionGraphPipelinesAMDX.html)
+/**
+Provided by **VK_AMDX_shader_enqueue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_PIPELINE_COMPILE_REQUIRED_EXT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
+///
+///# Thread Safety
+///- `pipelineCache` must be externally synchronized
 pub type PFN_vkCreateExecutionGraphPipelinesAMDX = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4582,6 +10107,9 @@ pub type PFN_vkCreateExecutionGraphPipelinesAMDX = Option<
         p_pipelines: *mut Pipeline,
     ) -> Result,
 >;
+///[`vkCmdInitializeGraphScratchMemoryAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdInitializeGraphScratchMemoryAMDX.html)
+/**
+Provided by **VK_AMDX_shader_enqueue**.*/
 pub type PFN_vkCmdInitializeGraphScratchMemoryAMDX = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4590,6 +10118,9 @@ pub type PFN_vkCmdInitializeGraphScratchMemoryAMDX = Option<
         scratch_size: u64,
     ),
 >;
+///[`vkCmdDispatchGraphAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphAMDX.html)
+/**
+Provided by **VK_AMDX_shader_enqueue**.*/
 pub type PFN_vkCmdDispatchGraphAMDX = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4598,6 +10129,9 @@ pub type PFN_vkCmdDispatchGraphAMDX = Option<
         p_count_info: *const DispatchGraphCountInfoAMDX,
     ),
 >;
+///[`vkCmdDispatchGraphIndirectAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectAMDX.html)
+/**
+Provided by **VK_AMDX_shader_enqueue**.*/
 pub type PFN_vkCmdDispatchGraphIndirectAMDX = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4606,6 +10140,9 @@ pub type PFN_vkCmdDispatchGraphIndirectAMDX = Option<
         p_count_info: *const DispatchGraphCountInfoAMDX,
     ),
 >;
+///[`vkCmdDispatchGraphIndirectCountAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectCountAMDX.html)
+/**
+Provided by **VK_AMDX_shader_enqueue**.*/
 pub type PFN_vkCmdDispatchGraphIndirectCountAMDX = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4614,42 +10151,89 @@ pub type PFN_vkCmdDispatchGraphIndirectCountAMDX = Option<
         count_info: u64,
     ),
 >;
+///[`vkCmdBindDescriptorSets2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorSets2.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindDescriptorSets2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_bind_descriptor_sets_info: *const BindDescriptorSetsInfo,
     ),
 >;
+///[`vkCmdPushConstants2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushConstants2.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPushConstants2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_push_constants_info: *const PushConstantsInfo,
     ),
 >;
+///[`vkCmdPushDescriptorSet2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSet2.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPushDescriptorSet2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_push_descriptor_set_info: *const PushDescriptorSetInfo,
     ),
 >;
+///[`vkCmdPushDescriptorSetWithTemplate2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSetWithTemplate2.html)
+/**
+Provided by **VK_COMPUTE_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPushDescriptorSetWithTemplate2 = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_push_descriptor_set_with_template_info: *const PushDescriptorSetWithTemplateInfo,
     ),
 >;
+///[`vkCmdSetDescriptorBufferOffsets2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDescriptorBufferOffsets2EXT.html)
+/**
+Provided by **VK_KHR_maintenance6**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDescriptorBufferOffsets2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_set_descriptor_buffer_offsets_info: *const SetDescriptorBufferOffsetsInfoEXT,
     ),
 >;
+///[`vkCmdBindDescriptorBufferEmbeddedSamplers2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBufferEmbeddedSamplers2EXT.html)
+/**
+Provided by **VK_KHR_maintenance6**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_bind_descriptor_buffer_embedded_samplers_info: *const BindDescriptorBufferEmbeddedSamplersInfoEXT,
     ),
 >;
+///[`vkSetLatencySleepModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetLatencySleepModeNV.html)
+/**
+Provided by **VK_NV_low_latency2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkSetLatencySleepModeNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4657,6 +10241,16 @@ pub type PFN_vkSetLatencySleepModeNV = Option<
         p_sleep_mode_info: *const LatencySleepModeInfoNV,
     ) -> Result,
 >;
+///[`vkLatencySleepNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkLatencySleepNV.html)
+/**
+Provided by **VK_NV_low_latency2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkLatencySleepNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4664,6 +10258,9 @@ pub type PFN_vkLatencySleepNV = Option<
         p_sleep_info: *const LatencySleepInfoNV,
     ) -> Result,
 >;
+///[`vkSetLatencyMarkerNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetLatencyMarkerNV.html)
+/**
+Provided by **VK_NV_low_latency2**.*/
 pub type PFN_vkSetLatencyMarkerNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4671,6 +10268,9 @@ pub type PFN_vkSetLatencyMarkerNV = Option<
         p_latency_marker_info: *const SetLatencyMarkerInfoNV,
     ),
 >;
+///[`vkGetLatencyTimingsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetLatencyTimingsNV.html)
+/**
+Provided by **VK_NV_low_latency2**.*/
 pub type PFN_vkGetLatencyTimingsNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4678,24 +10278,45 @@ pub type PFN_vkGetLatencyTimingsNV = Option<
         p_latency_marker_info: *mut GetLatencyMarkerInfoNV,
     ),
 >;
+///[`vkQueueNotifyOutOfBandNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueNotifyOutOfBandNV.html)
+/**
+Provided by **VK_NV_low_latency2**.*/
 pub type PFN_vkQueueNotifyOutOfBandNV = Option<
     unsafe extern "system" fn(
         queue: Queue,
         p_queue_type_info: *const OutOfBandQueueTypeInfoNV,
     ),
 >;
+///[`vkCmdSetRenderingAttachmentLocations`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRenderingAttachmentLocations.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetRenderingAttachmentLocations = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_location_info: *const RenderingAttachmentLocationInfo,
     ),
 >;
+///[`vkCmdSetRenderingInputAttachmentIndices`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRenderingInputAttachmentIndices.html)
+/**
+Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetRenderingInputAttachmentIndices = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_input_attachment_index_info: *const RenderingInputAttachmentIndexInfo,
     ),
 >;
+///[`vkCmdSetDepthClampRangeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClampRangeEXT.html)
+/**
+Provided by **VK_EXT_shader_object**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdSetDepthClampRangeEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4703,6 +10324,19 @@ pub type PFN_vkCmdSetDepthClampRangeEXT = Option<
         p_depth_clamp_range: *const DepthClampRangeEXT,
     ),
 >;
+///[`vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV.html)
+/**
+Provided by **VK_NV_cooperative_matrix2**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4710,6 +10344,18 @@ pub type PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV 
         p_properties: *mut CooperativeMatrixFlexibleDimensionsPropertiesNV,
     ) -> Result,
 >;
+///[`vkGetMemoryMetalHandleEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryMetalHandleEXT.html)
+/**
+Provided by **VK_EXT_external_memory_metal**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryMetalHandleEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4717,6 +10363,18 @@ pub type PFN_vkGetMemoryMetalHandleEXT = Option<
         p_handle: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetMemoryMetalHandlePropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryMetalHandlePropertiesEXT.html)
+/**
+Provided by **VK_EXT_external_memory_metal**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryMetalHandlePropertiesEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4725,6 +10383,19 @@ pub type PFN_vkGetMemoryMetalHandlePropertiesEXT = Option<
         p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceCooperativeVectorPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html)
+/**
+Provided by **VK_NV_cooperative_vector**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4732,12 +10403,30 @@ pub type PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV = Option<
         p_properties: *mut CooperativeVectorPropertiesNV,
     ) -> Result,
 >;
+///[`vkConvertCooperativeVectorMatrixNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkConvertCooperativeVectorMatrixNV.html)
+/**
+Provided by **VK_NV_cooperative_vector**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkConvertCooperativeVectorMatrixNV = Option<
     unsafe extern "system" fn(
         device: Device,
         p_info: *const ConvertCooperativeVectorMatrixInfoNV,
     ) -> Result,
 >;
+///[`vkCmdConvertCooperativeVectorMatrixNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdConvertCooperativeVectorMatrixNV.html)
+/**
+Provided by **VK_NV_cooperative_vector**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdConvertCooperativeVectorMatrixNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4745,24 +10434,45 @@ pub type PFN_vkCmdConvertCooperativeVectorMatrixNV = Option<
         p_infos: *const ConvertCooperativeVectorMatrixInfoNV,
     ),
 >;
+///[`vkCmdDispatchTileQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchTileQCOM.html)
+/**
+Provided by **VK_QCOM_tile_shading**.*/
 pub type PFN_vkCmdDispatchTileQCOM = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_dispatch_tile_info: *const DispatchTileInfoQCOM,
     ),
 >;
+///[`vkCmdBeginPerTileExecutionQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginPerTileExecutionQCOM.html)
+/**
+Provided by **VK_QCOM_tile_shading**.*/
 pub type PFN_vkCmdBeginPerTileExecutionQCOM = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_per_tile_begin_info: *const PerTileBeginInfoQCOM,
     ),
 >;
+///[`vkCmdEndPerTileExecutionQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndPerTileExecutionQCOM.html)
+/**
+Provided by **VK_QCOM_tile_shading**.*/
 pub type PFN_vkCmdEndPerTileExecutionQCOM = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_per_tile_end_info: *const PerTileEndInfoQCOM,
     ),
 >;
+///[`vkCreateExternalComputeQueueNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateExternalComputeQueueNV.html)
+/**
+Provided by **VK_NV_external_compute_queue**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateExternalComputeQueueNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4771,6 +10481,9 @@ pub type PFN_vkCreateExternalComputeQueueNV = Option<
         p_external_queue: *mut ExternalComputeQueueNV,
     ) -> Result,
 >;
+///[`vkDestroyExternalComputeQueueNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyExternalComputeQueueNV.html)
+/**
+Provided by **VK_NV_external_compute_queue**.*/
 pub type PFN_vkDestroyExternalComputeQueueNV = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4778,6 +10491,9 @@ pub type PFN_vkDestroyExternalComputeQueueNV = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetExternalComputeQueueDataNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExternalComputeQueueDataNV.html)
+/**
+Provided by **VK_NV_external_compute_queue**.*/
 pub type PFN_vkGetExternalComputeQueueDataNV = Option<
     unsafe extern "system" fn(
         external_queue: ExternalComputeQueueNV,
@@ -4785,6 +10501,20 @@ pub type PFN_vkGetExternalComputeQueueDataNV = Option<
         p_data: *mut core::ffi::c_void,
     ),
 >;
+///[`vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM.html)
+/**
+Provided by **VK_ARM_shader_instrumentation**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4792,6 +10522,18 @@ pub type PFN_vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM = Option<
         p_descriptions: *mut ShaderInstrumentationMetricDescriptionARM,
     ) -> Result,
 >;
+///[`vkCreateShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShaderInstrumentationARM.html)
+/**
+Provided by **VK_ARM_shader_instrumentation**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateShaderInstrumentationARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4800,6 +10542,12 @@ pub type PFN_vkCreateShaderInstrumentationARM = Option<
         p_instrumentation: *mut ShaderInstrumentationARM,
     ) -> Result,
 >;
+///[`vkDestroyShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderInstrumentationARM.html)
+/**
+Provided by **VK_ARM_shader_instrumentation**.*/
+///
+///# Thread Safety
+///- `instrumentation` must be externally synchronized
 pub type PFN_vkDestroyShaderInstrumentationARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4807,15 +10555,41 @@ pub type PFN_vkDestroyShaderInstrumentationARM = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCmdBeginShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginShaderInstrumentationARM.html)
+/**
+Provided by **VK_ARM_shader_instrumentation**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
+///- `instrumentation` must be externally synchronized
 pub type PFN_vkCmdBeginShaderInstrumentationARM = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         instrumentation: ShaderInstrumentationARM,
     ),
 >;
+///[`vkCmdEndShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndShaderInstrumentationARM.html)
+/**
+Provided by **VK_ARM_shader_instrumentation**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndShaderInstrumentationARM = Option<
     unsafe extern "system" fn(command_buffer: CommandBuffer),
 >;
+///[`vkGetShaderInstrumentationValuesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderInstrumentationValuesARM.html)
+/**
+Provided by **VK_ARM_shader_instrumentation**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetShaderInstrumentationValuesARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4825,9 +10599,24 @@ pub type PFN_vkGetShaderInstrumentationValuesARM = Option<
         flags: ShaderInstrumentationValuesFlagsARM,
     ) -> Result,
 >;
+///[`vkClearShaderInstrumentationMetricsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkClearShaderInstrumentationMetricsARM.html)
+/**
+Provided by **VK_ARM_shader_instrumentation**.*/
 pub type PFN_vkClearShaderInstrumentationMetricsARM = Option<
     unsafe extern "system" fn(device: Device, instrumentation: ShaderInstrumentationARM),
 >;
+///[`vkCreateTensorARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateTensorARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateTensorARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4836,6 +10625,12 @@ pub type PFN_vkCreateTensorARM = Option<
         p_tensor: *mut TensorARM,
     ) -> Result,
 >;
+///[`vkDestroyTensorARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyTensorARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Thread Safety
+///- `tensor` must be externally synchronized
 pub type PFN_vkDestroyTensorARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4843,6 +10638,18 @@ pub type PFN_vkDestroyTensorARM = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCreateTensorViewARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateTensorViewARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateTensorViewARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4851,6 +10658,12 @@ pub type PFN_vkCreateTensorViewARM = Option<
         p_view: *mut TensorViewARM,
     ) -> Result,
 >;
+///[`vkDestroyTensorViewARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyTensorViewARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Thread Safety
+///- `tensorView` must be externally synchronized
 pub type PFN_vkDestroyTensorViewARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4858,6 +10671,9 @@ pub type PFN_vkDestroyTensorViewARM = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkGetTensorMemoryRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorMemoryRequirementsARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
 pub type PFN_vkGetTensorMemoryRequirementsARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4865,6 +10681,18 @@ pub type PFN_vkGetTensorMemoryRequirementsARM = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkBindTensorMemoryARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindTensorMemoryARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBindTensorMemoryARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4872,6 +10700,9 @@ pub type PFN_vkBindTensorMemoryARM = Option<
         p_bind_infos: *const BindTensorMemoryInfoARM,
     ) -> Result,
 >;
+///[`vkGetDeviceTensorMemoryRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceTensorMemoryRequirementsARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
 pub type PFN_vkGetDeviceTensorMemoryRequirementsARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4879,12 +10710,30 @@ pub type PFN_vkGetDeviceTensorMemoryRequirementsARM = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkCmdCopyTensorARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyTensorARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyTensorARM = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_tensor_info: *const CopyTensorInfoARM,
     ),
 >;
+///[`vkGetTensorOpaqueCaptureDescriptorDataARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorOpaqueCaptureDescriptorDataARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetTensorOpaqueCaptureDescriptorDataARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4892,6 +10741,18 @@ pub type PFN_vkGetTensorOpaqueCaptureDescriptorDataARM = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetTensorViewOpaqueCaptureDescriptorDataARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorViewOpaqueCaptureDescriptorDataARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4899,6 +10760,9 @@ pub type PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM = Option<
         p_data: *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceExternalTensorPropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalTensorPropertiesARM.html)
+/**
+Provided by **VK_ARM_tensors**.*/
 pub type PFN_vkGetPhysicalDeviceExternalTensorPropertiesARM = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4906,6 +10770,19 @@ pub type PFN_vkGetPhysicalDeviceExternalTensorPropertiesARM = Option<
         p_external_tensor_properties: *mut ExternalTensorPropertiesARM,
     ),
 >;
+///[`vkCreateDataGraphPipelinesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDataGraphPipelinesARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_PIPELINE_COMPILE_REQUIRED_EXT`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDataGraphPipelinesARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4917,6 +10794,18 @@ pub type PFN_vkCreateDataGraphPipelinesARM = Option<
         p_pipelines: *mut Pipeline,
     ) -> Result,
 >;
+///[`vkCreateDataGraphPipelineSessionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDataGraphPipelineSessionARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkCreateDataGraphPipelineSessionARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4925,6 +10814,19 @@ pub type PFN_vkCreateDataGraphPipelineSessionARM = Option<
         p_session: *mut DataGraphPipelineSessionARM,
     ) -> Result,
 >;
+///[`vkGetDataGraphPipelineSessionBindPointRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelineSessionBindPointRequirementsARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4933,6 +10835,9 @@ pub type PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM = Option<
         p_bind_point_requirements: *mut DataGraphPipelineSessionBindPointRequirementARM,
     ) -> Result,
 >;
+///[`vkGetDataGraphPipelineSessionMemoryRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelineSessionMemoryRequirementsARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
 pub type PFN_vkGetDataGraphPipelineSessionMemoryRequirementsARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4940,6 +10845,18 @@ pub type PFN_vkGetDataGraphPipelineSessionMemoryRequirementsARM = Option<
         p_memory_requirements: *mut MemoryRequirements2,
     ),
 >;
+///[`vkBindDataGraphPipelineSessionMemoryARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindDataGraphPipelineSessionMemoryARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkBindDataGraphPipelineSessionMemoryARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4947,6 +10864,12 @@ pub type PFN_vkBindDataGraphPipelineSessionMemoryARM = Option<
         p_bind_infos: *const BindDataGraphPipelineSessionMemoryInfoARM,
     ) -> Result,
 >;
+///[`vkDestroyDataGraphPipelineSessionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDataGraphPipelineSessionARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Thread Safety
+///- `session` must be externally synchronized
 pub type PFN_vkDestroyDataGraphPipelineSessionARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4954,6 +10877,12 @@ pub type PFN_vkDestroyDataGraphPipelineSessionARM = Option<
         p_allocator: *const AllocationCallbacks,
     ),
 >;
+///[`vkCmdDispatchDataGraphARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchDataGraphARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDispatchDataGraphARM = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -4961,6 +10890,19 @@ pub type PFN_vkCmdDispatchDataGraphARM = Option<
         p_info: *const DataGraphPipelineDispatchInfoARM,
     ),
 >;
+///[`vkGetDataGraphPipelineAvailablePropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelineAvailablePropertiesARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDataGraphPipelineAvailablePropertiesARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4969,6 +10911,19 @@ pub type PFN_vkGetDataGraphPipelineAvailablePropertiesARM = Option<
         p_properties: *mut DataGraphPipelinePropertyARM,
     ) -> Result,
 >;
+///[`vkGetDataGraphPipelinePropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelinePropertiesARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetDataGraphPipelinePropertiesARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4977,6 +10932,19 @@ pub type PFN_vkGetDataGraphPipelinePropertiesARM = Option<
         p_properties: *mut DataGraphPipelinePropertyQueryResultARM,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4985,6 +10953,9 @@ pub type PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM = Option<
         p_queue_family_data_graph_properties: *mut QueueFamilyDataGraphPropertiesARM,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html)
+/**
+Provided by **VK_ARM_data_graph**.*/
 pub type PFN_vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -4992,6 +10963,18 @@ pub type PFN_vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesAR
         p_queue_family_data_graph_processing_engine_properties: *mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
     ),
 >;
+///[`vkGetNativeBufferPropertiesOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetNativeBufferPropertiesOHOS.html)
+/**
+Provided by **VK_OHOS_external_memory**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetNativeBufferPropertiesOHOS = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -4999,6 +10982,17 @@ pub type PFN_vkGetNativeBufferPropertiesOHOS = Option<
         p_properties: *mut NativeBufferPropertiesOHOS,
     ) -> Result,
 >;
+///[`vkGetMemoryNativeBufferOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryNativeBufferOHOS.html)
+/**
+Provided by **VK_OHOS_external_memory**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetMemoryNativeBufferOHOS = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5006,6 +11000,15 @@ pub type PFN_vkGetMemoryNativeBufferOHOS = Option<
         p_buffer: *mut *mut core::ffi::c_void,
     ) -> Result,
 >;
+///[`vkGetSwapchainGrallocUsageOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainGrallocUsageOHOS.html)
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetSwapchainGrallocUsageOHOS = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5014,6 +11017,15 @@ pub type PFN_vkGetSwapchainGrallocUsageOHOS = Option<
         gralloc_usage: *mut u64,
     ) -> Result,
 >;
+///[`vkAcquireImageOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireImageOHOS.html)
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkAcquireImageOHOS = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5023,6 +11035,15 @@ pub type PFN_vkAcquireImageOHOS = Option<
         fence: Fence,
     ) -> Result,
 >;
+///[`vkQueueSignalReleaseImageOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSignalReleaseImageOHOS.html)
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkQueueSignalReleaseImageOHOS = Option<
     unsafe extern "system" fn(
         queue: Queue,
@@ -5032,6 +11053,20 @@ pub type PFN_vkQueueSignalReleaseImageOHOS = Option<
         p_native_fence_fd: *mut i32,
     ) -> Result,
 >;
+///[`vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM.html)
+/**
+Provided by **VK_ARM_performance_counters_by_region**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///- `VK_INCOMPLETE`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_INITIALIZATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
@@ -5041,12 +11076,27 @@ pub type PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM 
         p_counter_descriptions: *mut PerformanceCounterDescriptionARM,
     ) -> Result,
 >;
+///[`vkCmdSetComputeOccupancyPriorityNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetComputeOccupancyPriorityNV.html)
+/**
+Provided by **VK_NV_compute_occupancy_priority**.*/
 pub type PFN_vkCmdSetComputeOccupancyPriorityNV = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_parameters: *const ComputeOccupancyPriorityParametersNV,
     ),
 >;
+///[`vkWriteSamplerDescriptorsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteSamplerDescriptorsEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkWriteSamplerDescriptorsEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5055,6 +11105,18 @@ pub type PFN_vkWriteSamplerDescriptorsEXT = Option<
         p_descriptors: *const HostAddressRangeEXT,
     ) -> Result,
 >;
+///[`vkWriteResourceDescriptorsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteResourceDescriptorsEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkWriteResourceDescriptorsEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5063,24 +11125,56 @@ pub type PFN_vkWriteResourceDescriptorsEXT = Option<
         p_descriptors: *const HostAddressRangeEXT,
     ) -> Result,
 >;
+///[`vkCmdBindSamplerHeapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindSamplerHeapEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindSamplerHeapEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_bind_info: *const BindHeapInfoEXT,
     ),
 >;
+///[`vkCmdBindResourceHeapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindResourceHeapEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindResourceHeapEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_bind_info: *const BindHeapInfoEXT,
     ),
 >;
+///[`vkCmdPushDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDataEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdPushDataEXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_push_data_info: *const PushDataInfoEXT,
     ),
 >;
+///[`vkRegisterCustomBorderColorEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterCustomBorderColorEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_TOO_MANY_OBJECTS`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkRegisterCustomBorderColorEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5089,9 +11183,24 @@ pub type PFN_vkRegisterCustomBorderColorEXT = Option<
         p_index: *mut u32,
     ) -> Result,
 >;
+///[`vkUnregisterCustomBorderColorEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnregisterCustomBorderColorEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
 pub type PFN_vkUnregisterCustomBorderColorEXT = Option<
     unsafe extern "system" fn(device: Device, index: u32),
 >;
+///[`vkGetImageOpaqueCaptureDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageOpaqueCaptureDataEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetImageOpaqueCaptureDataEXT = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5100,12 +11209,27 @@ pub type PFN_vkGetImageOpaqueCaptureDataEXT = Option<
         p_datas: *mut HostAddressRangeEXT,
     ) -> Result,
 >;
+///[`vkGetPhysicalDeviceDescriptorSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDescriptorSizeEXT.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
 pub type PFN_vkGetPhysicalDeviceDescriptorSizeEXT = Option<
     unsafe extern "system" fn(
         physical_device: PhysicalDevice,
         descriptor_type: DescriptorType,
     ) -> u64,
 >;
+///[`vkGetTensorOpaqueCaptureDataARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorOpaqueCaptureDataARM.html)
+/**
+Provided by **VK_EXT_descriptor_heap**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
+///- `VK_ERROR_UNKNOWN`
+///- `VK_ERROR_VALIDATION_FAILED`
 pub type PFN_vkGetTensorOpaqueCaptureDataARM = Option<
     unsafe extern "system" fn(
         device: Device,
@@ -5114,24 +11238,48 @@ pub type PFN_vkGetTensorOpaqueCaptureDataARM = Option<
         p_datas: *mut HostAddressRangeEXT,
     ) -> Result,
 >;
+///[`vkCmdCopyMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryKHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_memory_info: *const CopyDeviceMemoryInfoKHR,
     ),
 >;
+///[`vkCmdCopyMemoryToImageKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToImageKHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyMemoryToImageKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ),
 >;
+///[`vkCmdCopyImageToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImageToMemoryKHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyImageToMemoryKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ),
 >;
+///[`vkCmdUpdateMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdUpdateMemoryKHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdUpdateMemoryKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5141,6 +11289,12 @@ pub type PFN_vkCmdUpdateMemoryKHR = Option<
         p_data: *const core::ffi::c_void,
     ),
 >;
+///[`vkCmdFillMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdFillMemoryKHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdFillMemoryKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5149,6 +11303,12 @@ pub type PFN_vkCmdFillMemoryKHR = Option<
         data: u32,
     ),
 >;
+///[`vkCmdCopyQueryPoolResultsToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyQueryPoolResultsToMemoryKHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdCopyQueryPoolResultsToMemoryKHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5160,12 +11320,24 @@ pub type PFN_vkCmdCopyQueryPoolResultsToMemoryKHR = Option<
         query_result_flags: QueryResultFlags,
     ),
 >;
+///[`vkCmdBeginConditionalRendering2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginConditionalRendering2EXT.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginConditionalRendering2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfo2EXT,
     ),
 >;
+///[`vkCmdBindTransformFeedbackBuffers2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindTransformFeedbackBuffers2EXT.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindTransformFeedbackBuffers2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5174,6 +11346,12 @@ pub type PFN_vkCmdBindTransformFeedbackBuffers2EXT = Option<
         p_binding_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ),
 >;
+///[`vkCmdBeginTransformFeedback2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginTransformFeedback2EXT.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBeginTransformFeedback2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5182,6 +11360,12 @@ pub type PFN_vkCmdBeginTransformFeedback2EXT = Option<
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ),
 >;
+///[`vkCmdEndTransformFeedback2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndTransformFeedback2EXT.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdEndTransformFeedback2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5190,6 +11374,12 @@ pub type PFN_vkCmdEndTransformFeedback2EXT = Option<
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ),
 >;
+///[`vkCmdDrawIndirectByteCount2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectByteCount2EXT.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndirectByteCount2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5200,18 +11390,36 @@ pub type PFN_vkCmdDrawIndirectByteCount2EXT = Option<
         vertex_stride: u32,
     ),
 >;
+///[`vkCmdWriteMarkerToMemoryAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteMarkerToMemoryAMD.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdWriteMarkerToMemoryAMD = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const MemoryMarkerInfoAMD,
     ),
 >;
+///[`vkCmdBindIndexBuffer3KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer3KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindIndexBuffer3KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const BindIndexBuffer3InfoKHR,
     ),
 >;
+///[`vkCmdBindVertexBuffers3KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers3KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdBindVertexBuffers3KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
@@ -5220,48 +11428,102 @@ pub type PFN_vkCmdBindVertexBuffers3KHR = Option<
         p_binding_infos: *const BindVertexBuffer3InfoKHR,
     ),
 >;
+///[`vkCmdDrawIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirect2KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndirect2KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const DrawIndirect2InfoKHR,
     ),
 >;
+///[`vkCmdDrawIndexedIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirect2KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndexedIndirect2KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const DrawIndirect2InfoKHR,
     ),
 >;
+///[`vkCmdDrawIndirectCount2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectCount2KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndirectCount2KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const DrawIndirectCount2InfoKHR,
     ),
 >;
+///[`vkCmdDrawIndexedIndirectCount2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirectCount2KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawIndexedIndirectCount2KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const DrawIndirectCount2InfoKHR,
     ),
 >;
+///[`vkCmdDrawMeshTasksIndirect2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirect2EXT.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksIndirect2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const DrawIndirect2InfoKHR,
     ),
 >;
+///[`vkCmdDrawMeshTasksIndirectCount2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCount2EXT.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDrawMeshTasksIndirectCount2EXT = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const DrawIndirectCount2InfoKHR,
     ),
 >;
+///[`vkCmdDispatchIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchIndirect2KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Thread Safety
+///- `commandBuffer` must be externally synchronized
 pub type PFN_vkCmdDispatchIndirect2KHR = Option<
     unsafe extern "system" fn(
         command_buffer: CommandBuffer,
         p_info: *const DispatchIndirect2InfoKHR,
     ),
 >;
+///[`vkCreateAccelerationStructure2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateAccelerationStructure2KHR.html)
+/**
+Provided by **VK_KHR_device_address_commands**.*/
+///
+///# Success Codes
+///- `VK_SUCCESS`
+///
+///# Error Codes
+///- `VK_ERROR_OUT_OF_HOST_MEMORY`
+///- `VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`
+///- `VK_ERROR_VALIDATION_FAILED`
+///- `VK_ERROR_UNKNOWN`
 pub type PFN_vkCreateAccelerationStructure2KHR = Option<
     unsafe extern "system" fn(
         device: Device,

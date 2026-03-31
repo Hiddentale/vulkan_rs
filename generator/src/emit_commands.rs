@@ -79,9 +79,66 @@ fn emit_pfn_typedef(cmd: &CommandDef) -> TokenStream {
     let ret = resolve_return_type(&cmd.return_type);
     let ret_tokens = ret.map(|ty| quote! { -> #ty }).unwrap_or_default();
 
+    let docs = emit_command_docs(cmd);
+
     quote! {
+        #docs
         pub type #pfn_name = Option<unsafe extern "system" fn(#params) #ret_tokens>;
     }
+}
+
+/// Build doc comment lines for a command from vk.xml metadata.
+fn emit_command_docs(cmd: &CommandDef) -> TokenStream {
+    let spec_link = format!(
+        "[`{name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{name}.html)",
+        name = &cmd.name,
+    );
+
+    let mut doc_lines: Vec<TokenStream> = vec![quote! { #[doc = #spec_link] }];
+
+    // Provided by annotation.
+    if let Some(ref provider) = cmd.provided_by {
+        let line = format!("\nProvided by **{provider}**.");
+        doc_lines.push(quote! { #[doc = #line] });
+    }
+
+    // Success codes.
+    if !cmd.success_codes.is_empty() {
+        doc_lines.push(quote! { #[doc = ""] });
+        doc_lines.push(quote! { #[doc = "# Success Codes"] });
+        for code in &cmd.success_codes {
+            let line = format!("- `{code}`");
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    // Error codes.
+    if !cmd.error_codes.is_empty() {
+        doc_lines.push(quote! { #[doc = ""] });
+        doc_lines.push(quote! { #[doc = "# Error Codes"] });
+        for code in &cmd.error_codes {
+            let line = format!("- `{code}`");
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    // Thread safety.
+    let sync_params: Vec<&str> = cmd
+        .params
+        .iter()
+        .filter(|p| p.extern_sync.is_some())
+        .map(|p| p.name.as_str())
+        .collect();
+    if !sync_params.is_empty() {
+        doc_lines.push(quote! { #[doc = ""] });
+        doc_lines.push(quote! { #[doc = "# Thread Safety"] });
+        for name in sync_params {
+            let line = format!("- `{name}` must be externally synchronized");
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    quote! { #(#doc_lines)* }
 }
 
 fn emit_pfn_params(params: &[ParamDef]) -> TokenStream {
@@ -401,6 +458,77 @@ mod tests {
         let code = emit_pfn_aliases(&aliases).to_string();
         assert!(code.contains("PFN_vkCreateRenderPass2KHR"));
         assert!(code.contains("PFN_vkCreateRenderPass2"));
+    }
+
+    // --- Command documentation (1.2.1–1.2.5) ---
+
+    #[test]
+    fn pfn_typedef_has_spec_link() {
+        let cmd = make_command("vkCreateInstance", "VkResult", vec![]);
+        let code = emit_pfn_typedef(&cmd).to_string();
+        assert!(
+            code.contains("registry.khronos.org/vulkan/specs/latest/man/html/vkCreateInstance.html"),
+            "missing spec link"
+        );
+    }
+
+    #[test]
+    fn pfn_typedef_has_success_codes() {
+        let cmd = CommandDef {
+            success_codes: vec!["VK_SUCCESS".to_string(), "VK_INCOMPLETE".to_string()],
+            ..make_command("vkEnumeratePhysicalDevices", "VkResult", vec![])
+        };
+        let code = emit_pfn_typedef(&cmd).to_string();
+        assert!(code.contains("Success Codes"), "missing success codes section");
+        assert!(code.contains("VK_SUCCESS"));
+        assert!(code.contains("VK_INCOMPLETE"));
+    }
+
+    #[test]
+    fn pfn_typedef_has_error_codes() {
+        let cmd = CommandDef {
+            error_codes: vec![
+                "VK_ERROR_OUT_OF_HOST_MEMORY".to_string(),
+                "VK_ERROR_DEVICE_LOST".to_string(),
+            ],
+            ..make_command("vkCreateDevice", "VkResult", vec![])
+        };
+        let code = emit_pfn_typedef(&cmd).to_string();
+        assert!(code.contains("Error Codes"), "missing error codes section");
+        assert!(code.contains("VK_ERROR_OUT_OF_HOST_MEMORY"));
+        assert!(code.contains("VK_ERROR_DEVICE_LOST"));
+    }
+
+    #[test]
+    fn pfn_typedef_no_codes_when_empty() {
+        let cmd = make_command("vkDestroyInstance", "void", vec![]);
+        let code = emit_pfn_typedef(&cmd).to_string();
+        assert!(!code.contains("Success Codes"));
+        assert!(!code.contains("Error Codes"));
+    }
+
+    #[test]
+    fn pfn_typedef_has_thread_safety() {
+        let cmd = CommandDef {
+            params: vec![ParamDef {
+                extern_sync: Some("true".to_string()),
+                ..make_param("device", "VkDevice")
+            }],
+            ..make_command("vkDestroyDevice", "void", vec![])
+        };
+        let code = emit_pfn_typedef(&cmd).to_string();
+        assert!(code.contains("Thread Safety"), "missing thread safety section");
+        assert!(code.contains("externally synchronized"));
+    }
+
+    #[test]
+    fn pfn_typedef_has_provided_by() {
+        let cmd = CommandDef {
+            provided_by: Some("VK_KHR_swapchain".to_string()),
+            ..make_command("vkCreateSwapchainKHR", "VkResult", vec![])
+        };
+        let code = emit_pfn_typedef(&cmd).to_string();
+        assert!(code.contains("VK_KHR_swapchain"), "missing provided_by");
     }
 
     #[test]

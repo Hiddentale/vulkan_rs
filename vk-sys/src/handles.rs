@@ -11,6 +11,9 @@ pub trait Handle: Copy + Eq + core::hash::Hash {
     /// Returns `true` if this is the null handle.
     fn is_null(self) -> bool;
 }
+///[`VkInstance`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstance.html)
+///
+///Dispatchable handle (pointer-sized).
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkInstance")]
@@ -45,6 +48,10 @@ impl core::fmt::Debug for Instance {
         write!(f, "{}({:#x})", stringify!(Instance), self.0)
     }
 }
+///[`VkPhysicalDevice`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevice.html)
+///
+///Dispatchable handle (pointer-sized).
+///Parent: [`Instance`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkPhysicalDevice")]
@@ -79,6 +86,10 @@ impl core::fmt::Debug for PhysicalDevice {
         write!(f, "{}({:#x})", stringify!(PhysicalDevice), self.0)
     }
 }
+///[`VkDevice`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDevice.html)
+///
+///Dispatchable handle (pointer-sized).
+///Parent: [`PhysicalDevice`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDevice")]
@@ -113,6 +124,10 @@ impl core::fmt::Debug for Device {
         write!(f, "{}({:#x})", stringify!(Device), self.0)
     }
 }
+///[`VkQueue`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueue.html)
+///
+///Dispatchable handle (pointer-sized).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkQueue")]
@@ -147,6 +162,10 @@ impl core::fmt::Debug for Queue {
         write!(f, "{}({:#x})", stringify!(Queue), self.0)
     }
 }
+///[`VkCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBuffer.html)
+///
+///Dispatchable handle (pointer-sized).
+///Parent: [`CommandPool`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkCommandBuffer")]
@@ -181,6 +200,10 @@ impl core::fmt::Debug for CommandBuffer {
         write!(f, "{}({:#x})", stringify!(CommandBuffer), self.0)
     }
 }
+///[`VkDeviceMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemory.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDeviceMemory")]
@@ -215,6 +238,10 @@ impl core::fmt::Debug for DeviceMemory {
         write!(f, "{}({:#x})", stringify!(DeviceMemory), self.0)
     }
 }
+///[`VkCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPool.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkCommandPool")]
@@ -249,6 +276,10 @@ impl core::fmt::Debug for CommandPool {
         write!(f, "{}({:#x})", stringify!(CommandPool), self.0)
     }
 }
+///[`VkBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuffer.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkBuffer")]
@@ -283,6 +314,10 @@ impl core::fmt::Debug for Buffer {
         write!(f, "{}({:#x})", stringify!(Buffer), self.0)
     }
 }
+///[`VkBufferView`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferView.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkBufferView")]
@@ -317,6 +352,10 @@ impl core::fmt::Debug for BufferView {
         write!(f, "{}({:#x})", stringify!(BufferView), self.0)
     }
 }
+///[`VkImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImage.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkImage")]
@@ -351,6 +390,10 @@ impl core::fmt::Debug for Image {
         write!(f, "{}({:#x})", stringify!(Image), self.0)
     }
 }
+///[`VkImageView`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageView.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkImageView")]
@@ -385,6 +428,10 @@ impl core::fmt::Debug for ImageView {
         write!(f, "{}({:#x})", stringify!(ImageView), self.0)
     }
 }
+///[`VkShaderModule`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModule.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkShaderModule")]
@@ -419,6 +466,10 @@ impl core::fmt::Debug for ShaderModule {
         write!(f, "{}({:#x})", stringify!(ShaderModule), self.0)
     }
 }
+///[`VkPipeline`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipeline.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkPipeline")]
@@ -453,6 +504,10 @@ impl core::fmt::Debug for Pipeline {
         write!(f, "{}({:#x})", stringify!(Pipeline), self.0)
     }
 }
+///[`VkPipelineLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayout.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkPipelineLayout")]
@@ -487,6 +542,10 @@ impl core::fmt::Debug for PipelineLayout {
         write!(f, "{}({:#x})", stringify!(PipelineLayout), self.0)
     }
 }
+///[`VkSampler`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampler.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkSampler")]
@@ -521,6 +580,10 @@ impl core::fmt::Debug for Sampler {
         write!(f, "{}({:#x})", stringify!(Sampler), self.0)
     }
 }
+///[`VkDescriptorSet`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSet.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`DescriptorPool`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDescriptorSet")]
@@ -555,6 +618,10 @@ impl core::fmt::Debug for DescriptorSet {
         write!(f, "{}({:#x})", stringify!(DescriptorSet), self.0)
     }
 }
+///[`VkDescriptorSetLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayout.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDescriptorSetLayout")]
@@ -589,6 +656,10 @@ impl core::fmt::Debug for DescriptorSetLayout {
         write!(f, "{}({:#x})", stringify!(DescriptorSetLayout), self.0)
     }
 }
+///[`VkDescriptorPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPool.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDescriptorPool")]
@@ -623,6 +694,10 @@ impl core::fmt::Debug for DescriptorPool {
         write!(f, "{}({:#x})", stringify!(DescriptorPool), self.0)
     }
 }
+///[`VkFence`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFence.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkFence")]
@@ -657,6 +732,10 @@ impl core::fmt::Debug for Fence {
         write!(f, "{}({:#x})", stringify!(Fence), self.0)
     }
 }
+///[`VkSemaphore`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphore.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkSemaphore")]
@@ -691,6 +770,10 @@ impl core::fmt::Debug for Semaphore {
         write!(f, "{}({:#x})", stringify!(Semaphore), self.0)
     }
 }
+///[`VkEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEvent.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkEvent")]
@@ -725,6 +808,10 @@ impl core::fmt::Debug for Event {
         write!(f, "{}({:#x})", stringify!(Event), self.0)
     }
 }
+///[`VkQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPool.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkQueryPool")]
@@ -759,6 +846,10 @@ impl core::fmt::Debug for QueryPool {
         write!(f, "{}({:#x})", stringify!(QueryPool), self.0)
     }
 }
+///[`VkFramebuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebuffer.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkFramebuffer")]
@@ -793,6 +884,10 @@ impl core::fmt::Debug for Framebuffer {
         write!(f, "{}({:#x})", stringify!(Framebuffer), self.0)
     }
 }
+///[`VkRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPass.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkRenderPass")]
@@ -827,6 +922,10 @@ impl core::fmt::Debug for RenderPass {
         write!(f, "{}({:#x})", stringify!(RenderPass), self.0)
     }
 }
+///[`VkPipelineCache`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCache.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkPipelineCache")]
@@ -861,6 +960,10 @@ impl core::fmt::Debug for PipelineCache {
         write!(f, "{}({:#x})", stringify!(PipelineCache), self.0)
     }
 }
+///[`VkPipelineBinaryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineBinaryKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkPipelineBinaryKHR")]
@@ -895,6 +998,10 @@ impl core::fmt::Debug for PipelineBinaryKHR {
         write!(f, "{}({:#x})", stringify!(PipelineBinaryKHR), self.0)
     }
 }
+///[`VkIndirectCommandsLayoutNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutNV.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkIndirectCommandsLayoutNV")]
@@ -929,6 +1036,10 @@ impl core::fmt::Debug for IndirectCommandsLayoutNV {
         write!(f, "{}({:#x})", stringify!(IndirectCommandsLayoutNV), self.0)
     }
 }
+///[`VkIndirectCommandsLayoutEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutEXT.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkIndirectCommandsLayoutEXT")]
@@ -963,6 +1074,10 @@ impl core::fmt::Debug for IndirectCommandsLayoutEXT {
         write!(f, "{}({:#x})", stringify!(IndirectCommandsLayoutEXT), self.0)
     }
 }
+///[`VkIndirectExecutionSetEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectExecutionSetEXT.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkIndirectExecutionSetEXT")]
@@ -997,6 +1112,10 @@ impl core::fmt::Debug for IndirectExecutionSetEXT {
         write!(f, "{}({:#x})", stringify!(IndirectExecutionSetEXT), self.0)
     }
 }
+///[`VkDescriptorUpdateTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorUpdateTemplate.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDescriptorUpdateTemplate")]
@@ -1031,6 +1150,10 @@ impl core::fmt::Debug for DescriptorUpdateTemplate {
         write!(f, "{}({:#x})", stringify!(DescriptorUpdateTemplate), self.0)
     }
 }
+///[`VkSamplerYcbcrConversion`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerYcbcrConversion.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkSamplerYcbcrConversion")]
@@ -1065,6 +1188,10 @@ impl core::fmt::Debug for SamplerYcbcrConversion {
         write!(f, "{}({:#x})", stringify!(SamplerYcbcrConversion), self.0)
     }
 }
+///[`VkValidationCacheEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationCacheEXT.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkValidationCacheEXT")]
@@ -1099,6 +1226,10 @@ impl core::fmt::Debug for ValidationCacheEXT {
         write!(f, "{}({:#x})", stringify!(ValidationCacheEXT), self.0)
     }
 }
+///[`VkAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkAccelerationStructureKHR")]
@@ -1133,6 +1264,10 @@ impl core::fmt::Debug for AccelerationStructureKHR {
         write!(f, "{}({:#x})", stringify!(AccelerationStructureKHR), self.0)
     }
 }
+///[`VkAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureNV.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkAccelerationStructureNV")]
@@ -1167,6 +1302,10 @@ impl core::fmt::Debug for AccelerationStructureNV {
         write!(f, "{}({:#x})", stringify!(AccelerationStructureNV), self.0)
     }
 }
+///[`VkPerformanceConfigurationINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceConfigurationINTEL.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkPerformanceConfigurationINTEL")]
@@ -1201,6 +1340,10 @@ impl core::fmt::Debug for PerformanceConfigurationINTEL {
         write!(f, "{}({:#x})", stringify!(PerformanceConfigurationINTEL), self.0)
     }
 }
+///[`VkBufferCollectionFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCollectionFUCHSIA.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkBufferCollectionFUCHSIA")]
@@ -1235,6 +1378,10 @@ impl core::fmt::Debug for BufferCollectionFUCHSIA {
         write!(f, "{}({:#x})", stringify!(BufferCollectionFUCHSIA), self.0)
     }
 }
+///[`VkDeferredOperationKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeferredOperationKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDeferredOperationKHR")]
@@ -1269,6 +1416,10 @@ impl core::fmt::Debug for DeferredOperationKHR {
         write!(f, "{}({:#x})", stringify!(DeferredOperationKHR), self.0)
     }
 }
+///[`VkPrivateDataSlot`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPrivateDataSlot.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkPrivateDataSlot")]
@@ -1303,6 +1454,10 @@ impl core::fmt::Debug for PrivateDataSlot {
         write!(f, "{}({:#x})", stringify!(PrivateDataSlot), self.0)
     }
 }
+///[`VkCuModuleNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCuModuleNVX.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkCuModuleNVX")]
@@ -1337,6 +1492,10 @@ impl core::fmt::Debug for CuModuleNVX {
         write!(f, "{}({:#x})", stringify!(CuModuleNVX), self.0)
     }
 }
+///[`VkCuFunctionNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCuFunctionNVX.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkCuFunctionNVX")]
@@ -1371,6 +1530,10 @@ impl core::fmt::Debug for CuFunctionNVX {
         write!(f, "{}({:#x})", stringify!(CuFunctionNVX), self.0)
     }
 }
+///[`VkOpticalFlowSessionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionNV.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkOpticalFlowSessionNV")]
@@ -1405,6 +1568,10 @@ impl core::fmt::Debug for OpticalFlowSessionNV {
         write!(f, "{}({:#x})", stringify!(OpticalFlowSessionNV), self.0)
     }
 }
+///[`VkMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapEXT.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkMicromapEXT")]
@@ -1439,6 +1606,10 @@ impl core::fmt::Debug for MicromapEXT {
         write!(f, "{}({:#x})", stringify!(MicromapEXT), self.0)
     }
 }
+///[`VkShaderEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderEXT.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkShaderEXT")]
@@ -1473,6 +1644,10 @@ impl core::fmt::Debug for ShaderEXT {
         write!(f, "{}({:#x})", stringify!(ShaderEXT), self.0)
     }
 }
+///[`VkTensorARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorARM.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkTensorARM")]
@@ -1507,6 +1682,10 @@ impl core::fmt::Debug for TensorARM {
         write!(f, "{}({:#x})", stringify!(TensorARM), self.0)
     }
 }
+///[`VkTensorViewARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorViewARM.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkTensorViewARM")]
@@ -1541,6 +1720,10 @@ impl core::fmt::Debug for TensorViewARM {
         write!(f, "{}({:#x})", stringify!(TensorViewARM), self.0)
     }
 }
+///[`VkDataGraphPipelineSessionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineSessionARM.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDataGraphPipelineSessionARM")]
@@ -1575,6 +1758,10 @@ impl core::fmt::Debug for DataGraphPipelineSessionARM {
         write!(f, "{}({:#x})", stringify!(DataGraphPipelineSessionARM), self.0)
     }
 }
+///[`VkShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderInstrumentationARM.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkShaderInstrumentationARM")]
@@ -1609,6 +1796,10 @@ impl core::fmt::Debug for ShaderInstrumentationARM {
         write!(f, "{}({:#x})", stringify!(ShaderInstrumentationARM), self.0)
     }
 }
+///[`VkDisplayKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`PhysicalDevice`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDisplayKHR")]
@@ -1643,6 +1834,10 @@ impl core::fmt::Debug for DisplayKHR {
         write!(f, "{}({:#x})", stringify!(DisplayKHR), self.0)
     }
 }
+///[`VkDisplayModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayModeKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`DisplayKHR`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDisplayModeKHR")]
@@ -1677,6 +1872,10 @@ impl core::fmt::Debug for DisplayModeKHR {
         write!(f, "{}({:#x})", stringify!(DisplayModeKHR), self.0)
     }
 }
+///[`VkSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Instance`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkSurfaceKHR")]
@@ -1711,6 +1910,10 @@ impl core::fmt::Debug for SurfaceKHR {
         write!(f, "{}({:#x})", stringify!(SurfaceKHR), self.0)
     }
 }
+///[`VkSwapchainKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkSwapchainKHR")]
@@ -1745,6 +1948,10 @@ impl core::fmt::Debug for SwapchainKHR {
         write!(f, "{}({:#x})", stringify!(SwapchainKHR), self.0)
     }
 }
+///[`VkDebugReportCallbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugReportCallbackEXT.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Instance`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDebugReportCallbackEXT")]
@@ -1779,6 +1986,10 @@ impl core::fmt::Debug for DebugReportCallbackEXT {
         write!(f, "{}({:#x})", stringify!(DebugReportCallbackEXT), self.0)
     }
 }
+///[`VkDebugUtilsMessengerEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessengerEXT.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Instance`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkDebugUtilsMessengerEXT")]
@@ -1813,6 +2024,10 @@ impl core::fmt::Debug for DebugUtilsMessengerEXT {
         write!(f, "{}({:#x})", stringify!(DebugUtilsMessengerEXT), self.0)
     }
 }
+///[`VkVideoSessionKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkVideoSessionKHR")]
@@ -1847,6 +2062,10 @@ impl core::fmt::Debug for VideoSessionKHR {
         write!(f, "{}({:#x})", stringify!(VideoSessionKHR), self.0)
     }
 }
+///[`VkVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionParametersKHR.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkVideoSessionParametersKHR")]
@@ -1881,6 +2100,10 @@ impl core::fmt::Debug for VideoSessionParametersKHR {
         write!(f, "{}({:#x})", stringify!(VideoSessionParametersKHR), self.0)
     }
 }
+///[`VkSemaphoreSciSyncPoolNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreSciSyncPoolNV.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkSemaphoreSciSyncPoolNV")]
@@ -1915,6 +2138,10 @@ impl core::fmt::Debug for SemaphoreSciSyncPoolNV {
         write!(f, "{}({:#x})", stringify!(SemaphoreSciSyncPoolNV), self.0)
     }
 }
+///[`VkCudaModuleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCudaModuleNV.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkCudaModuleNV")]
@@ -1949,6 +2176,10 @@ impl core::fmt::Debug for CudaModuleNV {
         write!(f, "{}({:#x})", stringify!(CudaModuleNV), self.0)
     }
 }
+///[`VkCudaFunctionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCudaFunctionNV.html)
+///
+///Non-dispatchable handle (u64).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkCudaFunctionNV")]
@@ -1983,6 +2214,10 @@ impl core::fmt::Debug for CudaFunctionNV {
         write!(f, "{}({:#x})", stringify!(CudaFunctionNV), self.0)
     }
 }
+///[`VkExternalComputeQueueNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalComputeQueueNV.html)
+///
+///Dispatchable handle (pointer-sized).
+///Parent: [`Device`].
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 #[doc(alias = "VkExternalComputeQueueNV")]

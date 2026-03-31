@@ -10,6 +10,7 @@ pub const MAX_EXTENSION_NAME_SIZE: u32 = 256u32;
 pub const MAX_DESCRIPTION_SIZE: u32 = 256u32;
 #[doc(alias = "VK_MAX_MEMORY_TYPES")]
 pub const MAX_MEMORY_TYPES: u32 = 32u32;
+///The maximum number of unique memory heaps, each of which supporting 1 or more memory types
 #[doc(alias = "VK_MAX_MEMORY_HEAPS")]
 pub const MAX_MEMORY_HEAPS: u32 = 16u32;
 #[doc(alias = "VK_LOD_CLAMP_NONE")]

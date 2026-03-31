@@ -1,3 +1,4 @@
+///[`VkAccelerationStructureCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureCreateFlagBitsKHR")]
@@ -113,6 +114,7 @@ impl core::fmt::Debug for AccelerationStructureCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAccessFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits")]
@@ -437,6 +439,7 @@ impl core::fmt::Debug for AccessFlagBits {
         Ok(())
     }
 }
+///[`VkAccessFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits2")]
@@ -959,6 +962,7 @@ impl core::fmt::Debug for AccessFlagBits2 {
         Ok(())
     }
 }
+///[`VkAccessFlagBits3KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits3KHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits3KHR")]
@@ -1048,6 +1052,7 @@ impl core::fmt::Debug for AccessFlagBits3KHR {
         Ok(())
     }
 }
+///[`VkAcquireProfilingLockFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireProfilingLockFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAcquireProfilingLockFlagBitsKHR")]
@@ -1136,6 +1141,7 @@ impl core::fmt::Debug for AcquireProfilingLockFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAddressCommandFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAddressCommandFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAddressCommandFlagBitsKHR")]
@@ -1278,6 +1284,7 @@ impl core::fmt::Debug for AddressCommandFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAddressCopyFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAddressCopyFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAddressCopyFlagBitsKHR")]
@@ -1393,6 +1400,7 @@ impl core::fmt::Debug for AddressCopyFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAttachmentDescriptionFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentDescriptionFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAttachmentDescriptionFlagBits")]
@@ -1508,6 +1516,7 @@ impl core::fmt::Debug for AttachmentDescriptionFlagBits {
         Ok(())
     }
 }
+///[`VkBufferCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBufferCreateFlagBits")]
@@ -1659,6 +1668,7 @@ impl core::fmt::Debug for BufferCreateFlagBits {
         Ok(())
     }
 }
+///[`VkBufferUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferUsageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBufferUsageFlagBits")]
@@ -2000,6 +2010,7 @@ impl core::fmt::Debug for BufferUsageFlagBits {
         Ok(())
     }
 }
+///[`VkBufferUsageFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferUsageFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBufferUsageFlagBits2")]
@@ -2377,6 +2388,7 @@ impl core::fmt::Debug for BufferUsageFlagBits2 {
         Ok(())
     }
 }
+///[`VkBuildAccelerationStructureFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildAccelerationStructureFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBuildAccelerationStructureFlagBitsKHR")]
@@ -2573,6 +2585,7 @@ impl core::fmt::Debug for BuildAccelerationStructureFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkBuildMicromapFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildMicromapFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBuildMicromapFlagBitsEXT")]
@@ -2688,6 +2701,7 @@ impl core::fmt::Debug for BuildMicromapFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureAddressResolutionFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagBitsNV")]
@@ -2833,6 +2847,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureAddressResolutionFlagBitsN
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureClusterFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureClusterFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureClusterFlagBitsNV")]
@@ -2930,6 +2945,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureClusterFlagBitsNV {
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureGeometryFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureGeometryFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureGeometryFlagBitsNV")]
@@ -3045,6 +3061,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureGeometryFlagBitsNV {
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureIndexFormatFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureIndexFormatFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagBitsNV")]
@@ -3160,6 +3177,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureIndexFormatFlagBitsNV {
         Ok(())
     }
 }
+///[`VkColorComponentFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorComponentFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkColorComponentFlagBits")]
@@ -3284,6 +3302,7 @@ impl core::fmt::Debug for ColorComponentFlagBits {
         Ok(())
     }
 }
+///[`VkCommandBufferResetFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferResetFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandBufferResetFlagBits")]
@@ -3381,6 +3400,7 @@ impl core::fmt::Debug for CommandBufferResetFlagBits {
         Ok(())
     }
 }
+///[`VkCommandBufferUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferUsageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandBufferUsageFlagBits")]
@@ -3496,6 +3516,7 @@ impl core::fmt::Debug for CommandBufferUsageFlagBits {
         Ok(())
     }
 }
+///[`VkCommandPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandPoolCreateFlagBits")]
@@ -3611,6 +3632,7 @@ impl core::fmt::Debug for CommandPoolCreateFlagBits {
         Ok(())
     }
 }
+///[`VkCommandPoolResetFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolResetFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandPoolResetFlagBits")]
@@ -3708,6 +3730,7 @@ impl core::fmt::Debug for CommandPoolResetFlagBits {
         Ok(())
     }
 }
+///[`VkCompositeAlphaFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompositeAlphaFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCompositeAlphaFlagBitsKHR")]
@@ -3832,6 +3855,7 @@ impl core::fmt::Debug for CompositeAlphaFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkConditionalRenderingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkConditionalRenderingFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkConditionalRenderingFlagBitsEXT")]
@@ -3929,6 +3953,7 @@ impl core::fmt::Debug for ConditionalRenderingFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkCullModeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCullModeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCullModeFlagBits")]
@@ -4037,6 +4062,7 @@ impl core::fmt::Debug for CullModeFlagBits {
         Ok(())
     }
 }
+///[`VkDataGraphPipelineDispatchFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineDispatchFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineDispatchFlagBitsARM")]
@@ -4125,6 +4151,7 @@ impl core::fmt::Debug for DataGraphPipelineDispatchFlagBitsARM {
         Ok(())
     }
 }
+///[`VkDataGraphPipelineSessionCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineSessionCreateFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineSessionCreateFlagBitsARM")]
@@ -4222,6 +4249,7 @@ impl core::fmt::Debug for DataGraphPipelineSessionCreateFlagBitsARM {
         Ok(())
     }
 }
+///[`VkDebugReportFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugReportFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDebugReportFlagBitsEXT")]
@@ -4355,6 +4383,7 @@ impl core::fmt::Debug for DebugReportFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDebugUtilsMessageSeverityFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageSeverityFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDebugUtilsMessageSeverityFlagBitsEXT")]
@@ -4479,6 +4508,7 @@ impl core::fmt::Debug for DebugUtilsMessageSeverityFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDebugUtilsMessageTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageTypeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDebugUtilsMessageTypeFlagBitsEXT")]
@@ -4603,6 +4633,7 @@ impl core::fmt::Debug for DebugUtilsMessageTypeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDependencyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDependencyFlagBits")]
@@ -4745,6 +4776,7 @@ impl core::fmt::Debug for DependencyFlagBits {
         Ok(())
     }
 }
+///[`VkDescriptorBindingFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorBindingFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDescriptorBindingFlagBits")]
@@ -4869,6 +4901,7 @@ impl core::fmt::Debug for DescriptorBindingFlagBits {
         Ok(())
     }
 }
+///[`VkDescriptorPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPoolCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDescriptorPoolCreateFlagBits")]
@@ -5003,6 +5036,7 @@ impl core::fmt::Debug for DescriptorPoolCreateFlagBits {
         Ok(())
     }
 }
+///[`VkDescriptorSetLayoutCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDescriptorSetLayoutCreateFlagBits")]
@@ -5155,6 +5189,7 @@ impl core::fmt::Debug for DescriptorSetLayoutCreateFlagBits {
         Ok(())
     }
 }
+///[`VkDeviceAddressBindingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddressBindingFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceAddressBindingFlagBitsEXT")]
@@ -5252,6 +5287,7 @@ impl core::fmt::Debug for DeviceAddressBindingFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDeviceDiagnosticsConfigFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceDiagnosticsConfigFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceDiagnosticsConfigFlagBitsNV")]
@@ -5376,6 +5412,7 @@ impl core::fmt::Debug for DeviceDiagnosticsConfigFlagBitsNV {
         Ok(())
     }
 }
+///[`VkDeviceFaultFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceFaultFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceFaultFlagBitsKHR")]
@@ -5518,6 +5555,7 @@ impl core::fmt::Debug for DeviceFaultFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkDeviceGroupPresentModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceGroupPresentModeFlagBitsKHR")]
@@ -5642,6 +5680,7 @@ impl core::fmt::Debug for DeviceGroupPresentModeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkDeviceQueueCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceQueueCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceQueueCreateFlagBits")]
@@ -5748,6 +5787,7 @@ impl core::fmt::Debug for DeviceQueueCreateFlagBits {
         Ok(())
     }
 }
+///[`VkDisplayPlaneAlphaFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayPlaneAlphaFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDisplayPlaneAlphaFlagBitsKHR")]
@@ -5872,6 +5912,7 @@ impl core::fmt::Debug for DisplayPlaneAlphaFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkEventCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEventCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkEventCreateFlagBits")]
@@ -5969,6 +6010,7 @@ impl core::fmt::Debug for EventCreateFlagBits {
         Ok(())
     }
 }
+///[`VkExportMetalObjectTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectTypeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExportMetalObjectTypeFlagBitsEXT")]
@@ -6111,6 +6153,7 @@ impl core::fmt::Debug for ExportMetalObjectTypeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkExternalFenceFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalFenceFeatureFlagBits")]
@@ -6217,6 +6260,7 @@ impl core::fmt::Debug for ExternalFenceFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkExternalFenceHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceHandleTypeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalFenceHandleTypeFlagBits")]
@@ -6359,6 +6403,7 @@ impl core::fmt::Debug for ExternalFenceHandleTypeFlagBits {
         Ok(())
     }
 }
+///[`VkExternalMemoryFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryFeatureFlagBits")]
@@ -6474,6 +6519,7 @@ impl core::fmt::Debug for ExternalMemoryFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkExternalMemoryFeatureFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryFeatureFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryFeatureFlagBitsNV")]
@@ -6589,6 +6635,7 @@ impl core::fmt::Debug for ExternalMemoryFeatureFlagBitsNV {
         Ok(())
     }
 }
+///[`VkExternalMemoryHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryHandleTypeFlagBits")]
@@ -6848,6 +6895,7 @@ impl core::fmt::Debug for ExternalMemoryHandleTypeFlagBits {
         Ok(())
     }
 }
+///[`VkExternalMemoryHandleTypeFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryHandleTypeFlagBitsNV")]
@@ -6972,6 +7020,7 @@ impl core::fmt::Debug for ExternalMemoryHandleTypeFlagBitsNV {
         Ok(())
     }
 }
+///[`VkExternalSemaphoreFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalSemaphoreFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalSemaphoreFeatureFlagBits")]
@@ -7078,6 +7127,7 @@ impl core::fmt::Debug for ExternalSemaphoreFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkExternalSemaphoreHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalSemaphoreHandleTypeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalSemaphoreHandleTypeFlagBits")]
@@ -7230,6 +7280,7 @@ impl core::fmt::Debug for ExternalSemaphoreHandleTypeFlagBits {
         Ok(())
     }
 }
+///[`VkFenceCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFenceCreateFlagBits")]
@@ -7327,6 +7378,7 @@ impl core::fmt::Debug for FenceCreateFlagBits {
         Ok(())
     }
 }
+///[`VkFenceImportFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceImportFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFenceImportFlagBits")]
@@ -7424,6 +7476,7 @@ impl core::fmt::Debug for FenceImportFlagBits {
         Ok(())
     }
 }
+///[`VkFormatFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFormatFeatureFlagBits")]
@@ -7817,6 +7870,7 @@ impl core::fmt::Debug for FormatFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkFormatFeatureFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFormatFeatureFlagBits2")]
@@ -8418,6 +8472,7 @@ impl core::fmt::Debug for FormatFeatureFlagBits2 {
         Ok(())
     }
 }
+///[`VkFrameBoundaryFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFrameBoundaryFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFrameBoundaryFlagBitsEXT")]
@@ -8515,6 +8570,7 @@ impl core::fmt::Debug for FrameBoundaryFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkFramebufferCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebufferCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFramebufferCreateFlagBits")]
@@ -8612,6 +8668,7 @@ impl core::fmt::Debug for FramebufferCreateFlagBits {
         Ok(())
     }
 }
+///[`VkGeometryFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkGeometryFlagBitsKHR")]
@@ -8718,6 +8775,7 @@ impl core::fmt::Debug for GeometryFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkGeometryInstanceFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryInstanceFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkGeometryInstanceFlagBitsKHR")]
@@ -8862,6 +8920,7 @@ impl core::fmt::Debug for GeometryInstanceFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkGraphicsPipelineLibraryFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineLibraryFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkGraphicsPipelineLibraryFlagBitsEXT")]
@@ -8986,6 +9045,7 @@ impl core::fmt::Debug for GraphicsPipelineLibraryFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkHostImageCopyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkHostImageCopyFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkHostImageCopyFlagBits")]
@@ -9083,6 +9143,7 @@ impl core::fmt::Debug for HostImageCopyFlagBits {
         Ok(())
     }
 }
+///[`VkImageAspectFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageAspectFlagBits")]
@@ -9271,6 +9332,7 @@ impl core::fmt::Debug for ImageAspectFlagBits {
         Ok(())
     }
 }
+///[`VkImageCompressionFixedRateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionFixedRateFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageCompressionFixedRateFlagBitsEXT")]
@@ -9576,6 +9638,7 @@ impl core::fmt::Debug for ImageCompressionFixedRateFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkImageCompressionFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageCompressionFlagBitsEXT")]
@@ -9692,6 +9755,7 @@ impl core::fmt::Debug for ImageCompressionFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkImageConstraintsInfoFlagBitsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageConstraintsInfoFlagBitsFUCHSIA.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageConstraintsInfoFlagBitsFUCHSIA")]
@@ -9825,6 +9889,7 @@ impl core::fmt::Debug for ImageConstraintsInfoFlagBitsFUCHSIA {
         Ok(())
     }
 }
+///[`VkImageCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageCreateFlagBits")]
@@ -10095,6 +10160,7 @@ impl core::fmt::Debug for ImageCreateFlagBits {
         Ok(())
     }
 }
+///[`VkImageFormatConstraintsFlagBitsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageFormatConstraintsFlagBitsFUCHSIA.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageFormatConstraintsFlagBitsFUCHSIA")]
@@ -10183,6 +10249,7 @@ impl core::fmt::Debug for ImageFormatConstraintsFlagBitsFUCHSIA {
         Ok(())
     }
 }
+///[`VkImageUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageUsageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageUsageFlagBits")]
@@ -10497,6 +10564,7 @@ impl core::fmt::Debug for ImageUsageFlagBits {
         Ok(())
     }
 }
+///[`VkImageViewCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageViewCreateFlagBits")]
@@ -10612,6 +10680,7 @@ impl core::fmt::Debug for ImageViewCreateFlagBits {
         Ok(())
     }
 }
+///[`VkIndirectCommandsInputModeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsInputModeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsInputModeFlagBitsEXT")]
@@ -10718,6 +10787,7 @@ impl core::fmt::Debug for IndirectCommandsInputModeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkIndirectCommandsLayoutUsageFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutUsageFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsEXT")]
@@ -10824,6 +10894,7 @@ impl core::fmt::Debug for IndirectCommandsLayoutUsageFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkIndirectCommandsLayoutUsageFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutUsageFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsNV")]
@@ -10939,6 +11010,7 @@ impl core::fmt::Debug for IndirectCommandsLayoutUsageFlagBitsNV {
         Ok(())
     }
 }
+///[`VkIndirectStateFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectStateFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectStateFlagBitsNV")]
@@ -11036,6 +11108,7 @@ impl core::fmt::Debug for IndirectStateFlagBitsNV {
         Ok(())
     }
 }
+///[`VkInstanceCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkInstanceCreateFlagBits")]
@@ -11133,6 +11206,7 @@ impl core::fmt::Debug for InstanceCreateFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryAllocateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryAllocateFlagBits")]
@@ -11257,6 +11331,7 @@ impl core::fmt::Debug for MemoryAllocateFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryDecompressionMethodFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryDecompressionMethodFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryDecompressionMethodFlagBitsEXT")]
@@ -11354,6 +11429,7 @@ impl core::fmt::Debug for MemoryDecompressionMethodFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkMemoryHeapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryHeapFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryHeapFlagBits")]
@@ -11478,6 +11554,7 @@ impl core::fmt::Debug for MemoryHeapFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryMapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryMapFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryMapFlagBits")]
@@ -11575,6 +11652,7 @@ impl core::fmt::Debug for MemoryMapFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryPropertyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryPropertyFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryPropertyFlagBits")]
@@ -11744,6 +11822,7 @@ impl core::fmt::Debug for MemoryPropertyFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryUnmapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryUnmapFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryUnmapFlagBits")]
@@ -11841,6 +11920,7 @@ impl core::fmt::Debug for MemoryUnmapFlagBits {
         Ok(())
     }
 }
+///[`VkMicromapCreateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMicromapCreateFlagBitsEXT")]
@@ -11938,6 +12018,7 @@ impl core::fmt::Debug for MicromapCreateFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkOpticalFlowExecuteFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowExecuteFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowExecuteFlagBitsNV")]
@@ -12035,6 +12116,7 @@ impl core::fmt::Debug for OpticalFlowExecuteFlagBitsNV {
         Ok(())
     }
 }
+///[`VkOpticalFlowGridSizeFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowGridSizeFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowGridSizeFlagBitsNV")]
@@ -12160,6 +12242,7 @@ impl core::fmt::Debug for OpticalFlowGridSizeFlagBitsNV {
         Ok(())
     }
 }
+///[`VkOpticalFlowSessionCreateFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreateFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowSessionCreateFlagBitsNV")]
@@ -12293,6 +12376,7 @@ impl core::fmt::Debug for OpticalFlowSessionCreateFlagBitsNV {
         Ok(())
     }
 }
+///[`VkOpticalFlowUsageFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowUsageFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowUsageFlagBitsNV")]
@@ -12427,6 +12511,7 @@ impl core::fmt::Debug for OpticalFlowUsageFlagBitsNV {
         Ok(())
     }
 }
+///[`VkPartitionedAccelerationStructureInstanceFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagBitsNV")]
@@ -12560,6 +12645,7 @@ impl core::fmt::Debug for PartitionedAccelerationStructureInstanceFlagBitsNV {
         Ok(())
     }
 }
+///[`VkPastPresentationTimingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPastPresentationTimingFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPastPresentationTimingFlagBitsEXT")]
@@ -12666,6 +12752,7 @@ impl core::fmt::Debug for PastPresentationTimingFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkPeerMemoryFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPeerMemoryFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPeerMemoryFeatureFlagBits")]
@@ -12790,6 +12877,7 @@ impl core::fmt::Debug for PeerMemoryFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkPerformanceCounterDescriptionFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterDescriptionFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPerformanceCounterDescriptionFlagBitsKHR")]
@@ -12896,6 +12984,7 @@ impl core::fmt::Debug for PerformanceCounterDescriptionFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkPhysicalDeviceSchedulingControlsFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSchedulingControlsFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagBitsARM")]
@@ -12993,6 +13082,7 @@ impl core::fmt::Debug for PhysicalDeviceSchedulingControlsFlagBitsARM {
         Ok(())
     }
 }
+///[`VkPipelineCacheCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCacheCreateFlagBits")]
@@ -13117,6 +13207,7 @@ impl core::fmt::Debug for PipelineCacheCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineColorBlendStateCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendStateCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineColorBlendStateCreateFlagBits")]
@@ -13215,6 +13306,7 @@ impl core::fmt::Debug for PipelineColorBlendStateCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineCompilerControlFlagBitsAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCompilerControlFlagBitsAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCompilerControlFlagBitsAMD")]
@@ -13303,6 +13395,7 @@ impl core::fmt::Debug for PipelineCompilerControlFlagBitsAMD {
         Ok(())
     }
 }
+///[`VkPipelineCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCreateFlagBits")]
@@ -13672,6 +13765,7 @@ impl core::fmt::Debug for PipelineCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineCreateFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCreateFlagBits2")]
@@ -14124,6 +14218,7 @@ impl core::fmt::Debug for PipelineCreateFlagBits2 {
         Ok(())
     }
 }
+///[`VkPipelineCreationFeedbackFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCreationFeedbackFlagBits")]
@@ -14239,6 +14334,7 @@ impl core::fmt::Debug for PipelineCreationFeedbackFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineDepthStencilStateCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDepthStencilStateCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineDepthStencilStateCreateFlagBits")]
@@ -14347,6 +14443,7 @@ impl core::fmt::Debug for PipelineDepthStencilStateCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineLayoutCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayoutCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineLayoutCreateFlagBits")]
@@ -14444,6 +14541,7 @@ impl core::fmt::Debug for PipelineLayoutCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineShaderStageCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineShaderStageCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineShaderStageCreateFlagBits")]
@@ -14550,6 +14648,7 @@ impl core::fmt::Debug for PipelineShaderStageCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineStageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineStageFlagBits")]
@@ -14847,6 +14946,7 @@ impl core::fmt::Debug for PipelineStageFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineStageFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineStageFlagBits2")]
@@ -15317,6 +15417,7 @@ impl core::fmt::Debug for PipelineStageFlagBits2 {
         Ok(())
     }
 }
+///[`VkPresentGravityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentGravityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentGravityFlagBitsKHR")]
@@ -15432,6 +15533,7 @@ impl core::fmt::Debug for PresentGravityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkPresentScalingFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentScalingFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentScalingFlagBitsKHR")]
@@ -15547,6 +15649,7 @@ impl core::fmt::Debug for PresentScalingFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkPresentStageFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentStageFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentStageFlagBitsEXT")]
@@ -15671,6 +15774,7 @@ impl core::fmt::Debug for PresentStageFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkPresentTimingInfoFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentTimingInfoFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentTimingInfoFlagBitsEXT")]
@@ -15777,6 +15881,7 @@ impl core::fmt::Debug for PresentTimingInfoFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkPrivateDataSlotCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPrivateDataSlotCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPrivateDataSlotCreateFlagBits")]
@@ -15865,6 +15970,7 @@ impl core::fmt::Debug for PrivateDataSlotCreateFlagBits {
         Ok(())
     }
 }
+///[`VkQueryControlFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryControlFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryControlFlagBits")]
@@ -15962,6 +16068,7 @@ impl core::fmt::Debug for QueryControlFlagBits {
         Ok(())
     }
 }
+///[`VkQueryPipelineStatisticFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPipelineStatisticFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryPipelineStatisticFlagBits")]
@@ -16176,6 +16283,7 @@ impl core::fmt::Debug for QueryPipelineStatisticFlagBits {
         Ok(())
     }
 }
+///[`VkQueryPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryPoolCreateFlagBits")]
@@ -16273,6 +16381,7 @@ impl core::fmt::Debug for QueryPoolCreateFlagBits {
         Ok(())
     }
 }
+///[`VkQueryResultFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryResultFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryResultFlagBits")]
@@ -16406,6 +16515,7 @@ impl core::fmt::Debug for QueryResultFlagBits {
         Ok(())
     }
 }
+///[`VkQueueFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueueFlagBits")]
@@ -16575,6 +16685,7 @@ impl core::fmt::Debug for QueueFlagBits {
         Ok(())
     }
 }
+///[`VkRefreshObjectFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRefreshObjectFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRefreshObjectFlagBitsKHR")]
@@ -16663,6 +16774,7 @@ impl core::fmt::Debug for RefreshObjectFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkRenderPassCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRenderPassCreateFlagBits")]
@@ -16769,6 +16881,7 @@ impl core::fmt::Debug for RenderPassCreateFlagBits {
         Ok(())
     }
 }
+///[`VkRenderingAttachmentFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRenderingAttachmentFlagBitsKHR")]
@@ -16884,6 +16997,7 @@ impl core::fmt::Debug for RenderingAttachmentFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkRenderingFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRenderingFlagBits")]
@@ -17044,6 +17158,7 @@ impl core::fmt::Debug for RenderingFlagBits {
         Ok(())
     }
 }
+///[`VkResolveImageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResolveImageFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkResolveImageFlagBitsKHR")]
@@ -17150,6 +17265,7 @@ impl core::fmt::Debug for ResolveImageFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkResolveModeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResolveModeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkResolveModeFlagBits")]
@@ -17294,6 +17410,7 @@ impl core::fmt::Debug for ResolveModeFlagBits {
         Ok(())
     }
 }
+///[`VkSampleCountFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSampleCountFlagBits")]
@@ -17445,6 +17562,7 @@ impl core::fmt::Debug for SampleCountFlagBits {
         Ok(())
     }
 }
+///[`VkSamplerCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSamplerCreateFlagBits")]
@@ -17578,6 +17696,7 @@ impl core::fmt::Debug for SamplerCreateFlagBits {
         Ok(())
     }
 }
+///[`VkSemaphoreCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSemaphoreCreateFlagBits")]
@@ -17666,6 +17785,7 @@ impl core::fmt::Debug for SemaphoreCreateFlagBits {
         Ok(())
     }
 }
+///[`VkSemaphoreImportFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreImportFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSemaphoreImportFlagBits")]
@@ -17763,6 +17883,7 @@ impl core::fmt::Debug for SemaphoreImportFlagBits {
         Ok(())
     }
 }
+///[`VkSemaphoreWaitFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreWaitFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSemaphoreWaitFlagBits")]
@@ -17860,6 +17981,7 @@ impl core::fmt::Debug for SemaphoreWaitFlagBits {
         Ok(())
     }
 }
+///[`VkShaderCorePropertiesFlagBitsAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCorePropertiesFlagBitsAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderCorePropertiesFlagBitsAMD")]
@@ -17948,6 +18070,7 @@ impl core::fmt::Debug for ShaderCorePropertiesFlagBitsAMD {
         Ok(())
     }
 }
+///[`VkShaderCreateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderCreateFlagBitsEXT")]
@@ -18135,6 +18258,7 @@ impl core::fmt::Debug for ShaderCreateFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkShaderModuleCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModuleCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderModuleCreateFlagBits")]
@@ -18223,6 +18347,7 @@ impl core::fmt::Debug for ShaderModuleCreateFlagBits {
         Ok(())
     }
 }
+///[`VkShaderStageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderStageFlagBits")]
@@ -18439,6 +18564,7 @@ impl core::fmt::Debug for ShaderStageFlagBits {
         Ok(())
     }
 }
+///[`VkSparseImageFormatFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseImageFormatFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSparseImageFormatFlagBits")]
@@ -18554,6 +18680,7 @@ impl core::fmt::Debug for SparseImageFormatFlagBits {
         Ok(())
     }
 }
+///[`VkSparseMemoryBindFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBindFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSparseMemoryBindFlagBits")]
@@ -18651,6 +18778,7 @@ impl core::fmt::Debug for SparseMemoryBindFlagBits {
         Ok(())
     }
 }
+///[`VkSpirvResourceTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSpirvResourceTypeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSpirvResourceTypeFlagBitsEXT")]
@@ -18830,6 +18958,7 @@ impl core::fmt::Debug for SpirvResourceTypeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkStencilFaceFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilFaceFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkStencilFaceFlagBits")]
@@ -18938,6 +19067,7 @@ impl core::fmt::Debug for StencilFaceFlagBits {
         Ok(())
     }
 }
+///[`VkSubgroupFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubgroupFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSubgroupFeatureFlagBits")]
@@ -19116,6 +19246,7 @@ impl core::fmt::Debug for SubgroupFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkSubmitFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSubmitFlagBits")]
@@ -19213,6 +19344,7 @@ impl core::fmt::Debug for SubmitFlagBits {
         Ok(())
     }
 }
+///[`VkSubpassDescriptionFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassDescriptionFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSubpassDescriptionFlagBits")]
@@ -19387,6 +19519,7 @@ impl core::fmt::Debug for SubpassDescriptionFlagBits {
         Ok(())
     }
 }
+///[`VkSurfaceCounterFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCounterFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSurfaceCounterFlagBitsEXT")]
@@ -19484,6 +19617,7 @@ impl core::fmt::Debug for SurfaceCounterFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkSurfaceTransformFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceTransformFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSurfaceTransformFlagBitsKHR")]
@@ -19653,6 +19787,7 @@ impl core::fmt::Debug for SurfaceTransformFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkSwapchainCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSwapchainCreateFlagBitsKHR")]
@@ -19795,6 +19930,7 @@ impl core::fmt::Debug for SwapchainCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkSwapchainImageUsageFlagBitsANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainImageUsageFlagBitsANDROID.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSwapchainImageUsageFlagBitsANDROID")]
@@ -19892,6 +20028,7 @@ impl core::fmt::Debug for SwapchainImageUsageFlagBitsANDROID {
         Ok(())
     }
 }
+///[`VkSwapchainImageUsageFlagBitsOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainImageUsageFlagBitsOHOS.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSwapchainImageUsageFlagBitsOHOS")]
@@ -19989,6 +20126,7 @@ impl core::fmt::Debug for SwapchainImageUsageFlagBitsOHOS {
         Ok(())
     }
 }
+///[`VkTensorCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCreateFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTensorCreateFlagBitsARM")]
@@ -20113,6 +20251,7 @@ impl core::fmt::Debug for TensorCreateFlagBitsARM {
         Ok(())
     }
 }
+///[`VkTensorUsageFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorUsageFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTensorUsageFlagBitsARM")]
@@ -20246,6 +20385,7 @@ impl core::fmt::Debug for TensorUsageFlagBitsARM {
         Ok(())
     }
 }
+///[`VkTensorViewCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorViewCreateFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTensorViewCreateFlagBitsARM")]
@@ -20343,6 +20483,7 @@ impl core::fmt::Debug for TensorViewCreateFlagBitsARM {
         Ok(())
     }
 }
+///[`VkTileShadingRenderPassFlagBitsQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTileShadingRenderPassFlagBitsQCOM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTileShadingRenderPassFlagBitsQCOM")]
@@ -20449,6 +20590,7 @@ impl core::fmt::Debug for TileShadingRenderPassFlagBitsQCOM {
         Ok(())
     }
 }
+///[`VkToolPurposeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkToolPurposeFlagBits")]
@@ -20600,6 +20742,7 @@ impl core::fmt::Debug for ToolPurposeFlagBits {
         Ok(())
     }
 }
+///[`VkVideoCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoCapabilityFlagBitsKHR")]
@@ -20706,6 +20849,7 @@ impl core::fmt::Debug for VideoCapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoChromaSubsamplingFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoChromaSubsamplingFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoChromaSubsamplingFlagBitsKHR")]
@@ -20831,6 +20975,7 @@ impl core::fmt::Debug for VideoChromaSubsamplingFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoCodecOperationFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodecOperationFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoCodecOperationFlagBitsKHR")]
@@ -20983,6 +21128,7 @@ impl core::fmt::Debug for VideoCodecOperationFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoCodingControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodingControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoCodingControlFlagBitsKHR")]
@@ -21098,6 +21244,7 @@ impl core::fmt::Debug for VideoCodingControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoComponentBitDepthFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoComponentBitDepthFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoComponentBitDepthFlagBitsKHR")]
@@ -21214,6 +21361,7 @@ impl core::fmt::Debug for VideoComponentBitDepthFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoDecodeCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoDecodeCapabilityFlagBitsKHR")]
@@ -21320,6 +21468,7 @@ impl core::fmt::Debug for VideoDecodeCapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoDecodeH264PictureLayoutFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeH264PictureLayoutFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagBitsKHR")]
@@ -21427,6 +21576,7 @@ impl core::fmt::Debug for VideoDecodeH264PictureLayoutFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoDecodeUsageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeUsageFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoDecodeUsageFlagBitsKHR")]
@@ -21543,6 +21693,7 @@ impl core::fmt::Debug for VideoDecodeUsageFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1CapabilityFlagBitsKHR")]
@@ -21685,6 +21836,7 @@ impl core::fmt::Debug for VideoEncodeAV1CapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1RateControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1RateControlFlagBitsKHR")]
@@ -21809,6 +21961,7 @@ impl core::fmt::Debug for VideoEncodeAV1RateControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1StdFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1StdFlagBitsKHR")]
@@ -21933,6 +22086,7 @@ impl core::fmt::Debug for VideoEncodeAV1StdFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1SuperblockSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1SuperblockSizeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagBitsKHR")]
@@ -22039,6 +22193,7 @@ impl core::fmt::Debug for VideoEncodeAV1SuperblockSizeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeCapabilityFlagBitsKHR")]
@@ -22163,6 +22318,7 @@ impl core::fmt::Debug for VideoEncodeCapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeContentFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeContentFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeContentFlagBitsKHR")]
@@ -22279,6 +22435,7 @@ impl core::fmt::Debug for VideoEncodeContentFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeFeedbackFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFeedbackFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeFeedbackFlagBitsKHR")]
@@ -22394,6 +22551,7 @@ impl core::fmt::Debug for VideoEncodeFeedbackFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeFlagBitsKHR")]
@@ -22509,6 +22667,7 @@ impl core::fmt::Debug for VideoEncodeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH264CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264CapabilityFlagBitsKHR")]
@@ -22696,6 +22855,7 @@ impl core::fmt::Debug for VideoEncodeH264CapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH264RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264RateControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264RateControlFlagBitsKHR")]
@@ -22829,6 +22989,7 @@ impl core::fmt::Debug for VideoEncodeH264RateControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH264StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264StdFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264StdFlagBitsKHR")]
@@ -23097,6 +23258,7 @@ impl core::fmt::Debug for VideoEncodeH264StdFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265CapabilityFlagBitsKHR")]
@@ -23293,6 +23455,7 @@ impl core::fmt::Debug for VideoEncodeH265CapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265CtbSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CtbSizeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265CtbSizeFlagBitsKHR")]
@@ -23408,6 +23571,7 @@ impl core::fmt::Debug for VideoEncodeH265CtbSizeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265RateControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265RateControlFlagBitsKHR")]
@@ -23541,6 +23705,7 @@ impl core::fmt::Debug for VideoEncodeH265RateControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265StdFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265StdFlagBitsKHR")]
@@ -23818,6 +23983,7 @@ impl core::fmt::Debug for VideoEncodeH265StdFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265TransformBlockSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265TransformBlockSizeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagBitsKHR")]
@@ -23942,6 +24108,7 @@ impl core::fmt::Debug for VideoEncodeH265TransformBlockSizeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeIntraRefreshModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeIntraRefreshModeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagBitsKHR")]
@@ -24067,6 +24234,7 @@ impl core::fmt::Debug for VideoEncodeIntraRefreshModeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeRateControlModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRateControlModeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRateControlModeFlagBitsKHR")]
@@ -24183,6 +24351,7 @@ impl core::fmt::Debug for VideoEncodeRateControlModeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeRgbChromaOffsetFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbChromaOffsetFlagBitsVALVE.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagBitsVALVE")]
@@ -24289,6 +24458,7 @@ impl core::fmt::Debug for VideoEncodeRgbChromaOffsetFlagBitsVALVE {
         Ok(())
     }
 }
+///[`VkVideoEncodeRgbModelConversionFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbModelConversionFlagBitsVALVE.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbModelConversionFlagBitsVALVE")]
@@ -24422,6 +24592,7 @@ impl core::fmt::Debug for VideoEncodeRgbModelConversionFlagBitsVALVE {
         Ok(())
     }
 }
+///[`VkVideoEncodeRgbRangeCompressionFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbRangeCompressionFlagBitsVALVE.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagBitsVALVE")]
@@ -24528,6 +24699,7 @@ impl core::fmt::Debug for VideoEncodeRgbRangeCompressionFlagBitsVALVE {
         Ok(())
     }
 }
+///[`VkVideoEncodeUsageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeUsageFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeUsageFlagBitsKHR")]
@@ -24653,6 +24825,7 @@ impl core::fmt::Debug for VideoEncodeUsageFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoSessionCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoSessionCreateFlagBitsKHR")]
@@ -24795,6 +24968,7 @@ impl core::fmt::Debug for VideoSessionCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoSessionParametersCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionParametersCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoSessionParametersCreateFlagBitsKHR")]
@@ -24892,6 +25066,7 @@ impl core::fmt::Debug for VideoSessionParametersCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkWaylandSurfaceCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWaylandSurfaceCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkWaylandSurfaceCreateFlagBitsKHR")]

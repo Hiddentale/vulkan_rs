@@ -23,12 +23,13 @@ pub fn emit_structs(registry: &VkRegistry) -> TokenStream {
     let type_aliases = emit_aliases::emit_type_aliases(registry);
 
     let stype_raw = stype::build_raw_map(registry);
+    let extended_by = build_extended_by_map(registry);
 
     let structs: Vec<TokenStream> = registry
         .structs
         .iter()
         .filter(|s| !is_base_pnext_struct(&s.name))
-        .map(|s| emit_struct_or_union(s, &stype_raw))
+        .map(|s| emit_struct_or_union(s, &stype_raw, &extended_by))
         .collect();
 
     let marker_traits = emit_marker_traits(registry);
@@ -47,6 +48,21 @@ pub fn emit_structs(registry: &VkRegistry) -> TokenStream {
         #(#structs)*
         #marker_traits
     }
+}
+
+/// Build reverse map: struct name → list of structs that extend it via pNext.
+fn build_extended_by_map(registry: &VkRegistry) -> HashMap<String, Vec<String>> {
+    let mut map: HashMap<String, Vec<String>> = HashMap::new();
+    for s in &registry.structs {
+        for extends in &s.extends {
+            map.entry(extends.clone()).or_default().push(s.name.clone());
+        }
+    }
+    // Sort for deterministic output.
+    for extenders in map.values_mut() {
+        extenders.sort();
+    }
+    map
 }
 
 // ---------------------------------------------------------------------------
@@ -128,21 +144,76 @@ fn emit_base_pnext_structs() -> TokenStream {
 // Struct and union emission
 // ---------------------------------------------------------------------------
 
-fn emit_struct_or_union(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStream {
+fn emit_struct_or_union(
+    def: &StructDef,
+    stype_raw: &HashMap<String, i32>,
+    extended_by: &HashMap<String, Vec<String>>,
+) -> TokenStream {
     if def.is_union {
-        emit_union(def)
+        emit_union(def, extended_by)
     } else {
-        emit_struct(def, stype_raw)
+        emit_struct(def, stype_raw, extended_by)
     }
 }
 
-fn emit_struct(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStream {
+/// Build doc comment lines for a struct or union from vk.xml metadata.
+fn emit_struct_docs(def: &StructDef, extended_by: &HashMap<String, Vec<String>>) -> TokenStream {
+    let vk_name = format!("Vk{}", &def.name);
+    let spec_link = format!(
+        "[`{vk_name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{vk_name}.html)"
+    );
+
+    let mut doc_lines: Vec<TokenStream> = vec![quote! { #[doc = #spec_link] }];
+
+    // Provided by annotation.
+    if let Some(ref provider) = def.provided_by {
+        let line = format!("\nProvided by **{provider}**.");
+        doc_lines.push(quote! { #[doc = #line] });
+    }
+
+    // Returned-only annotation.
+    if def.returned_only {
+        let line =
+            "\n**Returned only** — filled by Vulkan, not constructed by the application.";
+        doc_lines.push(quote! { #[doc = #line] });
+    }
+
+    // Extends section (what this struct extends).
+    if !def.extends.is_empty() {
+        doc_lines.push(quote! { #[doc = ""] });
+        doc_lines.push(quote! { #[doc = "# Extends"] });
+        for parent in &def.extends {
+            let line = format!("- [`{parent}`]");
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    // Extended By section (what extends this struct).
+    if let Some(extenders) = extended_by.get(&def.name) {
+        doc_lines.push(quote! { #[doc = ""] });
+        doc_lines.push(quote! { #[doc = "# Extended By"] });
+        for ext in extenders {
+            let line = format!("- [`{ext}`]");
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    quote! { #(#doc_lines)* }
+}
+
+fn emit_struct(
+    def: &StructDef,
+    stype_raw: &HashMap<String, i32>,
+    extended_by: &HashMap<String, Vec<String>>,
+) -> TokenStream {
     let name = format_ident!("{}", &def.name);
     let vk_name = format!("Vk{}", &def.name);
-    let fields = emit_fields(&def.members);
+    let docs = emit_struct_docs(def, extended_by);
+    let fields = emit_fields_with_docs(&def.members);
     let default_impl = emit_default(def, stype_raw);
 
     quote! {
+        #docs
         #[repr(C)]
         #[derive(Copy, Clone, Debug)]
         #[doc(alias = #vk_name)]
@@ -154,12 +225,14 @@ fn emit_struct(def: &StructDef, stype_raw: &HashMap<String, i32>) -> TokenStream
     }
 }
 
-fn emit_union(def: &StructDef) -> TokenStream {
+fn emit_union(def: &StructDef, extended_by: &HashMap<String, Vec<String>>) -> TokenStream {
     let name = format_ident!("{}", &def.name);
     let vk_name = format!("Vk{}", &def.name);
+    let docs = emit_struct_docs(def, extended_by);
     let fields = emit_fields(&def.members);
 
     quote! {
+        #docs
         #[repr(C)]
         #[derive(Copy, Clone)]
         #[doc(alias = #vk_name)]
@@ -187,11 +260,66 @@ fn emit_fields(members: &[MemberDef]) -> Vec<TokenStream> {
     members
         .iter()
         .filter(|m| seen.insert(m.name.clone()))
-        .map(emit_field)
+        .map(|m| emit_field(m, false))
         .collect()
 }
 
-fn emit_field(member: &MemberDef) -> TokenStream {
+fn emit_fields_with_docs(members: &[MemberDef]) -> Vec<TokenStream> {
+    // Build a set of pointer members' len targets so we can annotate count fields.
+    let len_targets: HashMap<&str, &str> = members
+        .iter()
+        .filter(|m| m.is_pointer && m.len.is_some())
+        .filter_map(|m| {
+            let len = m.len.as_deref()?;
+            let count = len.split(',').next()?.trim();
+            if count.contains("null-terminated") || count.contains('/') {
+                return None;
+            }
+            Some((count, m.name.as_str()))
+        })
+        .collect();
+
+    let mut seen = HashSet::new();
+    members
+        .iter()
+        .filter(|m| seen.insert(m.name.clone()))
+        .map(|m| {
+            let field = emit_field(m, true);
+            let mut doc_lines: Vec<TokenStream> = Vec::new();
+
+            // Fixed value (sType).
+            if let Some(ref values) = m.values {
+                let line = format!("Must be `{values}`.");
+                doc_lines.push(quote! { #[doc = #line] });
+            }
+
+            // Optional pointer.
+            if m.optional && m.is_pointer {
+                doc_lines.push(quote! { #[doc = "Optional — may be null."] });
+            }
+
+            // Count field paired with a pointer.
+            if let Some(ptr_name) = len_targets.get(m.name.as_str()) {
+                let ptr_rust = member_name(ptr_name);
+                let line = format!("Length of `{ptr_rust}`.");
+                doc_lines.push(quote! { #[doc = #line] });
+            }
+
+            // Thread safety.
+            if m.extern_sync.is_some() {
+                doc_lines
+                    .push(quote! { #[doc = "**Thread safety:** must be externally synchronized."] });
+            }
+
+            quote! {
+                #(#doc_lines)*
+                #field
+            }
+        })
+        .collect()
+}
+
+fn emit_field(member: &MemberDef, _with_docs: bool) -> TokenStream {
     let rust_name = member_name(&member.name);
     let field_ident = if is_rust_keyword(&rust_name) {
         format_ident!("r#{}", rust_name)
@@ -430,7 +558,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let tokens = emit_struct(&def, &HashMap::new());
+        let tokens = emit_struct(&def, &HashMap::new(), &HashMap::new());
         let code = tokens.to_string();
         assert!(code.contains("# [repr (C)]"));
         assert!(code.contains("pub struct Extent2D"));
@@ -447,7 +575,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_struct(&def, &HashMap::new()).to_string();
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
         assert!(code.contains("core :: mem :: zeroed ()"));
     }
 
@@ -469,7 +597,7 @@ mod tests {
             provided_by: None,
         };
         let raw = make_stype_raw_map();
-        let code = emit_struct(&def, &raw).to_string();
+        let code = emit_struct(&def, &raw, &HashMap::new()).to_string();
         assert!(code.contains("from_raw"));
         assert!(code.contains("core :: ptr :: null ()"));
     }
@@ -484,7 +612,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_struct(&def, &HashMap::new()).to_string();
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
         assert!(code.contains("VkExtent2D"));
     }
 
@@ -498,7 +626,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_struct(&def, &HashMap::new()).to_string();
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
         assert!(code.contains("r#type"));
     }
 
@@ -517,7 +645,7 @@ mod tests {
             is_union: true,
             provided_by: None,
         };
-        let code = emit_union(&def).to_string();
+        let code = emit_union(&def, &HashMap::new()).to_string();
         assert!(code.contains("pub union ClearColorValue"));
         assert!(!code.contains("Debug ,"), "union should not derive Debug");
         assert!(code.contains("impl core :: fmt :: Debug"));
@@ -533,7 +661,7 @@ mod tests {
             is_union: true,
             provided_by: None,
         };
-        let code = emit_union(&def).to_string();
+        let code = emit_union(&def, &HashMap::new()).to_string();
         assert!(code.contains("core :: mem :: zeroed ()"));
     }
 
@@ -649,5 +777,233 @@ mod tests {
     fn is_base_pnext_struct_rejects_normal() {
         assert!(!is_base_pnext_struct("BufferCreateInfo"));
         assert!(!is_base_pnext_struct("InstanceCreateInfo"));
+    }
+
+    // --- Struct documentation (1.1.1–1.1.6) ---
+
+    #[test]
+    fn struct_has_spec_link() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![make_member("width", "uint32_t")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(
+            code.contains("registry.khronos.org/vulkan/specs/latest/man/html/VkExtent2D.html"),
+            "missing spec link"
+        );
+    }
+
+    #[test]
+    fn struct_has_provided_by_when_present() {
+        let def = StructDef {
+            name: "SwapchainCreateInfoKHR".to_string(),
+            members: vec![make_member("flags", "uint32_t")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: Some("VK_KHR_swapchain".to_string()),
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(code.contains("VK_KHR_swapchain"), "missing provided_by");
+    }
+
+    #[test]
+    fn struct_no_provided_by_when_absent() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![make_member("width", "uint32_t")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(!code.contains("Provided by"), "should have no provided_by");
+    }
+
+    #[test]
+    fn struct_has_returned_only_annotation() {
+        let def = StructDef {
+            name: "PhysicalDeviceProperties".to_string(),
+            members: vec![make_member("apiVersion", "uint32_t")],
+            extends: vec![],
+            returned_only: true,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(code.contains("Returned only"), "missing returned_only annotation");
+    }
+
+    #[test]
+    fn struct_no_returned_only_when_false() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![make_member("width", "uint32_t")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(!code.contains("Returned only"));
+    }
+
+    #[test]
+    fn struct_has_extends_section() {
+        let def = StructDef {
+            name: "PhysicalDeviceVulkan12Features".to_string(),
+            members: vec![],
+            extends: vec![
+                "PhysicalDeviceFeatures2".to_string(),
+                "DeviceCreateInfo".to_string(),
+            ],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(code.contains("Extends"), "missing Extends section");
+        assert!(code.contains("PhysicalDeviceFeatures2"));
+        assert!(code.contains("DeviceCreateInfo"));
+    }
+
+    #[test]
+    fn struct_has_extended_by_section() {
+        let def = StructDef {
+            name: "DeviceCreateInfo".to_string(),
+            members: vec![],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let mut extended_by = HashMap::new();
+        extended_by.insert(
+            "DeviceCreateInfo".to_string(),
+            vec!["PhysicalDeviceVulkan12Features".to_string()],
+        );
+        let code = emit_struct(&def, &HashMap::new(), &extended_by).to_string();
+        assert!(code.contains("Extended By"), "missing Extended By section");
+        assert!(code.contains("PhysicalDeviceVulkan12Features"));
+    }
+
+    #[test]
+    fn struct_no_extended_by_when_none() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![make_member("width", "uint32_t")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(!code.contains("Extended By"));
+    }
+
+    #[test]
+    fn field_stype_has_values_doc() {
+        let def = StructDef {
+            name: "BufferCreateInfo".to_string(),
+            members: vec![
+                MemberDef {
+                    values: Some("VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO".to_string()),
+                    ..make_member("sType", "VkStructureType")
+                },
+                make_pointer_member("pNext", "void", true),
+            ],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &make_stype_raw_map(), &HashMap::new()).to_string();
+        assert!(
+            code.contains("VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO"),
+            "sType field should document its required value"
+        );
+    }
+
+    #[test]
+    fn field_optional_pointer_has_doc() {
+        let def = StructDef {
+            name: "Test".to_string(),
+            members: vec![MemberDef {
+                optional: true,
+                ..make_pointer_member("pAllocator", "VkAllocationCallbacks", true)
+            }],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(code.contains("Optional"), "optional pointer should be annotated");
+    }
+
+    #[test]
+    fn field_count_has_length_of_doc() {
+        let def = StructDef {
+            name: "Test".to_string(),
+            members: vec![
+                make_member("queueFamilyIndexCount", "uint32_t"),
+                MemberDef {
+                    len: Some("queueFamilyIndexCount".to_string()),
+                    ..make_pointer_member("pQueueFamilyIndices", "uint32_t", true)
+                },
+            ],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(
+            code.contains("Length of"),
+            "count field should document its paired pointer"
+        );
+    }
+
+    #[test]
+    fn field_extern_sync_has_thread_safety_doc() {
+        let def = StructDef {
+            name: "Test".to_string(),
+            members: vec![MemberDef {
+                extern_sync: Some("true".to_string()),
+                ..make_member("commandBuffer", "VkCommandBuffer")
+            }],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
+        assert!(
+            code.contains("externally synchronized"),
+            "extern_sync field should have thread safety doc"
+        );
+    }
+
+    #[test]
+    fn union_has_spec_link() {
+        let def = StructDef {
+            name: "ClearColorValue".to_string(),
+            members: vec![make_array_member("float32", "float", "4")],
+            extends: vec![],
+            returned_only: false,
+            is_union: true,
+            provided_by: None,
+        };
+        let code = emit_union(&def, &HashMap::new()).to_string();
+        assert!(
+            code.contains("registry.khronos.org/vulkan/specs/latest/man/html/VkClearColorValue.html"),
+            "union missing spec link"
+        );
     }
 }

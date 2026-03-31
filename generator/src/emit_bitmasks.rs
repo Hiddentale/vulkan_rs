@@ -54,7 +54,12 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
         })
         .collect();
 
+    let spec_link = format!(
+        "[`{vk_name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{vk_name}.html)"
+    );
+
     quote! {
+        #[doc = #spec_link]
         #[repr(transparent)]
         #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
         #[doc(alias = #vk_name)]

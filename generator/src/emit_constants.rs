@@ -21,7 +21,14 @@ fn emit_constant(def: &ConstantDef) -> Option<TokenStream> {
     let vk_name = &def.name;
     let (ty_tokens, val_tokens) = resolve_constant_type_and_value(def)?;
 
+    let comment_doc: Vec<TokenStream> = def
+        .comment
+        .as_deref()
+        .map(|c| vec![quote! { #[doc = #c] }])
+        .unwrap_or_default();
+
     Some(quote! {
+        #(#comment_doc)*
         #[doc(alias = #vk_name)]
         pub const #ident: #ty_tokens = #val_tokens;
     })

@@ -45,7 +45,12 @@ fn emit_enum(def: &EnumDef) -> TokenStream {
         })
         .collect();
 
+    let spec_link = format!(
+        "[`{vk_name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{vk_name}.html)"
+    );
+
     quote! {
+        #[doc = #spec_link]
         #[repr(transparent)]
         #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
         #[doc(alias = #vk_name)]
