@@ -45,6 +45,8 @@ mod instance;
 mod loader;
 #[cfg(feature = "surface")]
 mod surface;
+#[doc(hidden)]
+pub mod test_helpers;
 mod version;
 
 pub use bytecode::{BytecodeError, cast_to_u32};

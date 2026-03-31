@@ -113,14 +113,8 @@ impl Instance {
     /// # Examples
     ///
     /// ```no_run
-    /// # use vk_engine::{Entry, Instance, LibloadingLoader};
     /// # use vk_engine::vk::structs::*;
-    /// # use vk_engine::vk::enums::*;
-    /// # let loader = unsafe { LibloadingLoader::new() }.unwrap();
-    /// # let entry = unsafe { Entry::new(loader) }.unwrap();
-    /// # let instance = unsafe {
-    /// #     entry.create_instance(&*InstanceCreateInfo::builder(), None)
-    /// # }.unwrap();
+    /// # let (entry, instance) = vk_engine::test_helpers::create_test_instance().unwrap();
     /// let physical_devices = unsafe { instance.enumerate_physical_devices() }
     ///     .expect("no devices");
     /// let physical_device = physical_devices[0];
