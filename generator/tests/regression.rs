@@ -533,3 +533,35 @@ fn command_dispatch_level_is_correct() {
         misclassified.join("\n  ")
     );
 }
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 13: Command alias fallback loading
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every command alias must produce a fallback load in the generated
+/// commands.rs. Without it, calling the promoted name on an older
+/// driver silently returns None instead of trying the extension name.
+#[test]
+fn command_aliases_have_fallback_loading() {
+    let registry = load_registry();
+    let commands_rs = read_generated("vk-sys/src/commands.rs");
+
+    let mut missing = Vec::new();
+    for a in &registry.aliases {
+        if a.kind != generator::parse::AliasKind::Command {
+            continue;
+        }
+        // The alias name (e.g. "vkCreateRenderPass2KHR") should appear
+        // in a cstr literal as a fallback load target.
+        let needle = format!("{}\\0", a.name);
+        if !commands_rs.contains(&needle) {
+            missing.push(a.name.as_str());
+        }
+    }
+
+    assert!(
+        missing.is_empty(),
+        "Command aliases missing fallback loading in commands.rs:\n  {}",
+        missing.join("\n  ")
+    );
+}
