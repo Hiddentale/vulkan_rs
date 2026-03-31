@@ -58,7 +58,8 @@ fn get_physical_device_properties_reports_device_name() {
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance");
 
-    let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+    let devices = unsafe { instance.enumerate_physical_devices() }
+        .expect("enumerate_physical_devices failed");
     let props = unsafe { instance.get_physical_device_properties(devices[0]) };
 
     let name_bytes: Vec<u8> = props
@@ -83,7 +84,8 @@ fn get_physical_device_queue_family_properties_returns_at_least_one() {
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance");
 
-    let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+    let devices = unsafe { instance.enumerate_physical_devices() }
+        .expect("enumerate_physical_devices failed");
     let families = unsafe { instance.get_physical_device_queue_family_properties(devices[0]) };
     assert!(!families.is_empty(), "expected at least one queue family");
 

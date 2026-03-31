@@ -122,7 +122,8 @@ impl Drop for TestDevice {
 #[ignore]
 fn enumerate_device_extension_properties() {
     let (_entry, instance) = create_instance();
-    let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+    let devices = unsafe { instance.enumerate_physical_devices() }
+        .expect("enumerate_physical_devices failed");
 
     let extensions =
         unsafe { instance.enumerate_device_extension_properties(devices[0], std::ptr::null()) }
@@ -141,7 +142,8 @@ fn enumerate_device_extension_properties() {
 #[ignore]
 fn get_physical_device_memory_properties() {
     let (_entry, instance) = create_instance();
-    let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+    let devices = unsafe { instance.enumerate_physical_devices() }
+        .expect("enumerate_physical_devices failed");
 
     let mem_props = unsafe { instance.get_physical_device_memory_properties(devices[0]) };
 
@@ -165,7 +167,8 @@ fn get_physical_device_memory_properties() {
 #[ignore]
 fn get_physical_device_features() {
     let (_entry, instance) = create_instance();
-    let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+    let devices = unsafe { instance.enumerate_physical_devices() }
+        .expect("enumerate_physical_devices failed");
 
     // Just verify the call completes without crashing.
     let _features = unsafe { instance.get_physical_device_features(devices[0]) };
@@ -216,7 +219,8 @@ fn get_buffer_memory_requirements() {
         p_queue_family_indices: std::ptr::null(),
     };
 
-    let buffer = unsafe { t.device.create_buffer(&buffer_info, None) }.unwrap();
+    let buffer =
+        unsafe { t.device.create_buffer(&buffer_info, None) }.expect("create_buffer failed");
     let mem_reqs = unsafe { t.device.get_buffer_memory_requirements(buffer) };
 
     assert!(mem_reqs.size >= 256, "memory requirements size too small");
@@ -373,7 +377,7 @@ fn create_command_pool_and_submit_empty_buffer() {
         p_next: std::ptr::null(),
         flags: vk::bitmasks::FenceCreateFlagBits::empty(),
     };
-    let fence = unsafe { t.device.create_fence(&fence_info, None) }.unwrap();
+    let fence = unsafe { t.device.create_fence(&fence_info, None) }.expect("create_fence failed");
 
     unsafe { t.device.queue_submit(queue, &[submit_info], fence) }.expect("queue_submit failed");
 
