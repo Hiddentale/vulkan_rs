@@ -173,8 +173,7 @@ fn init_vulkan(window: Window) -> VulkanState {
     }
     assert!(!physical_device.is_null(), "No suitable GPU found");
 
-    let mem_properties =
-        unsafe { instance.get_physical_device_memory_properties(physical_device) };
+    let mem_properties = unsafe { instance.get_physical_device_memory_properties(physical_device) };
 
     let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
     let queue_priority = 1.0_f32;
@@ -283,9 +282,12 @@ fn init_vulkan(window: Window) -> VulkanState {
     // ════════════════════════════════════════════════════════════
 
     // Step 1: Load pixels from disk
-    let img = image::open(concat!(env!("CARGO_MANIFEST_DIR"), "/examples/assets/test_texture.png"))
-        .expect("Failed to open image")
-        .to_rgba8();
+    let img = image::open(concat!(
+        env!("CARGO_MANIFEST_DIR"),
+        "/examples/assets/test_texture.png"
+    ))
+    .expect("Failed to open image")
+    .to_rgba8();
 
     let (width, height) = img.dimensions();
     let pixels = img.as_raw();
@@ -346,8 +348,8 @@ fn init_vulkan(window: Window) -> VulkanState {
         .sharing_mode(SharingMode::EXCLUSIVE)
         .initial_layout(ImageLayout::UNDEFINED);
 
-    let texture_image = unsafe { device.create_image(&image_info, None) }
-        .expect("Failed to create image");
+    let texture_image =
+        unsafe { device.create_image(&image_info, None) }.expect("Failed to create image");
 
     let img_reqs = unsafe { device.get_image_memory_requirements(texture_image) };
     let tex_alloc = MemoryAllocateInfo::builder()
@@ -509,8 +511,8 @@ fn init_vulkan(window: Window) -> VulkanState {
         .min_lod(0.0)
         .max_lod(0.0);
 
-    let sampler = unsafe { device.create_sampler(&sampler_info, None) }
-        .expect("Failed to create sampler");
+    let sampler =
+        unsafe { device.create_sampler(&sampler_info, None) }.expect("Failed to create sampler");
 
     // ════════════════════════════════════════════════════════════
     // Descriptor set layout, pool, and set (Step 8)
@@ -524,9 +526,8 @@ fn init_vulkan(window: Window) -> VulkanState {
     };
     let layout_bindings = [binding];
     let dsl_info = DescriptorSetLayoutCreateInfo::builder().bindings(&layout_bindings);
-    let descriptor_set_layout =
-        unsafe { device.create_descriptor_set_layout(&dsl_info, None) }
-            .expect("Failed to create descriptor set layout");
+    let descriptor_set_layout = unsafe { device.create_descriptor_set_layout(&dsl_info, None) }
+        .expect("Failed to create descriptor set layout");
 
     let pool_size = DescriptorPoolSize {
         r#type: DescriptorType::COMBINED_IMAGE_SAMPLER,
@@ -629,8 +630,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .expect("Failed to create render pass");
 
     let set_layouts_for_pipeline = [descriptor_set_layout];
-    let layout_info =
-        PipelineLayoutCreateInfo::builder().set_layouts(&set_layouts_for_pipeline);
+    let layout_info = PipelineLayoutCreateInfo::builder().set_layouts(&set_layouts_for_pipeline);
     let pipeline_layout = unsafe { device.create_pipeline_layout(&layout_info, None) }
         .expect("Failed to create pipeline layout");
 
@@ -732,7 +732,10 @@ fn init_vulkan(window: Window) -> VulkanState {
     unsafe { device.allocate_command_buffers(&alloc_info, &mut command_buffer) }
         .expect("Failed to allocate command buffer");
 
-    println!("Texture example ready! Displaying {}x{} checkerboard.", width, height);
+    println!(
+        "Texture example ready! Displaying {}x{} checkerboard.",
+        width, height
+    );
 
     VulkanState {
         window,
@@ -889,9 +892,7 @@ unsafe fn cleanup(state: VulkanState) {
 
         // Texture cleanup
         state.device.destroy_sampler(state.sampler, None);
-        state
-            .device
-            .destroy_image_view(state.texture_view, None);
+        state.device.destroy_image_view(state.texture_view, None);
         state.device.destroy_image(state.texture_image, None);
         state.device.free_memory(state.texture_memory, None);
         state.device.destroy_buffer(state.staging_buffer, None);
