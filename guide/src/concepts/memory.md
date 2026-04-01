@@ -73,8 +73,8 @@ describe how a heap can be used).
 │  Heaps:                                                 │
 │  ┌──────────────────────┐  ┌──────────────────────────┐ │
 │  │ Heap 0: 8 GiB        │  │ Heap 1: 16 GiB           │ │
-│  │ flags: DEVICE_LOCAL   │  │ flags: (none)            │ │
-│  │ (dedicated GPU VRAM)  │  │ (system RAM)             │ │
+│  │ flags: DEVICE_LOCAL  │  │ flags: (none)            │ │
+│  │ (dedicated GPU VRAM) │  │ (system RAM)             │ │
 │  └──────────────────────┘  └──────────────────────────┘ │
 │                                                         │
 │  Memory Types (each points to a heap):                  │

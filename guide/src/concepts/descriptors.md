@@ -258,14 +258,14 @@ DescriptorSetLayoutCreateInfo ──> create_descriptor_set_layout ──> Descr
                     ┌─────────────────────────────────────────────────────┘
                     v
 DescriptorPoolCreateInfo ──> create_descriptor_pool ──> DescriptorPool
-                    │                                        │
-                    v                                        v
+                    │                                            │
+                    v                                            v
 DescriptorSetAllocateInfo ──────> allocate_descriptor_sets ──> DescriptorSet
                                                                     │
                                                                     v
-WriteDescriptorSet[] ──────────> update_descriptor_sets      (set is now usable)
-                                                                    │
-                                                                    v
+WriteDescriptorSet[] ──────────> update_descriptor_sets   (set is now usable)
+                                                            │
+                                                            v
 cmd_bind_descriptor_sets ──────> (shaders can access resources)
 ```
 
