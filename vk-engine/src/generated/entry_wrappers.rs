@@ -13,6 +13,14 @@ impl crate::Entry {
     ///
     ///# Safety
     ///- `externalQueue` (self) must be valid and not destroyed.
+    ///
+    ///# Usage Notes
+    ///
+    ///Retrieves data from an external compute queue, allowing the
+    ///application to read back results or state produced by work
+    ///submitted outside the Vulkan runtime.
+    ///
+    ///Requires `VK_NV_external_compute_queue`.
     pub unsafe fn get_external_compute_queue_data_nv(
         &self,
         external_queue: ExternalComputeQueueNV,

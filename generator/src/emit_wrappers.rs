@@ -84,7 +84,7 @@ fn wrapper_counts(registry: &VkRegistry) -> (usize, usize, usize) {
 
 /// Commands with hand-written wrappers in vk-engine that the generator must
 /// not overwrite.
-fn exclusion_set() -> HashSet<String> {
+pub fn exclusion_set() -> HashSet<String> {
     [
         // Entry — special construction / fallback logic
         "vkCreateInstance",

@@ -688,3 +688,74 @@ fn result_returning_wrappers_have_error_docs() {
         missing.join("\n  ")
     );
 }
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 17: Every generated wrapper has a doc_override file
+// ═══════════════════════════════════════════════════════════════════
+
+/// When a new Vulkan spec version adds commands, the generator will emit
+/// wrapper methods for them. This test ensures a matching doc_override
+/// file exists for every generated wrapper, so documentation never
+/// silently degrades.
+#[test]
+fn all_wrappers_have_doc_overrides() {
+    let registry = load_registry();
+    let exclusions = generator::emit_wrappers::exclusion_set();
+    let overrides_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
+
+    let missing: Vec<&str> = registry
+        .commands
+        .iter()
+        .filter(|c| !exclusions.contains(&c.name))
+        .filter(|c| !overrides_dir.join(format!("{}.md", c.name)).exists())
+        .map(|c| c.name.as_str())
+        .collect();
+
+    assert!(
+        missing.is_empty(),
+        "{} wrapper(s) missing a doc_override file:\n  {}",
+        missing.len(),
+        missing.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 18: No orphan doc_override files
+// ═══════════════════════════════════════════════════════════════════
+
+/// Doc override files that do not correspond to any generated wrapper
+/// are dead weight. This test catches stale files left behind when
+/// commands are removed or renamed in a newer vk.xml.
+#[test]
+fn no_orphan_doc_overrides() {
+    let registry = load_registry();
+    let exclusions = generator::emit_wrappers::exclusion_set();
+    let overrides_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
+
+    let wrapper_names: std::collections::HashSet<&str> = registry
+        .commands
+        .iter()
+        .filter(|c| !exclusions.contains(&c.name))
+        .map(|c| c.name.as_str())
+        .collect();
+
+    let mut orphans = Vec::new();
+    for entry in std::fs::read_dir(&overrides_dir).expect("doc_overrides dir exists") {
+        let entry = entry.expect("readable dir entry");
+        let file_name = entry.file_name();
+        let name = file_name.to_string_lossy();
+        if let Some(cmd_name) = name.strip_suffix(".md")
+            && !wrapper_names.contains(cmd_name)
+        {
+            orphans.push(cmd_name.to_string());
+        }
+    }
+
+    orphans.sort();
+    assert!(
+        orphans.is_empty(),
+        "{} orphan doc_override file(s) with no matching wrapper:\n  {}",
+        orphans.len(),
+        orphans.join("\n  ")
+    );
+}
