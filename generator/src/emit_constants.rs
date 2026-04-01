@@ -245,4 +245,209 @@ mod tests {
         let tokens = parse_c_float("0.25f").expect("should parse lowercase float");
         assert_eq!(tokens.to_string(), "0.25f32");
     }
+
+    // --- Type inference fallback (no explicit ty) ---
+
+    #[test]
+    fn infer_u64_from_ull_suffix() {
+        let def = make_constant("VK_WHOLE_SIZE", "(~0ULL)", None);
+        let tokens = emit_constant(&def).expect("should infer u64 from ULL");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("u64"), "expected u64 type");
+    }
+
+    #[test]
+    fn infer_u32_from_u_suffix() {
+        let def = make_constant("VK_QUEUE_FAMILY_IGNORED", "(~0U)", None);
+        let tokens = emit_constant(&def).expect("should infer u32 from U");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("u32"), "expected u32 type");
+    }
+
+    #[test]
+    fn infer_u32_from_hex_prefix() {
+        let def = make_constant("VK_SOME_HEX", "0xFF", None);
+        let tokens = emit_constant(&def).expect("should infer u32 from 0x prefix");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("u32"), "expected u32 type");
+        assert!(code.contains("255u32"));
+    }
+
+    #[test]
+    fn infer_f32_from_dot() {
+        let def = make_constant("VK_SOME_FLOAT", "3.14", None);
+        let tokens = emit_constant(&def).expect("should infer f32 from decimal point");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("f32"), "expected f32 type");
+    }
+
+    #[test]
+    fn infer_f32_from_f_suffix() {
+        let def = make_constant("VK_SOME_FLOAT", "42f", None);
+        let tokens = emit_constant(&def).expect("should infer f32 from f suffix");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("f32"), "expected f32 type");
+    }
+
+    #[test]
+    fn infer_i32_for_plain_integer() {
+        let def = make_constant("VK_SUBPASS_EXTERNAL", "256", None);
+        let tokens = emit_constant(&def).expect("should default to i32");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("i32"), "expected i32 type");
+        assert!(code.contains("256i32"));
+    }
+
+    #[test]
+    fn infer_i32_for_negative_integer() {
+        let def = make_constant("VK_NEG", "-1", None);
+        let tokens = emit_constant(&def).expect("should parse negative i32");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("i32"), "expected i32 type");
+    }
+
+    // --- Hex parsing ---
+
+    #[test]
+    fn parse_u32_hex() {
+        let tokens = parse_c_value_u32("0x7FFFFFFFU").expect("should parse hex u32");
+        assert_eq!(tokens.to_string(), "2147483647u32");
+    }
+
+    #[test]
+    fn parse_u32_hex_uppercase_prefix() {
+        let tokens = parse_c_value_u32("0XFF").expect("should parse 0X prefix");
+        assert_eq!(tokens.to_string(), "255u32");
+    }
+
+    #[test]
+    fn parse_u64_hex() {
+        let tokens = parse_c_value_u64("0xFFFFFFFFFFFFFFFFULL").expect("should parse hex u64");
+        assert_eq!(tokens.to_string(), "18446744073709551615u64");
+    }
+
+    #[test]
+    fn parse_u64_plain() {
+        let tokens = parse_c_value_u64("42").expect("should parse plain u64");
+        assert_eq!(tokens.to_string(), "42u64");
+    }
+
+    #[test]
+    fn parse_u64_bitwise_not_lowercase() {
+        let tokens = parse_c_value_u64("(~0ull)").expect("should parse lowercase ull");
+        assert_eq!(tokens.to_string(), "! 0u64");
+    }
+
+    // --- Comment handling ---
+
+    #[test]
+    fn constant_with_comment() {
+        let def = ConstantDef {
+            name: "VK_TRUE".to_string(),
+            value: "1".to_string(),
+            ty: Some("uint32_t".to_string()),
+            comment: Some("Boolean true value".to_string()),
+        };
+        let tokens = emit_constant(&def).expect("should emit constant with comment");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("Boolean true value"));
+    }
+
+    #[test]
+    fn constant_comment_sanitizes_angle_brackets() {
+        let def = ConstantDef {
+            name: "VK_LIMIT".to_string(),
+            value: "256".to_string(),
+            ty: Some("uint32_t".to_string()),
+            comment: Some("See <<features>> for details".to_string()),
+        };
+        let tokens = emit_constant(&def).expect("should emit constant");
+        let code = tokens.to_string();
+        assert!(!code.contains("<<"), "angle brackets should be sanitized");
+        assert!(code.contains("`features`"));
+    }
+
+    // --- Name handling ---
+
+    #[test]
+    fn name_without_vk_prefix() {
+        let def = make_constant("CUSTOM_CONSTANT", "1", Some("uint32_t"));
+        let tokens = emit_constant(&def).expect("should handle name without VK_ prefix");
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("CUSTOM_CONSTANT"));
+    }
+
+    // --- Top-level emit_constants ---
+
+    #[test]
+    fn emit_constants_empty_registry() {
+        let registry = VkRegistry {
+            handles: vec![],
+            structs: vec![],
+            enums: vec![],
+            bitmasks: vec![],
+            commands: vec![],
+            constants: vec![],
+            func_pointers: vec![],
+            extensions: vec![],
+            platforms: vec![],
+            aliases: vec![],
+            base_types: Default::default(),
+        };
+        let tokens = emit_constants(&registry);
+        assert_eq!(tokens.to_string(), "");
+    }
+
+    #[test]
+    fn emit_constants_multiple() {
+        let registry = VkRegistry {
+            handles: vec![],
+            structs: vec![],
+            enums: vec![],
+            bitmasks: vec![],
+            commands: vec![],
+            constants: vec![
+                make_constant("VK_TRUE", "1", Some("uint32_t")),
+                make_constant("VK_FALSE", "0", Some("uint32_t")),
+                make_constant("VK_WHOLE_SIZE", "(~0ULL)", Some("uint64_t")),
+            ],
+            func_pointers: vec![],
+            extensions: vec![],
+            platforms: vec![],
+            aliases: vec![],
+            base_types: Default::default(),
+        };
+        let tokens = emit_constants(&registry);
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(code.contains("TRUE"));
+        assert!(code.contains("FALSE"));
+        assert!(code.contains("WHOLE_SIZE"));
+    }
+
+    // --- extract_bitwise_not edge cases ---
+
+    #[test]
+    fn extract_bitwise_not_returns_none_without_parens() {
+        assert!(extract_bitwise_not("~0U").is_none());
+    }
+
+    #[test]
+    fn extract_bitwise_not_returns_none_without_tilde() {
+        assert!(extract_bitwise_not("(0U)").is_none());
+    }
+
+    #[test]
+    fn extract_bitwise_not_with_whitespace() {
+        assert_eq!(extract_bitwise_not("( ~0U )").unwrap(), "0U");
+    }
 }
