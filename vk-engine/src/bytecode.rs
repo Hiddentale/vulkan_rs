@@ -94,4 +94,34 @@ mod tests {
             "SPIR-V byte slice pointer is not 4-byte aligned"
         );
     }
+
+    #[test]
+    fn invalid_length_display() {
+        let err = BytecodeError::InvalidLength(7);
+        assert_eq!(
+            err.to_string(),
+            "SPIR-V byte length 7 is not a multiple of 4"
+        );
+    }
+
+    #[test]
+    fn misaligned_pointer_returns_error() {
+        // Create a 4-byte-aligned buffer, then take a subslice at offset 1
+        // to guarantee misalignment.
+        #[repr(align(4))]
+        struct Aligned([u8; 8]);
+        let data = Aligned([0; 8]);
+        let misaligned = &data.0[1..5];
+        assert_eq!(
+            cast_to_u32(misaligned),
+            Err(BytecodeError::MisalignedPointer)
+        );
+    }
+
+    #[test]
+    fn bytecode_error_is_std_error() {
+        let err: &dyn std::error::Error = &BytecodeError::InvalidLength(3);
+        // source() should return None (no underlying cause).
+        assert!(err.source().is_none());
+    }
 }
