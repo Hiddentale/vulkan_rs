@@ -720,7 +720,359 @@ fn all_wrappers_have_doc_overrides() {
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// Test 18: No orphan doc_override files
+// Test 18: Wrapper return types match command patterns
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every generated wrapper must have a return type consistent with its
+/// command pattern. Create → `VkResult<T>`, Enumerate → `VkResult<Vec<T>>`,
+/// Fill → `Vec<T>`, Query → plain `T`, ResultOnly → `VkResult<()>`,
+/// Destroy/VoidForward → no return type.
+#[test]
+fn wrapper_return_types_match_patterns() {
+    let registry = load_registry();
+    let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
+    let exclusions = generator::emit_wrappers::exclusion_set();
+
+    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let entry_wrappers = read_generated("vk-engine/src/generated/entry_wrappers.rs");
+    let all = format!("{entry_wrappers}\n{instance_wrappers}\n{device_wrappers}");
+
+    /// Extract the return type from a method's signature region in the source.
+    /// Finds `pub unsafe fn name(` then reads up to the opening `{`.
+    fn extract_return_type(source: &str, method_name: &str) -> Option<String> {
+        let marker = format!("pub unsafe fn {method_name}(");
+        let start = source.find(&marker)?;
+        let sig_region = &source[start..];
+        let brace = sig_region.find('{')?;
+        let sig = &sig_region[..brace];
+        // Return type is after the last `->`, if any.
+        if let Some(arrow) = sig.rfind("->") {
+            let ret = sig[arrow + 2..].trim();
+            Some(ret.to_string())
+        } else {
+            Some(String::new())
+        }
+    }
+
+    let mut mismatches = Vec::new();
+
+    for cmd in &registry.commands {
+        if exclusions.contains(&cmd.name) {
+            continue;
+        }
+        let roles = generator::wrapper_utils::classify_params(cmd, &pnext);
+        let pattern = generator::wrapper_utils::classify_command(cmd, &roles);
+
+        let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
+        let method_name = <str as heck::ToSnakeCase>::to_snake_case(stripped);
+
+        let ret = match extract_return_type(&all, &method_name) {
+            Some(r) => r,
+            None => continue,
+        };
+
+        let ok = match pattern {
+            generator::wrapper_utils::CommandPattern::Create => {
+                ret.starts_with("VkResult<") && !ret.contains("Vec")
+            }
+            generator::wrapper_utils::CommandPattern::Enumerate => ret.starts_with("VkResult<Vec<"),
+            generator::wrapper_utils::CommandPattern::Fill => {
+                ret.starts_with("Vec<") && !ret.contains("VkResult")
+            }
+            generator::wrapper_utils::CommandPattern::Query => {
+                !ret.is_empty() && !ret.contains("VkResult") && !ret.contains("Vec")
+            }
+            generator::wrapper_utils::CommandPattern::ResultOnly => ret == "VkResult<()>",
+            generator::wrapper_utils::CommandPattern::Destroy
+            | generator::wrapper_utils::CommandPattern::VoidForward => ret.is_empty(),
+        };
+
+        if !ok {
+            mismatches.push(format!(
+                "{} ({:?}): expected {:?}-style return, got '{ret}'",
+                cmd.name, pattern, pattern
+            ));
+        }
+    }
+
+    assert!(
+        mismatches.is_empty(),
+        "Wrapper return type mismatches:\n  {}",
+        mismatches.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 19: Self-handle is always elided from wrapper signatures
+// ═══════════════════════════════════════════════════════════════════
+
+/// The first dispatchable handle parameter (device, instance, etc.) must
+/// become `&self`, not appear as an explicit parameter in the signature.
+#[test]
+fn wrapper_signatures_elide_self_handle() {
+    let registry = load_registry();
+    let exclusions = generator::emit_wrappers::exclusion_set();
+
+    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+
+    let dispatch_handles = [
+        "VkInstance",
+        "VkPhysicalDevice",
+        "VkDevice",
+        "VkQueue",
+        "VkCommandBuffer",
+    ];
+
+    let mut leaked = Vec::new();
+
+    for cmd in &registry.commands {
+        if exclusions.contains(&cmd.name) {
+            continue;
+        }
+        let first_param = match cmd.params.first() {
+            Some(p) if dispatch_handles.contains(&p.type_name.as_str()) => &p.name,
+            _ => continue,
+        };
+
+        let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
+        let method_name = <str as heck::ToSnakeCase>::to_snake_case(stripped);
+        let snake_param = <str as heck::ToSnakeCase>::to_snake_case(first_param);
+
+        // Find the method signature in the generated wrappers.
+        let source = match cmd.dispatch_level {
+            generator::parse::DispatchLevel::Instance => &instance_wrappers,
+            generator::parse::DispatchLevel::Device => &device_wrappers,
+            _ => continue,
+        };
+
+        // Find the signature line(s) for this method.
+        let fn_marker = format!("pub unsafe fn {method_name}(");
+        if let Some(start) = source.find(&fn_marker) {
+            // Extract everything up to the opening brace.
+            let sig_region = &source[start..];
+            let sig_end = sig_region.find('{').unwrap_or(sig_region.len());
+            let sig = &sig_region[..sig_end];
+
+            // The self-handle's snake_case name should NOT appear as a parameter.
+            // It should only appear as &self. Exclude the function name itself.
+            let after_name = &sig[fn_marker.len()..];
+            // Split on &self to get only the parameter list.
+            if let Some(params_part) = after_name.split("&self").nth(1) {
+                // Check if the dispatch handle name appears as a parameter.
+                let param_pattern = format!("{snake_param} :");
+                if params_part.contains(&param_pattern) {
+                    leaked.push(format!(
+                        "{}: self-handle '{}' leaked into signature",
+                        cmd.name, snake_param
+                    ));
+                }
+            }
+        }
+    }
+
+    assert!(
+        leaked.is_empty(),
+        "Wrapper methods with self-handle in signature:\n  {}",
+        leaked.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 20: All wrappers dispatch through function pointer
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every generated wrapper must load its function pointer via
+/// `self.commands().xxx.expect(...)`. A wrapper that skips this check
+/// would crash at runtime.
+#[test]
+fn all_wrappers_dispatch_through_fp() {
+    let registry = load_registry();
+    let exclusions = generator::emit_wrappers::exclusion_set();
+
+    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let entry_wrappers = read_generated("vk-engine/src/generated/entry_wrappers.rs");
+    let all = format!("{entry_wrappers}\n{instance_wrappers}\n{device_wrappers}");
+
+    let mut missing = Vec::new();
+
+    for cmd in &registry.commands {
+        if exclusions.contains(&cmd.name) {
+            continue;
+        }
+        let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
+        let method_name = <str as heck::ToSnakeCase>::to_snake_case(stripped);
+
+        let expect_pattern = format!(".{method_name}\n");
+        let expect_pattern_inline = format!(".{method_name}.expect(");
+
+        // The method body must reference self.commands().method_name.expect(...)
+        // Due to formatting, the field access might be on the next line.
+        if !all.contains(&expect_pattern) && !all.contains(&expect_pattern_inline) {
+            missing.push(cmd.name.as_str());
+        }
+    }
+
+    assert!(
+        missing.is_empty(),
+        "Wrappers missing function pointer dispatch:\n  {}",
+        missing.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 21: Allocator parameters become Option<&AllocationCallbacks>
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every command with a `VkAllocationCallbacks` parameter must expose it
+/// as `allocator: Option<&AllocationCallbacks>` in the wrapper signature,
+/// not as a raw pointer.
+#[test]
+fn allocator_params_are_option_ref() {
+    let registry = load_registry();
+    let exclusions = generator::emit_wrappers::exclusion_set();
+
+    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let entry_wrappers = read_generated("vk-engine/src/generated/entry_wrappers.rs");
+    let all = format!("{entry_wrappers}\n{instance_wrappers}\n{device_wrappers}");
+
+    let mut bad = Vec::new();
+
+    for cmd in &registry.commands {
+        if exclusions.contains(&cmd.name) {
+            continue;
+        }
+        let has_allocator = cmd
+            .params
+            .iter()
+            .any(|p| p.type_name == "VkAllocationCallbacks");
+        if !has_allocator {
+            continue;
+        }
+
+        let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
+        let method_name = <str as heck::ToSnakeCase>::to_snake_case(stripped);
+
+        let fn_marker = format!("pub unsafe fn {method_name}(");
+        if let Some(start) = all.find(&fn_marker) {
+            let sig_region = &all[start..];
+            let sig_end = sig_region.find('{').unwrap_or(sig_region.len());
+            let sig = &sig_region[..sig_end];
+
+            // prettyplease may format with or without spaces in generics.
+            let has_option_ref = sig.contains("allocator: Option<&AllocationCallbacks>")
+                || sig.contains("allocator: Option<& AllocationCallbacks>");
+            if !has_option_ref {
+                bad.push(format!(
+                    "{}: allocator not Option<&AllocationCallbacks>",
+                    cmd.name
+                ));
+            }
+        }
+    }
+
+    assert!(
+        bad.is_empty(),
+        "Wrappers with raw allocator params:\n  {}",
+        bad.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 22: Two-call wrappers use the correct helper
+// ═══════════════════════════════════════════════════════════════════
+
+/// Enumerate commands (VkResult return) must use `enumerate_two_call`.
+/// Fill commands (void return) must use `fill_two_call`. Using the wrong
+/// helper causes the return type to mismatch.
+#[test]
+fn two_call_wrappers_use_correct_helper() {
+    let registry = load_registry();
+    let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
+    let exclusions = generator::emit_wrappers::exclusion_set();
+
+    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let all = format!("{instance_wrappers}\n{device_wrappers}");
+
+    /// Extract a method's full text (signature + body) from the source.
+    fn extract_method_text<'a>(source: &'a str, method_name: &str) -> Option<&'a str> {
+        let marker = format!("pub unsafe fn {method_name}(");
+        let start = source.find(&marker)?;
+        let rest = &source[start..];
+        // Find the end: next `pub unsafe fn` or end of impl block `}\n`.
+        let next_method = rest[1..].find("\n    pub unsafe fn ").map(|p| p + 1);
+        let impl_end = rest.find("\n}\n").map(|p| p + 1);
+        let end = match (next_method, impl_end) {
+            (Some(a), Some(b)) => a.min(b),
+            (Some(a), None) => a,
+            (None, Some(b)) => b,
+            (None, None) => rest.len(),
+        };
+        Some(&rest[..end])
+    }
+
+    let mut wrong_helper = Vec::new();
+
+    for cmd in &registry.commands {
+        if exclusions.contains(&cmd.name) {
+            continue;
+        }
+        let roles = generator::wrapper_utils::classify_params(cmd, &pnext);
+        let pattern = generator::wrapper_utils::classify_command(cmd, &roles);
+
+        let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
+        let method_name = <str as heck::ToSnakeCase>::to_snake_case(stripped);
+
+        let body = match extract_method_text(&all, &method_name) {
+            Some(b) => b,
+            None => continue,
+        };
+
+        match pattern {
+            generator::wrapper_utils::CommandPattern::Enumerate => {
+                if !body.contains("enumerate_two_call") {
+                    wrong_helper.push(format!(
+                        "{}: Enumerate but missing enumerate_two_call",
+                        cmd.name
+                    ));
+                }
+                if body.contains("fill_two_call") {
+                    wrong_helper.push(format!("{}: Enumerate but uses fill_two_call", cmd.name));
+                }
+            }
+            generator::wrapper_utils::CommandPattern::Fill => {
+                if !body.contains("fill_two_call") {
+                    wrong_helper.push(format!("{}: Fill but missing fill_two_call", cmd.name));
+                }
+                if body.contains("enumerate_two_call") {
+                    wrong_helper.push(format!("{}: Fill but uses enumerate_two_call", cmd.name));
+                }
+            }
+            _ => {
+                // Non-two-call patterns must not use either helper.
+                if body.contains("enumerate_two_call") || body.contains("fill_two_call") {
+                    wrong_helper.push(format!(
+                        "{}: {:?} pattern but uses two-call helper",
+                        cmd.name, pattern
+                    ));
+                }
+            }
+        }
+    }
+
+    assert!(
+        wrong_helper.is_empty(),
+        "Wrappers using wrong two-call helper:\n  {}",
+        wrong_helper.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 23: No orphan doc_override files
 // ═══════════════════════════════════════════════════════════════════
 
 /// Doc override files that do not correspond to any generated wrapper
