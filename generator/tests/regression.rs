@@ -744,10 +744,10 @@ fn no_orphan_doc_overrides() {
         let entry = entry.expect("readable dir entry");
         let file_name = entry.file_name();
         let name = file_name.to_string_lossy();
-        if let Some(cmd_name) = name.strip_suffix(".md") {
-            if !wrapper_names.contains(cmd_name) {
-                orphans.push(cmd_name.to_string());
-            }
+        if let Some(cmd_name) = name.strip_suffix(".md")
+            && !wrapper_names.contains(cmd_name)
+        {
+            orphans.push(cmd_name.to_string());
         }
     }
 

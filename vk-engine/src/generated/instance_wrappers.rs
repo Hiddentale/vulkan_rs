@@ -1,6 +1,6 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
-use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
+use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
 use crate::vk::enums::*;
@@ -9,7 +9,7 @@ use crate::vk::structs::*;
 impl crate::Instance {
     ///Wraps [`vkDestroyInstance`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyInstance.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
@@ -31,13 +31,16 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///After this call the instance handle and all physical device handles
     ///obtained from it are invalid.
     pub unsafe fn destroy_instance(&self, allocator: Option<&AllocationCallbacks>) {
-        let fp = self.commands().destroy_instance.expect("vkDestroyInstance not loaded");
+        let fp = self
+            .commands()
+            .destroy_instance
+            .expect("vkDestroyInstance not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), alloc_ptr) };
     }
     ///Wraps [`vkEnumeratePhysicalDevices`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDevices.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -77,7 +80,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetInstanceProcAddr`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetInstanceProcAddr.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
@@ -112,7 +115,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -151,7 +154,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceQueueFamilyProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -193,7 +196,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceMemoryProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMemoryProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -240,7 +243,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceFeatures`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -282,7 +285,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFormatProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -325,7 +328,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceImageFormatProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -377,13 +380,21 @@ Provided by **VK_BASE_VERSION_1_0**.*/
             .expect("vkGetPhysicalDeviceImageFormatProperties not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(physical_device, format, r#type, tiling, usage, flags, &mut out)
+            fp(
+                physical_device,
+                format,
+                r#type,
+                tiling,
+                usage,
+                flags,
+                &mut out,
+            )
         })?;
         Ok(out)
     }
     ///Wraps [`vkEnumerateDeviceLayerProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateDeviceLayerProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -416,7 +427,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkEnumerateDeviceExtensionProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumerateDeviceExtensionProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -458,13 +469,11 @@ Provided by **VK_BASE_VERSION_1_0**.*/
             .commands()
             .enumerate_device_extension_properties
             .expect("vkEnumerateDeviceExtensionProperties not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, p_layer_name, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(physical_device, p_layer_name, count, data) })
     }
     ///Wraps [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -499,12 +508,21 @@ Provided by **VK_BASE_VERSION_1_0**.*/
             .get_physical_device_sparse_image_format_properties
             .expect("vkGetPhysicalDeviceSparseImageFormatProperties not loaded");
         fill_two_call(|count, data| unsafe {
-            fp(physical_device, format, r#type, samples, usage, tiling, count, data)
+            fp(
+                physical_device,
+                format,
+                r#type,
+                samples,
+                usage,
+                tiling,
+                count,
+                data,
+            )
         })
     }
     ///Wraps [`vkCreateSurfaceOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSurfaceOHOS.html).
     /**
-Provided by **VK_OHOS_surface**.*/
+    Provided by **VK_OHOS_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -538,7 +556,7 @@ Provided by **VK_OHOS_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceDisplayPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPropertiesKHR.html).
     /**
-Provided by **VK_KHR_display**.*/
+    Provided by **VK_KHR_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -579,7 +597,7 @@ Provided by **VK_KHR_display**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceDisplayPlanePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html).
     /**
-Provided by **VK_KHR_display**.*/
+    Provided by **VK_KHR_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -615,7 +633,7 @@ Provided by **VK_KHR_display**.*/
     }
     ///Wraps [`vkGetDisplayPlaneSupportedDisplaysKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneSupportedDisplaysKHR.html).
     /**
-Provided by **VK_KHR_display**.*/
+    Provided by **VK_KHR_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -647,13 +665,11 @@ Provided by **VK_KHR_display**.*/
             .commands()
             .get_display_plane_supported_displays_khr
             .expect("vkGetDisplayPlaneSupportedDisplaysKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, plane_index, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(physical_device, plane_index, count, data) })
     }
     ///Wraps [`vkGetDisplayModePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayModePropertiesKHR.html).
     /**
-Provided by **VK_KHR_display**.*/
+    Provided by **VK_KHR_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -686,13 +702,11 @@ Provided by **VK_KHR_display**.*/
             .commands()
             .get_display_mode_properties_khr
             .expect("vkGetDisplayModePropertiesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, display, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(physical_device, display, count, data) })
     }
     ///Wraps [`vkCreateDisplayModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDisplayModeKHR.html).
     /**
-Provided by **VK_KHR_display**.*/
+    Provided by **VK_KHR_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -731,14 +745,12 @@ Provided by **VK_KHR_display**.*/
             .expect("vkCreateDisplayModeKHR not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
-        check(unsafe {
-            fp(physical_device, display, p_create_info, alloc_ptr, &mut out)
-        })?;
+        check(unsafe { fp(physical_device, display, p_create_info, alloc_ptr, &mut out) })?;
         Ok(out)
     }
     ///Wraps [`vkGetDisplayPlaneCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneCapabilitiesKHR.html).
     /**
-Provided by **VK_KHR_display**.*/
+    Provided by **VK_KHR_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -781,7 +793,7 @@ Provided by **VK_KHR_display**.*/
     }
     ///Wraps [`vkCreateDisplayPlaneSurfaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDisplayPlaneSurfaceKHR.html).
     /**
-Provided by **VK_KHR_display**.*/
+    Provided by **VK_KHR_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -826,7 +838,7 @@ Provided by **VK_KHR_display**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceSupportKHR.html).
     /**
-Provided by **VK_KHR_surface**.*/
+    Provided by **VK_KHR_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -866,7 +878,7 @@ Provided by **VK_KHR_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html).
     /**
-Provided by **VK_KHR_surface**.*/
+    Provided by **VK_KHR_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -912,7 +924,7 @@ Provided by **VK_KHR_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceFormatsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceFormatsKHR.html).
     /**
-Provided by **VK_KHR_surface**.*/
+    Provided by **VK_KHR_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -947,13 +959,11 @@ Provided by **VK_KHR_surface**.*/
             .commands()
             .get_physical_device_surface_formats_khr
             .expect("vkGetPhysicalDeviceSurfaceFormatsKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, surface, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
     }
     ///Wraps [`vkGetPhysicalDeviceSurfacePresentModesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfacePresentModesKHR.html).
     /**
-Provided by **VK_KHR_surface**.*/
+    Provided by **VK_KHR_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -991,13 +1001,11 @@ Provided by **VK_KHR_surface**.*/
             .commands()
             .get_physical_device_surface_present_modes_khr
             .expect("vkGetPhysicalDeviceSurfacePresentModesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, surface, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
     }
     ///Wraps [`vkCreateViSurfaceNN`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateViSurfaceNN.html).
     /**
-Provided by **VK_NN_vi_surface**.*/
+    Provided by **VK_NN_vi_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1031,7 +1039,7 @@ Provided by **VK_NN_vi_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html).
     /**
-Provided by **VK_KHR_wayland_surface**.*/
+    Provided by **VK_KHR_wayland_surface**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1058,7 +1066,7 @@ Provided by **VK_KHR_wayland_surface**.*/
     }
     ///Wraps [`vkCreateUbmSurfaceSEC`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateUbmSurfaceSEC.html).
     /**
-Provided by **VK_SEC_ubm_surface**.*/
+    Provided by **VK_SEC_ubm_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1091,7 +1099,7 @@ Provided by **VK_SEC_ubm_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceUbmPresentationSupportSEC`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceUbmPresentationSupportSEC.html).
     /**
-Provided by **VK_SEC_ubm_surface**.*/
+    Provided by **VK_SEC_ubm_surface**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1117,7 +1125,7 @@ Provided by **VK_SEC_ubm_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceWin32PresentationSupportKHR.html).
     /**
-Provided by **VK_KHR_win32_surface**.*/
+    Provided by **VK_KHR_win32_surface**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1143,7 +1151,7 @@ Provided by **VK_KHR_win32_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceXlibPresentationSupportKHR.html).
     /**
-Provided by **VK_KHR_xlib_surface**.*/
+    Provided by **VK_KHR_xlib_surface**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1170,7 +1178,7 @@ Provided by **VK_KHR_xlib_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceXcbPresentationSupportKHR.html).
     /**
-Provided by **VK_KHR_xcb_surface**.*/
+    Provided by **VK_KHR_xcb_surface**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1197,7 +1205,7 @@ Provided by **VK_KHR_xcb_surface**.*/
     }
     ///Wraps [`vkCreateDirectFBSurfaceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDirectFBSurfaceEXT.html).
     /**
-Provided by **VK_EXT_directfb_surface**.*/
+    Provided by **VK_EXT_directfb_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1231,7 +1239,7 @@ Provided by **VK_EXT_directfb_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceDirectFBPresentationSupportEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html).
     /**
-Provided by **VK_EXT_directfb_surface**.*/
+    Provided by **VK_EXT_directfb_surface**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1257,7 +1265,7 @@ Provided by **VK_EXT_directfb_surface**.*/
     }
     ///Wraps [`vkCreateImagePipeSurfaceFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateImagePipeSurfaceFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_imagepipe_surface**.*/
+    Provided by **VK_FUCHSIA_imagepipe_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1291,7 +1299,7 @@ Provided by **VK_FUCHSIA_imagepipe_surface**.*/
     }
     ///Wraps [`vkCreateStreamDescriptorSurfaceGGP`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateStreamDescriptorSurfaceGGP.html).
     /**
-Provided by **VK_GGP_stream_descriptor_surface**.*/
+    Provided by **VK_GGP_stream_descriptor_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1325,7 +1333,7 @@ Provided by **VK_GGP_stream_descriptor_surface**.*/
     }
     ///Wraps [`vkCreateScreenSurfaceQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateScreenSurfaceQNX.html).
     /**
-Provided by **VK_QNX_screen_surface**.*/
+    Provided by **VK_QNX_screen_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1358,7 +1366,7 @@ Provided by **VK_QNX_screen_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceScreenPresentationSupportQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceScreenPresentationSupportQNX.html).
     /**
-Provided by **VK_QNX_screen_surface**.*/
+    Provided by **VK_QNX_screen_surface**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1384,7 +1392,7 @@ Provided by **VK_QNX_screen_surface**.*/
     }
     ///Wraps [`vkCreateDebugReportCallbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDebugReportCallbackEXT.html).
     /**
-Provided by **VK_EXT_debug_report**.*/
+    Provided by **VK_EXT_debug_report**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1423,7 +1431,7 @@ Provided by **VK_EXT_debug_report**.*/
     }
     ///Wraps [`vkDestroyDebugReportCallbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDebugReportCallbackEXT.html).
     /**
-Provided by **VK_EXT_debug_report**.*/
+    Provided by **VK_EXT_debug_report**.*/
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
@@ -1451,7 +1459,7 @@ Provided by **VK_EXT_debug_report**.*/
     }
     ///Wraps [`vkDebugReportMessageEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugReportMessageEXT.html).
     /**
-Provided by **VK_EXT_debug_report**.*/
+    Provided by **VK_EXT_debug_report**.*/
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
@@ -1497,7 +1505,7 @@ Provided by **VK_EXT_debug_report**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html).
     /**
-Provided by **VK_NV_external_memory_capabilities**.*/
+    Provided by **VK_NV_external_memory_capabilities**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1549,7 +1557,7 @@ Provided by **VK_NV_external_memory_capabilities**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceFeatures2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFeatures2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1586,7 +1594,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1624,7 +1632,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFormatProperties2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1654,7 +1662,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceImageFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceImageFormatProperties2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1701,12 +1709,16 @@ Provided by **VK_BASE_VERSION_1_1**.*/
             .get_physical_device_image_format_properties2
             .expect("vkGetPhysicalDeviceImageFormatProperties2 not loaded");
         check(unsafe {
-            fp(physical_device, p_image_format_info, p_image_format_properties)
+            fp(
+                physical_device,
+                p_image_format_info,
+                p_image_format_properties,
+            )
         })
     }
     ///Wraps [`vkGetPhysicalDeviceQueueFamilyProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyProperties2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1734,7 +1746,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceMemoryProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMemoryProperties2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1764,7 +1776,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSparseImageFormatProperties2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1786,13 +1798,11 @@ Provided by **VK_BASE_VERSION_1_1**.*/
             .commands()
             .get_physical_device_sparse_image_format_properties2
             .expect("vkGetPhysicalDeviceSparseImageFormatProperties2 not loaded");
-        fill_two_call(|count, data| unsafe {
-            fp(physical_device, p_format_info, count, data)
-        })
+        fill_two_call(|count, data| unsafe { fp(physical_device, p_format_info, count, data) })
     }
     ///Wraps [`vkGetPhysicalDeviceExternalBufferProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalBufferProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1823,7 +1833,11 @@ Provided by **VK_BASE_VERSION_1_1**.*/
             .get_physical_device_external_buffer_properties
             .expect("vkGetPhysicalDeviceExternalBufferProperties not loaded");
         unsafe {
-            fp(physical_device, p_external_buffer_info, p_external_buffer_properties)
+            fp(
+                physical_device,
+                p_external_buffer_info,
+                p_external_buffer_properties,
+            )
         };
     }
     ///Wraps [`vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV.html).
@@ -1857,7 +1871,12 @@ Provided by **VK_BASE_VERSION_1_1**.*/
             .get_physical_device_external_memory_sci_buf_properties_nv
             .expect("vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV not loaded");
         check(unsafe {
-            fp(physical_device, handle_type, handle, p_memory_sci_buf_properties)
+            fp(
+                physical_device,
+                handle_type,
+                handle,
+                p_memory_sci_buf_properties,
+            )
         })
     }
     ///Wraps [`vkGetPhysicalDeviceSciBufAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciBufAttributesNV.html).
@@ -1893,7 +1912,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceExternalSemaphoreProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalSemaphoreProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1933,7 +1952,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceExternalFenceProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalFenceProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -1963,7 +1982,11 @@ Provided by **VK_BASE_VERSION_1_1**.*/
             .get_physical_device_external_fence_properties
             .expect("vkGetPhysicalDeviceExternalFenceProperties not loaded");
         unsafe {
-            fp(physical_device, p_external_fence_info, p_external_fence_properties)
+            fp(
+                physical_device,
+                p_external_fence_info,
+                p_external_fence_properties,
+            )
         };
     }
     ///Wraps [`vkGetPhysicalDeviceSciSyncAttributesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSciSyncAttributesNV.html).
@@ -1999,7 +2022,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkReleaseDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseDisplayEXT.html).
     /**
-Provided by **VK_EXT_direct_mode_display**.*/
+    Provided by **VK_EXT_direct_mode_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -2028,7 +2051,7 @@ Provided by **VK_EXT_direct_mode_display**.*/
     }
     ///Wraps [`vkAcquireXlibDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireXlibDisplayEXT.html).
     /**
-Provided by **VK_EXT_acquire_xlib_display**.*/
+    Provided by **VK_EXT_acquire_xlib_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2061,7 +2084,7 @@ Provided by **VK_EXT_acquire_xlib_display**.*/
     }
     ///Wraps [`vkGetRandROutputDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRandROutputDisplayEXT.html).
     /**
-Provided by **VK_EXT_acquire_xlib_display**.*/
+    Provided by **VK_EXT_acquire_xlib_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2094,7 +2117,7 @@ Provided by **VK_EXT_acquire_xlib_display**.*/
     }
     ///Wraps [`vkAcquireWinrtDisplayNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireWinrtDisplayNV.html).
     /**
-Provided by **VK_NV_acquire_winrt_display**.*/
+    Provided by **VK_NV_acquire_winrt_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2126,7 +2149,7 @@ Provided by **VK_NV_acquire_winrt_display**.*/
     }
     ///Wraps [`vkGetWinrtDisplayNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetWinrtDisplayNV.html).
     /**
-Provided by **VK_NV_acquire_winrt_display**.*/
+    Provided by **VK_NV_acquire_winrt_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2160,7 +2183,7 @@ Provided by **VK_NV_acquire_winrt_display**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2EXT.html).
     /**
-Provided by **VK_EXT_display_surface_counter**.*/
+    Provided by **VK_EXT_display_surface_counter**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2198,7 +2221,7 @@ Provided by **VK_EXT_display_surface_counter**.*/
     }
     ///Wraps [`vkEnumeratePhysicalDeviceGroups`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceGroups.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2237,7 +2260,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetPhysicalDevicePresentRectanglesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDevicePresentRectanglesKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2269,13 +2292,11 @@ Provided by **VK_KHR_swapchain**.*/
             .commands()
             .get_physical_device_present_rectangles_khr
             .expect("vkGetPhysicalDevicePresentRectanglesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, surface, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(physical_device, surface, count, data) })
     }
     ///Wraps [`vkCreateIOSSurfaceMVK`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIOSSurfaceMVK.html).
     /**
-Provided by **VK_MVK_ios_surface**.*/
+    Provided by **VK_MVK_ios_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2310,7 +2331,7 @@ Provided by **VK_MVK_ios_surface**.*/
     }
     ///Wraps [`vkCreateMacOSSurfaceMVK`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMacOSSurfaceMVK.html).
     /**
-Provided by **VK_MVK_macos_surface**.*/
+    Provided by **VK_MVK_macos_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2345,7 +2366,7 @@ Provided by **VK_MVK_macos_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceMultisamplePropertiesEXT.html).
     /**
-Provided by **VK_EXT_sample_locations**.*/
+    Provided by **VK_EXT_sample_locations**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -2374,7 +2395,7 @@ Provided by **VK_EXT_sample_locations**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html).
     /**
-Provided by **VK_KHR_get_surface_capabilities2**.*/
+    Provided by **VK_KHR_get_surface_capabilities2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2413,7 +2434,7 @@ Provided by **VK_KHR_get_surface_capabilities2**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceFormats2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceFormats2KHR.html).
     /**
-Provided by **VK_KHR_get_surface_capabilities2**.*/
+    Provided by **VK_KHR_get_surface_capabilities2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2453,7 +2474,7 @@ Provided by **VK_KHR_get_surface_capabilities2**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceDisplayProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayProperties2KHR.html).
     /**
-Provided by **VK_KHR_get_display_properties2**.*/
+    Provided by **VK_KHR_get_display_properties2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2484,7 +2505,7 @@ Provided by **VK_KHR_get_display_properties2**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceDisplayPlaneProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html).
     /**
-Provided by **VK_KHR_get_display_properties2**.*/
+    Provided by **VK_KHR_get_display_properties2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2515,7 +2536,7 @@ Provided by **VK_KHR_get_display_properties2**.*/
     }
     ///Wraps [`vkGetDisplayModeProperties2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayModeProperties2KHR.html).
     /**
-Provided by **VK_KHR_get_display_properties2**.*/
+    Provided by **VK_KHR_get_display_properties2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2542,13 +2563,11 @@ Provided by **VK_KHR_get_display_properties2**.*/
             .commands()
             .get_display_mode_properties2_khr
             .expect("vkGetDisplayModeProperties2KHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, display, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(physical_device, display, count, data) })
     }
     ///Wraps [`vkGetDisplayPlaneCapabilities2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDisplayPlaneCapabilities2KHR.html).
     /**
-Provided by **VK_KHR_get_display_properties2**.*/
+    Provided by **VK_KHR_get_display_properties2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2582,7 +2601,7 @@ Provided by **VK_KHR_get_display_properties2**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html).
     /**
-Provided by **VK_KHR_calibrated_timestamps**.*/
+    Provided by **VK_KHR_calibrated_timestamps**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2619,7 +2638,7 @@ Provided by **VK_KHR_calibrated_timestamps**.*/
     }
     ///Wraps [`vkCreateDebugUtilsMessengerEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDebugUtilsMessengerEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2662,7 +2681,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkDestroyDebugUtilsMessengerEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDebugUtilsMessengerEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
@@ -2691,7 +2710,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkSubmitDebugUtilsMessageEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSubmitDebugUtilsMessageEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
@@ -2720,11 +2739,18 @@ Provided by **VK_EXT_debug_utils**.*/
             .commands()
             .submit_debug_utils_message_ext
             .expect("vkSubmitDebugUtilsMessageEXT not loaded");
-        unsafe { fp(self.handle(), message_severity, message_types, p_callback_data) };
+        unsafe {
+            fp(
+                self.handle(),
+                message_severity,
+                message_types,
+                p_callback_data,
+            )
+        };
     }
     ///Wraps [`vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html).
     /**
-Provided by **VK_NV_cooperative_matrix**.*/
+    Provided by **VK_NV_cooperative_matrix**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2754,7 +2780,7 @@ Provided by **VK_NV_cooperative_matrix**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSurfacePresentModes2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfacePresentModes2EXT.html).
     /**
-Provided by **VK_EXT_full_screen_exclusive**.*/
+    Provided by **VK_EXT_full_screen_exclusive**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2790,7 +2816,7 @@ Provided by **VK_EXT_full_screen_exclusive**.*/
     }
     ///Wraps [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html).
     /**
-Provided by **VK_KHR_performance_query**.*/
+    Provided by **VK_KHR_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2823,16 +2849,20 @@ Provided by **VK_KHR_performance_query**.*/
         let fp = self
             .commands()
             .enumerate_physical_device_queue_family_performance_query_counters_khr
-            .expect(
-                "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR not loaded",
-            );
+            .expect("vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR not loaded");
         enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, queue_family_index, count, data, p_counter_descriptions)
+            fp(
+                physical_device,
+                queue_family_index,
+                count,
+                data,
+                p_counter_descriptions,
+            )
         })
     }
     ///Wraps [`vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html).
     /**
-Provided by **VK_KHR_performance_query**.*/
+    Provided by **VK_KHR_performance_query**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -2858,16 +2888,14 @@ Provided by **VK_KHR_performance_query**.*/
         let fp = self
             .commands()
             .get_physical_device_queue_family_performance_query_passes_khr
-            .expect(
-                "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR not loaded",
-            );
+            .expect("vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         unsafe { fp(physical_device, p_performance_query_create_info, &mut out) };
         out
     }
     ///Wraps [`vkCreateHeadlessSurfaceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateHeadlessSurfaceEXT.html).
     /**
-Provided by **VK_EXT_headless_surface**.*/
+    Provided by **VK_EXT_headless_surface**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2903,7 +2931,7 @@ Provided by **VK_EXT_headless_surface**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html).
     /**
-Provided by **VK_NV_coverage_reduction_mode**.*/
+    Provided by **VK_NV_coverage_reduction_mode**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2928,14 +2956,12 @@ Provided by **VK_NV_coverage_reduction_mode**.*/
         let fp = self
             .commands()
             .get_physical_device_supported_framebuffer_mixed_samples_combinations_nv
-            .expect(
-                "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV not loaded",
-            );
+            .expect("vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
     ///Wraps [`vkGetPhysicalDeviceToolProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceToolProperties.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2997,7 +3023,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceFragmentShadingRatesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceFragmentShadingRatesKHR.html).
     /**
-Provided by **VK_KHR_fragment_shading_rate**.*/
+    Provided by **VK_KHR_fragment_shading_rate**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3031,7 +3057,7 @@ Provided by **VK_KHR_fragment_shading_rate**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceVideoCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoCapabilitiesKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3077,7 +3103,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceVideoFormatPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3121,7 +3147,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR.html).
     /**
-Provided by **VK_KHR_video_encode_queue**.*/
+    Provided by **VK_KHR_video_encode_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3160,16 +3186,18 @@ Provided by **VK_KHR_video_encode_queue**.*/
         let fp = self
             .commands()
             .get_physical_device_video_encode_quality_level_properties_khr
-            .expect(
-                "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR not loaded",
-            );
+            .expect("vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR not loaded");
         check(unsafe {
-            fp(physical_device, p_quality_level_info, p_quality_level_properties)
+            fp(
+                physical_device,
+                p_quality_level_info,
+                p_quality_level_properties,
+            )
         })
     }
     ///Wraps [`vkAcquireDrmDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireDrmDisplayEXT.html).
     /**
-Provided by **VK_EXT_acquire_drm_display**.*/
+    Provided by **VK_EXT_acquire_drm_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -3200,7 +3228,7 @@ Provided by **VK_EXT_acquire_drm_display**.*/
     }
     ///Wraps [`vkGetDrmDisplayEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDrmDisplayEXT.html).
     /**
-Provided by **VK_EXT_acquire_drm_display**.*/
+    Provided by **VK_EXT_acquire_drm_display**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -3235,7 +3263,7 @@ Provided by **VK_EXT_acquire_drm_display**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceOpticalFlowImageFormatsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html).
     /**
-Provided by **VK_NV_optical_flow**.*/
+    Provided by **VK_NV_optical_flow**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_EXTENSION_NOT_PRESENT`
@@ -3264,12 +3292,17 @@ Provided by **VK_NV_optical_flow**.*/
             .get_physical_device_optical_flow_image_formats_nv
             .expect("vkGetPhysicalDeviceOpticalFlowImageFormatsNV not loaded");
         enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, p_optical_flow_image_format_info, count, data)
+            fp(
+                physical_device,
+                p_optical_flow_image_format_info,
+                count,
+                data,
+            )
         })
     }
     ///Wraps [`vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html).
     /**
-Provided by **VK_KHR_cooperative_matrix**.*/
+    Provided by **VK_KHR_cooperative_matrix**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3304,7 +3337,7 @@ Provided by **VK_KHR_cooperative_matrix**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV.html).
     /**
-Provided by **VK_NV_cooperative_matrix2**.*/
+    Provided by **VK_NV_cooperative_matrix2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3337,7 +3370,7 @@ Provided by **VK_NV_cooperative_matrix2**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceCooperativeVectorPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html).
     /**
-Provided by **VK_NV_cooperative_vector**.*/
+    Provided by **VK_NV_cooperative_vector**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3368,7 +3401,7 @@ Provided by **VK_NV_cooperative_vector**.*/
     }
     ///Wraps [`vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM.html).
     /**
-Provided by **VK_ARM_shader_instrumentation**.*/
+    Provided by **VK_ARM_shader_instrumentation**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3395,14 +3428,12 @@ Provided by **VK_ARM_shader_instrumentation**.*/
         let fp = self
             .commands()
             .enumerate_physical_device_shader_instrumentation_metrics_arm
-            .expect(
-                "vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM not loaded",
-            );
+            .expect("vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM not loaded");
         enumerate_two_call(|count, data| unsafe { fp(physical_device, count, data) })
     }
     ///Wraps [`vkGetPhysicalDeviceExternalTensorPropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceExternalTensorPropertiesARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -3425,12 +3456,16 @@ Provided by **VK_ARM_tensors**.*/
             .get_physical_device_external_tensor_properties_arm
             .expect("vkGetPhysicalDeviceExternalTensorPropertiesARM not loaded");
         unsafe {
-            fp(physical_device, p_external_tensor_info, p_external_tensor_properties)
+            fp(
+                physical_device,
+                p_external_tensor_info,
+                p_external_tensor_properties,
+            )
         };
     }
     ///Wraps [`vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3463,7 +3498,7 @@ Provided by **VK_ARM_data_graph**.*/
     }
     ///Wraps [`vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
@@ -3497,7 +3532,7 @@ Provided by **VK_ARM_data_graph**.*/
     }
     ///Wraps [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM.html).
     /**
-Provided by **VK_ARM_performance_counters_by_region**.*/
+    Provided by **VK_ARM_performance_counters_by_region**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3529,12 +3564,18 @@ Provided by **VK_ARM_performance_counters_by_region**.*/
                 "vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM not loaded",
             );
         enumerate_two_call(|count, data| unsafe {
-            fp(physical_device, queue_family_index, count, data, p_counter_descriptions)
+            fp(
+                physical_device,
+                queue_family_index,
+                count,
+                data,
+                p_counter_descriptions,
+            )
         })
     }
     ///Wraps [`vkGetPhysicalDeviceDescriptorSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceDescriptorSizeEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.

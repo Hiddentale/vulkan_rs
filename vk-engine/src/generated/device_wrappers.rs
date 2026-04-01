@@ -1,6 +1,6 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
-use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
+use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
 use crate::vk::enums::*;
@@ -9,7 +9,7 @@ use crate::vk::structs::*;
 impl crate::Device {
     ///Wraps [`vkGetDeviceProcAddr`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceProcAddr.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -38,7 +38,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyDevice`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDevice.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -61,13 +61,16 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///After this call the `Device` handle is invalid. Do not use it or any
     ///object created from it.
     pub unsafe fn destroy_device(&self, allocator: Option<&AllocationCallbacks>) {
-        let fp = self.commands().destroy_device.expect("vkDestroyDevice not loaded");
+        let fp = self
+            .commands()
+            .destroy_device
+            .expect("vkDestroyDevice not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), alloc_ptr) };
     }
     ///Wraps [`vkGetDeviceQueue`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceQueue.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -88,19 +91,18 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///It is common to retrieve queues once after device creation and store
     ///them for the lifetime of the device.
-    pub unsafe fn get_device_queue(
-        &self,
-        queue_family_index: u32,
-        queue_index: u32,
-    ) -> Queue {
-        let fp = self.commands().get_device_queue.expect("vkGetDeviceQueue not loaded");
+    pub unsafe fn get_device_queue(&self, queue_family_index: u32, queue_index: u32) -> Queue {
+        let fp = self
+            .commands()
+            .get_device_queue
+            .expect("vkGetDeviceQueue not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         unsafe { fp(self.handle(), queue_family_index, queue_index, &mut out) };
         out
     }
     ///Wraps [`vkQueueSubmit`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSubmit.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -141,12 +143,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         p_submits: &[SubmitInfo],
         fence: Fence,
     ) -> VkResult<()> {
-        let fp = self.commands().queue_submit.expect("vkQueueSubmit not loaded");
+        let fp = self
+            .commands()
+            .queue_submit
+            .expect("vkQueueSubmit not loaded");
         check(unsafe { fp(queue, p_submits.len() as u32, p_submits.as_ptr(), fence) })
     }
     ///Wraps [`vkQueueWaitIdle`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueWaitIdle.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -174,12 +179,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///The queue must be externally synchronized: do not call this while
     ///another thread is submitting to the same queue.
     pub unsafe fn queue_wait_idle(&self, queue: Queue) -> VkResult<()> {
-        let fp = self.commands().queue_wait_idle.expect("vkQueueWaitIdle not loaded");
+        let fp = self
+            .commands()
+            .queue_wait_idle
+            .expect("vkQueueWaitIdle not loaded");
         check(unsafe { fp(queue) })
     }
     ///Wraps [`vkDeviceWaitIdle`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDeviceWaitIdle.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -208,12 +216,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///round-trip and prevents any overlap. Use per-frame fences or
     ///timeline semaphores instead.
     pub unsafe fn device_wait_idle(&self) -> VkResult<()> {
-        let fp = self.commands().device_wait_idle.expect("vkDeviceWaitIdle not loaded");
+        let fp = self
+            .commands()
+            .device_wait_idle
+            .expect("vkDeviceWaitIdle not loaded");
         check(unsafe { fp(self.handle()) })
     }
     ///Wraps [`vkAllocateMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAllocateMemory.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -239,7 +250,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         p_allocate_info: &MemoryAllocateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<DeviceMemory> {
-        let fp = self.commands().allocate_memory.expect("vkAllocateMemory not loaded");
+        let fp = self
+            .commands()
+            .allocate_memory
+            .expect("vkAllocateMemory not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_allocate_info, alloc_ptr, &mut out) })?;
@@ -247,7 +261,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkFreeMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeMemory.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -272,13 +286,16 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         memory: DeviceMemory,
         allocator: Option<&AllocationCallbacks>,
     ) {
-        let fp = self.commands().free_memory.expect("vkFreeMemory not loaded");
+        let fp = self
+            .commands()
+            .free_memory
+            .expect("vkFreeMemory not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), memory, alloc_ptr) };
     }
     ///Wraps [`vkMapMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -326,7 +343,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkUnmapMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -348,12 +365,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///`flush_mapped_memory_ranges` after your final writes before
     ///unmapping, to ensure the GPU sees the latest data.
     pub unsafe fn unmap_memory(&self, memory: DeviceMemory) {
-        let fp = self.commands().unmap_memory.expect("vkUnmapMemory not loaded");
+        let fp = self
+            .commands()
+            .unmap_memory
+            .expect("vkUnmapMemory not loaded");
         unsafe { fp(self.handle(), memory) };
     }
     ///Wraps [`vkFlushMappedMemoryRanges`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFlushMappedMemoryRanges.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -393,12 +413,16 @@ Provided by **VK_BASE_VERSION_1_0**.*/
             .flush_mapped_memory_ranges
             .expect("vkFlushMappedMemoryRanges not loaded");
         check(unsafe {
-            fp(self.handle(), p_memory_ranges.len() as u32, p_memory_ranges.as_ptr())
+            fp(
+                self.handle(),
+                p_memory_ranges.len() as u32,
+                p_memory_ranges.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkInvalidateMappedMemoryRanges`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkInvalidateMappedMemoryRanges.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -435,12 +459,16 @@ Provided by **VK_BASE_VERSION_1_0**.*/
             .invalidate_mapped_memory_ranges
             .expect("vkInvalidateMappedMemoryRanges not loaded");
         check(unsafe {
-            fp(self.handle(), p_memory_ranges.len() as u32, p_memory_ranges.as_ptr())
+            fp(
+                self.handle(),
+                p_memory_ranges.len() as u32,
+                p_memory_ranges.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkGetDeviceMemoryCommitment`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryCommitment.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -470,7 +498,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetBufferMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferMemoryRequirements.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -491,10 +519,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///For Vulkan 1.1+, prefer `get_buffer_memory_requirements2` which
     ///supports dedicated allocation queries via
     ///`MemoryDedicatedRequirements`.
-    pub unsafe fn get_buffer_memory_requirements(
-        &self,
-        buffer: Buffer,
-    ) -> MemoryRequirements {
+    pub unsafe fn get_buffer_memory_requirements(&self, buffer: Buffer) -> MemoryRequirements {
         let fp = self
             .commands()
             .get_buffer_memory_requirements
@@ -505,7 +530,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkBindBufferMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -552,7 +577,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetImageMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageMemoryRequirements.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -573,10 +598,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///For Vulkan 1.1+, prefer `get_image_memory_requirements2` which
     ///supports dedicated allocation queries.
-    pub unsafe fn get_image_memory_requirements(
-        &self,
-        image: Image,
-    ) -> MemoryRequirements {
+    pub unsafe fn get_image_memory_requirements(&self, image: Image) -> MemoryRequirements {
         let fp = self
             .commands()
             .get_image_memory_requirements
@@ -587,7 +609,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkBindImageMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindImageMemory.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -638,7 +660,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetImageSparseMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSparseMemoryRequirements.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -670,7 +692,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkQueueBindSparse`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueBindSparse.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -715,13 +737,11 @@ Provided by **VK_BASE_VERSION_1_0**.*/
             .commands()
             .queue_bind_sparse
             .expect("vkQueueBindSparse not loaded");
-        check(unsafe {
-            fp(queue, p_bind_info.len() as u32, p_bind_info.as_ptr(), fence)
-        })
+        check(unsafe { fp(queue, p_bind_info.len() as u32, p_bind_info.as_ptr(), fence) })
     }
     ///Wraps [`vkCreateFence`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateFence.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -758,7 +778,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         p_create_info: &FenceCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Fence> {
-        let fp = self.commands().create_fence.expect("vkCreateFence not loaded");
+        let fp = self
+            .commands()
+            .create_fence
+            .expect("vkCreateFence not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -766,7 +789,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyFence`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyFence.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -781,18 +804,17 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///Fences are lightweight objects but are still tracked by the driver.
     ///Destroy them during teardown or when they are no longer part of your
     ///synchronization scheme.
-    pub unsafe fn destroy_fence(
-        &self,
-        fence: Fence,
-        allocator: Option<&AllocationCallbacks>,
-    ) {
-        let fp = self.commands().destroy_fence.expect("vkDestroyFence not loaded");
+    pub unsafe fn destroy_fence(&self, fence: Fence, allocator: Option<&AllocationCallbacks>) {
+        let fp = self
+            .commands()
+            .destroy_fence
+            .expect("vkDestroyFence not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), fence, alloc_ptr) };
     }
     ///Wraps [`vkResetFences`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetFences.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
@@ -819,12 +841,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///Resetting a fence that is pending (submitted but not yet signaled)
     ///is an error.
     pub unsafe fn reset_fences(&self, p_fences: &[Fence]) -> VkResult<()> {
-        let fp = self.commands().reset_fences.expect("vkResetFences not loaded");
+        let fp = self
+            .commands()
+            .reset_fences
+            .expect("vkResetFences not loaded");
         check(unsafe { fp(self.handle(), p_fences.len() as u32, p_fences.as_ptr()) })
     }
     ///Wraps [`vkGetFenceStatus`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceStatus.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -857,12 +882,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///This call can also return device-lost errors, so check the result
     ///even in non-error paths.
     pub unsafe fn get_fence_status(&self, fence: Fence) -> VkResult<()> {
-        let fp = self.commands().get_fence_status.expect("vkGetFenceStatus not loaded");
+        let fp = self
+            .commands()
+            .get_fence_status
+            .expect("vkGetFenceStatus not loaded");
         check(unsafe { fp(self.handle(), fence) })
     }
     ///Wraps [`vkWaitForFences`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitForFences.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -908,7 +936,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         wait_all: u32,
         timeout: u64,
     ) -> VkResult<()> {
-        let fp = self.commands().wait_for_fences.expect("vkWaitForFences not loaded");
+        let fp = self
+            .commands()
+            .wait_for_fences
+            .expect("vkWaitForFences not loaded");
         check(unsafe {
             fp(
                 self.handle(),
@@ -921,7 +952,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateSemaphore`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSemaphore.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -959,7 +990,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         p_create_info: &SemaphoreCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Semaphore> {
-        let fp = self.commands().create_semaphore.expect("vkCreateSemaphore not loaded");
+        let fp = self
+            .commands()
+            .create_semaphore
+            .expect("vkCreateSemaphore not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -967,7 +1001,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroySemaphore`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySemaphore.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -994,7 +1028,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateEvent.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1028,7 +1062,10 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         p_create_info: &EventCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Event> {
-        let fp = self.commands().create_event.expect("vkCreateEvent not loaded");
+        let fp = self
+            .commands()
+            .create_event
+            .expect("vkCreateEvent not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -1036,7 +1073,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyEvent.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1047,18 +1084,17 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///Destroys an event. The event must not be referenced by any pending
     ///command buffer. Wait for all relevant submissions to complete before
     ///destroying.
-    pub unsafe fn destroy_event(
-        &self,
-        event: Event,
-        allocator: Option<&AllocationCallbacks>,
-    ) {
-        let fp = self.commands().destroy_event.expect("vkDestroyEvent not loaded");
+    pub unsafe fn destroy_event(&self, event: Event, allocator: Option<&AllocationCallbacks>) {
+        let fp = self
+            .commands()
+            .destroy_event
+            .expect("vkDestroyEvent not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), event, alloc_ptr) };
     }
     ///Wraps [`vkGetEventStatus`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetEventStatus.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1079,12 +1115,15 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///GPU-signaled events when you need to know the result without
     ///blocking. For blocking synchronisation, use fences instead.
     pub unsafe fn get_event_status(&self, event: Event) -> VkResult<()> {
-        let fp = self.commands().get_event_status.expect("vkGetEventStatus not loaded");
+        let fp = self
+            .commands()
+            .get_event_status
+            .expect("vkGetEventStatus not loaded");
         check(unsafe { fp(self.handle(), event) })
     }
     ///Wraps [`vkSetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetEvent.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1111,7 +1150,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkResetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetEvent.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
@@ -1130,12 +1169,15 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///After resetting, the event can be signaled again by `set_event` or
     ///`cmd_set_event`.
     pub unsafe fn reset_event(&self, event: Event) -> VkResult<()> {
-        let fp = self.commands().reset_event.expect("vkResetEvent not loaded");
+        let fp = self
+            .commands()
+            .reset_event
+            .expect("vkResetEvent not loaded");
         check(unsafe { fp(self.handle(), event) })
     }
     ///Wraps [`vkCreateQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateQueryPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1181,7 +1223,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyQueryPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1206,7 +1248,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetQueryPoolResults`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetQueryPoolResults.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1272,7 +1314,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkResetQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetQueryPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_2**.*/
+    Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1295,12 +1337,15 @@ Provided by **VK_BASE_VERSION_1_2**.*/
         first_query: u32,
         query_count: u32,
     ) {
-        let fp = self.commands().reset_query_pool.expect("vkResetQueryPool not loaded");
+        let fp = self
+            .commands()
+            .reset_query_pool
+            .expect("vkResetQueryPool not loaded");
         unsafe { fp(self.handle(), query_pool, first_query, query_count) };
     }
     ///Wraps [`vkCreateBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1341,7 +1386,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         p_create_info: &BufferCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Buffer> {
-        let fp = self.commands().create_buffer.expect("vkCreateBuffer not loaded");
+        let fp = self
+            .commands()
+            .create_buffer
+            .expect("vkCreateBuffer not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -1349,7 +1397,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1368,18 +1416,17 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///Destroy order: destroy the buffer first, then free the memory. Not
     ///the reverse, freeing memory while a buffer is still bound to it is
     ///undefined behaviour.
-    pub unsafe fn destroy_buffer(
-        &self,
-        buffer: Buffer,
-        allocator: Option<&AllocationCallbacks>,
-    ) {
-        let fp = self.commands().destroy_buffer.expect("vkDestroyBuffer not loaded");
+    pub unsafe fn destroy_buffer(&self, buffer: Buffer, allocator: Option<&AllocationCallbacks>) {
+        let fp = self
+            .commands()
+            .destroy_buffer
+            .expect("vkDestroyBuffer not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), buffer, alloc_ptr) };
     }
     ///Wraps [`vkCreateBufferView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateBufferView.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1424,7 +1471,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyBufferView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyBufferView.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1450,7 +1497,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateImage.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1486,7 +1533,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         p_create_info: &ImageCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Image> {
-        let fp = self.commands().create_image.expect("vkCreateImage not loaded");
+        let fp = self
+            .commands()
+            .create_image
+            .expect("vkCreateImage not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -1494,7 +1544,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyImage.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1516,18 +1566,17 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///3. Destroy any `Framebuffer` objects that included those views.
     ///4. `destroy_image`.
     ///5. Free or reclaim the backing memory.
-    pub unsafe fn destroy_image(
-        &self,
-        image: Image,
-        allocator: Option<&AllocationCallbacks>,
-    ) {
-        let fp = self.commands().destroy_image.expect("vkDestroyImage not loaded");
+    pub unsafe fn destroy_image(&self, image: Image, allocator: Option<&AllocationCallbacks>) {
+        let fp = self
+            .commands()
+            .destroy_image
+            .expect("vkDestroyImage not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), image, alloc_ptr) };
     }
     ///Wraps [`vkGetImageSubresourceLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSubresourceLayout.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1553,7 +1602,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateImageView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateImageView.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1600,7 +1649,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyImageView`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyImageView.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1628,7 +1677,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateShaderModule`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShaderModule.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1668,7 +1717,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyShaderModule`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderModule.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1693,7 +1742,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreatePipelineCache`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePipelineCache.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1741,7 +1790,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyPipelineCache`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipelineCache.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1769,7 +1818,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetPipelineCacheData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineCacheData.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1812,7 +1861,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkMergePipelineCaches`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMergePipelineCaches.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1857,7 +1906,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreatePipelineBinariesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePipelineBinariesKHR.html).
     /**
-Provided by **VK_KHR_pipeline_binary**.*/
+    Provided by **VK_KHR_pipeline_binary**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1907,7 +1956,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
     }
     ///Wraps [`vkDestroyPipelineBinaryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipelineBinaryKHR.html).
     /**
-Provided by **VK_KHR_pipeline_binary**.*/
+    Provided by **VK_KHR_pipeline_binary**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -1935,7 +1984,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
     }
     ///Wraps [`vkGetPipelineKeyKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineKeyKHR.html).
     /**
-Provided by **VK_KHR_pipeline_binary**.*/
+    Provided by **VK_KHR_pipeline_binary**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -1970,13 +2019,13 @@ Provided by **VK_KHR_pipeline_binary**.*/
             .commands()
             .get_pipeline_key_khr
             .expect("vkGetPipelineKeyKHR not loaded");
-        let p_pipeline_create_info_ptr = p_pipeline_create_info
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_pipeline_create_info_ptr =
+            p_pipeline_create_info.map_or(core::ptr::null(), core::ptr::from_ref);
         check(unsafe { fp(self.handle(), p_pipeline_create_info_ptr, p_pipeline_key) })
     }
     ///Wraps [`vkGetPipelineBinaryDataKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineBinaryDataKHR.html).
     /**
-Provided by **VK_KHR_pipeline_binary**.*/
+    Provided by **VK_KHR_pipeline_binary**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2030,7 +2079,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
     }
     ///Wraps [`vkReleaseCapturedPipelineDataKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseCapturedPipelineDataKHR.html).
     /**
-Provided by **VK_KHR_pipeline_binary**.*/
+    Provided by **VK_KHR_pipeline_binary**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -2063,7 +2112,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
     }
     ///Wraps [`vkCreateGraphicsPipelines`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateGraphicsPipelines.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2122,7 +2171,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateComputePipelines`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateComputePipelines.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2180,7 +2229,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html).
     /**
-Provided by **VK_HUAWEI_subpass_shading**.*/
+    Provided by **VK_HUAWEI_subpass_shading**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2213,7 +2262,7 @@ Provided by **VK_HUAWEI_subpass_shading**.*/
     }
     ///Wraps [`vkDestroyPipeline`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipeline.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2237,13 +2286,16 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         pipeline: Pipeline,
         allocator: Option<&AllocationCallbacks>,
     ) {
-        let fp = self.commands().destroy_pipeline.expect("vkDestroyPipeline not loaded");
+        let fp = self
+            .commands()
+            .destroy_pipeline
+            .expect("vkDestroyPipeline not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), pipeline, alloc_ptr) };
     }
     ///Wraps [`vkCreatePipelineLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePipelineLayout.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2295,7 +2347,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyPipelineLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPipelineLayout.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2323,7 +2375,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateSampler`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSampler.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2366,7 +2418,10 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         p_create_info: &SamplerCreateInfo,
         allocator: Option<&AllocationCallbacks>,
     ) -> VkResult<Sampler> {
-        let fp = self.commands().create_sampler.expect("vkCreateSampler not loaded");
+        let fp = self
+            .commands()
+            .create_sampler
+            .expect("vkCreateSampler not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_create_info, alloc_ptr, &mut out) })?;
@@ -2374,7 +2429,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroySampler`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySampler.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2393,13 +2448,16 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         sampler: Sampler,
         allocator: Option<&AllocationCallbacks>,
     ) {
-        let fp = self.commands().destroy_sampler.expect("vkDestroySampler not loaded");
+        let fp = self
+            .commands()
+            .destroy_sampler
+            .expect("vkDestroySampler not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), sampler, alloc_ptr) };
     }
     ///Wraps [`vkCreateDescriptorSetLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDescriptorSetLayout.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2448,7 +2506,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyDescriptorSetLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDescriptorSetLayout.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2477,7 +2535,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateDescriptorPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDescriptorPool.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2527,7 +2585,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyDescriptorPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDescriptorPool.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2555,7 +2613,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkResetDescriptorPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetDescriptorPool.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -2591,7 +2649,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkAllocateDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAllocateDescriptorSets.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2639,7 +2697,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkFreeDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeDescriptorSets.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -2682,7 +2740,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkUpdateDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateDescriptorSets.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2731,7 +2789,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateFramebuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateFramebuffer.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2777,7 +2835,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyFramebuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyFramebuffer.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2806,7 +2864,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRenderPass.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2855,7 +2913,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyRenderPass.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2884,7 +2942,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetRenderAreaGranularity`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRenderAreaGranularity.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2904,10 +2962,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///In practice, most applications render to the full framebuffer extent
     ///and never need to worry about this.
-    pub unsafe fn get_render_area_granularity(
-        &self,
-        render_pass: RenderPass,
-    ) -> Extent2D {
+    pub unsafe fn get_render_area_granularity(&self, render_pass: RenderPass) -> Extent2D {
         let fp = self
             .commands()
             .get_render_area_granularity
@@ -2918,7 +2973,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkGetRenderingAreaGranularity`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRenderingAreaGranularity.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -2950,7 +3005,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     }
     ///Wraps [`vkCreateCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCommandPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -2998,7 +3053,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkDestroyCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCommandPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -3027,7 +3082,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkResetCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetCommandPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
@@ -3069,7 +3124,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkAllocateCommandBuffers`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAllocateCommandBuffers.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3111,7 +3166,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkFreeCommandBuffers`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeCommandBuffers.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -3150,7 +3205,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkBeginCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBeginCommandBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3199,7 +3254,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkEndCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkEndCommandBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -3225,10 +3280,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///A command buffer that is inside a render pass must end the render
     ///pass with `cmd_end_render_pass` before calling `end_command_buffer`.
-    pub unsafe fn end_command_buffer(
-        &self,
-        command_buffer: CommandBuffer,
-    ) -> VkResult<()> {
+    pub unsafe fn end_command_buffer(&self, command_buffer: CommandBuffer) -> VkResult<()> {
         let fp = self
             .commands()
             .end_command_buffer
@@ -3237,7 +3289,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkResetCommandBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkResetCommandBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
@@ -3277,7 +3329,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdBindPipeline`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindPipeline.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3317,7 +3369,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetAttachmentFeedbackLoopEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAttachmentFeedbackLoopEnableEXT.html).
     /**
-Provided by **VK_EXT_attachment_feedback_loop_dynamic_state**.*/
+    Provided by **VK_EXT_attachment_feedback_loop_dynamic_state**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3347,7 +3399,7 @@ Provided by **VK_EXT_attachment_feedback_loop_dynamic_state**.*/
     }
     ///Wraps [`vkCmdSetViewport`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewport.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3381,7 +3433,10 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
         first_viewport: u32,
         p_viewports: &[Viewport],
     ) {
-        let fp = self.commands().cmd_set_viewport.expect("vkCmdSetViewport not loaded");
+        let fp = self
+            .commands()
+            .cmd_set_viewport
+            .expect("vkCmdSetViewport not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -3393,7 +3448,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetScissor`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetScissor.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3426,7 +3481,10 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
         first_scissor: u32,
         p_scissors: &[Rect2D],
     ) {
-        let fp = self.commands().cmd_set_scissor.expect("vkCmdSetScissor not loaded");
+        let fp = self
+            .commands()
+            .cmd_set_scissor
+            .expect("vkCmdSetScissor not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -3438,7 +3496,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetLineWidth`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineWidth.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3460,11 +3518,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///Line width is specified in framebuffer pixels. Anti-aliased lines
     ///may be rendered slightly wider than the specified width due to
     ///coverage calculations.
-    pub unsafe fn cmd_set_line_width(
-        &self,
-        command_buffer: CommandBuffer,
-        line_width: f32,
-    ) {
+    pub unsafe fn cmd_set_line_width(&self, command_buffer: CommandBuffer, line_width: f32) {
         let fp = self
             .commands()
             .cmd_set_line_width
@@ -3473,7 +3527,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetDepthBias`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBias.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3526,7 +3580,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetBlendConstants`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetBlendConstants.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3559,7 +3613,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetDepthBounds`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBounds.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3600,7 +3654,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetStencilCompareMask`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilCompareMask.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3634,7 +3688,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetStencilWriteMask`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilWriteMask.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3666,7 +3720,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetStencilReference`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilReference.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3703,7 +3757,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdBindDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorSets.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3757,7 +3811,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdBindIndexBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3797,7 +3851,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdBindVertexBuffers`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3846,7 +3900,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdDraw`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDraw.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3893,7 +3947,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdDrawIndexed`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexed.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3928,7 +3982,10 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
         vertex_offset: i32,
         first_instance: u32,
     ) {
-        let fp = self.commands().cmd_draw_indexed.expect("vkCmdDrawIndexed not loaded");
+        let fp = self
+            .commands()
+            .cmd_draw_indexed
+            .expect("vkCmdDrawIndexed not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -3942,7 +3999,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdDrawMultiEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMultiEXT.html).
     /**
-Provided by **VK_EXT_multi_draw**.*/
+    Provided by **VK_EXT_multi_draw**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -3981,7 +4038,7 @@ Provided by **VK_EXT_multi_draw**.*/
     }
     ///Wraps [`vkCmdDrawMultiIndexedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMultiIndexedEXT.html).
     /**
-Provided by **VK_EXT_multi_draw**.*/
+    Provided by **VK_EXT_multi_draw**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4025,7 +4082,7 @@ Provided by **VK_EXT_multi_draw**.*/
     }
     ///Wraps [`vkCmdDrawIndirect`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirect.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4070,7 +4127,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdDrawIndexedIndirect`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirect.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4110,7 +4167,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdDispatch`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatch.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4143,12 +4200,15 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         group_count_y: u32,
         group_count_z: u32,
     ) {
-        let fp = self.commands().cmd_dispatch.expect("vkCmdDispatch not loaded");
+        let fp = self
+            .commands()
+            .cmd_dispatch
+            .expect("vkCmdDispatch not loaded");
         unsafe { fp(command_buffer, group_count_x, group_count_y, group_count_z) };
     }
     ///Wraps [`vkCmdDispatchIndirect`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchIndirect.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4182,7 +4242,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSubpassShadingHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSubpassShadingHUAWEI.html).
     /**
-Provided by **VK_HUAWEI_subpass_shading**.*/
+    Provided by **VK_HUAWEI_subpass_shading**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4205,7 +4265,7 @@ Provided by **VK_HUAWEI_subpass_shading**.*/
     }
     ///Wraps [`vkCmdDrawClusterHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawClusterHUAWEI.html).
     /**
-Provided by **VK_HUAWEI_cluster_culling_shader**.*/
+    Provided by **VK_HUAWEI_cluster_culling_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4233,7 +4293,7 @@ Provided by **VK_HUAWEI_cluster_culling_shader**.*/
     }
     ///Wraps [`vkCmdDrawClusterIndirectHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawClusterIndirectHUAWEI.html).
     /**
-Provided by **VK_HUAWEI_cluster_culling_shader**.*/
+    Provided by **VK_HUAWEI_cluster_culling_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4260,7 +4320,7 @@ Provided by **VK_HUAWEI_cluster_culling_shader**.*/
     }
     ///Wraps [`vkCmdUpdatePipelineIndirectBufferNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdUpdatePipelineIndirectBufferNV.html).
     /**
-Provided by **VK_NV_device_generated_commands_compute**.*/
+    Provided by **VK_NV_device_generated_commands_compute**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4287,7 +4347,7 @@ Provided by **VK_NV_device_generated_commands_compute**.*/
     }
     ///Wraps [`vkCmdCopyBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4318,7 +4378,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         dst_buffer: Buffer,
         p_regions: &[BufferCopy],
     ) {
-        let fp = self.commands().cmd_copy_buffer.expect("vkCmdCopyBuffer not loaded");
+        let fp = self
+            .commands()
+            .cmd_copy_buffer
+            .expect("vkCmdCopyBuffer not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -4331,7 +4394,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdCopyImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImage.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4363,7 +4426,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         dst_image_layout: ImageLayout,
         p_regions: &[ImageCopy],
     ) {
-        let fp = self.commands().cmd_copy_image.expect("vkCmdCopyImage not loaded");
+        let fp = self
+            .commands()
+            .cmd_copy_image
+            .expect("vkCmdCopyImage not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -4378,7 +4444,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdBlitImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBlitImage.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4419,7 +4485,10 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
         p_regions: &[ImageBlit],
         filter: Filter,
     ) {
-        let fp = self.commands().cmd_blit_image.expect("vkCmdBlitImage not loaded");
+        let fp = self
+            .commands()
+            .cmd_blit_image
+            .expect("vkCmdBlitImage not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -4435,7 +4504,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdCopyBufferToImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBufferToImage.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4488,7 +4557,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdCopyImageToBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImageToBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4541,7 +4610,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdCopyMemoryIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryIndirectNV.html).
     /**
-Provided by **VK_NV_copy_memory_indirect**.*/
+    Provided by **VK_NV_copy_memory_indirect**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4570,7 +4639,7 @@ Provided by **VK_NV_copy_memory_indirect**.*/
     }
     ///Wraps [`vkCmdCopyMemoryIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryIndirectKHR.html).
     /**
-Provided by **VK_KHR_copy_memory_indirect**.*/
+    Provided by **VK_KHR_copy_memory_indirect**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4596,7 +4665,7 @@ Provided by **VK_KHR_copy_memory_indirect**.*/
     }
     ///Wraps [`vkCmdCopyMemoryToImageIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToImageIndirectNV.html).
     /**
-Provided by **VK_NV_copy_memory_indirect**.*/
+    Provided by **VK_NV_copy_memory_indirect**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4636,7 +4705,7 @@ Provided by **VK_NV_copy_memory_indirect**.*/
     }
     ///Wraps [`vkCmdCopyMemoryToImageIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToImageIndirectKHR.html).
     /**
-Provided by **VK_KHR_copy_memory_indirect**.*/
+    Provided by **VK_KHR_copy_memory_indirect**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4662,7 +4731,7 @@ Provided by **VK_KHR_copy_memory_indirect**.*/
     }
     ///Wraps [`vkCmdUpdateBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdUpdateBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4701,7 +4770,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdFillBuffer`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdFillBuffer.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4732,12 +4801,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         size: u64,
         data: u32,
     ) {
-        let fp = self.commands().cmd_fill_buffer.expect("vkCmdFillBuffer not loaded");
+        let fp = self
+            .commands()
+            .cmd_fill_buffer
+            .expect("vkCmdFillBuffer not loaded");
         unsafe { fp(command_buffer, dst_buffer, dst_offset, size, data) };
     }
     ///Wraps [`vkCmdClearColorImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdClearColorImage.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4782,7 +4854,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdClearDepthStencilImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdClearDepthStencilImage.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4828,7 +4900,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdClearAttachments`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdClearAttachments.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4875,7 +4947,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdResolveImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResolveImage.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4925,7 +4997,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdSetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4957,12 +5029,15 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         event: Event,
         stage_mask: PipelineStageFlags,
     ) {
-        let fp = self.commands().cmd_set_event.expect("vkCmdSetEvent not loaded");
+        let fp = self
+            .commands()
+            .cmd_set_event
+            .expect("vkCmdSetEvent not loaded");
         unsafe { fp(command_buffer, event, stage_mask) };
     }
     ///Wraps [`vkCmdResetEvent`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetEvent.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -4984,12 +5059,15 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         event: Event,
         stage_mask: PipelineStageFlags,
     ) {
-        let fp = self.commands().cmd_reset_event.expect("vkCmdResetEvent not loaded");
+        let fp = self
+            .commands()
+            .cmd_reset_event
+            .expect("vkCmdResetEvent not loaded");
         unsafe { fp(command_buffer, event, stage_mask) };
     }
     ///Wraps [`vkCmdWaitEvents`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5024,7 +5102,10 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
         p_buffer_memory_barriers: &[BufferMemoryBarrier],
         p_image_memory_barriers: &[ImageMemoryBarrier],
     ) {
-        let fp = self.commands().cmd_wait_events.expect("vkCmdWaitEvents not loaded");
+        let fp = self
+            .commands()
+            .cmd_wait_events
+            .expect("vkCmdWaitEvents not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -5043,7 +5124,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdPipelineBarrier`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPipelineBarrier.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5111,7 +5192,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdBeginQuery`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQuery.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5141,12 +5222,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         query: u32,
         flags: QueryControlFlags,
     ) {
-        let fp = self.commands().cmd_begin_query.expect("vkCmdBeginQuery not loaded");
+        let fp = self
+            .commands()
+            .cmd_begin_query
+            .expect("vkCmdBeginQuery not loaded");
         unsafe { fp(command_buffer, query_pool, query, flags) };
     }
     ///Wraps [`vkCmdEndQuery`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQuery.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5168,12 +5252,15 @@ Provided by **VK_BASE_VERSION_1_0**.*/
         query_pool: QueryPool,
         query: u32,
     ) {
-        let fp = self.commands().cmd_end_query.expect("vkCmdEndQuery not loaded");
+        let fp = self
+            .commands()
+            .cmd_end_query
+            .expect("vkCmdEndQuery not loaded");
         unsafe { fp(command_buffer, query_pool, query) };
     }
     ///Wraps [`vkCmdBeginConditionalRenderingEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginConditionalRenderingEXT.html).
     /**
-Provided by **VK_EXT_conditional_rendering**.*/
+    Provided by **VK_EXT_conditional_rendering**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5205,7 +5292,7 @@ Provided by **VK_EXT_conditional_rendering**.*/
     }
     ///Wraps [`vkCmdEndConditionalRenderingEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndConditionalRenderingEXT.html).
     /**
-Provided by **VK_EXT_conditional_rendering**.*/
+    Provided by **VK_EXT_conditional_rendering**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5218,10 +5305,7 @@ Provided by **VK_EXT_conditional_rendering**.*/
     ///execute unconditionally.
     ///
     ///Requires `VK_EXT_conditional_rendering`.
-    pub unsafe fn cmd_end_conditional_rendering_ext(
-        &self,
-        command_buffer: CommandBuffer,
-    ) {
+    pub unsafe fn cmd_end_conditional_rendering_ext(&self, command_buffer: CommandBuffer) {
         let fp = self
             .commands()
             .cmd_end_conditional_rendering_ext
@@ -5230,7 +5314,7 @@ Provided by **VK_EXT_conditional_rendering**.*/
     }
     ///Wraps [`vkCmdBeginCustomResolveEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginCustomResolveEXT.html).
     /**
-Provided by **VK_EXT_custom_resolve**.*/
+    Provided by **VK_EXT_custom_resolve**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5255,13 +5339,13 @@ Provided by **VK_EXT_custom_resolve**.*/
             .commands()
             .cmd_begin_custom_resolve_ext
             .expect("vkCmdBeginCustomResolveEXT not loaded");
-        let p_begin_custom_resolve_info_ptr = p_begin_custom_resolve_info
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_begin_custom_resolve_info_ptr =
+            p_begin_custom_resolve_info.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_begin_custom_resolve_info_ptr) };
     }
     ///Wraps [`vkCmdResetQueryPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetQueryPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5293,7 +5377,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdWriteTimestamp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteTimestamp.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5341,7 +5425,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdCopyQueryPoolResults`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyQueryPoolResults.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5393,7 +5477,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdPushConstants`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushConstants.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_0**.*/
+    Provided by **VK_COMPUTE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5444,7 +5528,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdBeginRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5490,7 +5574,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdNextSubpass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5517,12 +5601,15 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
         command_buffer: CommandBuffer,
         contents: SubpassContents,
     ) {
-        let fp = self.commands().cmd_next_subpass.expect("vkCmdNextSubpass not loaded");
+        let fp = self
+            .commands()
+            .cmd_next_subpass
+            .expect("vkCmdNextSubpass not loaded");
         unsafe { fp(command_buffer, contents) };
     }
     ///Wraps [`vkCmdEndRenderPass`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRenderPass.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_0**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5547,7 +5634,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
     }
     ///Wraps [`vkCmdExecuteCommands`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteCommands.html).
     /**
-Provided by **VK_BASE_VERSION_1_0**.*/
+    Provided by **VK_BASE_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5594,7 +5681,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateSharedSwapchainsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSharedSwapchainsKHR.html).
     /**
-Provided by **VK_KHR_display_swapchain**.*/
+    Provided by **VK_KHR_display_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -5639,7 +5726,7 @@ Provided by **VK_KHR_display_swapchain**.*/
     }
     ///Wraps [`vkCreateSwapchainKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSwapchainKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -5697,7 +5784,7 @@ Provided by **VK_KHR_swapchain**.*/
     }
     ///Wraps [`vkDestroySwapchainKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySwapchainKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -5730,7 +5817,7 @@ Provided by **VK_KHR_swapchain**.*/
     }
     ///Wraps [`vkGetSwapchainImagesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainImagesKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -5757,21 +5844,16 @@ Provided by **VK_KHR_swapchain**.*/
     ///The images start in an undefined layout. Transition them to the
     ///appropriate layout (e.g. `COLOR_ATTACHMENT_OPTIMAL`) during the
     ///first render pass or via a pipeline barrier.
-    pub unsafe fn get_swapchain_images_khr(
-        &self,
-        swapchain: SwapchainKHR,
-    ) -> VkResult<Vec<Image>> {
+    pub unsafe fn get_swapchain_images_khr(&self, swapchain: SwapchainKHR) -> VkResult<Vec<Image>> {
         let fp = self
             .commands()
             .get_swapchain_images_khr
             .expect("vkGetSwapchainImagesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), swapchain, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), swapchain, count, data) })
     }
     ///Wraps [`vkAcquireNextImageKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImageKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -5832,13 +5914,20 @@ Provided by **VK_KHR_swapchain**.*/
             .expect("vkAcquireNextImageKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(self.handle(), swapchain, timeout, semaphore, fence, &mut out)
+            fp(
+                self.handle(),
+                swapchain,
+                timeout,
+                semaphore,
+                fence,
+                &mut out,
+            )
         })?;
         Ok(out)
     }
     ///Wraps [`vkQueuePresentKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueuePresentKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -5892,7 +5981,7 @@ Provided by **VK_KHR_swapchain**.*/
     }
     ///Wraps [`vkDebugMarkerSetObjectNameEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugMarkerSetObjectNameEXT.html).
     /**
-Provided by **VK_EXT_debug_marker**.*/
+    Provided by **VK_EXT_debug_marker**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -5926,7 +6015,7 @@ Provided by **VK_EXT_debug_marker**.*/
     }
     ///Wraps [`vkDebugMarkerSetObjectTagEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDebugMarkerSetObjectTagEXT.html).
     /**
-Provided by **VK_EXT_debug_marker**.*/
+    Provided by **VK_EXT_debug_marker**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -5957,7 +6046,7 @@ Provided by **VK_EXT_debug_marker**.*/
     }
     ///Wraps [`vkCmdDebugMarkerBeginEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerBeginEXT.html).
     /**
-Provided by **VK_EXT_debug_marker**.*/
+    Provided by **VK_EXT_debug_marker**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -5987,7 +6076,7 @@ Provided by **VK_EXT_debug_marker**.*/
     }
     ///Wraps [`vkCmdDebugMarkerEndEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerEndEXT.html).
     /**
-Provided by **VK_EXT_debug_marker**.*/
+    Provided by **VK_EXT_debug_marker**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6010,7 +6099,7 @@ Provided by **VK_EXT_debug_marker**.*/
     }
     ///Wraps [`vkCmdDebugMarkerInsertEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDebugMarkerInsertEXT.html).
     /**
-Provided by **VK_EXT_debug_marker**.*/
+    Provided by **VK_EXT_debug_marker**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6040,7 +6129,7 @@ Provided by **VK_EXT_debug_marker**.*/
     }
     ///Wraps [`vkGetMemoryWin32HandleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandleNV.html).
     /**
-Provided by **VK_NV_external_memory_win32**.*/
+    Provided by **VK_NV_external_memory_win32**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -6074,7 +6163,7 @@ Provided by **VK_NV_external_memory_win32**.*/
     }
     ///Wraps [`vkCmdExecuteGeneratedCommandsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteGeneratedCommandsNV.html).
     /**
-Provided by **VK_NV_device_generated_commands**.*/
+    Provided by **VK_NV_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6101,7 +6190,7 @@ Provided by **VK_NV_device_generated_commands**.*/
     }
     ///Wraps [`vkCmdPreprocessGeneratedCommandsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsNV.html).
     /**
-Provided by **VK_NV_device_generated_commands**.*/
+    Provided by **VK_NV_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6128,7 +6217,7 @@ Provided by **VK_NV_device_generated_commands**.*/
     }
     ///Wraps [`vkCmdBindPipelineShaderGroupNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindPipelineShaderGroupNV.html).
     /**
-Provided by **VK_NV_device_generated_commands**.*/
+    Provided by **VK_NV_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6157,7 +6246,7 @@ Provided by **VK_NV_device_generated_commands**.*/
     }
     ///Wraps [`vkGetGeneratedCommandsMemoryRequirementsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsNV.html).
     /**
-Provided by **VK_NV_device_generated_commands**.*/
+    Provided by **VK_NV_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6182,7 +6271,7 @@ Provided by **VK_NV_device_generated_commands**.*/
     }
     ///Wraps [`vkCreateIndirectCommandsLayoutNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIndirectCommandsLayoutNV.html).
     /**
-Provided by **VK_NV_device_generated_commands**.*/
+    Provided by **VK_NV_device_generated_commands**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -6219,7 +6308,7 @@ Provided by **VK_NV_device_generated_commands**.*/
     }
     ///Wraps [`vkDestroyIndirectCommandsLayoutNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyIndirectCommandsLayoutNV.html).
     /**
-Provided by **VK_NV_device_generated_commands**.*/
+    Provided by **VK_NV_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6245,7 +6334,7 @@ Provided by **VK_NV_device_generated_commands**.*/
     }
     ///Wraps [`vkCmdExecuteGeneratedCommandsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdExecuteGeneratedCommandsEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6277,7 +6366,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkCmdPreprocessGeneratedCommandsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6305,11 +6394,17 @@ Provided by **VK_EXT_device_generated_commands**.*/
             .commands()
             .cmd_preprocess_generated_commands_ext
             .expect("vkCmdPreprocessGeneratedCommandsEXT not loaded");
-        unsafe { fp(command_buffer, p_generated_commands_info, state_command_buffer) };
+        unsafe {
+            fp(
+                command_buffer,
+                p_generated_commands_info,
+                state_command_buffer,
+            )
+        };
     }
     ///Wraps [`vkGetGeneratedCommandsMemoryRequirementsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetGeneratedCommandsMemoryRequirementsEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6338,7 +6433,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkCreateIndirectCommandsLayoutEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIndirectCommandsLayoutEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -6377,7 +6472,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkDestroyIndirectCommandsLayoutEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyIndirectCommandsLayoutEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6403,7 +6498,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkCreateIndirectExecutionSetEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateIndirectExecutionSetEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -6443,7 +6538,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkDestroyIndirectExecutionSetEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyIndirectExecutionSetEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6469,7 +6564,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkUpdateIndirectExecutionSetPipelineEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateIndirectExecutionSetPipelineEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6505,7 +6600,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkUpdateIndirectExecutionSetShaderEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateIndirectExecutionSetShaderEXT.html).
     /**
-Provided by **VK_EXT_device_generated_commands**.*/
+    Provided by **VK_EXT_device_generated_commands**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6541,7 +6636,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
     }
     ///Wraps [`vkCmdPushDescriptorSet`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSet.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_4**.*/
+    Provided by **VK_COMPUTE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -6596,7 +6691,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
     }
     ///Wraps [`vkTrimCommandPool`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTrimCommandPool.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -6617,11 +6712,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///In a steady-state frame loop where you reset the pool every frame,
     ///trimming is unnecessary, the pool reuses its memory naturally.
-    pub unsafe fn trim_command_pool(
-        &self,
-        command_pool: CommandPool,
-        flags: CommandPoolTrimFlags,
-    ) {
+    pub unsafe fn trim_command_pool(&self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
         let fp = self
             .commands()
             .trim_command_pool
@@ -6630,7 +6721,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetMemoryWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandleKHR.html).
     /**
-Provided by **VK_KHR_external_memory_win32**.*/
+    Provided by **VK_KHR_external_memory_win32**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -6669,7 +6760,7 @@ Provided by **VK_KHR_external_memory_win32**.*/
     }
     ///Wraps [`vkGetMemoryWin32HandlePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryWin32HandlePropertiesKHR.html).
     /**
-Provided by **VK_KHR_external_memory_win32**.*/
+    Provided by **VK_KHR_external_memory_win32**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -6704,12 +6795,17 @@ Provided by **VK_KHR_external_memory_win32**.*/
             .get_memory_win32_handle_properties_khr
             .expect("vkGetMemoryWin32HandlePropertiesKHR not loaded");
         check(unsafe {
-            fp(self.handle(), handle_type, handle, p_memory_win32_handle_properties)
+            fp(
+                self.handle(),
+                handle_type,
+                handle,
+                p_memory_win32_handle_properties,
+            )
         })
     }
     ///Wraps [`vkGetMemoryFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryFdKHR.html).
     /**
-Provided by **VK_KHR_external_memory_fd**.*/
+    Provided by **VK_KHR_external_memory_fd**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -6739,14 +6835,17 @@ Provided by **VK_KHR_external_memory_fd**.*/
         &self,
         p_get_fd_info: &MemoryGetFdInfoKHR,
     ) -> VkResult<core::ffi::c_int> {
-        let fp = self.commands().get_memory_fd_khr.expect("vkGetMemoryFdKHR not loaded");
+        let fp = self
+            .commands()
+            .get_memory_fd_khr
+            .expect("vkGetMemoryFdKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_get_fd_info, &mut out) })?;
         Ok(out)
     }
     ///Wraps [`vkGetMemoryFdPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryFdPropertiesKHR.html).
     /**
-Provided by **VK_KHR_external_memory_fd**.*/
+    Provided by **VK_KHR_external_memory_fd**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -6784,7 +6883,7 @@ Provided by **VK_KHR_external_memory_fd**.*/
     }
     ///Wraps [`vkGetMemoryZirconHandleFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryZirconHandleFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_external_memory**.*/
+    Provided by **VK_FUCHSIA_external_memory**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -6816,7 +6915,7 @@ Provided by **VK_FUCHSIA_external_memory**.*/
     }
     ///Wraps [`vkGetMemoryZirconHandlePropertiesFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryZirconHandlePropertiesFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_external_memory**.*/
+    Provided by **VK_FUCHSIA_external_memory**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -6854,7 +6953,7 @@ Provided by **VK_FUCHSIA_external_memory**.*/
     }
     ///Wraps [`vkGetMemoryRemoteAddressNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryRemoteAddressNV.html).
     /**
-Provided by **VK_NV_external_memory_rdma**.*/
+    Provided by **VK_NV_external_memory_rdma**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INVALID_EXTERNAL_HANDLE`
@@ -6914,7 +7013,7 @@ Provided by **VK_NV_external_memory_rdma**.*/
     }
     ///Wraps [`vkGetSemaphoreWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreWin32HandleKHR.html).
     /**
-Provided by **VK_KHR_external_semaphore_win32**.*/
+    Provided by **VK_KHR_external_semaphore_win32**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -6954,7 +7053,7 @@ Provided by **VK_KHR_external_semaphore_win32**.*/
     }
     ///Wraps [`vkImportSemaphoreWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreWin32HandleKHR.html).
     /**
-Provided by **VK_KHR_external_semaphore_win32**.*/
+    Provided by **VK_KHR_external_semaphore_win32**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -6991,7 +7090,7 @@ Provided by **VK_KHR_external_semaphore_win32**.*/
     }
     ///Wraps [`vkGetSemaphoreFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreFdKHR.html).
     /**
-Provided by **VK_KHR_external_semaphore_fd**.*/
+    Provided by **VK_KHR_external_semaphore_fd**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -7033,7 +7132,7 @@ Provided by **VK_KHR_external_semaphore_fd**.*/
     }
     ///Wraps [`vkImportSemaphoreFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreFdKHR.html).
     /**
-Provided by **VK_KHR_external_semaphore_fd**.*/
+    Provided by **VK_KHR_external_semaphore_fd**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7072,7 +7171,7 @@ Provided by **VK_KHR_external_semaphore_fd**.*/
     }
     ///Wraps [`vkGetSemaphoreZirconHandleFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreZirconHandleFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_external_semaphore**.*/
+    Provided by **VK_FUCHSIA_external_semaphore**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -7103,7 +7202,7 @@ Provided by **VK_FUCHSIA_external_semaphore**.*/
     }
     ///Wraps [`vkImportSemaphoreZirconHandleFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportSemaphoreZirconHandleFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_external_semaphore**.*/
+    Provided by **VK_FUCHSIA_external_semaphore**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7132,7 +7231,7 @@ Provided by **VK_FUCHSIA_external_semaphore**.*/
     }
     ///Wraps [`vkGetFenceWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceWin32HandleKHR.html).
     /**
-Provided by **VK_KHR_external_fence_win32**.*/
+    Provided by **VK_KHR_external_fence_win32**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -7169,7 +7268,7 @@ Provided by **VK_KHR_external_fence_win32**.*/
     }
     ///Wraps [`vkImportFenceWin32HandleKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceWin32HandleKHR.html).
     /**
-Provided by **VK_KHR_external_fence_win32**.*/
+    Provided by **VK_KHR_external_fence_win32**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7205,7 +7304,7 @@ Provided by **VK_KHR_external_fence_win32**.*/
     }
     ///Wraps [`vkGetFenceFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFenceFdKHR.html).
     /**
-Provided by **VK_KHR_external_fence_fd**.*/
+    Provided by **VK_KHR_external_fence_fd**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -7233,14 +7332,17 @@ Provided by **VK_KHR_external_fence_fd**.*/
         &self,
         p_get_fd_info: &FenceGetFdInfoKHR,
     ) -> VkResult<core::ffi::c_int> {
-        let fp = self.commands().get_fence_fd_khr.expect("vkGetFenceFdKHR not loaded");
+        let fp = self
+            .commands()
+            .get_fence_fd_khr
+            .expect("vkGetFenceFdKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_get_fd_info, &mut out) })?;
         Ok(out)
     }
     ///Wraps [`vkImportFenceFdKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkImportFenceFdKHR.html).
     /**
-Provided by **VK_KHR_external_fence_fd**.*/
+    Provided by **VK_KHR_external_fence_fd**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7509,7 +7611,7 @@ Provided by **VK_KHR_external_fence_fd**.*/
     }
     ///Wraps [`vkDisplayPowerControlEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDisplayPowerControlEXT.html).
     /**
-Provided by **VK_EXT_display_control**.*/
+    Provided by **VK_EXT_display_control**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7538,7 +7640,7 @@ Provided by **VK_EXT_display_control**.*/
     }
     ///Wraps [`vkRegisterDeviceEventEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterDeviceEventEXT.html).
     /**
-Provided by **VK_EXT_display_control**.*/
+    Provided by **VK_EXT_display_control**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7573,7 +7675,7 @@ Provided by **VK_EXT_display_control**.*/
     }
     ///Wraps [`vkRegisterDisplayEventEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterDisplayEventEXT.html).
     /**
-Provided by **VK_EXT_display_control**.*/
+    Provided by **VK_EXT_display_control**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7606,13 +7708,19 @@ Provided by **VK_EXT_display_control**.*/
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(self.handle(), display, p_display_event_info, alloc_ptr, &mut out)
+            fp(
+                self.handle(),
+                display,
+                p_display_event_info,
+                alloc_ptr,
+                &mut out,
+            )
         })?;
         Ok(out)
     }
     ///Wraps [`vkGetSwapchainCounterEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainCounterEXT.html).
     /**
-Provided by **VK_EXT_display_control**.*/
+    Provided by **VK_EXT_display_control**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7648,7 +7756,7 @@ Provided by **VK_EXT_display_control**.*/
     }
     ///Wraps [`vkGetDeviceGroupPeerMemoryFeatures`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPeerMemoryFeatures.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -7690,7 +7798,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkBindBufferMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindBufferMemory2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7723,12 +7831,16 @@ Provided by **VK_BASE_VERSION_1_1**.*/
             .bind_buffer_memory2
             .expect("vkBindBufferMemory2 not loaded");
         check(unsafe {
-            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
+            fp(
+                self.handle(),
+                p_bind_infos.len() as u32,
+                p_bind_infos.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkBindImageMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindImageMemory2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7751,21 +7863,22 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     ///For device groups (multi-GPU), chain
     ///`BindImageMemoryDeviceGroupInfo` to assign memory per device and
     ///specify split-instance bind regions.
-    pub unsafe fn bind_image_memory2(
-        &self,
-        p_bind_infos: &[BindImageMemoryInfo],
-    ) -> VkResult<()> {
+    pub unsafe fn bind_image_memory2(&self, p_bind_infos: &[BindImageMemoryInfo]) -> VkResult<()> {
         let fp = self
             .commands()
             .bind_image_memory2
             .expect("vkBindImageMemory2 not loaded");
         check(unsafe {
-            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
+            fp(
+                self.handle(),
+                p_bind_infos.len() as u32,
+                p_bind_infos.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkCmdSetDeviceMask`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDeviceMask.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -7786,11 +7899,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     ///Must only be called outside a render pass, or inside a render pass
     ///that was begun with `DEVICE_GROUP_BEGIN_INFO` and has the
     ///`DEVICE_GROUP` flag set.
-    pub unsafe fn cmd_set_device_mask(
-        &self,
-        command_buffer: CommandBuffer,
-        device_mask: u32,
-    ) {
+    pub unsafe fn cmd_set_device_mask(&self, command_buffer: CommandBuffer, device_mask: u32) {
         let fp = self
             .commands()
             .cmd_set_device_mask
@@ -7799,7 +7908,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetDeviceGroupPresentCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupPresentCapabilitiesKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7831,7 +7940,7 @@ Provided by **VK_KHR_swapchain**.*/
     }
     ///Wraps [`vkGetDeviceGroupSurfacePresentModesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupSurfacePresentModesKHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7866,7 +7975,7 @@ Provided by **VK_KHR_swapchain**.*/
     }
     ///Wraps [`vkAcquireNextImage2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireNextImage2KHR.html).
     /**
-Provided by **VK_KHR_swapchain**.*/
+    Provided by **VK_KHR_swapchain**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -7906,7 +8015,7 @@ Provided by **VK_KHR_swapchain**.*/
     }
     ///Wraps [`vkCmdDispatchBase`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchBase.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_1**.*/
+    Provided by **VK_COMPUTE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -7955,7 +8064,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
     }
     ///Wraps [`vkCreateDescriptorUpdateTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDescriptorUpdateTemplate.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_1**.*/
+    Provided by **VK_COMPUTE_VERSION_1_1**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8003,7 +8112,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
     }
     ///Wraps [`vkDestroyDescriptorUpdateTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDescriptorUpdateTemplate.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_1**.*/
+    Provided by **VK_COMPUTE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8028,7 +8137,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
     }
     ///Wraps [`vkUpdateDescriptorSetWithTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateDescriptorSetWithTemplate.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_1**.*/
+    Provided by **VK_COMPUTE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8057,11 +8166,18 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
             .commands()
             .update_descriptor_set_with_template
             .expect("vkUpdateDescriptorSetWithTemplate not loaded");
-        unsafe { fp(self.handle(), descriptor_set, descriptor_update_template, p_data) };
+        unsafe {
+            fp(
+                self.handle(),
+                descriptor_set,
+                descriptor_update_template,
+                p_data,
+            )
+        };
     }
     ///Wraps [`vkCmdPushDescriptorSetWithTemplate`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSetWithTemplate.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_4**.*/
+    Provided by **VK_COMPUTE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -8094,11 +8210,19 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
             .commands()
             .cmd_push_descriptor_set_with_template
             .expect("vkCmdPushDescriptorSetWithTemplate not loaded");
-        unsafe { fp(command_buffer, descriptor_update_template, layout, set, p_data) };
+        unsafe {
+            fp(
+                command_buffer,
+                descriptor_update_template,
+                layout,
+                set,
+                p_data,
+            )
+        };
     }
     ///Wraps [`vkSetHdrMetadataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetHdrMetadataEXT.html).
     /**
-Provided by **VK_EXT_hdr_metadata**.*/
+    Provided by **VK_EXT_hdr_metadata**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8133,7 +8257,7 @@ Provided by **VK_EXT_hdr_metadata**.*/
     }
     ///Wraps [`vkGetSwapchainStatusKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainStatusKHR.html).
     /**
-Provided by **VK_KHR_shared_presentable_image**.*/
+    Provided by **VK_KHR_shared_presentable_image**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8163,10 +8287,7 @@ Provided by **VK_KHR_shared_presentable_image**.*/
     ///(`VK_KHR_shared_presentable_image`). For regular swapchains, status
     ///is communicated through `acquire_next_image_khr` and
     ///`queue_present_khr` return values.
-    pub unsafe fn get_swapchain_status_khr(
-        &self,
-        swapchain: SwapchainKHR,
-    ) -> VkResult<()> {
+    pub unsafe fn get_swapchain_status_khr(&self, swapchain: SwapchainKHR) -> VkResult<()> {
         let fp = self
             .commands()
             .get_swapchain_status_khr
@@ -8175,7 +8296,7 @@ Provided by **VK_KHR_shared_presentable_image**.*/
     }
     ///Wraps [`vkGetRefreshCycleDurationGOOGLE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRefreshCycleDurationGOOGLE.html).
     /**
-Provided by **VK_GOOGLE_display_timing**.*/
+    Provided by **VK_GOOGLE_display_timing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8209,7 +8330,7 @@ Provided by **VK_GOOGLE_display_timing**.*/
     }
     ///Wraps [`vkGetPastPresentationTimingGOOGLE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPastPresentationTimingGOOGLE.html).
     /**
-Provided by **VK_GOOGLE_display_timing**.*/
+    Provided by **VK_GOOGLE_display_timing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8240,13 +8361,11 @@ Provided by **VK_GOOGLE_display_timing**.*/
             .commands()
             .get_past_presentation_timing_google
             .expect("vkGetPastPresentationTimingGOOGLE not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), swapchain, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), swapchain, count, data) })
     }
     ///Wraps [`vkCmdSetViewportWScalingNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWScalingNV.html).
     /**
-Provided by **VK_NV_clip_space_w_scaling**.*/
+    Provided by **VK_NV_clip_space_w_scaling**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -8281,7 +8400,7 @@ Provided by **VK_NV_clip_space_w_scaling**.*/
     }
     ///Wraps [`vkCmdSetDiscardRectangleEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleEXT.html).
     /**
-Provided by **VK_EXT_discard_rectangles**.*/
+    Provided by **VK_EXT_discard_rectangles**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -8318,7 +8437,7 @@ Provided by **VK_EXT_discard_rectangles**.*/
     }
     ///Wraps [`vkCmdSetDiscardRectangleEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleEnableEXT.html).
     /**
-Provided by **VK_EXT_discard_rectangles**.*/
+    Provided by **VK_EXT_discard_rectangles**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -8344,7 +8463,7 @@ Provided by **VK_EXT_discard_rectangles**.*/
     }
     ///Wraps [`vkCmdSetDiscardRectangleModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleModeEXT.html).
     /**
-Provided by **VK_EXT_discard_rectangles**.*/
+    Provided by **VK_EXT_discard_rectangles**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -8370,7 +8489,7 @@ Provided by **VK_EXT_discard_rectangles**.*/
     }
     ///Wraps [`vkCmdSetSampleLocationsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleLocationsEXT.html).
     /**
-Provided by **VK_EXT_sample_locations**.*/
+    Provided by **VK_EXT_sample_locations**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -8402,7 +8521,7 @@ Provided by **VK_EXT_sample_locations**.*/
     }
     ///Wraps [`vkGetBufferMemoryRequirements2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferMemoryRequirements2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8432,7 +8551,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetImageMemoryRequirements2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageMemoryRequirements2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8465,7 +8584,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetImageSparseMemoryRequirements2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSparseMemoryRequirements2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8490,7 +8609,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetDeviceBufferMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceBufferMemoryRequirements.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8521,7 +8640,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkGetDeviceImageMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceImageMemoryRequirements.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8554,7 +8673,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkGetDeviceImageSparseMemoryRequirements`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceImageSparseMemoryRequirements.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8579,7 +8698,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkCreateSamplerYcbcrConversion`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSamplerYcbcrConversion.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_1**.*/
+    Provided by **VK_COMPUTE_VERSION_1_1**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8626,7 +8745,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
     }
     ///Wraps [`vkDestroySamplerYcbcrConversion`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroySamplerYcbcrConversion.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_1**.*/
+    Provided by **VK_COMPUTE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8654,7 +8773,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetDeviceQueue2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceQueue2.html).
     /**
-Provided by **VK_BASE_VERSION_1_1**.*/
+    Provided by **VK_BASE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8680,7 +8799,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
     }
     ///Wraps [`vkCreateValidationCacheEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateValidationCacheEXT.html).
     /**
-Provided by **VK_EXT_validation_cache**.*/
+    Provided by **VK_EXT_validation_cache**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8718,7 +8837,7 @@ Provided by **VK_EXT_validation_cache**.*/
     }
     ///Wraps [`vkDestroyValidationCacheEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyValidationCacheEXT.html).
     /**
-Provided by **VK_EXT_validation_cache**.*/
+    Provided by **VK_EXT_validation_cache**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8744,7 +8863,7 @@ Provided by **VK_EXT_validation_cache**.*/
     }
     ///Wraps [`vkGetValidationCacheDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetValidationCacheDataEXT.html).
     /**
-Provided by **VK_EXT_validation_cache**.*/
+    Provided by **VK_EXT_validation_cache**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8780,7 +8899,7 @@ Provided by **VK_EXT_validation_cache**.*/
     }
     ///Wraps [`vkMergeValidationCachesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMergeValidationCachesEXT.html).
     /**
-Provided by **VK_EXT_validation_cache**.*/
+    Provided by **VK_EXT_validation_cache**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -8819,7 +8938,7 @@ Provided by **VK_EXT_validation_cache**.*/
     }
     ///Wraps [`vkGetDescriptorSetLayoutSupport`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutSupport.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_1**.*/
+    Provided by **VK_COMPUTE_VERSION_1_1**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -8970,7 +9089,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
     }
     ///Wraps [`vkGetShaderInfoAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderInfoAMD.html).
     /**
-Provided by **VK_AMD_shader_info**.*/
+    Provided by **VK_AMD_shader_info**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_FEATURE_NOT_PRESENT`
@@ -9002,13 +9121,20 @@ Provided by **VK_AMD_shader_info**.*/
             .expect("vkGetShaderInfoAMD not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(self.handle(), pipeline, shader_stage, info_type, &mut out, p_info)
+            fp(
+                self.handle(),
+                pipeline,
+                shader_stage,
+                info_type,
+                &mut out,
+                p_info,
+            )
         })?;
         Ok(out)
     }
     ///Wraps [`vkSetLocalDimmingAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetLocalDimmingAMD.html).
     /**
-Provided by **VK_AMD_display_native_hdr**.*/
+    Provided by **VK_AMD_display_native_hdr**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -9033,7 +9159,7 @@ Provided by **VK_AMD_display_native_hdr**.*/
     }
     ///Wraps [`vkGetCalibratedTimestampsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetCalibratedTimestampsKHR.html).
     /**
-Provided by **VK_KHR_calibrated_timestamps**.*/
+    Provided by **VK_KHR_calibrated_timestamps**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9084,7 +9210,7 @@ Provided by **VK_KHR_calibrated_timestamps**.*/
     }
     ///Wraps [`vkSetDebugUtilsObjectNameEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetDebugUtilsObjectNameEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9123,7 +9249,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkSetDebugUtilsObjectTagEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetDebugUtilsObjectTagEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9158,7 +9284,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkQueueBeginDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueBeginDebugUtilsLabelEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
@@ -9187,7 +9313,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkQueueEndDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueEndDebugUtilsLabelEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
@@ -9209,7 +9335,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkQueueInsertDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueInsertDebugUtilsLabelEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
@@ -9235,7 +9361,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkCmdBeginDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginDebugUtilsLabelEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9268,7 +9394,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkCmdEndDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndDebugUtilsLabelEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9290,7 +9416,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkCmdInsertDebugUtilsLabelEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdInsertDebugUtilsLabelEXT.html).
     /**
-Provided by **VK_EXT_debug_utils**.*/
+    Provided by **VK_EXT_debug_utils**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9319,7 +9445,7 @@ Provided by **VK_EXT_debug_utils**.*/
     }
     ///Wraps [`vkGetMemoryHostPointerPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryHostPointerPropertiesEXT.html).
     /**
-Provided by **VK_EXT_external_memory_host**.*/
+    Provided by **VK_EXT_external_memory_host**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9359,7 +9485,7 @@ Provided by **VK_EXT_external_memory_host**.*/
     }
     ///Wraps [`vkCmdWriteBufferMarkerAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteBufferMarkerAMD.html).
     /**
-Provided by **VK_AMD_buffer_marker**.*/
+    Provided by **VK_AMD_buffer_marker**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9385,11 +9511,19 @@ Provided by **VK_AMD_buffer_marker**.*/
             .commands()
             .cmd_write_buffer_marker_amd
             .expect("vkCmdWriteBufferMarkerAMD not loaded");
-        unsafe { fp(command_buffer, pipeline_stage, dst_buffer, dst_offset, marker) };
+        unsafe {
+            fp(
+                command_buffer,
+                pipeline_stage,
+                dst_buffer,
+                dst_offset,
+                marker,
+            )
+        };
     }
     ///Wraps [`vkCreateRenderPass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRenderPass2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9436,7 +9570,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     }
     ///Wraps [`vkCmdBeginRenderPass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRenderPass2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9469,7 +9603,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     }
     ///Wraps [`vkCmdNextSubpass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdNextSubpass2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9496,7 +9630,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     }
     ///Wraps [`vkCmdEndRenderPass2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRenderPass2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9522,7 +9656,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     }
     ///Wraps [`vkGetSemaphoreCounterValue`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSemaphoreCounterValue.html).
     /**
-Provided by **VK_BASE_VERSION_1_2**.*/
+    Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9554,10 +9688,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///Only valid for semaphores created with `SEMAPHORE_TYPE_TIMELINE`.
     ///Calling this on a binary semaphore is an error.
-    pub unsafe fn get_semaphore_counter_value(
-        &self,
-        semaphore: Semaphore,
-    ) -> VkResult<u64> {
+    pub unsafe fn get_semaphore_counter_value(&self, semaphore: Semaphore) -> VkResult<u64> {
         let fp = self
             .commands()
             .get_semaphore_counter_value
@@ -9568,7 +9699,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
     }
     ///Wraps [`vkWaitSemaphores`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitSemaphores.html).
     /**
-Provided by **VK_BASE_VERSION_1_2**.*/
+    Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9611,12 +9742,15 @@ Provided by **VK_BASE_VERSION_1_2**.*/
         p_wait_info: &SemaphoreWaitInfo,
         timeout: u64,
     ) -> VkResult<()> {
-        let fp = self.commands().wait_semaphores.expect("vkWaitSemaphores not loaded");
+        let fp = self
+            .commands()
+            .wait_semaphores
+            .expect("vkWaitSemaphores not loaded");
         check(unsafe { fp(self.handle(), p_wait_info, timeout) })
     }
     ///Wraps [`vkSignalSemaphore`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSignalSemaphore.html).
     /**
-Provided by **VK_BASE_VERSION_1_2**.*/
+    Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9643,16 +9777,16 @@ Provided by **VK_BASE_VERSION_1_2**.*/
     ///Timeline semaphores replace many use cases that previously required
     ///fences, they can be waited on from both the CPU (`wait_semaphores`)
     ///and the GPU (`queue_submit`).
-    pub unsafe fn signal_semaphore(
-        &self,
-        p_signal_info: &SemaphoreSignalInfo,
-    ) -> VkResult<()> {
-        let fp = self.commands().signal_semaphore.expect("vkSignalSemaphore not loaded");
+    pub unsafe fn signal_semaphore(&self, p_signal_info: &SemaphoreSignalInfo) -> VkResult<()> {
+        let fp = self
+            .commands()
+            .signal_semaphore
+            .expect("vkSignalSemaphore not loaded");
         check(unsafe { fp(self.handle(), p_signal_info) })
     }
     ///Wraps [`vkGetAndroidHardwareBufferPropertiesANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAndroidHardwareBufferPropertiesANDROID.html).
     /**
-Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
+    Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -9683,7 +9817,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
     }
     ///Wraps [`vkGetMemoryAndroidHardwareBufferANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryAndroidHardwareBufferANDROID.html).
     /**
-Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
+    Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -9714,7 +9848,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
     }
     ///Wraps [`vkCmdDrawIndirectCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectCount.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9761,7 +9895,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     }
     ///Wraps [`vkCmdDrawIndexedIndirectCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirectCount.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_2**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9812,7 +9946,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
     }
     ///Wraps [`vkCmdSetCheckpointNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCheckpointNV.html).
     /**
-Provided by **VK_NV_device_diagnostic_checkpoints**.*/
+    Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9840,7 +9974,7 @@ Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     }
     ///Wraps [`vkGetQueueCheckpointDataNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetQueueCheckpointDataNV.html).
     /**
-Provided by **VK_NV_device_diagnostic_checkpoints**.*/
+    Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
@@ -9852,10 +9986,7 @@ Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     ///`cmd_set_checkpoint_nv` for post-mortem debugging.
     ///
     ///Requires `VK_NV_device_diagnostic_checkpoints`.
-    pub unsafe fn get_queue_checkpoint_data_nv(
-        &self,
-        queue: Queue,
-    ) -> Vec<CheckpointDataNV> {
+    pub unsafe fn get_queue_checkpoint_data_nv(&self, queue: Queue) -> Vec<CheckpointDataNV> {
         let fp = self
             .commands()
             .get_queue_checkpoint_data_nv
@@ -9864,7 +9995,7 @@ Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     }
     ///Wraps [`vkCmdBindTransformFeedbackBuffersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindTransformFeedbackBuffersEXT.html).
     /**
-Provided by **VK_EXT_transform_feedback**.*/
+    Provided by **VK_EXT_transform_feedback**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9908,7 +10039,7 @@ Provided by **VK_EXT_transform_feedback**.*/
     }
     ///Wraps [`vkCmdBeginTransformFeedbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginTransformFeedbackEXT.html).
     /**
-Provided by **VK_EXT_transform_feedback**.*/
+    Provided by **VK_EXT_transform_feedback**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9939,8 +10070,8 @@ Provided by **VK_EXT_transform_feedback**.*/
             .commands()
             .cmd_begin_transform_feedback_ext
             .expect("vkCmdBeginTransformFeedbackEXT not loaded");
-        let p_counter_buffer_offsets_ptr = p_counter_buffer_offsets
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_counter_buffer_offsets_ptr =
+            p_counter_buffer_offsets.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
@@ -9953,7 +10084,7 @@ Provided by **VK_EXT_transform_feedback**.*/
     }
     ///Wraps [`vkCmdEndTransformFeedbackEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndTransformFeedbackEXT.html).
     /**
-Provided by **VK_EXT_transform_feedback**.*/
+    Provided by **VK_EXT_transform_feedback**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -9978,8 +10109,8 @@ Provided by **VK_EXT_transform_feedback**.*/
             .commands()
             .cmd_end_transform_feedback_ext
             .expect("vkCmdEndTransformFeedbackEXT not loaded");
-        let p_counter_buffer_offsets_ptr = p_counter_buffer_offsets
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_counter_buffer_offsets_ptr =
+            p_counter_buffer_offsets.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
@@ -9992,7 +10123,7 @@ Provided by **VK_EXT_transform_feedback**.*/
     }
     ///Wraps [`vkCmdBeginQueryIndexedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginQueryIndexedEXT.html).
     /**
-Provided by **VK_EXT_transform_feedback**.*/
+    Provided by **VK_EXT_transform_feedback**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10026,7 +10157,7 @@ Provided by **VK_EXT_transform_feedback**.*/
     }
     ///Wraps [`vkCmdEndQueryIndexedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndQueryIndexedEXT.html).
     /**
-Provided by **VK_EXT_transform_feedback**.*/
+    Provided by **VK_EXT_transform_feedback**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10053,7 +10184,7 @@ Provided by **VK_EXT_transform_feedback**.*/
     }
     ///Wraps [`vkCmdDrawIndirectByteCountEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectByteCountEXT.html).
     /**
-Provided by **VK_EXT_transform_feedback**.*/
+    Provided by **VK_EXT_transform_feedback**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10097,7 +10228,7 @@ Provided by **VK_EXT_transform_feedback**.*/
     }
     ///Wraps [`vkCmdSetExclusiveScissorNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetExclusiveScissorNV.html).
     /**
-Provided by **VK_NV_scissor_exclusive**.*/
+    Provided by **VK_NV_scissor_exclusive**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10131,7 +10262,7 @@ Provided by **VK_NV_scissor_exclusive**.*/
     }
     ///Wraps [`vkCmdSetExclusiveScissorEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetExclusiveScissorEnableNV.html).
     /**
-Provided by **VK_NV_scissor_exclusive**.*/
+    Provided by **VK_NV_scissor_exclusive**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10165,7 +10296,7 @@ Provided by **VK_NV_scissor_exclusive**.*/
     }
     ///Wraps [`vkCmdBindShadingRateImageNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindShadingRateImageNV.html).
     /**
-Provided by **VK_NV_shading_rate_image**.*/
+    Provided by **VK_NV_shading_rate_image**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10192,7 +10323,7 @@ Provided by **VK_NV_shading_rate_image**.*/
     }
     ///Wraps [`vkCmdSetViewportShadingRatePaletteNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportShadingRatePaletteNV.html).
     /**
-Provided by **VK_NV_shading_rate_image**.*/
+    Provided by **VK_NV_shading_rate_image**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10226,7 +10357,7 @@ Provided by **VK_NV_shading_rate_image**.*/
     }
     ///Wraps [`vkCmdSetCoarseSampleOrderNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoarseSampleOrderNV.html).
     /**
-Provided by **VK_NV_shading_rate_image**.*/
+    Provided by **VK_NV_shading_rate_image**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10261,7 +10392,7 @@ Provided by **VK_NV_shading_rate_image**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksNV.html).
     /**
-Provided by **VK_NV_mesh_shader**.*/
+    Provided by **VK_NV_mesh_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10291,7 +10422,7 @@ Provided by **VK_NV_mesh_shader**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectNV.html).
     /**
-Provided by **VK_NV_mesh_shader**.*/
+    Provided by **VK_NV_mesh_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10320,7 +10451,7 @@ Provided by **VK_NV_mesh_shader**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksIndirectCountNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCountNV.html).
     /**
-Provided by **VK_NV_mesh_shader**.*/
+    Provided by **VK_NV_mesh_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10362,7 +10493,7 @@ Provided by **VK_NV_mesh_shader**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksEXT.html).
     /**
-Provided by **VK_EXT_mesh_shader**.*/
+    Provided by **VK_EXT_mesh_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10393,7 +10524,7 @@ Provided by **VK_EXT_mesh_shader**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksIndirectEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectEXT.html).
     /**
-Provided by **VK_EXT_mesh_shader**.*/
+    Provided by **VK_EXT_mesh_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10425,7 +10556,7 @@ Provided by **VK_EXT_mesh_shader**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksIndirectCountEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCountEXT.html).
     /**
-Provided by **VK_EXT_mesh_shader**.*/
+    Provided by **VK_EXT_mesh_shader**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10468,7 +10599,7 @@ Provided by **VK_EXT_mesh_shader**.*/
     }
     ///Wraps [`vkCompileDeferredNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCompileDeferredNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -10489,11 +10620,7 @@ Provided by **VK_NV_ray_tracing**.*/
     ///Useful for spreading compilation cost across frames or threads.
     ///
     ///Requires `VK_NV_ray_tracing`.
-    pub unsafe fn compile_deferred_nv(
-        &self,
-        pipeline: Pipeline,
-        shader: u32,
-    ) -> VkResult<()> {
+    pub unsafe fn compile_deferred_nv(&self, pipeline: Pipeline, shader: u32) -> VkResult<()> {
         let fp = self
             .commands()
             .compile_deferred_nv
@@ -10502,7 +10629,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkCreateAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateAccelerationStructureNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -10539,7 +10666,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkCmdBindInvocationMaskHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindInvocationMaskHUAWEI.html).
     /**
-Provided by **VK_HUAWEI_invocation_mask**.*/
+    Provided by **VK_HUAWEI_invocation_mask**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10567,7 +10694,7 @@ Provided by **VK_HUAWEI_invocation_mask**.*/
     }
     ///Wraps [`vkDestroyAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyAccelerationStructureKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -10594,7 +10721,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkDestroyAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyAccelerationStructureNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -10621,7 +10748,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkGetAccelerationStructureMemoryRequirementsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureMemoryRequirementsNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -10647,7 +10774,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkBindAccelerationStructureMemoryNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindAccelerationStructureMemoryNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -10674,12 +10801,16 @@ Provided by **VK_NV_ray_tracing**.*/
             .bind_acceleration_structure_memory_nv
             .expect("vkBindAccelerationStructureMemoryNV not loaded");
         check(unsafe {
-            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
+            fp(
+                self.handle(),
+                p_bind_infos.len() as u32,
+                p_bind_infos.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkCmdCopyAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyAccelerationStructureNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10707,7 +10838,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkCmdCopyAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyAccelerationStructureKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10745,7 +10876,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCopyAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyAccelerationStructureKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -10776,7 +10907,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdCopyAccelerationStructureToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyAccelerationStructureToMemoryKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10807,7 +10938,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCopyAccelerationStructureToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyAccelerationStructureToMemoryKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -10837,7 +10968,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdCopyMemoryToAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToAccelerationStructureKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10867,7 +10998,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCopyMemoryToAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToAccelerationStructureKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -10897,7 +11028,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdWriteAccelerationStructuresPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteAccelerationStructuresPropertiesKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10944,7 +11075,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdWriteAccelerationStructuresPropertiesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteAccelerationStructuresPropertiesNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -10983,7 +11114,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkCmdBuildAccelerationStructureNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildAccelerationStructureNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -11031,7 +11162,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkWriteAccelerationStructuresPropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteAccelerationStructuresPropertiesKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11078,7 +11209,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdTraceRaysKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysKHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_pipeline**.*/
+    Provided by **VK_KHR_ray_tracing_pipeline**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -11138,7 +11269,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
     }
     ///Wraps [`vkCmdTraceRaysNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -11173,7 +11304,10 @@ Provided by **VK_NV_ray_tracing**.*/
         height: u32,
         depth: u32,
     ) {
-        let fp = self.commands().cmd_trace_rays_nv.expect("vkCmdTraceRaysNV not loaded");
+        let fp = self
+            .commands()
+            .cmd_trace_rays_nv
+            .expect("vkCmdTraceRaysNV not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -11196,7 +11330,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkGetRayTracingShaderGroupHandlesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingShaderGroupHandlesKHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_pipeline**.*/
+    Provided by **VK_KHR_ray_tracing_pipeline**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11240,12 +11374,19 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
             .get_ray_tracing_shader_group_handles_khr
             .expect("vkGetRayTracingShaderGroupHandlesKHR not loaded");
         check(unsafe {
-            fp(self.handle(), pipeline, first_group, group_count, data_size, p_data)
+            fp(
+                self.handle(),
+                pipeline,
+                first_group,
+                group_count,
+                data_size,
+                p_data,
+            )
         })
     }
     ///Wraps [`vkGetRayTracingCaptureReplayShaderGroupHandlesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingCaptureReplayShaderGroupHandlesKHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_pipeline**.*/
+    Provided by **VK_KHR_ray_tracing_pipeline**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11289,12 +11430,19 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
             .get_ray_tracing_capture_replay_shader_group_handles_khr
             .expect("vkGetRayTracingCaptureReplayShaderGroupHandlesKHR not loaded");
         check(unsafe {
-            fp(self.handle(), pipeline, first_group, group_count, data_size, p_data)
+            fp(
+                self.handle(),
+                pipeline,
+                first_group,
+                group_count,
+                data_size,
+                p_data,
+            )
         })
     }
     ///Wraps [`vkGetAccelerationStructureHandleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureHandleNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11326,7 +11474,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkCreateRayTracingPipelinesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRayTracingPipelinesNV.html).
     /**
-Provided by **VK_NV_ray_tracing**.*/
+    Provided by **VK_NV_ray_tracing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11373,7 +11521,7 @@ Provided by **VK_NV_ray_tracing**.*/
     }
     ///Wraps [`vkCreateRayTracingPipelinesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRayTracingPipelinesKHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_pipeline**.*/
+    Provided by **VK_KHR_ray_tracing_pipeline**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11440,7 +11588,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
     }
     ///Wraps [`vkCmdTraceRaysIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysIndirectKHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_pipeline**.*/
+    Provided by **VK_KHR_ray_tracing_pipeline**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -11490,7 +11638,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
     }
     ///Wraps [`vkCmdTraceRaysIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysIndirect2KHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_maintenance1**.*/
+    Provided by **VK_KHR_ray_tracing_maintenance1**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -11528,7 +11676,7 @@ Provided by **VK_KHR_ray_tracing_maintenance1**.*/
     }
     ///Wraps [`vkGetClusterAccelerationStructureBuildSizesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetClusterAccelerationStructureBuildSizesNV.html).
     /**
-Provided by **VK_NV_cluster_acceleration_structure**.*/
+    Provided by **VK_NV_cluster_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11553,7 +11701,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdBuildClusterAccelerationStructureIndirectNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildClusterAccelerationStructureIndirectNV.html).
     /**
-Provided by **VK_NV_cluster_acceleration_structure**.*/
+    Provided by **VK_NV_cluster_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -11579,7 +11727,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
     }
     ///Wraps [`vkGetDeviceAccelerationStructureCompatibilityKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceAccelerationStructureCompatibilityKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11611,7 +11759,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkGetRayTracingShaderGroupStackSizeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetRayTracingShaderGroupStackSizeKHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_pipeline**.*/
+    Provided by **VK_KHR_ray_tracing_pipeline**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11652,7 +11800,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
     }
     ///Wraps [`vkCmdSetRayTracingPipelineStackSizeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRayTracingPipelineStackSizeKHR.html).
     /**
-Provided by **VK_KHR_ray_tracing_pipeline**.*/
+    Provided by **VK_KHR_ray_tracing_pipeline**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -11691,7 +11839,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
     }
     ///Wraps [`vkGetImageViewHandleNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewHandleNVX.html).
     /**
-Provided by **VK_NVX_image_view_handle**.*/
+    Provided by **VK_NVX_image_view_handle**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11712,7 +11860,7 @@ Provided by **VK_NVX_image_view_handle**.*/
     }
     ///Wraps [`vkGetImageViewHandle64NVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewHandle64NVX.html).
     /**
-Provided by **VK_NVX_image_view_handle**.*/
+    Provided by **VK_NVX_image_view_handle**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11733,7 +11881,7 @@ Provided by **VK_NVX_image_view_handle**.*/
     }
     ///Wraps [`vkGetImageViewAddressNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewAddressNVX.html).
     /**
-Provided by **VK_NVX_image_view_handle**.*/
+    Provided by **VK_NVX_image_view_handle**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11763,7 +11911,7 @@ Provided by **VK_NVX_image_view_handle**.*/
     }
     ///Wraps [`vkGetDeviceCombinedImageSamplerIndexNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceCombinedImageSamplerIndexNVX.html).
     /**
-Provided by **VK_NVX_image_view_handle**.*/
+    Provided by **VK_NVX_image_view_handle**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11788,7 +11936,7 @@ Provided by **VK_NVX_image_view_handle**.*/
     }
     ///Wraps [`vkGetDeviceGroupSurfacePresentModes2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupSurfacePresentModes2EXT.html).
     /**
-Provided by **VK_EXT_full_screen_exclusive**.*/
+    Provided by **VK_EXT_full_screen_exclusive**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11823,7 +11971,7 @@ Provided by **VK_EXT_full_screen_exclusive**.*/
     }
     ///Wraps [`vkAcquireFullScreenExclusiveModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireFullScreenExclusiveModeEXT.html).
     /**
-Provided by **VK_EXT_full_screen_exclusive**.*/
+    Provided by **VK_EXT_full_screen_exclusive**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11859,7 +12007,7 @@ Provided by **VK_EXT_full_screen_exclusive**.*/
     }
     ///Wraps [`vkReleaseFullScreenExclusiveModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseFullScreenExclusiveModeEXT.html).
     /**
-Provided by **VK_EXT_full_screen_exclusive**.*/
+    Provided by **VK_EXT_full_screen_exclusive**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11890,7 +12038,7 @@ Provided by **VK_EXT_full_screen_exclusive**.*/
     }
     ///Wraps [`vkAcquireProfilingLockKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquireProfilingLockKHR.html).
     /**
-Provided by **VK_KHR_performance_query**.*/
+    Provided by **VK_KHR_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11927,7 +12075,7 @@ Provided by **VK_KHR_performance_query**.*/
     }
     ///Wraps [`vkReleaseProfilingLockKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseProfilingLockKHR.html).
     /**
-Provided by **VK_KHR_performance_query**.*/
+    Provided by **VK_KHR_performance_query**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11948,7 +12096,7 @@ Provided by **VK_KHR_performance_query**.*/
     }
     ///Wraps [`vkGetImageDrmFormatModifierPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageDrmFormatModifierPropertiesEXT.html).
     /**
-Provided by **VK_EXT_image_drm_format_modifier**.*/
+    Provided by **VK_EXT_image_drm_format_modifier**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -11979,7 +12127,7 @@ Provided by **VK_EXT_image_drm_format_modifier**.*/
     }
     ///Wraps [`vkGetBufferOpaqueCaptureAddress`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferOpaqueCaptureAddress.html).
     /**
-Provided by **VK_BASE_VERSION_1_2**.*/
+    Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -11995,10 +12143,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
     ///Most applications do not need this, it is primarily for debugging
     ///and profiling tools. Use `get_buffer_device_address` for runtime
     ///buffer address access.
-    pub unsafe fn get_buffer_opaque_capture_address(
-        &self,
-        p_info: &BufferDeviceAddressInfo,
-    ) {
+    pub unsafe fn get_buffer_opaque_capture_address(&self, p_info: &BufferDeviceAddressInfo) {
         let fp = self
             .commands()
             .get_buffer_opaque_capture_address
@@ -12007,7 +12152,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
     }
     ///Wraps [`vkGetBufferDeviceAddress`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferDeviceAddress.html).
     /**
-Provided by **VK_BASE_VERSION_1_2**.*/
+    Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12044,7 +12189,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
     }
     ///Wraps [`vkInitializePerformanceApiINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkInitializePerformanceApiINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12074,7 +12219,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkUninitializePerformanceApiINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUninitializePerformanceApiINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12095,7 +12240,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkCmdSetPerformanceMarkerINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceMarkerINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12127,7 +12272,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkCmdSetPerformanceStreamMarkerINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceStreamMarkerINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12159,7 +12304,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkCmdSetPerformanceOverrideINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPerformanceOverrideINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12191,7 +12336,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkAcquirePerformanceConfigurationINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAcquirePerformanceConfigurationINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12224,7 +12369,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkReleasePerformanceConfigurationINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleasePerformanceConfigurationINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12254,7 +12399,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkQueueSetPerformanceConfigurationINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSetPerformanceConfigurationINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12286,7 +12431,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkGetPerformanceParameterINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPerformanceParameterINTEL.html).
     /**
-Provided by **VK_INTEL_performance_query**.*/
+    Provided by **VK_INTEL_performance_query**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -12318,7 +12463,7 @@ Provided by **VK_INTEL_performance_query**.*/
     }
     ///Wraps [`vkGetDeviceMemoryOpaqueCaptureAddress`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMemoryOpaqueCaptureAddress.html).
     /**
-Provided by **VK_BASE_VERSION_1_2**.*/
+    Provided by **VK_BASE_VERSION_1_2**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12345,7 +12490,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
     }
     ///Wraps [`vkGetPipelineExecutablePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineExecutablePropertiesKHR.html).
     /**
-Provided by **VK_KHR_pipeline_executable_properties**.*/
+    Provided by **VK_KHR_pipeline_executable_properties**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12380,13 +12525,11 @@ Provided by **VK_KHR_pipeline_executable_properties**.*/
             .commands()
             .get_pipeline_executable_properties_khr
             .expect("vkGetPipelineExecutablePropertiesKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), p_pipeline_info, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), p_pipeline_info, count, data) })
     }
     ///Wraps [`vkGetPipelineExecutableStatisticsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineExecutableStatisticsKHR.html).
     /**
-Provided by **VK_KHR_pipeline_executable_properties**.*/
+    Provided by **VK_KHR_pipeline_executable_properties**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12429,7 +12572,7 @@ Provided by **VK_KHR_pipeline_executable_properties**.*/
     }
     ///Wraps [`vkGetPipelineExecutableInternalRepresentationsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineExecutableInternalRepresentationsKHR.html).
     /**
-Provided by **VK_KHR_pipeline_executable_properties**.*/
+    Provided by **VK_KHR_pipeline_executable_properties**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12472,7 +12615,7 @@ Provided by **VK_KHR_pipeline_executable_properties**.*/
     }
     ///Wraps [`vkCmdSetLineStipple`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineStipple.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -12507,7 +12650,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     }
     ///Wraps [`vkGetFaultData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFaultData.html).
     /**
-Provided by **VKSC_VERSION_1_0**.*/
+    Provided by **VKSC_VERSION_1_0**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12533,14 +12676,23 @@ Provided by **VKSC_VERSION_1_0**.*/
         fault_query_behavior: FaultQueryBehavior,
         p_unrecorded_faults: *mut u32,
     ) -> VkResult<Vec<FaultData>> {
-        let fp = self.commands().get_fault_data.expect("vkGetFaultData not loaded");
+        let fp = self
+            .commands()
+            .get_fault_data
+            .expect("vkGetFaultData not loaded");
         enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), fault_query_behavior, p_unrecorded_faults, count, data)
+            fp(
+                self.handle(),
+                fault_query_behavior,
+                p_unrecorded_faults,
+                count,
+                data,
+            )
         })
     }
     ///Wraps [`vkCreateAccelerationStructureKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateAccelerationStructureKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12587,7 +12739,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdBuildAccelerationStructuresKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildAccelerationStructuresKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -12635,7 +12787,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdBuildAccelerationStructuresIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildAccelerationStructuresIndirectKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -12677,7 +12829,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkBuildAccelerationStructuresKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBuildAccelerationStructuresKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12721,7 +12873,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkGetAccelerationStructureDeviceAddressKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureDeviceAddressKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12746,7 +12898,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCreateDeferredOperationKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDeferredOperationKHR.html).
     /**
-Provided by **VK_KHR_deferred_host_operations**.*/
+    Provided by **VK_KHR_deferred_host_operations**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12792,7 +12944,7 @@ Provided by **VK_KHR_deferred_host_operations**.*/
     }
     ///Wraps [`vkDestroyDeferredOperationKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDeferredOperationKHR.html).
     /**
-Provided by **VK_KHR_deferred_host_operations**.*/
+    Provided by **VK_KHR_deferred_host_operations**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12820,7 +12972,7 @@ Provided by **VK_KHR_deferred_host_operations**.*/
     }
     ///Wraps [`vkGetDeferredOperationMaxConcurrencyKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeferredOperationMaxConcurrencyKHR.html).
     /**
-Provided by **VK_KHR_deferred_host_operations**.*/
+    Provided by **VK_KHR_deferred_host_operations**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12848,7 +13000,7 @@ Provided by **VK_KHR_deferred_host_operations**.*/
     }
     ///Wraps [`vkGetDeferredOperationResultKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeferredOperationResultKHR.html).
     /**
-Provided by **VK_KHR_deferred_host_operations**.*/
+    Provided by **VK_KHR_deferred_host_operations**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -12881,7 +13033,7 @@ Provided by **VK_KHR_deferred_host_operations**.*/
     }
     ///Wraps [`vkDeferredOperationJoinKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDeferredOperationJoinKHR.html).
     /**
-Provided by **VK_KHR_deferred_host_operations**.*/
+    Provided by **VK_KHR_deferred_host_operations**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -12925,7 +13077,7 @@ Provided by **VK_KHR_deferred_host_operations**.*/
     }
     ///Wraps [`vkGetPipelineIndirectMemoryRequirementsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineIndirectMemoryRequirementsNV.html).
     /**
-Provided by **VK_NV_device_generated_commands_compute**.*/
+    Provided by **VK_NV_device_generated_commands_compute**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12951,7 +13103,7 @@ Provided by **VK_NV_device_generated_commands_compute**.*/
     }
     ///Wraps [`vkGetPipelineIndirectDeviceAddressNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineIndirectDeviceAddressNV.html).
     /**
-Provided by **VK_NV_device_generated_commands_compute**.*/
+    Provided by **VK_NV_device_generated_commands_compute**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12975,7 +13127,7 @@ Provided by **VK_NV_device_generated_commands_compute**.*/
     }
     ///Wraps [`vkAntiLagUpdateAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAntiLagUpdateAMD.html).
     /**
-Provided by **VK_AMD_anti_lag**.*/
+    Provided by **VK_AMD_anti_lag**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -12996,7 +13148,7 @@ Provided by **VK_AMD_anti_lag**.*/
     }
     ///Wraps [`vkCmdSetCullMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCullMode.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13020,12 +13172,15 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
         command_buffer: CommandBuffer,
         cull_mode: CullModeFlags,
     ) {
-        let fp = self.commands().cmd_set_cull_mode.expect("vkCmdSetCullMode not loaded");
+        let fp = self
+            .commands()
+            .cmd_set_cull_mode
+            .expect("vkCmdSetCullMode not loaded");
         unsafe { fp(command_buffer, cull_mode) };
     }
     ///Wraps [`vkCmdSetFrontFace`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFrontFace.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13044,11 +13199,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///winding order is flipped, without needing a separate pipeline.
     ///
     ///Core dynamic state in Vulkan 1.3.
-    pub unsafe fn cmd_set_front_face(
-        &self,
-        command_buffer: CommandBuffer,
-        front_face: FrontFace,
-    ) {
+    pub unsafe fn cmd_set_front_face(&self, command_buffer: CommandBuffer, front_face: FrontFace) {
         let fp = self
             .commands()
             .cmd_set_front_face
@@ -13057,7 +13208,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetPrimitiveTopology`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPrimitiveTopology.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13091,7 +13242,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetViewportWithCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWithCount.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13118,11 +13269,17 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
             .commands()
             .cmd_set_viewport_with_count
             .expect("vkCmdSetViewportWithCount not loaded");
-        unsafe { fp(command_buffer, p_viewports.len() as u32, p_viewports.as_ptr()) };
+        unsafe {
+            fp(
+                command_buffer,
+                p_viewports.len() as u32,
+                p_viewports.as_ptr(),
+            )
+        };
     }
     ///Wraps [`vkCmdSetScissorWithCount`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetScissorWithCount.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13153,7 +13310,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdBindIndexBuffer2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13185,7 +13342,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     }
     ///Wraps [`vkCmdBindVertexBuffers2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13235,7 +13392,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetDepthTestEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthTestEnable.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13264,7 +13421,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetDepthWriteEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthWriteEnable.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13300,7 +13457,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetDepthCompareOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthCompareOp.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13334,7 +13491,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetDepthBoundsTestEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBoundsTestEnable.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13366,7 +13523,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetStencilTestEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilTestEnable.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13395,7 +13552,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetStencilOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOp.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13432,12 +13589,19 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
             .cmd_set_stencil_op
             .expect("vkCmdSetStencilOp not loaded");
         unsafe {
-            fp(command_buffer, face_mask, fail_op, pass_op, depth_fail_op, compare_op)
+            fp(
+                command_buffer,
+                face_mask,
+                fail_op,
+                pass_op,
+                depth_fail_op,
+                compare_op,
+            )
         };
     }
     ///Wraps [`vkCmdSetPatchControlPointsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPatchControlPointsEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state2**.*/
+    Provided by **VK_EXT_extended_dynamic_state2**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13467,7 +13631,7 @@ Provided by **VK_EXT_extended_dynamic_state2**.*/
     }
     ///Wraps [`vkCmdSetRasterizerDiscardEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizerDiscardEnable.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13505,7 +13669,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetDepthBiasEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBiasEnable.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13536,7 +13700,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetLogicOpEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state2**.*/
+    Provided by **VK_EXT_extended_dynamic_state2**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13553,11 +13717,7 @@ Provided by **VK_EXT_extended_dynamic_state2**.*/
     ///feature.
     ///
     ///Provided by `VK_EXT_extended_dynamic_state2`.
-    pub unsafe fn cmd_set_logic_op_ext(
-        &self,
-        command_buffer: CommandBuffer,
-        logic_op: LogicOp,
-    ) {
+    pub unsafe fn cmd_set_logic_op_ext(&self, command_buffer: CommandBuffer, logic_op: LogicOp) {
         let fp = self
             .commands()
             .cmd_set_logic_op_ext
@@ -13566,7 +13726,7 @@ Provided by **VK_EXT_extended_dynamic_state2**.*/
     }
     ///Wraps [`vkCmdSetPrimitiveRestartEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPrimitiveRestartEnable.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13600,7 +13760,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetTessellationDomainOriginEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetTessellationDomainOriginEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13629,7 +13789,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetDepthClampEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClampEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13660,7 +13820,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetPolygonModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPolygonModeEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13689,7 +13849,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetRasterizationSamplesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizationSamplesEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13718,7 +13878,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetSampleMaskEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleMaskEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13743,13 +13903,12 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
             .commands()
             .cmd_set_sample_mask_ext
             .expect("vkCmdSetSampleMaskEXT not loaded");
-        let p_sample_mask_ptr = p_sample_mask
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_sample_mask_ptr = p_sample_mask.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, samples, p_sample_mask_ptr) };
     }
     ///Wraps [`vkCmdSetAlphaToCoverageEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAlphaToCoverageEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13776,7 +13935,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetAlphaToOneEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAlphaToOneEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13804,7 +13963,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetLogicOpEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13834,7 +13993,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetColorBlendEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13871,7 +14030,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetColorBlendEquationEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendEquationEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13908,7 +14067,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetColorWriteMaskEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorWriteMaskEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13942,7 +14101,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetRasterizationStreamEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRasterizationStreamEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -13971,7 +14130,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetConservativeRasterizationModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetConservativeRasterizationModeEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14002,7 +14161,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetExtraPrimitiveOverestimationSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14033,7 +14192,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetDepthClipEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClipEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14062,7 +14221,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetSampleLocationsEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleLocationsEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14091,7 +14250,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetColorBlendAdvancedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendAdvancedEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14129,7 +14288,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetProvokingVertexModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetProvokingVertexModeEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14159,7 +14318,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetLineRasterizationModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineRasterizationModeEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14191,7 +14350,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetLineStippleEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLineStippleEnableEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14220,7 +14379,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetDepthClipNegativeOneToOneEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClipNegativeOneToOneEXT.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14252,7 +14411,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetViewportWScalingEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWScalingEnableNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14281,7 +14440,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetViewportSwizzleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportSwizzleNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14320,7 +14479,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetCoverageToColorEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageToColorEnableNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14349,7 +14508,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetCoverageToColorLocationNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageToColorLocationNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14378,7 +14537,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetCoverageModulationModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationModeNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14407,7 +14566,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetCoverageModulationTableEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationTableEnableNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14436,7 +14595,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetCoverageModulationTableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationTableNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14472,7 +14631,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetShadingRateImageEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetShadingRateImageEnableNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14500,7 +14659,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetCoverageReductionModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageReductionModeNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14529,7 +14688,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCmdSetRepresentativeFragmentTestEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRepresentativeFragmentTestEnableNV.html).
     /**
-Provided by **VK_EXT_extended_dynamic_state3**.*/
+    Provided by **VK_EXT_extended_dynamic_state3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14560,7 +14719,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
     }
     ///Wraps [`vkCreatePrivateDataSlot`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePrivateDataSlot.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -14605,7 +14764,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkDestroyPrivateDataSlot`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyPrivateDataSlot.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -14630,7 +14789,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkSetPrivateData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetPrivateData.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -14658,14 +14817,23 @@ Provided by **VK_BASE_VERSION_1_3**.*/
         private_data_slot: PrivateDataSlot,
         data: u64,
     ) -> VkResult<()> {
-        let fp = self.commands().set_private_data.expect("vkSetPrivateData not loaded");
+        let fp = self
+            .commands()
+            .set_private_data
+            .expect("vkSetPrivateData not loaded");
         check(unsafe {
-            fp(self.handle(), object_type, object_handle, private_data_slot, data)
+            fp(
+                self.handle(),
+                object_type,
+                object_handle,
+                private_data_slot,
+                data,
+            )
         })
     }
     ///Wraps [`vkGetPrivateData`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPrivateData.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -14684,16 +14852,25 @@ Provided by **VK_BASE_VERSION_1_3**.*/
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
     ) -> u64 {
-        let fp = self.commands().get_private_data.expect("vkGetPrivateData not loaded");
+        let fp = self
+            .commands()
+            .get_private_data
+            .expect("vkGetPrivateData not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         unsafe {
-            fp(self.handle(), object_type, object_handle, private_data_slot, &mut out)
+            fp(
+                self.handle(),
+                object_type,
+                object_handle,
+                private_data_slot,
+                &mut out,
+            )
         };
         out
     }
     ///Wraps [`vkCmdCopyBuffer2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBuffer2.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14711,12 +14888,15 @@ Provided by **VK_BASE_VERSION_1_3**.*/
         command_buffer: CommandBuffer,
         p_copy_buffer_info: &CopyBufferInfo2,
     ) {
-        let fp = self.commands().cmd_copy_buffer2.expect("vkCmdCopyBuffer2 not loaded");
+        let fp = self
+            .commands()
+            .cmd_copy_buffer2
+            .expect("vkCmdCopyBuffer2 not loaded");
         unsafe { fp(command_buffer, p_copy_buffer_info) };
     }
     ///Wraps [`vkCmdCopyImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImage2.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14734,12 +14914,15 @@ Provided by **VK_BASE_VERSION_1_3**.*/
         command_buffer: CommandBuffer,
         p_copy_image_info: &CopyImageInfo2,
     ) {
-        let fp = self.commands().cmd_copy_image2.expect("vkCmdCopyImage2 not loaded");
+        let fp = self
+            .commands()
+            .cmd_copy_image2
+            .expect("vkCmdCopyImage2 not loaded");
         unsafe { fp(command_buffer, p_copy_image_info) };
     }
     ///Wraps [`vkCmdBlitImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBlitImage2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14760,12 +14943,15 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
         command_buffer: CommandBuffer,
         p_blit_image_info: &BlitImageInfo2,
     ) {
-        let fp = self.commands().cmd_blit_image2.expect("vkCmdBlitImage2 not loaded");
+        let fp = self
+            .commands()
+            .cmd_blit_image2
+            .expect("vkCmdBlitImage2 not loaded");
         unsafe { fp(command_buffer, p_blit_image_info) };
     }
     ///Wraps [`vkCmdCopyBufferToImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyBufferToImage2.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14791,7 +14977,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdCopyImageToBuffer2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImageToBuffer2.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14817,7 +15003,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdResolveImage2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResolveImage2.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14870,7 +15056,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdSetFragmentShadingRateKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFragmentShadingRateKHR.html).
     /**
-Provided by **VK_KHR_fragment_shading_rate**.*/
+    Provided by **VK_KHR_fragment_shading_rate**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14907,7 +15093,7 @@ Provided by **VK_KHR_fragment_shading_rate**.*/
     }
     ///Wraps [`vkCmdSetFragmentShadingRateEnumNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetFragmentShadingRateEnumNV.html).
     /**
-Provided by **VK_NV_fragment_shading_rate_enums**.*/
+    Provided by **VK_NV_fragment_shading_rate_enums**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -14934,7 +15120,7 @@ Provided by **VK_NV_fragment_shading_rate_enums**.*/
     }
     ///Wraps [`vkGetAccelerationStructureBuildSizesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureBuildSizesKHR.html).
     /**
-Provided by **VK_KHR_acceleration_structure**.*/
+    Provided by **VK_KHR_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -14976,7 +15162,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdSetVertexInputEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetVertexInputEXT.html).
     /**
-Provided by **VK_EXT_vertex_input_dynamic_state**.*/
+    Provided by **VK_EXT_vertex_input_dynamic_state**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15015,7 +15201,7 @@ Provided by **VK_EXT_vertex_input_dynamic_state**.*/
     }
     ///Wraps [`vkCmdSetColorWriteEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorWriteEnableEXT.html).
     /**
-Provided by **VK_EXT_color_write_enable**.*/
+    Provided by **VK_EXT_color_write_enable**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15052,7 +15238,7 @@ Provided by **VK_EXT_color_write_enable**.*/
     }
     ///Wraps [`vkCmdSetEvent2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetEvent2.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_3**.*/
+    Provided by **VK_COMPUTE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15075,12 +15261,15 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
         event: Event,
         p_dependency_info: &DependencyInfo,
     ) {
-        let fp = self.commands().cmd_set_event2.expect("vkCmdSetEvent2 not loaded");
+        let fp = self
+            .commands()
+            .cmd_set_event2
+            .expect("vkCmdSetEvent2 not loaded");
         unsafe { fp(command_buffer, event, p_dependency_info) };
     }
     ///Wraps [`vkCmdResetEvent2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdResetEvent2.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_3**.*/
+    Provided by **VK_COMPUTE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15099,12 +15288,15 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
         event: Event,
         stage_mask: PipelineStageFlags2,
     ) {
-        let fp = self.commands().cmd_reset_event2.expect("vkCmdResetEvent2 not loaded");
+        let fp = self
+            .commands()
+            .cmd_reset_event2
+            .expect("vkCmdResetEvent2 not loaded");
         unsafe { fp(command_buffer, event, stage_mask) };
     }
     ///Wraps [`vkCmdWaitEvents2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWaitEvents2.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_3**.*/
+    Provided by **VK_COMPUTE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15126,7 +15318,10 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
         p_events: &[Event],
         p_dependency_infos: &DependencyInfo,
     ) {
-        let fp = self.commands().cmd_wait_events2.expect("vkCmdWaitEvents2 not loaded");
+        let fp = self
+            .commands()
+            .cmd_wait_events2
+            .expect("vkCmdWaitEvents2 not loaded");
         unsafe {
             fp(
                 command_buffer,
@@ -15138,7 +15333,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdPipelineBarrier2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPipelineBarrier2.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15173,7 +15368,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkQueueSubmit2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueSubmit2.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -15210,12 +15405,15 @@ Provided by **VK_BASE_VERSION_1_3**.*/
         p_submits: &[SubmitInfo2],
         fence: Fence,
     ) -> VkResult<()> {
-        let fp = self.commands().queue_submit2.expect("vkQueueSubmit2 not loaded");
+        let fp = self
+            .commands()
+            .queue_submit2
+            .expect("vkQueueSubmit2 not loaded");
         check(unsafe { fp(queue, p_submits.len() as u32, p_submits.as_ptr(), fence) })
     }
     ///Wraps [`vkCmdWriteTimestamp2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteTimestamp2.html).
     /**
-Provided by **VK_BASE_VERSION_1_3**.*/
+    Provided by **VK_BASE_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15247,7 +15445,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdWriteBufferMarker2AMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteBufferMarker2AMD.html).
     /**
-Provided by **VK_AMD_buffer_marker**.*/
+    Provided by **VK_AMD_buffer_marker**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15276,7 +15474,7 @@ Provided by **VK_AMD_buffer_marker**.*/
     }
     ///Wraps [`vkGetQueueCheckpointData2NV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetQueueCheckpointData2NV.html).
     /**
-Provided by **VK_NV_device_diagnostic_checkpoints**.*/
+    Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
@@ -15289,10 +15487,7 @@ Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     ///
     ///Requires `VK_NV_device_diagnostic_checkpoints` +
     ///`VK_KHR_synchronization2`.
-    pub unsafe fn get_queue_checkpoint_data2_nv(
-        &self,
-        queue: Queue,
-    ) -> Vec<CheckpointData2NV> {
+    pub unsafe fn get_queue_checkpoint_data2_nv(&self, queue: Queue) -> Vec<CheckpointData2NV> {
         let fp = self
             .commands()
             .get_queue_checkpoint_data2_nv
@@ -15301,7 +15496,7 @@ Provided by **VK_NV_device_diagnostic_checkpoints**.*/
     }
     ///Wraps [`vkCopyMemoryToImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToImage.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -15339,7 +15534,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
     }
     ///Wraps [`vkCopyImageToMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyImageToMemory.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -15377,7 +15572,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
     }
     ///Wraps [`vkCopyImageToImage`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyImageToImage.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -15414,7 +15609,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
     }
     ///Wraps [`vkTransitionImageLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkTransitionImageLayout.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -15451,12 +15646,16 @@ Provided by **VK_BASE_VERSION_1_4**.*/
             .transition_image_layout
             .expect("vkTransitionImageLayout not loaded");
         check(unsafe {
-            fp(self.handle(), p_transitions.len() as u32, p_transitions.as_ptr())
+            fp(
+                self.handle(),
+                p_transitions.len() as u32,
+                p_transitions.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkGetCommandPoolMemoryConsumption`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetCommandPoolMemoryConsumption.html).
     /**
-Provided by **VKSC_VERSION_1_0**.*/
+    Provided by **VKSC_VERSION_1_0**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -15485,7 +15684,7 @@ Provided by **VKSC_VERSION_1_0**.*/
     }
     ///Wraps [`vkCreateVideoSessionKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateVideoSessionKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -15534,7 +15733,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkDestroyVideoSessionKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyVideoSessionKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -15562,7 +15761,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkCreateVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateVideoSessionParametersKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -15606,7 +15805,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkUpdateVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUpdateVideoSessionParametersKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -15644,7 +15843,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkGetEncodedVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetEncodedVideoSessionParametersKHR.html).
     /**
-Provided by **VK_KHR_video_encode_queue**.*/
+    Provided by **VK_KHR_video_encode_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -15695,7 +15894,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
     }
     ///Wraps [`vkDestroyVideoSessionParametersKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyVideoSessionParametersKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -15723,7 +15922,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkGetVideoSessionMemoryRequirementsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetVideoSessionMemoryRequirementsKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -15753,13 +15952,11 @@ Provided by **VK_KHR_video_queue**.*/
             .commands()
             .get_video_session_memory_requirements_khr
             .expect("vkGetVideoSessionMemoryRequirementsKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), video_session, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), video_session, count, data) })
     }
     ///Wraps [`vkBindVideoSessionMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindVideoSessionMemoryKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -15804,7 +16001,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkCmdDecodeVideoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecodeVideoKHR.html).
     /**
-Provided by **VK_KHR_video_decode_queue**.*/
+    Provided by **VK_KHR_video_decode_queue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15842,7 +16039,7 @@ Provided by **VK_KHR_video_decode_queue**.*/
     }
     ///Wraps [`vkCmdBeginVideoCodingKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginVideoCodingKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15877,7 +16074,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkCmdControlVideoCodingKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdControlVideoCodingKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15912,7 +16109,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkCmdEndVideoCodingKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndVideoCodingKHR.html).
     /**
-Provided by **VK_KHR_video_queue**.*/
+    Provided by **VK_KHR_video_queue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15940,7 +16137,7 @@ Provided by **VK_KHR_video_queue**.*/
     }
     ///Wraps [`vkCmdEncodeVideoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEncodeVideoKHR.html).
     /**
-Provided by **VK_KHR_video_encode_queue**.*/
+    Provided by **VK_KHR_video_encode_queue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -15977,7 +16174,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
     }
     ///Wraps [`vkCmdDecompressMemoryNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryNV.html).
     /**
-Provided by **VK_NV_memory_decompression**.*/
+    Provided by **VK_NV_memory_decompression**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16008,7 +16205,7 @@ Provided by **VK_NV_memory_decompression**.*/
     }
     ///Wraps [`vkCmdDecompressMemoryIndirectCountNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryIndirectCountNV.html).
     /**
-Provided by **VK_NV_memory_decompression**.*/
+    Provided by **VK_NV_memory_decompression**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16043,7 +16240,7 @@ Provided by **VK_NV_memory_decompression**.*/
     }
     ///Wraps [`vkGetPartitionedAccelerationStructuresBuildSizesNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPartitionedAccelerationStructuresBuildSizesNV.html).
     /**
-Provided by **VK_NV_partitioned_acceleration_structure**.*/
+    Provided by **VK_NV_partitioned_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16068,7 +16265,7 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdBuildPartitionedAccelerationStructuresNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildPartitionedAccelerationStructuresNV.html).
     /**
-Provided by **VK_NV_partitioned_acceleration_structure**.*/
+    Provided by **VK_NV_partitioned_acceleration_structure**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16095,7 +16292,7 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
     }
     ///Wraps [`vkCmdDecompressMemoryEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryEXT.html).
     /**
-Provided by **VK_EXT_memory_decompression**.*/
+    Provided by **VK_EXT_memory_decompression**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16123,7 +16320,7 @@ Provided by **VK_EXT_memory_decompression**.*/
     }
     ///Wraps [`vkCmdDecompressMemoryIndirectCountEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDecompressMemoryIndirectCountEXT.html).
     /**
-Provided by **VK_EXT_memory_decompression**.*/
+    Provided by **VK_EXT_memory_decompression**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16162,7 +16359,7 @@ Provided by **VK_EXT_memory_decompression**.*/
     }
     ///Wraps [`vkCreateCuModuleNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCuModuleNVX.html).
     /**
-Provided by **VK_NVX_binary_import**.*/
+    Provided by **VK_NVX_binary_import**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16197,7 +16394,7 @@ Provided by **VK_NVX_binary_import**.*/
     }
     ///Wraps [`vkCreateCuFunctionNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCuFunctionNVX.html).
     /**
-Provided by **VK_NVX_binary_import**.*/
+    Provided by **VK_NVX_binary_import**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16233,7 +16430,7 @@ Provided by **VK_NVX_binary_import**.*/
     }
     ///Wraps [`vkDestroyCuModuleNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCuModuleNVX.html).
     /**
-Provided by **VK_NVX_binary_import**.*/
+    Provided by **VK_NVX_binary_import**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16257,7 +16454,7 @@ Provided by **VK_NVX_binary_import**.*/
     }
     ///Wraps [`vkDestroyCuFunctionNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCuFunctionNVX.html).
     /**
-Provided by **VK_NVX_binary_import**.*/
+    Provided by **VK_NVX_binary_import**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16282,7 +16479,7 @@ Provided by **VK_NVX_binary_import**.*/
     }
     ///Wraps [`vkCmdCuLaunchKernelNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCuLaunchKernelNVX.html).
     /**
-Provided by **VK_NVX_binary_import**.*/
+    Provided by **VK_NVX_binary_import**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16307,7 +16504,7 @@ Provided by **VK_NVX_binary_import**.*/
     }
     ///Wraps [`vkGetDescriptorSetLayoutSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutSizeEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16322,10 +16519,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     ///obtained from `get_descriptor_set_layout_binding_offset_ext`.
     ///
     ///Requires `VK_EXT_descriptor_buffer`.
-    pub unsafe fn get_descriptor_set_layout_size_ext(
-        &self,
-        layout: DescriptorSetLayout,
-    ) -> u64 {
+    pub unsafe fn get_descriptor_set_layout_size_ext(&self, layout: DescriptorSetLayout) -> u64 {
         let fp = self
             .commands()
             .get_descriptor_set_layout_size_ext
@@ -16336,7 +16530,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkGetDescriptorSetLayoutBindingOffsetEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutBindingOffsetEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16365,7 +16559,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkGetDescriptorEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16399,7 +16593,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkCmdBindDescriptorBuffersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBuffersEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16429,12 +16623,16 @@ Provided by **VK_EXT_descriptor_buffer**.*/
             .cmd_bind_descriptor_buffers_ext
             .expect("vkCmdBindDescriptorBuffersEXT not loaded");
         unsafe {
-            fp(command_buffer, p_binding_infos.len() as u32, p_binding_infos.as_ptr())
+            fp(
+                command_buffer,
+                p_binding_infos.len() as u32,
+                p_binding_infos.as_ptr(),
+            )
         };
     }
     ///Wraps [`vkCmdSetDescriptorBufferOffsetsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDescriptorBufferOffsetsEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16480,7 +16678,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkCmdBindDescriptorBufferEmbeddedSamplersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBufferEmbeddedSamplersEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -16514,7 +16712,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkGetBufferOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferOpaqueCaptureDescriptorDataEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16550,7 +16748,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkGetImageOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageOpaqueCaptureDescriptorDataEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16586,7 +16784,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkGetImageViewOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16622,7 +16820,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkGetSamplerOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSamplerOpaqueCaptureDescriptorDataEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16658,7 +16856,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
     }
     ///Wraps [`vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT.html).
     /**
-Provided by **VK_EXT_descriptor_buffer**.*/
+    Provided by **VK_EXT_descriptor_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16687,16 +16885,14 @@ Provided by **VK_EXT_descriptor_buffer**.*/
         let fp = self
             .commands()
             .get_acceleration_structure_opaque_capture_descriptor_data_ext
-            .expect(
-                "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT not loaded",
-            );
+            .expect("vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(self.handle(), p_info, &mut out) })?;
         Ok(out)
     }
     ///Wraps [`vkSetDeviceMemoryPriorityEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetDeviceMemoryPriorityEXT.html).
     /**
-Provided by **VK_EXT_pageable_device_local_memory**.*/
+    Provided by **VK_EXT_pageable_device_local_memory**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16709,11 +16905,7 @@ Provided by **VK_EXT_pageable_device_local_memory**.*/
     ///resources or demote resources that are no longer critical.
     ///
     ///Requires `VK_EXT_pageable_device_local_memory`.
-    pub unsafe fn set_device_memory_priority_ext(
-        &self,
-        memory: DeviceMemory,
-        priority: f32,
-    ) {
+    pub unsafe fn set_device_memory_priority_ext(&self, memory: DeviceMemory, priority: f32) {
         let fp = self
             .commands()
             .set_device_memory_priority_ext
@@ -16722,7 +16914,7 @@ Provided by **VK_EXT_pageable_device_local_memory**.*/
     }
     ///Wraps [`vkWaitForPresent2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitForPresent2KHR.html).
     /**
-Provided by **VK_KHR_present_wait2**.*/
+    Provided by **VK_KHR_present_wait2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16760,7 +16952,7 @@ Provided by **VK_KHR_present_wait2**.*/
     }
     ///Wraps [`vkWaitForPresentKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWaitForPresentKHR.html).
     /**
-Provided by **VK_KHR_present_wait**.*/
+    Provided by **VK_KHR_present_wait**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16806,7 +16998,7 @@ Provided by **VK_KHR_present_wait**.*/
     }
     ///Wraps [`vkCreateBufferCollectionFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateBufferCollectionFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_buffer_collection**.*/
+    Provided by **VK_FUCHSIA_buffer_collection**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16842,7 +17034,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
     }
     ///Wraps [`vkSetBufferCollectionBufferConstraintsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetBufferCollectionBufferConstraintsFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_buffer_collection**.*/
+    Provided by **VK_FUCHSIA_buffer_collection**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -16875,7 +17067,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
     }
     ///Wraps [`vkSetBufferCollectionImageConstraintsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetBufferCollectionImageConstraintsFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_buffer_collection**.*/
+    Provided by **VK_FUCHSIA_buffer_collection**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -16908,7 +17100,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
     }
     ///Wraps [`vkDestroyBufferCollectionFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyBufferCollectionFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_buffer_collection**.*/
+    Provided by **VK_FUCHSIA_buffer_collection**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -16933,7 +17125,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
     }
     ///Wraps [`vkGetBufferCollectionPropertiesFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferCollectionPropertiesFUCHSIA.html).
     /**
-Provided by **VK_FUCHSIA_buffer_collection**.*/
+    Provided by **VK_FUCHSIA_buffer_collection**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -16965,7 +17157,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
     }
     ///Wraps [`vkCreateCudaModuleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCudaModuleNV.html).
     /**
-Provided by **VK_NV_cuda_kernel_launch**.*/
+    Provided by **VK_NV_cuda_kernel_launch**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -17001,7 +17193,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
     }
     ///Wraps [`vkGetCudaModuleCacheNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetCudaModuleCacheNV.html).
     /**
-Provided by **VK_NV_cuda_kernel_launch**.*/
+    Provided by **VK_NV_cuda_kernel_launch**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -17035,7 +17227,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
     }
     ///Wraps [`vkCreateCudaFunctionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateCudaFunctionNV.html).
     /**
-Provided by **VK_NV_cuda_kernel_launch**.*/
+    Provided by **VK_NV_cuda_kernel_launch**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -17071,7 +17263,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
     }
     ///Wraps [`vkDestroyCudaModuleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCudaModuleNV.html).
     /**
-Provided by **VK_NV_cuda_kernel_launch**.*/
+    Provided by **VK_NV_cuda_kernel_launch**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17096,7 +17288,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
     }
     ///Wraps [`vkDestroyCudaFunctionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyCudaFunctionNV.html).
     /**
-Provided by **VK_NV_cuda_kernel_launch**.*/
+    Provided by **VK_NV_cuda_kernel_launch**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17121,7 +17313,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
     }
     ///Wraps [`vkCmdCudaLaunchKernelNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCudaLaunchKernelNV.html).
     /**
-Provided by **VK_NV_cuda_kernel_launch**.*/
+    Provided by **VK_NV_cuda_kernel_launch**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17147,7 +17339,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
     }
     ///Wraps [`vkCmdBeginRendering`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginRendering.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17196,7 +17388,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdEndRendering`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRendering.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_3**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17219,7 +17411,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
     }
     ///Wraps [`vkCmdEndRendering2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndRendering2KHR.html).
     /**
-Provided by **VK_KHR_maintenance10**.*/
+    Provided by **VK_KHR_maintenance10**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17243,13 +17435,13 @@ Provided by **VK_KHR_maintenance10**.*/
             .commands()
             .cmd_end_rendering2_khr
             .expect("vkCmdEndRendering2KHR not loaded");
-        let p_rendering_end_info_ptr = p_rendering_end_info
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_rendering_end_info_ptr =
+            p_rendering_end_info.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_rendering_end_info_ptr) };
     }
     ///Wraps [`vkGetDescriptorSetLayoutHostMappingInfoVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetLayoutHostMappingInfoVALVE.html).
     /**
-Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
+    Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17275,7 +17467,7 @@ Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
     }
     ///Wraps [`vkGetDescriptorSetHostMappingVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDescriptorSetHostMappingVALVE.html).
     /**
-Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
+    Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17302,7 +17494,7 @@ Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
     }
     ///Wraps [`vkCreateMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateMicromapEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -17343,7 +17535,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCmdBuildMicromapsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBuildMicromapsEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17371,7 +17563,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkBuildMicromapsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBuildMicromapsEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -17402,12 +17594,17 @@ Provided by **VK_EXT_opacity_micromap**.*/
             .build_micromaps_ext
             .expect("vkBuildMicromapsEXT not loaded");
         check(unsafe {
-            fp(self.handle(), deferred_operation, p_infos.len() as u32, p_infos.as_ptr())
+            fp(
+                self.handle(),
+                deferred_operation,
+                p_infos.len() as u32,
+                p_infos.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkDestroyMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyMicromapEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17434,7 +17631,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCmdCopyMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17463,7 +17660,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCopyMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -17494,7 +17691,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCmdCopyMicromapToMemoryEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMicromapToMemoryEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17522,7 +17719,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCopyMicromapToMemoryEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMicromapToMemoryEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -17553,7 +17750,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCmdCopyMemoryToMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToMicromapEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17581,7 +17778,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCopyMemoryToMicromapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCopyMemoryToMicromapEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -17612,7 +17809,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkCmdWriteMicromapsPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteMicromapsPropertiesEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17650,7 +17847,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkWriteMicromapsPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteMicromapsPropertiesEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -17698,7 +17895,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkGetDeviceMicromapCompatibilityEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceMicromapCompatibilityEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17727,7 +17924,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkGetMicromapBuildSizesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMicromapBuildSizesEXT.html).
     /**
-Provided by **VK_EXT_opacity_micromap**.*/
+    Provided by **VK_EXT_opacity_micromap**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17759,7 +17956,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
     }
     ///Wraps [`vkGetShaderModuleIdentifierEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderModuleIdentifierEXT.html).
     /**
-Provided by **VK_EXT_shader_module_identifier**.*/
+    Provided by **VK_EXT_shader_module_identifier**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17787,7 +17984,7 @@ Provided by **VK_EXT_shader_module_identifier**.*/
     }
     ///Wraps [`vkGetShaderModuleCreateInfoIdentifierEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderModuleCreateInfoIdentifierEXT.html).
     /**
-Provided by **VK_EXT_shader_module_identifier**.*/
+    Provided by **VK_EXT_shader_module_identifier**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17816,7 +18013,7 @@ Provided by **VK_EXT_shader_module_identifier**.*/
     }
     ///Wraps [`vkGetImageSubresourceLayout2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageSubresourceLayout2.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17848,7 +18045,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
     }
     ///Wraps [`vkGetPipelinePropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelinePropertiesEXT.html).
     /**
-Provided by **VK_EXT_pipeline_properties**.*/
+    Provided by **VK_EXT_pipeline_properties**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -17878,7 +18075,7 @@ Provided by **VK_EXT_pipeline_properties**.*/
     }
     ///Wraps [`vkExportMetalObjectsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkExportMetalObjectsEXT.html).
     /**
-Provided by **VK_EXT_metal_objects**.*/
+    Provided by **VK_EXT_metal_objects**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -17906,7 +18103,7 @@ Provided by **VK_EXT_metal_objects**.*/
     }
     ///Wraps [`vkCmdBindTileMemoryQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindTileMemoryQCOM.html).
     /**
-Provided by **VK_QCOM_tile_memory_heap**.*/
+    Provided by **VK_QCOM_tile_memory_heap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -17928,13 +18125,13 @@ Provided by **VK_QCOM_tile_memory_heap**.*/
             .commands()
             .cmd_bind_tile_memory_qcom
             .expect("vkCmdBindTileMemoryQCOM not loaded");
-        let p_tile_memory_bind_info_ptr = p_tile_memory_bind_info
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_tile_memory_bind_info_ptr =
+            p_tile_memory_bind_info.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_tile_memory_bind_info_ptr) };
     }
     ///Wraps [`vkGetFramebufferTilePropertiesQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetFramebufferTilePropertiesQCOM.html).
     /**
-Provided by **VK_QCOM_tile_properties**.*/
+    Provided by **VK_QCOM_tile_properties**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -17959,13 +18156,11 @@ Provided by **VK_QCOM_tile_properties**.*/
             .commands()
             .get_framebuffer_tile_properties_qcom
             .expect("vkGetFramebufferTilePropertiesQCOM not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), framebuffer, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), framebuffer, count, data) })
     }
     ///Wraps [`vkGetDynamicRenderingTilePropertiesQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDynamicRenderingTilePropertiesQCOM.html).
     /**
-Provided by **VK_QCOM_tile_properties**.*/
+    Provided by **VK_QCOM_tile_properties**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -17995,7 +18190,7 @@ Provided by **VK_QCOM_tile_properties**.*/
     }
     ///Wraps [`vkCreateOpticalFlowSessionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateOpticalFlowSessionNV.html).
     /**
-Provided by **VK_NV_optical_flow**.*/
+    Provided by **VK_NV_optical_flow**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18031,7 +18226,7 @@ Provided by **VK_NV_optical_flow**.*/
     }
     ///Wraps [`vkDestroyOpticalFlowSessionNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyOpticalFlowSessionNV.html).
     /**
-Provided by **VK_NV_optical_flow**.*/
+    Provided by **VK_NV_optical_flow**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -18056,7 +18251,7 @@ Provided by **VK_NV_optical_flow**.*/
     }
     ///Wraps [`vkBindOpticalFlowSessionImageNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindOpticalFlowSessionImageNV.html).
     /**
-Provided by **VK_NV_optical_flow**.*/
+    Provided by **VK_NV_optical_flow**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18090,7 +18285,7 @@ Provided by **VK_NV_optical_flow**.*/
     }
     ///Wraps [`vkCmdOpticalFlowExecuteNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdOpticalFlowExecuteNV.html).
     /**
-Provided by **VK_NV_optical_flow**.*/
+    Provided by **VK_NV_optical_flow**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18116,7 +18311,7 @@ Provided by **VK_NV_optical_flow**.*/
     }
     ///Wraps [`vkGetDeviceFaultInfoEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceFaultInfoEXT.html).
     /**
-Provided by **VK_EXT_device_fault**.*/
+    Provided by **VK_EXT_device_fault**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18149,7 +18344,7 @@ Provided by **VK_EXT_device_fault**.*/
     }
     ///Wraps [`vkGetDeviceFaultReportsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceFaultReportsKHR.html).
     /**
-Provided by **VK_KHR_device_fault**.*/
+    Provided by **VK_KHR_device_fault**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18181,13 +18376,11 @@ Provided by **VK_KHR_device_fault**.*/
             .commands()
             .get_device_fault_reports_khr
             .expect("vkGetDeviceFaultReportsKHR not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), timeout, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), timeout, count, data) })
     }
     ///Wraps [`vkGetDeviceFaultDebugInfoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceFaultDebugInfoKHR.html).
     /**
-Provided by **VK_KHR_device_fault**.*/
+    Provided by **VK_KHR_device_fault**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18221,7 +18414,7 @@ Provided by **VK_KHR_device_fault**.*/
     }
     ///Wraps [`vkCmdSetDepthBias2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBias2EXT.html).
     /**
-Provided by **VK_EXT_depth_bias_control**.*/
+    Provided by **VK_EXT_depth_bias_control**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18248,7 +18441,7 @@ Provided by **VK_EXT_depth_bias_control**.*/
     }
     ///Wraps [`vkReleaseSwapchainImagesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkReleaseSwapchainImagesKHR.html).
     /**
-Provided by **VK_KHR_swapchain_maintenance1**.*/
+    Provided by **VK_KHR_swapchain_maintenance1**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_SURFACE_LOST_KHR`
@@ -18281,7 +18474,7 @@ Provided by **VK_KHR_swapchain_maintenance1**.*/
     }
     ///Wraps [`vkGetDeviceImageSubresourceLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceImageSubresourceLayout.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -18309,7 +18502,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
     }
     ///Wraps [`vkMapMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory2.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18338,12 +18531,15 @@ Provided by **VK_BASE_VERSION_1_4**.*/
         p_memory_map_info: &MemoryMapInfo,
         pp_data: *mut *mut core::ffi::c_void,
     ) -> VkResult<()> {
-        let fp = self.commands().map_memory2.expect("vkMapMemory2 not loaded");
+        let fp = self
+            .commands()
+            .map_memory2
+            .expect("vkMapMemory2 not loaded");
         check(unsafe { fp(self.handle(), p_memory_map_info, pp_data) })
     }
     ///Wraps [`vkUnmapMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory2.html).
     /**
-Provided by **VK_BASE_VERSION_1_4**.*/
+    Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_MEMORY_MAP_FAILED`
@@ -18362,16 +18558,16 @@ Provided by **VK_BASE_VERSION_1_4**.*/
     ///
     ///For most applications, `unmap_memory` and `unmap_memory2` are
     ///equivalent. Prefer this when targeting Vulkan 1.4+.
-    pub unsafe fn unmap_memory2(
-        &self,
-        p_memory_unmap_info: &MemoryUnmapInfo,
-    ) -> VkResult<()> {
-        let fp = self.commands().unmap_memory2.expect("vkUnmapMemory2 not loaded");
+    pub unsafe fn unmap_memory2(&self, p_memory_unmap_info: &MemoryUnmapInfo) -> VkResult<()> {
+        let fp = self
+            .commands()
+            .unmap_memory2
+            .expect("vkUnmapMemory2 not loaded");
         check(unsafe { fp(self.handle(), p_memory_unmap_info) })
     }
     ///Wraps [`vkCreateShadersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShadersEXT.html).
     /**
-Provided by **VK_EXT_shader_object**.*/
+    Provided by **VK_EXT_shader_object**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18420,7 +18616,7 @@ Provided by **VK_EXT_shader_object**.*/
     }
     ///Wraps [`vkDestroyShaderEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderEXT.html).
     /**
-Provided by **VK_EXT_shader_object**.*/
+    Provided by **VK_EXT_shader_object**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -18445,7 +18641,7 @@ Provided by **VK_EXT_shader_object**.*/
     }
     ///Wraps [`vkGetShaderBinaryDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderBinaryDataEXT.html).
     /**
-Provided by **VK_EXT_shader_object**.*/
+    Provided by **VK_EXT_shader_object**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18483,7 +18679,7 @@ Provided by **VK_EXT_shader_object**.*/
     }
     ///Wraps [`vkCmdBindShadersEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindShadersEXT.html).
     /**
-Provided by **VK_EXT_shader_object**.*/
+    Provided by **VK_EXT_shader_object**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18514,12 +18710,17 @@ Provided by **VK_EXT_shader_object**.*/
             .expect("vkCmdBindShadersEXT not loaded");
         let p_shaders_ptr = p_shaders.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
-            fp(command_buffer, p_stages.len() as u32, p_stages.as_ptr(), p_shaders_ptr)
+            fp(
+                command_buffer,
+                p_stages.len() as u32,
+                p_stages.as_ptr(),
+                p_shaders_ptr,
+            )
         };
     }
     ///Wraps [`vkSetSwapchainPresentTimingQueueSizeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetSwapchainPresentTimingQueueSizeEXT.html).
     /**
-Provided by **VK_EXT_present_timing**.*/
+    Provided by **VK_EXT_present_timing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18552,7 +18753,7 @@ Provided by **VK_EXT_present_timing**.*/
     }
     ///Wraps [`vkGetSwapchainTimingPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainTimingPropertiesEXT.html).
     /**
-Provided by **VK_EXT_present_timing**.*/
+    Provided by **VK_EXT_present_timing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18583,13 +18784,18 @@ Provided by **VK_EXT_present_timing**.*/
             .expect("vkGetSwapchainTimingPropertiesEXT not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(self.handle(), swapchain, p_swapchain_timing_properties, &mut out)
+            fp(
+                self.handle(),
+                swapchain,
+                p_swapchain_timing_properties,
+                &mut out,
+            )
         })?;
         Ok(out)
     }
     ///Wraps [`vkGetSwapchainTimeDomainPropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetSwapchainTimeDomainPropertiesEXT.html).
     /**
-Provided by **VK_EXT_present_timing**.*/
+    Provided by **VK_EXT_present_timing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18620,13 +18826,18 @@ Provided by **VK_EXT_present_timing**.*/
             .expect("vkGetSwapchainTimeDomainPropertiesEXT not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(self.handle(), swapchain, p_swapchain_time_domain_properties, &mut out)
+            fp(
+                self.handle(),
+                swapchain,
+                p_swapchain_time_domain_properties,
+                &mut out,
+            )
         })?;
         Ok(out)
     }
     ///Wraps [`vkGetPastPresentationTimingEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPastPresentationTimingEXT.html).
     /**
-Provided by **VK_EXT_present_timing**.*/
+    Provided by **VK_EXT_present_timing**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_DEVICE_LOST`
@@ -18664,7 +18875,7 @@ Provided by **VK_EXT_present_timing**.*/
     }
     ///Wraps [`vkGetScreenBufferPropertiesQNX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetScreenBufferPropertiesQNX.html).
     /**
-Provided by **VK_QNX_external_memory_screen_buffer**.*/
+    Provided by **VK_QNX_external_memory_screen_buffer**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18695,7 +18906,7 @@ Provided by **VK_QNX_external_memory_screen_buffer**.*/
     }
     ///Wraps [`vkGetExecutionGraphPipelineScratchSizeAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExecutionGraphPipelineScratchSizeAMDX.html).
     /**
-Provided by **VK_AMDX_shader_enqueue**.*/
+    Provided by **VK_AMDX_shader_enqueue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18726,7 +18937,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
     }
     ///Wraps [`vkGetExecutionGraphPipelineNodeIndexAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExecutionGraphPipelineNodeIndexAMDX.html).
     /**
-Provided by **VK_AMDX_shader_enqueue**.*/
+    Provided by **VK_AMDX_shader_enqueue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18758,7 +18969,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
     }
     ///Wraps [`vkCreateExecutionGraphPipelinesAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateExecutionGraphPipelinesAMDX.html).
     /**
-Provided by **VK_AMDX_shader_enqueue**.*/
+    Provided by **VK_AMDX_shader_enqueue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -18803,7 +19014,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
     }
     ///Wraps [`vkCmdInitializeGraphScratchMemoryAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdInitializeGraphScratchMemoryAMDX.html).
     /**
-Provided by **VK_AMDX_shader_enqueue**.*/
+    Provided by **VK_AMDX_shader_enqueue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18830,7 +19041,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
     }
     ///Wraps [`vkCmdDispatchGraphAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphAMDX.html).
     /**
-Provided by **VK_AMDX_shader_enqueue**.*/
+    Provided by **VK_AMDX_shader_enqueue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18857,7 +19068,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
     }
     ///Wraps [`vkCmdDispatchGraphIndirectAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectAMDX.html).
     /**
-Provided by **VK_AMDX_shader_enqueue**.*/
+    Provided by **VK_AMDX_shader_enqueue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18884,7 +19095,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
     }
     ///Wraps [`vkCmdDispatchGraphIndirectCountAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchGraphIndirectCountAMDX.html).
     /**
-Provided by **VK_AMDX_shader_enqueue**.*/
+    Provided by **VK_AMDX_shader_enqueue**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18911,7 +19122,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
     }
     ///Wraps [`vkCmdBindDescriptorSets2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorSets2.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_4**.*/
+    Provided by **VK_COMPUTE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18939,7 +19150,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
     }
     ///Wraps [`vkCmdPushConstants2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushConstants2.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_4**.*/
+    Provided by **VK_COMPUTE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18965,7 +19176,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
     }
     ///Wraps [`vkCmdPushDescriptorSet2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSet2.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_4**.*/
+    Provided by **VK_COMPUTE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -18991,7 +19202,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
     }
     ///Wraps [`vkCmdPushDescriptorSetWithTemplate2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDescriptorSetWithTemplate2.html).
     /**
-Provided by **VK_COMPUTE_VERSION_1_4**.*/
+    Provided by **VK_COMPUTE_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19017,7 +19228,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
     }
     ///Wraps [`vkCmdSetDescriptorBufferOffsets2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDescriptorBufferOffsets2EXT.html).
     /**
-Provided by **VK_KHR_maintenance6**.*/
+    Provided by **VK_KHR_maintenance6**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19048,7 +19259,7 @@ Provided by **VK_KHR_maintenance6**.*/
     }
     ///Wraps [`vkCmdBindDescriptorBufferEmbeddedSamplers2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindDescriptorBufferEmbeddedSamplers2EXT.html).
     /**
-Provided by **VK_KHR_maintenance6**.*/
+    Provided by **VK_KHR_maintenance6**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19074,11 +19285,16 @@ Provided by **VK_KHR_maintenance6**.*/
             .commands()
             .cmd_bind_descriptor_buffer_embedded_samplers2_ext
             .expect("vkCmdBindDescriptorBufferEmbeddedSamplers2EXT not loaded");
-        unsafe { fp(command_buffer, p_bind_descriptor_buffer_embedded_samplers_info) };
+        unsafe {
+            fp(
+                command_buffer,
+                p_bind_descriptor_buffer_embedded_samplers_info,
+            )
+        };
     }
     ///Wraps [`vkSetLatencySleepModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetLatencySleepModeNV.html).
     /**
-Provided by **VK_NV_low_latency2**.*/
+    Provided by **VK_NV_low_latency2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_INITIALIZATION_FAILED`
@@ -19109,7 +19325,7 @@ Provided by **VK_NV_low_latency2**.*/
     }
     ///Wraps [`vkLatencySleepNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkLatencySleepNV.html).
     /**
-Provided by **VK_NV_low_latency2**.*/
+    Provided by **VK_NV_low_latency2**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_UNKNOWN`
@@ -19131,12 +19347,15 @@ Provided by **VK_NV_low_latency2**.*/
         swapchain: SwapchainKHR,
         p_sleep_info: &LatencySleepInfoNV,
     ) -> VkResult<()> {
-        let fp = self.commands().latency_sleep_nv.expect("vkLatencySleepNV not loaded");
+        let fp = self
+            .commands()
+            .latency_sleep_nv
+            .expect("vkLatencySleepNV not loaded");
         check(unsafe { fp(self.handle(), swapchain, p_sleep_info) })
     }
     ///Wraps [`vkSetLatencyMarkerNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkSetLatencyMarkerNV.html).
     /**
-Provided by **VK_NV_low_latency2**.*/
+    Provided by **VK_NV_low_latency2**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19162,7 +19381,7 @@ Provided by **VK_NV_low_latency2**.*/
     }
     ///Wraps [`vkGetLatencyTimingsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetLatencyTimingsNV.html).
     /**
-Provided by **VK_NV_low_latency2**.*/
+    Provided by **VK_NV_low_latency2**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19187,7 +19406,7 @@ Provided by **VK_NV_low_latency2**.*/
     }
     ///Wraps [`vkQueueNotifyOutOfBandNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkQueueNotifyOutOfBandNV.html).
     /**
-Provided by **VK_NV_low_latency2**.*/
+    Provided by **VK_NV_low_latency2**.*/
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
@@ -19212,7 +19431,7 @@ Provided by **VK_NV_low_latency2**.*/
     }
     ///Wraps [`vkCmdSetRenderingAttachmentLocations`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRenderingAttachmentLocations.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19243,7 +19462,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     }
     ///Wraps [`vkCmdSetRenderingInputAttachmentIndices`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRenderingInputAttachmentIndices.html).
     /**
-Provided by **VK_GRAPHICS_VERSION_1_4**.*/
+    Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19274,7 +19493,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
     }
     ///Wraps [`vkCmdSetDepthClampRangeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClampRangeEXT.html).
     /**
-Provided by **VK_EXT_shader_object**.*/
+    Provided by **VK_EXT_shader_object**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19300,13 +19519,13 @@ Provided by **VK_EXT_shader_object**.*/
             .commands()
             .cmd_set_depth_clamp_range_ext
             .expect("vkCmdSetDepthClampRangeEXT not loaded");
-        let p_depth_clamp_range_ptr = p_depth_clamp_range
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_depth_clamp_range_ptr =
+            p_depth_clamp_range.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, depth_clamp_mode, p_depth_clamp_range_ptr) };
     }
     ///Wraps [`vkGetMemoryMetalHandleEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryMetalHandleEXT.html).
     /**
-Provided by **VK_EXT_external_memory_metal**.*/
+    Provided by **VK_EXT_external_memory_metal**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_TOO_MANY_OBJECTS`
@@ -19336,7 +19555,7 @@ Provided by **VK_EXT_external_memory_metal**.*/
     }
     ///Wraps [`vkGetMemoryMetalHandlePropertiesEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryMetalHandlePropertiesEXT.html).
     /**
-Provided by **VK_EXT_external_memory_metal**.*/
+    Provided by **VK_EXT_external_memory_metal**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19365,12 +19584,17 @@ Provided by **VK_EXT_external_memory_metal**.*/
             .get_memory_metal_handle_properties_ext
             .expect("vkGetMemoryMetalHandlePropertiesEXT not loaded");
         check(unsafe {
-            fp(self.handle(), handle_type, p_handle, p_memory_metal_handle_properties)
+            fp(
+                self.handle(),
+                handle_type,
+                p_handle,
+                p_memory_metal_handle_properties,
+            )
         })
     }
     ///Wraps [`vkConvertCooperativeVectorMatrixNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkConvertCooperativeVectorMatrixNV.html).
     /**
-Provided by **VK_NV_cooperative_vector**.*/
+    Provided by **VK_NV_cooperative_vector**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19399,7 +19623,7 @@ Provided by **VK_NV_cooperative_vector**.*/
     }
     ///Wraps [`vkCmdConvertCooperativeVectorMatrixNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdConvertCooperativeVectorMatrixNV.html).
     /**
-Provided by **VK_NV_cooperative_vector**.*/
+    Provided by **VK_NV_cooperative_vector**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19426,7 +19650,7 @@ Provided by **VK_NV_cooperative_vector**.*/
     }
     ///Wraps [`vkCmdDispatchTileQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchTileQCOM.html).
     /**
-Provided by **VK_QCOM_tile_shading**.*/
+    Provided by **VK_QCOM_tile_shading**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19452,7 +19676,7 @@ Provided by **VK_QCOM_tile_shading**.*/
     }
     ///Wraps [`vkCmdBeginPerTileExecutionQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginPerTileExecutionQCOM.html).
     /**
-Provided by **VK_QCOM_tile_shading**.*/
+    Provided by **VK_QCOM_tile_shading**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19478,7 +19702,7 @@ Provided by **VK_QCOM_tile_shading**.*/
     }
     ///Wraps [`vkCmdEndPerTileExecutionQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndPerTileExecutionQCOM.html).
     /**
-Provided by **VK_QCOM_tile_shading**.*/
+    Provided by **VK_QCOM_tile_shading**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19503,7 +19727,7 @@ Provided by **VK_QCOM_tile_shading**.*/
     }
     ///Wraps [`vkCreateExternalComputeQueueNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateExternalComputeQueueNV.html).
     /**
-Provided by **VK_NV_external_compute_queue**.*/
+    Provided by **VK_NV_external_compute_queue**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19537,7 +19761,7 @@ Provided by **VK_NV_external_compute_queue**.*/
     }
     ///Wraps [`vkDestroyExternalComputeQueueNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyExternalComputeQueueNV.html).
     /**
-Provided by **VK_NV_external_compute_queue**.*/
+    Provided by **VK_NV_external_compute_queue**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19562,7 +19786,7 @@ Provided by **VK_NV_external_compute_queue**.*/
     }
     ///Wraps [`vkCreateShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateShaderInstrumentationARM.html).
     /**
-Provided by **VK_ARM_shader_instrumentation**.*/
+    Provided by **VK_ARM_shader_instrumentation**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19597,7 +19821,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
     }
     ///Wraps [`vkDestroyShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderInstrumentationARM.html).
     /**
-Provided by **VK_ARM_shader_instrumentation**.*/
+    Provided by **VK_ARM_shader_instrumentation**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19623,7 +19847,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
     }
     ///Wraps [`vkCmdBeginShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginShaderInstrumentationARM.html).
     /**
-Provided by **VK_ARM_shader_instrumentation**.*/
+    Provided by **VK_ARM_shader_instrumentation**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19651,7 +19875,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
     }
     ///Wraps [`vkCmdEndShaderInstrumentationARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndShaderInstrumentationARM.html).
     /**
-Provided by **VK_ARM_shader_instrumentation**.*/
+    Provided by **VK_ARM_shader_instrumentation**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19666,10 +19890,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
     ///completes.
     ///
     ///Requires `VK_ARM_shader_instrumentation`.
-    pub unsafe fn cmd_end_shader_instrumentation_arm(
-        &self,
-        command_buffer: CommandBuffer,
-    ) {
+    pub unsafe fn cmd_end_shader_instrumentation_arm(&self, command_buffer: CommandBuffer) {
         let fp = self
             .commands()
             .cmd_end_shader_instrumentation_arm
@@ -19678,7 +19899,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
     }
     ///Wraps [`vkGetShaderInstrumentationValuesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetShaderInstrumentationValuesARM.html).
     /**
-Provided by **VK_ARM_shader_instrumentation**.*/
+    Provided by **VK_ARM_shader_instrumentation**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19709,13 +19930,19 @@ Provided by **VK_ARM_shader_instrumentation**.*/
             .expect("vkGetShaderInstrumentationValuesARM not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe {
-            fp(self.handle(), instrumentation, p_metric_block_count, &mut out, flags)
+            fp(
+                self.handle(),
+                instrumentation,
+                p_metric_block_count,
+                &mut out,
+                flags,
+            )
         })?;
         Ok(out)
     }
     ///Wraps [`vkClearShaderInstrumentationMetricsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkClearShaderInstrumentationMetricsARM.html).
     /**
-Provided by **VK_ARM_shader_instrumentation**.*/
+    Provided by **VK_ARM_shader_instrumentation**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19739,7 +19966,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
     }
     ///Wraps [`vkCreateTensorARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateTensorARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19774,7 +20001,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkDestroyTensorARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyTensorARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19800,7 +20027,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkCreateTensorViewARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateTensorViewARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19834,7 +20061,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkDestroyTensorViewARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyTensorViewARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19860,7 +20087,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkGetTensorMemoryRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorMemoryRequirementsARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19885,7 +20112,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkBindTensorMemoryARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindTensorMemoryARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -19913,12 +20140,16 @@ Provided by **VK_ARM_tensors**.*/
             .bind_tensor_memory_arm
             .expect("vkBindTensorMemoryARM not loaded");
         check(unsafe {
-            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
+            fp(
+                self.handle(),
+                p_bind_infos.len() as u32,
+                p_bind_infos.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkGetDeviceTensorMemoryRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceTensorMemoryRequirementsARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -19944,7 +20175,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkCmdCopyTensorARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyTensorARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -19970,7 +20201,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkGetTensorOpaqueCaptureDescriptorDataARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorOpaqueCaptureDescriptorDataARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20002,7 +20233,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkGetTensorViewOpaqueCaptureDescriptorDataARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorViewOpaqueCaptureDescriptorDataARM.html).
     /**
-Provided by **VK_ARM_tensors**.*/
+    Provided by **VK_ARM_tensors**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20035,7 +20266,7 @@ Provided by **VK_ARM_tensors**.*/
     }
     ///Wraps [`vkCreateDataGraphPipelinesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDataGraphPipelinesARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20081,7 +20312,7 @@ Provided by **VK_ARM_data_graph**.*/
     }
     ///Wraps [`vkCreateDataGraphPipelineSessionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDataGraphPipelineSessionARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20115,7 +20346,7 @@ Provided by **VK_ARM_data_graph**.*/
     }
     ///Wraps [`vkGetDataGraphPipelineSessionBindPointRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelineSessionBindPointRequirementsARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20142,13 +20373,11 @@ Provided by **VK_ARM_data_graph**.*/
             .commands()
             .get_data_graph_pipeline_session_bind_point_requirements_arm
             .expect("vkGetDataGraphPipelineSessionBindPointRequirementsARM not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), p_info, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), p_info, count, data) })
     }
     ///Wraps [`vkGetDataGraphPipelineSessionMemoryRequirementsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelineSessionMemoryRequirementsARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -20173,7 +20402,7 @@ Provided by **VK_ARM_data_graph**.*/
     }
     ///Wraps [`vkBindDataGraphPipelineSessionMemoryARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkBindDataGraphPipelineSessionMemoryARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20201,12 +20430,16 @@ Provided by **VK_ARM_data_graph**.*/
             .bind_data_graph_pipeline_session_memory_arm
             .expect("vkBindDataGraphPipelineSessionMemoryARM not loaded");
         check(unsafe {
-            fp(self.handle(), p_bind_infos.len() as u32, p_bind_infos.as_ptr())
+            fp(
+                self.handle(),
+                p_bind_infos.len() as u32,
+                p_bind_infos.as_ptr(),
+            )
         })
     }
     ///Wraps [`vkDestroyDataGraphPipelineSessionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDataGraphPipelineSessionARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -20232,7 +20465,7 @@ Provided by **VK_ARM_data_graph**.*/
     }
     ///Wraps [`vkCmdDispatchDataGraphARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchDataGraphARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20261,7 +20494,7 @@ Provided by **VK_ARM_data_graph**.*/
     }
     ///Wraps [`vkGetDataGraphPipelineAvailablePropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelineAvailablePropertiesARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20287,13 +20520,11 @@ Provided by **VK_ARM_data_graph**.*/
             .commands()
             .get_data_graph_pipeline_available_properties_arm
             .expect("vkGetDataGraphPipelineAvailablePropertiesARM not loaded");
-        enumerate_two_call(|count, data| unsafe {
-            fp(self.handle(), p_pipeline_info, count, data)
-        })
+        enumerate_two_call(|count, data| unsafe { fp(self.handle(), p_pipeline_info, count, data) })
     }
     ///Wraps [`vkGetDataGraphPipelinePropertiesARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDataGraphPipelinePropertiesARM.html).
     /**
-Provided by **VK_ARM_data_graph**.*/
+    Provided by **VK_ARM_data_graph**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20323,12 +20554,17 @@ Provided by **VK_ARM_data_graph**.*/
             .get_data_graph_pipeline_properties_arm
             .expect("vkGetDataGraphPipelinePropertiesARM not loaded");
         check(unsafe {
-            fp(self.handle(), p_pipeline_info, properties_count, p_properties)
+            fp(
+                self.handle(),
+                p_pipeline_info,
+                properties_count,
+                p_properties,
+            )
         })
     }
     ///Wraps [`vkGetNativeBufferPropertiesOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetNativeBufferPropertiesOHOS.html).
     /**
-Provided by **VK_OHOS_external_memory**.*/
+    Provided by **VK_OHOS_external_memory**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
@@ -20359,7 +20595,7 @@ Provided by **VK_OHOS_external_memory**.*/
     }
     ///Wraps [`vkGetMemoryNativeBufferOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetMemoryNativeBufferOHOS.html).
     /**
-Provided by **VK_OHOS_external_memory**.*/
+    Provided by **VK_OHOS_external_memory**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20488,7 +20724,7 @@ Provided by **VK_OHOS_external_memory**.*/
     }
     ///Wraps [`vkCmdSetComputeOccupancyPriorityNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetComputeOccupancyPriorityNV.html).
     /**
-Provided by **VK_NV_compute_occupancy_priority**.*/
+    Provided by **VK_NV_compute_occupancy_priority**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20514,7 +20750,7 @@ Provided by **VK_NV_compute_occupancy_priority**.*/
     }
     ///Wraps [`vkWriteSamplerDescriptorsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteSamplerDescriptorsEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20553,7 +20789,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
     }
     ///Wraps [`vkWriteResourceDescriptorsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkWriteResourceDescriptorsEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20592,7 +20828,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
     }
     ///Wraps [`vkCmdBindSamplerHeapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindSamplerHeapEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20621,7 +20857,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
     }
     ///Wraps [`vkCmdBindResourceHeapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindResourceHeapEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20651,7 +20887,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
     }
     ///Wraps [`vkCmdPushDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPushDataEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20672,12 +20908,15 @@ Provided by **VK_EXT_descriptor_heap**.*/
         command_buffer: CommandBuffer,
         p_push_data_info: &PushDataInfoEXT,
     ) {
-        let fp = self.commands().cmd_push_data_ext.expect("vkCmdPushDataEXT not loaded");
+        let fp = self
+            .commands()
+            .cmd_push_data_ext
+            .expect("vkCmdPushDataEXT not loaded");
         unsafe { fp(command_buffer, p_push_data_info) };
     }
     ///Wraps [`vkRegisterCustomBorderColorEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkRegisterCustomBorderColorEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20718,7 +20957,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
     }
     ///Wraps [`vkUnregisterCustomBorderColorEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnregisterCustomBorderColorEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
@@ -20741,7 +20980,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
     }
     ///Wraps [`vkGetImageOpaqueCaptureDataEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageOpaqueCaptureDataEXT.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20769,12 +21008,17 @@ Provided by **VK_EXT_descriptor_heap**.*/
             .get_image_opaque_capture_data_ext
             .expect("vkGetImageOpaqueCaptureDataEXT not loaded");
         check(unsafe {
-            fp(self.handle(), p_images.len() as u32, p_images.as_ptr(), p_datas)
+            fp(
+                self.handle(),
+                p_images.len() as u32,
+                p_images.as_ptr(),
+                p_datas,
+            )
         })
     }
     ///Wraps [`vkGetTensorOpaqueCaptureDataARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorOpaqueCaptureDataARM.html).
     /**
-Provided by **VK_EXT_descriptor_heap**.*/
+    Provided by **VK_EXT_descriptor_heap**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
@@ -20802,12 +21046,17 @@ Provided by **VK_EXT_descriptor_heap**.*/
             .get_tensor_opaque_capture_data_arm
             .expect("vkGetTensorOpaqueCaptureDataARM not loaded");
         check(unsafe {
-            fp(self.handle(), p_tensors.len() as u32, p_tensors.as_ptr(), p_datas)
+            fp(
+                self.handle(),
+                p_tensors.len() as u32,
+                p_tensors.as_ptr(),
+                p_datas,
+            )
         })
     }
     ///Wraps [`vkCmdCopyMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryKHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20833,13 +21082,13 @@ Provided by **VK_KHR_device_address_commands**.*/
             .commands()
             .cmd_copy_memory_khr
             .expect("vkCmdCopyMemoryKHR not loaded");
-        let p_copy_memory_info_ptr = p_copy_memory_info
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_copy_memory_info_ptr =
+            p_copy_memory_info.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_copy_memory_info_ptr) };
     }
     ///Wraps [`vkCmdCopyMemoryToImageKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryToImageKHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20867,13 +21116,13 @@ Provided by **VK_KHR_device_address_commands**.*/
             .commands()
             .cmd_copy_memory_to_image_khr
             .expect("vkCmdCopyMemoryToImageKHR not loaded");
-        let p_copy_memory_info_ptr = p_copy_memory_info
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_copy_memory_info_ptr =
+            p_copy_memory_info.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_copy_memory_info_ptr) };
     }
     ///Wraps [`vkCmdCopyImageToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyImageToMemoryKHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20900,13 +21149,13 @@ Provided by **VK_KHR_device_address_commands**.*/
             .commands()
             .cmd_copy_image_to_memory_khr
             .expect("vkCmdCopyImageToMemoryKHR not loaded");
-        let p_copy_memory_info_ptr = p_copy_memory_info
-            .map_or(core::ptr::null(), core::ptr::from_ref);
+        let p_copy_memory_info_ptr =
+            p_copy_memory_info.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(command_buffer, p_copy_memory_info_ptr) };
     }
     ///Wraps [`vkCmdUpdateMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdUpdateMemoryKHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20940,7 +21189,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdFillMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdFillMemoryKHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -20971,7 +21220,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdCopyQueryPoolResultsToMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyQueryPoolResultsToMemoryKHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21019,7 +21268,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdBeginConditionalRendering2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginConditionalRendering2EXT.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21051,7 +21300,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdBindTransformFeedbackBuffers2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindTransformFeedbackBuffers2EXT.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21089,7 +21338,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdBeginTransformFeedback2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBeginTransformFeedback2EXT.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21132,7 +21381,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdEndTransformFeedback2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdEndTransformFeedback2EXT.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21171,7 +21420,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDrawIndirectByteCount2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectByteCount2EXT.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21216,7 +21465,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdWriteMarkerToMemoryAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdWriteMarkerToMemoryAMD.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21248,7 +21497,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdBindIndexBuffer3KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindIndexBuffer3KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21278,7 +21527,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdBindVertexBuffers3KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdBindVertexBuffers3KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21317,7 +21566,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDrawIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirect2KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21346,7 +21595,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDrawIndexedIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirect2KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21375,7 +21624,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDrawIndirectCount2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndirectCount2KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21405,7 +21654,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDrawIndexedIndirectCount2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawIndexedIndirectCount2KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21435,7 +21684,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksIndirect2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirect2EXT.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21465,7 +21714,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDrawMeshTasksIndirectCount2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDrawMeshTasksIndirectCount2EXT.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21496,7 +21745,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCmdDispatchIndirect2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatchIndirect2KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
@@ -21525,7 +21774,7 @@ Provided by **VK_KHR_device_address_commands**.*/
     }
     ///Wraps [`vkCreateAccelerationStructure2KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateAccelerationStructure2KHR.html).
     /**
-Provided by **VK_KHR_device_address_commands**.*/
+    Provided by **VK_KHR_device_address_commands**.*/
     ///
     ///# Errors
     ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
