@@ -20,6 +20,18 @@ use vk::handles::Handle;
 ///
 /// **Guide:** [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html)
 /// covers creating an `Entry` and bootstrapping the API.
+///
+/// # Examples
+///
+/// ```no_run
+/// use vk_engine::{Entry, LibloadingLoader};
+///
+/// let loader = unsafe { LibloadingLoader::new() }.expect("Vulkan not found");
+/// let entry = unsafe { Entry::new(loader) }.expect("entry creation failed");
+///
+/// let version = entry.version().expect("version query failed");
+/// println!("Vulkan {version}");
+/// ```
 pub struct Entry {
     _loader: Arc<dyn Loader>,
     get_instance_proc_addr: vk::commands::PFN_vkGetInstanceProcAddr,
@@ -38,6 +50,15 @@ impl Entry {
     /// The loader must return valid Vulkan function pointers. The loaded
     /// shared library must remain valid for the lifetime of this `Entry`
     /// and any objects created from it.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// use vk_engine::{Entry, LibloadingLoader};
+    ///
+    /// let loader = unsafe { LibloadingLoader::new() }.expect("Vulkan not found");
+    /// let entry = unsafe { Entry::new(loader) }.expect("entry creation failed");
+    /// ```
     pub unsafe fn new(loader: impl Loader + 'static) -> Result<Self, LoadError> {
         let loader: Arc<dyn Loader> = Arc::new(loader);
 
@@ -95,6 +116,15 @@ impl Entry {
     ///
     /// Requires Vulkan 1.1+. On a 1.0-only system where
     /// `vkEnumerateInstanceVersion` is unavailable, returns `1.0.0`.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// # let entry = vk_engine::test_helpers::create_test_entry().unwrap();
+    /// let version = entry.version().expect("version query failed");
+    /// assert!(version.major >= 1);
+    /// println!("Vulkan {version}");
+    /// ```
     pub fn version(&self) -> VkResult<Version> {
         let fp = match self.commands.enumerate_instance_version {
             Some(fp) => fp,

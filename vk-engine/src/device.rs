@@ -8,14 +8,14 @@ use crate::vk;
 /// Owns a `Box<DeviceCommands>` containing all device-level function
 /// pointers, loaded at construction via `vkGetDeviceProcAddr`. Using the
 /// real device handle gives the ICD's direct function pointers, bypassing
-/// the loader trampoline,this is the fastest dispatch path in Vulkan.
+/// the loader trampoline, this is the fastest dispatch path in Vulkan.
 ///
 /// Holds an optional reference to the Vulkan shared library so that
 /// function pointers remain valid even if the originating `Entry` is
 /// dropped. When created via `from_raw_parts`, the caller manages the
 /// library lifetime and this field is `None`.
 ///
-/// Does **not** implement `Drop`,the caller must explicitly call
+/// Does **not** implement `Drop`, the caller must explicitly call
 /// `destroy_device` when done. This avoids double-destroy bugs when
 /// wrapping externally managed handles via `from_raw_parts`.
 ///
@@ -23,6 +23,25 @@ use crate::vk;
 /// [Memory Management](https://hiddentale.github.io/vulkan_rs/concepts/memory.html),
 /// [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html),
 /// and [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html).
+///
+/// # Examples
+///
+/// ```no_run
+/// use vk_engine::vk::structs::*;
+///
+/// # let (entry, instance, device) = vk_engine::test_helpers::create_test_device().unwrap();
+/// // Use the device to create Vulkan objects.
+/// let fence_info = FenceCreateInfo::builder();
+/// let fence = unsafe { device.create_fence(&fence_info, None) }
+///     .expect("create_fence failed");
+///
+/// // Clean up (reverse creation order).
+/// unsafe {
+///     device.destroy_fence(fence, None);
+///     device.destroy_device(None);
+///     instance.destroy_instance(None);
+/// };
+/// ```
 pub struct Device {
     handle: vk::handles::Device,
     commands: Box<vk::commands::DeviceCommands>,
@@ -63,6 +82,20 @@ impl Device {
     /// - `handle` must be a valid `VkDevice`.
     /// - `get_device_proc_addr` must resolve commands for this device.
     /// - The caller owns the device lifetime.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// use vk_engine::Device;
+    /// # use vk_engine::vk::handles::Handle;
+    /// # let entry = vk_engine::test_helpers::create_test_entry().unwrap();
+    ///
+    /// // Given a raw device handle and proc addr from an external source:
+    /// # let raw_device = vk_engine::vk::handles::Device::null();
+    /// let device = unsafe {
+    ///     Device::from_raw_parts(raw_device, entry.get_device_proc_addr())
+    /// };
+    /// ```
     pub unsafe fn from_raw_parts(
         handle: vk::handles::Device,
         get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,

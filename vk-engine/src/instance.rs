@@ -17,12 +17,27 @@ use vk::handles::Handle;
 /// dropped. When created via `from_raw_parts`, the caller manages the
 /// library lifetime and this field is `None`.
 ///
-/// Does **not** implement `Drop`,the caller must explicitly call
+/// Does **not** implement `Drop`, the caller must explicitly call
 /// `destroy_instance` when done. This avoids double-destroy bugs when
 /// wrapping externally managed handles via `from_raw_parts`.
 ///
 /// **Guide:** [The Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html)
 /// covers handles, lifetimes, and parent-child relationships.
+///
+/// # Examples
+///
+/// ```no_run
+/// use vk_engine::vk::structs::*;
+///
+/// # let (entry, instance) = vk_engine::test_helpers::create_test_instance().unwrap();
+/// // Enumerate GPUs and query properties.
+/// let devices = unsafe { instance.enumerate_physical_devices() }
+///     .expect("no devices");
+/// let props = unsafe { instance.get_physical_device_properties(devices[0]) };
+///
+/// // Clean up.
+/// unsafe { instance.destroy_instance(None) };
+/// ```
 pub struct Instance {
     handle: vk::handles::Instance,
     commands: Box<vk::commands::InstanceCommands>,
@@ -76,8 +91,26 @@ impl Instance {
     /// - `handle` must be a valid `VkInstance` that was created externally.
     /// - `get_instance_proc_addr` must be the function used to load
     ///   instance-level commands for this handle.
-    /// - The caller is responsible for the instance's lifetime,it must
+    /// - The caller is responsible for the instance's lifetime, it must
     ///   outlive this wrapper and not be destroyed while in use.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// use vk_engine::Instance;
+    /// # let entry = vk_engine::test_helpers::create_test_entry().unwrap();
+    ///
+    /// // Given a raw instance handle from OpenXR or another source:
+    /// let raw_instance = unsafe { entry.create_instance_raw(
+    ///     &Default::default(), None,
+    /// ) }.unwrap();
+    ///
+    /// let instance = unsafe {
+    ///     Instance::from_raw_parts(raw_instance, entry.get_instance_proc_addr())
+    /// };
+    /// // Use instance...
+    /// unsafe { instance.destroy_instance(None) };
+    /// ```
     pub unsafe fn from_raw_parts(
         handle: vk::handles::Instance,
         get_instance_proc_addr: vk::commands::PFN_vkGetInstanceProcAddr,
