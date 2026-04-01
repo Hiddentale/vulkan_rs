@@ -2,8 +2,18 @@ use core::fmt;
 
 /// Decoded Vulkan API version (major.minor.patch).
 ///
-/// Vulkan packs versions into a `u32`: major (bits 31–22), minor (21–12),
-/// patch (11–0). This type provides named fields and a `Display` impl.
+/// Vulkan packs versions into a `u32`: major (bits 31-22), minor (21-12),
+/// patch (11-0). This type provides named fields and a `Display` impl.
+///
+/// # Examples
+///
+/// ```
+/// use vk_engine::Version;
+///
+/// let v = Version::from_raw(0x00403000);
+/// assert_eq!(v.to_string(), "1.3.0");
+/// assert_eq!(v.to_raw(), 0x00403000);
+/// ```
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
 pub struct Version {
     /// Major version number (bits 31-22 of the packed `u32`).
@@ -34,6 +44,13 @@ impl Version {
     }
 
     /// Encode this version back into the packed `u32` representation.
+    ///
+    /// ```
+    /// use vk_engine::Version;
+    ///
+    /// let v = Version { major: 1, minor: 3, patch: 0 };
+    /// assert_eq!(v.to_raw(), 0x00403000);
+    /// ```
     pub const fn to_raw(self) -> u32 {
         (self.major << 22) | (self.minor << 12) | self.patch
     }

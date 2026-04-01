@@ -14,6 +14,15 @@ use crate::vk;
 use vk::handles::Handle;
 
 /// Error returned by surface creation.
+///
+/// # Examples
+///
+/// ```
+/// use vk_engine::SurfaceError;
+///
+/// let err = SurfaceError::UnsupportedPlatform;
+/// assert!(err.to_string().contains("unsupported"));
+/// ```
 #[derive(Debug)]
 pub enum SurfaceError {
     /// The display/window handle combination is not supported.
@@ -54,6 +63,15 @@ impl From<vk::enums::Result> for SurfaceError {
 ///
 /// Always includes `VK_KHR_surface`. Adds the platform-specific
 /// surface extension based on `#[cfg(target_os)]`.
+///
+/// # Examples
+///
+/// ```
+/// use vk_engine::required_extensions;
+///
+/// let exts = required_extensions();
+/// assert!(exts.iter().any(|e| *e == c"VK_KHR_surface"));
+/// ```
 pub fn required_extensions() -> &'static [&'static CStr] {
     #[cfg(target_os = "windows")]
     {

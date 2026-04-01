@@ -195,6 +195,113 @@ mod tests {
         assert!(device.commands().get_device_queue.is_none());
     }
 
+    // -- Rich mock that provides some real function pointers ------------------
+
+    unsafe extern "system" fn mock_device_wait_idle(
+        _device: vk::handles::Device,
+    ) -> vk::enums::Result {
+        vk::enums::Result::SUCCESS
+    }
+
+    unsafe extern "system" fn mock_destroy_device(
+        _device: vk::handles::Device,
+        _p_allocator: *const vk::structs::AllocationCallbacks,
+    ) {
+    }
+
+    /// `vkGetDeviceProcAddr` that resolves a few commands for richer testing.
+    unsafe extern "system" fn rich_get_device_proc_addr(
+        _device: vk::handles::Device,
+        name: *const c_char,
+    ) -> vk::structs::PFN_vkVoidFunction {
+        let name = unsafe { std::ffi::CStr::from_ptr(name) };
+        match name.to_bytes() {
+            b"vkDeviceWaitIdle" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(vk::handles::Device) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(mock_device_wait_idle)
+            }),
+            b"vkDestroyDevice" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        vk::handles::Device,
+                        *const vk::structs::AllocationCallbacks,
+                    ),
+                    unsafe extern "system" fn(),
+                >(mock_destroy_device)
+            }),
+            _ => None,
+        }
+    }
+
+    #[test]
+    fn load_with_rich_mock_populates_some_commands() {
+        let device = unsafe { Device::load(fake_handle(), Some(rich_get_device_proc_addr), None) };
+        assert!(
+            device.commands().device_wait_idle.is_some(),
+            "device_wait_idle should be loaded"
+        );
+        assert!(
+            device.commands().destroy_device.is_some(),
+            "destroy_device should be loaded"
+        );
+        // Commands not returned by the mock should still be None.
+        assert!(device.commands().create_buffer.is_none());
+    }
+
+    #[test]
+    fn from_raw_parts_with_rich_mock_populates_commands() {
+        let device =
+            unsafe { Device::from_raw_parts(fake_handle(), Some(rich_get_device_proc_addr)) };
+        assert!(device.commands().device_wait_idle.is_some());
+        assert!(device.commands().destroy_device.is_some());
+    }
+
+    #[test]
+    fn device_wait_idle_succeeds_with_mock() {
+        let device =
+            unsafe { Device::from_raw_parts(fake_handle(), Some(rich_get_device_proc_addr)) };
+        let result = unsafe { device.device_wait_idle() };
+        assert!(result.is_ok());
+    }
+
+    #[test]
+    fn destroy_device_succeeds_with_mock() {
+        let device =
+            unsafe { Device::from_raw_parts(fake_handle(), Some(rich_get_device_proc_addr)) };
+        // Should not panic; the mock destroy is a no-op.
+        unsafe { device.destroy_device(None) };
+    }
+
+    #[test]
+    fn from_raw_parts_stores_no_loader() {
+        let device =
+            unsafe { Device::from_raw_parts(fake_handle(), Some(mock_get_device_proc_addr)) };
+        // from_raw_parts passes None for loader, verify handle is correct.
+        assert_eq!(device.handle().as_raw(), fake_handle().as_raw());
+    }
+
+    #[test]
+    fn load_with_loader_keeps_arc_alive() {
+        use std::ffi::{CStr, c_void};
+        struct DummyLoader;
+        unsafe impl Loader for DummyLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                std::ptr::null()
+            }
+        }
+        let loader: Arc<dyn Loader> = Arc::new(DummyLoader);
+        let weak = Arc::downgrade(&loader);
+        let device =
+            unsafe { Device::load(fake_handle(), Some(mock_get_device_proc_addr), Some(loader)) };
+        // The Arc should be kept alive by the device.
+        assert!(weak.upgrade().is_some(), "loader should still be alive");
+        drop(device);
+        // After device is dropped, the Arc should be released.
+        assert!(weak.upgrade().is_none(), "loader should be dropped");
+    }
+
     #[test]
     #[ignore] // requires Vulkan runtime
     fn device_wait_idle_succeeds() {

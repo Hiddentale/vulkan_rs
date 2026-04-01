@@ -315,6 +315,32 @@ jobs:
           fi
           echo "Generated files are up to date"
 
+  fuzz:
+    name: Fuzz Testing
+    needs: [fmt, clippy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: vk-engine/fuzz
+
+      - name: Install cargo-fuzz
+        run: cargo install cargo-fuzz
+
+      - name: Fuzz cast_to_u32 (60s)
+        run: cd vk-engine && cargo +nightly fuzz run fuzz_cast_to_u32 -- -max_total_time=60
+
+      - name: Fuzz entry_loader (60s)
+        run: cd vk-engine && cargo +nightly fuzz run fuzz_entry_loader -- -max_total_time=60
+
   guide-build:
     name: Guide Build (mdBook)
     runs-on: ubuntu-latest

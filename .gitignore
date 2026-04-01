@@ -1,4 +1,7 @@
 /target
+vk-engine/fuzz/target
+vk-engine/fuzz/corpus
+vk-engine/fuzz/artifacts
 .claude
 CLAUDE.md
 docs

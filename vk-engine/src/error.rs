@@ -36,6 +36,21 @@ pub(crate) fn fill_two_call<T>(call: impl Fn(*mut u32, *mut T)) -> Vec<T> {
 /// The `Err` variant is any negative `vk::enums::Result` (an error code).
 /// Non-negative codes (including `SUCCESS`, `INCOMPLETE`, `SUBOPTIMAL`)
 /// are treated as success.
+///
+/// # Examples
+///
+/// ```
+/// use vk_engine::VkResult;
+/// use vk_engine::vk;
+///
+/// fn do_vulkan_work() -> VkResult<u32> {
+///     // Simulate a successful Vulkan call.
+///     Ok(42)
+/// }
+///
+/// let result = do_vulkan_work();
+/// assert!(result.is_ok());
+/// ```
 pub type VkResult<T> = std::result::Result<T, vk::enums::Result>;
 
 /// Convert a raw `vk::enums::Result` into `VkResult<()>`.
@@ -53,8 +68,20 @@ pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
 
 /// Error returned when the Vulkan shared library cannot be loaded.
 ///
-/// This is distinct from `vk::enums::Result`,it represents a failure to reach
+/// This is distinct from `vk::enums::Result`, it represents a failure to reach
 /// the Vulkan API at all, not a Vulkan API error.
+///
+/// # Examples
+///
+/// ```
+/// use vk_engine::LoadError;
+///
+/// let err = LoadError::MissingEntryPoint;
+/// assert_eq!(
+///     err.to_string(),
+///     "vkGetInstanceProcAddr not found in Vulkan library",
+/// );
+/// ```
 #[derive(Debug)]
 pub enum LoadError {
     /// The Vulkan shared library could not be found or opened.

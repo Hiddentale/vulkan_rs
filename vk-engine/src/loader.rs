@@ -9,6 +9,25 @@ use crate::error::LoadError;
 /// Implementations must return valid function pointers for the requested
 /// symbol name, or null if the symbol is not found. Returning a pointer
 /// to the wrong function causes undefined behavior.
+///
+/// # Examples
+///
+/// ```
+/// use std::ffi::{CStr, c_void};
+/// use vk_engine::Loader;
+///
+/// struct NullLoader;
+///
+/// unsafe impl Loader for NullLoader {
+///     unsafe fn load(&self, _name: &CStr) -> *const c_void {
+///         std::ptr::null()
+///     }
+/// }
+///
+/// let loader = NullLoader;
+/// let ptr = unsafe { loader.load(c"vkCreateInstance") };
+/// assert!(ptr.is_null());
+/// ```
 pub unsafe trait Loader: Send + Sync {
     /// Load a function by name from the Vulkan library.
     ///
@@ -25,6 +44,15 @@ pub unsafe trait Loader: Send + Sync {
 ///
 /// Loads the platform-appropriate Vulkan shared library at construction
 /// time and resolves symbols from it on demand.
+///
+/// # Examples
+///
+/// ```no_run
+/// use vk_engine::LibloadingLoader;
+///
+/// let loader = unsafe { LibloadingLoader::new() }
+///     .expect("Vulkan library not found");
+/// ```
 pub struct LibloadingLoader {
     lib: libloading::Library,
 }
@@ -157,6 +185,93 @@ mod tests {
             LoadError::Library(_) => {}
             LoadError::MissingEntryPoint => panic!("expected Library variant"),
         }
+    }
+
+    #[test]
+    fn libloading_loader_new_exercises_load_path() {
+        // Exercises LibloadingLoader::new() and load_vulkan_library() without
+        // requiring a working ICD. On CI (libvulkan-dev installed) this succeeds;
+        // on machines without Vulkan it exercises the error path. Either way
+        // the production code is covered.
+        match LibloadingLoader::new() {
+            Ok(loader) => {
+                // Library loaded, verify the Loader impl works.
+                let ptr = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+                // May be null if the library has no ICD, but the call itself succeeds.
+                let _ = ptr;
+
+                // Unknown symbol should return null.
+                let unknown = unsafe { loader.load(c"vkNotARealFunction_XYZ") };
+                assert!(unknown.is_null(), "unknown symbol should return null");
+            }
+            Err(e) => {
+                // No Vulkan library on this system, verify error is Library variant.
+                assert!(
+                    matches!(e, LoadError::Library(_)),
+                    "expected LoadError::Library, got {e}"
+                );
+                assert!(e.to_string().contains("failed to load Vulkan library"));
+            }
+        }
+    }
+
+    #[test]
+    fn loader_is_object_safe() {
+        // Verify Loader can be used as a trait object, which is critical
+        // for Entry's Arc<dyn Loader> storage.
+        struct TestLoader;
+        unsafe impl Loader for TestLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                0xABCD as *const c_void
+            }
+        }
+        let loader: Box<dyn Loader> = Box::new(TestLoader);
+        let ptr = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        assert_eq!(ptr as usize, 0xABCD);
+    }
+
+    #[test]
+    fn loader_behind_arc_works() {
+        use std::sync::Arc;
+        struct TestLoader;
+        unsafe impl Loader for TestLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                0x1234 as *const c_void
+            }
+        }
+        let loader: Arc<dyn Loader> = Arc::new(TestLoader);
+        let ptr = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        assert_eq!(ptr as usize, 0x1234);
+        assert_eq!(Arc::strong_count(&loader), 1);
+    }
+
+    #[test]
+    fn loader_resolves_different_names_independently() {
+        use std::sync::atomic::{AtomicUsize, Ordering};
+        static CALL_COUNT: AtomicUsize = AtomicUsize::new(0);
+
+        struct CountingLoader;
+        unsafe impl Loader for CountingLoader {
+            unsafe fn load(&self, name: &CStr) -> *const c_void {
+                CALL_COUNT.fetch_add(1, Ordering::SeqCst);
+                match name.to_bytes() {
+                    b"vkGetInstanceProcAddr" => 0x1000 as *const c_void,
+                    b"vkGetDeviceProcAddr" => 0x2000 as *const c_void,
+                    _ => std::ptr::null(),
+                }
+            }
+        }
+
+        CALL_COUNT.store(0, Ordering::SeqCst);
+        let loader = CountingLoader;
+        let gipa = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        let gdpa = unsafe { loader.load(c"vkGetDeviceProcAddr") };
+        let unknown = unsafe { loader.load(c"vkUnknown") };
+
+        assert_eq!(gipa as usize, 0x1000);
+        assert_eq!(gdpa as usize, 0x2000);
+        assert!(unknown.is_null());
+        assert_eq!(CALL_COUNT.load(Ordering::SeqCst), 3);
     }
 
     #[test]
