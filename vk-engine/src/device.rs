@@ -125,6 +125,44 @@ mod tests {
     }
 
     #[test]
+    fn load_with_loader_reference() {
+        use std::ffi::{CStr, c_void};
+        struct DummyLoader;
+        unsafe impl Loader for DummyLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                std::ptr::null()
+            }
+        }
+        let loader: Arc<dyn Loader> = Arc::new(DummyLoader);
+        let device = unsafe {
+            Device::load(
+                fake_handle(),
+                Some(mock_get_device_proc_addr),
+                Some(loader.clone()),
+            )
+        };
+        assert_eq!(Arc::strong_count(&loader), 2);
+        assert_eq!(device.handle().as_raw(), fake_handle().as_raw());
+    }
+
+    #[test]
+    fn load_without_loader() {
+        let device = unsafe { Device::load(fake_handle(), Some(mock_get_device_proc_addr), None) };
+        assert_eq!(device.handle().as_raw(), fake_handle().as_raw());
+        // All commands should be None since mock returns null.
+        assert!(device.commands().device_wait_idle.is_none());
+    }
+
+    #[test]
+    fn commands_all_none_from_null_mock() {
+        let device =
+            unsafe { Device::from_raw_parts(fake_handle(), Some(mock_get_device_proc_addr)) };
+        assert!(device.commands().create_buffer.is_none());
+        assert!(device.commands().destroy_device.is_none());
+        assert!(device.commands().get_device_queue.is_none());
+    }
+
+    #[test]
     #[ignore] // requires Vulkan runtime
     fn device_wait_idle_succeeds() {
         let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
