@@ -323,7 +323,7 @@ fn create_command_pool_and_submit_empty_buffer() {
     let pool = unsafe { t.device.create_command_pool(&pool_info, None) }
         .expect("create_command_pool failed");
 
-    // Allocate command buffer (uses raw forward — count is inside the struct).
+    // Allocate command buffer (uses raw forward,count is inside the struct).
     let alloc_info = vk::structs::CommandBufferAllocateInfo {
         s_type: vk::enums::StructureType::COMMAND_BUFFER_ALLOCATE_INFO,
         p_next: std::ptr::null(),

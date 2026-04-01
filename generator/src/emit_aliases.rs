@@ -414,7 +414,7 @@ mod tests {
         );
         assert!(
             !code.contains("u64"),
-            "should NOT fall back to raw u64 — should alias to the real type: {code}"
+            "should NOT fall back to raw u64, should alias to the real type: {code}"
         );
     }
 

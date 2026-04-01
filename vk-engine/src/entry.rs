@@ -38,6 +38,7 @@ impl Entry {
     pub unsafe fn new(loader: impl Loader + 'static) -> Result<Self, LoadError> {
         let loader: Arc<dyn Loader> = Arc::new(loader);
 
+        // SAFETY: loader returns a valid fn ptr or null; null is checked before transmute.
         let get_instance_proc_addr: vk::commands::PFN_vkGetInstanceProcAddr = unsafe {
             let ptr = loader.load(c"vkGetInstanceProcAddr");
             if ptr.is_null() {
@@ -50,9 +51,11 @@ impl Entry {
             get_instance_proc_addr.expect("vkGetInstanceProcAddr not loaded");
         let null_instance = vk::handles::Instance::null();
 
+        // SAFETY: loader returns a valid fn ptr or null; null becomes None.
         let get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr =
             unsafe { std::mem::transmute(loader.load(c"vkGetDeviceProcAddr")) };
 
+        // SAFETY: get_instance_proc_addr_fn is valid; null instance queries entry-level commands.
         let commands = unsafe {
             vk::commands::EntryCommands::load(|name| {
                 std::mem::transmute(get_instance_proc_addr_fn(null_instance, name.as_ptr()))
@@ -101,6 +104,7 @@ impl Entry {
             }
         };
         let mut raw = 0u32;
+        // SAFETY: fp is vkEnumerateInstanceVersion; raw is a valid output pointer.
         check(unsafe { fp(&mut raw) })?;
         Ok(Version::from_raw(raw))
     }
@@ -136,7 +140,9 @@ impl Entry {
         create_info: &vk::structs::InstanceCreateInfo,
         allocator: Option<&vk::structs::AllocationCallbacks>,
     ) -> VkResult<Instance> {
+        // SAFETY: caller guarantees create_info is valid (this fn is unsafe).
         let raw = unsafe { self.create_instance_raw(create_info, allocator) }?;
+        // SAFETY: raw is a freshly created valid instance handle.
         let instance = unsafe {
             Instance::load(
                 raw,
@@ -169,6 +175,7 @@ impl Entry {
             .create_instance
             .expect("vkCreateInstance not loaded");
         let mut instance = vk::handles::Instance::null();
+        // SAFETY: caller guarantees create_info is valid (this fn is unsafe).
         let result = unsafe {
             fp(
                 create_info,
@@ -192,6 +199,7 @@ impl Entry {
             .commands
             .enumerate_instance_layer_properties
             .expect("vkEnumerateInstanceLayerProperties not loaded");
+        // SAFETY: fp is vkEnumerateInstanceLayerProperties; two-call pattern handles allocation.
         enumerate_two_call(|count, data| unsafe { fp(count, data) })
     }
 
@@ -213,6 +221,7 @@ impl Entry {
             .enumerate_instance_extension_properties
             .expect("vkEnumerateInstanceExtensionProperties not loaded");
         let layer_ptr = layer_name.map_or(std::ptr::null(), |n| n.as_ptr());
+        // SAFETY: fp is vkEnumerateInstanceExtensionProperties; layer_ptr is null or valid CStr.
         enumerate_two_call(|count, data| unsafe { fp(layer_ptr, count, data) })
     }
 }
@@ -222,7 +231,7 @@ mod tests {
     use super::*;
     use std::ffi::{CStr, c_char, c_void};
 
-    /// Mock loader that returns null for everything — simulates missing library.
+    /// Mock loader that returns null for everything,simulates missing library.
     struct NullLoader;
 
     unsafe impl Loader for NullLoader {

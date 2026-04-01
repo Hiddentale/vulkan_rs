@@ -1,6 +1,6 @@
 //! Integration test: runs the generator binary and verifies vk-sys compiles.
 //!
-//! This catches type resolution bugs that unit tests miss — any broken type
+//! This catches type resolution bugs that unit tests miss,any broken type
 //! across 161k lines of generated Rust will surface as a compile error.
 //!
 //! These tests share generated output files, so they run under a process-wide
@@ -121,7 +121,7 @@ fn generator_output_is_deterministic() {
 
     assert!(
         mismatches.is_empty(),
-        "Generator output is non-deterministic — these files changed between run 1 and run 2:\n  {}",
+        "Generator output is non-deterministic,these files changed between run 1 and run 2:\n  {}",
         mismatches.join("\n  ")
     );
 }

@@ -1,6 +1,6 @@
 //! Emits PFN typedefs and dispatch table structs for Vulkan commands.
 //!
-//! Generates `EntryCommands`, `InstanceCommands`, `DeviceCommands` — each holding
+//! Generates `EntryCommands`, `InstanceCommands`, `DeviceCommands`,each holding
 //! `Option<fn>` pointers loaded at runtime via `vkGet*ProcAddr`.
 
 use std::collections::HashMap;

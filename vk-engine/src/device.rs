@@ -8,14 +8,14 @@ use crate::vk;
 /// Owns a `Box<DeviceCommands>` containing all device-level function
 /// pointers, loaded at construction via `vkGetDeviceProcAddr`. Using the
 /// real device handle gives the ICD's direct function pointers, bypassing
-/// the loader trampoline — this is the fastest dispatch path in Vulkan.
+/// the loader trampoline,this is the fastest dispatch path in Vulkan.
 ///
 /// Holds an optional reference to the Vulkan shared library so that
 /// function pointers remain valid even if the originating `Entry` is
 /// dropped. When created via `from_raw_parts`, the caller manages the
 /// library lifetime and this field is `None`.
 ///
-/// Does **not** implement `Drop` — the caller must explicitly call
+/// Does **not** implement `Drop`,the caller must explicitly call
 /// `destroy_device` when done. This avoids double-destroy bugs when
 /// wrapping externally managed handles via `from_raw_parts`.
 pub struct Device {
@@ -38,6 +38,7 @@ impl Device {
         loader: Option<Arc<dyn Loader>>,
     ) -> Self {
         let get_device_proc_addr_fn = get_device_proc_addr.expect("vkGetDeviceProcAddr not loaded");
+        // SAFETY: handle is valid per caller contract; transmute converts raw fn ptrs.
         let commands = Box::new(unsafe {
             vk::commands::DeviceCommands::load(|name| {
                 std::mem::transmute(get_device_proc_addr_fn(handle, name.as_ptr()))
@@ -61,6 +62,7 @@ impl Device {
         handle: vk::handles::Device,
         get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
     ) -> Self {
+        // SAFETY: forwards caller's safety guarantees to `load`.
         unsafe { Self::load(handle, get_device_proc_addr, None) }
     }
 
@@ -113,7 +115,7 @@ mod tests {
     fn commands_returns_reference() {
         let device = unsafe { Device::load(fake_handle(), Some(mock_get_device_proc_addr), None) };
         // Commands were loaded with a null-returning proc addr, so all
-        // function pointers are None — but the reference is valid.
+        // function pointers are None,but the reference is valid.
         let _ = device.commands();
     }
 

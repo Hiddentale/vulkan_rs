@@ -31,7 +31,7 @@ pub fn check_type_completeness(registry: &VkRegistry) {
     if !unresolved.is_empty() {
         let list: Vec<&str> = unresolved.iter().map(String::as_str).collect();
         panic!(
-            "type completeness check failed — {} unresolved type(s):\n  {}",
+            "type completeness check failed, {} unresolved type(s):\n  {}",
             list.len(),
             list.join("\n  ")
         );

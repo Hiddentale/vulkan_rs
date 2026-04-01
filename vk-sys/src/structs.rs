@@ -927,7 +927,7 @@ impl Default for ComponentMapping {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPhysicalDeviceProperties")]
@@ -952,7 +952,7 @@ impl Default for PhysicalDeviceProperties {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkExtensionProperties")]
@@ -970,7 +970,7 @@ impl Default for ExtensionProperties {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkLayerProperties")]
@@ -998,12 +998,12 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct ApplicationInfo {
     ///Must be `VK_STRUCTURE_TYPE_APPLICATION_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_application_name: *const core::ffi::c_char,
     pub application_version: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_engine_name: *const core::ffi::c_char,
     pub engine_version: u32,
     pub api_version: u32,
@@ -1029,7 +1029,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkAllocationCallbacks")]
 pub struct AllocationCallbacks {
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_user_data: *mut core::ffi::c_void,
     pub pfn_allocation: PFN_vkAllocationFunction,
     pub pfn_reallocation: PFN_vkReallocationFunction,
@@ -1056,7 +1056,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct DeviceQueueCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DeviceQueueCreateFlags,
     pub queue_family_index: u32,
@@ -1362,7 +1362,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct DeviceCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DeviceCreateFlags,
     ///Length of `p_queue_create_infos`.
@@ -1373,7 +1373,7 @@ pub struct DeviceCreateInfo {
     ///Length of `pp_enabled_extension_names`.
     pub enabled_extension_count: u32,
     pub pp_enabled_extension_names: *const *const core::ffi::c_char,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_enabled_features: *const PhysicalDeviceFeatures,
 }
 impl Default for DeviceCreateInfo {
@@ -1411,10 +1411,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct InstanceCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: InstanceCreateFlags,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_application_info: *const ApplicationInfo,
     ///Length of `pp_enabled_layer_names`.
     pub enabled_layer_count: u32,
@@ -1442,7 +1442,7 @@ impl Default for InstanceCreateInfo {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkQueueFamilyProperties")]
@@ -1462,7 +1462,7 @@ impl Default for QueueFamilyProperties {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPhysicalDeviceMemoryProperties")]
@@ -1513,7 +1513,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct MemoryAllocateInfo {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub allocation_size: u64,
     pub memory_type_index: u32,
@@ -1533,7 +1533,7 @@ impl Default for MemoryAllocateInfo {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryRequirements")]
@@ -1552,7 +1552,7 @@ impl Default for MemoryRequirements {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSparseImageFormatProperties")]
@@ -1571,7 +1571,7 @@ impl Default for SparseImageFormatProperties {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSparseImageMemoryRequirements")]
@@ -1592,7 +1592,7 @@ impl Default for SparseImageMemoryRequirements {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryType")]
@@ -1610,7 +1610,7 @@ impl Default for MemoryType {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryHeap")]
@@ -1633,7 +1633,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct MappedMemoryRange {
     ///Must be `VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub offset: u64,
@@ -1655,7 +1655,7 @@ impl Default for MappedMemoryRange {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkFormatProperties")]
@@ -1674,7 +1674,7 @@ impl Default for FormatProperties {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkImageFormatProperties")]
@@ -1741,7 +1741,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct WriteDescriptorSet {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub dst_set: DescriptorSet,
     pub dst_binding: u32,
@@ -1779,7 +1779,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct CopyDescriptorSet {
     ///Must be `VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_set: DescriptorSet,
     pub src_binding: u32,
@@ -1821,7 +1821,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct BufferUsageFlags2CreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_USAGE_FLAGS_2_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub usage: BufferUsageFlags2,
 }
@@ -1854,7 +1854,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct BufferCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: BufferCreateFlags,
     pub size: u64,
@@ -1892,7 +1892,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct BufferViewCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: BufferViewCreateFlags,
     pub buffer: Buffer,
@@ -1977,7 +1977,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct MemoryBarrier {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_BARRIER`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_access_mask: AccessFlags,
     pub dst_access_mask: AccessFlags,
@@ -2005,7 +2005,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct BufferMemoryBarrier {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_access_mask: AccessFlags,
     pub dst_access_mask: AccessFlags,
@@ -2044,7 +2044,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct ImageMemoryBarrier {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_access_mask: AccessFlags,
     pub dst_access_mask: AccessFlags,
@@ -2108,7 +2108,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct ImageCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ImageCreateFlags,
     pub image_type: ImageType,
@@ -2185,7 +2185,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct ImageViewCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ImageViewCreateFlags,
     pub image: Image,
@@ -2334,7 +2334,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct BindSparseInfo {
     ///Must be `VK_STRUCTURE_TYPE_BIND_SPARSE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_wait_semaphores`.
     pub wait_semaphore_count: u32,
@@ -2471,7 +2471,7 @@ Provided by **VK_KHR_copy_memory_indirect**.*/
 pub struct CopyMemoryIndirectInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_COPY_MEMORY_INDIRECT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_copy_flags: AddressCopyFlagsKHR,
     pub dst_copy_flags: AddressCopyFlagsKHR,
@@ -2520,7 +2520,7 @@ Provided by **VK_KHR_copy_memory_indirect**.*/
 pub struct CopyMemoryToImageIndirectInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INDIRECT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_copy_flags: AddressCopyFlagsKHR,
     ///Length of `p_image_subresources`.
@@ -2581,7 +2581,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct ShaderModuleCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ShaderModuleCreateFlags,
     pub code_size: usize,
@@ -2611,7 +2611,7 @@ pub struct DescriptorSetLayoutBinding {
     ///Length of `p_immutable_samplers`.
     pub descriptor_count: u32,
     pub stage_flags: ShaderStageFlags,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_immutable_samplers: *const Sampler,
 }
 impl Default for DescriptorSetLayoutBinding {
@@ -2633,7 +2633,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct DescriptorSetLayoutCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DescriptorSetLayoutCreateFlags,
     ///Length of `p_bindings`.
@@ -2682,7 +2682,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct DescriptorPoolCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DescriptorPoolCreateFlags,
     pub max_sets: u32,
@@ -2715,7 +2715,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct DescriptorSetAllocateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub descriptor_pool: DescriptorPool,
@@ -2791,13 +2791,13 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct PipelineShaderStageCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineShaderStageCreateFlags,
     pub stage: ShaderStageFlagBits,
     pub module: ShaderModule,
     pub p_name: *const core::ffi::c_char,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_specialization_info: *const SpecializationInfo,
 }
 impl Default for PipelineShaderStageCreateInfo {
@@ -2833,7 +2833,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct ComputePipelineCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCreateFlags,
     pub stage: PipelineShaderStageCreateInfo,
@@ -2867,7 +2867,7 @@ Provided by **VK_NV_device_generated_commands_compute**.*/
 pub struct ComputePipelineIndirectBufferInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub device_address: u64,
     pub size: u64,
@@ -2900,7 +2900,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PipelineCreateFlags2CreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCreateFlags2,
 }
@@ -2961,7 +2961,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineVertexInputStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineVertexInputStateCreateFlags,
     ///Length of `p_vertex_binding_descriptions`.
@@ -2994,7 +2994,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineInputAssemblyStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineInputAssemblyStateCreateFlags,
     pub topology: PrimitiveTopology,
@@ -3024,7 +3024,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineTessellationStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineTessellationStateCreateFlags,
     pub patch_control_points: u32,
@@ -3058,16 +3058,16 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineViewportStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineViewportStateCreateFlags,
     ///Length of `p_viewports`.
     pub viewport_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_viewports: *const Viewport,
     ///Length of `p_scissors`.
     pub scissor_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_scissors: *const Rect2D,
 }
 impl Default for PipelineViewportStateCreateInfo {
@@ -3102,7 +3102,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineRasterizationStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineRasterizationStateCreateFlags,
     pub depth_clamp_enable: u32,
@@ -3151,13 +3151,13 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineMultisampleStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineMultisampleStateCreateFlags,
     pub rasterization_samples: SampleCountFlagBits,
     pub sample_shading_enable: u32,
     pub min_sample_shading: f32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_sample_mask: *const u32,
     pub alpha_to_coverage_enable: u32,
     pub alpha_to_one_enable: u32,
@@ -3213,14 +3213,14 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineColorBlendStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineColorBlendStateCreateFlags,
     pub logic_op_enable: u32,
     pub logic_op: LogicOp,
     ///Length of `p_attachments`.
     pub attachment_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_attachments: *const PipelineColorBlendAttachmentState,
     pub blend_constants: [f32; 4usize],
 }
@@ -3248,7 +3248,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineDynamicStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineDynamicStateCreateFlags,
     ///Length of `p_dynamic_states`.
@@ -3297,7 +3297,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct PipelineDepthStencilStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineDepthStencilStateCreateFlags,
     pub depth_test_enable: u32,
@@ -3362,30 +3362,30 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct GraphicsPipelineCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCreateFlags,
     ///Length of `p_stages`.
     pub stage_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_stages: *const PipelineShaderStageCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_vertex_input_state: *const PipelineVertexInputStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_input_assembly_state: *const PipelineInputAssemblyStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_tessellation_state: *const PipelineTessellationStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_viewport_state: *const PipelineViewportStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_rasterization_state: *const PipelineRasterizationStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_multisample_state: *const PipelineMultisampleStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_depth_stencil_state: *const PipelineDepthStencilStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_color_blend_state: *const PipelineColorBlendStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_dynamic_state: *const PipelineDynamicStateCreateInfo,
     pub layout: PipelineLayout,
     pub render_pass: RenderPass,
@@ -3428,7 +3428,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct PipelineCacheCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCacheCreateFlags,
     ///Length of `p_initial_data`.
@@ -3569,12 +3569,12 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PipelineBinaryCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_BINARY_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_keys_and_data_info: *const PipelineBinaryKeysAndDataKHR,
     pub pipeline: Pipeline,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_pipeline_create_info: *const PipelineCreateInfoKHR,
 }
 impl Default for PipelineBinaryCreateInfoKHR {
@@ -3598,11 +3598,11 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PipelineBinaryHandlesInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_BINARY_HANDLES_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_pipeline_binaries`.
     pub pipeline_binary_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_pipeline_binaries: *mut PipelineBinaryKHR,
 }
 impl Default for PipelineBinaryHandlesInfoKHR {
@@ -3660,7 +3660,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PipelineBinaryKeyKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_BINARY_KEY_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub key_size: u32,
     pub key: [u8; MAX_PIPELINE_BINARY_KEY_SIZE_KHR as usize],
@@ -3690,7 +3690,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PipelineBinaryInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_BINARY_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_pipeline_binaries`.
     pub binary_count: u32,
@@ -3716,7 +3716,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct ReleaseCapturedPipelineDataInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RELEASE_CAPTURED_PIPELINE_DATA_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub pipeline: Pipeline,
@@ -3740,7 +3740,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PipelineBinaryDataInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_BINARY_DATA_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_binary: PipelineBinaryKHR,
 }
@@ -3763,7 +3763,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PipelineCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
 }
 impl Default for PipelineCreateInfoKHR {
@@ -3793,12 +3793,12 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct PipelineLayoutCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineLayoutCreateFlags,
     ///Length of `p_set_layouts`.
     pub set_layout_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_set_layouts: *const DescriptorSetLayout,
     ///Length of `p_push_constant_ranges`.
     pub push_constant_range_count: u32,
@@ -3838,7 +3838,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct SamplerCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: SamplerCreateFlags,
     pub mag_filter: Filter,
@@ -3895,7 +3895,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct CommandPoolCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: CommandPoolCreateFlags,
     pub queue_family_index: u32,
@@ -3920,7 +3920,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct CommandBufferAllocateInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub command_pool: CommandPool,
@@ -3964,7 +3964,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct CommandBufferInheritanceInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub render_pass: RenderPass,
     pub subpass: u32,
@@ -4000,10 +4000,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct CommandBufferBeginInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: CommandBufferUsageFlags,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_inheritance_info: *const CommandBufferInheritanceInfo,
 }
 impl Default for CommandBufferBeginInfo {
@@ -4035,7 +4035,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct RenderPassBeginInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub render_pass: RenderPass,
     pub framebuffer: Framebuffer,
@@ -4188,9 +4188,9 @@ pub struct SubpassDescription {
     ///Length of `p_resolve_attachments`.
     pub color_attachment_count: u32,
     pub p_color_attachments: *const AttachmentReference,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_resolve_attachments: *const AttachmentReference,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_depth_stencil_attachment: *const AttachmentReference,
     ///Length of `p_preserve_attachments`.
     pub preserve_attachment_count: u32,
@@ -4239,7 +4239,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct RenderPassCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: RenderPassCreateFlags,
     ///Length of `p_attachments`.
@@ -4281,7 +4281,7 @@ Provided by **VK_COMPUTE_VERSION_1_0**.*/
 pub struct EventCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_EVENT_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: EventCreateFlags,
 }
@@ -4309,7 +4309,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct FenceCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_FENCE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: FenceCreateFlags,
 }
@@ -4396,7 +4396,7 @@ impl Default for PhysicalDeviceFeatures {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPhysicalDeviceSparseProperties")]
@@ -4417,7 +4417,7 @@ impl Default for PhysicalDeviceSparseProperties {
 /**
 Provided by **VK_BASE_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPhysicalDeviceLimits")]
@@ -4554,7 +4554,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct SemaphoreCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: SemaphoreCreateFlags,
 }
@@ -4592,7 +4592,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct QueryPoolCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: QueryPoolCreateFlags,
     pub query_type: QueryType,
@@ -4624,7 +4624,7 @@ Provided by **VK_GRAPHICS_VERSION_1_0**.*/
 pub struct FramebufferCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: FramebufferCreateFlags,
     pub render_pass: RenderPass,
@@ -4760,12 +4760,12 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 pub struct SubmitInfo {
     ///Must be `VK_STRUCTURE_TYPE_SUBMIT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_wait_dst_stage_mask`.
     pub wait_semaphore_count: u32,
     pub p_wait_semaphores: *const Semaphore,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_wait_dst_stage_mask: *const PipelineStageFlags,
     ///Length of `p_command_buffers`.
     pub command_buffer_count: u32,
@@ -4794,7 +4794,7 @@ impl Default for SubmitInfo {
 /**
 Provided by **VK_KHR_display**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDisplayPropertiesKHR")]
@@ -4817,7 +4817,7 @@ impl Default for DisplayPropertiesKHR {
 /**
 Provided by **VK_KHR_display**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDisplayPlanePropertiesKHR")]
@@ -4851,7 +4851,7 @@ impl Default for DisplayModeParametersKHR {
 /**
 Provided by **VK_KHR_display**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDisplayModePropertiesKHR")]
@@ -4874,7 +4874,7 @@ Provided by **VK_KHR_display**.*/
 pub struct DisplayModeCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DisplayModeCreateFlagsKHR,
     pub parameters: DisplayModeParametersKHR,
@@ -4894,7 +4894,7 @@ impl Default for DisplayModeCreateInfoKHR {
 /**
 Provided by **VK_KHR_display**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDisplayPlaneCapabilitiesKHR")]
@@ -4927,7 +4927,7 @@ Provided by **VK_KHR_display**.*/
 pub struct DisplaySurfaceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DisplaySurfaceCreateFlagsKHR,
     pub display_mode: DisplayModeKHR,
@@ -4967,7 +4967,7 @@ Provided by **VK_NV_display_stereo**.*/
 pub struct DisplaySurfaceStereoCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_SURFACE_STEREO_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stereo_type: DisplaySurfaceStereoTypeNV,
 }
@@ -4993,7 +4993,7 @@ Provided by **VK_KHR_display_swapchain**.*/
 pub struct DisplayPresentInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_rect: Rect2D,
     pub dst_rect: Rect2D,
@@ -5015,7 +5015,7 @@ impl Default for DisplayPresentInfoKHR {
 /**
 Provided by **VK_KHR_surface**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSurfaceCapabilitiesKHR")]
@@ -5046,7 +5046,7 @@ Provided by **VK_KHR_android_surface**.*/
 pub struct AndroidSurfaceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: AndroidSurfaceCreateFlagsKHR,
     pub window: *mut core::ffi::c_void,
@@ -5071,7 +5071,7 @@ Provided by **VK_NN_vi_surface**.*/
 pub struct ViSurfaceCreateInfoNN {
     ///Must be `VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ViSurfaceCreateFlagsNN,
     pub window: *mut core::ffi::c_void,
@@ -5096,7 +5096,7 @@ Provided by **VK_KHR_wayland_surface**.*/
 pub struct WaylandSurfaceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: WaylandSurfaceCreateFlagsKHR,
     pub display: *mut core::ffi::c_void,
@@ -5123,7 +5123,7 @@ Provided by **VK_SEC_ubm_surface**.*/
 pub struct UbmSurfaceCreateInfoSEC {
     ///Must be `VK_STRUCTURE_TYPE_UBM_SURFACE_CREATE_INFO_SEC`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: UbmSurfaceCreateFlagsSEC,
     pub device: *mut core::ffi::c_void,
@@ -5150,7 +5150,7 @@ Provided by **VK_KHR_win32_surface**.*/
 pub struct Win32SurfaceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: Win32SurfaceCreateFlagsKHR,
     pub hinstance: isize,
@@ -5177,7 +5177,7 @@ Provided by **VK_KHR_xlib_surface**.*/
 pub struct XlibSurfaceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: XlibSurfaceCreateFlagsKHR,
     pub dpy: *mut core::ffi::c_void,
@@ -5204,7 +5204,7 @@ Provided by **VK_KHR_xcb_surface**.*/
 pub struct XcbSurfaceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: XcbSurfaceCreateFlagsKHR,
     pub connection: *mut core::ffi::c_void,
@@ -5231,7 +5231,7 @@ Provided by **VK_EXT_directfb_surface**.*/
 pub struct DirectFBSurfaceCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DIRECTFB_SURFACE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DirectFBSurfaceCreateFlagsEXT,
     pub dfb: *mut core::ffi::c_void,
@@ -5258,7 +5258,7 @@ Provided by **VK_FUCHSIA_imagepipe_surface**.*/
 pub struct ImagePipeSurfaceCreateInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_IMAGEPIPE_SURFACE_CREATE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ImagePipeSurfaceCreateFlagsFUCHSIA,
     pub image_pipe_handle: u32,
@@ -5283,7 +5283,7 @@ Provided by **VK_GGP_stream_descriptor_surface**.*/
 pub struct StreamDescriptorSurfaceCreateInfoGGP {
     ///Must be `VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: StreamDescriptorSurfaceCreateFlagsGGP,
     pub stream_descriptor: u32,
@@ -5308,7 +5308,7 @@ Provided by **VK_QNX_screen_surface**.*/
 pub struct ScreenSurfaceCreateInfoQNX {
     ///Must be `VK_STRUCTURE_TYPE_SCREEN_SURFACE_CREATE_INFO_QNX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ScreenSurfaceCreateFlagsQNX,
     pub context: *mut core::ffi::c_void,
@@ -5330,7 +5330,7 @@ impl Default for ScreenSurfaceCreateInfoQNX {
 /**
 Provided by **VK_KHR_surface**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSurfaceFormatKHR")]
@@ -5366,7 +5366,7 @@ Provided by **VK_KHR_swapchain**.*/
 pub struct SwapchainCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: SwapchainCreateFlagsKHR,
     ///**Thread safety:** must be externally synchronized.
@@ -5437,7 +5437,7 @@ Provided by **VK_KHR_swapchain**.*/
 pub struct PresentInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_wait_semaphores`.
     pub wait_semaphore_count: u32,
@@ -5448,7 +5448,7 @@ pub struct PresentInfoKHR {
     ///**Thread safety:** must be externally synchronized.
     pub p_swapchains: *const SwapchainKHR,
     pub p_image_indices: *const u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_results: *mut Result,
 }
 impl Default for PresentInfoKHR {
@@ -5478,11 +5478,11 @@ Provided by **VK_EXT_debug_report**.*/
 pub struct DebugReportCallbackCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DebugReportFlagsEXT,
     pub pfn_callback: PFN_vkDebugReportCallbackEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_user_data: *mut core::ffi::c_void,
 }
 impl Default for DebugReportCallbackCreateInfoEXT {
@@ -5509,7 +5509,7 @@ Provided by **VK_EXT_validation_flags**.*/
 pub struct ValidationFlagsEXT {
     ///Must be `VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_disabled_validation_checks`.
     pub disabled_validation_check_count: u32,
@@ -5540,7 +5540,7 @@ Provided by **VK_EXT_validation_features**.*/
 pub struct ValidationFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_enabled_validation_features`.
     pub enabled_validation_feature_count: u32,
@@ -5574,7 +5574,7 @@ Provided by **VK_EXT_layer_settings**.*/
 pub struct LayerSettingsCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_settings`.
     pub setting_count: u32,
@@ -5622,7 +5622,7 @@ impl Default for LayerSettingEXT {
 pub struct ApplicationParametersEXT {
     ///Must be `VK_STRUCTURE_TYPE_APPLICATION_PARAMETERS_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub vendor_id: u32,
     pub device_id: u32,
@@ -5654,7 +5654,7 @@ Provided by **VK_AMD_rasterization_order**.*/
 pub struct PipelineRasterizationStateRasterizationOrderAMD {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub rasterization_order: RasterizationOrderAMD,
 }
@@ -5677,7 +5677,7 @@ Provided by **VK_EXT_debug_marker**.*/
 pub struct DebugMarkerObjectNameInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub object_type: DebugReportObjectTypeEXT,
     ///**Thread safety:** must be externally synchronized.
@@ -5705,7 +5705,7 @@ Provided by **VK_EXT_debug_marker**.*/
 pub struct DebugMarkerObjectTagInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub object_type: DebugReportObjectTypeEXT,
     ///**Thread safety:** must be externally synchronized.
@@ -5738,7 +5738,7 @@ Provided by **VK_EXT_debug_marker**.*/
 pub struct DebugMarkerMarkerInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_marker_name: *const core::ffi::c_char,
     pub color: [f32; 4usize],
@@ -5766,7 +5766,7 @@ Provided by **VK_NV_dedicated_allocation**.*/
 pub struct DedicatedAllocationImageCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub dedicated_allocation: u32,
 }
@@ -5792,7 +5792,7 @@ Provided by **VK_NV_dedicated_allocation**.*/
 pub struct DedicatedAllocationBufferCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub dedicated_allocation: u32,
 }
@@ -5818,7 +5818,7 @@ Provided by **VK_NV_dedicated_allocation**.*/
 pub struct DedicatedAllocationMemoryAllocateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
     pub buffer: Buffer,
@@ -5838,7 +5838,7 @@ impl Default for DedicatedAllocationMemoryAllocateInfoNV {
 /**
 Provided by **VK_NV_external_memory_capabilities**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkExternalImageFormatPropertiesNV")]
@@ -5866,7 +5866,7 @@ Provided by **VK_NV_external_memory**.*/
 pub struct ExternalMemoryImageCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalMemoryHandleTypeFlagsNV,
 }
@@ -5892,7 +5892,7 @@ Provided by **VK_NV_external_memory**.*/
 pub struct ExportMemoryAllocateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalMemoryHandleTypeFlagsNV,
 }
@@ -5918,7 +5918,7 @@ Provided by **VK_NV_external_memory_win32**.*/
 pub struct ImportMemoryWin32HandleInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagsNV,
     pub handle: isize,
@@ -5946,9 +5946,9 @@ Provided by **VK_NV_external_memory_win32**.*/
 pub struct ExportMemoryWin32HandleInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_attributes: *const core::ffi::c_void,
     pub dw_access: u32,
 }
@@ -5973,7 +5973,7 @@ impl Default for ExportMemoryWin32HandleInfoNV {
 pub struct ExportMemorySciBufInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_MEMORY_SCI_BUF_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_attributes: *const core::ffi::c_void,
 }
@@ -5997,7 +5997,7 @@ impl Default for ExportMemorySciBufInfoNV {
 pub struct ImportMemorySciBufInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_SCI_BUF_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
     pub handle: *const core::ffi::c_void,
@@ -6020,7 +6020,7 @@ impl Default for ImportMemorySciBufInfoNV {
 pub struct MemoryGetSciBufInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_SCI_BUF_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
@@ -6043,7 +6043,7 @@ impl Default for MemoryGetSciBufInfoNV {
 pub struct MemorySciBufPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_SCI_BUF_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory_type_bits: u32,
 }
@@ -6068,7 +6068,7 @@ impl Default for MemorySciBufPropertiesNV {
 pub struct PhysicalDeviceExternalMemorySciBufFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sci_buf_import: u32,
     pub sci_buf_export: u32,
@@ -6097,7 +6097,7 @@ Provided by **VK_NV_win32_keyed_mutex**.*/
 pub struct Win32KeyedMutexAcquireReleaseInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_acquire_timeout_milliseconds`.
     pub acquire_count: u32,
@@ -6138,7 +6138,7 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_generated_commands: u32,
 }
@@ -6167,7 +6167,7 @@ Provided by **VK_NV_push_constant_bank**.*/
 pub struct PushConstantBankInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PUSH_CONSTANT_BANK_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub bank: u32,
 }
@@ -6194,7 +6194,7 @@ Provided by **VK_NV_push_constant_bank**.*/
 pub struct PhysicalDevicePushConstantBankFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub push_constant_bank: u32,
 }
@@ -6212,7 +6212,7 @@ impl Default for PhysicalDevicePushConstantBankFeaturesNV {
 /**
 Provided by **VK_NV_push_constant_bank**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -6222,7 +6222,7 @@ Provided by **VK_NV_push_constant_bank**.*/
 pub struct PhysicalDevicePushConstantBankPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_graphics_push_constant_banks: u32,
     pub max_compute_push_constant_banks: u32,
@@ -6255,7 +6255,7 @@ Provided by **VK_NV_device_generated_commands_compute**.*/
 pub struct PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_generated_compute: u32,
     pub device_generated_compute_pipelines: u32,
@@ -6285,7 +6285,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct DevicePrivateDataCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_PRIVATE_DATA_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub private_data_slot_request_count: u32,
 }
@@ -6308,7 +6308,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PrivateDataSlotCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PRIVATE_DATA_SLOT_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PrivateDataSlotCreateFlags,
 }
@@ -6335,7 +6335,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PhysicalDevicePrivateDataFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub private_data: u32,
 }
@@ -6353,7 +6353,7 @@ impl Default for PhysicalDevicePrivateDataFeatures {
 /**
 Provided by **VK_NV_device_generated_commands**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -6363,7 +6363,7 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_graphics_shader_group_count: u32,
     pub max_indirect_sequence_count: u32,
@@ -6406,7 +6406,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct PhysicalDeviceClusterAccelerationStructureFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cluster_acceleration_structure: u32,
 }
@@ -6424,7 +6424,7 @@ impl Default for PhysicalDeviceClusterAccelerationStructureFeaturesNV {
 /**
 Provided by **VK_NV_cluster_acceleration_structure**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -6434,7 +6434,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct PhysicalDeviceClusterAccelerationStructurePropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_vertices_per_cluster: u32,
     pub max_triangles_per_cluster: u32,
@@ -6490,7 +6490,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub allow_cluster_acceleration_structure: u32,
 }
@@ -6768,7 +6768,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct ClusterAccelerationStructureClustersBottomLevelInputNV {
     ///Must be `VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_total_cluster_count: u32,
     pub max_cluster_count_per_acceleration_structure: u32,
@@ -6793,7 +6793,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct ClusterAccelerationStructureTriangleClusterInputNV {
     ///Must be `VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub vertex_format: Format,
     pub max_geometry_index_value: u32,
@@ -6830,7 +6830,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct ClusterAccelerationStructureMoveObjectsInputNV {
     ///Must be `VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub r#type: ClusterAccelerationStructureTypeNV,
     pub no_move_overlap: u32,
@@ -6879,7 +6879,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct ClusterAccelerationStructureInputInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_INPUT_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_acceleration_structure_count: u32,
     pub flags: BuildAccelerationStructureFlagsKHR,
@@ -6910,7 +6910,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct ClusterAccelerationStructureCommandsInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_COMMANDS_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub input: ClusterAccelerationStructureInputInfoNV,
     pub dst_implicit_data: u64,
@@ -6942,7 +6942,7 @@ impl Default for ClusterAccelerationStructureCommandsInfoNV {
 /**
 Provided by **VK_EXT_multi_draw**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -6952,7 +6952,7 @@ Provided by **VK_EXT_multi_draw**.*/
 pub struct PhysicalDeviceMultiDrawPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_multi_draw_count: u32,
 }
@@ -6975,14 +6975,14 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct GraphicsShaderGroupCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_GRAPHICS_SHADER_GROUP_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_stages`.
     pub stage_count: u32,
     pub p_stages: *const PipelineShaderStageCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_vertex_input_state: *const PipelineVertexInputStateCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_tessellation_state: *const PipelineTessellationStateCreateInfo,
 }
 impl Default for GraphicsShaderGroupCreateInfoNV {
@@ -7010,7 +7010,7 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct GraphicsPipelineShaderGroupsCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_groups`.
     pub group_count: u32,
@@ -7124,7 +7124,7 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct IndirectCommandsLayoutTokenNV {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub token_type: IndirectCommandsTokenTypeNV,
     pub stream: u32,
@@ -7172,7 +7172,7 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct IndirectCommandsLayoutCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: IndirectCommandsLayoutUsageFlagsNV,
     pub pipeline_bind_point: PipelineBindPoint,
@@ -7207,7 +7207,7 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct GeneratedCommandsInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub pipeline_bind_point: PipelineBindPoint,
     pub pipeline: Pipeline,
@@ -7255,7 +7255,7 @@ Provided by **VK_NV_device_generated_commands**.*/
 pub struct GeneratedCommandsMemoryRequirementsInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub pipeline_bind_point: PipelineBindPoint,
     pub pipeline: Pipeline,
@@ -7284,7 +7284,7 @@ Provided by **VK_NV_device_generated_commands_compute**.*/
 pub struct PipelineIndirectDeviceAddressInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub pipeline_bind_point: PipelineBindPoint,
     pub pipeline: Pipeline,
@@ -7589,7 +7589,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceFeatures2 {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub features: PhysicalDeviceFeatures,
 }
@@ -7607,7 +7607,7 @@ impl Default for PhysicalDeviceFeatures2 {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`PhysicalDeviceAccelerationStructurePropertiesKHR`]
@@ -7737,7 +7737,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceProperties2 {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub properties: PhysicalDeviceProperties,
 }
@@ -7755,7 +7755,7 @@ impl Default for PhysicalDeviceProperties2 {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`DrmFormatModifierPropertiesList2EXT`]
@@ -7769,7 +7769,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct FormatProperties2 {
     ///Must be `VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format_properties: FormatProperties,
 }
@@ -7787,7 +7787,7 @@ impl Default for FormatProperties2 {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`AndroidHardwareBufferUsageANDROID`]
@@ -7805,7 +7805,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ImageFormatProperties2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_format_properties: ImageFormatProperties,
 }
@@ -7838,7 +7838,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceImageFormatInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub format: Format,
     pub r#type: ImageType,
@@ -7864,7 +7864,7 @@ impl Default for PhysicalDeviceImageFormatInfo2 {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`QueueFamilyCheckpointProperties2NV`]
@@ -7879,7 +7879,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct QueueFamilyProperties2 {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub queue_family_properties: QueueFamilyProperties,
 }
@@ -7897,7 +7897,7 @@ impl Default for QueueFamilyProperties2 {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`PhysicalDeviceMemoryBudgetPropertiesEXT`]
@@ -7907,7 +7907,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceMemoryProperties2 {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_properties: PhysicalDeviceMemoryProperties,
 }
@@ -7925,14 +7925,14 @@ impl Default for PhysicalDeviceMemoryProperties2 {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSparseImageFormatProperties2")]
 pub struct SparseImageFormatProperties2 {
     ///Must be `VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub properties: SparseImageFormatProperties,
 }
@@ -7955,7 +7955,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceSparseImageFormatInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub format: Format,
     pub r#type: ImageType,
@@ -7981,7 +7981,7 @@ impl Default for PhysicalDeviceSparseImageFormatInfo2 {
 /**
 Provided by **VK_COMPUTE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -7991,7 +7991,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PhysicalDevicePushDescriptorProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_push_descriptors: u32,
 }
@@ -8027,7 +8027,7 @@ impl Default for ConformanceVersion {
 /**
 Provided by **VK_BASE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -8037,7 +8037,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceDriverProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub driver_id: DriverId,
     pub driver_name: [core::ffi::c_char; MAX_DRIVER_NAME_SIZE as usize],
@@ -8069,11 +8069,11 @@ Provided by **VK_KHR_incremental_present**.*/
 pub struct PresentRegionsKHR {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_regions`.
     pub swapchain_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_regions: *const PresentRegionKHR,
 }
 impl Default for PresentRegionsKHR {
@@ -8096,7 +8096,7 @@ Provided by **VK_KHR_incremental_present**.*/
 pub struct PresentRegionKHR {
     ///Length of `p_rectangles`.
     pub rectangle_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_rectangles: *const RectLayerKHR,
 }
 impl Default for PresentRegionKHR {
@@ -8135,7 +8135,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct PhysicalDeviceVariablePointersFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub variable_pointers_storage_buffer: u32,
     pub variable_pointers: u32,
@@ -8155,7 +8155,7 @@ impl Default for PhysicalDeviceVariablePointersFeatures {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkExternalMemoryProperties")]
@@ -8182,7 +8182,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceExternalImageFormatInfo {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
 }
@@ -8200,7 +8200,7 @@ impl Default for PhysicalDeviceExternalImageFormatInfo {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -8210,7 +8210,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ExternalImageFormatProperties {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_memory_properties: ExternalMemoryProperties,
 }
@@ -8236,7 +8236,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceExternalBufferInfo {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: BufferCreateFlags,
     pub usage: BufferUsageFlags,
@@ -8258,14 +8258,14 @@ impl Default for PhysicalDeviceExternalBufferInfo {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkExternalBufferProperties")]
 pub struct ExternalBufferProperties {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_memory_properties: ExternalMemoryProperties,
 }
@@ -8283,7 +8283,7 @@ impl Default for ExternalBufferProperties {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -8293,7 +8293,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceIDProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_uuid: [u8; UUID_SIZE as usize],
     pub driver_uuid: [u8; UUID_SIZE as usize],
@@ -8327,7 +8327,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ExternalMemoryImageCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalMemoryHandleTypeFlags,
 }
@@ -8353,7 +8353,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ExternalMemoryBufferCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalMemoryHandleTypeFlags,
 }
@@ -8379,7 +8379,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ExportMemoryAllocateInfo {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalMemoryHandleTypeFlags,
 }
@@ -8405,7 +8405,7 @@ Provided by **VK_KHR_external_memory_win32**.*/
 pub struct ImportMemoryWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
     pub handle: isize,
@@ -8435,9 +8435,9 @@ Provided by **VK_KHR_external_memory_win32**.*/
 pub struct ExportMemoryWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_attributes: *const core::ffi::c_void,
     pub dw_access: u32,
     pub name: *const u16,
@@ -8466,7 +8466,7 @@ Provided by **VK_FUCHSIA_external_memory**.*/
 pub struct ImportMemoryZirconHandleInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_ZIRCON_HANDLE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
     pub handle: u32,
@@ -8486,14 +8486,14 @@ impl Default for ImportMemoryZirconHandleInfoFUCHSIA {
 /**
 Provided by **VK_FUCHSIA_external_memory**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryZirconHandlePropertiesFUCHSIA")]
 pub struct MemoryZirconHandlePropertiesFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_ZIRCON_HANDLE_PROPERTIES_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_type_bits: u32,
 }
@@ -8516,7 +8516,7 @@ Provided by **VK_FUCHSIA_external_memory**.*/
 pub struct MemoryGetZirconHandleInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_ZIRCON_HANDLE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
@@ -8536,14 +8536,14 @@ impl Default for MemoryGetZirconHandleInfoFUCHSIA {
 /**
 Provided by **VK_KHR_external_memory_win32**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryWin32HandlePropertiesKHR")]
 pub struct MemoryWin32HandlePropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_type_bits: u32,
 }
@@ -8566,7 +8566,7 @@ Provided by **VK_KHR_external_memory_win32**.*/
 pub struct MemoryGetWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
@@ -8594,7 +8594,7 @@ Provided by **VK_KHR_external_memory_fd**.*/
 pub struct ImportMemoryFdInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
     pub fd: core::ffi::c_int,
@@ -8614,14 +8614,14 @@ impl Default for ImportMemoryFdInfoKHR {
 /**
 Provided by **VK_KHR_external_memory_fd**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryFdPropertiesKHR")]
 pub struct MemoryFdPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_type_bits: u32,
 }
@@ -8644,7 +8644,7 @@ Provided by **VK_KHR_external_memory_fd**.*/
 pub struct MemoryGetFdInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
@@ -8673,7 +8673,7 @@ Provided by **VK_KHR_win32_keyed_mutex**.*/
 pub struct Win32KeyedMutexAcquireReleaseInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_acquire_timeouts`.
     pub acquire_count: u32,
@@ -8713,10 +8713,10 @@ Provided by **VK_EXT_external_memory_metal**.*/
 pub struct ImportMemoryMetalHandleInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_METAL_HANDLE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub handle: *mut core::ffi::c_void,
 }
 impl Default for ImportMemoryMetalHandleInfoEXT {
@@ -8734,14 +8734,14 @@ impl Default for ImportMemoryMetalHandleInfoEXT {
 /**
 Provided by **VK_EXT_external_memory_metal**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryMetalHandlePropertiesEXT")]
 pub struct MemoryMetalHandlePropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_METAL_HANDLE_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_type_bits: u32,
 }
@@ -8764,7 +8764,7 @@ Provided by **VK_EXT_external_memory_metal**.*/
 pub struct MemoryGetMetalHandleInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_METAL_HANDLE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
@@ -8792,7 +8792,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceExternalSemaphoreInfo {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
 }
@@ -8810,14 +8810,14 @@ impl Default for PhysicalDeviceExternalSemaphoreInfo {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkExternalSemaphoreProperties")]
 pub struct ExternalSemaphoreProperties {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub export_from_imported_handle_types: ExternalSemaphoreHandleTypeFlags,
     pub compatible_handle_types: ExternalSemaphoreHandleTypeFlags,
@@ -8847,7 +8847,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ExportSemaphoreCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalSemaphoreHandleTypeFlags,
 }
@@ -8870,7 +8870,7 @@ Provided by **VK_KHR_external_semaphore_win32**.*/
 pub struct ImportSemaphoreWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub semaphore: Semaphore,
@@ -8905,9 +8905,9 @@ Provided by **VK_KHR_external_semaphore_win32**.*/
 pub struct ExportSemaphoreWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_attributes: *const core::ffi::c_void,
     pub dw_access: u32,
     pub name: *const u16,
@@ -8936,15 +8936,15 @@ Provided by **VK_KHR_external_semaphore_win32**.*/
 pub struct D3D12FenceSubmitInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_wait_semaphore_values`.
     pub wait_semaphore_values_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_wait_semaphore_values: *const u64,
     ///Length of `p_signal_semaphore_values`.
     pub signal_semaphore_values_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_signal_semaphore_values: *const u64,
 }
 impl Default for D3D12FenceSubmitInfoKHR {
@@ -8969,7 +8969,7 @@ Provided by **VK_KHR_external_semaphore_win32**.*/
 pub struct SemaphoreGetWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore: Semaphore,
     pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
@@ -8994,7 +8994,7 @@ Provided by **VK_KHR_external_semaphore_fd**.*/
 pub struct ImportSemaphoreFdInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub semaphore: Semaphore,
@@ -9024,7 +9024,7 @@ Provided by **VK_KHR_external_semaphore_fd**.*/
 pub struct SemaphoreGetFdInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore: Semaphore,
     pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
@@ -9049,7 +9049,7 @@ Provided by **VK_FUCHSIA_external_semaphore**.*/
 pub struct ImportSemaphoreZirconHandleInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_ZIRCON_HANDLE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub semaphore: Semaphore,
@@ -9079,7 +9079,7 @@ Provided by **VK_FUCHSIA_external_semaphore**.*/
 pub struct SemaphoreGetZirconHandleInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_GET_ZIRCON_HANDLE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore: Semaphore,
     pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
@@ -9104,7 +9104,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceExternalFenceInfo {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalFenceHandleTypeFlagBits,
 }
@@ -9122,14 +9122,14 @@ impl Default for PhysicalDeviceExternalFenceInfo {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkExternalFenceProperties")]
 pub struct ExternalFenceProperties {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub export_from_imported_handle_types: ExternalFenceHandleTypeFlags,
     pub compatible_handle_types: ExternalFenceHandleTypeFlags,
@@ -9159,7 +9159,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ExportFenceCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalFenceHandleTypeFlags,
 }
@@ -9182,7 +9182,7 @@ Provided by **VK_KHR_external_fence_win32**.*/
 pub struct ImportFenceWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub fence: Fence,
@@ -9217,9 +9217,9 @@ Provided by **VK_KHR_external_fence_win32**.*/
 pub struct ExportFenceWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_FENCE_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_attributes: *const core::ffi::c_void,
     pub dw_access: u32,
     pub name: *const u16,
@@ -9245,7 +9245,7 @@ Provided by **VK_KHR_external_fence_win32**.*/
 pub struct FenceGetWin32HandleInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub fence: Fence,
     pub handle_type: ExternalFenceHandleTypeFlagBits,
@@ -9270,7 +9270,7 @@ Provided by **VK_KHR_external_fence_fd**.*/
 pub struct ImportFenceFdInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub fence: Fence,
@@ -9300,7 +9300,7 @@ Provided by **VK_KHR_external_fence_fd**.*/
 pub struct FenceGetFdInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub fence: Fence,
     pub handle_type: ExternalFenceHandleTypeFlagBits,
@@ -9326,7 +9326,7 @@ impl Default for FenceGetFdInfoKHR {
 pub struct ExportFenceSciSyncInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_FENCE_SCI_SYNC_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_attributes: *const core::ffi::c_void,
 }
@@ -9347,7 +9347,7 @@ impl Default for ExportFenceSciSyncInfoNV {
 pub struct ImportFenceSciSyncInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_FENCE_SCI_SYNC_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub fence: Fence,
@@ -9373,7 +9373,7 @@ impl Default for ImportFenceSciSyncInfoNV {
 pub struct FenceGetSciSyncInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_FENCE_GET_SCI_SYNC_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub fence: Fence,
     pub handle_type: ExternalFenceHandleTypeFlagBits,
@@ -9399,7 +9399,7 @@ impl Default for FenceGetSciSyncInfoNV {
 pub struct ExportSemaphoreSciSyncInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_SCI_SYNC_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_attributes: *const core::ffi::c_void,
 }
@@ -9420,7 +9420,7 @@ impl Default for ExportSemaphoreSciSyncInfoNV {
 pub struct ImportSemaphoreSciSyncInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_SCI_SYNC_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub semaphore: Semaphore,
@@ -9446,7 +9446,7 @@ impl Default for ImportSemaphoreSciSyncInfoNV {
 pub struct SemaphoreGetSciSyncInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_GET_SCI_SYNC_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore: Semaphore,
     pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
@@ -9469,7 +9469,7 @@ impl Default for SemaphoreGetSciSyncInfoNV {
 pub struct SciSyncAttributesInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_SCI_SYNC_ATTRIBUTES_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub client_type: SciSyncClientTypeNV,
     pub primitive_type: SciSyncPrimitiveTypeNV,
@@ -9496,7 +9496,7 @@ impl Default for SciSyncAttributesInfoNV {
 pub struct PhysicalDeviceExternalSciSyncFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sci_sync_fence: u32,
     pub sci_sync_semaphore: u32,
@@ -9527,7 +9527,7 @@ impl Default for PhysicalDeviceExternalSciSyncFeaturesNV {
 pub struct PhysicalDeviceExternalSciSync2FeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sci_sync_fence: u32,
     pub sci_sync_semaphore2: u32,
@@ -9554,7 +9554,7 @@ impl Default for PhysicalDeviceExternalSciSync2FeaturesNV {
 pub struct SemaphoreSciSyncPoolCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_SCI_SYNC_POOL_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle: *const core::ffi::c_void,
 }
@@ -9578,7 +9578,7 @@ impl Default for SemaphoreSciSyncPoolCreateInfoNV {
 pub struct SemaphoreSciSyncCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_SCI_SYNC_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore_pool: SemaphoreSciSyncPoolNV,
     pub p_fence: *const core::ffi::c_void,
@@ -9604,7 +9604,7 @@ impl Default for SemaphoreSciSyncCreateInfoNV {
 pub struct DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore_sci_sync_pool_request_count: u32,
 }
@@ -9631,7 +9631,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct PhysicalDeviceMultiviewFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub multiview: u32,
     pub multiview_geometry_shader: u32,
@@ -9653,7 +9653,7 @@ impl Default for PhysicalDeviceMultiviewFeatures {
 /**
 Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -9663,7 +9663,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct PhysicalDeviceMultiviewProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_multiview_view_count: u32,
     pub max_multiview_instance_index: u32,
@@ -9691,7 +9691,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct RenderPassMultiviewCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_view_masks`.
     pub subpass_count: u32,
@@ -9722,14 +9722,14 @@ impl Default for RenderPassMultiviewCreateInfo {
 /**
 Provided by **VK_EXT_display_surface_counter**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSurfaceCapabilities2EXT")]
 pub struct SurfaceCapabilities2EXT {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_image_count: u32,
     pub max_image_count: u32,
@@ -9772,7 +9772,7 @@ Provided by **VK_EXT_display_control**.*/
 pub struct DisplayPowerInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub power_state: DisplayPowerStateEXT,
 }
@@ -9795,7 +9795,7 @@ Provided by **VK_EXT_display_control**.*/
 pub struct DeviceEventInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub device_event: DeviceEventTypeEXT,
 }
@@ -9818,7 +9818,7 @@ Provided by **VK_EXT_display_control**.*/
 pub struct DisplayEventInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub display_event: DisplayEventTypeEXT,
 }
@@ -9844,7 +9844,7 @@ Provided by **VK_EXT_display_control**.*/
 pub struct SwapchainCounterCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub surface_counters: SurfaceCounterFlagsEXT,
 }
@@ -9862,14 +9862,14 @@ impl Default for SwapchainCounterCreateInfoEXT {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPhysicalDeviceGroupProperties")]
 pub struct PhysicalDeviceGroupProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub physical_device_count: u32,
     pub physical_devices: [PhysicalDevice; MAX_DEVICE_GROUP_SIZE as usize],
@@ -9899,7 +9899,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct MemoryAllocateFlagsInfo {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: MemoryAllocateFlags,
     pub device_mask: u32,
@@ -9928,7 +9928,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct BindBufferMemoryInfo {
     ///Must be `VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub buffer: Buffer,
@@ -9959,7 +9959,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct BindBufferMemoryDeviceGroupInfo {
     ///Must be `VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_device_indices`.
     pub device_index_count: u32,
@@ -9993,7 +9993,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct BindImageMemoryInfo {
     ///Must be `VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub image: Image,
@@ -10024,7 +10024,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct BindImageMemoryDeviceGroupInfo {
     ///Must be `VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_device_indices`.
     pub device_index_count: u32,
@@ -10059,7 +10059,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct DeviceGroupRenderPassBeginInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub device_mask: u32,
     ///Length of `p_device_render_areas`.
@@ -10090,7 +10090,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct DeviceGroupCommandBufferBeginInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub device_mask: u32,
 }
@@ -10116,7 +10116,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct DeviceGroupSubmitInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_wait_semaphore_device_indices`.
     pub wait_semaphore_count: u32,
@@ -10155,7 +10155,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct DeviceGroupBindSparseInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub resource_device_index: u32,
     pub memory_device_index: u32,
@@ -10175,14 +10175,14 @@ impl Default for DeviceGroupBindSparseInfo {
 /**
 Provided by **VK_KHR_swapchain**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDeviceGroupPresentCapabilitiesKHR")]
 pub struct DeviceGroupPresentCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_mask: [u32; MAX_DEVICE_GROUP_SIZE as usize],
     pub modes: DeviceGroupPresentModeFlagsKHR,
@@ -10210,7 +10210,7 @@ Provided by **VK_KHR_swapchain**.*/
 pub struct ImageSwapchainCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub swapchain: SwapchainKHR,
 }
@@ -10236,7 +10236,7 @@ Provided by **VK_KHR_swapchain**.*/
 pub struct BindImageMemorySwapchainInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub swapchain: SwapchainKHR,
@@ -10262,7 +10262,7 @@ Provided by **VK_KHR_swapchain**.*/
 pub struct AcquireNextImageInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub swapchain: SwapchainKHR,
@@ -10299,7 +10299,7 @@ Provided by **VK_KHR_swapchain**.*/
 pub struct DeviceGroupPresentInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_device_masks`.
     pub swapchain_count: u32,
@@ -10330,7 +10330,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct DeviceGroupDeviceCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_physical_devices`.
     pub physical_device_count: u32,
@@ -10359,7 +10359,7 @@ Provided by **VK_KHR_swapchain**.*/
 pub struct DeviceGroupSwapchainCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub modes: DeviceGroupPresentModeFlagsKHR,
 }
@@ -10402,7 +10402,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct DescriptorUpdateTemplateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DescriptorUpdateTemplateCreateFlags,
     ///Length of `p_descriptor_update_entries`.
@@ -10460,7 +10460,7 @@ Provided by **VK_KHR_present_id**.*/
 pub struct PhysicalDevicePresentIdFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_id: u32,
 }
@@ -10486,11 +10486,11 @@ Provided by **VK_KHR_present_id**.*/
 pub struct PresentIdKHR {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_ID_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_present_ids`.
     pub swapchain_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_present_ids: *const u64,
 }
 impl Default for PresentIdKHR {
@@ -10517,7 +10517,7 @@ Provided by **VK_KHR_present_id2**.*/
 pub struct PhysicalDevicePresentId2FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_2_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_id2: u32,
 }
@@ -10543,11 +10543,11 @@ Provided by **VK_KHR_present_id2**.*/
 pub struct PresentId2KHR {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_ID_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_present_ids`.
     pub swapchain_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_present_ids: *const u64,
 }
 impl Default for PresentId2KHR {
@@ -10570,7 +10570,7 @@ Provided by **VK_KHR_present_wait2**.*/
 pub struct PresentWait2InfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_WAIT_2_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub present_id: u64,
     pub timeout: u64,
@@ -10599,7 +10599,7 @@ Provided by **VK_KHR_present_wait**.*/
 pub struct PhysicalDevicePresentWaitFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_wait: u32,
 }
@@ -10626,7 +10626,7 @@ Provided by **VK_KHR_present_wait2**.*/
 pub struct PhysicalDevicePresentWait2FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_2_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_wait2: u32,
 }
@@ -10653,7 +10653,7 @@ Provided by **VK_EXT_present_timing**.*/
 pub struct PhysicalDevicePresentTimingFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_TIMING_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_timing: u32,
     pub present_at_absolute_time: u32,
@@ -10675,7 +10675,7 @@ impl Default for PhysicalDevicePresentTimingFeaturesEXT {
 /**
 Provided by **VK_EXT_present_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`SurfaceCapabilities2KHR`]
@@ -10685,7 +10685,7 @@ Provided by **VK_EXT_present_timing**.*/
 pub struct PresentTimingSurfaceCapabilitiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_TIMING_SURFACE_CAPABILITIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_timing_supported: u32,
     pub present_at_absolute_time_supported: u32,
@@ -10709,14 +10709,14 @@ impl Default for PresentTimingSurfaceCapabilitiesEXT {
 /**
 Provided by **VK_EXT_present_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSwapchainTimingPropertiesEXT")]
 pub struct SwapchainTimingPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_TIMING_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub refresh_duration: u64,
     pub refresh_interval: u64,
@@ -10736,20 +10736,20 @@ impl Default for SwapchainTimingPropertiesEXT {
 /**
 Provided by **VK_EXT_present_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSwapchainTimeDomainPropertiesEXT")]
 pub struct SwapchainTimeDomainPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_TIME_DOMAIN_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_time_domain_ids`.
     pub time_domain_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_time_domains: *mut TimeDomainKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_time_domain_ids: *mut u64,
 }
 impl Default for SwapchainTimeDomainPropertiesEXT {
@@ -10768,7 +10768,7 @@ impl Default for SwapchainTimeDomainPropertiesEXT {
 /**
 Provided by **VK_EXT_present_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPresentStageTimeEXT")]
@@ -10791,7 +10791,7 @@ Provided by **VK_EXT_present_timing**.*/
 pub struct PastPresentationTimingInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PastPresentationTimingFlagsEXT,
     ///**Thread safety:** must be externally synchronized.
@@ -10812,14 +10812,14 @@ impl Default for PastPresentationTimingInfoEXT {
 /**
 Provided by **VK_EXT_present_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPastPresentationTimingPropertiesEXT")]
 pub struct PastPresentationTimingPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub timing_properties_counter: u64,
     pub time_domains_counter: u64,
@@ -10844,14 +10844,14 @@ impl Default for PastPresentationTimingPropertiesEXT {
 /**
 Provided by **VK_EXT_present_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPastPresentationTimingEXT")]
 pub struct PastPresentationTimingEXT {
     ///Must be `VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_id: u64,
     pub target_time: u64,
@@ -10890,11 +10890,11 @@ Provided by **VK_EXT_present_timing**.*/
 pub struct PresentTimingsInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_TIMINGS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_timing_infos`.
     pub swapchain_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_timing_infos: *const PresentTimingInfoEXT,
 }
 impl Default for PresentTimingsInfoEXT {
@@ -10917,7 +10917,7 @@ Provided by **VK_EXT_present_timing**.*/
 pub struct PresentTimingInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_TIMING_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PresentTimingInfoFlagsEXT,
     pub target_time: u64,
@@ -10951,7 +10951,7 @@ Provided by **VK_EXT_present_timing**.*/
 pub struct SwapchainCalibratedTimestampInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_CALIBRATED_TIMESTAMP_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub swapchain: SwapchainKHR,
     pub present_stage: PresentStageFlagsEXT,
@@ -10981,7 +10981,7 @@ Provided by **VK_EXT_hdr_metadata**.*/
 pub struct HdrMetadataEXT {
     ///Must be `VK_STRUCTURE_TYPE_HDR_METADATA_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub display_primary_red: XYColorEXT,
     pub display_primary_green: XYColorEXT,
@@ -11021,7 +11021,7 @@ Provided by **VK_HUAWEI_hdr_vivid**.*/
 pub struct HdrVividDynamicMetadataHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_HDR_VIVID_DYNAMIC_METADATA_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_dynamic_metadata`.
     pub dynamic_metadata_size: usize,
@@ -11042,7 +11042,7 @@ impl Default for HdrVividDynamicMetadataHUAWEI {
 /**
 Provided by **VK_AMD_display_native_hdr**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`SurfaceCapabilities2KHR`]
@@ -11052,7 +11052,7 @@ Provided by **VK_AMD_display_native_hdr**.*/
 pub struct DisplayNativeHdrSurfaceCapabilitiesAMD {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub local_dimming_support: u32,
 }
@@ -11078,7 +11078,7 @@ Provided by **VK_AMD_display_native_hdr**.*/
 pub struct SwapchainDisplayNativeHdrCreateInfoAMD {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub local_dimming_enable: u32,
 }
@@ -11096,7 +11096,7 @@ impl Default for SwapchainDisplayNativeHdrCreateInfoAMD {
 /**
 Provided by **VK_GOOGLE_display_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkRefreshCycleDurationGOOGLE")]
@@ -11113,7 +11113,7 @@ impl Default for RefreshCycleDurationGOOGLE {
 /**
 Provided by **VK_GOOGLE_display_timing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPastPresentationTimingGOOGLE")]
@@ -11142,11 +11142,11 @@ Provided by **VK_GOOGLE_display_timing**.*/
 pub struct PresentTimesInfoGOOGLE {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_times`.
     pub swapchain_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_times: *const PresentTimeGOOGLE,
 }
 impl Default for PresentTimesInfoGOOGLE {
@@ -11185,7 +11185,7 @@ Provided by **VK_MVK_ios_surface**.*/
 pub struct IOSSurfaceCreateInfoMVK {
     ///Must be `VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: IOSSurfaceCreateFlagsMVK,
     pub p_view: *const core::ffi::c_void,
@@ -11210,7 +11210,7 @@ Provided by **VK_MVK_macos_surface**.*/
 pub struct MacOSSurfaceCreateInfoMVK {
     ///Must be `VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: MacOSSurfaceCreateFlagsMVK,
     pub p_view: *const core::ffi::c_void,
@@ -11235,7 +11235,7 @@ Provided by **VK_EXT_metal_surface**.*/
 pub struct MetalSurfaceCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_METAL_SURFACE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: MetalSurfaceCreateFlagsEXT,
     pub p_layer: *const core::ffi::c_void,
@@ -11279,12 +11279,12 @@ Provided by **VK_NV_clip_space_w_scaling**.*/
 pub struct PipelineViewportWScalingStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub viewport_w_scaling_enable: u32,
     ///Length of `p_viewport_w_scalings`.
     pub viewport_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_viewport_w_scalings: *const ViewportWScalingNV,
 }
 impl Default for PipelineViewportWScalingStateCreateInfoNV {
@@ -11329,7 +11329,7 @@ Provided by **VK_NV_viewport_swizzle**.*/
 pub struct PipelineViewportSwizzleStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineViewportSwizzleStateCreateFlagsNV,
     ///Length of `p_viewport_swizzles`.
@@ -11352,7 +11352,7 @@ impl Default for PipelineViewportSwizzleStateCreateInfoNV {
 /**
 Provided by **VK_EXT_discard_rectangles**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -11362,7 +11362,7 @@ Provided by **VK_EXT_discard_rectangles**.*/
 pub struct PhysicalDeviceDiscardRectanglePropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_discard_rectangles: u32,
 }
@@ -11388,7 +11388,7 @@ Provided by **VK_EXT_discard_rectangles**.*/
 pub struct PipelineDiscardRectangleStateCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineDiscardRectangleStateCreateFlagsEXT,
     pub discard_rectangle_mode: DiscardRectangleModeEXT,
@@ -11413,7 +11413,7 @@ impl Default for PipelineDiscardRectangleStateCreateInfoEXT {
 /**
 Provided by **VK_NVX_multiview_per_view_attributes**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -11423,7 +11423,7 @@ Provided by **VK_NVX_multiview_per_view_attributes**.*/
 pub struct PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub per_view_position_all_components: u32,
 }
@@ -11466,7 +11466,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct RenderPassInputAttachmentAspectCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_aspect_references`.
     pub aspect_reference_count: u32,
@@ -11497,7 +11497,7 @@ Provided by **VK_KHR_get_surface_capabilities2**.*/
 pub struct PhysicalDeviceSurfaceInfo2KHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub surface: SurfaceKHR,
 }
@@ -11515,7 +11515,7 @@ impl Default for PhysicalDeviceSurfaceInfo2KHR {
 /**
 Provided by **VK_KHR_get_surface_capabilities2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`DisplayNativeHdrSurfaceCapabilitiesAMD`]
@@ -11535,7 +11535,7 @@ Provided by **VK_KHR_get_surface_capabilities2**.*/
 pub struct SurfaceCapabilities2KHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub surface_capabilities: SurfaceCapabilitiesKHR,
 }
@@ -11553,7 +11553,7 @@ impl Default for SurfaceCapabilities2KHR {
 /**
 Provided by **VK_KHR_get_surface_capabilities2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`ImageCompressionPropertiesEXT`]
@@ -11563,7 +11563,7 @@ Provided by **VK_KHR_get_surface_capabilities2**.*/
 pub struct SurfaceFormat2KHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub surface_format: SurfaceFormatKHR,
 }
@@ -11581,14 +11581,14 @@ impl Default for SurfaceFormat2KHR {
 /**
 Provided by **VK_KHR_get_display_properties2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDisplayProperties2KHR")]
 pub struct DisplayProperties2KHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_PROPERTIES_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub display_properties: DisplayPropertiesKHR,
 }
@@ -11606,14 +11606,14 @@ impl Default for DisplayProperties2KHR {
 /**
 Provided by **VK_KHR_get_display_properties2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDisplayPlaneProperties2KHR")]
 pub struct DisplayPlaneProperties2KHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_PLANE_PROPERTIES_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub display_plane_properties: DisplayPlanePropertiesKHR,
 }
@@ -11631,7 +11631,7 @@ impl Default for DisplayPlaneProperties2KHR {
 /**
 Provided by **VK_KHR_get_display_properties2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`DisplayModeStereoPropertiesNV`]
@@ -11641,7 +11641,7 @@ Provided by **VK_KHR_get_display_properties2**.*/
 pub struct DisplayModeProperties2KHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_MODE_PROPERTIES_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub display_mode_properties: DisplayModePropertiesKHR,
 }
@@ -11659,7 +11659,7 @@ impl Default for DisplayModeProperties2KHR {
 /**
 Provided by **VK_NV_display_stereo**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`DisplayModeProperties2KHR`]
@@ -11669,7 +11669,7 @@ Provided by **VK_NV_display_stereo**.*/
 pub struct DisplayModeStereoPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_MODE_STEREO_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub hdmi3_d_supported: u32,
 }
@@ -11692,7 +11692,7 @@ Provided by **VK_KHR_get_display_properties2**.*/
 pub struct DisplayPlaneInfo2KHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_PLANE_INFO_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub mode: DisplayModeKHR,
@@ -11713,14 +11713,14 @@ impl Default for DisplayPlaneInfo2KHR {
 /**
 Provided by **VK_KHR_get_display_properties2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDisplayPlaneCapabilities2KHR")]
 pub struct DisplayPlaneCapabilities2KHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPLAY_PLANE_CAPABILITIES_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub capabilities: DisplayPlaneCapabilitiesKHR,
 }
@@ -11738,7 +11738,7 @@ impl Default for DisplayPlaneCapabilities2KHR {
 /**
 Provided by **VK_KHR_shared_presentable_image**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`SurfaceCapabilities2KHR`]
@@ -11748,7 +11748,7 @@ Provided by **VK_KHR_shared_presentable_image**.*/
 pub struct SharedPresentSurfaceCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shared_present_supported_usage_flags: ImageUsageFlags,
 }
@@ -11775,7 +11775,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct PhysicalDevice16BitStorageFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub storage_buffer16_bit_access: u32,
     pub uniform_and_storage_buffer16_bit_access: u32,
@@ -11799,7 +11799,7 @@ impl Default for PhysicalDevice16BitStorageFeatures {
 /**
 Provided by **VK_COMPUTE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -11809,7 +11809,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct PhysicalDeviceSubgroupProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub subgroup_size: u32,
     pub supported_stages: ShaderStageFlags,
@@ -11842,7 +11842,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_subgroup_extended_types: u32,
 }
@@ -11865,7 +11865,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct BufferMemoryRequirementsInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: Buffer,
 }
@@ -11888,7 +11888,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct DeviceBufferMemoryRequirements {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_create_info: *const BufferCreateInfo,
 }
@@ -11914,7 +11914,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ImageMemoryRequirementsInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
 }
@@ -11937,7 +11937,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ImageSparseMemoryRequirementsInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
 }
@@ -11960,7 +11960,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct DeviceImageMemoryRequirements {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_create_info: *const ImageCreateInfo,
     pub plane_aspect: ImageAspectFlagBits,
@@ -11980,7 +11980,7 @@ impl Default for DeviceImageMemoryRequirements {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`MemoryDedicatedRequirements`]
@@ -11991,7 +11991,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct MemoryRequirements2 {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_requirements: MemoryRequirements,
 }
@@ -12009,14 +12009,14 @@ impl Default for MemoryRequirements2 {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkSparseImageMemoryRequirements2")]
 pub struct SparseImageMemoryRequirements2 {
     ///Must be `VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_requirements: SparseImageMemoryRequirements,
 }
@@ -12034,7 +12034,7 @@ impl Default for SparseImageMemoryRequirements2 {
 /**
 Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -12044,7 +12044,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct PhysicalDevicePointClippingProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub point_clipping_behavior: PointClippingBehavior,
 }
@@ -12062,7 +12062,7 @@ impl Default for PhysicalDevicePointClippingProperties {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`MemoryRequirements2`]
@@ -12072,7 +12072,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct MemoryDedicatedRequirements {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub prefers_dedicated_allocation: u32,
     pub requires_dedicated_allocation: u32,
@@ -12100,7 +12100,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct MemoryDedicatedAllocateInfo {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
     pub buffer: Buffer,
@@ -12128,7 +12128,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ImageViewUsageCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub usage: ImageUsageFlags,
 }
@@ -12154,7 +12154,7 @@ Provided by **VK_EXT_image_sliced_view_of_3d**.*/
 pub struct ImageViewSlicedCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_SLICED_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub slice_offset: u32,
     pub slice_count: u32,
@@ -12182,7 +12182,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct PipelineTessellationDomainOriginStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub domain_origin: TessellationDomainOrigin,
 }
@@ -12209,7 +12209,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct SamplerYcbcrConversionInfo {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub conversion: SamplerYcbcrConversion,
 }
@@ -12238,7 +12238,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct SamplerYcbcrConversionCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub format: Format,
     pub ycbcr_model: SamplerYcbcrModelConversion,
@@ -12278,7 +12278,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct BindImagePlaneMemoryInfo {
     ///Must be `VK_STRUCTURE_TYPE_BIND_IMAGE_PLANE_MEMORY_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub plane_aspect: ImageAspectFlagBits,
 }
@@ -12304,7 +12304,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ImagePlaneMemoryRequirementsInfo {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub plane_aspect: ImageAspectFlagBits,
 }
@@ -12331,7 +12331,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct PhysicalDeviceSamplerYcbcrConversionFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sampler_ycbcr_conversion: u32,
 }
@@ -12349,7 +12349,7 @@ impl Default for PhysicalDeviceSamplerYcbcrConversionFeatures {
 /**
 Provided by **VK_COMPUTE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -12359,7 +12359,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct SamplerYcbcrConversionImageFormatProperties {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub combined_image_sampler_descriptor_count: u32,
 }
@@ -12377,7 +12377,7 @@ impl Default for SamplerYcbcrConversionImageFormatProperties {
 /**
 Provided by **VK_AMD_texture_gather_bias_lod**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -12387,7 +12387,7 @@ Provided by **VK_AMD_texture_gather_bias_lod**.*/
 pub struct TextureLODGatherFormatPropertiesAMD {
     ///Must be `VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supports_texture_gather_lod_bias_amd: u32,
 }
@@ -12410,7 +12410,7 @@ Provided by **VK_EXT_conditional_rendering**.*/
 pub struct ConditionalRenderingBeginInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: Buffer,
     pub offset: u64,
@@ -12440,7 +12440,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct ProtectedSubmitInfo {
     ///Must be `VK_STRUCTURE_TYPE_PROTECTED_SUBMIT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub protected_submit: u32,
 }
@@ -12467,7 +12467,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceProtectedMemoryFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub protected_memory: u32,
 }
@@ -12485,7 +12485,7 @@ impl Default for PhysicalDeviceProtectedMemoryFeatures {
 /**
 Provided by **VK_BASE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -12495,7 +12495,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct PhysicalDeviceProtectedMemoryProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub protected_no_fault: u32,
 }
@@ -12518,7 +12518,7 @@ Provided by **VK_BASE_VERSION_1_1**.*/
 pub struct DeviceQueueInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_QUEUE_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DeviceQueueCreateFlags,
     pub queue_family_index: u32,
@@ -12548,7 +12548,7 @@ Provided by **VK_NV_fragment_coverage_to_color**.*/
 pub struct PipelineCoverageToColorStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCoverageToColorStateCreateFlagsNV,
     pub coverage_to_color_enable: u32,
@@ -12570,7 +12570,7 @@ impl Default for PipelineCoverageToColorStateCreateInfoNV {
 /**
 Provided by **VK_COMPUTE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -12580,7 +12580,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceSamplerFilterMinmaxProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub filter_minmax_single_component_formats: u32,
     pub filter_minmax_image_component_mapping: u32,
@@ -12625,7 +12625,7 @@ Provided by **VK_EXT_sample_locations**.*/
 pub struct SampleLocationsInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub sample_locations_per_pixel: SampleCountFlagBits,
     pub sample_location_grid_size: Extent2D,
@@ -12690,7 +12690,7 @@ Provided by **VK_EXT_sample_locations**.*/
 pub struct RenderPassSampleLocationsBeginInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_attachment_initial_sample_locations`.
     pub attachment_initial_sample_locations_count: u32,
@@ -12724,7 +12724,7 @@ Provided by **VK_EXT_sample_locations**.*/
 pub struct PipelineSampleLocationsStateCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub sample_locations_enable: u32,
     pub sample_locations_info: SampleLocationsInfoEXT,
@@ -12744,7 +12744,7 @@ impl Default for PipelineSampleLocationsStateCreateInfoEXT {
 /**
 Provided by **VK_EXT_sample_locations**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -12754,7 +12754,7 @@ Provided by **VK_EXT_sample_locations**.*/
 pub struct PhysicalDeviceSampleLocationsPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sample_location_sample_counts: SampleCountFlags,
     pub max_sample_location_grid_size: Extent2D,
@@ -12780,14 +12780,14 @@ impl Default for PhysicalDeviceSampleLocationsPropertiesEXT {
 /**
 Provided by **VK_EXT_sample_locations**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMultisamplePropertiesEXT")]
 pub struct MultisamplePropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_MULTISAMPLE_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_sample_location_grid_size: Extent2D,
 }
@@ -12813,7 +12813,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct SamplerReductionModeCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub reduction_mode: SamplerReductionMode,
 }
@@ -12840,7 +12840,7 @@ Provided by **VK_EXT_blend_operation_advanced**.*/
 pub struct PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub advanced_blend_coherent_operations: u32,
 }
@@ -12867,7 +12867,7 @@ Provided by **VK_EXT_multi_draw**.*/
 pub struct PhysicalDeviceMultiDrawFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub multi_draw: u32,
 }
@@ -12885,7 +12885,7 @@ impl Default for PhysicalDeviceMultiDrawFeaturesEXT {
 /**
 Provided by **VK_EXT_blend_operation_advanced**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -12895,7 +12895,7 @@ Provided by **VK_EXT_blend_operation_advanced**.*/
 pub struct PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub advanced_blend_max_color_attachments: u32,
     pub advanced_blend_independent_blend: u32,
@@ -12931,7 +12931,7 @@ Provided by **VK_EXT_blend_operation_advanced**.*/
 pub struct PipelineColorBlendAdvancedStateCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_premultiplied: u32,
     pub dst_premultiplied: u32,
@@ -12962,7 +12962,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceInlineUniformBlockFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub inline_uniform_block: u32,
     pub descriptor_binding_inline_uniform_block_update_after_bind: u32,
@@ -12982,7 +12982,7 @@ impl Default for PhysicalDeviceInlineUniformBlockFeatures {
 /**
 Provided by **VK_COMPUTE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -12992,7 +12992,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceInlineUniformBlockProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_inline_uniform_block_size: u32,
     pub max_per_stage_descriptor_inline_uniform_blocks: u32,
@@ -13026,7 +13026,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct WriteDescriptorSetInlineUniformBlock {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_data`.
     pub data_size: u32,
@@ -13055,7 +13055,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct DescriptorPoolInlineUniformBlockCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_inline_uniform_block_bindings: u32,
 }
@@ -13081,14 +13081,14 @@ Provided by **VK_NV_framebuffer_mixed_samples**.*/
 pub struct PipelineCoverageModulationStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCoverageModulationStateCreateFlagsNV,
     pub coverage_modulation_mode: CoverageModulationModeNV,
     pub coverage_modulation_table_enable: u32,
     ///Length of `p_coverage_modulation_table`.
     pub coverage_modulation_table_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_coverage_modulation_table: *const f32,
 }
 impl Default for PipelineCoverageModulationStateCreateInfoNV {
@@ -13119,7 +13119,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct ImageFormatListCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_view_formats`.
     pub view_format_count: u32,
@@ -13145,7 +13145,7 @@ Provided by **VK_EXT_validation_cache**.*/
 pub struct ValidationCacheCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ValidationCacheCreateFlagsEXT,
     ///Length of `p_initial_data`.
@@ -13177,7 +13177,7 @@ Provided by **VK_EXT_validation_cache**.*/
 pub struct ShaderModuleValidationCacheCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub validation_cache: ValidationCacheEXT,
 }
@@ -13195,7 +13195,7 @@ impl Default for ShaderModuleValidationCacheCreateInfoEXT {
 /**
 Provided by **VK_COMPUTE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13205,7 +13205,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct PhysicalDeviceMaintenance3Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_per_set_descriptors: u32,
     pub max_memory_allocation_size: u64,
@@ -13234,7 +13234,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PhysicalDeviceMaintenance4Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub maintenance4: u32,
 }
@@ -13252,7 +13252,7 @@ impl Default for PhysicalDeviceMaintenance4Features {
 /**
 Provided by **VK_BASE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13262,7 +13262,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PhysicalDeviceMaintenance4Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_buffer_size: u64,
 }
@@ -13289,7 +13289,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceMaintenance5Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub maintenance5: u32,
 }
@@ -13307,7 +13307,7 @@ impl Default for PhysicalDeviceMaintenance5Features {
 /**
 Provided by **VK_BASE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13317,7 +13317,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceMaintenance5Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub early_fragment_multisample_coverage_after_sample_counting: u32,
     pub early_fragment_sample_mask_test_before_sample_counting: u32,
@@ -13354,7 +13354,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceMaintenance6Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub maintenance6: u32,
 }
@@ -13372,7 +13372,7 @@ impl Default for PhysicalDeviceMaintenance6Features {
 /**
 Provided by **VK_BASE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13382,7 +13382,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceMaintenance6Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub block_texel_view_compatible_multiple_layers: u32,
     pub max_combined_image_sampler_descriptor_count: u32,
@@ -13413,7 +13413,7 @@ Provided by **VK_KHR_maintenance7**.*/
 pub struct PhysicalDeviceMaintenance7FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_7_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub maintenance7: u32,
 }
@@ -13431,7 +13431,7 @@ impl Default for PhysicalDeviceMaintenance7FeaturesKHR {
 /**
 Provided by **VK_KHR_maintenance7**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13441,7 +13441,7 @@ Provided by **VK_KHR_maintenance7**.*/
 pub struct PhysicalDeviceMaintenance7PropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_7_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub robust_fragment_shading_rate_attachment_access: u32,
     pub separate_depth_stencil_attachment_access: u32,
@@ -13481,11 +13481,11 @@ Provided by **VK_KHR_maintenance7**.*/
 pub struct PhysicalDeviceLayeredApiPropertiesListKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_LIST_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_layered_apis`.
     pub layered_api_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_layered_apis: *mut PhysicalDeviceLayeredApiPropertiesKHR,
 }
 impl Default for PhysicalDeviceLayeredApiPropertiesListKHR {
@@ -13503,7 +13503,7 @@ impl Default for PhysicalDeviceLayeredApiPropertiesListKHR {
 /**
 Provided by **VK_KHR_maintenance7**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`PhysicalDeviceLayeredApiVulkanPropertiesKHR`]
@@ -13513,7 +13513,7 @@ Provided by **VK_KHR_maintenance7**.*/
 pub struct PhysicalDeviceLayeredApiPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub vendor_id: u32,
     pub device_id: u32,
@@ -13537,7 +13537,7 @@ impl Default for PhysicalDeviceLayeredApiPropertiesKHR {
 /**
 Provided by **VK_KHR_maintenance7**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceLayeredApiPropertiesKHR`]
@@ -13547,7 +13547,7 @@ Provided by **VK_KHR_maintenance7**.*/
 pub struct PhysicalDeviceLayeredApiVulkanPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub properties: PhysicalDeviceProperties2,
 }
@@ -13574,7 +13574,7 @@ Provided by **VK_KHR_maintenance8**.*/
 pub struct PhysicalDeviceMaintenance8FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub maintenance8: u32,
 }
@@ -13601,7 +13601,7 @@ Provided by **VK_KHR_maintenance9**.*/
 pub struct PhysicalDeviceMaintenance9FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub maintenance9: u32,
 }
@@ -13619,7 +13619,7 @@ impl Default for PhysicalDeviceMaintenance9FeaturesKHR {
 /**
 Provided by **VK_KHR_maintenance9**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13629,7 +13629,7 @@ Provided by **VK_KHR_maintenance9**.*/
 pub struct PhysicalDeviceMaintenance9PropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image2_d_view_of3_d_sparse: u32,
     pub default_vertex_attribute_value: DefaultVertexAttributeValueKHR,
@@ -13649,7 +13649,7 @@ impl Default for PhysicalDeviceMaintenance9PropertiesKHR {
 /**
 Provided by **VK_KHR_maintenance10**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13659,7 +13659,7 @@ Provided by **VK_KHR_maintenance10**.*/
 pub struct PhysicalDeviceMaintenance10PropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_10_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub rgba4_opaque_black_swizzled: u32,
     pub resolve_srgb_format_applies_transfer_function: u32,
@@ -13690,7 +13690,7 @@ Provided by **VK_KHR_maintenance10**.*/
 pub struct PhysicalDeviceMaintenance10FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_10_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub maintenance10: u32,
 }
@@ -13708,7 +13708,7 @@ impl Default for PhysicalDeviceMaintenance10FeaturesKHR {
 /**
 Provided by **VK_KHR_maintenance9**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`QueueFamilyProperties2`]
@@ -13718,7 +13718,7 @@ Provided by **VK_KHR_maintenance9**.*/
 pub struct QueueFamilyOwnershipTransferPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_OWNERSHIP_TRANSFER_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub optimal_image_transfer_to_queue_families: u32,
 }
@@ -13741,7 +13741,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct RenderingAreaInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_AREA_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub view_mask: u32,
     ///Length of `p_color_attachment_formats`.
@@ -13768,7 +13768,7 @@ impl Default for RenderingAreaInfo {
 /**
 Provided by **VK_COMPUTE_VERSION_1_1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`DescriptorSetVariableDescriptorCountLayoutSupport`]
@@ -13778,7 +13778,7 @@ Provided by **VK_COMPUTE_VERSION_1_1**.*/
 pub struct DescriptorSetLayoutSupport {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_SUPPORT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supported: u32,
 }
@@ -13805,7 +13805,7 @@ Provided by **VK_GRAPHICS_VERSION_1_1**.*/
 pub struct PhysicalDeviceShaderDrawParametersFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_draw_parameters: u32,
 }
@@ -13832,7 +13832,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceShaderFloat16Int8Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_float16: u32,
     pub shader_int8: u32,
@@ -13852,7 +13852,7 @@ impl Default for PhysicalDeviceShaderFloat16Int8Features {
 /**
 Provided by **VK_COMPUTE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -13862,7 +13862,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceFloatControlsProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub denorm_behavior_independence: ShaderFloatControlsIndependence,
     pub rounding_mode_independence: ShaderFloatControlsIndependence,
@@ -13921,7 +13921,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceHostQueryResetFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub host_query_reset: u32,
 }
@@ -13960,7 +13960,7 @@ impl Default for NativeBufferUsage2ANDROID {
 pub struct NativeBufferANDROID {
     ///Must be `VK_STRUCTURE_TYPE_NATIVE_BUFFER_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle: *const core::ffi::c_void,
     pub stride: core::ffi::c_int,
@@ -13992,7 +13992,7 @@ impl Default for NativeBufferANDROID {
 pub struct SwapchainImageCreateInfoANDROID {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_IMAGE_CREATE_INFO_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub usage: SwapchainImageUsageFlagsANDROID,
 }
@@ -14008,7 +14008,7 @@ impl Default for SwapchainImageCreateInfoANDROID {
 }
 ///[`VkPhysicalDevicePresentationPropertiesANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePresentationPropertiesANDROID.html)
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -14018,7 +14018,7 @@ impl Default for SwapchainImageCreateInfoANDROID {
 pub struct PhysicalDevicePresentationPropertiesANDROID {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENTATION_PROPERTIES_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shared_image: u32,
 }
@@ -14036,7 +14036,7 @@ impl Default for PhysicalDevicePresentationPropertiesANDROID {
 /**
 Provided by **VK_AMD_shader_info**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkShaderResourceUsageAMD")]
@@ -14057,7 +14057,7 @@ impl Default for ShaderResourceUsageAMD {
 /**
 Provided by **VK_AMD_shader_info**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkShaderStatisticsInfoAMD")]
@@ -14088,7 +14088,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct DeviceQueueGlobalPriorityCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub global_priority: QueueGlobalPriority,
 }
@@ -14115,7 +14115,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceGlobalPriorityQueryFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub global_priority_query: u32,
 }
@@ -14133,7 +14133,7 @@ impl Default for PhysicalDeviceGlobalPriorityQueryFeatures {
 /**
 Provided by **VK_BASE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`QueueFamilyProperties2`]
@@ -14143,7 +14143,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct QueueFamilyGlobalPriorityProperties {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub priority_count: u32,
     pub priorities: [QueueGlobalPriority; MAX_GLOBAL_PRIORITY_SIZE as usize],
@@ -14173,11 +14173,11 @@ Provided by **VK_EXT_debug_utils**.*/
 pub struct DebugUtilsObjectNameInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub object_type: ObjectType,
     pub object_handle: u64,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_object_name: *const core::ffi::c_char,
 }
 impl Default for DebugUtilsObjectNameInfoEXT {
@@ -14201,7 +14201,7 @@ Provided by **VK_EXT_debug_utils**.*/
 pub struct DebugUtilsObjectTagInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_TAG_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub object_type: ObjectType,
     ///**Thread safety:** must be externally synchronized.
@@ -14234,7 +14234,7 @@ Provided by **VK_EXT_debug_utils**.*/
 pub struct DebugUtilsLabelEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_label_name: *const core::ffi::c_char,
     pub color: [f32; 4usize],
@@ -14262,13 +14262,13 @@ Provided by **VK_EXT_debug_utils**.*/
 pub struct DebugUtilsMessengerCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DebugUtilsMessengerCreateFlagsEXT,
     pub message_severity: DebugUtilsMessageSeverityFlagsEXT,
     pub message_type: DebugUtilsMessageTypeFlagsEXT,
     pub pfn_user_callback: PFN_vkDebugUtilsMessengerCallbackEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_user_data: *mut core::ffi::c_void,
 }
 impl Default for DebugUtilsMessengerCreateInfoEXT {
@@ -14297,13 +14297,13 @@ Provided by **VK_EXT_debug_utils**.*/
 pub struct DebugUtilsMessengerCallbackDataEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DebugUtilsMessengerCallbackDataFlagsEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_message_id_name: *const core::ffi::c_char,
     pub message_id_number: i32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_message: *const core::ffi::c_char,
     ///Length of `p_queue_labels`.
     pub queue_label_count: u32,
@@ -14347,7 +14347,7 @@ Provided by **VK_EXT_device_memory_report**.*/
 pub struct PhysicalDeviceDeviceMemoryReportFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_memory_report: u32,
 }
@@ -14373,11 +14373,11 @@ Provided by **VK_EXT_device_memory_report**.*/
 pub struct DeviceDeviceMemoryReportCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DeviceMemoryReportFlagsEXT,
     pub pfn_user_callback: PFN_vkDeviceMemoryReportCallbackEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_user_data: *mut core::ffi::c_void,
 }
 impl Default for DeviceDeviceMemoryReportCreateInfoEXT {
@@ -14396,14 +14396,14 @@ impl Default for DeviceDeviceMemoryReportCreateInfoEXT {
 /**
 Provided by **VK_EXT_device_memory_report**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDeviceMemoryReportCallbackDataEXT")]
 pub struct DeviceMemoryReportCallbackDataEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: DeviceMemoryReportFlagsEXT,
     pub r#type: DeviceMemoryReportEventTypeEXT,
@@ -14441,7 +14441,7 @@ Provided by **VK_EXT_external_memory_host**.*/
 pub struct ImportMemoryHostPointerInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_HOST_POINTER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
     pub p_host_pointer: *mut core::ffi::c_void,
@@ -14461,14 +14461,14 @@ impl Default for ImportMemoryHostPointerInfoEXT {
 /**
 Provided by **VK_EXT_external_memory_host**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkMemoryHostPointerPropertiesEXT")]
 pub struct MemoryHostPointerPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_HOST_POINTER_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_type_bits: u32,
 }
@@ -14486,7 +14486,7 @@ impl Default for MemoryHostPointerPropertiesEXT {
 /**
 Provided by **VK_EXT_external_memory_host**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -14496,7 +14496,7 @@ Provided by **VK_EXT_external_memory_host**.*/
 pub struct PhysicalDeviceExternalMemoryHostPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_imported_host_pointer_alignment: u64,
 }
@@ -14514,7 +14514,7 @@ impl Default for PhysicalDeviceExternalMemoryHostPropertiesEXT {
 /**
 Provided by **VK_EXT_conservative_rasterization**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -14524,7 +14524,7 @@ Provided by **VK_EXT_conservative_rasterization**.*/
 pub struct PhysicalDeviceConservativeRasterizationPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub primitive_overestimation_size: f32,
     pub max_extra_primitive_overestimation_size: f32,
@@ -14566,7 +14566,7 @@ Provided by **VK_KHR_calibrated_timestamps**.*/
 pub struct CalibratedTimestampInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub time_domain: TimeDomainKHR,
 }
@@ -14584,7 +14584,7 @@ impl Default for CalibratedTimestampInfoKHR {
 /**
 Provided by **VK_AMD_shader_core_properties**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -14594,7 +14594,7 @@ Provided by **VK_AMD_shader_core_properties**.*/
 pub struct PhysicalDeviceShaderCorePropertiesAMD {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_engine_count: u32,
     pub shader_arrays_per_engine_count: u32,
@@ -14638,7 +14638,7 @@ impl Default for PhysicalDeviceShaderCorePropertiesAMD {
 /**
 Provided by **VK_AMD_shader_core_properties2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -14648,7 +14648,7 @@ Provided by **VK_AMD_shader_core_properties2**.*/
 pub struct PhysicalDeviceShaderCoreProperties2AMD {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_core_features: ShaderCorePropertiesFlagsAMD,
     pub active_compute_unit_count: u32,
@@ -14676,7 +14676,7 @@ Provided by **VK_EXT_conservative_rasterization**.*/
 pub struct PipelineRasterizationConservativeStateCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineRasterizationConservativeStateCreateFlagsEXT,
     pub conservative_rasterization_mode: ConservativeRasterizationModeEXT,
@@ -14707,7 +14707,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceDescriptorIndexingFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_input_attachment_array_dynamic_indexing: u32,
     pub shader_uniform_texel_buffer_array_dynamic_indexing: u32,
@@ -14763,7 +14763,7 @@ impl Default for PhysicalDeviceDescriptorIndexingFeatures {
 /**
 Provided by **VK_COMPUTE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -14773,7 +14773,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceDescriptorIndexingProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_update_after_bind_descriptors_in_all_pools: u32,
     pub shader_uniform_buffer_array_non_uniform_indexing_native: u32,
@@ -14843,11 +14843,11 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct DescriptorSetLayoutBindingFlagsCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_binding_flags`.
     pub binding_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_binding_flags: *const DescriptorBindingFlags,
 }
 impl Default for DescriptorSetLayoutBindingFlagsCreateInfo {
@@ -14873,7 +14873,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct DescriptorSetVariableDescriptorCountAllocateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_descriptor_counts`.
     pub descriptor_set_count: u32,
@@ -14894,7 +14894,7 @@ impl Default for DescriptorSetVariableDescriptorCountAllocateInfo {
 /**
 Provided by **VK_COMPUTE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`DescriptorSetLayoutSupport`]
@@ -14904,7 +14904,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct DescriptorSetVariableDescriptorCountLayoutSupport {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_variable_descriptor_count: u32,
 }
@@ -14932,7 +14932,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct AttachmentDescription2 {
     ///Must be `VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: AttachmentDescriptionFlags,
     pub format: Format,
@@ -14974,7 +14974,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct AttachmentReference2 {
     ///Must be `VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub attachment: u32,
     pub layout: ImageLayout,
@@ -15008,7 +15008,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct SubpassDescription2 {
     ///Must be `VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: SubpassDescriptionFlags,
     pub pipeline_bind_point: PipelineBindPoint,
@@ -15019,9 +15019,9 @@ pub struct SubpassDescription2 {
     ///Length of `p_resolve_attachments`.
     pub color_attachment_count: u32,
     pub p_color_attachments: *const AttachmentReference2,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_resolve_attachments: *const AttachmentReference2,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_depth_stencil_attachment: *const AttachmentReference2,
     ///Length of `p_preserve_attachments`.
     pub preserve_attachment_count: u32,
@@ -15060,7 +15060,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct SubpassDependency2 {
     ///Must be `VK_STRUCTURE_TYPE_SUBPASS_DEPENDENCY_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_subpass: u32,
     pub dst_subpass: u32,
@@ -15104,7 +15104,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct RenderPassCreateInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: RenderPassCreateFlags,
     ///Length of `p_attachments`.
@@ -15147,7 +15147,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct SubpassBeginInfo {
     ///Must be `VK_STRUCTURE_TYPE_SUBPASS_BEGIN_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub contents: SubpassContents,
 }
@@ -15173,7 +15173,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct SubpassEndInfo {
     ///Must be `VK_STRUCTURE_TYPE_SUBPASS_END_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
 }
 impl Default for SubpassEndInfo {
@@ -15198,7 +15198,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceTimelineSemaphoreFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub timeline_semaphore: u32,
 }
@@ -15216,7 +15216,7 @@ impl Default for PhysicalDeviceTimelineSemaphoreFeatures {
 /**
 Provided by **VK_BASE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -15226,7 +15226,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceTimelineSemaphoreProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_timeline_semaphore_value_difference: u64,
 }
@@ -15253,7 +15253,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct SemaphoreTypeCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore_type: SemaphoreType,
     pub initial_value: u64,
@@ -15282,15 +15282,15 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct TimelineSemaphoreSubmitInfo {
     ///Must be `VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_wait_semaphore_values`.
     pub wait_semaphore_value_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_wait_semaphore_values: *const u64,
     ///Length of `p_signal_semaphore_values`.
     pub signal_semaphore_value_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_signal_semaphore_values: *const u64,
 }
 impl Default for TimelineSemaphoreSubmitInfo {
@@ -15315,7 +15315,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct SemaphoreWaitInfo {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: SemaphoreWaitFlags,
     ///Length of `p_values`.
@@ -15345,7 +15345,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct SemaphoreSignalInfo {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_SIGNAL_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore: Semaphore,
     pub value: u64,
@@ -15389,7 +15389,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct PipelineVertexInputDivisorStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_vertex_binding_divisors`.
     pub vertex_binding_divisor_count: u32,
@@ -15410,7 +15410,7 @@ impl Default for PipelineVertexInputDivisorStateCreateInfo {
 /**
 Provided by **VK_EXT_vertex_attribute_divisor**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -15420,7 +15420,7 @@ Provided by **VK_EXT_vertex_attribute_divisor**.*/
 pub struct PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_vertex_attrib_divisor: u32,
 }
@@ -15438,7 +15438,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
 /**
 Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -15448,7 +15448,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct PhysicalDeviceVertexAttributeDivisorProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_vertex_attrib_divisor: u32,
     pub supports_non_zero_first_instance: u32,
@@ -15468,7 +15468,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorProperties {
 /**
 Provided by **VK_EXT_pci_bus_info**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -15478,7 +15478,7 @@ Provided by **VK_EXT_pci_bus_info**.*/
 pub struct PhysicalDevicePCIBusInfoPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pci_domain: u32,
     pub pci_bus: u32,
@@ -15510,7 +15510,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 pub struct ImportAndroidHardwareBufferInfoANDROID {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_ANDROID_HARDWARE_BUFFER_INFO_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: *mut core::ffi::c_void,
 }
@@ -15528,7 +15528,7 @@ impl Default for ImportAndroidHardwareBufferInfoANDROID {
 /**
 Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -15538,7 +15538,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 pub struct AndroidHardwareBufferUsageANDROID {
     ///Must be `VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_USAGE_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub android_hardware_buffer_usage: u64,
 }
@@ -15556,7 +15556,7 @@ impl Default for AndroidHardwareBufferUsageANDROID {
 /**
 Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`AndroidHardwareBufferFormatProperties2ANDROID`]
@@ -15568,7 +15568,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 pub struct AndroidHardwareBufferPropertiesANDROID {
     ///Must be `VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_PROPERTIES_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub allocation_size: u64,
     pub memory_type_bits: u32,
@@ -15593,7 +15593,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 pub struct MemoryGetAndroidHardwareBufferInfoANDROID {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_ANDROID_HARDWARE_BUFFER_INFO_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
 }
@@ -15611,7 +15611,7 @@ impl Default for MemoryGetAndroidHardwareBufferInfoANDROID {
 /**
 Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`AndroidHardwareBufferPropertiesANDROID`]
@@ -15621,7 +15621,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 pub struct AndroidHardwareBufferFormatPropertiesANDROID {
     ///Must be `VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format: Format,
     pub external_format: u64,
@@ -15661,7 +15661,7 @@ Provided by **VK_EXT_conditional_rendering**.*/
 pub struct CommandBufferInheritanceConditionalRenderingInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub conditional_rendering_enable: u32,
 }
@@ -15691,7 +15691,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 pub struct ExternalFormatANDROID {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_format: u64,
 }
@@ -15718,7 +15718,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDevice8BitStorageFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub storage_buffer8_bit_access: u32,
     pub uniform_and_storage_buffer8_bit_access: u32,
@@ -15749,7 +15749,7 @@ Provided by **VK_EXT_conditional_rendering**.*/
 pub struct PhysicalDeviceConditionalRenderingFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub conditional_rendering: u32,
     pub inherited_conditional_rendering: u32,
@@ -15778,7 +15778,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceVulkanMemoryModelFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub vulkan_memory_model: u32,
     pub vulkan_memory_model_device_scope: u32,
@@ -15809,7 +15809,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceShaderAtomicInt64Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_buffer_int64_atomics: u32,
     pub shader_shared_int64_atomics: u32,
@@ -15838,7 +15838,7 @@ Provided by **VK_EXT_shader_atomic_float**.*/
 pub struct PhysicalDeviceShaderAtomicFloatFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_buffer_float32_atomics: u32,
     pub shader_buffer_float32_atomic_add: u32,
@@ -15887,7 +15887,7 @@ Provided by **VK_EXT_shader_atomic_float2**.*/
 pub struct PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_buffer_float16_atomics: u32,
     pub shader_buffer_float16_atomic_add: u32,
@@ -15936,7 +15936,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct PhysicalDeviceVertexAttributeDivisorFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub vertex_attribute_instance_rate_divisor: u32,
     pub vertex_attribute_instance_rate_zero_divisor: u32,
@@ -15956,7 +15956,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorFeatures {
 /**
 Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`QueueFamilyProperties2`]
@@ -15966,7 +15966,7 @@ Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 pub struct QueueFamilyCheckpointPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub checkpoint_execution_stage_mask: PipelineStageFlags,
 }
@@ -15984,14 +15984,14 @@ impl Default for QueueFamilyCheckpointPropertiesNV {
 /**
 Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkCheckpointDataNV")]
 pub struct CheckpointDataNV {
     ///Must be `VK_STRUCTURE_TYPE_CHECKPOINT_DATA_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub stage: PipelineStageFlagBits,
     pub p_checkpoint_marker: *mut core::ffi::c_void,
@@ -16011,7 +16011,7 @@ impl Default for CheckpointDataNV {
 /**
 Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16021,7 +16021,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct PhysicalDeviceDepthStencilResolveProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supported_depth_resolve_modes: ResolveModeFlags,
     pub supported_stencil_resolve_modes: ResolveModeFlags,
@@ -16053,11 +16053,11 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct SubpassDescriptionDepthStencilResolve {
     ///Must be `VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub depth_resolve_mode: ResolveModeFlagBits,
     pub stencil_resolve_mode: ResolveModeFlagBits,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_depth_stencil_resolve_attachment: *const AttachmentReference2,
 }
 impl Default for SubpassDescriptionDepthStencilResolve {
@@ -16084,7 +16084,7 @@ Provided by **VK_EXT_astc_decode_mode**.*/
 pub struct ImageViewASTCDecodeModeEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub decode_mode: Format,
 }
@@ -16111,7 +16111,7 @@ Provided by **VK_EXT_astc_decode_mode**.*/
 pub struct PhysicalDeviceASTCDecodeFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub decode_mode_shared_exponent: u32,
 }
@@ -16138,7 +16138,7 @@ Provided by **VK_EXT_transform_feedback**.*/
 pub struct PhysicalDeviceTransformFeedbackFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub transform_feedback: u32,
     pub geometry_streams: u32,
@@ -16158,7 +16158,7 @@ impl Default for PhysicalDeviceTransformFeedbackFeaturesEXT {
 /**
 Provided by **VK_EXT_transform_feedback**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16168,7 +16168,7 @@ Provided by **VK_EXT_transform_feedback**.*/
 pub struct PhysicalDeviceTransformFeedbackPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_transform_feedback_streams: u32,
     pub max_transform_feedback_buffers: u32,
@@ -16212,7 +16212,7 @@ Provided by **VK_EXT_transform_feedback**.*/
 pub struct PipelineRasterizationStateStreamCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineRasterizationStateStreamCreateFlagsEXT,
     pub rasterization_stream: u32,
@@ -16241,7 +16241,7 @@ Provided by **VK_NV_representative_fragment_test**.*/
 pub struct PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub representative_fragment_test: u32,
 }
@@ -16267,7 +16267,7 @@ Provided by **VK_NV_representative_fragment_test**.*/
 pub struct PipelineRepresentativeFragmentTestStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub representative_fragment_test_enable: u32,
 }
@@ -16294,7 +16294,7 @@ Provided by **VK_NV_scissor_exclusive**.*/
 pub struct PhysicalDeviceExclusiveScissorFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub exclusive_scissor: u32,
 }
@@ -16320,7 +16320,7 @@ Provided by **VK_NV_scissor_exclusive**.*/
 pub struct PipelineViewportExclusiveScissorStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_exclusive_scissors`.
     pub exclusive_scissor_count: u32,
@@ -16350,7 +16350,7 @@ Provided by **VK_NV_corner_sampled_image**.*/
 pub struct PhysicalDeviceCornerSampledImageFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub corner_sampled_image: u32,
 }
@@ -16377,7 +16377,7 @@ Provided by **VK_KHR_compute_shader_derivatives**.*/
 pub struct PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub compute_derivative_group_quads: u32,
     pub compute_derivative_group_linear: u32,
@@ -16397,7 +16397,7 @@ impl Default for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
 /**
 Provided by **VK_KHR_compute_shader_derivatives**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16407,7 +16407,7 @@ Provided by **VK_KHR_compute_shader_derivatives**.*/
 pub struct PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub mesh_and_task_shader_derivatives: u32,
 }
@@ -16434,7 +16434,7 @@ Provided by **VK_NV_shader_image_footprint**.*/
 pub struct PhysicalDeviceShaderImageFootprintFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_footprint: u32,
 }
@@ -16461,7 +16461,7 @@ Provided by **VK_NV_dedicated_allocation_image_aliasing**.*/
 pub struct PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub dedicated_allocation_image_aliasing: u32,
 }
@@ -16488,7 +16488,7 @@ Provided by **VK_KHR_copy_memory_indirect**.*/
 pub struct PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub indirect_memory_copy: u32,
     pub indirect_memory_to_image_copy: u32,
@@ -16517,7 +16517,7 @@ Provided by **VK_NV_copy_memory_indirect**.*/
 pub struct PhysicalDeviceCopyMemoryIndirectFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub indirect_copy: u32,
 }
@@ -16535,7 +16535,7 @@ impl Default for PhysicalDeviceCopyMemoryIndirectFeaturesNV {
 /**
 Provided by **VK_KHR_copy_memory_indirect**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16545,7 +16545,7 @@ Provided by **VK_KHR_copy_memory_indirect**.*/
 pub struct PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supported_queues: QueueFlags,
 }
@@ -16572,7 +16572,7 @@ Provided by **VK_EXT_memory_decompression**.*/
 pub struct PhysicalDeviceMemoryDecompressionFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_decompression: u32,
 }
@@ -16590,7 +16590,7 @@ impl Default for PhysicalDeviceMemoryDecompressionFeaturesEXT {
 /**
 Provided by **VK_EXT_memory_decompression**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16600,7 +16600,7 @@ Provided by **VK_EXT_memory_decompression**.*/
 pub struct PhysicalDeviceMemoryDecompressionPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub decompression_methods: MemoryDecompressionMethodFlagsEXT,
     pub max_decompression_indirect_count: u64,
@@ -16645,7 +16645,7 @@ Provided by **VK_NV_shading_rate_image**.*/
 pub struct PipelineViewportShadingRateImageStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub shading_rate_image_enable: u32,
     ///Length of `p_shading_rate_palettes`.
@@ -16677,7 +16677,7 @@ Provided by **VK_NV_shading_rate_image**.*/
 pub struct PhysicalDeviceShadingRateImageFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shading_rate_image: u32,
     pub shading_rate_coarse_sample_order: u32,
@@ -16697,7 +16697,7 @@ impl Default for PhysicalDeviceShadingRateImageFeaturesNV {
 /**
 Provided by **VK_NV_shading_rate_image**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16707,7 +16707,7 @@ Provided by **VK_NV_shading_rate_image**.*/
 pub struct PhysicalDeviceShadingRateImagePropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shading_rate_texel_size: Extent2D,
     pub shading_rate_palette_size: u32,
@@ -16738,7 +16738,7 @@ Provided by **VK_HUAWEI_invocation_mask**.*/
 pub struct PhysicalDeviceInvocationMaskFeaturesHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub invocation_mask: u32,
 }
@@ -16800,7 +16800,7 @@ Provided by **VK_NV_shading_rate_image**.*/
 pub struct PipelineViewportCoarseSampleOrderStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub sample_order_type: CoarseSampleOrderTypeNV,
     ///Length of `p_custom_sample_orders`.
@@ -16832,7 +16832,7 @@ Provided by **VK_NV_mesh_shader**.*/
 pub struct PhysicalDeviceMeshShaderFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub task_shader: u32,
     pub mesh_shader: u32,
@@ -16852,7 +16852,7 @@ impl Default for PhysicalDeviceMeshShaderFeaturesNV {
 /**
 Provided by **VK_NV_mesh_shader**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16862,7 +16862,7 @@ Provided by **VK_NV_mesh_shader**.*/
 pub struct PhysicalDeviceMeshShaderPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_draw_mesh_tasks_count: u32,
     pub max_task_work_group_invocations: u32,
@@ -16929,7 +16929,7 @@ Provided by **VK_EXT_mesh_shader**.*/
 pub struct PhysicalDeviceMeshShaderFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub task_shader: u32,
     pub mesh_shader: u32,
@@ -16955,7 +16955,7 @@ impl Default for PhysicalDeviceMeshShaderFeaturesEXT {
 /**
 Provided by **VK_EXT_mesh_shader**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -16965,7 +16965,7 @@ Provided by **VK_EXT_mesh_shader**.*/
 pub struct PhysicalDeviceMeshShaderPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_task_work_group_total_count: u32,
     pub max_task_work_group_count: [u32; 3usize],
@@ -17059,7 +17059,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct RayTracingShaderGroupCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: RayTracingShaderGroupTypeKHR,
     pub general_shader: u32,
@@ -17090,14 +17090,14 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
 pub struct RayTracingShaderGroupCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: RayTracingShaderGroupTypeKHR,
     pub general_shader: u32,
     pub closest_hit_shader: u32,
     pub any_hit_shader: u32,
     pub intersection_shader: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_shader_group_capture_replay_handle: *const core::ffi::c_void,
 }
 impl Default for RayTracingShaderGroupCreateInfoKHR {
@@ -17129,7 +17129,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct RayTracingPipelineCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCreateFlags,
     ///Length of `p_stages`.
@@ -17178,7 +17178,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
 pub struct RayTracingPipelineCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCreateFlags,
     ///Length of `p_stages`.
@@ -17188,11 +17188,11 @@ pub struct RayTracingPipelineCreateInfoKHR {
     pub group_count: u32,
     pub p_groups: *const RayTracingShaderGroupCreateInfoKHR,
     pub max_pipeline_ray_recursion_depth: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_library_info: *const PipelineLibraryCreateInfoKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_library_interface: *const RayTracingPipelineInterfaceCreateInfoKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_dynamic_state: *const PipelineDynamicStateCreateInfo,
     pub layout: PipelineLayout,
     pub base_pipeline_handle: Pipeline,
@@ -17228,7 +17228,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct GeometryTrianglesNV {
     ///Must be `VK_STRUCTURE_TYPE_GEOMETRY_TRIANGLES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub vertex_data: Buffer,
     pub vertex_offset: u64,
@@ -17271,7 +17271,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct GeometryAABBNV {
     ///Must be `VK_STRUCTURE_TYPE_GEOMETRY_AABB_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub aabb_data: Buffer,
     pub num_aab_bs: u32,
@@ -17316,7 +17316,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct GeometryNV {
     ///Must be `VK_STRUCTURE_TYPE_GEOMETRY_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub geometry_type: GeometryTypeKHR,
     pub geometry: GeometryDataNV,
@@ -17343,7 +17343,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct AccelerationStructureInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: AccelerationStructureTypeNV,
     pub flags: BuildAccelerationStructureFlagsNV,
@@ -17378,7 +17378,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct AccelerationStructureCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub compacted_size: u64,
     pub info: AccelerationStructureInfoNV,
@@ -17403,7 +17403,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct BindAccelerationStructureMemoryInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_BIND_ACCELERATION_STRUCTURE_MEMORY_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub acceleration_structure: AccelerationStructureNV,
     pub memory: DeviceMemory,
@@ -17438,11 +17438,11 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct WriteDescriptorSetAccelerationStructureKHR {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_acceleration_structures`.
     pub acceleration_structure_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_acceleration_structures: *const AccelerationStructureKHR,
 }
 impl Default for WriteDescriptorSetAccelerationStructureKHR {
@@ -17468,11 +17468,11 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct WriteDescriptorSetAccelerationStructureNV {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_acceleration_structures`.
     pub acceleration_structure_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_acceleration_structures: *const AccelerationStructureNV,
 }
 impl Default for WriteDescriptorSetAccelerationStructureNV {
@@ -17495,7 +17495,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct AccelerationStructureMemoryRequirementsInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: AccelerationStructureMemoryRequirementsTypeNV,
     pub acceleration_structure: AccelerationStructureNV,
@@ -17524,7 +17524,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct PhysicalDeviceAccelerationStructureFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub acceleration_structure: u32,
     pub acceleration_structure_capture_replay: u32,
@@ -17559,7 +17559,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
 pub struct PhysicalDeviceRayTracingPipelineFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_pipeline: u32,
     pub ray_tracing_pipeline_shader_group_handle_capture_replay: u32,
@@ -17594,7 +17594,7 @@ Provided by **VK_KHR_ray_query**.*/
 pub struct PhysicalDeviceRayQueryFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_QUERY_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_query: u32,
 }
@@ -17612,7 +17612,7 @@ impl Default for PhysicalDeviceRayQueryFeaturesKHR {
 /**
 Provided by **VK_KHR_acceleration_structure**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -17622,7 +17622,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct PhysicalDeviceAccelerationStructurePropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_geometry_count: u64,
     pub max_instance_count: u64,
@@ -17654,7 +17654,7 @@ impl Default for PhysicalDeviceAccelerationStructurePropertiesKHR {
 /**
 Provided by **VK_KHR_ray_tracing_pipeline**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -17664,7 +17664,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
 pub struct PhysicalDeviceRayTracingPipelinePropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_group_handle_size: u32,
     pub max_ray_recursion_depth: u32,
@@ -17696,7 +17696,7 @@ impl Default for PhysicalDeviceRayTracingPipelinePropertiesKHR {
 /**
 Provided by **VK_NV_ray_tracing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -17706,7 +17706,7 @@ Provided by **VK_NV_ray_tracing**.*/
 pub struct PhysicalDeviceRayTracingPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_group_handle_size: u32,
     pub max_recursion_depth: u32,
@@ -17809,7 +17809,7 @@ Provided by **VK_KHR_ray_tracing_maintenance1**.*/
 pub struct PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_maintenance1: u32,
     pub ray_tracing_pipeline_trace_rays_indirect2: u32,
@@ -17829,7 +17829,7 @@ impl Default for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
 /**
 Provided by **VK_EXT_image_drm_format_modifier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`FormatProperties2`]
@@ -17839,11 +17839,11 @@ Provided by **VK_EXT_image_drm_format_modifier**.*/
 pub struct DrmFormatModifierPropertiesListEXT {
     ///Must be `VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_drm_format_modifier_properties`.
     pub drm_format_modifier_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_drm_format_modifier_properties: *mut DrmFormatModifierPropertiesEXT,
 }
 impl Default for DrmFormatModifierPropertiesListEXT {
@@ -17861,7 +17861,7 @@ impl Default for DrmFormatModifierPropertiesListEXT {
 /**
 Provided by **VK_EXT_image_drm_format_modifier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDrmFormatModifierPropertiesEXT")]
@@ -17888,7 +17888,7 @@ Provided by **VK_EXT_image_drm_format_modifier**.*/
 pub struct PhysicalDeviceImageDrmFormatModifierInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub drm_format_modifier: u64,
     pub sharing_mode: SharingMode,
@@ -17921,7 +17921,7 @@ Provided by **VK_EXT_image_drm_format_modifier**.*/
 pub struct ImageDrmFormatModifierListCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_drm_format_modifiers`.
     pub drm_format_modifier_count: u32,
@@ -17950,7 +17950,7 @@ Provided by **VK_EXT_image_drm_format_modifier**.*/
 pub struct ImageDrmFormatModifierExplicitCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub drm_format_modifier: u64,
     ///Length of `p_plane_layouts`.
@@ -17973,14 +17973,14 @@ impl Default for ImageDrmFormatModifierExplicitCreateInfoEXT {
 /**
 Provided by **VK_EXT_image_drm_format_modifier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkImageDrmFormatModifierPropertiesEXT")]
 pub struct ImageDrmFormatModifierPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub drm_format_modifier: u64,
 }
@@ -18007,7 +18007,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct ImageStencilUsageCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stencil_usage: ImageUsageFlags,
 }
@@ -18033,7 +18033,7 @@ Provided by **VK_AMD_memory_overallocation_behavior**.*/
 pub struct DeviceMemoryOverallocationCreateInfoAMD {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub overallocation_behavior: MemoryOverallocationBehaviorAMD,
 }
@@ -18060,7 +18060,7 @@ Provided by **VK_EXT_fragment_density_map**.*/
 pub struct PhysicalDeviceFragmentDensityMapFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_density_map: u32,
     pub fragment_density_map_dynamic: u32,
@@ -18091,7 +18091,7 @@ Provided by **VK_EXT_fragment_density_map2**.*/
 pub struct PhysicalDeviceFragmentDensityMap2FeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_density_map_deferred: u32,
 }
@@ -18118,7 +18118,7 @@ Provided by **VK_EXT_fragment_density_map_offset**.*/
 pub struct PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_density_map_offset: u32,
 }
@@ -18136,7 +18136,7 @@ impl Default for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
 /**
 Provided by **VK_EXT_fragment_density_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -18146,7 +18146,7 @@ Provided by **VK_EXT_fragment_density_map**.*/
 pub struct PhysicalDeviceFragmentDensityMapPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_fragment_density_texel_size: Extent2D,
     pub max_fragment_density_texel_size: Extent2D,
@@ -18168,7 +18168,7 @@ impl Default for PhysicalDeviceFragmentDensityMapPropertiesEXT {
 /**
 Provided by **VK_EXT_fragment_density_map2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -18178,7 +18178,7 @@ Provided by **VK_EXT_fragment_density_map2**.*/
 pub struct PhysicalDeviceFragmentDensityMap2PropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub subsampled_loads: u32,
     pub subsampled_coarse_reconstruction_early_access: u32,
@@ -18202,7 +18202,7 @@ impl Default for PhysicalDeviceFragmentDensityMap2PropertiesEXT {
 /**
 Provided by **VK_EXT_fragment_density_map_offset**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -18212,7 +18212,7 @@ Provided by **VK_EXT_fragment_density_map_offset**.*/
 pub struct PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_density_offset_granularity: Extent2D,
 }
@@ -18239,7 +18239,7 @@ Provided by **VK_EXT_fragment_density_map**.*/
 pub struct RenderPassFragmentDensityMapCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub fragment_density_map_attachment: AttachmentReference,
 }
@@ -18266,7 +18266,7 @@ Provided by **VK_EXT_fragment_density_map_offset**.*/
 pub struct RenderPassFragmentDensityMapOffsetEndInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_fragment_density_offsets`.
     pub fragment_density_offset_count: u32,
@@ -18296,7 +18296,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceScalarBlockLayoutFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub scalar_block_layout: u32,
 }
@@ -18314,7 +18314,7 @@ impl Default for PhysicalDeviceScalarBlockLayoutFeatures {
 /**
 Provided by **VK_KHR_surface_protected_capabilities**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`SurfaceCapabilities2KHR`]
@@ -18324,7 +18324,7 @@ Provided by **VK_KHR_surface_protected_capabilities**.*/
 pub struct SurfaceProtectedCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supports_protected: u32,
 }
@@ -18351,7 +18351,7 @@ Provided by **VK_COMPUTE_VERSION_1_2**.*/
 pub struct PhysicalDeviceUniformBufferStandardLayoutFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub uniform_buffer_standard_layout: u32,
 }
@@ -18378,7 +18378,7 @@ Provided by **VK_EXT_depth_clip_enable**.*/
 pub struct PhysicalDeviceDepthClipEnableFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub depth_clip_enable: u32,
 }
@@ -18404,7 +18404,7 @@ Provided by **VK_EXT_depth_clip_enable**.*/
 pub struct PipelineRasterizationDepthClipStateCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineRasterizationDepthClipStateCreateFlagsEXT,
     pub depth_clip_enable: u32,
@@ -18424,7 +18424,7 @@ impl Default for PipelineRasterizationDepthClipStateCreateInfoEXT {
 /**
 Provided by **VK_EXT_memory_budget**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceMemoryProperties2`]
@@ -18434,7 +18434,7 @@ Provided by **VK_EXT_memory_budget**.*/
 pub struct PhysicalDeviceMemoryBudgetPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub heap_budget: [u64; MAX_MEMORY_HEAPS as usize],
     pub heap_usage: [u64; MAX_MEMORY_HEAPS as usize],
@@ -18463,7 +18463,7 @@ Provided by **VK_EXT_memory_priority**.*/
 pub struct PhysicalDeviceMemoryPriorityFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_priority: u32,
 }
@@ -18489,7 +18489,7 @@ Provided by **VK_EXT_memory_priority**.*/
 pub struct MemoryPriorityAllocateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub priority: f32,
 }
@@ -18516,7 +18516,7 @@ Provided by **VK_EXT_pageable_device_local_memory**.*/
 pub struct PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pageable_device_local_memory: u32,
 }
@@ -18543,7 +18543,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceBufferDeviceAddressFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub buffer_device_address: u32,
     pub buffer_device_address_capture_replay: u32,
@@ -18574,7 +18574,7 @@ Provided by **VK_EXT_buffer_device_address**.*/
 pub struct PhysicalDeviceBufferDeviceAddressFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub buffer_device_address: u32,
     pub buffer_device_address_capture_replay: u32,
@@ -18601,7 +18601,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct BufferDeviceAddressInfo {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: Buffer,
 }
@@ -18627,7 +18627,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct BufferOpaqueCaptureAddressCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub opaque_capture_address: u64,
 }
@@ -18653,7 +18653,7 @@ Provided by **VK_EXT_buffer_device_address**.*/
 pub struct BufferDeviceAddressCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub device_address: u64,
 }
@@ -18679,7 +18679,7 @@ Provided by **VK_EXT_filter_cubic**.*/
 pub struct PhysicalDeviceImageViewImageFormatInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_view_type: ImageViewType,
 }
@@ -18697,7 +18697,7 @@ impl Default for PhysicalDeviceImageViewImageFormatInfoEXT {
 /**
 Provided by **VK_EXT_filter_cubic**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -18707,7 +18707,7 @@ Provided by **VK_EXT_filter_cubic**.*/
 pub struct FilterCubicImageViewImageFormatPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub filter_cubic: u32,
     pub filter_cubic_minmax: u32,
@@ -18736,7 +18736,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct PhysicalDeviceImagelessFramebufferFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub imageless_framebuffer: u32,
 }
@@ -18762,7 +18762,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct FramebufferAttachmentsCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENTS_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_attachment_image_infos`.
     pub attachment_image_info_count: u32,
@@ -18788,7 +18788,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct FramebufferAttachmentImageInfo {
     ///Must be `VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENT_IMAGE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ImageCreateFlags,
     pub usage: ImageUsageFlags,
@@ -18827,7 +18827,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct RenderPassAttachmentBeginInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_attachments`.
     pub attachment_count: u32,
@@ -18857,7 +18857,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PhysicalDeviceTextureCompressionASTCHDRFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub texture_compression_astc_hdr: u32,
 }
@@ -18884,7 +18884,7 @@ Provided by **VK_NV_cooperative_matrix**.*/
 pub struct PhysicalDeviceCooperativeMatrixFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_matrix: u32,
     pub cooperative_matrix_robust_buffer_access: u32,
@@ -18904,7 +18904,7 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesNV {
 /**
 Provided by **VK_NV_cooperative_matrix**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -18914,7 +18914,7 @@ Provided by **VK_NV_cooperative_matrix**.*/
 pub struct PhysicalDeviceCooperativeMatrixPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_matrix_supported_stages: ShaderStageFlags,
 }
@@ -18932,14 +18932,14 @@ impl Default for PhysicalDeviceCooperativeMatrixPropertiesNV {
 /**
 Provided by **VK_NV_cooperative_matrix**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkCooperativeMatrixPropertiesNV")]
 pub struct CooperativeMatrixPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub m_size: u32,
     pub n_size: u32,
@@ -18980,7 +18980,7 @@ Provided by **VK_EXT_ycbcr_image_arrays**.*/
 pub struct PhysicalDeviceYcbcrImageArraysFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ycbcr_image_arrays: u32,
 }
@@ -19003,7 +19003,7 @@ Provided by **VK_NVX_image_view_handle**.*/
 pub struct ImageViewHandleInfoNVX {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_HANDLE_INFO_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image_view: ImageView,
     pub descriptor_type: DescriptorType,
@@ -19025,14 +19025,14 @@ impl Default for ImageViewHandleInfoNVX {
 /**
 Provided by **VK_NVX_image_view_handle**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkImageViewAddressPropertiesNVX")]
 pub struct ImageViewAddressPropertiesNVX {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_ADDRESS_PROPERTIES_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_address: u64,
     pub size: u64,
@@ -19060,7 +19060,7 @@ Provided by **VK_GGP_frame_token**.*/
 pub struct PresentFrameTokenGGP {
     ///Must be `VK_STRUCTURE_TYPE_PRESENT_FRAME_TOKEN_GGP`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub frame_token: u32,
 }
@@ -19078,7 +19078,7 @@ impl Default for PresentFrameTokenGGP {
 /**
 Provided by **VK_COMPUTE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPipelineCreationFeedback")]
@@ -19109,7 +19109,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PipelineCreationFeedbackCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_pipeline_creation_feedback: *mut PipelineCreationFeedback,
     ///Length of `p_pipeline_stage_creation_feedbacks`.
@@ -19141,7 +19141,7 @@ Provided by **VK_EXT_full_screen_exclusive**.*/
 pub struct SurfaceFullScreenExclusiveInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub full_screen_exclusive: FullScreenExclusiveEXT,
 }
@@ -19168,7 +19168,7 @@ Provided by **VK_EXT_full_screen_exclusive**.*/
 pub struct SurfaceFullScreenExclusiveWin32InfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub hmonitor: isize,
 }
@@ -19186,7 +19186,7 @@ impl Default for SurfaceFullScreenExclusiveWin32InfoEXT {
 /**
 Provided by **VK_EXT_full_screen_exclusive**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`SurfaceCapabilities2KHR`]
@@ -19196,7 +19196,7 @@ Provided by **VK_EXT_full_screen_exclusive**.*/
 pub struct SurfaceCapabilitiesFullScreenExclusiveEXT {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_FULL_SCREEN_EXCLUSIVE_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub full_screen_exclusive_supported: u32,
 }
@@ -19223,7 +19223,7 @@ Provided by **VK_NV_present_barrier**.*/
 pub struct PhysicalDevicePresentBarrierFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_barrier: u32,
 }
@@ -19241,7 +19241,7 @@ impl Default for PhysicalDevicePresentBarrierFeaturesNV {
 /**
 Provided by **VK_NV_present_barrier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`SurfaceCapabilities2KHR`]
@@ -19251,7 +19251,7 @@ Provided by **VK_NV_present_barrier**.*/
 pub struct SurfaceCapabilitiesPresentBarrierNV {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_BARRIER_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_barrier_supported: u32,
 }
@@ -19277,7 +19277,7 @@ Provided by **VK_NV_present_barrier**.*/
 pub struct SwapchainPresentBarrierCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_BARRIER_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_barrier_enable: u32,
 }
@@ -19304,7 +19304,7 @@ Provided by **VK_KHR_performance_query**.*/
 pub struct PhysicalDevicePerformanceQueryFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub performance_counter_query_pools: u32,
     pub performance_counter_multiple_query_pools: u32,
@@ -19324,7 +19324,7 @@ impl Default for PhysicalDevicePerformanceQueryFeaturesKHR {
 /**
 Provided by **VK_KHR_performance_query**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -19334,7 +19334,7 @@ Provided by **VK_KHR_performance_query**.*/
 pub struct PhysicalDevicePerformanceQueryPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub allow_command_buffer_query_copies: u32,
 }
@@ -19352,14 +19352,14 @@ impl Default for PhysicalDevicePerformanceQueryPropertiesKHR {
 /**
 Provided by **VK_KHR_performance_query**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPerformanceCounterKHR")]
 pub struct PerformanceCounterKHR {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub unit: PerformanceCounterUnitKHR,
     pub scope: PerformanceCounterScopeKHR,
@@ -19383,14 +19383,14 @@ impl Default for PerformanceCounterKHR {
 /**
 Provided by **VK_KHR_performance_query**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPerformanceCounterDescriptionKHR")]
 pub struct PerformanceCounterDescriptionKHR {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: PerformanceCounterDescriptionFlagsKHR,
     pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
@@ -19422,7 +19422,7 @@ Provided by **VK_KHR_performance_query**.*/
 pub struct QueryPoolPerformanceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub queue_family_index: u32,
     ///Length of `p_counter_indices`.
@@ -19475,7 +19475,7 @@ Provided by **VK_KHR_performance_query**.*/
 pub struct AcquireProfilingLockInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACQUIRE_PROFILING_LOCK_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: AcquireProfilingLockFlagsKHR,
     pub timeout: u64,
@@ -19504,7 +19504,7 @@ Provided by **VK_KHR_performance_query**.*/
 pub struct PerformanceQuerySubmitInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_SUBMIT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub counter_pass_index: u32,
 }
@@ -19528,7 +19528,7 @@ impl Default for PerformanceQuerySubmitInfoKHR {
 pub struct PerformanceQueryReservationInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_RESERVATION_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_performance_queries_per_pool: u32,
 }
@@ -19551,7 +19551,7 @@ Provided by **VK_EXT_headless_surface**.*/
 pub struct HeadlessSurfaceCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: HeadlessSurfaceCreateFlagsEXT,
 }
@@ -19578,7 +19578,7 @@ Provided by **VK_NV_coverage_reduction_mode**.*/
 pub struct PhysicalDeviceCoverageReductionModeFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub coverage_reduction_mode: u32,
 }
@@ -19604,7 +19604,7 @@ Provided by **VK_NV_coverage_reduction_mode**.*/
 pub struct PipelineCoverageReductionStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCoverageReductionStateCreateFlagsNV,
     pub coverage_reduction_mode: CoverageReductionModeNV,
@@ -19624,14 +19624,14 @@ impl Default for PipelineCoverageReductionStateCreateInfoNV {
 /**
 Provided by **VK_NV_coverage_reduction_mode**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkFramebufferMixedSamplesCombinationNV")]
 pub struct FramebufferMixedSamplesCombinationNV {
     ///Must be `VK_STRUCTURE_TYPE_FRAMEBUFFER_MIXED_SAMPLES_COMBINATION_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub coverage_reduction_mode: CoverageReductionModeNV,
     pub rasterization_samples: SampleCountFlagBits,
@@ -19664,7 +19664,7 @@ Provided by **VK_INTEL_shader_integer_functions2**.*/
 pub struct PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_integer_functions2: u32,
 }
@@ -19706,7 +19706,7 @@ impl core::fmt::Debug for PerformanceValueDataINTEL {
 /**
 Provided by **VK_INTEL_performance_query**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPerformanceValueINTEL")]
@@ -19729,9 +19729,9 @@ Provided by **VK_INTEL_performance_query**.*/
 pub struct InitializePerformanceApiInfoINTEL {
     ///Must be `VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_user_data: *mut core::ffi::c_void,
 }
 impl Default for InitializePerformanceApiInfoINTEL {
@@ -19756,7 +19756,7 @@ Provided by **VK_INTEL_performance_query**.*/
 pub struct QueryPoolPerformanceQueryCreateInfoINTEL {
     ///Must be `VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub performance_counters_sampling: QueryPoolSamplingModeINTEL,
 }
@@ -19779,7 +19779,7 @@ Provided by **VK_INTEL_performance_query**.*/
 pub struct PerformanceMarkerInfoINTEL {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_MARKER_INFO_INTEL`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub marker: u64,
 }
@@ -19802,7 +19802,7 @@ Provided by **VK_INTEL_performance_query**.*/
 pub struct PerformanceStreamMarkerInfoINTEL {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_STREAM_MARKER_INFO_INTEL`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub marker: u32,
 }
@@ -19825,7 +19825,7 @@ Provided by **VK_INTEL_performance_query**.*/
 pub struct PerformanceOverrideInfoINTEL {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_OVERRIDE_INFO_INTEL`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: PerformanceOverrideTypeINTEL,
     pub enable: u32,
@@ -19852,7 +19852,7 @@ Provided by **VK_INTEL_performance_query**.*/
 pub struct PerformanceConfigurationAcquireInfoINTEL {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: PerformanceConfigurationTypeINTEL,
 }
@@ -19879,7 +19879,7 @@ Provided by **VK_KHR_shader_clock**.*/
 pub struct PhysicalDeviceShaderClockFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_subgroup_clock: u32,
     pub shader_device_clock: u32,
@@ -19908,7 +19908,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceIndexTypeUint8Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub index_type_uint8: u32,
 }
@@ -19926,7 +19926,7 @@ impl Default for PhysicalDeviceIndexTypeUint8Features {
 /**
 Provided by **VK_NV_shader_sm_builtins**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -19936,7 +19936,7 @@ Provided by **VK_NV_shader_sm_builtins**.*/
 pub struct PhysicalDeviceShaderSMBuiltinsPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_sm_count: u32,
     pub shader_warps_per_sm: u32,
@@ -19965,7 +19965,7 @@ Provided by **VK_NV_shader_sm_builtins**.*/
 pub struct PhysicalDeviceShaderSMBuiltinsFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_sm_builtins: u32,
 }
@@ -19992,7 +19992,7 @@ Provided by **VK_EXT_fragment_shader_interlock**.*/
 pub struct PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_shader_sample_interlock: u32,
     pub fragment_shader_pixel_interlock: u32,
@@ -20023,7 +20023,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub separate_depth_stencil_layouts: u32,
 }
@@ -20049,7 +20049,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct AttachmentReferenceStencilLayout {
     ///Must be `VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_STENCIL_LAYOUT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub stencil_layout: ImageLayout,
 }
@@ -20076,7 +20076,7 @@ Provided by **VK_EXT_primitive_topology_list_restart**.*/
 pub struct PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub primitive_topology_list_restart: u32,
     pub primitive_topology_patch_list_restart: u32,
@@ -20104,7 +20104,7 @@ Provided by **VK_GRAPHICS_VERSION_1_2**.*/
 pub struct AttachmentDescriptionStencilLayout {
     ///Must be `VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub stencil_initial_layout: ImageLayout,
     pub stencil_final_layout: ImageLayout,
@@ -20133,7 +20133,7 @@ Provided by **VK_KHR_pipeline_executable_properties**.*/
 pub struct PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_executable_info: u32,
 }
@@ -20156,7 +20156,7 @@ Provided by **VK_KHR_pipeline_executable_properties**.*/
 pub struct PipelineInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub pipeline: Pipeline,
 }
@@ -20174,14 +20174,14 @@ impl Default for PipelineInfoKHR {
 /**
 Provided by **VK_KHR_pipeline_executable_properties**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPipelineExecutablePropertiesKHR")]
 pub struct PipelineExecutablePropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub stages: ShaderStageFlags,
     pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
@@ -20210,7 +20210,7 @@ Provided by **VK_KHR_pipeline_executable_properties**.*/
 pub struct PipelineExecutableInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub pipeline: Pipeline,
     pub executable_index: u32,
@@ -20230,7 +20230,7 @@ impl Default for PipelineExecutableInfoKHR {
 /**
 Provided by **VK_KHR_pipeline_executable_properties**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone)]
 #[doc(alias = "VkPipelineExecutableStatisticValueKHR")]
@@ -20255,14 +20255,14 @@ impl core::fmt::Debug for PipelineExecutableStatisticValueKHR {
 /**
 Provided by **VK_KHR_pipeline_executable_properties**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPipelineExecutableStatisticKHR")]
 pub struct PipelineExecutableStatisticKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
     pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
@@ -20286,21 +20286,21 @@ impl Default for PipelineExecutableStatisticKHR {
 /**
 Provided by **VK_KHR_pipeline_executable_properties**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPipelineExecutableInternalRepresentationKHR")]
 pub struct PipelineExecutableInternalRepresentationKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
     pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
     pub is_text: u32,
     ///Length of `p_data`.
     pub data_size: usize,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_data: *mut core::ffi::c_void,
 }
 impl Default for PipelineExecutableInternalRepresentationKHR {
@@ -20330,7 +20330,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_demote_to_helper_invocation: u32,
 }
@@ -20357,7 +20357,7 @@ Provided by **VK_EXT_texel_buffer_alignment**.*/
 pub struct PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub texel_buffer_alignment: u32,
 }
@@ -20375,7 +20375,7 @@ impl Default for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
 /**
 Provided by **VK_COMPUTE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -20385,7 +20385,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceTexelBufferAlignmentProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub storage_texel_buffer_offset_alignment_bytes: u64,
     pub storage_texel_buffer_offset_single_texel_alignment: u32,
@@ -20418,7 +20418,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceSubgroupSizeControlFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub subgroup_size_control: u32,
     pub compute_full_subgroups: u32,
@@ -20438,7 +20438,7 @@ impl Default for PhysicalDeviceSubgroupSizeControlFeatures {
 /**
 Provided by **VK_COMPUTE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -20448,7 +20448,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceSubgroupSizeControlProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_subgroup_size: u32,
     pub max_subgroup_size: u32,
@@ -20481,7 +20481,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PipelineShaderStageRequiredSubgroupSizeCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub required_subgroup_size: u32,
 }
@@ -20507,7 +20507,7 @@ Provided by **VK_HUAWEI_subpass_shading**.*/
 pub struct SubpassShadingPipelineCreateInfoHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub render_pass: RenderPass,
     pub subpass: u32,
@@ -20527,7 +20527,7 @@ impl Default for SubpassShadingPipelineCreateInfoHUAWEI {
 /**
 Provided by **VK_HUAWEI_subpass_shading**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -20537,7 +20537,7 @@ Provided by **VK_HUAWEI_subpass_shading**.*/
 pub struct PhysicalDeviceSubpassShadingPropertiesHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_subpass_shading_workgroup_size_aspect_ratio: u32,
 }
@@ -20555,7 +20555,7 @@ impl Default for PhysicalDeviceSubpassShadingPropertiesHUAWEI {
 /**
 Provided by **VK_HUAWEI_cluster_culling_shader**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -20565,7 +20565,7 @@ Provided by **VK_HUAWEI_cluster_culling_shader**.*/
 pub struct PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_work_group_count: [u32; 3usize],
     pub max_work_group_size: [u32; 3usize],
@@ -20597,7 +20597,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct MemoryOpaqueCaptureAddressAllocateInfo {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub opaque_capture_address: u64,
 }
@@ -20620,7 +20620,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct DeviceMemoryOpaqueCaptureAddressInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
 }
@@ -20647,7 +20647,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct PhysicalDeviceLineRasterizationFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub rectangular_lines: u32,
     pub bresenham_lines: u32,
@@ -20675,7 +20675,7 @@ impl Default for PhysicalDeviceLineRasterizationFeatures {
 /**
 Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -20685,7 +20685,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct PhysicalDeviceLineRasterizationProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub line_sub_pixel_precision_bits: u32,
 }
@@ -20711,7 +20711,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct PipelineRasterizationLineStateCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub line_rasterization_mode: LineRasterizationMode,
     pub stippled_line_enable: u32,
@@ -20744,7 +20744,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDevicePipelineCreationCacheControlFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_creation_cache_control: u32,
 }
@@ -20771,7 +20771,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceVulkan11Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub storage_buffer16_bit_access: u32,
     pub uniform_and_storage_buffer16_bit_access: u32,
@@ -20811,7 +20811,7 @@ impl Default for PhysicalDeviceVulkan11Features {
 /**
 Provided by **VK_BASE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -20821,7 +20821,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceVulkan11Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_uuid: [u8; UUID_SIZE as usize],
     pub driver_uuid: [u8; UUID_SIZE as usize],
@@ -20876,7 +20876,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceVulkan12Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sampler_mirror_clamp_to_edge: u32,
     pub draw_indirect_count: u32,
@@ -20986,7 +20986,7 @@ impl Default for PhysicalDeviceVulkan12Features {
 /**
 Provided by **VK_BASE_VERSION_1_2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -20996,7 +20996,7 @@ Provided by **VK_BASE_VERSION_1_2**.*/
 pub struct PhysicalDeviceVulkan12Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub driver_id: DriverId,
     pub driver_name: [core::ffi::c_char; MAX_DRIVER_NAME_SIZE as usize],
@@ -21125,7 +21125,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PhysicalDeviceVulkan13Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub robust_image_access: u32,
     pub inline_uniform_block: u32,
@@ -21171,7 +21171,7 @@ impl Default for PhysicalDeviceVulkan13Features {
 /**
 Provided by **VK_BASE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -21181,7 +21181,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PhysicalDeviceVulkan13Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_subgroup_size: u32,
     pub max_subgroup_size: u32,
@@ -21296,7 +21296,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceVulkan14Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub global_priority_query: u32,
     pub shader_subgroup_rotate: u32,
@@ -21354,7 +21354,7 @@ impl Default for PhysicalDeviceVulkan14Features {
 /**
 Provided by **VK_BASE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -21364,7 +21364,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceVulkan14Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub line_sub_pixel_precision_bits: u32,
     pub max_vertex_attrib_divisor: u32,
@@ -21387,11 +21387,11 @@ pub struct PhysicalDeviceVulkan14Properties {
     pub default_robustness_images: PipelineRobustnessImageBehavior,
     ///Length of `p_copy_src_layouts`.
     pub copy_src_layout_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_copy_src_layouts: *mut ImageLayout,
     ///Length of `p_copy_dst_layouts`.
     pub copy_dst_layout_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_copy_dst_layouts: *mut ImageLayout,
     pub optimal_tiling_layout_uuid: [u8; UUID_SIZE as usize],
     pub identical_memory_type_requirements: u32,
@@ -21444,7 +21444,7 @@ Provided by **VK_AMD_pipeline_compiler_control**.*/
 pub struct PipelineCompilerControlCreateInfoAMD {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_COMPILER_CONTROL_CREATE_INFO_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub compiler_control_flags: PipelineCompilerControlFlagsAMD,
 }
@@ -21471,7 +21471,7 @@ Provided by **VK_AMD_device_coherent_memory**.*/
 pub struct PhysicalDeviceCoherentMemoryFeaturesAMD {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_coherent_memory: u32,
 }
@@ -21489,14 +21489,14 @@ impl Default for PhysicalDeviceCoherentMemoryFeaturesAMD {
 /**
 Provided by **VKSC_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkFaultData")]
 pub struct FaultData {
     ///Must be `VK_STRUCTURE_TYPE_FAULT_DATA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fault_level: FaultLevel,
     pub fault_type: FaultType,
@@ -21524,11 +21524,11 @@ Provided by **VKSC_VERSION_1_0**.*/
 pub struct FaultCallbackInfo {
     ///Must be `VK_STRUCTURE_TYPE_FAULT_CALLBACK_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_faults`.
     pub fault_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_faults: *mut FaultData,
     pub pfn_fault_callback: PFN_vkFaultCallbackFunction,
 }
@@ -21548,14 +21548,14 @@ impl Default for FaultCallbackInfo {
 /**
 Provided by **VK_BASE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPhysicalDeviceToolProperties")]
 pub struct PhysicalDeviceToolProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub name: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
     pub version: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
@@ -21589,7 +21589,7 @@ Provided by **VK_EXT_custom_border_color**.*/
 pub struct SamplerCustomBorderColorCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub custom_border_color: ClearColorValue,
     pub format: Format,
@@ -21609,7 +21609,7 @@ impl Default for SamplerCustomBorderColorCreateInfoEXT {
 /**
 Provided by **VK_EXT_custom_border_color**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -21619,7 +21619,7 @@ Provided by **VK_EXT_custom_border_color**.*/
 pub struct PhysicalDeviceCustomBorderColorPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_custom_border_color_samplers: u32,
 }
@@ -21646,7 +21646,7 @@ Provided by **VK_EXT_custom_border_color**.*/
 pub struct PhysicalDeviceCustomBorderColorFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub custom_border_colors: u32,
     pub custom_border_color_without_format: u32,
@@ -21674,7 +21674,7 @@ Provided by **VK_EXT_border_color_swizzle**.*/
 pub struct SamplerBorderColorComponentMappingCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub components: ComponentMapping,
     pub srgb: u32,
@@ -21703,7 +21703,7 @@ Provided by **VK_EXT_border_color_swizzle**.*/
 pub struct PhysicalDeviceBorderColorSwizzleFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub border_color_swizzle: u32,
     pub border_color_swizzle_from_image: u32,
@@ -21796,7 +21796,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureGeometryTrianglesDataKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub vertex_format: Format,
     pub vertex_data: DeviceOrHostAddressConstKHR,
@@ -21831,7 +21831,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureGeometryAabbsDataKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub data: DeviceOrHostAddressConstKHR,
     pub stride: u64,
@@ -21856,7 +21856,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureGeometryInstancesDataKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub array_of_pointers: u32,
     pub data: DeviceOrHostAddressConstKHR,
@@ -21884,7 +21884,7 @@ Provided by **VK_NV_ray_tracing_linear_swept_spheres**.*/
 pub struct AccelerationStructureGeometryLinearSweptSpheresDataNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub vertex_format: Format,
     pub vertex_data: DeviceOrHostAddressConstKHR,
@@ -21930,7 +21930,7 @@ Provided by **VK_NV_ray_tracing_linear_swept_spheres**.*/
 pub struct AccelerationStructureGeometrySpheresDataNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_SPHERES_DATA_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub vertex_format: Format,
     pub vertex_data: DeviceOrHostAddressConstKHR,
@@ -21996,7 +21996,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureGeometryKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub geometry_type: GeometryTypeKHR,
     pub geometry: AccelerationStructureGeometryDataKHR,
@@ -22023,7 +22023,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureBuildGeometryInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: AccelerationStructureTypeKHR,
     pub flags: BuildAccelerationStructureFlagsKHR,
@@ -22032,9 +22032,9 @@ pub struct AccelerationStructureBuildGeometryInfoKHR {
     pub dst_acceleration_structure: AccelerationStructureKHR,
     ///Length of `pp_geometries`.
     pub geometry_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_geometries: *const AccelerationStructureGeometryKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub pp_geometries: *const *const AccelerationStructureGeometryKHR,
     pub scratch_data: DeviceOrHostAddressKHR,
 }
@@ -22087,7 +22087,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub create_flags: AccelerationStructureCreateFlagsKHR,
     pub buffer: Buffer,
@@ -22209,7 +22209,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureDeviceAddressInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub acceleration_structure: AccelerationStructureKHR,
 }
@@ -22232,7 +22232,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct AccelerationStructureVersionInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_VERSION_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_version_data: *const u8,
 }
@@ -22255,7 +22255,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct CopyAccelerationStructureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src: AccelerationStructureKHR,
     pub dst: AccelerationStructureKHR,
@@ -22282,7 +22282,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct CopyAccelerationStructureToMemoryInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src: AccelerationStructureKHR,
     pub dst: DeviceOrHostAddressKHR,
@@ -22309,7 +22309,7 @@ Provided by **VK_KHR_acceleration_structure**.*/
 pub struct CopyMemoryToAccelerationStructureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src: DeviceOrHostAddressConstKHR,
     pub dst: AccelerationStructureKHR,
@@ -22336,7 +22336,7 @@ Provided by **VK_KHR_ray_tracing_pipeline**.*/
 pub struct RayTracingPipelineInterfaceCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_pipeline_ray_payload_size: u32,
     pub max_pipeline_ray_hit_attribute_size: u32,
@@ -22364,7 +22364,7 @@ Provided by **VK_KHR_pipeline_library**.*/
 pub struct PipelineLibraryCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_LIBRARY_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_libraries`.
     pub library_count: u32,
@@ -22404,7 +22404,7 @@ impl Default for RefreshObjectKHR {
 pub struct RefreshObjectListKHR {
     ///Must be `VK_STRUCTURE_TYPE_REFRESH_OBJECT_LIST_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_objects`.
     pub object_count: u32,
@@ -22434,7 +22434,7 @@ Provided by **VK_EXT_extended_dynamic_state**.*/
 pub struct PhysicalDeviceExtendedDynamicStateFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub extended_dynamic_state: u32,
 }
@@ -22461,7 +22461,7 @@ Provided by **VK_EXT_extended_dynamic_state2**.*/
 pub struct PhysicalDeviceExtendedDynamicState2FeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub extended_dynamic_state2: u32,
     pub extended_dynamic_state2_logic_op: u32,
@@ -22492,7 +22492,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
 pub struct PhysicalDeviceExtendedDynamicState3FeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub extended_dynamic_state3_tessellation_domain_origin: u32,
     pub extended_dynamic_state3_depth_clamp_enable: u32,
@@ -22570,7 +22570,7 @@ impl Default for PhysicalDeviceExtendedDynamicState3FeaturesEXT {
 /**
 Provided by **VK_EXT_extended_dynamic_state3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -22580,7 +22580,7 @@ Provided by **VK_EXT_extended_dynamic_state3**.*/
 pub struct PhysicalDeviceExtendedDynamicState3PropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub dynamic_primitive_topology_unrestricted: u32,
 }
@@ -22645,7 +22645,7 @@ Provided by **VK_QCOM_render_pass_transform**.*/
 pub struct RenderPassTransformBeginInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub transform: SurfaceTransformFlagBitsKHR,
 }
@@ -22673,7 +22673,7 @@ Provided by **VK_QCOM_rotated_copy_commands**.*/
 pub struct CopyCommandTransformInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_COPY_COMMAND_TRANSFORM_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub transform: SurfaceTransformFlagBitsKHR,
 }
@@ -22699,7 +22699,7 @@ Provided by **VK_QCOM_render_pass_transform**.*/
 pub struct CommandBufferInheritanceRenderPassTransformInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub transform: SurfaceTransformFlagBitsKHR,
     pub render_area: Rect2D,
@@ -22728,7 +22728,7 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
 pub struct PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub partitioned_acceleration_structure: u32,
 }
@@ -22746,7 +22746,7 @@ impl Default for PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
 /**
 Provided by **VK_NV_partitioned_acceleration_structure**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -22756,7 +22756,7 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
 pub struct PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_partition_count: u32,
 }
@@ -22799,7 +22799,7 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
 pub struct PartitionedAccelerationStructureFlagsNV {
     ///Must be `VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_FLAGS_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub enable_partition_translation: u32,
 }
@@ -22881,11 +22881,11 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
 pub struct WriteDescriptorSetPartitionedAccelerationStructureNV {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_acceleration_structures`.
     pub acceleration_structure_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_acceleration_structures: *const u64,
 }
 impl Default for WriteDescriptorSetPartitionedAccelerationStructureNV {
@@ -22911,7 +22911,7 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
 pub struct PartitionedAccelerationStructureInstancesInputNV {
     ///Must be `VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: BuildAccelerationStructureFlagsKHR,
     pub instance_count: u32,
@@ -22942,7 +22942,7 @@ Provided by **VK_NV_partitioned_acceleration_structure**.*/
 pub struct BuildPartitionedAccelerationStructureInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub input: PartitionedAccelerationStructureInstancesInputNV,
     pub src_acceleration_structure_data: u64,
@@ -22979,7 +22979,7 @@ Provided by **VK_NV_device_diagnostics_config**.*/
 pub struct PhysicalDeviceDiagnosticsConfigFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub diagnostics_config: u32,
 }
@@ -23005,7 +23005,7 @@ Provided by **VK_NV_device_diagnostics_config**.*/
 pub struct DeviceDiagnosticsConfigCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DeviceDiagnosticsConfigFlagsNV,
 }
@@ -23034,7 +23034,7 @@ Provided by **VKSC_VERSION_1_0**.*/
 pub struct PipelineOfflineCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_OFFLINE_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub pipeline_identifier: [u8; UUID_SIZE as usize],
     pub match_control: PipelineMatchControl,
@@ -23065,7 +23065,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_zero_initialize_workgroup_memory: u32,
 }
@@ -23092,7 +23092,7 @@ Provided by **VK_KHR_shader_subgroup_uniform_control_flow**.*/
 pub struct PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_subgroup_uniform_control_flow: u32,
 }
@@ -23119,7 +23119,7 @@ Provided by **VK_KHR_robustness2**.*/
 pub struct PhysicalDeviceRobustness2FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub robust_buffer_access2: u32,
     pub robust_image_access2: u32,
@@ -23141,7 +23141,7 @@ impl Default for PhysicalDeviceRobustness2FeaturesKHR {
 /**
 Provided by **VK_KHR_robustness2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -23151,7 +23151,7 @@ Provided by **VK_KHR_robustness2**.*/
 pub struct PhysicalDeviceRobustness2PropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub robust_storage_buffer_access_size_alignment: u64,
     pub robust_uniform_buffer_access_size_alignment: u64,
@@ -23180,7 +23180,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceImageRobustnessFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub robust_image_access: u32,
 }
@@ -23207,7 +23207,7 @@ Provided by **VK_KHR_workgroup_memory_explicit_layout**.*/
 pub struct PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub workgroup_memory_explicit_layout: u32,
     pub workgroup_memory_explicit_layout_scalar_block_layout: u32,
@@ -23240,7 +23240,7 @@ Provided by **VK_KHR_portability_subset**.*/
 pub struct PhysicalDevicePortabilitySubsetFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub constant_alpha_color_blend_factors: u32,
     pub events: u32,
@@ -23286,7 +23286,7 @@ impl Default for PhysicalDevicePortabilitySubsetFeaturesKHR {
 /**
 Provided by **VK_KHR_portability_subset**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -23296,7 +23296,7 @@ Provided by **VK_KHR_portability_subset**.*/
 pub struct PhysicalDevicePortabilitySubsetPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_vertex_input_binding_stride_alignment: u32,
 }
@@ -23323,7 +23323,7 @@ Provided by **VK_EXT_4444_formats**.*/
 pub struct PhysicalDevice4444FormatsFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format_a4r4g4b4: u32,
     pub format_a4b4g4r4: u32,
@@ -23352,7 +23352,7 @@ Provided by **VK_HUAWEI_subpass_shading**.*/
 pub struct PhysicalDeviceSubpassShadingFeaturesHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub subpass_shading: u32,
 }
@@ -23382,7 +23382,7 @@ Provided by **VK_HUAWEI_cluster_culling_shader**.*/
 pub struct PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub clusterculling_shader: u32,
     pub multiview_cluster_culling_shader: u32,
@@ -23410,7 +23410,7 @@ Provided by **VK_HUAWEI_cluster_culling_shader**.*/
 pub struct PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cluster_shading_rate: u32,
 }
@@ -23433,7 +23433,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct BufferCopy2 {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_COPY_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_offset: u64,
     pub dst_offset: u64,
@@ -23460,7 +23460,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct ImageCopy2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_COPY_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_subresource: ImageSubresourceLayers,
     pub src_offset: Offset3D,
@@ -23494,7 +23494,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct ImageBlit2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_BLIT_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_subresource: ImageSubresourceLayers,
     pub src_offsets: [Offset3D; 2usize],
@@ -23526,7 +23526,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct BufferImageCopy2 {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_IMAGE_COPY_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer_offset: u64,
     pub buffer_row_length: u32,
@@ -23559,7 +23559,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct ImageResolve2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_subresource: ImageSubresourceLayers,
     pub src_offset: Offset3D,
@@ -23590,7 +23590,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct CopyBufferInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_COPY_BUFFER_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_buffer: Buffer,
     pub dst_buffer: Buffer,
@@ -23620,7 +23620,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct CopyImageInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_COPY_IMAGE_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_image: Image,
     pub src_image_layout: ImageLayout,
@@ -23657,7 +23657,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct BlitImageInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_BLIT_IMAGE_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_image: Image,
     pub src_image_layout: ImageLayout,
@@ -23693,7 +23693,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct CopyBufferToImageInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_COPY_BUFFER_TO_IMAGE_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_buffer: Buffer,
     pub dst_image: Image,
@@ -23725,7 +23725,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct CopyImageToBufferInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_COPY_IMAGE_TO_BUFFER_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_image: Image,
     pub src_image_layout: ImageLayout,
@@ -23760,7 +23760,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct ResolveImageInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_RESOLVE_IMAGE_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_image: Image,
     pub src_image_layout: ImageLayout,
@@ -23798,7 +23798,7 @@ Provided by **VK_EXT_shader_image_atomic_int64**.*/
 pub struct PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_image_int64_atomics: u32,
     pub sparse_image_int64_atomics: u32,
@@ -23826,9 +23826,9 @@ Provided by **VK_KHR_fragment_shading_rate**.*/
 pub struct FragmentShadingRateAttachmentInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_fragment_shading_rate_attachment: *const AttachmentReference2,
     pub shading_rate_attachment_texel_size: Extent2D,
 }
@@ -23855,7 +23855,7 @@ Provided by **VK_KHR_fragment_shading_rate**.*/
 pub struct PipelineFragmentShadingRateStateCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub fragment_size: Extent2D,
     pub combiner_ops: [FragmentShadingRateCombinerOpKHR; 2usize],
@@ -23884,7 +23884,7 @@ Provided by **VK_KHR_fragment_shading_rate**.*/
 pub struct PhysicalDeviceFragmentShadingRateFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_fragment_shading_rate: u32,
     pub primitive_fragment_shading_rate: u32,
@@ -23906,7 +23906,7 @@ impl Default for PhysicalDeviceFragmentShadingRateFeaturesKHR {
 /**
 Provided by **VK_KHR_fragment_shading_rate**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -23916,7 +23916,7 @@ Provided by **VK_KHR_fragment_shading_rate**.*/
 pub struct PhysicalDeviceFragmentShadingRatePropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_fragment_shading_rate_attachment_texel_size: Extent2D,
     pub max_fragment_shading_rate_attachment_texel_size: Extent2D,
@@ -23966,14 +23966,14 @@ impl Default for PhysicalDeviceFragmentShadingRatePropertiesKHR {
 /**
 Provided by **VK_KHR_fragment_shading_rate**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateKHR")]
 pub struct PhysicalDeviceFragmentShadingRateKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sample_counts: SampleCountFlags,
     pub fragment_size: Extent2D,
@@ -24002,7 +24002,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceShaderTerminateInvocationFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_terminate_invocation: u32,
 }
@@ -24029,7 +24029,7 @@ Provided by **VK_NV_fragment_shading_rate_enums**.*/
 pub struct PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_shading_rate_enums: u32,
     pub supersample_fragment_shading_rates: u32,
@@ -24051,7 +24051,7 @@ impl Default for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
 /**
 Provided by **VK_NV_fragment_shading_rate_enums**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -24061,7 +24061,7 @@ Provided by **VK_NV_fragment_shading_rate_enums**.*/
 pub struct PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_fragment_shading_rate_invocation_count: SampleCountFlagBits,
 }
@@ -24087,7 +24087,7 @@ Provided by **VK_NV_fragment_shading_rate_enums**.*/
 pub struct PipelineFragmentShadingRateEnumStateCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub shading_rate_type: FragmentShadingRateTypeNV,
     pub shading_rate: FragmentShadingRateNV,
@@ -24109,14 +24109,14 @@ impl Default for PipelineFragmentShadingRateEnumStateCreateInfoNV {
 /**
 Provided by **VK_KHR_acceleration_structure**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkAccelerationStructureBuildSizesInfoKHR")]
 pub struct AccelerationStructureBuildSizesInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub acceleration_structure_size: u64,
     pub update_scratch_size: u64,
@@ -24147,7 +24147,7 @@ Provided by **VK_EXT_image_2d_view_of_3d**.*/
 pub struct PhysicalDeviceImage2DViewOf3DFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image2_d_view_of3_d: u32,
     pub sampler2_d_view_of3_d: u32,
@@ -24176,7 +24176,7 @@ Provided by **VK_EXT_image_sliced_view_of_3d**.*/
 pub struct PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_sliced_view_of3_d: u32,
 }
@@ -24203,7 +24203,7 @@ Provided by **VK_EXT_attachment_feedback_loop_dynamic_state**.*/
 pub struct PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub attachment_feedback_loop_dynamic_state: u32,
 }
@@ -24230,7 +24230,7 @@ Provided by **VK_EXT_legacy_vertex_attributes**.*/
 pub struct PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub legacy_vertex_attributes: u32,
 }
@@ -24248,7 +24248,7 @@ impl Default for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
 /**
 Provided by **VK_EXT_legacy_vertex_attributes**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -24258,7 +24258,7 @@ Provided by **VK_EXT_legacy_vertex_attributes**.*/
 pub struct PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub native_unaligned_performance: u32,
 }
@@ -24285,7 +24285,7 @@ Provided by **VK_EXT_mutable_descriptor_type**.*/
 pub struct PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub mutable_descriptor_type: u32,
 }
@@ -24329,7 +24329,7 @@ Provided by **VK_EXT_mutable_descriptor_type**.*/
 pub struct MutableDescriptorTypeCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_mutable_descriptor_type_lists`.
     pub mutable_descriptor_type_list_count: u32,
@@ -24359,7 +24359,7 @@ Provided by **VK_EXT_depth_clip_control**.*/
 pub struct PhysicalDeviceDepthClipControlFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub depth_clip_control: u32,
 }
@@ -24386,7 +24386,7 @@ Provided by **VK_EXT_zero_initialize_device_memory**.*/
 pub struct PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub zero_initialize_device_memory: u32,
 }
@@ -24409,7 +24409,7 @@ Provided by **VK_EXT_custom_resolve**.*/
 pub struct BeginCustomResolveInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_BEGIN_CUSTOM_RESOLVE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
 }
 impl Default for BeginCustomResolveInfoEXT {
@@ -24434,7 +24434,7 @@ Provided by **VK_EXT_custom_resolve**.*/
 pub struct PhysicalDeviceCustomResolveFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_RESOLVE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub custom_resolve: u32,
 }
@@ -24462,7 +24462,7 @@ Provided by **VK_EXT_custom_resolve**.*/
 pub struct CustomResolveCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_CUSTOM_RESOLVE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub custom_resolve: u32,
     ///Length of `p_color_attachment_formats`.
@@ -24498,7 +24498,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_generated_commands: u32,
     pub dynamic_generated_pipeline_layout: u32,
@@ -24518,7 +24518,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
 /**
 Provided by **VK_EXT_device_generated_commands**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -24528,7 +24528,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_indirect_pipeline_count: u32,
     pub max_indirect_shader_object_count: u32,
@@ -24577,7 +24577,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct GeneratedCommandsPipelineInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_GENERATED_COMMANDS_PIPELINE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline: Pipeline,
 }
@@ -24604,7 +24604,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct GeneratedCommandsShaderInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_GENERATED_COMMANDS_SHADER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_shaders`.
     pub shader_count: u32,
@@ -24634,7 +24634,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct GeneratedCommandsMemoryRequirementsInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub indirect_execution_set: IndirectExecutionSetEXT,
     pub indirect_commands_layout: IndirectCommandsLayoutEXT,
@@ -24663,7 +24663,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct IndirectExecutionSetPipelineInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_PIPELINE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub initial_pipeline: Pipeline,
     pub max_pipeline_count: u32,
@@ -24688,11 +24688,11 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct IndirectExecutionSetShaderLayoutInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_SHADER_LAYOUT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_set_layouts`.
     pub set_layout_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_set_layouts: *const DescriptorSetLayout,
 }
 impl Default for IndirectExecutionSetShaderLayoutInfoEXT {
@@ -24715,12 +24715,12 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct IndirectExecutionSetShaderInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_SHADER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_set_layout_infos`.
     pub shader_count: u32,
     pub p_initial_shaders: *const ShaderEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_set_layout_infos: *const IndirectExecutionSetShaderLayoutInfoEXT,
     pub max_shader_count: u32,
     ///Length of `p_push_constant_ranges`.
@@ -24772,7 +24772,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct IndirectExecutionSetCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: IndirectExecutionSetInfoTypeEXT,
     pub info: IndirectExecutionSetInfoEXT,
@@ -24801,7 +24801,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct GeneratedCommandsInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub shader_stages: ShaderStageFlags,
     pub indirect_execution_set: IndirectExecutionSetEXT,
@@ -24842,7 +24842,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct WriteIndirectExecutionSetPipelineEXT {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_INDIRECT_EXECUTION_SET_PIPELINE_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub index: u32,
     pub pipeline: Pipeline,
@@ -24867,7 +24867,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct WriteIndirectExecutionSetShaderEXT {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_INDIRECT_EXECUTION_SET_SHADER_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub index: u32,
     pub shader: ShaderEXT,
@@ -24895,7 +24895,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct IndirectCommandsLayoutCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: IndirectCommandsLayoutUsageFlagsEXT,
     pub shader_stages: ShaderStageFlags,
@@ -24932,7 +24932,7 @@ Provided by **VK_EXT_device_generated_commands**.*/
 pub struct IndirectCommandsLayoutTokenEXT {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: IndirectCommandsTokenTypeEXT,
     pub data: IndirectCommandsTokenDataEXT,
@@ -25097,7 +25097,7 @@ Provided by **VK_EXT_depth_clip_control**.*/
 pub struct PipelineViewportDepthClipControlCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub negative_one_to_one: u32,
 }
@@ -25124,7 +25124,7 @@ Provided by **VK_EXT_depth_clamp_control**.*/
 pub struct PhysicalDeviceDepthClampControlFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_CONTROL_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub depth_clamp_control: u32,
 }
@@ -25150,10 +25150,10 @@ Provided by **VK_EXT_depth_clamp_control**.*/
 pub struct PipelineViewportDepthClampControlCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub depth_clamp_mode: DepthClampModeEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_depth_clamp_range: *const DepthClampRangeEXT,
 }
 impl Default for PipelineViewportDepthClampControlCreateInfoEXT {
@@ -25180,7 +25180,7 @@ Provided by **VK_EXT_vertex_input_dynamic_state**.*/
 pub struct PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub vertex_input_dynamic_state: u32,
 }
@@ -25207,7 +25207,7 @@ Provided by **VK_NV_external_memory_rdma**.*/
 pub struct PhysicalDeviceExternalMemoryRDMAFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_memory_rdma: u32,
 }
@@ -25234,7 +25234,7 @@ Provided by **VK_KHR_shader_relaxed_extended_instruction**.*/
 pub struct PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_relaxed_extended_instruction: u32,
 }
@@ -25257,7 +25257,7 @@ Provided by **VK_EXT_vertex_input_dynamic_state**.*/
 pub struct VertexInputBindingDescription2EXT {
     ///Must be `VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub binding: u32,
     pub stride: u32,
@@ -25286,7 +25286,7 @@ Provided by **VK_EXT_vertex_input_dynamic_state**.*/
 pub struct VertexInputAttributeDescription2EXT {
     ///Must be `VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub location: u32,
     pub binding: u32,
@@ -25319,7 +25319,7 @@ Provided by **VK_EXT_color_write_enable**.*/
 pub struct PhysicalDeviceColorWriteEnableFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub color_write_enable: u32,
 }
@@ -25345,7 +25345,7 @@ Provided by **VK_EXT_color_write_enable**.*/
 pub struct PipelineColorWriteCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_COLOR_WRITE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_color_write_enables`.
     pub attachment_count: u32,
@@ -25374,7 +25374,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct MemoryBarrier2 {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_BARRIER_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_stage_mask: PipelineStageFlags2,
     pub src_access_mask: AccessFlags2,
@@ -25408,7 +25408,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct ImageMemoryBarrier2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_stage_mask: PipelineStageFlags2,
     pub src_access_mask: AccessFlags2,
@@ -25453,7 +25453,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct BufferMemoryBarrier2 {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_stage_mask: PipelineStageFlags2,
     pub src_access_mask: AccessFlags2,
@@ -25497,7 +25497,7 @@ Provided by **VK_KHR_maintenance8**.*/
 pub struct MemoryBarrierAccessFlags3KHR {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_BARRIER_ACCESS_FLAGS_3_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_access_mask3: AccessFlags3KHR,
     pub dst_access_mask3: AccessFlags3KHR,
@@ -25527,7 +25527,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct DependencyInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEPENDENCY_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub dependency_flags: DependencyFlags,
     ///Length of `p_memory_barriers`.
@@ -25565,7 +25565,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct SemaphoreSubmitInfo {
     ///Must be `VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore: Semaphore,
     pub value: u64,
@@ -25597,7 +25597,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct CommandBufferSubmitInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub command_buffer: CommandBuffer,
     pub device_mask: u32,
@@ -25630,7 +25630,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct SubmitInfo2 {
     ///Must be `VK_STRUCTURE_TYPE_SUBMIT_INFO_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: SubmitFlags,
     ///Length of `p_wait_semaphore_infos`.
@@ -25663,7 +25663,7 @@ impl Default for SubmitInfo2 {
 /**
 Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`QueueFamilyProperties2`]
@@ -25673,7 +25673,7 @@ Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 pub struct QueueFamilyCheckpointProperties2NV {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub checkpoint_execution_stage_mask: PipelineStageFlags2,
 }
@@ -25691,14 +25691,14 @@ impl Default for QueueFamilyCheckpointProperties2NV {
 /**
 Provided by **VK_NV_device_diagnostic_checkpoints**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkCheckpointData2NV")]
 pub struct CheckpointData2NV {
     ///Must be `VK_STRUCTURE_TYPE_CHECKPOINT_DATA_2_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub stage: PipelineStageFlags2,
     pub p_checkpoint_marker: *mut core::ffi::c_void,
@@ -25727,7 +25727,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct PhysicalDeviceSynchronization2Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub synchronization2: u32,
 }
@@ -25754,7 +25754,7 @@ Provided by **VK_KHR_unified_image_layouts**.*/
 pub struct PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub unified_image_layouts: u32,
     pub unified_image_layouts_video: u32,
@@ -25783,7 +25783,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceHostImageCopyFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub host_image_copy: u32,
 }
@@ -25809,15 +25809,15 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct PhysicalDeviceHostImageCopyProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_copy_src_layouts`.
     pub copy_src_layout_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_copy_src_layouts: *mut ImageLayout,
     ///Length of `p_copy_dst_layouts`.
     pub copy_dst_layout_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_copy_dst_layouts: *mut ImageLayout,
     pub optimal_tiling_layout_uuid: [u8; UUID_SIZE as usize],
     pub identical_memory_type_requirements: u32,
@@ -25846,7 +25846,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct MemoryToImageCopy {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_TO_IMAGE_COPY`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_host_pointer: *const core::ffi::c_void,
     pub memory_row_length: u32,
@@ -25879,7 +25879,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct ImageToMemoryCopy {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_host_pointer: *mut core::ffi::c_void,
     pub memory_row_length: u32,
@@ -25912,7 +25912,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct CopyMemoryToImageInfo {
     ///Must be `VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: HostImageCopyFlags,
     pub dst_image: Image,
@@ -25944,7 +25944,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct CopyImageToMemoryInfo {
     ///Must be `VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: HostImageCopyFlags,
     pub src_image: Image,
@@ -25976,7 +25976,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct CopyImageToImageInfo {
     ///Must be `VK_STRUCTURE_TYPE_COPY_IMAGE_TO_IMAGE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: HostImageCopyFlags,
     pub src_image: Image,
@@ -26012,7 +26012,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct HostImageLayoutTransitionInfo {
     ///Must be `VK_STRUCTURE_TYPE_HOST_IMAGE_LAYOUT_TRANSITION_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
     pub old_layout: ImageLayout,
@@ -26036,7 +26036,7 @@ impl Default for HostImageLayoutTransitionInfo {
 /**
 Provided by **VK_BASE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`SubresourceLayout2`]
@@ -26046,7 +26046,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct SubresourceHostMemcpySize {
     ///Must be `VK_STRUCTURE_TYPE_SUBRESOURCE_HOST_MEMCPY_SIZE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub size: u64,
 }
@@ -26064,7 +26064,7 @@ impl Default for SubresourceHostMemcpySize {
 /**
 Provided by **VK_BASE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -26074,7 +26074,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct HostImageCopyDevicePerformanceQuery {
     ///Must be `VK_STRUCTURE_TYPE_HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub optimal_device_access: u32,
     pub identical_memory_layout: u32,
@@ -26094,7 +26094,7 @@ impl Default for HostImageCopyDevicePerformanceQuery {
 /**
 Provided by **VKSC_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -26104,7 +26104,7 @@ Provided by **VKSC_VERSION_1_0**.*/
 pub struct PhysicalDeviceVulkanSC10Properties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_SC_1_0_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_no_dynamic_host_allocations: u32,
     pub device_destroy_frees_memory: u32,
@@ -26161,7 +26161,7 @@ Provided by **VKSC_VERSION_1_0**.*/
 pub struct PipelinePoolSize {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_POOL_SIZE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub pool_entry_size: u64,
     pub pool_entry_count: u32,
@@ -26189,7 +26189,7 @@ Provided by **VKSC_VERSION_1_0**.*/
 pub struct DeviceObjectReservationCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_OBJECT_RESERVATION_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_pipeline_cache_create_infos`.
     pub pipeline_cache_create_info_count: u32,
@@ -26297,7 +26297,7 @@ Provided by **VKSC_VERSION_1_0**.*/
 pub struct CommandPoolMemoryReservationCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_POOL_MEMORY_RESERVATION_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub command_pool_reserved_size: u64,
     pub command_pool_max_command_buffers: u32,
@@ -26317,14 +26317,14 @@ impl Default for CommandPoolMemoryReservationCreateInfo {
 /**
 Provided by **VKSC_VERSION_1_0**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkCommandPoolMemoryConsumption")]
 pub struct CommandPoolMemoryConsumption {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_POOL_MEMORY_CONSUMPTION`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub command_pool_allocated: u64,
     pub command_pool_reserved_size: u64,
@@ -26355,7 +26355,7 @@ Provided by **VKSC_VERSION_1_0**.*/
 pub struct PhysicalDeviceVulkanSC10Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_SC_1_0_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_atomic_instructions: u32,
 }
@@ -26382,7 +26382,7 @@ Provided by **VK_EXT_primitives_generated_query**.*/
 pub struct PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub primitives_generated_query: u32,
     pub primitives_generated_query_with_rasterizer_discard: u32,
@@ -26413,7 +26413,7 @@ Provided by **VK_EXT_legacy_dithering**.*/
 pub struct PhysicalDeviceLegacyDitheringFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub legacy_dithering: u32,
 }
@@ -26440,7 +26440,7 @@ Provided by **VK_EXT_multisampled_render_to_single_sampled**.*/
 pub struct PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub multisampled_render_to_single_sampled: u32,
 }
@@ -26466,7 +26466,7 @@ Provided by **VK_KHR_present_id2**.*/
 pub struct SurfaceCapabilitiesPresentId2KHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_ID_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_id2_supported: u32,
 }
@@ -26492,7 +26492,7 @@ Provided by **VK_KHR_present_wait2**.*/
 pub struct SurfaceCapabilitiesPresentWait2KHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_WAIT_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_wait2_supported: u32,
 }
@@ -26510,7 +26510,7 @@ impl Default for SurfaceCapabilitiesPresentWait2KHR {
 /**
 Provided by **VK_EXT_multisampled_render_to_single_sampled**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`FormatProperties2`]
@@ -26520,7 +26520,7 @@ Provided by **VK_EXT_multisampled_render_to_single_sampled**.*/
 pub struct SubpassResolvePerformanceQueryEXT {
     ///Must be `VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub optimal: u32,
 }
@@ -26547,7 +26547,7 @@ Provided by **VK_EXT_multisampled_render_to_single_sampled**.*/
 pub struct MultisampledRenderToSingleSampledInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub multisampled_render_to_single_sampled_enable: u32,
     pub rasterization_samples: SampleCountFlagBits,
@@ -26576,7 +26576,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PhysicalDevicePipelineProtectedAccessFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_protected_access: u32,
 }
@@ -26594,7 +26594,7 @@ impl Default for PhysicalDevicePipelineProtectedAccessFeatures {
 /**
 Provided by **VK_KHR_video_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`QueueFamilyProperties2`]
@@ -26604,7 +26604,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct QueueFamilyVideoPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_VIDEO_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_codec_operations: VideoCodecOperationFlagsKHR,
 }
@@ -26622,7 +26622,7 @@ impl Default for QueueFamilyVideoPropertiesKHR {
 /**
 Provided by **VK_KHR_video_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`QueueFamilyProperties2`]
@@ -26632,7 +26632,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct QueueFamilyQueryResultStatusPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub query_result_status_support: u32,
 }
@@ -26661,7 +26661,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoProfileListInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_PROFILE_LIST_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_profiles`.
     pub profile_count: u32,
@@ -26690,7 +26690,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct PhysicalDeviceVideoFormatInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image_usage: ImageUsageFlags,
 }
@@ -26708,7 +26708,7 @@ impl Default for PhysicalDeviceVideoFormatInfoKHR {
 /**
 Provided by **VK_KHR_video_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`VideoFormatAV1QuantizationMapPropertiesKHR`]
@@ -26720,7 +26720,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoFormatPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_FORMAT_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format: Format,
     pub component_mapping: ComponentMapping,
@@ -26748,7 +26748,7 @@ impl Default for VideoFormatPropertiesKHR {
 /**
 Provided by **VK_KHR_video_encode_quantization_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -26758,7 +26758,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoEncodeQuantizationMapCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_quantization_map_extent: Extent2D,
 }
@@ -26776,7 +26776,7 @@ impl Default for VideoEncodeQuantizationMapCapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_quantization_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -26786,7 +26786,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoEncodeH264QuantizationMapCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_qp_delta: i32,
     pub max_qp_delta: i32,
@@ -26806,7 +26806,7 @@ impl Default for VideoEncodeH264QuantizationMapCapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_quantization_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -26816,7 +26816,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoEncodeH265QuantizationMapCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_qp_delta: i32,
     pub max_qp_delta: i32,
@@ -26836,7 +26836,7 @@ impl Default for VideoEncodeH265QuantizationMapCapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_quantization_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -26846,7 +26846,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoEncodeAV1QuantizationMapCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_q_index_delta: i32,
     pub max_q_index_delta: i32,
@@ -26866,7 +26866,7 @@ impl Default for VideoEncodeAV1QuantizationMapCapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_quantization_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoFormatPropertiesKHR`]
@@ -26876,7 +26876,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoFormatQuantizationMapPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_FORMAT_QUANTIZATION_MAP_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub quantization_map_texel_size: Extent2D,
 }
@@ -26894,7 +26894,7 @@ impl Default for VideoFormatQuantizationMapPropertiesKHR {
 /**
 Provided by **VK_KHR_video_encode_quantization_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoFormatPropertiesKHR`]
@@ -26904,7 +26904,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoFormatH265QuantizationMapPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_FORMAT_H265_QUANTIZATION_MAP_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub compatible_ctb_sizes: VideoEncodeH265CtbSizeFlagsKHR,
 }
@@ -26922,7 +26922,7 @@ impl Default for VideoFormatH265QuantizationMapPropertiesKHR {
 /**
 Provided by **VK_KHR_video_encode_quantization_map**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoFormatPropertiesKHR`]
@@ -26932,7 +26932,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoFormatAV1QuantizationMapPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_FORMAT_AV1_QUANTIZATION_MAP_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub compatible_superblock_sizes: VideoEncodeAV1SuperblockSizeFlagsKHR,
 }
@@ -26970,7 +26970,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub video_codec_operation: VideoCodecOperationFlagBitsKHR,
     pub chroma_subsampling: VideoChromaSubsamplingFlagsKHR,
@@ -26994,7 +26994,7 @@ impl Default for VideoProfileInfoKHR {
 /**
 Provided by **VK_KHR_video_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`VideoDecodeAV1CapabilitiesKHR`]
@@ -27018,7 +27018,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: VideoCapabilityFlagsKHR,
     pub min_bitstream_buffer_offset_alignment: u64,
@@ -27052,14 +27052,14 @@ impl Default for VideoCapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkVideoSessionMemoryRequirementsKHR")]
 pub struct VideoSessionMemoryRequirementsKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_SESSION_MEMORY_REQUIREMENTS_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_bind_index: u32,
     pub memory_requirements: MemoryRequirements,
@@ -27084,7 +27084,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct BindVideoSessionMemoryInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_BIND_VIDEO_SESSION_MEMORY_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory_bind_index: u32,
     pub memory: DeviceMemory,
@@ -27113,7 +27113,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoPictureResourceInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_PICTURE_RESOURCE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub coded_offset: Offset2D,
     pub coded_extent: Extent2D,
@@ -27151,10 +27151,10 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoReferenceSlotInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_REFERENCE_SLOT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub slot_index: i32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_picture_resource: *const VideoPictureResourceInfoKHR,
 }
 impl Default for VideoReferenceSlotInfoKHR {
@@ -27172,7 +27172,7 @@ impl Default for VideoReferenceSlotInfoKHR {
 /**
 Provided by **VK_KHR_video_decode_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -27182,7 +27182,7 @@ Provided by **VK_KHR_video_decode_queue**.*/
 pub struct VideoDecodeCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: VideoDecodeCapabilityFlagsKHR,
 }
@@ -27209,7 +27209,7 @@ Provided by **VK_KHR_video_decode_queue**.*/
 pub struct VideoDecodeUsageInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_USAGE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub video_usage_hints: VideoDecodeUsageFlagsKHR,
 }
@@ -27242,14 +27242,14 @@ Provided by **VK_KHR_video_decode_queue**.*/
 pub struct VideoDecodeInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoDecodeFlagsKHR,
     pub src_buffer: Buffer,
     pub src_buffer_offset: u64,
     pub src_buffer_range: u64,
     pub dst_picture_resource: VideoPictureResourceInfoKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_setup_reference_slot: *const VideoReferenceSlotInfoKHR,
     ///Length of `p_reference_slots`.
     pub reference_slot_count: u32,
@@ -27285,7 +27285,7 @@ Provided by **VK_KHR_video_maintenance1**.*/
 pub struct PhysicalDeviceVideoMaintenance1FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_1_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_maintenance1: u32,
 }
@@ -27312,7 +27312,7 @@ Provided by **VK_KHR_video_maintenance2**.*/
 pub struct PhysicalDeviceVideoMaintenance2FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_2_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_maintenance2: u32,
 }
@@ -27339,7 +27339,7 @@ Provided by **VK_KHR_video_maintenance1**.*/
 pub struct VideoInlineQueryInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_INLINE_QUERY_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub query_pool: QueryPool,
     pub first_query: u32,
@@ -27370,7 +27370,7 @@ Provided by **VK_KHR_video_decode_h264**.*/
 pub struct VideoDecodeH264ProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub std_profile_idc: StdVideoH264ProfileIdc,
     pub picture_layout: VideoDecodeH264PictureLayoutFlagBitsKHR,
@@ -27390,7 +27390,7 @@ impl Default for VideoDecodeH264ProfileInfoKHR {
 /**
 Provided by **VK_KHR_video_decode_h264**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -27400,7 +27400,7 @@ Provided by **VK_KHR_video_decode_h264**.*/
 pub struct VideoDecodeH264CapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_level_idc: StdVideoH264LevelIdc,
     pub field_offset_granularity: Offset2D,
@@ -27428,7 +27428,7 @@ Provided by **VK_KHR_video_decode_h264**.*/
 pub struct VideoDecodeH264SessionParametersAddInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_std_sp_ss`.
     pub std_sps_count: u32,
@@ -27462,11 +27462,11 @@ Provided by **VK_KHR_video_decode_h264**.*/
 pub struct VideoDecodeH264SessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_std_sps_count: u32,
     pub max_std_pps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_parameters_add_info: *const VideoDecodeH264SessionParametersAddInfoKHR,
 }
 impl Default for VideoDecodeH264SessionParametersCreateInfoKHR {
@@ -27493,11 +27493,11 @@ Provided by **VK_KHR_video_maintenance2**.*/
 pub struct VideoDecodeH264InlineSessionParametersInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_sps: *const StdVideoH264SequenceParameterSet,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_pps: *const StdVideoH264PictureParameterSet,
 }
 impl Default for VideoDecodeH264InlineSessionParametersInfoKHR {
@@ -27523,7 +27523,7 @@ Provided by **VK_KHR_video_decode_h264**.*/
 pub struct VideoDecodeH264PictureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PICTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_picture_info: *const StdVideoDecodeH264PictureInfo,
     ///Length of `p_slice_offsets`.
@@ -27554,7 +27554,7 @@ Provided by **VK_KHR_video_decode_h264**.*/
 pub struct VideoDecodeH264DpbSlotInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_reference_info: *const StdVideoDecodeH264ReferenceInfo,
 }
@@ -27581,7 +27581,7 @@ Provided by **VK_KHR_video_decode_h265**.*/
 pub struct VideoDecodeH265ProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub std_profile_idc: StdVideoH265ProfileIdc,
 }
@@ -27599,7 +27599,7 @@ impl Default for VideoDecodeH265ProfileInfoKHR {
 /**
 Provided by **VK_KHR_video_decode_h265**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -27609,7 +27609,7 @@ Provided by **VK_KHR_video_decode_h265**.*/
 pub struct VideoDecodeH265CapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_level_idc: StdVideoH265LevelIdc,
 }
@@ -27635,7 +27635,7 @@ Provided by **VK_KHR_video_decode_h265**.*/
 pub struct VideoDecodeH265SessionParametersAddInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_std_vp_ss`.
     pub std_vps_count: u32,
@@ -27674,12 +27674,12 @@ Provided by **VK_KHR_video_decode_h265**.*/
 pub struct VideoDecodeH265SessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_std_vps_count: u32,
     pub max_std_sps_count: u32,
     pub max_std_pps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_parameters_add_info: *const VideoDecodeH265SessionParametersAddInfoKHR,
 }
 impl Default for VideoDecodeH265SessionParametersCreateInfoKHR {
@@ -27707,13 +27707,13 @@ Provided by **VK_KHR_video_maintenance2**.*/
 pub struct VideoDecodeH265InlineSessionParametersInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_vps: *const StdVideoH265VideoParameterSet,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_sps: *const StdVideoH265SequenceParameterSet,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_pps: *const StdVideoH265PictureParameterSet,
 }
 impl Default for VideoDecodeH265InlineSessionParametersInfoKHR {
@@ -27740,7 +27740,7 @@ Provided by **VK_KHR_video_decode_h265**.*/
 pub struct VideoDecodeH265PictureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PICTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_picture_info: *const StdVideoDecodeH265PictureInfo,
     ///Length of `p_slice_segment_offsets`.
@@ -27771,7 +27771,7 @@ Provided by **VK_KHR_video_decode_h265**.*/
 pub struct VideoDecodeH265DpbSlotInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_reference_info: *const StdVideoDecodeH265ReferenceInfo,
 }
@@ -27798,7 +27798,7 @@ Provided by **VK_KHR_video_decode_vp9**.*/
 pub struct PhysicalDeviceVideoDecodeVP9FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_DECODE_VP9_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_decode_vp9: u32,
 }
@@ -27825,7 +27825,7 @@ Provided by **VK_KHR_video_decode_vp9**.*/
 pub struct VideoDecodeVP9ProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub std_profile: StdVideoVP9Profile,
 }
@@ -27843,7 +27843,7 @@ impl Default for VideoDecodeVP9ProfileInfoKHR {
 /**
 Provided by **VK_KHR_video_decode_vp9**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -27853,7 +27853,7 @@ Provided by **VK_KHR_video_decode_vp9**.*/
 pub struct VideoDecodeVP9CapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_level: StdVideoVP9Level,
 }
@@ -27879,7 +27879,7 @@ Provided by **VK_KHR_video_decode_vp9**.*/
 pub struct VideoDecodeVP9PictureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PICTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_picture_info: *const StdVideoDecodeVP9PictureInfo,
     pub reference_name_slot_indices: [i32; MAX_VIDEO_VP9_REFERENCES_PER_FRAME_KHR
@@ -27915,7 +27915,7 @@ Provided by **VK_KHR_video_decode_av1**.*/
 pub struct VideoDecodeAV1ProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub std_profile: StdVideoAV1Profile,
     pub film_grain_support: u32,
@@ -27935,7 +27935,7 @@ impl Default for VideoDecodeAV1ProfileInfoKHR {
 /**
 Provided by **VK_KHR_video_decode_av1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -27945,7 +27945,7 @@ Provided by **VK_KHR_video_decode_av1**.*/
 pub struct VideoDecodeAV1CapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_level: StdVideoAV1Level,
 }
@@ -27971,7 +27971,7 @@ Provided by **VK_KHR_video_decode_av1**.*/
 pub struct VideoDecodeAV1SessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_sequence_header: *const StdVideoAV1SequenceHeader,
 }
@@ -27997,9 +27997,9 @@ Provided by **VK_KHR_video_maintenance2**.*/
 pub struct VideoDecodeAV1InlineSessionParametersInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_sequence_header: *const StdVideoAV1SequenceHeader,
 }
 impl Default for VideoDecodeAV1InlineSessionParametersInfoKHR {
@@ -28024,7 +28024,7 @@ Provided by **VK_KHR_video_decode_av1**.*/
 pub struct VideoDecodeAV1PictureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_PICTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_picture_info: *const StdVideoDecodeAV1PictureInfo,
     pub reference_name_slot_indices: [i32; MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR
@@ -28062,7 +28062,7 @@ Provided by **VK_KHR_video_decode_av1**.*/
 pub struct VideoDecodeAV1DpbSlotInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_DPB_SLOT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_reference_info: *const StdVideoDecodeAV1ReferenceInfo,
 }
@@ -28092,7 +28092,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoSessionCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_SESSION_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub queue_family_index: u32,
     pub flags: VideoSessionCreateFlagsKHR,
@@ -28141,7 +28141,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoSessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoSessionParametersCreateFlagsKHR,
     pub video_session_parameters_template: VideoSessionParametersKHR,
@@ -28174,7 +28174,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoSessionParametersUpdateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_UPDATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub update_sequence_count: u32,
 }
@@ -28201,7 +28201,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeSessionParametersGetInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_GET_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub video_session_parameters: VideoSessionParametersKHR,
 }
@@ -28219,7 +28219,7 @@ impl Default for VideoEncodeSessionParametersGetInfoKHR {
 /**
 Provided by **VK_KHR_video_encode_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`VideoEncodeH264SessionParametersFeedbackInfoKHR`]
@@ -28230,7 +28230,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeSessionParametersFeedbackInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub has_overrides: u32,
 }
@@ -28262,7 +28262,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoBeginCodingInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_BEGIN_CODING_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoBeginCodingFlagsKHR,
     pub video_session: VideoSessionKHR,
@@ -28294,7 +28294,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoEndCodingInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_END_CODING_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoEndCodingFlagsKHR,
 }
@@ -28324,7 +28324,7 @@ Provided by **VK_KHR_video_queue**.*/
 pub struct VideoCodingControlInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_CODING_CONTROL_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoCodingControlFlagsKHR,
 }
@@ -28351,7 +28351,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeUsageInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_USAGE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub video_usage_hints: VideoEncodeUsageFlagsKHR,
     pub video_content_hints: VideoEncodeContentFlagsKHR,
@@ -28386,14 +28386,14 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoEncodeFlagsKHR,
     pub dst_buffer: Buffer,
     pub dst_buffer_offset: u64,
     pub dst_buffer_range: u64,
     pub src_picture_resource: VideoPictureResourceInfoKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_setup_reference_slot: *const VideoReferenceSlotInfoKHR,
     ///Length of `p_reference_slots`.
     pub reference_slot_count: u32,
@@ -28430,7 +28430,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoEncodeQuantizationMapInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub quantization_map: ImageView,
     pub quantization_map_extent: Extent2D,
@@ -28458,7 +28458,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub quantization_map_texel_size: Extent2D,
 }
@@ -28485,7 +28485,7 @@ Provided by **VK_KHR_video_encode_quantization_map**.*/
 pub struct PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_encode_quantization_map: u32,
 }
@@ -28511,7 +28511,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct QueryPoolVideoEncodeFeedbackCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_QUERY_POOL_VIDEO_ENCODE_FEEDBACK_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub encode_feedback_flags: VideoEncodeFeedbackFlagsKHR,
 }
@@ -28538,7 +28538,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeQualityLevelInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub quality_level: u32,
 }
@@ -28561,7 +28561,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_video_profile: *const VideoProfileInfoKHR,
     pub quality_level: u32,
@@ -28581,7 +28581,7 @@ impl Default for PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 /**
 Provided by **VK_KHR_video_encode_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`VideoEncodeAV1QualityLevelPropertiesKHR`]
@@ -28593,7 +28593,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeQualityLevelPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUALITY_LEVEL_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub preferred_rate_control_mode: VideoEncodeRateControlModeFlagBitsKHR,
     pub preferred_rate_control_layer_count: u32,
@@ -28622,7 +28622,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeRateControlInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoEncodeRateControlFlagsKHR,
     pub rate_control_mode: VideoEncodeRateControlModeFlagBitsKHR,
@@ -28661,7 +28661,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeRateControlLayerInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_LAYER_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub average_bitrate: u64,
     pub max_bitrate: u64,
@@ -28685,7 +28685,7 @@ impl Default for VideoEncodeRateControlLayerInfoKHR {
 /**
 Provided by **VK_KHR_video_encode_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -28695,7 +28695,7 @@ Provided by **VK_KHR_video_encode_queue**.*/
 pub struct VideoEncodeCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: VideoEncodeCapabilityFlagsKHR,
     pub rate_control_modes: VideoEncodeRateControlModeFlagsKHR,
@@ -28725,7 +28725,7 @@ impl Default for VideoEncodeCapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_h264**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -28735,7 +28735,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264CapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: VideoEncodeH264CapabilityFlagsKHR,
     pub max_level_idc: StdVideoH264LevelIdc,
@@ -28777,7 +28777,7 @@ impl Default for VideoEncodeH264CapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_h264**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoEncodeQualityLevelPropertiesKHR`]
@@ -28787,7 +28787,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264QualityLevelPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_QUALITY_LEVEL_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub preferred_rate_control_flags: VideoEncodeH264RateControlFlagsKHR,
     pub preferred_gop_frame_count: u32,
@@ -28829,7 +28829,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264SessionCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_max_level_idc: u32,
     pub max_level_idc: StdVideoH264LevelIdc,
@@ -28857,15 +28857,15 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264SessionParametersAddInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_std_sp_ss`.
     pub std_sps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_sp_ss: *const StdVideoH264SequenceParameterSet,
     ///Length of `p_std_pp_ss`.
     pub std_pps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_pp_ss: *const StdVideoH264PictureParameterSet,
 }
 impl Default for VideoEncodeH264SessionParametersAddInfoKHR {
@@ -28893,11 +28893,11 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264SessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_std_sps_count: u32,
     pub max_std_pps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_parameters_add_info: *const VideoEncodeH264SessionParametersAddInfoKHR,
 }
 impl Default for VideoEncodeH264SessionParametersCreateInfoKHR {
@@ -28924,7 +28924,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264SessionParametersGetInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_GET_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub write_std_sps: u32,
     pub write_std_pps: u32,
@@ -28948,7 +28948,7 @@ impl Default for VideoEncodeH264SessionParametersGetInfoKHR {
 /**
 Provided by **VK_KHR_video_encode_h264**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoEncodeSessionParametersFeedbackInfoKHR`]
@@ -28958,7 +28958,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264SessionParametersFeedbackInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub has_std_sps_overrides: u32,
     pub has_std_pps_overrides: u32,
@@ -28986,7 +28986,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264DpbSlotInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_DPB_SLOT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_reference_info: *const StdVideoEncodeH264ReferenceInfo,
 }
@@ -29012,7 +29012,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264PictureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_PICTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_nalu_slice_entries`.
     pub nalu_slice_entry_count: u32,
@@ -29046,7 +29046,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264ProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub std_profile_idc: StdVideoH264ProfileIdc,
 }
@@ -29069,7 +29069,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264NaluSliceInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_NALU_SLICE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub constant_qp: i32,
     pub p_std_slice_header: *const StdVideoEncodeH264SliceHeader,
@@ -29098,7 +29098,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264RateControlInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoEncodeH264RateControlFlagsKHR,
     pub gop_frame_count: u32,
@@ -29166,7 +29166,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264GopRemainingFrameInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_GOP_REMAINING_FRAME_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_gop_remaining_frames: u32,
     pub gop_remaining_i: u32,
@@ -29198,7 +29198,7 @@ Provided by **VK_KHR_video_encode_h264**.*/
 pub struct VideoEncodeH264RateControlLayerInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_LAYER_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_min_qp: u32,
     pub min_qp: VideoEncodeH264QpKHR,
@@ -29226,7 +29226,7 @@ impl Default for VideoEncodeH264RateControlLayerInfoKHR {
 /**
 Provided by **VK_KHR_video_encode_h265**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -29236,7 +29236,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265CapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: VideoEncodeH265CapabilityFlagsKHR,
     pub max_level_idc: StdVideoH265LevelIdc,
@@ -29284,7 +29284,7 @@ impl Default for VideoEncodeH265CapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_h265**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoEncodeQualityLevelPropertiesKHR`]
@@ -29294,7 +29294,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265QualityLevelPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_QUALITY_LEVEL_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub preferred_rate_control_flags: VideoEncodeH265RateControlFlagsKHR,
     pub preferred_gop_frame_count: u32,
@@ -29334,7 +29334,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265SessionCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_max_level_idc: u32,
     pub max_level_idc: StdVideoH265LevelIdc,
@@ -29362,19 +29362,19 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265SessionParametersAddInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_std_vp_ss`.
     pub std_vps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_vp_ss: *const StdVideoH265VideoParameterSet,
     ///Length of `p_std_sp_ss`.
     pub std_sps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_sp_ss: *const StdVideoH265SequenceParameterSet,
     ///Length of `p_std_pp_ss`.
     pub std_pps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_pp_ss: *const StdVideoH265PictureParameterSet,
 }
 impl Default for VideoEncodeH265SessionParametersAddInfoKHR {
@@ -29404,12 +29404,12 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265SessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_std_vps_count: u32,
     pub max_std_sps_count: u32,
     pub max_std_pps_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_parameters_add_info: *const VideoEncodeH265SessionParametersAddInfoKHR,
 }
 impl Default for VideoEncodeH265SessionParametersCreateInfoKHR {
@@ -29437,7 +29437,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265SessionParametersGetInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_GET_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub write_std_vps: u32,
     pub write_std_sps: u32,
@@ -29465,7 +29465,7 @@ impl Default for VideoEncodeH265SessionParametersGetInfoKHR {
 /**
 Provided by **VK_KHR_video_encode_h265**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoEncodeSessionParametersFeedbackInfoKHR`]
@@ -29475,7 +29475,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265SessionParametersFeedbackInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub has_std_vps_overrides: u32,
     pub has_std_sps_overrides: u32,
@@ -29505,7 +29505,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265PictureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PICTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_nalu_slice_segment_entries`.
     pub nalu_slice_segment_entry_count: u32,
@@ -29533,7 +29533,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265NaluSliceSegmentInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_NALU_SLICE_SEGMENT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub constant_qp: i32,
     pub p_std_slice_segment_header: *const StdVideoEncodeH265SliceSegmentHeader,
@@ -29562,7 +29562,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265RateControlInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoEncodeH265RateControlFlagsKHR,
     pub gop_frame_count: u32,
@@ -29630,7 +29630,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265GopRemainingFrameInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_GOP_REMAINING_FRAME_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_gop_remaining_frames: u32,
     pub gop_remaining_i: u32,
@@ -29662,7 +29662,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265RateControlLayerInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_LAYER_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_min_qp: u32,
     pub min_qp: VideoEncodeH265QpKHR,
@@ -29699,7 +29699,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265ProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub std_profile_idc: StdVideoH265ProfileIdc,
 }
@@ -29725,7 +29725,7 @@ Provided by **VK_KHR_video_encode_h265**.*/
 pub struct VideoEncodeH265DpbSlotInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_DPB_SLOT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_reference_info: *const StdVideoEncodeH265ReferenceInfo,
 }
@@ -29743,7 +29743,7 @@ impl Default for VideoEncodeH265DpbSlotInfoKHR {
 /**
 Provided by **VK_KHR_video_encode_av1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -29753,7 +29753,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1CapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: VideoEncodeAV1CapabilityFlagsKHR,
     pub max_level: StdVideoAV1Level,
@@ -29817,7 +29817,7 @@ impl Default for VideoEncodeAV1CapabilitiesKHR {
 /**
 Provided by **VK_KHR_video_encode_av1**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoEncodeQualityLevelPropertiesKHR`]
@@ -29827,7 +29827,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1QualityLevelPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUALITY_LEVEL_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub preferred_rate_control_flags: VideoEncodeAV1RateControlFlagsKHR,
     pub preferred_gop_frame_count: u32,
@@ -29882,7 +29882,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct PhysicalDeviceVideoEncodeAV1FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_AV1_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_encode_av1: u32,
 }
@@ -29908,7 +29908,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1SessionCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_SESSION_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_max_level: u32,
     pub max_level: StdVideoAV1Level,
@@ -29936,14 +29936,14 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1SessionParametersCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_sequence_header: *const StdVideoAV1SequenceHeader,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_decoder_model_info: *const StdVideoEncodeAV1DecoderModelInfo,
     ///Length of `p_std_operating_points`.
     pub std_operating_point_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_std_operating_points: *const StdVideoEncodeAV1OperatingPointInfo,
 }
 impl Default for VideoEncodeAV1SessionParametersCreateInfoKHR {
@@ -29971,7 +29971,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1DpbSlotInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_DPB_SLOT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_std_reference_info: *const StdVideoEncodeAV1ReferenceInfo,
 }
@@ -29997,7 +29997,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1PictureInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_PICTURE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub prediction_mode: VideoEncodeAV1PredictionModeKHR,
     pub rate_control_group: VideoEncodeAV1RateControlGroupKHR,
@@ -30037,7 +30037,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1ProfileInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_PROFILE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub std_profile: StdVideoAV1Profile,
 }
@@ -30064,7 +30064,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1RateControlInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_RATE_CONTROL_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: VideoEncodeAV1RateControlFlagsKHR,
     pub gop_frame_count: u32,
@@ -30132,7 +30132,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1GopRemainingFrameInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_GOP_REMAINING_FRAME_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_gop_remaining_frames: u32,
     pub gop_remaining_intra: u32,
@@ -30164,7 +30164,7 @@ Provided by **VK_KHR_video_encode_av1**.*/
 pub struct VideoEncodeAV1RateControlLayerInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_RATE_CONTROL_LAYER_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use_min_q_index: u32,
     pub min_q_index: VideoEncodeAV1QIndexKHR,
@@ -30201,7 +30201,7 @@ Provided by **VK_NV_inherited_viewport_scissor**.*/
 pub struct PhysicalDeviceInheritedViewportScissorFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub inherited_viewport_scissor2_d: u32,
 }
@@ -30227,7 +30227,7 @@ Provided by **VK_NV_inherited_viewport_scissor**.*/
 pub struct CommandBufferInheritanceViewportScissorInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub viewport_scissor2_d: u32,
     pub viewport_depth_count: u32,
@@ -30258,7 +30258,7 @@ Provided by **VK_EXT_ycbcr_2plane_444_formats**.*/
 pub struct PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ycbcr2plane444_formats: u32,
 }
@@ -30285,7 +30285,7 @@ Provided by **VK_EXT_provoking_vertex**.*/
 pub struct PhysicalDeviceProvokingVertexFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub provoking_vertex_last: u32,
     pub transform_feedback_preserves_provoking_vertex: u32,
@@ -30305,7 +30305,7 @@ impl Default for PhysicalDeviceProvokingVertexFeaturesEXT {
 /**
 Provided by **VK_EXT_provoking_vertex**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -30315,7 +30315,7 @@ Provided by **VK_EXT_provoking_vertex**.*/
 pub struct PhysicalDeviceProvokingVertexPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub provoking_vertex_mode_per_pipeline: u32,
     pub transform_feedback_preserves_triangle_fan_provoking_vertex: u32,
@@ -30343,7 +30343,7 @@ Provided by **VK_EXT_provoking_vertex**.*/
 pub struct PipelineRasterizationProvokingVertexStateCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub provoking_vertex_mode: ProvokingVertexModeEXT,
 }
@@ -30361,7 +30361,7 @@ impl Default for PipelineRasterizationProvokingVertexStateCreateInfoEXT {
 /**
 Provided by **VK_KHR_video_encode_intra_refresh**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -30371,7 +30371,7 @@ Provided by **VK_KHR_video_encode_intra_refresh**.*/
 pub struct VideoEncodeIntraRefreshCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub intra_refresh_modes: VideoEncodeIntraRefreshModeFlagsKHR,
     pub max_intra_refresh_cycle_duration: u32,
@@ -30405,7 +30405,7 @@ Provided by **VK_KHR_video_encode_intra_refresh**.*/
 pub struct VideoEncodeSessionIntraRefreshCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub intra_refresh_mode: VideoEncodeIntraRefreshModeFlagBitsKHR,
 }
@@ -30431,7 +30431,7 @@ Provided by **VK_KHR_video_encode_intra_refresh**.*/
 pub struct VideoEncodeIntraRefreshInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub intra_refresh_cycle_duration: u32,
     pub intra_refresh_index: u32,
@@ -30459,7 +30459,7 @@ Provided by **VK_KHR_video_encode_intra_refresh**.*/
 pub struct VideoReferenceIntraRefreshInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_REFERENCE_INTRA_REFRESH_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub dirty_intra_refresh_regions: u32,
 }
@@ -30486,7 +30486,7 @@ Provided by **VK_KHR_video_encode_intra_refresh**.*/
 pub struct PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_encode_intra_refresh: u32,
 }
@@ -30512,7 +30512,7 @@ Provided by **VK_NVX_binary_import**.*/
 pub struct CuModuleCreateInfoNVX {
     ///Must be `VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_data`.
     pub data_size: usize,
@@ -30541,7 +30541,7 @@ Provided by **VK_NVX_binary_import**.*/
 pub struct CuModuleTexturingModeCreateInfoNVX {
     ///Must be `VK_STRUCTURE_TYPE_CU_MODULE_TEXTURING_MODE_CREATE_INFO_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub use64bit_texturing: u32,
 }
@@ -30564,7 +30564,7 @@ Provided by **VK_NVX_binary_import**.*/
 pub struct CuFunctionCreateInfoNVX {
     ///Must be `VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub module: CuModuleNVX,
     pub p_name: *const core::ffi::c_char,
@@ -30589,7 +30589,7 @@ Provided by **VK_NVX_binary_import**.*/
 pub struct CuLaunchInfoNVX {
     ///Must be `VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub function: CuFunctionNVX,
     pub grid_dim_x: u32,
@@ -30640,7 +30640,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct PhysicalDeviceDescriptorBufferFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub descriptor_buffer: u32,
     pub descriptor_buffer_capture_replay: u32,
@@ -30664,7 +30664,7 @@ impl Default for PhysicalDeviceDescriptorBufferFeaturesEXT {
 /**
 Provided by **VK_EXT_descriptor_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -30674,7 +30674,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct PhysicalDeviceDescriptorBufferPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub combined_image_sampler_descriptor_single_array: u32,
     pub bufferless_push_descriptors: u32,
@@ -30756,7 +30756,7 @@ impl Default for PhysicalDeviceDescriptorBufferPropertiesEXT {
 /**
 Provided by **VK_EXT_descriptor_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -30766,7 +30766,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub combined_image_sampler_density_map_descriptor_size: usize,
 }
@@ -30789,7 +30789,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct DescriptorAddressInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_ADDRESS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub address: u64,
     pub range: u64,
@@ -30820,7 +30820,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct DescriptorBufferBindingInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address: u64,
     pub usage: BufferUsageFlags,
@@ -30848,7 +30848,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct DescriptorBufferBindingPushDescriptorBufferHandleEXT {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: Buffer,
 }
@@ -30903,7 +30903,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct DescriptorGetInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_GET_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: DescriptorType,
     pub data: DescriptorDataEXT,
@@ -30928,7 +30928,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct BufferCaptureDescriptorDataInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: Buffer,
 }
@@ -30951,7 +30951,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct ImageCaptureDescriptorDataInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
 }
@@ -30974,7 +30974,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct ImageViewCaptureDescriptorDataInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image_view: ImageView,
 }
@@ -30997,7 +30997,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct SamplerCaptureDescriptorDataInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub sampler: Sampler,
 }
@@ -31020,7 +31020,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct AccelerationStructureCaptureDescriptorDataInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub acceleration_structure: AccelerationStructureKHR,
     pub acceleration_structure_nv: AccelerationStructureNV,
@@ -31056,7 +31056,7 @@ Provided by **VK_EXT_descriptor_buffer**.*/
 pub struct OpaqueCaptureDescriptorDataCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub opaque_capture_descriptor_data: *const core::ffi::c_void,
 }
@@ -31083,7 +31083,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceShaderIntegerDotProductFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_integer_dot_product: u32,
 }
@@ -31101,7 +31101,7 @@ impl Default for PhysicalDeviceShaderIntegerDotProductFeatures {
 /**
 Provided by **VK_COMPUTE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -31111,7 +31111,7 @@ Provided by **VK_COMPUTE_VERSION_1_3**.*/
 pub struct PhysicalDeviceShaderIntegerDotProductProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub integer_dot_product8_bit_unsigned_accelerated: u32,
     pub integer_dot_product8_bit_signed_accelerated: u32,
@@ -31187,7 +31187,7 @@ impl Default for PhysicalDeviceShaderIntegerDotProductProperties {
 /**
 Provided by **VK_EXT_physical_device_drm**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -31197,7 +31197,7 @@ Provided by **VK_EXT_physical_device_drm**.*/
 pub struct PhysicalDeviceDrmPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRM_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub has_primary: u32,
     pub has_render: u32,
@@ -31234,7 +31234,7 @@ Provided by **VK_KHR_fragment_shader_barycentric**.*/
 pub struct PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_shader_barycentric: u32,
 }
@@ -31252,7 +31252,7 @@ impl Default for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
 /**
 Provided by **VK_KHR_fragment_shader_barycentric**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -31262,7 +31262,7 @@ Provided by **VK_KHR_fragment_shader_barycentric**.*/
 pub struct PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tri_strip_vertex_order_independent_of_provoking_vertex: u32,
 }
@@ -31289,7 +31289,7 @@ Provided by **VK_KHR_shader_fma**.*/
 pub struct PhysicalDeviceShaderFmaFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FMA_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_fma_float16: u32,
     pub shader_fma_float32: u32,
@@ -31320,7 +31320,7 @@ Provided by **VK_NV_ray_tracing_motion_blur**.*/
 pub struct PhysicalDeviceRayTracingMotionBlurFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_motion_blur: u32,
     pub ray_tracing_motion_blur_pipeline_trace_rays_indirect: u32,
@@ -31349,7 +31349,7 @@ Provided by **VK_NV_ray_tracing_validation**.*/
 pub struct PhysicalDeviceRayTracingValidationFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_validation: u32,
 }
@@ -31376,7 +31376,7 @@ Provided by **VK_NV_ray_tracing_linear_swept_spheres**.*/
 pub struct PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_LINEAR_SWEPT_SPHERES_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub spheres: u32,
     pub linear_swept_spheres: u32,
@@ -31404,7 +31404,7 @@ Provided by **VK_NV_ray_tracing_motion_blur**.*/
 pub struct AccelerationStructureGeometryMotionTrianglesDataNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub vertex_data: DeviceOrHostAddressConstKHR,
 }
@@ -31430,7 +31430,7 @@ Provided by **VK_NV_ray_tracing_motion_blur**.*/
 pub struct AccelerationStructureMotionInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MOTION_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_instances: u32,
     pub flags: AccelerationStructureMotionInfoFlagsNV,
@@ -31634,7 +31634,7 @@ Provided by **VK_NV_external_memory_rdma**.*/
 pub struct MemoryGetRemoteAddressInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub handle_type: ExternalMemoryHandleTypeFlagBits,
@@ -31662,7 +31662,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct ImportMemoryBufferCollectionFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_MEMORY_BUFFER_COLLECTION_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub collection: BufferCollectionFUCHSIA,
     pub index: u32,
@@ -31690,7 +31690,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct BufferCollectionImageCreateInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_COLLECTION_IMAGE_CREATE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub collection: BufferCollectionFUCHSIA,
     pub index: u32,
@@ -31718,7 +31718,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct BufferCollectionBufferCreateInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub collection: BufferCollectionFUCHSIA,
     pub index: u32,
@@ -31743,7 +31743,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct BufferCollectionCreateInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CREATE_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub collection_token: u32,
 }
@@ -31761,14 +31761,14 @@ impl Default for BufferCollectionCreateInfoFUCHSIA {
 /**
 Provided by **VK_FUCHSIA_buffer_collection**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkBufferCollectionPropertiesFUCHSIA")]
 pub struct BufferCollectionPropertiesFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_COLLECTION_PROPERTIES_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_type_bits: u32,
     pub buffer_count: u32,
@@ -31811,7 +31811,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct BufferConstraintsInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_CONSTRAINTS_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub create_info: BufferCreateInfo,
     pub required_format_features: FormatFeatureFlags,
@@ -31838,7 +31838,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct SysmemColorSpaceFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_SYSMEM_COLOR_SPACE_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub color_space: u32,
 }
@@ -31861,7 +31861,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct ImageFormatConstraintsInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_FORMAT_CONSTRAINTS_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image_create_info: ImageCreateInfo,
     pub required_format_features: FormatFeatureFlags,
@@ -31895,7 +31895,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct ImageConstraintsInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_CONSTRAINTS_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_format_constraints`.
     pub format_constraints_count: u32,
@@ -31925,7 +31925,7 @@ Provided by **VK_FUCHSIA_buffer_collection**.*/
 pub struct BufferCollectionConstraintsInfoFUCHSIA {
     ///Must be `VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CONSTRAINTS_INFO_FUCHSIA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub min_buffer_count: u32,
     pub max_buffer_count: u32,
@@ -31956,7 +31956,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
 pub struct CudaModuleCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_data`.
     pub data_size: usize,
@@ -31982,7 +31982,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
 pub struct CudaFunctionCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_CUDA_FUNCTION_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub module: CudaModuleNV,
     pub p_name: *const core::ffi::c_char,
@@ -32007,7 +32007,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
 pub struct CudaLaunchInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_CUDA_LAUNCH_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub function: CudaFunctionNV,
     pub grid_dim_x: u32,
@@ -32058,7 +32058,7 @@ Provided by **VK_EXT_rgba10x6_formats**.*/
 pub struct PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format_rgba10x6_without_y_cb_cr_sampler: u32,
 }
@@ -32076,7 +32076,7 @@ impl Default for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
 /**
 Provided by **VK_BASE_VERSION_1_3**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`FormatProperties2`]
@@ -32086,7 +32086,7 @@ Provided by **VK_BASE_VERSION_1_3**.*/
 pub struct FormatProperties3 {
     ///Must be `VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub linear_tiling_features: FormatFeatureFlags2,
     pub optimal_tiling_features: FormatFeatureFlags2,
@@ -32108,7 +32108,7 @@ impl Default for FormatProperties3 {
 /**
 Provided by **VK_EXT_image_drm_format_modifier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`FormatProperties2`]
@@ -32118,11 +32118,11 @@ Provided by **VK_EXT_image_drm_format_modifier**.*/
 pub struct DrmFormatModifierPropertiesList2EXT {
     ///Must be `VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_drm_format_modifier_properties`.
     pub drm_format_modifier_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_drm_format_modifier_properties: *mut DrmFormatModifierProperties2EXT,
 }
 impl Default for DrmFormatModifierPropertiesList2EXT {
@@ -32140,7 +32140,7 @@ impl Default for DrmFormatModifierPropertiesList2EXT {
 /**
 Provided by **VK_EXT_image_drm_format_modifier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDrmFormatModifierProperties2EXT")]
@@ -32159,7 +32159,7 @@ impl Default for DrmFormatModifierProperties2EXT {
 /**
 Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`AndroidHardwareBufferPropertiesANDROID`]
@@ -32169,7 +32169,7 @@ Provided by **VK_ANDROID_external_memory_android_hardware_buffer**.*/
 pub struct AndroidHardwareBufferFormatProperties2ANDROID {
     ///Must be `VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_2_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format: Format,
     pub external_format: u64,
@@ -32209,7 +32209,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct PipelineRenderingCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub view_mask: u32,
     ///Length of `p_color_attachment_formats`.
@@ -32253,7 +32253,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct RenderingInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: RenderingFlags,
     pub render_area: Rect2D,
@@ -32262,9 +32262,9 @@ pub struct RenderingInfo {
     ///Length of `p_color_attachments`.
     pub color_attachment_count: u32,
     pub p_color_attachments: *const RenderingAttachmentInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_depth_attachment: *const RenderingAttachmentInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_stencil_attachment: *const RenderingAttachmentInfo,
 }
 impl Default for RenderingInfo {
@@ -32296,7 +32296,7 @@ Provided by **VK_KHR_maintenance10**.*/
 pub struct RenderingEndInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_END_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
 }
 impl Default for RenderingEndInfoKHR {
@@ -32321,7 +32321,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct RenderingAttachmentInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image_view: ImageView,
     pub image_layout: ImageLayout,
@@ -32361,7 +32361,7 @@ Provided by **VK_KHR_fragment_shading_rate**.*/
 pub struct RenderingFragmentShadingRateAttachmentInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image_view: ImageView,
     pub image_layout: ImageLayout,
@@ -32391,7 +32391,7 @@ Provided by **VK_EXT_fragment_density_map**.*/
 pub struct RenderingFragmentDensityMapAttachmentInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image_view: ImageView,
     pub image_layout: ImageLayout,
@@ -32420,7 +32420,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct PhysicalDeviceDynamicRenderingFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub dynamic_rendering: u32,
 }
@@ -32446,7 +32446,7 @@ Provided by **VK_GRAPHICS_VERSION_1_3**.*/
 pub struct CommandBufferInheritanceRenderingInfo {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: RenderingFlags,
     pub view_mask: u32,
@@ -32486,7 +32486,7 @@ Provided by **VK_AMD_mixed_attachment_samples**.*/
 pub struct AttachmentSampleCountInfoAMD {
     ///Must be `VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_color_attachment_samples`.
     pub color_attachment_count: u32,
@@ -32519,7 +32519,7 @@ Provided by **VK_NVX_multiview_per_view_attributes**.*/
 pub struct MultiviewPerViewAttributesInfoNVX {
     ///Must be `VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO_NVX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub per_view_attributes: u32,
     pub per_view_attributes_position_x_only: u32,
@@ -32548,7 +32548,7 @@ Provided by **VK_EXT_image_view_min_lod**.*/
 pub struct PhysicalDeviceImageViewMinLodFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_lod: u32,
 }
@@ -32574,7 +32574,7 @@ Provided by **VK_EXT_image_view_min_lod**.*/
 pub struct ImageViewMinLodCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub min_lod: f32,
 }
@@ -32601,7 +32601,7 @@ Provided by **VK_EXT_rasterization_order_attachment_access**.*/
 pub struct PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub rasterization_order_color_attachment_access: u32,
     pub rasterization_order_depth_attachment_access: u32,
@@ -32632,7 +32632,7 @@ Provided by **VK_NV_linear_color_attachment**.*/
 pub struct PhysicalDeviceLinearColorAttachmentFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub linear_color_attachment: u32,
 }
@@ -32659,7 +32659,7 @@ Provided by **VK_EXT_graphics_pipeline_library**.*/
 pub struct PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub graphics_pipeline_library: u32,
 }
@@ -32686,7 +32686,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PhysicalDevicePipelineBinaryFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_BINARY_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_binaries: u32,
 }
@@ -32712,7 +32712,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct DevicePipelineBinaryInternalCacheControlKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_PIPELINE_BINARY_INTERNAL_CACHE_CONTROL_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub disable_internal_cache: u32,
 }
@@ -32730,7 +32730,7 @@ impl Default for DevicePipelineBinaryInternalCacheControlKHR {
 /**
 Provided by **VK_KHR_pipeline_binary**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -32740,7 +32740,7 @@ Provided by **VK_KHR_pipeline_binary**.*/
 pub struct PhysicalDevicePipelineBinaryPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_BINARY_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_binary_internal_cache: u32,
     pub pipeline_binary_internal_cache_control: u32,
@@ -32766,7 +32766,7 @@ impl Default for PhysicalDevicePipelineBinaryPropertiesKHR {
 /**
 Provided by **VK_EXT_graphics_pipeline_library**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -32776,7 +32776,7 @@ Provided by **VK_EXT_graphics_pipeline_library**.*/
 pub struct PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub graphics_pipeline_library_fast_linking: u32,
     pub graphics_pipeline_library_independent_interpolation_decoration: u32,
@@ -32804,7 +32804,7 @@ Provided by **VK_EXT_graphics_pipeline_library**.*/
 pub struct GraphicsPipelineLibraryCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: GraphicsPipelineLibraryFlagsEXT,
 }
@@ -32831,7 +32831,7 @@ Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
 pub struct PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub descriptor_set_host_mapping: u32,
 }
@@ -32854,7 +32854,7 @@ Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
 pub struct DescriptorSetBindingReferenceVALVE {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_BINDING_REFERENCE_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub descriptor_set_layout: DescriptorSetLayout,
     pub binding: u32,
@@ -32879,7 +32879,7 @@ Provided by **VK_VALVE_descriptor_set_host_mapping**.*/
 pub struct DescriptorSetLayoutHostMappingInfoVALVE {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub descriptor_offset: usize,
     pub descriptor_size: u32,
@@ -32908,7 +32908,7 @@ Provided by **VK_EXT_nested_command_buffer**.*/
 pub struct PhysicalDeviceNestedCommandBufferFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub nested_command_buffer: u32,
     pub nested_command_buffer_rendering: u32,
@@ -32930,7 +32930,7 @@ impl Default for PhysicalDeviceNestedCommandBufferFeaturesEXT {
 /**
 Provided by **VK_EXT_nested_command_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -32940,7 +32940,7 @@ Provided by **VK_EXT_nested_command_buffer**.*/
 pub struct PhysicalDeviceNestedCommandBufferPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_command_buffer_nesting_level: u32,
 }
@@ -32967,7 +32967,7 @@ Provided by **VK_EXT_shader_module_identifier**.*/
 pub struct PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_module_identifier: u32,
 }
@@ -32985,7 +32985,7 @@ impl Default for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
 /**
 Provided by **VK_EXT_shader_module_identifier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -32995,7 +32995,7 @@ Provided by **VK_EXT_shader_module_identifier**.*/
 pub struct PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_module_identifier_algorithm_uuid: [u8; UUID_SIZE as usize],
 }
@@ -33021,7 +33021,7 @@ Provided by **VK_EXT_shader_module_identifier**.*/
 pub struct PipelineShaderStageModuleIdentifierCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_identifier`.
     pub identifier_size: u32,
@@ -33042,14 +33042,14 @@ impl Default for PipelineShaderStageModuleIdentifierCreateInfoEXT {
 /**
 Provided by **VK_EXT_shader_module_identifier**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkShaderModuleIdentifierEXT")]
 pub struct ShaderModuleIdentifierEXT {
     ///Must be `VK_STRUCTURE_TYPE_SHADER_MODULE_IDENTIFIER_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub identifier_size: u32,
     pub identifier: [u8; MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT as usize],
@@ -33079,7 +33079,7 @@ Provided by **VK_EXT_image_compression_control**.*/
 pub struct ImageCompressionControlEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_CONTROL_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ImageCompressionFlagsEXT,
     ///Length of `p_fixed_rate_flags`.
@@ -33111,7 +33111,7 @@ Provided by **VK_EXT_image_compression_control**.*/
 pub struct PhysicalDeviceImageCompressionControlFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_compression_control: u32,
 }
@@ -33129,7 +33129,7 @@ impl Default for PhysicalDeviceImageCompressionControlFeaturesEXT {
 /**
 Provided by **VK_EXT_image_compression_control**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -33141,7 +33141,7 @@ Provided by **VK_EXT_image_compression_control**.*/
 pub struct ImageCompressionPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_compression_flags: ImageCompressionFlagsEXT,
     pub image_compression_fixed_rate_flags: ImageCompressionFixedRateFlagsEXT,
@@ -33170,7 +33170,7 @@ Provided by **VK_EXT_image_compression_control_swapchain**.*/
 pub struct PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_compression_control_swapchain: u32,
 }
@@ -33193,7 +33193,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct ImageSubresource2 {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_subresource: ImageSubresource,
 }
@@ -33211,7 +33211,7 @@ impl Default for ImageSubresource2 {
 /**
 Provided by **VK_BASE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`ImageCompressionPropertiesEXT`]
@@ -33222,7 +33222,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct SubresourceLayout2 {
     ///Must be `VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub subresource_layout: SubresourceLayout,
 }
@@ -33249,7 +33249,7 @@ Provided by **VK_EXT_subpass_merge_feedback**.*/
 pub struct RenderPassCreationControlEXT {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_CONTROL_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub disallow_merging: u32,
 }
@@ -33267,7 +33267,7 @@ impl Default for RenderPassCreationControlEXT {
 /**
 Provided by **VK_EXT_subpass_merge_feedback**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkRenderPassCreationFeedbackInfoEXT")]
@@ -33292,7 +33292,7 @@ Provided by **VK_EXT_subpass_merge_feedback**.*/
 pub struct RenderPassCreationFeedbackCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_render_pass_feedback: *mut RenderPassCreationFeedbackInfoEXT,
 }
@@ -33310,7 +33310,7 @@ impl Default for RenderPassCreationFeedbackCreateInfoEXT {
 /**
 Provided by **VK_EXT_subpass_merge_feedback**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkRenderPassSubpassFeedbackInfoEXT")]
@@ -33337,7 +33337,7 @@ Provided by **VK_EXT_subpass_merge_feedback**.*/
 pub struct RenderPassSubpassFeedbackCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_subpass_feedback: *mut RenderPassSubpassFeedbackInfoEXT,
 }
@@ -33364,7 +33364,7 @@ Provided by **VK_EXT_subpass_merge_feedback**.*/
 pub struct PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub subpass_merge_feedback: u32,
 }
@@ -33387,7 +33387,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct MicromapBuildInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MICROMAP_BUILD_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: MicromapTypeEXT,
     pub flags: BuildMicromapFlagsEXT,
@@ -33395,9 +33395,9 @@ pub struct MicromapBuildInfoEXT {
     pub dst_micromap: MicromapEXT,
     ///Length of `pp_usage_counts`.
     pub usage_counts_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_usage_counts: *const MicromapUsageEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub pp_usage_counts: *const *const MicromapUsageEXT,
     pub data: DeviceOrHostAddressConstKHR,
     pub scratch_data: DeviceOrHostAddressKHR,
@@ -33433,7 +33433,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct MicromapCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub create_flags: MicromapCreateFlagsEXT,
     pub buffer: Buffer,
@@ -33466,7 +33466,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct MicromapVersionInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_version_data: *const u8,
 }
@@ -33489,7 +33489,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct CopyMicromapInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_COPY_MICROMAP_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src: MicromapEXT,
     pub dst: MicromapEXT,
@@ -33516,7 +33516,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct CopyMicromapToMemoryInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_COPY_MICROMAP_TO_MEMORY_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src: MicromapEXT,
     pub dst: DeviceOrHostAddressKHR,
@@ -33543,7 +33543,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct CopyMemoryToMicromapInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src: DeviceOrHostAddressConstKHR,
     pub dst: MicromapEXT,
@@ -33570,7 +33570,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct MicromapBuildSizesInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub micromap_size: u64,
     pub build_scratch_size: u64,
@@ -33635,7 +33635,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct PhysicalDeviceOpacityMicromapFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub micromap: u32,
     pub micromap_capture_replay: u32,
@@ -33657,7 +33657,7 @@ impl Default for PhysicalDeviceOpacityMicromapFeaturesEXT {
 /**
 Provided by **VK_EXT_opacity_micromap**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -33667,7 +33667,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct PhysicalDeviceOpacityMicromapPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_opacity2_state_subdivision_level: u32,
     pub max_opacity4_state_subdivision_level: u32,
@@ -33696,7 +33696,7 @@ Provided by **VK_EXT_opacity_micromap**.*/
 pub struct AccelerationStructureTrianglesOpacityMicromapEXT {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub index_type: IndexType,
     pub index_buffer: DeviceOrHostAddressConstKHR,
@@ -33704,9 +33704,9 @@ pub struct AccelerationStructureTrianglesOpacityMicromapEXT {
     pub base_triangle: u32,
     ///Length of `pp_usage_counts`.
     pub usage_counts_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_usage_counts: *const MicromapUsageEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub pp_usage_counts: *const *const MicromapUsageEXT,
     pub micromap: MicromapEXT,
 }
@@ -33740,7 +33740,7 @@ Provided by **VK_NV_displacement_micromap**.*/
 pub struct PhysicalDeviceDisplacementMicromapFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub displacement_micromap: u32,
 }
@@ -33758,7 +33758,7 @@ impl Default for PhysicalDeviceDisplacementMicromapFeaturesNV {
 /**
 Provided by **VK_NV_displacement_micromap**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -33768,7 +33768,7 @@ Provided by **VK_NV_displacement_micromap**.*/
 pub struct PhysicalDeviceDisplacementMicromapPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_displacement_micromap_subdivision_level: u32,
 }
@@ -33794,7 +33794,7 @@ Provided by **VK_NV_displacement_micromap**.*/
 pub struct AccelerationStructureTrianglesDisplacementMicromapNV {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub displacement_bias_and_scale_format: Format,
     pub displacement_vector_format: Format,
@@ -33810,9 +33810,9 @@ pub struct AccelerationStructureTrianglesDisplacementMicromapNV {
     pub base_triangle: u32,
     ///Length of `pp_usage_counts`.
     pub usage_counts_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_usage_counts: *const MicromapUsageEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub pp_usage_counts: *const *const MicromapUsageEXT,
     pub micromap: MicromapEXT,
 }
@@ -33845,14 +33845,14 @@ impl Default for AccelerationStructureTrianglesDisplacementMicromapNV {
 /**
 Provided by **VK_EXT_pipeline_properties**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPipelinePropertiesIdentifierEXT")]
 pub struct PipelinePropertiesIdentifierEXT {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_PROPERTIES_IDENTIFIER_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_identifier: [u8; UUID_SIZE as usize],
 }
@@ -33879,7 +33879,7 @@ Provided by **VK_EXT_pipeline_properties**.*/
 pub struct PhysicalDevicePipelinePropertiesFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_properties_identifier: u32,
 }
@@ -33906,7 +33906,7 @@ Provided by **VK_AMD_shader_early_and_late_fragment_tests**.*/
 pub struct PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_early_and_late_fragment_tests: u32,
 }
@@ -33935,7 +33935,7 @@ Provided by **VK_EXT_external_memory_acquire_unmodified**.*/
 pub struct ExternalMemoryAcquireUnmodifiedEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub acquire_unmodified_memory: u32,
 }
@@ -33967,7 +33967,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalObjectCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECT_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub export_object_type: ExportMetalObjectTypeFlagBitsEXT,
 }
@@ -33998,7 +33998,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalObjectsInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECTS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
 }
 impl Default for ExportMetalObjectsInfoEXT {
@@ -34022,7 +34022,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalDeviceInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_DEVICE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub mtl_device: *const core::ffi::c_void,
 }
@@ -34048,7 +34048,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalCommandQueueInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_COMMAND_QUEUE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub queue: Queue,
     pub mtl_command_queue: *const core::ffi::c_void,
@@ -34076,7 +34076,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalBufferInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_BUFFER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
     pub mtl_buffer: *const core::ffi::c_void,
@@ -34104,7 +34104,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ImportMetalBufferInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_METAL_BUFFER_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub mtl_buffer: *const core::ffi::c_void,
 }
@@ -34130,7 +34130,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalTextureInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_TEXTURE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
     pub image_view: ImageView,
@@ -34164,7 +34164,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ImportMetalTextureInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_METAL_TEXTURE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub plane: ImageAspectFlagBits,
     pub mtl_texture: *const core::ffi::c_void,
@@ -34192,7 +34192,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalIOSurfaceInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_IO_SURFACE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
     pub io_surface: *const core::ffi::c_void,
@@ -34220,7 +34220,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ImportMetalIOSurfaceInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_METAL_IO_SURFACE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub io_surface: *const core::ffi::c_void,
 }
@@ -34246,7 +34246,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ExportMetalSharedEventInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_EXPORT_METAL_SHARED_EVENT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub semaphore: Semaphore,
     pub event: Event,
@@ -34277,7 +34277,7 @@ Provided by **VK_EXT_metal_objects**.*/
 pub struct ImportMetalSharedEventInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_METAL_SHARED_EVENT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub mtl_shared_event: *const core::ffi::c_void,
 }
@@ -34304,7 +34304,7 @@ Provided by **VK_EXT_non_seamless_cube_map**.*/
 pub struct PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub non_seamless_cube_map: u32,
 }
@@ -34331,7 +34331,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PhysicalDevicePipelineRobustnessFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_robustness: u32,
 }
@@ -34360,7 +34360,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PipelineRobustnessCreateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_ROBUSTNESS_CREATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub storage_buffers: PipelineRobustnessBufferBehavior,
     pub uniform_buffers: PipelineRobustnessBufferBehavior,
@@ -34384,7 +34384,7 @@ impl Default for PipelineRobustnessCreateInfo {
 /**
 Provided by **VK_COMPUTE_VERSION_1_4**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -34394,7 +34394,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PhysicalDevicePipelineRobustnessProperties {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub default_robustness_storage_buffers: PipelineRobustnessBufferBehavior,
     pub default_robustness_uniform_buffers: PipelineRobustnessBufferBehavior,
@@ -34426,7 +34426,7 @@ Provided by **VK_QCOM_image_processing**.*/
 pub struct ImageViewSampleWeightCreateInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub filter_center: Offset2D,
     pub filter_size: Extent2D,
@@ -34457,7 +34457,7 @@ Provided by **VK_QCOM_image_processing**.*/
 pub struct PhysicalDeviceImageProcessingFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub texture_sample_weighted: u32,
     pub texture_box_filter: u32,
@@ -34479,7 +34479,7 @@ impl Default for PhysicalDeviceImageProcessingFeaturesQCOM {
 /**
 Provided by **VK_QCOM_image_processing**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -34489,7 +34489,7 @@ Provided by **VK_QCOM_image_processing**.*/
 pub struct PhysicalDeviceImageProcessingPropertiesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_weight_filter_phases: u32,
     pub max_weight_filter_dimension: Extent2D,
@@ -34522,7 +34522,7 @@ Provided by **VK_QCOM_tile_properties**.*/
 pub struct PhysicalDeviceTilePropertiesFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tile_properties: u32,
 }
@@ -34545,7 +34545,7 @@ Provided by **VK_QCOM_tile_properties**.*/
 pub struct TilePropertiesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tile_size: Extent3D,
     pub apron_size: Extent2D,
@@ -34575,7 +34575,7 @@ Provided by **VK_QCOM_tile_memory_heap**.*/
 pub struct TileMemoryBindInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_TILE_MEMORY_BIND_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
 }
@@ -34602,7 +34602,7 @@ Provided by **VK_SEC_amigo_profiling**.*/
 pub struct PhysicalDeviceAmigoProfilingFeaturesSEC {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub amigo_profiling: u32,
 }
@@ -34628,7 +34628,7 @@ Provided by **VK_SEC_amigo_profiling**.*/
 pub struct AmigoProfilingSubmitInfoSEC {
     ///Must be `VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub first_draw_timestamp: u64,
     pub swap_buffer_timestamp: u64,
@@ -34657,7 +34657,7 @@ Provided by **VK_EXT_attachment_feedback_loop_layout**.*/
 pub struct PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub attachment_feedback_loop_layout: u32,
 }
@@ -34683,7 +34683,7 @@ Provided by **VK_KHR_unified_image_layouts**.*/
 pub struct AttachmentFeedbackLoopInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_ATTACHMENT_FEEDBACK_LOOP_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub feedback_loop_enable: u32,
 }
@@ -34710,7 +34710,7 @@ Provided by **VK_EXT_device_address_binding_report**.*/
 pub struct PhysicalDeviceAddressBindingReportFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub report_address_binding: u32,
 }
@@ -34736,7 +34736,7 @@ Provided by **VK_KHR_maintenance10**.*/
 pub struct RenderingAttachmentFlagsInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_FLAGS_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: RenderingAttachmentFlagsKHR,
 }
@@ -34762,7 +34762,7 @@ Provided by **VK_KHR_maintenance10**.*/
 pub struct ResolveImageModeInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RESOLVE_IMAGE_MODE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ResolveImageFlagsKHR,
     pub resolve_mode: ResolveModeFlagBits,
@@ -34792,7 +34792,7 @@ Provided by **VK_EXT_device_address_binding_report**.*/
 pub struct DeviceAddressBindingCallbackDataEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: DeviceAddressBindingFlagsEXT,
     pub base_address: u64,
@@ -34825,7 +34825,7 @@ Provided by **VK_NV_optical_flow**.*/
 pub struct PhysicalDeviceOpticalFlowFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub optical_flow: u32,
 }
@@ -34843,7 +34843,7 @@ impl Default for PhysicalDeviceOpticalFlowFeaturesNV {
 /**
 Provided by **VK_NV_optical_flow**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -34853,7 +34853,7 @@ Provided by **VK_NV_optical_flow**.*/
 pub struct PhysicalDeviceOpticalFlowPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supported_output_grid_sizes: OpticalFlowGridSizeFlagsNV,
     pub supported_hint_grid_sizes: OpticalFlowGridSizeFlagsNV,
@@ -34900,7 +34900,7 @@ Provided by **VK_NV_optical_flow**.*/
 pub struct OpticalFlowImageFormatInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub usage: OpticalFlowUsageFlagsNV,
 }
@@ -34918,14 +34918,14 @@ impl Default for OpticalFlowImageFormatInfoNV {
 /**
 Provided by **VK_NV_optical_flow**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkOpticalFlowImageFormatPropertiesNV")]
 pub struct OpticalFlowImageFormatPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format: Format,
 }
@@ -34951,7 +34951,7 @@ Provided by **VK_NV_optical_flow**.*/
 pub struct OpticalFlowSessionCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub width: u32,
     pub height: u32,
@@ -34993,7 +34993,7 @@ Provided by **VK_NV_optical_flow**.*/
 pub struct OpticalFlowSessionCreatePrivateDataInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub id: u32,
     pub size: u32,
@@ -35020,7 +35020,7 @@ Provided by **VK_NV_optical_flow**.*/
 pub struct OpticalFlowExecuteInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: OpticalFlowExecuteFlagsNV,
     ///Length of `p_regions`.
@@ -35052,7 +35052,7 @@ Provided by **VK_EXT_device_fault**.*/
 pub struct PhysicalDeviceFaultFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_fault: u32,
     pub device_fault_vendor_binary: u32,
@@ -35072,7 +35072,7 @@ impl Default for PhysicalDeviceFaultFeaturesEXT {
 /**
 Provided by **VK_KHR_device_fault**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDeviceFaultAddressInfoKHR")]
@@ -35091,7 +35091,7 @@ impl Default for DeviceFaultAddressInfoKHR {
 /**
 Provided by **VK_KHR_device_fault**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDeviceFaultVendorInfoKHR")]
@@ -35110,14 +35110,14 @@ impl Default for DeviceFaultVendorInfoKHR {
 /**
 Provided by **VK_KHR_device_fault**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDeviceFaultInfoKHR")]
 pub struct DeviceFaultInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: DeviceFaultFlagsKHR,
     pub group_id: u64,
@@ -35145,7 +35145,7 @@ impl Default for DeviceFaultInfoKHR {
 /**
 Provided by **VK_KHR_device_fault**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`DeviceFaultShaderAbortMessageInfoKHR`]
@@ -35155,11 +35155,11 @@ Provided by **VK_KHR_device_fault**.*/
 pub struct DeviceFaultDebugInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_FAULT_DEBUG_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_vendor_binary_data`.
     pub vendor_binary_size: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_vendor_binary_data: *mut core::ffi::c_void,
 }
 impl Default for DeviceFaultDebugInfoKHR {
@@ -35182,7 +35182,7 @@ Provided by **VK_EXT_device_fault**.*/
 pub struct DeviceFaultCountsEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_FAULT_COUNTS_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub address_info_count: u32,
     pub vendor_info_count: u32,
@@ -35204,21 +35204,21 @@ impl Default for DeviceFaultCountsEXT {
 /**
 Provided by **VK_EXT_device_fault**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDeviceFaultInfoEXT")]
 pub struct DeviceFaultInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_address_infos: *mut DeviceFaultAddressInfoKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_vendor_infos: *mut DeviceFaultVendorInfoKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_vendor_binary_data: *mut core::ffi::c_void,
 }
 impl Default for DeviceFaultInfoEXT {
@@ -35272,7 +35272,7 @@ Provided by **VK_KHR_device_fault**.*/
 pub struct PhysicalDeviceFaultFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_fault: u32,
     pub device_fault_vendor_binary: u32,
@@ -35296,7 +35296,7 @@ impl Default for PhysicalDeviceFaultFeaturesKHR {
 /**
 Provided by **VK_KHR_device_fault**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -35306,7 +35306,7 @@ Provided by **VK_KHR_device_fault**.*/
 pub struct PhysicalDeviceFaultPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_device_fault_count: u32,
 }
@@ -35333,7 +35333,7 @@ Provided by **VK_EXT_pipeline_library_group_handles**.*/
 pub struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_library_group_handles: u32,
 }
@@ -35359,7 +35359,7 @@ Provided by **VK_EXT_depth_bias_control**.*/
 pub struct DepthBiasInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEPTH_BIAS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub depth_bias_constant_factor: f32,
     pub depth_bias_clamp: f32,
@@ -35390,7 +35390,7 @@ Provided by **VK_EXT_depth_bias_control**.*/
 pub struct DepthBiasRepresentationInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DEPTH_BIAS_REPRESENTATION_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub depth_bias_representation: DepthBiasRepresentationEXT,
     pub depth_bias_exact: u32,
@@ -35452,7 +35452,7 @@ Provided by **VK_EXT_memory_decompression**.*/
 pub struct DecompressMemoryInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_DECOMPRESS_MEMORY_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub decompression_method: MemoryDecompressionMethodFlagsEXT,
     ///Length of `p_regions`.
@@ -35475,7 +35475,7 @@ impl Default for DecompressMemoryInfoEXT {
 /**
 Provided by **VK_ARM_shader_core_builtins**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -35485,7 +35485,7 @@ Provided by **VK_ARM_shader_core_builtins**.*/
 pub struct PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_core_mask: u64,
     pub shader_core_count: u32,
@@ -35516,7 +35516,7 @@ Provided by **VK_ARM_shader_core_builtins**.*/
 pub struct PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_core_builtins: u32,
 }
@@ -35545,22 +35545,22 @@ Provided by **VK_EXT_frame_boundary**.*/
 pub struct FrameBoundaryEXT {
     ///Must be `VK_STRUCTURE_TYPE_FRAME_BOUNDARY_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: FrameBoundaryFlagsEXT,
     pub frame_id: u64,
     ///Length of `p_images`.
     pub image_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_images: *const Image,
     ///Length of `p_buffers`.
     pub buffer_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_buffers: *const Buffer,
     pub tag_name: u64,
     ///Length of `p_tag`.
     pub tag_size: usize,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_tag: *const core::ffi::c_void,
 }
 impl Default for FrameBoundaryEXT {
@@ -35594,7 +35594,7 @@ Provided by **VK_EXT_frame_boundary**.*/
 pub struct PhysicalDeviceFrameBoundaryFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub frame_boundary: u32,
 }
@@ -35621,7 +35621,7 @@ Provided by **VK_EXT_dynamic_rendering_unused_attachments**.*/
 pub struct PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub dynamic_rendering_unused_attachments: u32,
 }
@@ -35648,7 +35648,7 @@ Provided by **VK_KHR_internally_synchronized_queues**.*/
 pub struct PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub internally_synchronized_queues: u32,
 }
@@ -35674,7 +35674,7 @@ Provided by **VK_KHR_surface_maintenance1**.*/
 pub struct SurfacePresentModeKHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_mode: PresentModeKHR,
 }
@@ -35700,7 +35700,7 @@ Provided by **VK_KHR_surface_maintenance1**.*/
 pub struct SurfacePresentScalingCapabilitiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supported_present_scaling: PresentScalingFlagsKHR,
     pub supported_present_gravity_x: PresentGravityFlagsKHR,
@@ -35734,11 +35734,11 @@ Provided by **VK_KHR_surface_maintenance1**.*/
 pub struct SurfacePresentModeCompatibilityKHR {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_present_modes`.
     pub present_mode_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_present_modes: *mut PresentModeKHR,
 }
 impl Default for SurfacePresentModeCompatibilityKHR {
@@ -35765,7 +35765,7 @@ Provided by **VK_KHR_swapchain_maintenance1**.*/
 pub struct PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub swapchain_maintenance1: u32,
 }
@@ -35791,11 +35791,11 @@ Provided by **VK_KHR_swapchain_maintenance1**.*/
 pub struct SwapchainPresentFenceInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_fences`.
     pub swapchain_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_fences: *const Fence,
 }
 impl Default for SwapchainPresentFenceInfoKHR {
@@ -35821,7 +35821,7 @@ Provided by **VK_KHR_swapchain_maintenance1**.*/
 pub struct SwapchainPresentModesCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_present_modes`.
     pub present_mode_count: u32,
@@ -35850,7 +35850,7 @@ Provided by **VK_KHR_swapchain_maintenance1**.*/
 pub struct SwapchainPresentModeInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_present_modes`.
     pub swapchain_count: u32,
@@ -35879,7 +35879,7 @@ Provided by **VK_KHR_swapchain_maintenance1**.*/
 pub struct SwapchainPresentScalingCreateInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub scaling_behavior: PresentScalingFlagsKHR,
     pub present_gravity_x: PresentGravityFlagsKHR,
@@ -35906,7 +35906,7 @@ Provided by **VK_KHR_swapchain_maintenance1**.*/
 pub struct ReleaseSwapchainImagesInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub swapchain: SwapchainKHR,
@@ -35939,7 +35939,7 @@ Provided by **VK_EXT_depth_bias_control**.*/
 pub struct PhysicalDeviceDepthBiasControlFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub depth_bias_control: u32,
     pub least_representable_value_force_unorm_representation: u32,
@@ -35972,7 +35972,7 @@ Provided by **VK_EXT_ray_tracing_invocation_reorder**.*/
 pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_invocation_reorder: u32,
 }
@@ -35999,7 +35999,7 @@ Provided by **VK_NV_ray_tracing_invocation_reorder**.*/
 pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_invocation_reorder: u32,
 }
@@ -36017,7 +36017,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
 /**
 Provided by **VK_EXT_ray_tracing_invocation_reorder**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36027,7 +36027,7 @@ Provided by **VK_EXT_ray_tracing_invocation_reorder**.*/
 pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_invocation_reorder_reordering_hint: RayTracingInvocationReorderModeEXT,
     pub max_shader_binding_table_record_index: u32,
@@ -36047,7 +36047,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
 /**
 Provided by **VK_NV_ray_tracing_invocation_reorder**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36057,7 +36057,7 @@ Provided by **VK_NV_ray_tracing_invocation_reorder**.*/
 pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_invocation_reorder_reordering_hint: RayTracingInvocationReorderModeEXT,
 }
@@ -36084,7 +36084,7 @@ Provided by **VK_NV_extended_sparse_address_space**.*/
 pub struct PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub extended_sparse_address_space: u32,
 }
@@ -36102,7 +36102,7 @@ impl Default for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
 /**
 Provided by **VK_NV_extended_sparse_address_space**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36112,7 +36112,7 @@ Provided by **VK_NV_extended_sparse_address_space**.*/
 pub struct PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub extended_sparse_address_space_size: u64,
     pub extended_sparse_image_usage_flags: ImageUsageFlags,
@@ -36139,7 +36139,7 @@ Provided by **VK_LUNARG_direct_driver_loading**.*/
 pub struct DirectDriverLoadingInfoLUNARG {
     ///Must be `VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: DirectDriverLoadingFlagsLUNARG,
     pub pfn_get_instance_proc_addr: PFN_vkGetInstanceProcAddrLUNARG,
@@ -36167,7 +36167,7 @@ Provided by **VK_LUNARG_direct_driver_loading**.*/
 pub struct DirectDriverLoadingListLUNARG {
     ///Must be `VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub mode: DirectDriverLoadingModeLUNARG,
     ///Length of `p_drivers`.
@@ -36199,7 +36199,7 @@ Provided by **VK_QCOM_multiview_per_view_viewports**.*/
 pub struct PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub multiview_per_view_viewports: u32,
 }
@@ -36226,7 +36226,7 @@ Provided by **VK_KHR_ray_tracing_position_fetch**.*/
 pub struct PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ray_tracing_position_fetch: u32,
 }
@@ -36249,7 +36249,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct DeviceImageSubresourceInfo {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_IMAGE_SUBRESOURCE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_create_info: *const ImageCreateInfo,
     pub p_subresource: *const ImageSubresource2,
@@ -36269,7 +36269,7 @@ impl Default for DeviceImageSubresourceInfo {
 /**
 Provided by **VK_ARM_shader_core_properties**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36279,7 +36279,7 @@ Provided by **VK_ARM_shader_core_properties**.*/
 pub struct PhysicalDeviceShaderCorePropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pixel_rate: u32,
     pub texel_rate: u32,
@@ -36310,7 +36310,7 @@ Provided by **VK_QCOM_multiview_per_view_render_areas**.*/
 pub struct PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub multiview_per_view_render_areas: u32,
 }
@@ -36337,7 +36337,7 @@ Provided by **VK_QCOM_multiview_per_view_render_areas**.*/
 pub struct MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_per_view_render_areas`.
     pub per_view_render_area_count: u32,
@@ -36366,7 +36366,7 @@ Provided by **VK_NV_low_latency**.*/
 pub struct QueryLowLatencySupportNV {
     ///Must be `VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_queried_low_latency_data: *mut core::ffi::c_void,
 }
@@ -36392,7 +36392,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct MemoryMapInfo {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_MAP_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: MemoryMapFlags,
     ///**Thread safety:** must be externally synchronized.
@@ -36422,7 +36422,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct MemoryUnmapInfo {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: MemoryUnmapFlags,
     ///**Thread safety:** must be externally synchronized.
@@ -36452,7 +36452,7 @@ Provided by **VK_EXT_shader_object**.*/
 pub struct PhysicalDeviceShaderObjectFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_object: u32,
 }
@@ -36470,7 +36470,7 @@ impl Default for PhysicalDeviceShaderObjectFeaturesEXT {
 /**
 Provided by **VK_EXT_shader_object**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36480,7 +36480,7 @@ Provided by **VK_EXT_shader_object**.*/
 pub struct PhysicalDeviceShaderObjectPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_binary_uuid: [u8; UUID_SIZE as usize],
     pub shader_binary_version: u32,
@@ -36511,7 +36511,7 @@ Provided by **VK_EXT_shader_object**.*/
 pub struct ShaderCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: ShaderCreateFlagsEXT,
     pub stage: ShaderStageFlagBits,
@@ -36520,17 +36520,17 @@ pub struct ShaderCreateInfoEXT {
     ///Length of `p_code`.
     pub code_size: usize,
     pub p_code: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_name: *const core::ffi::c_char,
     ///Length of `p_set_layouts`.
     pub set_layout_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_set_layouts: *const DescriptorSetLayout,
     ///Length of `p_push_constant_ranges`.
     pub push_constant_range_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_push_constant_ranges: *const PushConstantRange,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_specialization_info: *const SpecializationInfo,
 }
 impl Default for ShaderCreateInfoEXT {
@@ -36567,7 +36567,7 @@ Provided by **VK_EXT_shader_tile_image**.*/
 pub struct PhysicalDeviceShaderTileImageFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_tile_image_color_read_access: u32,
     pub shader_tile_image_depth_read_access: u32,
@@ -36589,7 +36589,7 @@ impl Default for PhysicalDeviceShaderTileImageFeaturesEXT {
 /**
 Provided by **VK_EXT_shader_tile_image**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36599,7 +36599,7 @@ Provided by **VK_EXT_shader_tile_image**.*/
 pub struct PhysicalDeviceShaderTileImagePropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_tile_image_coherent_read_accelerated: u32,
     pub shader_tile_image_read_sample_from_pixel_rate_invocation: u32,
@@ -36629,7 +36629,7 @@ Provided by **VK_QNX_external_memory_screen_buffer**.*/
 pub struct ImportScreenBufferInfoQNX {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_SCREEN_BUFFER_INFO_QNX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: *mut core::ffi::c_void,
 }
@@ -36647,7 +36647,7 @@ impl Default for ImportScreenBufferInfoQNX {
 /**
 Provided by **VK_QNX_external_memory_screen_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`ScreenBufferFormatPropertiesQNX`]
@@ -36657,7 +36657,7 @@ Provided by **VK_QNX_external_memory_screen_buffer**.*/
 pub struct ScreenBufferPropertiesQNX {
     ///Must be `VK_STRUCTURE_TYPE_SCREEN_BUFFER_PROPERTIES_QNX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub allocation_size: u64,
     pub memory_type_bits: u32,
@@ -36677,7 +36677,7 @@ impl Default for ScreenBufferPropertiesQNX {
 /**
 Provided by **VK_QNX_external_memory_screen_buffer**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ScreenBufferPropertiesQNX`]
@@ -36687,7 +36687,7 @@ Provided by **VK_QNX_external_memory_screen_buffer**.*/
 pub struct ScreenBufferFormatPropertiesQNX {
     ///Must be `VK_STRUCTURE_TYPE_SCREEN_BUFFER_FORMAT_PROPERTIES_QNX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format: Format,
     pub external_format: u64,
@@ -36730,7 +36730,7 @@ Provided by **VK_QNX_external_memory_screen_buffer**.*/
 pub struct ExternalFormatQNX {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_QNX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_format: u64,
 }
@@ -36757,7 +36757,7 @@ Provided by **VK_QNX_external_memory_screen_buffer**.*/
 pub struct PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub screen_buffer_import: u32,
 }
@@ -36784,7 +36784,7 @@ Provided by **VK_KHR_cooperative_matrix**.*/
 pub struct PhysicalDeviceCooperativeMatrixFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_matrix: u32,
     pub cooperative_matrix_robust_buffer_access: u32,
@@ -36804,14 +36804,14 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesKHR {
 /**
 Provided by **VK_KHR_cooperative_matrix**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkCooperativeMatrixPropertiesKHR")]
 pub struct CooperativeMatrixPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub m_size: u32,
     pub n_size: u32,
@@ -36845,7 +36845,7 @@ impl Default for CooperativeMatrixPropertiesKHR {
 /**
 Provided by **VK_KHR_cooperative_matrix**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36855,7 +36855,7 @@ Provided by **VK_KHR_cooperative_matrix**.*/
 pub struct PhysicalDeviceCooperativeMatrixPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_matrix_supported_stages: ShaderStageFlags,
 }
@@ -36882,7 +36882,7 @@ Provided by **VK_QCOM_cooperative_matrix_conversion**.*/
 pub struct PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_matrix_conversion: u32,
 }
@@ -36900,7 +36900,7 @@ impl Default for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
 /**
 Provided by **VK_AMDX_shader_enqueue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -36910,7 +36910,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
 pub struct PhysicalDeviceShaderEnqueuePropertiesAMDX {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_PROPERTIES_AMDX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_execution_graph_depth: u32,
     pub max_execution_graph_shader_output_nodes: u32,
@@ -36949,7 +36949,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
 pub struct PhysicalDeviceShaderEnqueueFeaturesAMDX {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_enqueue: u32,
     pub shader_mesh_enqueue: u32,
@@ -36978,14 +36978,14 @@ Provided by **VK_AMDX_shader_enqueue**.*/
 pub struct ExecutionGraphPipelineCreateInfoAMDX {
     ///Must be `VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCreateFlags,
     ///Length of `p_stages`.
     pub stage_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_stages: *const PipelineShaderStageCreateInfo,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_library_info: *const PipelineLibraryCreateInfoKHR,
     pub layout: PipelineLayout,
     pub base_pipeline_handle: Pipeline,
@@ -37019,9 +37019,9 @@ Provided by **VK_AMDX_shader_enqueue**.*/
 pub struct PipelineShaderStageNodeCreateInfoAMDX {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_name: *const core::ffi::c_char,
     pub index: u32,
 }
@@ -37045,7 +37045,7 @@ Provided by **VK_AMDX_shader_enqueue**.*/
 pub struct ExecutionGraphPipelineScratchSizeAMDX {
     ///Must be `VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_size: u64,
     pub max_size: u64,
@@ -37111,7 +37111,7 @@ Provided by **VK_AMD_anti_lag**.*/
 pub struct PhysicalDeviceAntiLagFeaturesAMD {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ANTI_LAG_FEATURES_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub anti_lag: u32,
 }
@@ -37134,11 +37134,11 @@ Provided by **VK_AMD_anti_lag**.*/
 pub struct AntiLagDataAMD {
     ///Must be `VK_STRUCTURE_TYPE_ANTI_LAG_DATA_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub mode: AntiLagModeAMD,
     pub max_fps: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_presentation_info: *const AntiLagPresentationInfoAMD,
 }
 impl Default for AntiLagDataAMD {
@@ -37162,7 +37162,7 @@ Provided by **VK_AMD_anti_lag**.*/
 pub struct AntiLagPresentationInfoAMD {
     ///Must be `VK_STRUCTURE_TYPE_ANTI_LAG_PRESENTATION_INFO_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub stage: AntiLagStageAMD,
     pub frame_index: u64,
@@ -37191,7 +37191,7 @@ Provided by **VK_BASE_VERSION_1_4**.*/
 pub struct BindMemoryStatus {
     ///Must be `VK_STRUCTURE_TYPE_BIND_MEMORY_STATUS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_result: *mut Result,
 }
@@ -37218,7 +37218,7 @@ Provided by **VK_QCOM_tile_memory_heap**.*/
 pub struct PhysicalDeviceTileMemoryHeapFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tile_memory_heap: u32,
 }
@@ -37244,7 +37244,7 @@ Provided by **VK_QCOM_tile_memory_heap**.*/
 pub struct PhysicalDeviceTileMemoryHeapPropertiesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_PROPERTIES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub queue_submit_boundary: u32,
     pub tile_buffer_transfers: u32,
@@ -37274,7 +37274,7 @@ Provided by **VK_QCOM_tile_memory_heap**.*/
 pub struct TileMemorySizeInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_TILE_MEMORY_SIZE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub size: u64,
 }
@@ -37300,7 +37300,7 @@ Provided by **VK_QCOM_tile_memory_heap**.*/
 pub struct TileMemoryRequirementsQCOM {
     ///Must be `VK_STRUCTURE_TYPE_TILE_MEMORY_REQUIREMENTS_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub size: u64,
     pub alignment: u64,
@@ -37328,7 +37328,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct BindDescriptorSetsInfo {
     ///Must be `VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_SETS_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stage_flags: ShaderStageFlags,
     pub layout: PipelineLayout,
@@ -37338,7 +37338,7 @@ pub struct BindDescriptorSetsInfo {
     pub p_descriptor_sets: *const DescriptorSet,
     ///Length of `p_dynamic_offsets`.
     pub dynamic_offset_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_dynamic_offsets: *const u32,
 }
 impl Default for BindDescriptorSetsInfo {
@@ -37370,7 +37370,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PushConstantsInfo {
     ///Must be `VK_STRUCTURE_TYPE_PUSH_CONSTANTS_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub layout: PipelineLayout,
     pub stage_flags: ShaderStageFlags,
@@ -37405,7 +37405,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PushDescriptorSetInfo {
     ///Must be `VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stage_flags: ShaderStageFlags,
     pub layout: PipelineLayout,
@@ -37440,7 +37440,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PushDescriptorSetWithTemplateInfo {
     ///Must be `VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub descriptor_update_template: DescriptorUpdateTemplate,
     pub layout: PipelineLayout,
@@ -37472,7 +37472,7 @@ Provided by **VK_KHR_maintenance6**.*/
 pub struct SetDescriptorBufferOffsetsInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SET_DESCRIPTOR_BUFFER_OFFSETS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stage_flags: ShaderStageFlags,
     pub layout: PipelineLayout,
@@ -37509,7 +37509,7 @@ Provided by **VK_KHR_maintenance6**.*/
 pub struct BindDescriptorBufferEmbeddedSamplersInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stage_flags: ShaderStageFlags,
     pub layout: PipelineLayout,
@@ -37540,7 +37540,7 @@ Provided by **VK_QCOM_filter_cubic_clamp**.*/
 pub struct PhysicalDeviceCubicClampFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cubic_range_clamp: u32,
 }
@@ -37567,7 +37567,7 @@ Provided by **VK_QCOM_ycbcr_degamma**.*/
 pub struct PhysicalDeviceYcbcrDegammaFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ycbcr_degamma: u32,
 }
@@ -37593,7 +37593,7 @@ Provided by **VK_QCOM_ycbcr_degamma**.*/
 pub struct SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub enable_y_degamma: u32,
     pub enable_cb_cr_degamma: u32,
@@ -37622,7 +37622,7 @@ Provided by **VK_QCOM_filter_cubic_weights**.*/
 pub struct PhysicalDeviceCubicWeightsFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub selectable_cubic_weights: u32,
 }
@@ -37648,7 +37648,7 @@ Provided by **VK_QCOM_filter_cubic_weights**.*/
 pub struct SamplerCubicWeightsCreateInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_CUBIC_WEIGHTS_CREATE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub cubic_weights: CubicFilterWeightsQCOM,
 }
@@ -37674,7 +37674,7 @@ Provided by **VK_QCOM_filter_cubic_weights**.*/
 pub struct BlitImageCubicWeightsInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_BLIT_IMAGE_CUBIC_WEIGHTS_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub cubic_weights: CubicFilterWeightsQCOM,
 }
@@ -37701,7 +37701,7 @@ Provided by **VK_QCOM_image_processing2**.*/
 pub struct PhysicalDeviceImageProcessing2FeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub texture_block_match2: u32,
 }
@@ -37719,7 +37719,7 @@ impl Default for PhysicalDeviceImageProcessing2FeaturesQCOM {
 /**
 Provided by **VK_QCOM_image_processing2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -37729,7 +37729,7 @@ Provided by **VK_QCOM_image_processing2**.*/
 pub struct PhysicalDeviceImageProcessing2PropertiesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_block_match_window: Extent2D,
 }
@@ -37755,7 +37755,7 @@ Provided by **VK_QCOM_image_processing2**.*/
 pub struct SamplerBlockMatchWindowCreateInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub window_extent: Extent2D,
     pub window_compare_mode: BlockMatchWindowCompareModeQCOM,
@@ -37784,7 +37784,7 @@ Provided by **VK_NV_descriptor_pool_overallocation**.*/
 pub struct PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub descriptor_pool_overallocation: u32,
 }
@@ -37802,7 +37802,7 @@ impl Default for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
 /**
 Provided by **VK_MSFT_layered_driver**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -37812,7 +37812,7 @@ Provided by **VK_MSFT_layered_driver**.*/
 pub struct PhysicalDeviceLayeredDriverPropertiesMSFT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub underlying_api: LayeredDriverUnderlyingApiMSFT,
 }
@@ -37839,7 +37839,7 @@ Provided by **VK_NV_per_stage_descriptor_set**.*/
 pub struct PhysicalDevicePerStageDescriptorSetFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub per_stage_descriptor_set: u32,
     pub dynamic_pipeline_layout: u32,
@@ -37868,7 +37868,7 @@ Provided by **VK_ANDROID_external_format_resolve**.*/
 pub struct PhysicalDeviceExternalFormatResolveFeaturesANDROID {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_format_resolve: u32,
 }
@@ -37886,7 +37886,7 @@ impl Default for PhysicalDeviceExternalFormatResolveFeaturesANDROID {
 /**
 Provided by **VK_ANDROID_external_format_resolve**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -37896,7 +37896,7 @@ Provided by **VK_ANDROID_external_format_resolve**.*/
 pub struct PhysicalDeviceExternalFormatResolvePropertiesANDROID {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub null_color_attachment_with_external_format_resolve: u32,
     pub external_format_resolve_chroma_offset_x: ChromaLocation,
@@ -37918,7 +37918,7 @@ impl Default for PhysicalDeviceExternalFormatResolvePropertiesANDROID {
 /**
 Provided by **VK_ANDROID_external_format_resolve**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`AndroidHardwareBufferPropertiesANDROID`]
@@ -37928,7 +37928,7 @@ Provided by **VK_ANDROID_external_format_resolve**.*/
 pub struct AndroidHardwareBufferFormatResolvePropertiesANDROID {
     ///Must be `VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES_ANDROID`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub color_attachment_format: Format,
 }
@@ -37951,7 +37951,7 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct LatencySleepModeInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_LATENCY_SLEEP_MODE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub low_latency_mode: u32,
     pub low_latency_boost: u32,
@@ -37978,7 +37978,7 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct LatencySleepInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_LATENCY_SLEEP_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub signal_semaphore: Semaphore,
     pub value: u64,
@@ -38003,7 +38003,7 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct SetLatencyMarkerInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_SET_LATENCY_MARKER_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub present_id: u64,
     pub marker: LatencyMarkerNV,
@@ -38028,11 +38028,11 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct GetLatencyMarkerInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_GET_LATENCY_MARKER_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_timings`.
     pub timing_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_timings: *mut LatencyTimingsFrameReportNV,
 }
 impl Default for GetLatencyMarkerInfoNV {
@@ -38050,14 +38050,14 @@ impl Default for GetLatencyMarkerInfoNV {
 /**
 Provided by **VK_NV_low_latency2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkLatencyTimingsFrameReportNV")]
 pub struct LatencyTimingsFrameReportNV {
     ///Must be `VK_STRUCTURE_TYPE_LATENCY_TIMINGS_FRAME_REPORT_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_id: u64,
     pub input_sample_time_us: u64,
@@ -38106,7 +38106,7 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct OutOfBandQueueTypeInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_OUT_OF_BAND_QUEUE_TYPE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub queue_type: OutOfBandQueueTypeNV,
 }
@@ -38133,7 +38133,7 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct LatencySubmissionPresentIdNV {
     ///Must be `VK_STRUCTURE_TYPE_LATENCY_SUBMISSION_PRESENT_ID_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub present_id: u64,
 }
@@ -38159,7 +38159,7 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct SwapchainLatencyCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_LATENCY_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub latency_mode_enable: u32,
 }
@@ -38185,11 +38185,11 @@ Provided by **VK_NV_low_latency2**.*/
 pub struct LatencySurfaceCapabilitiesNV {
     ///Must be `VK_STRUCTURE_TYPE_LATENCY_SURFACE_CAPABILITIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_present_modes`.
     pub present_mode_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_present_modes: *mut PresentModeKHR,
 }
 impl Default for LatencySurfaceCapabilitiesNV {
@@ -38216,7 +38216,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
 pub struct PhysicalDeviceCudaKernelLaunchFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cuda_kernel_launch_features: u32,
 }
@@ -38234,7 +38234,7 @@ impl Default for PhysicalDeviceCudaKernelLaunchFeaturesNV {
 /**
 Provided by **VK_NV_cuda_kernel_launch**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -38244,7 +38244,7 @@ Provided by **VK_NV_cuda_kernel_launch**.*/
 pub struct PhysicalDeviceCudaKernelLaunchPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub compute_capability_minor: u32,
     pub compute_capability_major: u32,
@@ -38273,7 +38273,7 @@ Provided by **VK_ARM_scheduling_controls**.*/
 pub struct DeviceQueueShaderCoreControlCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_QUEUE_SHADER_CORE_CONTROL_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_core_count: u32,
 }
@@ -38300,7 +38300,7 @@ Provided by **VK_ARM_scheduling_controls**.*/
 pub struct PhysicalDeviceSchedulingControlsFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub scheduling_controls: u32,
 }
@@ -38318,7 +38318,7 @@ impl Default for PhysicalDeviceSchedulingControlsFeaturesARM {
 /**
 Provided by **VK_ARM_scheduling_controls**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -38328,7 +38328,7 @@ Provided by **VK_ARM_scheduling_controls**.*/
 pub struct PhysicalDeviceSchedulingControlsPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub scheduling_controls_flags: PhysicalDeviceSchedulingControlsFlagsARM,
 }
@@ -38355,7 +38355,7 @@ Provided by **VK_IMG_relaxed_line_rasterization**.*/
 pub struct PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES_IMG`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub relaxed_line_rasterization: u32,
 }
@@ -38382,7 +38382,7 @@ Provided by **VK_ARM_render_pass_striped**.*/
 pub struct PhysicalDeviceRenderPassStripedFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub render_pass_striped: u32,
 }
@@ -38400,7 +38400,7 @@ impl Default for PhysicalDeviceRenderPassStripedFeaturesARM {
 /**
 Provided by **VK_ARM_render_pass_striped**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -38410,7 +38410,7 @@ Provided by **VK_ARM_render_pass_striped**.*/
 pub struct PhysicalDeviceRenderPassStripedPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub render_pass_stripe_granularity: Extent2D,
     pub max_render_pass_stripes: u32,
@@ -38435,7 +38435,7 @@ Provided by **VK_ARM_render_pass_striped**.*/
 pub struct RenderPassStripeInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stripe_area: Rect2D,
 }
@@ -38462,7 +38462,7 @@ Provided by **VK_ARM_render_pass_striped**.*/
 pub struct RenderPassStripeBeginInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_BEGIN_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_stripe_infos`.
     pub stripe_info_count: u32,
@@ -38491,7 +38491,7 @@ Provided by **VK_ARM_render_pass_striped**.*/
 pub struct RenderPassStripeSubmitInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_SUBMIT_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_stripe_semaphore_infos`.
     pub stripe_semaphore_info_count: u32,
@@ -38521,7 +38521,7 @@ Provided by **VK_ARM_pipeline_opacity_micromap**.*/
 pub struct PhysicalDevicePipelineOpacityMicromapFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_opacity_micromap: u32,
 }
@@ -38548,7 +38548,7 @@ Provided by **VK_KHR_shader_maximal_reconvergence**.*/
 pub struct PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_maximal_reconvergence: u32,
 }
@@ -38575,7 +38575,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PhysicalDeviceShaderSubgroupRotateFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_subgroup_rotate: u32,
     pub shader_subgroup_rotate_clustered: u32,
@@ -38604,7 +38604,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PhysicalDeviceShaderExpectAssumeFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_expect_assume: u32,
 }
@@ -38631,7 +38631,7 @@ Provided by **VK_COMPUTE_VERSION_1_4**.*/
 pub struct PhysicalDeviceShaderFloatControls2Features {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_float_controls2: u32,
 }
@@ -38658,7 +38658,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct PhysicalDeviceDynamicRenderingLocalReadFeatures {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub dynamic_rendering_local_read: u32,
 }
@@ -38685,7 +38685,7 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct RenderingAttachmentLocationInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_LOCATION_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_color_attachment_locations`.
     pub color_attachment_count: u32,
@@ -38715,15 +38715,15 @@ Provided by **VK_GRAPHICS_VERSION_1_4**.*/
 pub struct RenderingInputAttachmentIndexInfo {
     ///Must be `VK_STRUCTURE_TYPE_RENDERING_INPUT_ATTACHMENT_INDEX_INFO`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_color_attachment_input_indices`.
     pub color_attachment_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_color_attachment_input_indices: *const u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_depth_input_attachment_index: *const u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_stencil_input_attachment_index: *const u32,
 }
 impl Default for RenderingInputAttachmentIndexInfo {
@@ -38752,7 +38752,7 @@ Provided by **VK_KHR_shader_quad_control**.*/
 pub struct PhysicalDeviceShaderQuadControlFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_QUAD_CONTROL_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_quad_control: u32,
 }
@@ -38779,7 +38779,7 @@ Provided by **VK_NV_shader_atomic_float16_vector**.*/
 pub struct PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_float16_vector_atomics: u32,
 }
@@ -38806,7 +38806,7 @@ Provided by **VK_EXT_map_memory_placed**.*/
 pub struct PhysicalDeviceMapMemoryPlacedFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub memory_map_placed: u32,
     pub memory_map_range_placed: u32,
@@ -38828,7 +38828,7 @@ impl Default for PhysicalDeviceMapMemoryPlacedFeaturesEXT {
 /**
 Provided by **VK_EXT_map_memory_placed**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -38838,7 +38838,7 @@ Provided by **VK_EXT_map_memory_placed**.*/
 pub struct PhysicalDeviceMapMemoryPlacedPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub min_placed_memory_map_alignment: u64,
 }
@@ -38864,7 +38864,7 @@ Provided by **VK_EXT_map_memory_placed**.*/
 pub struct MemoryMapPlacedInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_MAP_PLACED_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_placed_address: *mut core::ffi::c_void,
 }
@@ -38891,7 +38891,7 @@ Provided by **VK_KHR_shader_bfloat16**.*/
 pub struct PhysicalDeviceShaderBfloat16FeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_b_float16_type: u32,
     pub shader_b_float16_dot_product: u32,
@@ -38922,7 +38922,7 @@ Provided by **VK_NV_raw_access_chains**.*/
 pub struct PhysicalDeviceRawAccessChainsFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAW_ACCESS_CHAINS_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_raw_access_chains: u32,
 }
@@ -38949,7 +38949,7 @@ Provided by **VK_NV_command_buffer_inheritance**.*/
 pub struct PhysicalDeviceCommandBufferInheritanceFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub command_buffer_inheritance: u32,
 }
@@ -38976,7 +38976,7 @@ Provided by **VK_MESA_image_alignment_control**.*/
 pub struct PhysicalDeviceImageAlignmentControlFeaturesMESA {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES_MESA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub image_alignment_control: u32,
 }
@@ -38994,7 +38994,7 @@ impl Default for PhysicalDeviceImageAlignmentControlFeaturesMESA {
 /**
 Provided by **VK_MESA_image_alignment_control**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -39004,7 +39004,7 @@ Provided by **VK_MESA_image_alignment_control**.*/
 pub struct PhysicalDeviceImageAlignmentControlPropertiesMESA {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES_MESA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub supported_image_alignment_mask: u32,
 }
@@ -39030,7 +39030,7 @@ Provided by **VK_MESA_image_alignment_control**.*/
 pub struct ImageAlignmentControlCreateInfoMESA {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_ALIGNMENT_CONTROL_CREATE_INFO_MESA`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub maximum_requested_alignment: u32,
 }
@@ -39057,7 +39057,7 @@ Provided by **VK_EXT_shader_replicated_composites**.*/
 pub struct PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_replicated_composites: u32,
 }
@@ -39084,7 +39084,7 @@ Provided by **VK_KHR_present_mode_fifo_latest_ready**.*/
 pub struct PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_mode_fifo_latest_ready: u32,
 }
@@ -39127,7 +39127,7 @@ Provided by **VK_NV_cooperative_matrix2**.*/
 pub struct PhysicalDeviceCooperativeMatrix2FeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_matrix_workgroup_scope: u32,
     pub cooperative_matrix_flexible_dimensions: u32,
@@ -39157,7 +39157,7 @@ impl Default for PhysicalDeviceCooperativeMatrix2FeaturesNV {
 /**
 Provided by **VK_NV_cooperative_matrix2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -39167,7 +39167,7 @@ Provided by **VK_NV_cooperative_matrix2**.*/
 pub struct PhysicalDeviceCooperativeMatrix2PropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_matrix_workgroup_scope_max_workgroup_size: u32,
     pub cooperative_matrix_flexible_dimensions_max_dimension: u32,
@@ -39189,14 +39189,14 @@ impl Default for PhysicalDeviceCooperativeMatrix2PropertiesNV {
 /**
 Provided by **VK_NV_cooperative_matrix2**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkCooperativeMatrixFlexibleDimensionsPropertiesNV")]
 pub struct CooperativeMatrixFlexibleDimensionsPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub m_granularity: u32,
     pub n_granularity: u32,
@@ -39241,7 +39241,7 @@ Provided by **VK_HUAWEI_hdr_vivid**.*/
 pub struct PhysicalDeviceHdrVividFeaturesHUAWEI {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HDR_VIVID_FEATURES_HUAWEI`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub hdr_vivid: u32,
 }
@@ -39268,7 +39268,7 @@ Provided by **VK_EXT_vertex_attribute_robustness**.*/
 pub struct PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub vertex_attribute_robustness: u32,
 }
@@ -39295,7 +39295,7 @@ Provided by **VK_AMDX_dense_geometry_format**.*/
 pub struct PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub dense_geometry_format: u32,
 }
@@ -39324,7 +39324,7 @@ Provided by **VK_AMDX_dense_geometry_format**.*/
 pub struct AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub compressed_data: DeviceOrHostAddressConstKHR,
     pub data_size: u64,
@@ -39363,7 +39363,7 @@ Provided by **VK_KHR_depth_clamp_zero_one**.*/
 pub struct PhysicalDeviceDepthClampZeroOneFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub depth_clamp_zero_one: u32,
 }
@@ -39390,7 +39390,7 @@ Provided by **VK_NV_cooperative_vector**.*/
 pub struct PhysicalDeviceCooperativeVectorFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_vector: u32,
     pub cooperative_vector_training: u32,
@@ -39415,7 +39415,7 @@ Provided by **VK_NV_cooperative_vector**.*/
 pub struct CooperativeVectorPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_COOPERATIVE_VECTOR_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub input_type: ComponentTypeKHR,
     pub input_interpretation: ComponentTypeKHR,
@@ -39443,7 +39443,7 @@ impl Default for CooperativeVectorPropertiesNV {
 /**
 Provided by **VK_NV_cooperative_vector**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -39453,7 +39453,7 @@ Provided by **VK_NV_cooperative_vector**.*/
 pub struct PhysicalDeviceCooperativeVectorPropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub cooperative_vector_supported_stages: ShaderStageFlags,
     pub cooperative_vector_training_float16_accumulation: u32,
@@ -39482,11 +39482,11 @@ Provided by **VK_NV_cooperative_vector**.*/
 pub struct ConvertCooperativeVectorMatrixInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_CONVERT_COOPERATIVE_VECTOR_MATRIX_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_size: usize,
     pub src_data: DeviceOrHostAddressConstKHR,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_dst_size: *mut usize,
     pub dst_data: DeviceOrHostAddressKHR,
     pub src_component_type: ComponentTypeKHR,
@@ -39532,7 +39532,7 @@ Provided by **VK_QCOM_tile_shading**.*/
 pub struct PhysicalDeviceTileShadingFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tile_shading: u32,
     pub tile_shading_fragment_stage: u32,
@@ -39576,7 +39576,7 @@ impl Default for PhysicalDeviceTileShadingFeaturesQCOM {
 /**
 Provided by **VK_QCOM_tile_shading**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -39586,7 +39586,7 @@ Provided by **VK_QCOM_tile_shading**.*/
 pub struct PhysicalDeviceTileShadingPropertiesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_apron_size: u32,
     pub prefer_non_coherent: u32,
@@ -39621,7 +39621,7 @@ Provided by **VK_QCOM_tile_shading**.*/
 pub struct RenderPassTileShadingCreateInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_TILE_SHADING_CREATE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: TileShadingRenderPassFlagsQCOM,
     pub tile_apron_size: Extent2D,
@@ -39646,7 +39646,7 @@ Provided by **VK_QCOM_tile_shading**.*/
 pub struct PerTileBeginInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PER_TILE_BEGIN_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
 }
 impl Default for PerTileBeginInfoQCOM {
@@ -39667,7 +39667,7 @@ Provided by **VK_QCOM_tile_shading**.*/
 pub struct PerTileEndInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PER_TILE_END_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
 }
 impl Default for PerTileEndInfoQCOM {
@@ -39688,7 +39688,7 @@ Provided by **VK_QCOM_tile_shading**.*/
 pub struct DispatchTileInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_DISPATCH_TILE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
 }
 impl Default for DispatchTileInfoQCOM {
@@ -39704,7 +39704,7 @@ impl Default for DispatchTileInfoQCOM {
 /**
 Provided by **VK_VALVE_fragment_density_map_layered**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -39714,7 +39714,7 @@ Provided by **VK_VALVE_fragment_density_map_layered**.*/
 pub struct PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_fragment_density_map_layers: u32,
 }
@@ -39741,7 +39741,7 @@ Provided by **VK_VALVE_fragment_density_map_layered**.*/
 pub struct PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub fragment_density_map_layered: u32,
 }
@@ -39767,7 +39767,7 @@ Provided by **VK_VALVE_fragment_density_map_layered**.*/
 pub struct PipelineFragmentDensityMapLayeredCreateInfoVALVE {
     ///Must be `VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub max_fragment_density_map_layers: u32,
 }
@@ -39793,7 +39793,7 @@ Provided by **VK_NV_present_metering**.*/
 pub struct SetPresentConfigNV {
     ///Must be `VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub num_frames_per_batch: u32,
     pub present_config_feedback: u32,
@@ -39822,7 +39822,7 @@ Provided by **VK_NV_present_metering**.*/
 pub struct PhysicalDevicePresentMeteringFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub present_metering: u32,
 }
@@ -39848,7 +39848,7 @@ Provided by **VK_NV_external_compute_queue**.*/
 pub struct ExternalComputeQueueDeviceCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DEVICE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub reserved_external_queues: u32,
 }
@@ -39871,7 +39871,7 @@ Provided by **VK_NV_external_compute_queue**.*/
 pub struct ExternalComputeQueueCreateInfoNV {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_CREATE_INFO_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub preferred_queue: Queue,
 }
@@ -39894,7 +39894,7 @@ Provided by **VK_NV_external_compute_queue**.*/
 pub struct ExternalComputeQueueDataParamsNV {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DATA_PARAMS_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub device_index: u32,
 }
@@ -39912,7 +39912,7 @@ impl Default for ExternalComputeQueueDataParamsNV {
 /**
 Provided by **VK_NV_external_compute_queue**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -39922,7 +39922,7 @@ Provided by **VK_NV_external_compute_queue**.*/
 pub struct PhysicalDeviceExternalComputeQueuePropertiesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_data_size: u32,
     pub max_external_queues: u32,
@@ -39951,7 +39951,7 @@ Provided by **VK_EXT_shader_uniform_buffer_unsized_array**.*/
 pub struct PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_uniform_buffer_unsized_array: u32,
 }
@@ -39978,7 +39978,7 @@ Provided by **VK_VALVE_shader_mixed_float_dot_product**.*/
 pub struct PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MIXED_FLOAT_DOT_PRODUCT_FEATURES_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_mixed_float_dot_product_float16_acc_float32: u32,
     pub shader_mixed_float_dot_product_float16_acc_float16: u32,
@@ -40011,7 +40011,7 @@ Provided by **VK_ARM_format_pack**.*/
 pub struct PhysicalDeviceFormatPackFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FORMAT_PACK_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format_pack: u32,
 }
@@ -40038,14 +40038,14 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorDescriptionARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_DESCRIPTION_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub tiling: TensorTilingARM,
     pub format: Format,
     ///Length of `p_strides`.
     pub dimension_count: u32,
     pub p_dimensions: *const i64,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_strides: *const i64,
     pub usage: TensorUsageFlagsARM,
 }
@@ -40078,7 +40078,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: TensorCreateFlagsARM,
     pub p_description: *const TensorDescriptionARM,
@@ -40113,7 +40113,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct TensorViewCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_VIEW_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: TensorViewCreateFlagsARM,
     pub tensor: TensorARM,
@@ -40140,7 +40140,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorMemoryRequirementsInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_MEMORY_REQUIREMENTS_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub tensor: TensorARM,
 }
@@ -40163,7 +40163,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct BindTensorMemoryInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_BIND_TENSOR_MEMORY_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///**Thread safety:** must be externally synchronized.
     pub tensor: TensorARM,
@@ -40194,11 +40194,11 @@ Provided by **VK_ARM_tensors**.*/
 pub struct WriteDescriptorSetTensorARM {
     ///Must be `VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_TENSOR_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_tensor_views`.
     pub tensor_view_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_tensor_views: *const TensorViewARM,
 }
 impl Default for WriteDescriptorSetTensorARM {
@@ -40216,7 +40216,7 @@ impl Default for WriteDescriptorSetTensorARM {
 /**
 Provided by **VK_ARM_tensors**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`FormatProperties2`]
@@ -40226,7 +40226,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorFormatPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_FORMAT_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub optimal_tiling_tensor_features: FormatFeatureFlags2,
     pub linear_tiling_tensor_features: FormatFeatureFlags2,
@@ -40246,7 +40246,7 @@ impl Default for TensorFormatPropertiesARM {
 /**
 Provided by **VK_ARM_tensors**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -40256,7 +40256,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct PhysicalDeviceTensorPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_tensor_dimension_count: u32,
     pub max_tensor_elements: u64,
@@ -40306,7 +40306,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorMemoryBarrierARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_MEMORY_BARRIER_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_stage_mask: PipelineStageFlags2,
     pub src_access_mask: AccessFlags2,
@@ -40344,7 +40344,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorDependencyInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_DEPENDENCY_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub tensor_memory_barrier_count: u32,
     pub p_tensor_memory_barriers: *const TensorMemoryBarrierARM,
@@ -40373,7 +40373,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct PhysicalDeviceTensorFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tensor_non_packed: u32,
     pub shader_tensor_access: u32,
@@ -40406,7 +40406,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct DeviceTensorMemoryRequirementsARM {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_TENSOR_MEMORY_REQUIREMENTS_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_create_info: *const TensorCreateInfoARM,
 }
@@ -40429,7 +40429,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct CopyTensorInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_COPY_TENSOR_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_tensor: TensorARM,
     pub dst_tensor: TensorARM,
@@ -40459,15 +40459,15 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorCopyARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_COPY_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_extent`.
     pub dimension_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_src_offset: *const u64,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_dst_offset: *const u64,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_extent: *const u64,
 }
 impl Default for TensorCopyARM {
@@ -40495,7 +40495,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct MemoryDedicatedAllocateInfoTensorARM {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_TENSOR_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub tensor: TensorARM,
 }
@@ -40521,7 +40521,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct PhysicalDeviceDescriptorBufferTensorPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tensor_capture_replay_descriptor_data_size: usize,
     pub tensor_view_capture_replay_descriptor_data_size: usize,
@@ -40552,7 +40552,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct PhysicalDeviceDescriptorBufferTensorFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub descriptor_buffer_tensor_descriptors: u32,
 }
@@ -40575,7 +40575,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorCaptureDescriptorDataInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_CAPTURE_DESCRIPTOR_DATA_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub tensor: TensorARM,
 }
@@ -40598,7 +40598,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct TensorViewCaptureDescriptorDataInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_TENSOR_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub tensor_view: TensorViewARM,
 }
@@ -40624,7 +40624,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct DescriptorGetTensorInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_GET_TENSOR_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub tensor_view: TensorViewARM,
 }
@@ -40653,7 +40653,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct FrameBoundaryTensorsARM {
     ///Must be `VK_STRUCTURE_TYPE_FRAME_BOUNDARY_TENSORS_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_tensors`.
     pub tensor_count: u32,
@@ -40679,7 +40679,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct PhysicalDeviceExternalTensorInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_TENSOR_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: TensorCreateFlagsARM,
     pub p_description: *const TensorDescriptionARM,
@@ -40706,7 +40706,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct ExternalTensorPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_TENSOR_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub external_memory_properties: ExternalMemoryProperties,
 }
@@ -40732,7 +40732,7 @@ Provided by **VK_ARM_tensors**.*/
 pub struct ExternalMemoryTensorCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_TENSOR_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle_types: ExternalMemoryHandleTypeFlags,
 }
@@ -40759,7 +40759,7 @@ Provided by **VK_EXT_shader_float8**.*/
 pub struct PhysicalDeviceShaderFloat8FeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT8_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_float8: u32,
     pub shader_float8_cooperative_matrix: u32,
@@ -40784,7 +40784,7 @@ Provided by **VK_OHOS_surface**.*/
 pub struct SurfaceCreateInfoOHOS {
     ///Must be `VK_STRUCTURE_TYPE_SURFACE_CREATE_INFO_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: SurfaceCreateFlagsOHOS,
     pub window: *mut core::ffi::c_void,
@@ -40813,7 +40813,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct PhysicalDeviceDataGraphFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub data_graph: u32,
     pub data_graph_update_after_bind: u32,
@@ -40847,7 +40847,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub dimension: u32,
     pub zero_count: u32,
@@ -40878,7 +40878,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineConstantARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub id: u32,
     pub p_constant_data: *const core::ffi::c_void,
@@ -40906,7 +40906,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineResourceInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_RESOURCE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub descriptor_set: u32,
     pub binding: u32,
@@ -40936,7 +40936,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineCompilerControlCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_vendor_options: *const core::ffi::c_char,
 }
@@ -40968,7 +40968,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: PipelineCreateFlags2KHR,
     pub layout: PipelineLayout,
@@ -41001,15 +41001,15 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineShaderModuleCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub module: ShaderModule,
     pub p_name: *const core::ffi::c_char,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_specialization_info: *const SpecializationInfo,
     ///Length of `p_constants`.
     pub constant_count: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_constants: *const DataGraphPipelineConstantARM,
 }
 impl Default for DataGraphPipelineShaderModuleCreateInfoARM {
@@ -41035,7 +41035,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineSessionCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub flags: DataGraphPipelineSessionCreateFlagsARM,
     pub data_graph_pipeline: Pipeline,
@@ -41060,7 +41060,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineSessionBindPointRequirementsInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub session: DataGraphPipelineSessionARM,
 }
@@ -41078,14 +41078,14 @@ impl Default for DataGraphPipelineSessionBindPointRequirementsInfoARM {
 /**
 Provided by **VK_ARM_data_graph**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDataGraphPipelineSessionBindPointRequirementARM")]
 pub struct DataGraphPipelineSessionBindPointRequirementARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub bind_point: DataGraphPipelineSessionBindPointARM,
     pub bind_point_type: DataGraphPipelineSessionBindPointTypeARM,
@@ -41112,7 +41112,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineSessionMemoryRequirementsInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub session: DataGraphPipelineSessionARM,
     pub bind_point: DataGraphPipelineSessionBindPointARM,
@@ -41139,7 +41139,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct BindDataGraphPipelineSessionMemoryInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_BIND_DATA_GRAPH_PIPELINE_SESSION_MEMORY_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub session: DataGraphPipelineSessionARM,
     pub bind_point: DataGraphPipelineSessionBindPointARM,
@@ -41170,7 +41170,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub data_graph_pipeline: Pipeline,
 }
@@ -41193,13 +41193,13 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelinePropertyQueryResultARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_PROPERTY_QUERY_RESULT_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub property: DataGraphPipelinePropertyARM,
     pub is_text: u32,
     ///Length of `p_data`.
     pub data_size: usize,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_data: *mut core::ffi::c_void,
 }
 impl Default for DataGraphPipelinePropertyQueryResultARM {
@@ -41227,7 +41227,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineIdentifierCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_identifier`.
     pub identifier_size: u32,
@@ -41253,7 +41253,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphPipelineDispatchInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_DISPATCH_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: DataGraphPipelineDispatchFlagsARM,
 }
@@ -41305,14 +41305,14 @@ impl Default for PhysicalDeviceDataGraphOperationSupportARM {
 /**
 Provided by **VK_ARM_data_graph**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkQueueFamilyDataGraphPropertiesARM")]
 pub struct QueueFamilyDataGraphPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub engine: PhysicalDeviceDataGraphProcessingEngineARM,
     pub operation: PhysicalDeviceDataGraphOperationSupportARM,
@@ -41337,7 +41337,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub queue_family_index: u32,
     pub engine_type: PhysicalDeviceDataGraphProcessingEngineTypeARM,
@@ -41357,14 +41357,14 @@ impl Default for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
 /**
 Provided by **VK_ARM_data_graph**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkQueueFamilyDataGraphProcessingEnginePropertiesARM")]
 pub struct QueueFamilyDataGraphProcessingEnginePropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub foreign_semaphore_handle_types: ExternalSemaphoreHandleTypeFlags,
     pub foreign_memory_handle_types: ExternalMemoryHandleTypeFlags,
@@ -41394,7 +41394,7 @@ Provided by **VK_ARM_data_graph**.*/
 pub struct DataGraphProcessingEngineCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PROCESSING_ENGINE_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_processing_engines`.
     pub processing_engine_count: u32,
@@ -41424,7 +41424,7 @@ Provided by **VK_SEC_pipeline_cache_incremental_mode**.*/
 pub struct PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub pipeline_cache_incremental_mode: u32,
 }
@@ -41450,7 +41450,7 @@ Provided by **VK_QCOM_data_graph_model**.*/
 pub struct DataGraphPipelineBuiltinModelCreateInfoQCOM {
     ///Must be `VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_BUILTIN_MODEL_CREATE_INFO_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_operation: *const PhysicalDeviceDataGraphOperationSupportARM,
 }
@@ -41477,7 +41477,7 @@ Provided by **VK_QCOM_data_graph_model**.*/
 pub struct PhysicalDeviceDataGraphModelFeaturesQCOM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_MODEL_FEATURES_QCOM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub data_graph_model: u32,
 }
@@ -41504,7 +41504,7 @@ Provided by **VK_KHR_shader_untyped_pointers**.*/
 pub struct PhysicalDeviceShaderUntypedPointersFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_untyped_pointers: u32,
 }
@@ -41529,7 +41529,7 @@ impl Default for PhysicalDeviceShaderUntypedPointersFeaturesKHR {
 pub struct NativeBufferOHOS {
     ///Must be `VK_STRUCTURE_TYPE_NATIVE_BUFFER_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub handle: *mut core::ffi::c_void,
 }
@@ -41553,7 +41553,7 @@ impl Default for NativeBufferOHOS {
 pub struct SwapchainImageCreateInfoOHOS {
     ///Must be `VK_STRUCTURE_TYPE_SWAPCHAIN_IMAGE_CREATE_INFO_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub usage: SwapchainImageUsageFlagsOHOS,
 }
@@ -41569,7 +41569,7 @@ impl Default for SwapchainImageCreateInfoOHOS {
 }
 ///[`VkPhysicalDevicePresentationPropertiesOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDevicePresentationPropertiesOHOS.html)
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -41579,7 +41579,7 @@ impl Default for SwapchainImageCreateInfoOHOS {
 pub struct PhysicalDevicePresentationPropertiesOHOS {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENTATION_PROPERTIES_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shared_image: u32,
 }
@@ -41606,7 +41606,7 @@ Provided by **VK_VALVE_video_encode_rgb_conversion**.*/
 pub struct PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub video_encode_rgb_conversion: u32,
 }
@@ -41624,7 +41624,7 @@ impl Default for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
 /**
 Provided by **VK_VALVE_video_encode_rgb_conversion**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`VideoCapabilitiesKHR`]
@@ -41634,7 +41634,7 @@ Provided by **VK_VALVE_video_encode_rgb_conversion**.*/
 pub struct VideoEncodeRgbConversionCapabilitiesVALVE {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_RGB_CONVERSION_CAPABILITIES_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub rgb_models: VideoEncodeRgbModelConversionFlagsVALVE,
     pub rgb_ranges: VideoEncodeRgbRangeCompressionFlagsVALVE,
@@ -41666,7 +41666,7 @@ Provided by **VK_VALVE_video_encode_rgb_conversion**.*/
 pub struct VideoEncodeProfileRgbConversionInfoVALVE {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_PROFILE_RGB_CONVERSION_INFO_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub perform_encode_rgb_conversion: u32,
 }
@@ -41692,7 +41692,7 @@ Provided by **VK_VALVE_video_encode_rgb_conversion**.*/
 pub struct VideoEncodeSessionRgbConversionCreateInfoVALVE {
     ///Must be `VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO_VALVE`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub rgb_model: VideoEncodeRgbModelConversionFlagBitsVALVE,
     pub rgb_range: VideoEncodeRgbRangeCompressionFlagBitsVALVE,
@@ -41725,7 +41725,7 @@ Provided by **VK_EXT_shader_64bit_indexing**.*/
 pub struct PhysicalDeviceShader64BitIndexingFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader64_bit_indexing: u32,
 }
@@ -41743,7 +41743,7 @@ impl Default for PhysicalDeviceShader64BitIndexingFeaturesEXT {
 /**
 Provided by **VK_OHOS_external_memory**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`ImageFormatProperties2`]
@@ -41753,7 +41753,7 @@ Provided by **VK_OHOS_external_memory**.*/
 pub struct NativeBufferUsageOHOS {
     ///Must be `VK_STRUCTURE_TYPE_NATIVE_BUFFER_USAGE_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub ohos_native_buffer_usage: u64,
 }
@@ -41771,7 +41771,7 @@ impl Default for NativeBufferUsageOHOS {
 /**
 Provided by **VK_OHOS_external_memory**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extended By
 ///- [`NativeBufferFormatPropertiesOHOS`]
@@ -41781,7 +41781,7 @@ Provided by **VK_OHOS_external_memory**.*/
 pub struct NativeBufferPropertiesOHOS {
     ///Must be `VK_STRUCTURE_TYPE_NATIVE_BUFFER_PROPERTIES_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub allocation_size: u64,
     pub memory_type_bits: u32,
@@ -41801,7 +41801,7 @@ impl Default for NativeBufferPropertiesOHOS {
 /**
 Provided by **VK_OHOS_external_memory**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`NativeBufferPropertiesOHOS`]
@@ -41811,7 +41811,7 @@ Provided by **VK_OHOS_external_memory**.*/
 pub struct NativeBufferFormatPropertiesOHOS {
     ///Must be `VK_STRUCTURE_TYPE_NATIVE_BUFFER_FORMAT_PROPERTIES_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub format: Format,
     pub external_format: u64,
@@ -41851,7 +41851,7 @@ Provided by **VK_OHOS_external_memory**.*/
 pub struct ImportNativeBufferInfoOHOS {
     ///Must be `VK_STRUCTURE_TYPE_IMPORT_NATIVE_BUFFER_INFO_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub buffer: *mut core::ffi::c_void,
 }
@@ -41874,7 +41874,7 @@ Provided by **VK_OHOS_external_memory**.*/
 pub struct MemoryGetNativeBufferInfoOHOS {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_GET_NATIVE_BUFFER_INFO_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub memory: DeviceMemory,
 }
@@ -41904,7 +41904,7 @@ Provided by **VK_OHOS_external_memory**.*/
 pub struct ExternalFormatOHOS {
     ///Must be `VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_OHOS`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub external_format: u64,
 }
@@ -41931,7 +41931,7 @@ Provided by **VK_ARM_performance_counters_by_region**.*/
 pub struct PhysicalDevicePerformanceCountersByRegionFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub performance_counters_by_region: u32,
 }
@@ -41949,7 +41949,7 @@ impl Default for PhysicalDevicePerformanceCountersByRegionFeaturesARM {
 /**
 Provided by **VK_ARM_performance_counters_by_region**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -41959,7 +41959,7 @@ Provided by **VK_ARM_performance_counters_by_region**.*/
 pub struct PhysicalDevicePerformanceCountersByRegionPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_per_region_performance_counters: u32,
     pub performance_counter_region_size: Extent2D,
@@ -41985,14 +41985,14 @@ impl Default for PhysicalDevicePerformanceCountersByRegionPropertiesARM {
 /**
 Provided by **VK_ARM_performance_counters_by_region**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPerformanceCounterARM")]
 pub struct PerformanceCounterARM {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub counter_id: u32,
 }
@@ -42010,14 +42010,14 @@ impl Default for PerformanceCounterARM {
 /**
 Provided by **VK_ARM_performance_counters_by_region**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkPerformanceCounterDescriptionARM")]
 pub struct PerformanceCounterDescriptionARM {
     ///Must be `VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: PerformanceCounterDescriptionFlagsARM,
     pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
@@ -42046,7 +42046,7 @@ Provided by **VK_ARM_performance_counters_by_region**.*/
 pub struct RenderPassPerformanceCountersByRegionBeginInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     ///Length of `p_counter_addresses`.
     pub counter_address_count: u32,
@@ -42079,7 +42079,7 @@ Provided by **VK_NV_compute_occupancy_priority**.*/
 pub struct ComputeOccupancyPriorityParametersNV {
     ///Must be `VK_STRUCTURE_TYPE_COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub occupancy_priority: f32,
     pub occupancy_throttling: f32,
@@ -42108,7 +42108,7 @@ Provided by **VK_NV_compute_occupancy_priority**.*/
 pub struct PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub compute_occupancy_priority: u32,
 }
@@ -42135,7 +42135,7 @@ Provided by **VK_EXT_shader_long_vector**.*/
 pub struct PhysicalDeviceShaderLongVectorFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_LONG_VECTOR_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub long_vector: u32,
 }
@@ -42153,7 +42153,7 @@ impl Default for PhysicalDeviceShaderLongVectorFeaturesEXT {
 /**
 Provided by **VK_EXT_shader_long_vector**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -42163,7 +42163,7 @@ Provided by **VK_EXT_shader_long_vector**.*/
 pub struct PhysicalDeviceShaderLongVectorPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_vector_components: u32,
 }
@@ -42190,7 +42190,7 @@ Provided by **VK_EXT_texture_compression_astc_3d**.*/
 pub struct PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub texture_compression_astc_3d: u32,
 }
@@ -42217,7 +42217,7 @@ Provided by **VK_EXT_shader_subgroup_partitioned**.*/
 pub struct PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_subgroup_partitioned: u32,
 }
@@ -42274,7 +42274,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct TexelBufferDescriptorInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_TEXEL_BUFFER_DESCRIPTOR_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub format: Format,
     pub address_range: DeviceAddressRangeEXT,
@@ -42299,7 +42299,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct ImageDescriptorInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_IMAGE_DESCRIPTOR_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub p_view: *const ImageViewCreateInfo,
     pub layout: ImageLayout,
@@ -42350,7 +42350,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct ResourceDescriptorInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_RESOURCE_DESCRIPTOR_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub r#type: DescriptorType,
     pub data: ResourceDescriptorDataEXT,
@@ -42375,7 +42375,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct BindHeapInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_BIND_HEAP_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub heap_range: DeviceAddressRangeEXT,
     pub reserved_range_offset: u64,
@@ -42405,7 +42405,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct PushDataInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_PUSH_DATA_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub offset: u32,
     pub data: HostAddressRangeConstEXT,
@@ -42430,7 +42430,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct DescriptorMappingSourceConstantOffsetEXT {
     pub heap_offset: u32,
     pub heap_array_stride: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_embedded_sampler: *const SamplerCreateInfo,
     pub sampler_heap_offset: u32,
     pub sampler_heap_array_stride: u32,
@@ -42452,7 +42452,7 @@ pub struct DescriptorMappingSourcePushIndexEXT {
     pub push_offset: u32,
     pub heap_index_stride: u32,
     pub heap_array_stride: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_embedded_sampler: *const SamplerCreateInfo,
     pub use_combined_image_sampler_index: u32,
     pub sampler_heap_offset: u32,
@@ -42478,7 +42478,7 @@ pub struct DescriptorMappingSourceIndirectIndexEXT {
     pub address_offset: u32,
     pub heap_index_stride: u32,
     pub heap_array_stride: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_embedded_sampler: *const SamplerCreateInfo,
     pub use_combined_image_sampler_index: u32,
     pub sampler_heap_offset: u32,
@@ -42504,7 +42504,7 @@ pub struct DescriptorMappingSourceIndirectIndexArrayEXT {
     pub push_offset: u32,
     pub address_offset: u32,
     pub heap_index_stride: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_embedded_sampler: *const SamplerCreateInfo,
     pub use_combined_image_sampler_index: u32,
     pub sampler_heap_offset: u32,
@@ -42545,7 +42545,7 @@ pub struct DescriptorMappingSourceShaderRecordIndexEXT {
     pub shader_record_offset: u32,
     pub heap_index_stride: u32,
     pub heap_array_stride: u32,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_embedded_sampler: *const SamplerCreateInfo,
     pub use_combined_image_sampler_index: u32,
     pub sampler_heap_offset: u32,
@@ -42617,7 +42617,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct DescriptorSetAndBindingMappingEXT {
     ///Must be `VK_STRUCTURE_TYPE_DESCRIPTOR_SET_AND_BINDING_MAPPING_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub descriptor_set: u32,
     pub first_binding: u32,
@@ -42654,7 +42654,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct ShaderDescriptorSetAndBindingMappingInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_mappings`.
     pub mapping_count: u32,
@@ -42683,7 +42683,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct SamplerCustomBorderColorIndexCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub index: u32,
 }
@@ -42710,9 +42710,9 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct OpaqueCaptureDataCreateInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DATA_CREATE_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_data: *const HostAddressRangeConstEXT,
 }
 impl Default for OpaqueCaptureDataCreateInfoEXT {
@@ -42737,7 +42737,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct IndirectCommandsLayoutPushDataTokenNV {
     ///Must be `VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_PUSH_DATA_TOKEN_NV`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub push_data_offset: u32,
     pub push_data_size: u32,
@@ -42765,7 +42765,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct SubsampledImageFormatPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_SUBSAMPLED_IMAGE_FORMAT_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub subsampled_image_descriptor_count: u32,
 }
@@ -42792,7 +42792,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct PhysicalDeviceDescriptorHeapFeaturesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_FEATURES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub descriptor_heap: u32,
     pub descriptor_heap_capture_replay: u32,
@@ -42812,7 +42812,7 @@ impl Default for PhysicalDeviceDescriptorHeapFeaturesEXT {
 /**
 Provided by **VK_EXT_descriptor_heap**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -42822,7 +42822,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct PhysicalDeviceDescriptorHeapPropertiesEXT {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_PROPERTIES_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub sampler_heap_alignment: u64,
     pub resource_heap_alignment: u64,
@@ -42884,11 +42884,11 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct CommandBufferInheritanceDescriptorHeapInfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_sampler_heap_bind_info: *const BindHeapInfoEXT,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_resource_heap_bind_info: *const BindHeapInfoEXT,
 }
 impl Default for CommandBufferInheritanceDescriptorHeapInfoEXT {
@@ -42906,7 +42906,7 @@ impl Default for CommandBufferInheritanceDescriptorHeapInfoEXT {
 /**
 Provided by **VK_EXT_descriptor_heap**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -42916,7 +42916,7 @@ Provided by **VK_EXT_descriptor_heap**.*/
 pub struct PhysicalDeviceDescriptorHeapTensorPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub tensor_descriptor_size: u64,
     pub tensor_descriptor_alignment: u64,
@@ -42947,7 +42947,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
 pub struct PhysicalDeviceShaderInstrumentationFeaturesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_instrumentation: u32,
 }
@@ -42965,7 +42965,7 @@ impl Default for PhysicalDeviceShaderInstrumentationFeaturesARM {
 /**
 Provided by **VK_ARM_shader_instrumentation**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`PhysicalDeviceProperties2`]
@@ -42975,7 +42975,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
 pub struct PhysicalDeviceShaderInstrumentationPropertiesARM {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub num_metrics: u32,
     pub per_basic_block_granularity: u32,
@@ -43000,7 +43000,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
 pub struct ShaderInstrumentationCreateInfoARM {
     ///Must be `VK_STRUCTURE_TYPE_SHADER_INSTRUMENTATION_CREATE_INFO_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
 }
 impl Default for ShaderInstrumentationCreateInfoARM {
@@ -43021,7 +43021,7 @@ Provided by **VK_ARM_shader_instrumentation**.*/
 pub struct ShaderInstrumentationMetricDescriptionARM {
     ///Must be `VK_STRUCTURE_TYPE_SHADER_INSTRUMENTATION_METRIC_DESCRIPTION_ARM`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
     pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
@@ -43080,7 +43080,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct DeviceMemoryCopyKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_MEMORY_COPY_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_range: DeviceAddressRangeKHR,
     pub src_flags: AddressCommandFlagsKHR,
@@ -43109,7 +43109,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct CopyDeviceMemoryInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_COPY_DEVICE_MEMORY_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_regions`.
     pub region_count: u32,
@@ -43138,7 +43138,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct DeviceMemoryImageCopyKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_MEMORY_IMAGE_COPY_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address_range: DeviceAddressRangeKHR,
     pub address_flags: AddressCommandFlagsKHR,
@@ -43175,7 +43175,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct CopyDeviceMemoryImageInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_COPY_DEVICE_MEMORY_IMAGE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub image: Image,
     ///Length of `p_regions`.
@@ -43206,7 +43206,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct MemoryRangeBarriersInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_RANGE_BARRIERS_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     ///Length of `p_memory_range_barriers`.
     pub memory_range_barrier_count: u32,
@@ -43232,7 +43232,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct MemoryRangeBarrierKHR {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_RANGE_BARRIER_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub src_stage_mask: PipelineStageFlags2,
     pub src_access_mask: AccessFlags2,
@@ -43273,7 +43273,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub device_address_commands: u32,
 }
@@ -43296,7 +43296,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct ConditionalRenderingBeginInfo2EXT {
     ///Must be `VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_2_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address_range: DeviceAddressRangeKHR,
     pub address_flags: AddressCommandFlagsKHR,
@@ -43326,7 +43326,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct AccelerationStructureCreateInfo2KHR {
     ///Must be `VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_2_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub create_flags: AccelerationStructureCreateFlagsKHR,
     pub address_range: DeviceAddressRangeKHR,
@@ -43355,7 +43355,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct BindIndexBuffer3InfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_BIND_INDEX_BUFFER_3_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address_range: DeviceAddressRangeKHR,
     pub address_flags: AddressCommandFlagsKHR,
@@ -43382,7 +43382,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct BindVertexBuffer3InfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_BIND_VERTEX_BUFFER_3_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub set_stride: u32,
     pub address_range: StridedDeviceAddressRangeKHR,
@@ -43409,7 +43409,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct DrawIndirect2InfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DRAW_INDIRECT_2_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address_range: StridedDeviceAddressRangeKHR,
     pub address_flags: AddressCommandFlagsKHR,
@@ -43436,7 +43436,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct DrawIndirectCount2InfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DRAW_INDIRECT_COUNT_2_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address_range: StridedDeviceAddressRangeKHR,
     pub address_flags: AddressCommandFlagsKHR,
@@ -43467,7 +43467,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct DispatchIndirect2InfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DISPATCH_INDIRECT_2_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address_range: DeviceAddressRangeKHR,
     pub address_flags: AddressCommandFlagsKHR,
@@ -43492,7 +43492,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct BindTransformFeedbackBuffer2InfoEXT {
     ///Must be `VK_STRUCTURE_TYPE_BIND_TRANSFORM_FEEDBACK_BUFFER_2_INFO_EXT`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub address_range: DeviceAddressRangeKHR,
     pub address_flags: AddressCommandFlagsKHR,
@@ -43517,7 +43517,7 @@ Provided by **VK_KHR_device_address_commands**.*/
 pub struct MemoryMarkerInfoAMD {
     ///Must be `VK_STRUCTURE_TYPE_MEMORY_MARKER_INFO_AMD`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *const core::ffi::c_void,
     pub stage: PipelineStageFlags2KHR,
     pub dst_range: DeviceAddressRangeKHR,
@@ -43550,7 +43550,7 @@ Provided by **VK_KHR_shader_constant_data**.*/
 pub struct PhysicalDeviceShaderConstantDataFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CONSTANT_DATA_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_constant_data: u32,
 }
@@ -43577,7 +43577,7 @@ Provided by **VK_KHR_shader_abort**.*/
 pub struct PhysicalDeviceShaderAbortFeaturesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ABORT_FEATURES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub shader_abort: u32,
 }
@@ -43603,7 +43603,7 @@ Provided by **VK_KHR_shader_abort**.*/
 pub struct PhysicalDeviceShaderAbortPropertiesKHR {
     ///Must be `VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ABORT_PROPERTIES_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub max_shader_abort_message_size: u64,
 }
@@ -43621,7 +43621,7 @@ impl Default for PhysicalDeviceShaderAbortPropertiesKHR {
 /**
 Provided by **VK_KHR_shader_abort**.*/
 /**
-**Returned only** — filled by Vulkan, not constructed by the application.*/
+**Returned only**, filled by Vulkan, not constructed by the application.*/
 ///
 ///# Extends
 ///- [`DeviceFaultDebugInfoKHR`]
@@ -43631,10 +43631,10 @@ Provided by **VK_KHR_shader_abort**.*/
 pub struct DeviceFaultShaderAbortMessageInfoKHR {
     ///Must be `VK_STRUCTURE_TYPE_DEVICE_FAULT_SHADER_ABORT_MESSAGE_INFO_KHR`.
     pub s_type: StructureType,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub message_data_size: u64,
-    ///Optional — may be null.
+    ///Optional, may be null.
     pub p_message_data: *mut core::ffi::c_void,
 }
 impl Default for DeviceFaultShaderAbortMessageInfoKHR {

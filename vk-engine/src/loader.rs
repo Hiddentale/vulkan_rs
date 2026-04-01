@@ -32,6 +32,7 @@ pub struct LibloadingLoader {
 impl LibloadingLoader {
     /// Load the platform's Vulkan shared library.
     pub fn new() -> Result<Self, LoadError> {
+        // SAFETY: loading the platform's Vulkan shared library is standard initialization.
         let lib = unsafe { load_vulkan_library()? };
         Ok(Self { lib })
     }
@@ -39,6 +40,7 @@ impl LibloadingLoader {
 
 unsafe impl Loader for LibloadingLoader {
     unsafe fn load(&self, name: &CStr) -> *const c_void {
+        // SAFETY: name is a valid CStr; libloading resolves it from the loaded library.
         unsafe {
             self.lib
                 .get::<*const c_void>(name.to_bytes_with_nul())
@@ -68,6 +70,7 @@ unsafe fn load_vulkan_library() -> Result<libloading::Library, LoadError> {
 
     let mut last_err = None;
     for name in LIB_NAMES {
+        // SAFETY: loading a shared library by platform-known name.
         match unsafe { libloading::Library::new(name) } {
             Ok(lib) => return Ok(lib),
             Err(e) => last_err = Some(e),

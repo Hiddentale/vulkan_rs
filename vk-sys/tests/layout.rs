@@ -1,4 +1,4 @@
-//! Struct layout tests — verify that generated `#[repr(C)]` structs match
+//! Struct layout tests,verify that generated `#[repr(C)]` structs match
 //! expected sizes and alignments on the current platform.
 //!
 //! These sizes correspond to the Vulkan C headers on x86_64 (pointer = 8).
@@ -175,7 +175,7 @@ fn bitmask_64bit_has_high_bit_constants() {
 // ── Union layouts ─────────────────────────────────────────────────
 // Union size = largest member, alignment = most-aligned member.
 
-// ClearColorValue: float32[4] | int32[4] | uint32[4] — all 16 bytes, align 4
+// ClearColorValue: float32[4] | int32[4] | uint32[4],all 16 bytes, align 4
 #[test]
 fn clear_color_value_layout() {
     assert_eq!(size_of::<structs::ClearColorValue>(), 16);

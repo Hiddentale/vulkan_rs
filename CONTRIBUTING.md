@@ -22,7 +22,7 @@ All new public items in `vk-engine` must follow this section order:
 ///
 /// # Errors
 ///
-/// - [`vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY`] — Host allocation failed.
+/// - [`vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY`], Host allocation failed.
 ///
 /// # Safety
 ///
@@ -41,10 +41,10 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 
 ## Generated vs Hand-Written Code
 
-- `vk-sys/src/` — fully generated. Do not edit by hand. Run `cargo run -p generator`.
-- `vk-engine/src/generated/` — fully generated. Same as above.
-- `vk-engine/src/*.rs` (non-generated) — hand-written, highest doc quality bar.
-- `generator/doc_overrides/` — hand-written doc additions appended to generated wrappers.
+- `vk-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p generator`.
+- `vk-engine/src/generated/`, fully generated. Same as above.
+- `vk-engine/src/*.rs` (non-generated), hand-written, highest doc quality bar.
+- `generator/doc_overrides/`, hand-written doc additions appended to generated wrappers.
 
 ## Before Submitting
 

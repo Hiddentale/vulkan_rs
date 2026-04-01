@@ -173,7 +173,7 @@ fn emit_struct_docs(def: &StructDef, extended_by: &HashMap<String, Vec<String>>)
 
     // Returned-only annotation.
     if def.returned_only {
-        let line = "\n**Returned only** — filled by Vulkan, not constructed by the application.";
+        let line = "\n**Returned only**, filled by Vulkan, not constructed by the application.";
         doc_lines.push(quote! { #[doc = #line] });
     }
 
@@ -457,7 +457,7 @@ fn emit_fields_with_docs(members: &[MemberDef]) -> Vec<TokenStream> {
 
             // Optional pointer.
             if m.optional && m.is_pointer {
-                doc_lines.push(quote! { #[doc = "Optional — may be null."] });
+                doc_lines.push(quote! { #[doc = "Optional, may be null."] });
             }
 
             // Count field paired with a pointer.

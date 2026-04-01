@@ -152,7 +152,7 @@ pub fn strip_variant_prefix(c_name: &str, prefix: &str) -> Option<String> {
         if c_name.contains("_MAX_ENUM") {
             return None;
         }
-        // Try without the full prefix — fall back to stripping just `VK_`.
+        // Try without the full prefix,fall back to stripping just `VK_`.
         c_name.strip_prefix("VK_")?
     };
 

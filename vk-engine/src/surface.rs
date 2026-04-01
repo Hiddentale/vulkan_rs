@@ -63,7 +63,7 @@ pub fn required_extensions() -> &'static [&'static CStr] {
         not(target_os = "ios"),
     ))]
     {
-        // Wayland and X11 — return both; the loader ignores missing ones
+        // Wayland and X11,return both; the loader ignores missing ones
         // at enumerate time, and the user can filter to what's available.
         &[
             c"VK_KHR_surface",
@@ -103,6 +103,9 @@ impl Instance {
         let raw_window = window.window_handle()?.as_raw();
         let alloc_ptr = allocator.map_or(std::ptr::null(), |a| a as *const _);
 
+        // SAFETY (all arms): caller guarantees display/window handles are valid and outlive
+        // the surface. The instance has the required surface extensions enabled. The create
+        // info structs are built from the raw handles and are valid for the duration of the call.
         match (raw_display, raw_window) {
             #[cfg(target_os = "windows")]
             (RawDisplayHandle::Windows(_), RawWindowHandle::Win32(h)) => {
@@ -235,6 +238,7 @@ impl Instance {
             .destroy_surface_khr
             .expect("VK_KHR_surface not loaded");
         let alloc_ptr = allocator.map_or(std::ptr::null(), |a| a as *const _);
+        // SAFETY: caller guarantees the surface is not in use and belongs to this instance.
         unsafe { fp(self.handle(), surface, alloc_ptr) };
     }
 }

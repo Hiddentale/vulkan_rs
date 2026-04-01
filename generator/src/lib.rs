@@ -1,6 +1,6 @@
-//! Generator library — shared modules used by both the binary and tests.
+//! Generator library,shared modules used by both the binary and tests.
 //!
-//! Internal modules are `#[doc(hidden)]` — they are not part of the public API
+//! Internal modules are `#[doc(hidden)]`,they are not part of the public API
 //! and may change without notice. They are exposed only for integration tests
 //! and the generator binary.
 

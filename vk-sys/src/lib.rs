@@ -1,6 +1,6 @@
 //! Raw Vulkan FFI types generated from `vk.xml`.
 //!
-//! Do not edit by hand — regenerate with the `generator` crate.
+//! Do not edit by hand,regenerate with the `generator` crate.
 //!
 //! Every type carries a spec link, and structs include metadata from
 //! vk.xml: extension provenance, pNext chain relationships, member

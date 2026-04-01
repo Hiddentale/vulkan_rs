@@ -86,14 +86,14 @@ fn wrapper_counts(registry: &VkRegistry) -> (usize, usize, usize) {
 /// not overwrite.
 pub fn exclusion_set() -> HashSet<String> {
     [
-        // Entry — special construction / fallback logic
+        // Entry,special construction / fallback logic
         "vkCreateInstance",
         "vkEnumerateInstanceVersion",
         "vkEnumerateInstanceLayerProperties",
         "vkEnumerateInstanceExtensionProperties",
-        // Instance — returns wrapped Device, not raw handle
+        // Instance,returns wrapped Device, not raw handle
         "vkCreateDevice",
-        // Instance — feature-gated surface methods in surface.rs
+        // Instance,feature-gated surface methods in surface.rs
         "vkCreateWin32SurfaceKHR",
         "vkCreateXlibSurfaceKHR",
         "vkCreateXcbSurfaceKHR",
@@ -702,7 +702,7 @@ mod tests {
         let roles = classify_params(&c, &empty_pnext());
         let sig = stringify(emit_signature_params(&c, &roles));
 
-        // Self-handle and output pair all elided — no params
+        // Self-handle and output pair all elided,no params
         assert!(sig.is_empty() || sig.trim().is_empty());
     }
 
@@ -1230,7 +1230,7 @@ mod tests {
                 };
 
                 let transform_str = if transforms.is_empty() {
-                    "—".to_string()
+                    "-".to_string()
                 } else {
                     transforms.join(", ")
                 };

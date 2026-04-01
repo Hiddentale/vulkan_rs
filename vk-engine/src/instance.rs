@@ -17,7 +17,7 @@ use vk::handles::Handle;
 /// dropped. When created via `from_raw_parts`, the caller manages the
 /// library lifetime and this field is `None`.
 ///
-/// Does **not** implement `Drop` — the caller must explicitly call
+/// Does **not** implement `Drop`,the caller must explicitly call
 /// `destroy_instance` when done. This avoids double-destroy bugs when
 /// wrapping externally managed handles via `from_raw_parts`.
 pub struct Instance {
@@ -49,6 +49,7 @@ impl Instance {
     ) -> Self {
         let get_instance_proc_addr_fn =
             get_instance_proc_addr.expect("vkGetInstanceProcAddr not loaded");
+        // SAFETY: handle is valid per caller contract; transmute converts raw fn ptrs.
         let commands = Box::new(unsafe {
             vk::commands::InstanceCommands::load(|name| {
                 std::mem::transmute(get_instance_proc_addr_fn(handle, name.as_ptr()))
@@ -72,7 +73,7 @@ impl Instance {
     /// - `handle` must be a valid `VkInstance` that was created externally.
     /// - `get_instance_proc_addr` must be the function used to load
     ///   instance-level commands for this handle.
-    /// - The caller is responsible for the instance's lifetime — it must
+    /// - The caller is responsible for the instance's lifetime,it must
     ///   outlive this wrapper and not be destroyed while in use.
     pub unsafe fn from_raw_parts(
         handle: vk::handles::Instance,
@@ -81,6 +82,7 @@ impl Instance {
         let get_instance_proc_addr_fn =
             get_instance_proc_addr.expect("vkGetInstanceProcAddr not loaded");
 
+        // SAFETY: resolving vkGetDeviceProcAddr from a valid instance handle.
         let get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr = unsafe {
             std::mem::transmute(get_instance_proc_addr_fn(
                 handle,
@@ -88,6 +90,7 @@ impl Instance {
             ))
         };
 
+        // SAFETY: forwards caller's safety guarantees to `load`.
         unsafe { Self::load(handle, get_instance_proc_addr, get_device_proc_addr, None) }
     }
 
@@ -146,6 +149,7 @@ impl Instance {
             .create_device
             .expect("vkCreateDevice not loaded");
         let mut raw = vk::handles::Device::null();
+        // SAFETY: caller guarantees physical_device and create_info are valid.
         let result = unsafe {
             fp(
                 physical_device,
@@ -155,6 +159,7 @@ impl Instance {
             )
         };
         check(result)?;
+        // SAFETY: raw is a freshly created valid device handle.
         let device = unsafe { Device::load(raw, self.get_device_proc_addr, self._loader.clone()) };
         Ok(device)
     }
@@ -197,7 +202,7 @@ mod tests {
         let instance =
             unsafe { Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None, None) };
         // Commands were loaded with a null-returning proc addr, so all
-        // function pointers are None — but the reference is valid.
+        // function pointers are None,but the reference is valid.
         let _ = instance.commands();
     }
 

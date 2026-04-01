@@ -22,17 +22,18 @@
 //!
 //! | Module | Purpose |
 //! |--------|---------|
-//! | [`vk`] | Re-export of `vk-sys` — raw `#[repr(C)]` types, handles, enums |
-//! | [`Entry`] | Vulkan entry point — loads the library, enumerates layers/extensions |
-//! | [`Instance`] | Vulkan instance — physical device queries, instance-level commands |
-//! | [`Device`] | Vulkan logical device — all device-level commands |
+//! | [`vk`] | Re-export of `vk-sys`,raw `#[repr(C)]` types, handles, enums |
+//! | [`Entry`] | Vulkan entry point,loads the library, enumerates layers/extensions |
+//! | [`Instance`] | Vulkan instance,physical device queries, instance-level commands |
+//! | [`Device`] | Vulkan logical device,all device-level commands |
 //! | [`bytecode`] | SPIR-V byte alignment helpers |
+//! | [`Version`] | Decoded Vulkan version (major.minor.patch) from a packed `u32` |
 //!
 //! # Feature flags
 //!
 //! | Flag | Default | Description |
 //! |------|---------|-------------|
-//! | `surface` | yes | Window surface creation via `raw-window-handle` |
+//! | `surface` | yes | Enables [`required_extensions`] and [`SurfaceError`] for window surface creation via [`raw-window-handle`](https://docs.rs/raw-window-handle). Disable with `default-features = false` for headless use. |
 
 pub use vk_sys as vk;
 

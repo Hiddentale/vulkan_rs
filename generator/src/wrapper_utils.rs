@@ -15,9 +15,9 @@ use crate::parse::{CommandDef, DispatchLevel, ParamDef, VkRegistry};
 /// Role of a parameter in a Vulkan command from the wrapper's perspective.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ParamRole {
-    /// First dispatchable handle — becomes `&self`.
+    /// First dispatchable handle,becomes `&self`.
     SelfHandle,
-    /// Single output value — becomes the return value.
+    /// Single output value,becomes the return value.
     Output,
     /// Count param for an output array (enumerate/fill pair).
     /// `partner` is the index of the array param.
@@ -25,15 +25,15 @@ pub enum ParamRole {
     /// Array param of an output enumerate/fill pair.
     /// `count` is the index of the count param.
     OutputArray { count: usize },
-    /// Count param for an input slice — suppressed from the wrapper signature.
+    /// Count param for an input slice,suppressed from the wrapper signature.
     /// `partner` is the index of the array param.
     InputCount { partner: usize },
-    /// Input array param with associated count — becomes `&[T]`.
+    /// Input array param with associated count,becomes `&[T]`.
     /// `count` is the index of the count param.
     InputArray { count: usize },
     /// Optional allocator (`*const AllocationCallbacks`).
     Allocator,
-    /// Regular input parameter — passed through as its resolved C type.
+    /// Regular input parameter,passed through as its resolved C type.
     Regular,
 }
 
@@ -92,7 +92,7 @@ fn self_handle_type(level: DispatchLevel) -> Option<&'static str> {
 
 /// Classify every parameter of a command into a [`ParamRole`].
 ///
-/// `pnext_structs` is the set returned by [`build_pnext_struct_set`] — struct
+/// `pnext_structs` is the set returned by [`build_pnext_struct_set`],struct
 /// names (Vk-prefix stripped) whose instances have `sType`/`pNext` and therefore
 /// cannot be used as simple output values.
 pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec<ParamRole> {
@@ -141,7 +141,7 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
         };
 
         // If the count param is already classified (e.g., another array already
-        // claimed it), skip — dual-output-array commands fall to raw forward.
+        // claimed it), skip,dual-output-array commands fall to raw forward.
         if roles[count_idx] != ParamRole::Regular {
             continue;
         }
@@ -226,7 +226,7 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
 /// Disqualified if:
 /// - Already classified (SelfHandle, Allocator, etc.)
 /// - `const` pointer
-/// - Double pointer (`*mut *mut T` — e.g. `vkMapMemory`)
+/// - Double pointer (`*mut *mut T`,e.g. `vkMapMemory`)
 /// - Has a `len` attribute (array output whose count lives elsewhere)
 /// - Type is a pNext struct (caller must initialise `sType`/`pNext`)
 fn find_single_output(
@@ -603,7 +603,7 @@ mod tests {
             DispatchLevel::Device,
         );
         let roles = classify_params(&c, &empty_pnext());
-        // Double pointer stays Regular — not classified as Output.
+        // Double pointer stays Regular,not classified as Output.
         assert_eq!(
             roles,
             vec![

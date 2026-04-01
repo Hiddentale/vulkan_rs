@@ -3,7 +3,7 @@
 //!
 //! CI compiles both, runs both, and diffs the output. Any mismatch
 //! proves the generated Rust `#[repr(C)]` struct disagrees with the
-//! real C Vulkan headers — the most dangerous class of FFI bug.
+//! real C Vulkan headers,the most dangerous class of FFI bug.
 //!
 //! Structs with bit-field members get size+align checks only (no field
 //! offsets), since C `offsetof()` is undefined for bit-fields and the
@@ -14,7 +14,7 @@ use std::collections::HashSet;
 use crate::parse::{StructDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, member_name};
 
-/// Structs to skip — opaque stubs without real C definitions.
+/// Structs to skip,opaque stubs without real C definitions.
 fn is_opaque(name: &str) -> bool {
     name.starts_with("StdVideo")
 }
@@ -51,7 +51,7 @@ fn has_bitfields(s: &StructDef) -> bool {
     s.members.iter().any(|m| m.is_bitfield)
 }
 
-/// Fields to skip in offset checks — Rust keywords that `offset_of!` can't handle.
+/// Fields to skip in offset checks,Rust keywords that `offset_of!` can't handle.
 fn should_skip_field(field_name: &str) -> bool {
     is_rust_keyword(&member_name(field_name))
 }

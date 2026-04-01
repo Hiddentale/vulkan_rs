@@ -26,7 +26,7 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "VkSampleMask" => "u32",
         "VkRemoteAddressNV" => "*mut core::ffi::c_void",
 
-        // Platform types — Win32
+        // Platform types,Win32
         "HINSTANCE" => "isize",
         "HWND" => "isize",
         "HMONITOR" => "isize",
@@ -35,26 +35,26 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "LPCWSTR" => "*const u16",
         "SECURITY_ATTRIBUTES" => "core::ffi::c_void",
 
-        // Platform types — X11/Xlib
+        // Platform types,X11/Xlib
         "Display" => "core::ffi::c_void",
         "Window" => "core::ffi::c_ulong",
         "VisualID" => "core::ffi::c_ulong",
         "RROutput" => "core::ffi::c_ulong",
 
-        // Platform types — XCB
+        // Platform types,XCB
         "xcb_connection_t" => "core::ffi::c_void",
         "xcb_window_t" => "u32",
         "xcb_visualid_t" => "u32",
 
-        // Platform types — Wayland
+        // Platform types,Wayland
         "wl_display" => "core::ffi::c_void",
         "wl_surface" => "core::ffi::c_void",
 
-        // Platform types — Android
+        // Platform types,Android
         "ANativeWindow" => "core::ffi::c_void",
         "AHardwareBuffer" => "core::ffi::c_void",
 
-        // Platform types — Metal/macOS/iOS
+        // Platform types,Metal/macOS/iOS
         "CAMetalLayer" => "core::ffi::c_void",
         "MTLDevice_id" => "core::ffi::c_void",
         "MTLCommandQueue_id" => "core::ffi::c_void",
@@ -63,39 +63,39 @@ pub fn c_type_to_rust(c: &str) -> Option<&'static str> {
         "MTLSharedEvent_id" => "core::ffi::c_void",
         "IOSurfaceRef" => "core::ffi::c_void",
 
-        // Platform types — DirectFB
+        // Platform types,DirectFB
         "IDirectFB" => "core::ffi::c_void",
         "IDirectFBSurface" => "core::ffi::c_void",
 
-        // Platform types — Fuchsia
+        // Platform types,Fuchsia
         "zx_handle_t" => "u32",
 
-        // Platform types — QNX Screen
+        // Platform types,QNX Screen
         "_screen_window" => "core::ffi::c_void",
         "_screen_context" => "core::ffi::c_void",
         "_screen_buffer" => "core::ffi::c_void",
 
-        // Platform types — GGP (Stadia)
+        // Platform types,GGP (Stadia)
         "GgpStreamDescriptor" => "u32",
         "GgpFrameToken" => "u32",
 
-        // Platform types — NvSci
+        // Platform types,NvSci
         "NvSciSyncObj" => "core::ffi::c_void",
         "NvSciSyncFence" => "core::ffi::c_void",
         "NvSciBufObj" => "core::ffi::c_void",
         "NvSciSyncAttrList" => "core::ffi::c_void",
         "NvSciBufAttrList" => "core::ffi::c_void",
 
-        // Platform types — OHOS (OpenHarmony)
+        // Platform types,OHOS (OpenHarmony)
         "OHNativeWindow" => "core::ffi::c_void",
         "OH_NativeBuffer" => "core::ffi::c_void",
         "OHBufferHandle" => "core::ffi::c_void",
 
-        // Platform types — UBM (Samsung)
+        // Platform types,UBM (Samsung)
         "ubm_device" => "core::ffi::c_void",
         "ubm_surface" => "core::ffi::c_void",
 
-        // Vk-prefixed or unknown types are not primitives — caller handles them.
+        // Vk-prefixed or unknown types are not primitives,caller handles them.
         _ => return None,
     })
 }

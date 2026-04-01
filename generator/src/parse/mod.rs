@@ -11,7 +11,7 @@ use std::collections::{HashMap, HashSet};
 use vk_parse::{self, Enum, Extension, RegistryChild};
 
 // ---------------------------------------------------------------------------
-// Intermediate types — what emitters consume
+// Intermediate types,what emitters consume
 // ---------------------------------------------------------------------------
 
 #[derive(Debug)]
@@ -770,7 +770,7 @@ mod tests {
 
     #[test]
     fn enum_structure_type_has_many_variants() {
-        // StructureType is the largest enum — it gains variants from every extension.
+        // StructureType is the largest enum,it gains variants from every extension.
         let e = registry()
             .enums
             .iter()

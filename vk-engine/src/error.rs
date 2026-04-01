@@ -12,6 +12,7 @@ pub(crate) fn enumerate_two_call<T>(
     let mut data = Vec::with_capacity(count as usize);
     let result = call(&mut count, data.as_mut_ptr());
     check(result)?;
+    // SAFETY: the Vulkan command wrote `count` elements into `data`'s spare capacity.
     unsafe { data.set_len(count as usize) };
     Ok(data)
 }
@@ -25,6 +26,7 @@ pub(crate) fn fill_two_call<T>(call: impl Fn(*mut u32, *mut T)) -> Vec<T> {
     call(&mut count, std::ptr::null_mut());
     let mut data = Vec::with_capacity(count as usize);
     call(&mut count, data.as_mut_ptr());
+    // SAFETY: the Vulkan command wrote `count` elements into `data`'s spare capacity.
     unsafe { data.set_len(count as usize) };
     data
 }
@@ -51,7 +53,7 @@ pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
 
 /// Error returned when the Vulkan shared library cannot be loaded.
 ///
-/// This is distinct from `vk::enums::Result` — it represents a failure to reach
+/// This is distinct from `vk::enums::Result`,it represents a failure to reach
 /// the Vulkan API at all, not a Vulkan API error.
 #[derive(Debug)]
 pub enum LoadError {
