@@ -2,7 +2,7 @@
 
 ## Documentation Template
 
-All new public items in `vk-engine` must follow this section order:
+All new public items in `vulkan-rs` must follow this section order:
 
 ```rust
 /// One-line summary in imperative mood.
@@ -32,7 +32,7 @@ All new public items in `vk-engine` must follow this section order:
 /// # Examples
 ///
 /// ```no_run
-/// # use vk_engine::*;
+/// # use vulkan_rs::*;
 /// // example code here
 /// ```
 ```
@@ -41,9 +41,9 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 
 ## Generated vs Hand-Written Code
 
-- `vk-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p generator`.
-- `vk-engine/src/generated/`, fully generated. Same as above.
-- `vk-engine/src/*.rs` (non-generated), hand-written, highest doc quality bar.
+- `vulkan-rs-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p generator`.
+- `vulkan-rs/src/generated/`, fully generated. Same as above.
+- `vulkan-rs/src/*.rs` (non-generated), hand-written, highest doc quality bar.
 - `generator/doc_overrides/`, hand-written doc additions appended to generated wrappers.
 
 ## Before Submitting

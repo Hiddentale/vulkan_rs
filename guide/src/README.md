@@ -72,7 +72,7 @@ something doesn't make sense.
 
 ## API documentation
 
-This guide is a companion to the [API reference](https://docs.rs/vk-engine).
+This guide is a companion to the [API reference](https://docs.rs/vulkan-rs).
 The API docs cover *every* type, method, and constant with spec links,
 error codes, safety requirements, and thread safety annotations.
 This guide covers the *why* and *how* that API docs cannot.
@@ -82,7 +82,7 @@ This guide covers the *why* and *how* that API docs cannot.
 Here is the minimum code to initialize Vulkan with `vulkan_rs`:
 
 ```rust,no_run
-use vk_engine::{Entry, LibloadingLoader};
+use vulkan_rs::{Entry, LibloadingLoader};
 
 fn main() {
     // Load the Vulkan loader library from the system.

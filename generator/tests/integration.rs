@@ -1,4 +1,4 @@
-//! Integration test: runs the generator binary and verifies vk-sys compiles.
+//! Integration test: runs the generator binary and verifies vulkan-rs-sys compiles.
 //!
 //! This catches type resolution bugs that unit tests miss,any broken type
 //! across 161k lines of generated Rust will surface as a compile error.
@@ -48,13 +48,13 @@ fn generated_output_compiles() {
     assert!(run.status.success(), "generator failed before build check");
 
     let output = cargo()
-        .args(["build", "-p", "vk-sys"])
+        .args(["build", "-p", "vulkan-rs-sys"])
         .output()
         .expect("failed to launch cargo build");
     let stderr = String::from_utf8_lossy(&output.stderr);
     assert!(
         output.status.success(),
-        "vk-sys failed to compile:\n{stderr}"
+        "vulkan-rs-sys failed to compile:\n{stderr}"
     );
 }
 
@@ -69,20 +69,20 @@ fn generator_output_is_deterministic() {
     let root = workspace_root();
 
     let generated_files: Vec<std::path::PathBuf> = vec![
-        // vk-sys
-        root.join("vk-sys/src/handles.rs"),
-        root.join("vk-sys/src/enums.rs"),
-        root.join("vk-sys/src/bitmasks.rs"),
-        root.join("vk-sys/src/constants.rs"),
-        root.join("vk-sys/src/structs.rs"),
-        root.join("vk-sys/src/builders.rs"),
-        root.join("vk-sys/src/commands.rs"),
-        root.join("vk-sys/src/lib.rs"),
-        // vk-engine wrappers
-        root.join("vk-engine/src/generated/entry_wrappers.rs"),
-        root.join("vk-engine/src/generated/instance_wrappers.rs"),
-        root.join("vk-engine/src/generated/device_wrappers.rs"),
-        root.join("vk-engine/src/generated/mod.rs"),
+        // vulkan-rs-sys
+        root.join("vulkan-rs-sys/src/handles.rs"),
+        root.join("vulkan-rs-sys/src/enums.rs"),
+        root.join("vulkan-rs-sys/src/bitmasks.rs"),
+        root.join("vulkan-rs-sys/src/constants.rs"),
+        root.join("vulkan-rs-sys/src/structs.rs"),
+        root.join("vulkan-rs-sys/src/builders.rs"),
+        root.join("vulkan-rs-sys/src/commands.rs"),
+        root.join("vulkan-rs-sys/src/lib.rs"),
+        // vulkan-rs wrappers
+        root.join("vulkan-rs/src/generated/entry_wrappers.rs"),
+        root.join("vulkan-rs/src/generated/instance_wrappers.rs"),
+        root.join("vulkan-rs/src/generated/device_wrappers.rs"),
+        root.join("vulkan-rs/src/generated/mod.rs"),
     ];
 
     // Run 1.

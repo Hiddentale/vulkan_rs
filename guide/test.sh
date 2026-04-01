@@ -13,22 +13,22 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-echo "==> Building vk-engine..."
-cargo build -p vk-engine 2>&1
+echo "==> Building vulkan-rs..."
+cargo build -p vulkan-rs 2>&1
 
 # Find the rlib paths. Pick the most recently modified one if multiple exist.
 DEPS_DIR="target/debug/deps"
-VK_ENGINE_RLIB=$(ls -t "$DEPS_DIR"/libvk_engine-*.rlib 2>/dev/null | head -1)
-VK_SYS_RLIB=$(ls -t "$DEPS_DIR"/libvk_sys-*.rlib 2>/dev/null | head -1)
+VK_ENGINE_RLIB=$(ls -t "$DEPS_DIR"/libvulkan_rs-*.rlib 2>/dev/null | head -1)
+VK_SYS_RLIB=$(ls -t "$DEPS_DIR"/libvulkan_rs_sys-*.rlib 2>/dev/null | head -1)
 
 if [[ -z "$VK_ENGINE_RLIB" || -z "$VK_SYS_RLIB" ]]; then
-    echo "ERROR: Could not find vk-engine or vk-sys rlib in $DEPS_DIR"
+    echo "ERROR: Could not find vulkan-rs or vulkan-rs-sys rlib in $DEPS_DIR"
     exit 1
 fi
 
 echo "==> Using:"
-echo "    vk_engine = $VK_ENGINE_RLIB"
-echo "    vk_sys    = $VK_SYS_RLIB"
+echo "    vulkan_rs = $VK_ENGINE_RLIB"
+echo "    vulkan_rs_sys    = $VK_SYS_RLIB"
 
 FAILED=0
 PASSED=0
@@ -39,8 +39,8 @@ for md in guide/src/**/*.md guide/src/*.md; do
 
     OUTPUT=$(rustdoc --edition 2021 --test "$md" \
         -L "$DEPS_DIR" \
-        --extern "vk_engine=$VK_ENGINE_RLIB" \
-        --extern "vk_sys=$VK_SYS_RLIB" \
+        --extern "vulkan_rs=$VK_ENGINE_RLIB" \
+        --extern "vulkan_rs_sys=$VK_SYS_RLIB" \
         2>&1) || true
 
     if echo "$OUTPUT" | grep -q "test result: FAILED"; then

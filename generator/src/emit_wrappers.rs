@@ -82,7 +82,7 @@ fn wrapper_counts(registry: &VkRegistry) -> (usize, usize, usize) {
 // Exclusion set
 // ---------------------------------------------------------------------------
 
-/// Commands with hand-written wrappers in vk-engine that the generator must
+/// Commands with hand-written wrappers in vulkan-rs that the generator must
 /// not overwrite.
 pub fn exclusion_set() -> HashSet<String> {
     [

@@ -43,7 +43,7 @@ match event {
 In the render loop, check both the flag and the Vulkan result codes:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::handles::*;
 use vk::enums::Result as VkError;
 
@@ -133,7 +133,7 @@ destroyed.
 The surface extent may have changed, so re-query it.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 let surface_caps = unsafe {
@@ -180,7 +180,7 @@ Pass the old swapchain handle to `old_swapchain`. This lets the driver
 reuse internal resources and can make the transition smoother.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -215,7 +215,7 @@ The new swapchain has new images, so create fresh image views and
 framebuffers.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -263,14 +263,14 @@ swapchain_framebuffers = swapchain_image_views
 A helper function that bundles the recreation logic:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::handles::*;
 
 fn recreate_swapchain(
-    instance: &vk_engine::Instance,
-    device: &vk_engine::Device,
+    instance: &vulkan_rs::Instance,
+    device: &vulkan_rs::Device,
     physical_device: PhysicalDevice,
     surface: SurfaceKHR,
     window: &winit::window::Window,

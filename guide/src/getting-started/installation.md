@@ -6,7 +6,7 @@
 
 ```toml
 [dependencies]
-vk-engine = "0.1"
+vulkan-rs = "0.1"
 ```
 
 ## Platform requirements

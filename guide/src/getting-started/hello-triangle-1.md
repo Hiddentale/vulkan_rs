@@ -27,11 +27,11 @@ cargo new hello-triangle
 cd hello-triangle
 ```
 
-Add `vk-engine` to your `Cargo.toml`:
+Add `vulkan-rs` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-vk-engine = "0.1"
+vulkan-rs = "0.1"
 ```
 
 ## Step 1: Load the Vulkan library
@@ -42,7 +42,7 @@ library (`vulkan-1.dll` on Windows, `libvulkan.so` on Linux,
 entry point that routes your calls to the correct GPU driver.
 
 ```rust,no_run
-use vk_engine::{Entry, LibloadingLoader};
+use vulkan_rs::{Entry, LibloadingLoader};
 
 fn main() {
     // Load the Vulkan shared library from the system.
@@ -80,7 +80,7 @@ Think of it as opening a session: "I am application X, I want to use
 Vulkan version Y, please give me access."
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // ── Describe your application ──────────────────────────────────
@@ -295,8 +295,8 @@ Here is the complete program. Copy this into `src/main.rs` and run it
 with `cargo run`.
 
 ```rust,no_run
-use vk_engine::{Entry, LibloadingLoader};
-use vk_engine::vk;
+use vulkan_rs::{Entry, LibloadingLoader};
+use vulkan_rs::vk;
 use vk::structs::*;
 
 fn main() {

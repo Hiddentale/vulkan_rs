@@ -161,13 +161,13 @@ jobs:
 
       - name: Check doc coverage meets threshold
         run: |
-          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-engine 2>&1 | tee coverage.txt
+          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vulkan-rs 2>&1 | tee coverage.txt
           TOTAL_LINE=$(grep '| Total' coverage.txt | head -1)
           PERCENT=$(echo "$TOTAL_LINE" | awk -F'|' '{print $4}' | tr -d ' %')
-          echo "vk-engine doc coverage: ${PERCENT}%"
+          echo "vulkan-rs doc coverage: ${PERCENT}%"
           THRESHOLD=100
           if [ "$(echo "$PERCENT < $THRESHOLD" | bc)" -eq 1 ]; then
-            echo "::error::vk-engine doc coverage ${PERCENT}% is below ${THRESHOLD}% threshold"
+            echo "::error::vulkan-rs doc coverage ${PERCENT}% is below ${THRESHOLD}% threshold"
             exit 1
           fi
 
@@ -194,12 +194,12 @@ jobs:
       - name: Generate coverage report
         run: |
           cargo llvm-cov --workspace --lcov --output-path lcov.info \
-            --ignore-filename-regex '(vk-sys/src/|vk-engine/src/generated/)'
+            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)'
 
       - name: Print coverage summary
         run: |
           cargo llvm-cov --workspace --no-run \
-            --ignore-filename-regex '(vk-sys/src/|vk-engine/src/generated/)'
+            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)'
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v5
@@ -283,7 +283,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Compile C layout checker
-        run: cc -o c_layout_check vk-sys/tests/c_layout_check.c -I/usr/include
+        run: cc -o c_layout_check vulkan-rs-sys/tests/c_layout_check.c -I/usr/include
 
       - name: Generate C layout output
         run: ./c_layout_check > c_layouts.txt
@@ -342,16 +342,16 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: vk-engine/fuzz
+          workspaces: vulkan-rs/fuzz
 
       - name: Install cargo-fuzz
         run: cargo install cargo-fuzz
 
       - name: Fuzz cast_to_u32 (60s)
-        run: cd vk-engine && cargo +nightly fuzz run fuzz_cast_to_u32 -- -max_total_time=60
+        run: cd vulkan-rs && cargo +nightly fuzz run fuzz_cast_to_u32 -- -max_total_time=60
 
       - name: Fuzz entry_loader (60s)
-        run: cd vk-engine && cargo +nightly fuzz run fuzz_entry_loader -- -max_total_time=60
+        run: cd vulkan-rs && cargo +nightly fuzz run fuzz_entry_loader -- -max_total_time=60
 
   guide-build:
     name: Guide Build (mdBook)
@@ -359,9 +359,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: peaceiris/actions-mdbook@v2
-        with:
-          mdbook-version: 'latest'
+      - name: Install mdBook
+        uses: taiki-e/install-action@mdbook
 
       - name: Build guide
         run: cd guide && mdbook build
@@ -380,9 +379,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: peaceiris/actions-mdbook@v2
-        with:
-          mdbook-version: 'latest'
+      - name: Install mdBook
+        uses: taiki-e/install-action@mdbook
 
       - name: Build guide
         run: cd guide && mdbook build

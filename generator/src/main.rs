@@ -13,7 +13,7 @@ fn main() {
     print_summary(&registry);
     validate::check_type_completeness(&registry);
 
-    let out_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/src");
+    let out_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rs-sys/src");
 
     write_module(
         &out_dir,
@@ -50,7 +50,7 @@ fn main() {
     update_lib_rs(&out_dir);
 
     // Generate C ↔ Rust cross-validation programs.
-    let test_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/tests");
+    let test_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rs-sys/tests");
     let c_check = emit_layout_check::emit_c_layout_check(&registry);
     let c_path = test_dir.join("c_layout_check.c");
     fs::write(&c_path, &c_check).unwrap_or_else(|e| {
@@ -62,7 +62,7 @@ fn main() {
     );
 
     let rs_check = emit_layout_check::emit_rust_layout_check(&registry);
-    let bin_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/src/bin");
+    let bin_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rs-sys/src/bin");
     fs::create_dir_all(&bin_dir).unwrap_or_else(|e| {
         panic!("failed to create {}: {e}", bin_dir.display());
     });
@@ -75,8 +75,8 @@ fn main() {
         rs_check.lines().count()
     );
 
-    // Generate ergonomic wrapper methods for vk-engine.
-    let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-engine/src/generated");
+    // Generate ergonomic wrapper methods for vulkan-rs.
+    let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rs/src/generated");
     fs::create_dir_all(&engine_dir).unwrap_or_else(|e| {
         panic!("failed to create {}: {e}", engine_dir.display());
     });
@@ -89,15 +89,15 @@ fn main() {
     write_module(&engine_dir, "device_wrappers.rs", device_wrappers);
     write_engine_mod_rs(&engine_dir);
 
-    // Run rustfmt on vk-engine generated files so the output matches
+    // Run rustfmt on vulkan-rs generated files so the output matches
     // `cargo fmt` exactly. prettyplease and rustfmt disagree on import
     // ordering, line wrapping, and argument formatting.
-    // vk-sys is skipped,it has `disable_all_formatting = true`.
+    // vulkan-rs-sys is skipped,it has `disable_all_formatting = true`.
     rustfmt_engine();
 
     println!("\n=== generation complete ===");
-    println!("  vk-sys output:   {}", out_dir.display());
-    println!("  vk-engine output: {}", engine_dir.display());
+    println!("  vulkan-rs-sys output:   {}", out_dir.display());
+    println!("  vulkan-rs output: {}", engine_dir.display());
 }
 
 fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream) {
@@ -117,7 +117,7 @@ fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream
 
 fn rustfmt_engine() {
     let status = std::process::Command::new(env!("CARGO"))
-        .args(["fmt", "-p", "vk-engine"])
+        .args(["fmt", "-p", "vulkan-rs"])
         .current_dir(
             Path::new(env!("CARGO_MANIFEST_DIR"))
                 .parent()
@@ -125,7 +125,7 @@ fn rustfmt_engine() {
         )
         .status();
     match status {
-        Ok(s) if s.success() => println!("  rustfmt vk-engine: ok"),
+        Ok(s) if s.success() => println!("  rustfmt vulkan-rs: ok"),
         Ok(s) => eprintln!("  warning: cargo fmt exited with {s}"),
         Err(e) => eprintln!("  warning: cargo fmt not available ({e}), skipping"),
     }

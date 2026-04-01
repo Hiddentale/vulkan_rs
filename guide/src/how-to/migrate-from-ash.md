@@ -1,7 +1,7 @@
 # Port from ash to vulkan_rs
 
 > **Task:** Migrate an existing `ash`-based project to `vulkan_rs`
-> (published as `vk-engine` on crates.io).
+> (published as `vulkan-rs` on crates.io).
 
 If you already have a working `ash` project, switching to `vulkan_rs`
 is mostly mechanical. The Vulkan concepts are identical, and the API
@@ -22,10 +22,10 @@ Before diving into differences, note what does *not* change:
 
 | Aspect | ash | vulkan_rs |
 |--------|-----|-----------|
-| Crate name | `ash` | `vk-engine` |
+| Crate name | `ash` | `vulkan-rs` |
 | Command style | Trait methods (`DeviceV1_0`, `KhrSwapchainFn`) | Inherent methods on `Device` / `Instance` |
 | Trait imports | One per API version + one per extension | None needed |
-| Raw types | `ash::vk::*` | `vk_engine::vk::*` |
+| Raw types | `ash::vk::*` | `vulkan_rs::vk::*` |
 | Builders | `::builder()` returns `Builder`, call `.build()` | `::builder()` returns `Builder` that derefs to inner struct |
 | Extensions | Manual loader structs (`ash::khr::swapchain::Device`) | All loaded automatically, call methods on `Device` directly |
 | Interop | Limited `from_raw` on some types | `Instance::from_raw_parts` / `Device::from_raw_parts` |
@@ -40,7 +40,7 @@ ash = "0.38"
 
 # After (vulkan_rs)
 [dependencies]
-vk-engine = "0.1"
+vulkan-rs = "0.1"
 ```
 
 ## Step 2: Remove trait imports
@@ -63,15 +63,15 @@ In `vulkan_rs`, every command is an inherent method on `Device` or
 
 ```rust,ignore
 // vulkan_rs: this is all you need
-use vk_engine::vk;
-use vk_engine::Device;
+use vulkan_rs::vk;
+use vulkan_rs::Device;
 // device.create_buffer() and device.create_swapchain_khr()
 // are both available immediately.
 ```
 
 **Migration action:** Delete all `use ash::version::*` and
 `use ash::extensions::*` imports. Replace `use ash::vk` with
-`use vk_engine::vk`.
+`use vulkan_rs::vk`.
 
 ## Step 3: Replace Entry, Instance, and Device creation
 
@@ -89,12 +89,12 @@ let create_info = vk::InstanceCreateInfo::builder()
 let instance = unsafe { entry.create_instance(&create_info, None)? };
 
 // ── vulkan_rs ───────────────────────────────────────────
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
-let loader = vk_engine::LibloadingLoader::new()
+let loader = vulkan_rs::LibloadingLoader::new()
     .expect("Failed to load Vulkan");
-let entry = unsafe { vk_engine::Entry::new(loader) }
+let entry = unsafe { vulkan_rs::Entry::new(loader) }
     .expect("Failed to create entry");
 
 let app_info = ApplicationInfo::builder()
@@ -128,7 +128,7 @@ let device = unsafe {
 };
 
 // ── vulkan_rs ───────────────────────────────────────────
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 let queue_info = DeviceQueueCreateInfo::builder()
@@ -157,7 +157,7 @@ let info = vk::BufferCreateInfo::builder()
     .build();  // <-- required in ash
 
 // ── vulkan_rs ───────────────────────────────────────────
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -191,7 +191,7 @@ unsafe {
 }
 
 // ── vulkan_rs ───────────────────────────────────────────
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -221,7 +221,7 @@ let submit_info = vk::SubmitInfo::builder()
 unsafe { device.queue_submit(queue, &[submit_info.build()], fence)? };
 
 // ── vulkan_rs ───────────────────────────────────────────
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 let wait_stages = [PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
@@ -253,7 +253,7 @@ match unsafe { device.create_buffer(&info, None) } {
 }
 
 // ── vulkan_rs ───────────────────────────────────────────
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::enums::Result as VkError;
 
 match unsafe { device.create_buffer(&info, None) } {
@@ -301,12 +301,12 @@ Vulkan handles, `vulkan_rs` provides `from_raw_parts` to wrap them:
 ```rust,ignore
 // Wrap an externally-created VkInstance
 let instance = unsafe {
-    vk_engine::Instance::from_raw_parts(raw_instance, get_instance_proc_addr)
+    vulkan_rs::Instance::from_raw_parts(raw_instance, get_instance_proc_addr)
 };
 
 // Wrap an externally-created VkDevice
 let device = unsafe {
-    vk_engine::Device::from_raw_parts(raw_device, get_device_proc_addr)
+    vulkan_rs::Device::from_raw_parts(raw_device, get_device_proc_addr)
 };
 ```
 
@@ -315,12 +315,12 @@ so the wrapped object works identically to one created through `Entry`.
 
 ## Quick-reference migration checklist
 
-- [ ] Replace `ash` with `vk-engine` in `Cargo.toml`
-- [ ] Replace `use ash::vk` with `use vk_engine::vk`
+- [ ] Replace `ash` with `vulkan-rs` in `Cargo.toml`
+- [ ] Replace `use ash::vk` with `use vulkan_rs::vk`
 - [ ] Delete all `use ash::version::*` trait imports
 - [ ] Delete all extension loader struct construction
 - [ ] Remove every `.build()` on Vulkan builder types
-- [ ] Replace `ash::Entry` / `ash::Instance` / `ash::Device` with `vk_engine::*`
+- [ ] Replace `ash::Entry` / `ash::Instance` / `ash::Device` with `vulkan_rs::*`
 - [ ] Replace extension loader method calls with direct `device.method()` calls
 - [ ] Update error handling if you matched on ash-specific error types
 - [ ] Compile and fix any remaining type mismatches

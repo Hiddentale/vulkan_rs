@@ -31,7 +31,7 @@ fn read_generated(relative: &str) -> String {
 #[test]
 fn no_raw_fallback_for_aliased_flags() {
     let registry = load_registry();
-    let structs_rs = read_generated("vk-sys/src/structs.rs");
+    let structs_rs = read_generated("vulkan-rs-sys/src/structs.rs");
 
     // Collect all bitmask alias names from the registry.
     let bitmask_alias_names: Vec<&str> = registry
@@ -66,8 +66,8 @@ fn no_raw_fallback_for_aliased_flags() {
 /// must not decrease. A decrease means a command was misclassified or dropped.
 #[test]
 fn two_call_method_count_does_not_regress() {
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
     let all = format!("{instance_wrappers}\n{device_wrappers}");
 
     let enumerate_count = all.matches("enumerate_two_call").count();
@@ -173,12 +173,12 @@ fn two_call_return_type_consistency() {
 #[test]
 fn no_duplicate_type_definitions() {
     let files = [
-        "vk-sys/src/handles.rs",
-        "vk-sys/src/enums.rs",
-        "vk-sys/src/bitmasks.rs",
-        "vk-sys/src/structs.rs",
-        "vk-sys/src/constants.rs",
-        "vk-sys/src/commands.rs",
+        "vulkan-rs-sys/src/handles.rs",
+        "vulkan-rs-sys/src/enums.rs",
+        "vulkan-rs-sys/src/bitmasks.rs",
+        "vulkan-rs-sys/src/structs.rs",
+        "vulkan-rs-sys/src/constants.rs",
+        "vulkan-rs-sys/src/commands.rs",
     ];
 
     let mut all_duplicates = Vec::new();
@@ -310,7 +310,7 @@ fn all_struct_members_resolve() {
 /// breaks for any struct, pNext chain safety is silently lost.
 #[test]
 fn push_next_methods_have_lifetime_tie() {
-    let builders_rs = read_generated("vk-sys/src/builders.rs");
+    let builders_rs = read_generated("vulkan-rs-sys/src/builders.rs");
 
     let push_next_count = builders_rs.matches("fn push_next").count();
     let lifetime_count = builders_rs.matches("&'a mut T").count();
@@ -330,7 +330,7 @@ fn push_next_methods_have_lifetime_tie() {
 /// stopped getting builders, breaking the ergonomic API.
 #[test]
 fn builder_count_does_not_regress() {
-    let builders_rs = read_generated("vk-sys/src/builders.rs");
+    let builders_rs = read_generated("vulkan-rs-sys/src/builders.rs");
 
     let builder_count = builders_rs.matches("pub struct ").count();
     let push_next_count = builders_rs.matches("fn push_next").count();
@@ -521,7 +521,7 @@ fn command_dispatch_level_is_correct() {
 #[test]
 fn command_aliases_have_fallback_loading() {
     let registry = load_registry();
-    let commands_rs = read_generated("vk-sys/src/commands.rs");
+    let commands_rs = read_generated("vulkan-rs-sys/src/commands.rs");
 
     let mut missing = Vec::new();
     for a in &registry.aliases {
@@ -552,7 +552,7 @@ fn command_aliases_have_fallback_loading() {
 /// pipeline broke for that type.
 #[test]
 fn all_structs_have_spec_links() {
-    let structs_rs = read_generated("vk-sys/src/structs.rs");
+    let structs_rs = read_generated("vulkan-rs-sys/src/structs.rs");
 
     let mut missing = Vec::new();
     let lines: Vec<&str> = structs_rs.lines().collect();
@@ -596,8 +596,8 @@ fn all_structs_have_spec_links() {
 /// Every generated wrapper method must have a Khronos spec link.
 #[test]
 fn all_wrapper_methods_have_spec_links() {
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
     let all = format!("{instance_wrappers}\n{device_wrappers}");
 
     let mut missing = Vec::new();
@@ -639,8 +639,8 @@ fn all_wrapper_methods_have_spec_links() {
 #[test]
 fn result_returning_wrappers_have_error_docs() {
     let registry = load_registry();
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
     let all = format!("{instance_wrappers}\n{device_wrappers}");
 
     // Build set of commands that have error codes.
@@ -733,9 +733,9 @@ fn wrapper_return_types_match_patterns() {
     let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
     let exclusions = generator::emit_wrappers::exclusion_set();
 
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
-    let entry_wrappers = read_generated("vk-engine/src/generated/entry_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
+    let entry_wrappers = read_generated("vulkan-rs/src/generated/entry_wrappers.rs");
     let all = format!("{entry_wrappers}\n{instance_wrappers}\n{device_wrappers}");
 
     /// Extract the return type from a method's signature region in the source.
@@ -814,8 +814,8 @@ fn wrapper_signatures_elide_self_handle() {
     let registry = load_registry();
     let exclusions = generator::emit_wrappers::exclusion_set();
 
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
 
     let dispatch_handles = [
         "VkInstance",
@@ -891,9 +891,9 @@ fn all_wrappers_dispatch_through_fp() {
     let registry = load_registry();
     let exclusions = generator::emit_wrappers::exclusion_set();
 
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
-    let entry_wrappers = read_generated("vk-engine/src/generated/entry_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
+    let entry_wrappers = read_generated("vulkan-rs/src/generated/entry_wrappers.rs");
     let all = format!("{entry_wrappers}\n{instance_wrappers}\n{device_wrappers}");
 
     let mut missing = Vec::new();
@@ -934,9 +934,9 @@ fn allocator_params_are_option_ref() {
     let registry = load_registry();
     let exclusions = generator::emit_wrappers::exclusion_set();
 
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
-    let entry_wrappers = read_generated("vk-engine/src/generated/entry_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
+    let entry_wrappers = read_generated("vulkan-rs/src/generated/entry_wrappers.rs");
     let all = format!("{entry_wrappers}\n{instance_wrappers}\n{device_wrappers}");
 
     let mut bad = Vec::new();
@@ -994,8 +994,8 @@ fn two_call_wrappers_use_correct_helper() {
     let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
     let exclusions = generator::emit_wrappers::exclusion_set();
 
-    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
-    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
     let all = format!("{instance_wrappers}\n{device_wrappers}");
 
     /// Extract a method's full text (signature + body) from the source.

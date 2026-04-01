@@ -103,7 +103,7 @@ records a simple buffer copy, and submits it.
 ### Step 1: Create a command pool
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -122,7 +122,7 @@ let command_pool = unsafe {
 ### Step 2: Allocate a command buffer
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::handles::*;
@@ -143,7 +143,7 @@ unsafe {
 ### Step 3: Record commands
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -187,7 +187,7 @@ unsafe { device.end_command_buffer(command_buffer)? };
 ### Step 4: Submit to a queue
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::handles::*;
 
@@ -219,7 +219,7 @@ unsafe { device.queue_wait_idle(graphics_queue)? };
 ### Step 5: Clean up
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // Option A: Free the command buffer back to the pool.
@@ -277,7 +277,7 @@ Many operations (uploading textures, transitioning image layouts) need
 a command buffer just once. The pattern:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -400,10 +400,10 @@ while still waiting for a semaphore on a later stage.
 
 ### API reference links
 
-- [`CommandPool`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.CommandPool.html)
-- [`CommandBuffer`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.CommandBuffer.html)
-- [`CommandPoolCreateFlags`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.CommandPoolCreateFlags.html)
-- [`SubmitInfo`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.SubmitInfo.html)
+- [`CommandPool`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.CommandPool.html)
+- [`CommandBuffer`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.CommandBuffer.html)
+- [`CommandPoolCreateFlags`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.CommandPoolCreateFlags.html)
+- [`SubmitInfo`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.SubmitInfo.html)
 - [Vulkan spec: Command Buffers](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers)
 
 ## Key takeaways

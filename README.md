@@ -9,7 +9,7 @@ Current progress:
 - Inherent methods (not traits)
 - Complete command loading (all ~700 PFN typedefs)
 - Builder Deref pattern with push_next
-- #![no_std] for vk-sys
+- #![no_std] for vulkan-rs-sys
 - CI with fmt/clippy/build/test
 
 ## License
