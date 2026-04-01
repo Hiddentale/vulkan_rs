@@ -209,6 +209,130 @@ mod tests {
         let _ = instance.commands();
     }
 
+    // -- Rich mock for testing create_device without Vulkan ------------------
+
+    /// A `vkGetInstanceProcAddr` that returns fake fps for key commands.
+    unsafe extern "system" fn rich_instance_proc_addr(
+        _instance: vk::handles::Instance,
+        name: *const c_char,
+    ) -> vk::structs::PFN_vkVoidFunction {
+        let name = unsafe { std::ffi::CStr::from_ptr(name) };
+        match name.to_bytes() {
+            b"vkGetDeviceProcAddr" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        vk::handles::Device,
+                        *const c_char,
+                    )
+                        -> vk::structs::PFN_vkVoidFunction,
+                    unsafe extern "system" fn(),
+                >(mock_device_proc_addr)
+            }),
+            b"vkCreateDevice" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        vk::handles::PhysicalDevice,
+                        *const vk::structs::DeviceCreateInfo,
+                        *const vk::structs::AllocationCallbacks,
+                        *mut vk::handles::Device,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(mock_create_device)
+            }),
+            _ => None,
+        }
+    }
+
+    unsafe extern "system" fn mock_device_proc_addr(
+        _device: vk::handles::Device,
+        _name: *const c_char,
+    ) -> vk::structs::PFN_vkVoidFunction {
+        None
+    }
+
+    unsafe extern "system" fn mock_create_device(
+        _physical_device: vk::handles::PhysicalDevice,
+        _p_create_info: *const vk::structs::DeviceCreateInfo,
+        _p_allocator: *const vk::structs::AllocationCallbacks,
+        p_device: *mut vk::handles::Device,
+    ) -> vk::enums::Result {
+        unsafe {
+            *p_device = std::mem::transmute::<usize, vk::handles::Device>(0xBEEF_usize);
+        }
+        vk::enums::Result::SUCCESS
+    }
+
+    fn mock_instance() -> Instance {
+        unsafe {
+            Instance::load(
+                fake_handle(),
+                Some(rich_instance_proc_addr),
+                Some(mock_device_proc_addr),
+                None,
+            )
+        }
+    }
+
+    #[test]
+    fn create_device_succeeds_with_mock() {
+        let instance = mock_instance();
+        let physical_device = vk::handles::PhysicalDevice::from_raw(0xCAFE);
+        let create_info: vk::structs::DeviceCreateInfo = unsafe { std::mem::zeroed() };
+        let device = unsafe { instance.create_device(physical_device, &create_info, None) }
+            .expect("create_device should succeed");
+        assert_eq!(device.handle().as_raw(), 0xBEEF);
+    }
+
+    #[test]
+    fn create_device_with_allocator() {
+        let instance = mock_instance();
+        let physical_device = vk::handles::PhysicalDevice::from_raw(0xCAFE);
+        let create_info: vk::structs::DeviceCreateInfo = unsafe { std::mem::zeroed() };
+        let allocator: vk::structs::AllocationCallbacks = unsafe { std::mem::zeroed() };
+        let device =
+            unsafe { instance.create_device(physical_device, &create_info, Some(&allocator)) }
+                .expect("create_device should succeed");
+        assert_eq!(device.handle().as_raw(), 0xBEEF);
+    }
+
+    #[test]
+    fn from_raw_parts_resolves_device_proc_addr() {
+        // rich_instance_proc_addr returns a non-null vkGetDeviceProcAddr,
+        // so from_raw_parts should store it.
+        let instance =
+            unsafe { Instance::from_raw_parts(fake_handle(), Some(rich_instance_proc_addr)) };
+        assert_eq!(instance.handle().as_raw(), fake_handle().as_raw());
+        // Verify create_device works, proving get_device_proc_addr was resolved.
+        let physical_device = vk::handles::PhysicalDevice::from_raw(0xCAFE);
+        let create_info: vk::structs::DeviceCreateInfo = unsafe { std::mem::zeroed() };
+        let device = unsafe { instance.create_device(physical_device, &create_info, None) }
+            .expect("create_device should succeed via from_raw_parts path");
+        assert_eq!(device.handle().as_raw(), 0xBEEF);
+    }
+
+    #[test]
+    fn load_with_loader_reference() {
+        use std::ffi::{CStr, c_void};
+        struct DummyLoader;
+        unsafe impl Loader for DummyLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                std::ptr::null()
+            }
+        }
+        let loader: Arc<dyn Loader> = Arc::new(DummyLoader);
+        let instance = unsafe {
+            Instance::load(
+                fake_handle(),
+                Some(mock_get_instance_proc_addr),
+                None,
+                Some(loader.clone()),
+            )
+        };
+        // The loader Arc should have 2 strong refs: our local + instance.
+        assert_eq!(Arc::strong_count(&loader), 2);
+        assert_eq!(instance.handle().as_raw(), fake_handle().as_raw());
+    }
+
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_physical_devices_returns_at_least_one() {
