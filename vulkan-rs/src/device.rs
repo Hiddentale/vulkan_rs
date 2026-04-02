@@ -152,6 +152,51 @@ impl Device {
         unsafe { self.create_compute_pipelines(pipeline_cache, &[*create_info], allocator) }
             .map(|v| v[0])
     }
+
+    /// Map a device memory object into host address space.
+    ///
+    /// Returns a pointer to the mapped region. Wraps
+    /// [`vkMapMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory.html).
+    ///
+    /// # Safety
+    ///
+    /// - `memory` must be a valid, non-mapped `DeviceMemory`.
+    /// - `offset + size` must not exceed the allocation size (`WHOLE_SIZE` is valid for `size`).
+    /// - The returned pointer is only valid until `unmap_memory` is called.
+    pub unsafe fn map_memory(
+        &self,
+        memory: vk::handles::DeviceMemory,
+        offset: u64,
+        size: u64,
+        flags: vk::structs::MemoryMapFlags,
+    ) -> crate::VkResult<*mut core::ffi::c_void> {
+        let fp = self.commands().map_memory.expect("vkMapMemory not loaded");
+        let mut data: *mut core::ffi::c_void = core::ptr::null_mut();
+        crate::error::check(unsafe { fp(self.handle(), memory, offset, size, flags, &mut data) })?;
+        Ok(data)
+    }
+
+    /// Map a device memory object into host address space (Vulkan 1.4+).
+    ///
+    /// Returns a pointer to the mapped region. Wraps
+    /// [`vkMapMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory2.html).
+    ///
+    /// # Safety
+    ///
+    /// - `p_memory_map_info` must describe a valid, non-mapped memory range.
+    /// - The returned pointer is only valid until the memory is unmapped.
+    pub unsafe fn map_memory2(
+        &self,
+        p_memory_map_info: &vk::structs::MemoryMapInfo,
+    ) -> crate::VkResult<*mut core::ffi::c_void> {
+        let fp = self
+            .commands()
+            .map_memory2
+            .expect("vkMapMemory2 not loaded");
+        let mut data: *mut core::ffi::c_void = core::ptr::null_mut();
+        crate::error::check(unsafe { fp(self.handle(), p_memory_map_info, &mut data) })?;
+        Ok(data)
+    }
 }
 
 #[cfg(test)]

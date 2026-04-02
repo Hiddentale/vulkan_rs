@@ -63,10 +63,9 @@ let staging_memory = allocate_and_bind_buffer(
 
 // Map, copy pixels, unmap.
 unsafe {
-    let mut ptr: *mut core::ffi::c_void = core::ptr::null_mut();
-    device.map_memory(
+    let ptr = device.map_memory(
         staging_memory, 0, image_size,
-        MemoryMapFlags::empty(), &mut ptr,
+        MemoryMapFlags::empty(),
     )
     .expect("Failed to map memory");
     core::ptr::copy_nonoverlapping(

@@ -235,7 +235,7 @@ and it will find the Rust equivalent. For example, searching for
 | `vkAllocateMemory` | `device.allocate_memory(&info, None)` | `VkResult<DeviceMemory>` |
 | `vkFreeMemory` | `device.free_memory(memory, None)` | `()` |
 | `vkBindBufferMemory` | `device.bind_buffer_memory(buffer, memory, offset)` | `VkResult<()>` |
-| `vkMapMemory` | `device.map_memory(memory, offset, size, flags, pp_data)` | `VkResult<()>` |
+| `vkMapMemory` | `device.map_memory(memory, offset, size, flags)` | `VkResult<*mut c_void>` |
 | `vkUnmapMemory` | `device.unmap_memory(memory)` | `()` |
 | `vkCreateImage` | `device.create_image(&info, None)` | `VkResult<Image>` |
 | `vkDestroyImage` | `device.destroy_image(image, None)` | `()` |
@@ -327,9 +327,8 @@ unsafe {
     device.bind_buffer_memory(buffer, memory, 0)
         .expect("Failed to bind buffer memory");
 
-    let mut data: *mut core::ffi::c_void = core::ptr::null_mut();
-    device.map_memory(
-        memory, 0, buf_info.size, MemoryMapFlags::empty(), &mut data,
+    let data = device.map_memory(
+        memory, 0, buf_info.size, MemoryMapFlags::empty(),
     )
     .expect("Failed to map memory");
     std::ptr::copy_nonoverlapping(

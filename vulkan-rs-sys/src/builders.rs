@@ -168,16 +168,9 @@ impl<'a> DeviceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn enabled_layer_count(mut self, value: u32) -> Self {
-        self.inner.enabled_layer_count = value;
-        self
-    }
-    #[inline]
-    pub fn pp_enabled_layer_names(
-        mut self,
-        value: *const *const core::ffi::c_char,
-    ) -> Self {
-        self.inner.pp_enabled_layer_names = value;
+    pub fn enabled_layer_names(mut self, slice: &'a [*const core::ffi::c_char]) -> Self {
+        self.inner.enabled_layer_count = slice.len() as u32;
+        self.inner.pp_enabled_layer_names = slice.as_ptr();
         self
     }
     #[inline]
@@ -190,7 +183,7 @@ impl<'a> DeviceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_enabled_features(mut self, value: *const PhysicalDeviceFeatures) -> Self {
+    pub fn p_enabled_features(mut self, value: &'a PhysicalDeviceFeatures) -> Self {
         self.inner.p_enabled_features = value;
         self
     }
@@ -245,7 +238,7 @@ impl<'a> InstanceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_application_info(mut self, value: *const ApplicationInfo) -> Self {
+    pub fn p_application_info(mut self, value: &'a ApplicationInfo) -> Self {
         self.inner.p_application_info = value;
         self
     }
@@ -1668,7 +1661,7 @@ impl<'a> PipelineShaderStageCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_specialization_info(mut self, value: *const SpecializationInfo) -> Self {
+    pub fn p_specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
         self.inner.p_specialization_info = value;
         self
     }
@@ -2290,7 +2283,7 @@ impl<'a> PipelineMultisampleStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_sample_mask(mut self, value: *const u32) -> Self {
+    pub fn p_sample_mask(mut self, value: &'a u32) -> Self {
         self.inner.p_sample_mask = value;
         self
     }
@@ -2600,7 +2593,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_vertex_input_state(
         mut self,
-        value: *const PipelineVertexInputStateCreateInfo,
+        value: &'a PipelineVertexInputStateCreateInfo,
     ) -> Self {
         self.inner.p_vertex_input_state = value;
         self
@@ -2608,7 +2601,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_input_assembly_state(
         mut self,
-        value: *const PipelineInputAssemblyStateCreateInfo,
+        value: &'a PipelineInputAssemblyStateCreateInfo,
     ) -> Self {
         self.inner.p_input_assembly_state = value;
         self
@@ -2616,7 +2609,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_tessellation_state(
         mut self,
-        value: *const PipelineTessellationStateCreateInfo,
+        value: &'a PipelineTessellationStateCreateInfo,
     ) -> Self {
         self.inner.p_tessellation_state = value;
         self
@@ -2624,7 +2617,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_viewport_state(
         mut self,
-        value: *const PipelineViewportStateCreateInfo,
+        value: &'a PipelineViewportStateCreateInfo,
     ) -> Self {
         self.inner.p_viewport_state = value;
         self
@@ -2632,7 +2625,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_rasterization_state(
         mut self,
-        value: *const PipelineRasterizationStateCreateInfo,
+        value: &'a PipelineRasterizationStateCreateInfo,
     ) -> Self {
         self.inner.p_rasterization_state = value;
         self
@@ -2640,7 +2633,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_multisample_state(
         mut self,
-        value: *const PipelineMultisampleStateCreateInfo,
+        value: &'a PipelineMultisampleStateCreateInfo,
     ) -> Self {
         self.inner.p_multisample_state = value;
         self
@@ -2648,7 +2641,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_depth_stencil_state(
         mut self,
-        value: *const PipelineDepthStencilStateCreateInfo,
+        value: &'a PipelineDepthStencilStateCreateInfo,
     ) -> Self {
         self.inner.p_depth_stencil_state = value;
         self
@@ -2656,16 +2649,13 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
     #[inline]
     pub fn p_color_blend_state(
         mut self,
-        value: *const PipelineColorBlendStateCreateInfo,
+        value: &'a PipelineColorBlendStateCreateInfo,
     ) -> Self {
         self.inner.p_color_blend_state = value;
         self
     }
     #[inline]
-    pub fn p_dynamic_state(
-        mut self,
-        value: *const PipelineDynamicStateCreateInfo,
-    ) -> Self {
+    pub fn p_dynamic_state(mut self, value: &'a PipelineDynamicStateCreateInfo) -> Self {
         self.inner.p_dynamic_state = value;
         self
     }
@@ -2804,7 +2794,7 @@ impl<'a> PipelineBinaryCreateInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_keys_and_data_info(
         mut self,
-        value: *const PipelineBinaryKeysAndDataKHR,
+        value: &'a PipelineBinaryKeysAndDataKHR,
     ) -> Self {
         self.inner.p_keys_and_data_info = value;
         self
@@ -2815,10 +2805,7 @@ impl<'a> PipelineBinaryCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_pipeline_create_info(
-        mut self,
-        value: *const PipelineCreateInfoKHR,
-    ) -> Self {
+    pub fn p_pipeline_create_info(mut self, value: &'a PipelineCreateInfoKHR) -> Self {
         self.inner.p_pipeline_create_info = value;
         self
     }
@@ -3587,7 +3574,7 @@ impl<'a> CommandBufferBeginInfoBuilder<'a> {
     #[inline]
     pub fn p_inheritance_info(
         mut self,
-        value: *const CommandBufferInheritanceInfo,
+        value: &'a CommandBufferInheritanceInfo,
     ) -> Self {
         self.inner.p_inheritance_info = value;
         self
@@ -7701,7 +7688,7 @@ impl<'a> GraphicsShaderGroupCreateInfoNVBuilder<'a> {
     #[inline]
     pub fn p_vertex_input_state(
         mut self,
-        value: *const PipelineVertexInputStateCreateInfo,
+        value: &'a PipelineVertexInputStateCreateInfo,
     ) -> Self {
         self.inner.p_vertex_input_state = value;
         self
@@ -7709,7 +7696,7 @@ impl<'a> GraphicsShaderGroupCreateInfoNVBuilder<'a> {
     #[inline]
     pub fn p_tessellation_state(
         mut self,
-        value: *const PipelineTessellationStateCreateInfo,
+        value: &'a PipelineTessellationStateCreateInfo,
     ) -> Self {
         self.inner.p_tessellation_state = value;
         self
@@ -15780,7 +15767,7 @@ impl DeviceBufferMemoryRequirements {
 }
 impl<'a> DeviceBufferMemoryRequirementsBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: *const BufferCreateInfo) -> Self {
+    pub fn p_create_info(mut self, value: &'a BufferCreateInfo) -> Self {
         self.inner.p_create_info = value;
         self
     }
@@ -15939,7 +15926,7 @@ impl DeviceImageMemoryRequirements {
 }
 impl<'a> DeviceImageMemoryRequirementsBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: *const ImageCreateInfo) -> Self {
+    pub fn p_create_info(mut self, value: &'a ImageCreateInfo) -> Self {
         self.inner.p_create_info = value;
         self
     }
@@ -21601,7 +21588,7 @@ impl<'a> SubpassDescription2Builder<'a> {
     #[inline]
     pub fn p_depth_stencil_attachment(
         mut self,
-        value: *const AttachmentReference2,
+        value: &'a AttachmentReference2,
     ) -> Self {
         self.inner.p_depth_stencil_attachment = value;
         self
@@ -23478,7 +23465,7 @@ impl<'a> SubpassDescriptionDepthStencilResolveBuilder<'a> {
     #[inline]
     pub fn p_depth_stencil_resolve_attachment(
         mut self,
-        value: *const AttachmentReference2,
+        value: &'a AttachmentReference2,
     ) -> Self {
         self.inner.p_depth_stencil_resolve_attachment = value;
         self
@@ -25540,23 +25527,20 @@ impl<'a> RayTracingPipelineCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_library_info(mut self, value: *const PipelineLibraryCreateInfoKHR) -> Self {
+    pub fn p_library_info(mut self, value: &'a PipelineLibraryCreateInfoKHR) -> Self {
         self.inner.p_library_info = value;
         self
     }
     #[inline]
     pub fn p_library_interface(
         mut self,
-        value: *const RayTracingPipelineInterfaceCreateInfoKHR,
+        value: &'a RayTracingPipelineInterfaceCreateInfoKHR,
     ) -> Self {
         self.inner.p_library_interface = value;
         self
     }
     #[inline]
-    pub fn p_dynamic_state(
-        mut self,
-        value: *const PipelineDynamicStateCreateInfo,
-    ) -> Self {
+    pub fn p_dynamic_state(mut self, value: &'a PipelineDynamicStateCreateInfo) -> Self {
         self.inner.p_dynamic_state = value;
         self
     }
@@ -38228,7 +38212,7 @@ impl<'a> FragmentShadingRateAttachmentInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_fragment_shading_rate_attachment(
         mut self,
-        value: *const AttachmentReference2,
+        value: &'a AttachmentReference2,
     ) -> Self {
         self.inner.p_fragment_shading_rate_attachment = value;
         self
@@ -40600,7 +40584,7 @@ impl<'a> PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_clamp_range(mut self, value: *const DepthClampRangeEXT) -> Self {
+    pub fn p_depth_clamp_range(mut self, value: &'a DepthClampRangeEXT) -> Self {
         self.inner.p_depth_clamp_range = value;
         self
     }
@@ -44361,10 +44345,7 @@ impl<'a> VideoReferenceSlotInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_picture_resource(
-        mut self,
-        value: *const VideoPictureResourceInfoKHR,
-    ) -> Self {
+    pub fn p_picture_resource(mut self, value: &'a VideoPictureResourceInfoKHR) -> Self {
         self.inner.p_picture_resource = value;
         self
     }
@@ -44535,7 +44516,7 @@ impl<'a> VideoDecodeInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_setup_reference_slot(
         mut self,
-        value: *const VideoReferenceSlotInfoKHR,
+        value: &'a VideoReferenceSlotInfoKHR,
     ) -> Self {
         self.inner.p_setup_reference_slot = value;
         self
@@ -44937,7 +44918,7 @@ impl<'a> VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_parameters_add_info(
         mut self,
-        value: *const VideoDecodeH264SessionParametersAddInfoKHR,
+        value: &'a VideoDecodeH264SessionParametersAddInfoKHR,
     ) -> Self {
         self.inner.p_parameters_add_info = value;
         self
@@ -45343,7 +45324,7 @@ impl<'a> VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_parameters_add_info(
         mut self,
-        value: *const VideoDecodeH265SessionParametersAddInfoKHR,
+        value: &'a VideoDecodeH265SessionParametersAddInfoKHR,
     ) -> Self {
         self.inner.p_parameters_add_info = value;
         self
@@ -46160,7 +46141,7 @@ impl<'a> VideoSessionCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_video_profile(mut self, value: *const VideoProfileInfoKHR) -> Self {
+    pub fn p_video_profile(mut self, value: &'a VideoProfileInfoKHR) -> Self {
         self.inner.p_video_profile = value;
         self
     }
@@ -46190,7 +46171,7 @@ impl<'a> VideoSessionCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_header_version(mut self, value: *const ExtensionProperties) -> Self {
+    pub fn p_std_header_version(mut self, value: &'a ExtensionProperties) -> Self {
         self.inner.p_std_header_version = value;
         self
     }
@@ -46718,7 +46699,7 @@ impl<'a> VideoEncodeInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_setup_reference_slot(
         mut self,
-        value: *const VideoReferenceSlotInfoKHR,
+        value: &'a VideoReferenceSlotInfoKHR,
     ) -> Self {
         self.inner.p_setup_reference_slot = value;
         self
@@ -47058,7 +47039,7 @@ impl PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 }
 impl<'a> PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_video_profile(mut self, value: *const VideoProfileInfoKHR) -> Self {
+    pub fn p_video_profile(mut self, value: &'a VideoProfileInfoKHR) -> Self {
         self.inner.p_video_profile = value;
         self
     }
@@ -47691,7 +47672,7 @@ impl<'a> VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_parameters_add_info(
         mut self,
-        value: *const VideoEncodeH264SessionParametersAddInfoKHR,
+        value: &'a VideoEncodeH264SessionParametersAddInfoKHR,
     ) -> Self {
         self.inner.p_parameters_add_info = value;
         self
@@ -48651,7 +48632,7 @@ impl<'a> VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
     #[inline]
     pub fn p_parameters_add_info(
         mut self,
-        value: *const VideoEncodeH265SessionParametersAddInfoKHR,
+        value: &'a VideoEncodeH265SessionParametersAddInfoKHR,
     ) -> Self {
         self.inner.p_parameters_add_info = value;
         self
@@ -50255,7 +50236,7 @@ impl<'a> CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_viewport_depths(mut self, value: *const Viewport) -> Self {
+    pub fn p_viewport_depths(mut self, value: &'a Viewport) -> Self {
         self.inner.p_viewport_depths = value;
         self
     }
@@ -54084,15 +54065,12 @@ impl<'a> RenderingInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_attachment(mut self, value: *const RenderingAttachmentInfo) -> Self {
+    pub fn p_depth_attachment(mut self, value: &'a RenderingAttachmentInfo) -> Self {
         self.inner.p_depth_attachment = value;
         self
     }
     #[inline]
-    pub fn p_stencil_attachment(
-        mut self,
-        value: *const RenderingAttachmentInfo,
-    ) -> Self {
+    pub fn p_stencil_attachment(mut self, value: &'a RenderingAttachmentInfo) -> Self {
         self.inner.p_stencil_attachment = value;
         self
     }
@@ -61595,12 +61573,12 @@ impl DeviceImageSubresourceInfo {
 }
 impl<'a> DeviceImageSubresourceInfoBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: *const ImageCreateInfo) -> Self {
+    pub fn p_create_info(mut self, value: &'a ImageCreateInfo) -> Self {
         self.inner.p_create_info = value;
         self
     }
     #[inline]
-    pub fn p_subresource(mut self, value: *const ImageSubresource2) -> Self {
+    pub fn p_subresource(mut self, value: &'a ImageSubresource2) -> Self {
         self.inner.p_subresource = value;
         self
     }
@@ -62128,7 +62106,7 @@ impl<'a> ShaderCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_specialization_info(mut self, value: *const SpecializationInfo) -> Self {
+    pub fn p_specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
         self.inner.p_specialization_info = value;
         self
     }
@@ -62949,7 +62927,7 @@ impl<'a> ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_library_info(mut self, value: *const PipelineLibraryCreateInfoKHR) -> Self {
+    pub fn p_library_info(mut self, value: &'a PipelineLibraryCreateInfoKHR) -> Self {
         self.inner.p_library_info = value;
         self
     }
@@ -63201,10 +63179,7 @@ impl<'a> AntiLagDataAMDBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_presentation_info(
-        mut self,
-        value: *const AntiLagPresentationInfoAMD,
-    ) -> Self {
+    pub fn p_presentation_info(mut self, value: &'a AntiLagPresentationInfoAMD) -> Self {
         self.inner.p_presentation_info = value;
         self
     }
@@ -68980,7 +68955,7 @@ impl<'a> TensorCreateInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_description(mut self, value: *const TensorDescriptionARM) -> Self {
+    pub fn p_description(mut self, value: &'a TensorDescriptionARM) -> Self {
         self.inner.p_description = value;
         self
     }
@@ -69515,7 +69490,7 @@ impl<'a> TensorDependencyInfoARMBuilder<'a> {
     #[inline]
     pub fn p_tensor_memory_barriers(
         mut self,
-        value: *const TensorMemoryBarrierARM,
+        value: &'a TensorMemoryBarrierARM,
     ) -> Self {
         self.inner.p_tensor_memory_barriers = value;
         self
@@ -69653,7 +69628,7 @@ impl DeviceTensorMemoryRequirementsARM {
 }
 impl<'a> DeviceTensorMemoryRequirementsARMBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: *const TensorCreateInfoARM) -> Self {
+    pub fn p_create_info(mut self, value: &'a TensorCreateInfoARM) -> Self {
         self.inner.p_create_info = value;
         self
     }
@@ -70226,7 +70201,7 @@ impl<'a> PhysicalDeviceExternalTensorInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_description(mut self, value: *const TensorDescriptionARM) -> Self {
+    pub fn p_description(mut self, value: &'a TensorDescriptionARM) -> Self {
         self.inner.p_description = value;
         self
     }
@@ -70900,7 +70875,7 @@ impl<'a> DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_specialization_info(mut self, value: *const SpecializationInfo) -> Self {
+    pub fn p_specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
         self.inner.p_specialization_info = value;
         self
     }
@@ -71770,7 +71745,7 @@ impl<'a> DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder<'a> {
     #[inline]
     pub fn p_operation(
         mut self,
-        value: *const PhysicalDeviceDataGraphOperationSupportARM,
+        value: &'a PhysicalDeviceDataGraphOperationSupportARM,
     ) -> Self {
         self.inner.p_operation = value;
         self
@@ -73340,7 +73315,7 @@ impl ImageDescriptorInfoEXT {
 }
 impl<'a> ImageDescriptorInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_view(mut self, value: *const ImageViewCreateInfo) -> Self {
+    pub fn p_view(mut self, value: &'a ImageViewCreateInfo) -> Self {
         self.inner.p_view = value;
         self
     }
@@ -73756,7 +73731,7 @@ impl OpaqueCaptureDataCreateInfoEXT {
 }
 impl<'a> OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_data(mut self, value: *const HostAddressRangeConstEXT) -> Self {
+    pub fn p_data(mut self, value: &'a HostAddressRangeConstEXT) -> Self {
         self.inner.p_data = value;
         self
     }
@@ -74106,12 +74081,12 @@ impl CommandBufferInheritanceDescriptorHeapInfoEXT {
 }
 impl<'a> CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_sampler_heap_bind_info(mut self, value: *const BindHeapInfoEXT) -> Self {
+    pub fn p_sampler_heap_bind_info(mut self, value: &'a BindHeapInfoEXT) -> Self {
         self.inner.p_sampler_heap_bind_info = value;
         self
     }
     #[inline]
-    pub fn p_resource_heap_bind_info(mut self, value: *const BindHeapInfoEXT) -> Self {
+    pub fn p_resource_heap_bind_info(mut self, value: &'a BindHeapInfoEXT) -> Self {
         self.inner.p_resource_heap_bind_info = value;
         self
     }

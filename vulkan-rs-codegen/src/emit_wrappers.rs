@@ -102,6 +102,10 @@ pub fn exclusion_set() -> HashSet<String> {
         "vkCreateMetalSurfaceEXT",
         "vkCreateAndroidSurfaceKHR",
         "vkDestroySurfaceKHR",
+        // Device, returns *mut c_void directly instead of double-pointer output
+        "vkMapMemory",
+        "vkMapMemory2",
+        "vkMapMemory2KHR",
     ]
     .into_iter()
     .map(String::from)

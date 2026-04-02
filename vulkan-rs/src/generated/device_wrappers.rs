@@ -333,57 +333,6 @@ impl crate::Device {
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe { fp(self.handle(), memory, alloc_ptr) };
     }
-    ///Wraps [`vkMapMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory.html).
-    /**
-    Provided by **VK_BASE_VERSION_1_0**.*/
-    ///
-    ///# Errors
-    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
-    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
-    ///- `VK_ERROR_MEMORY_MAP_FAILED`
-    ///- `VK_ERROR_UNKNOWN`
-    ///- `VK_ERROR_VALIDATION_FAILED`
-    ///
-    ///# Safety
-    ///- `device` (self) must be valid and not destroyed.
-    ///- `memory` must be externally synchronized.
-    ///
-    ///# Panics
-    ///Panics if `vkMapMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
-    ///
-    ///# Usage Notes
-    ///
-    ///Maps device memory into the host address space so the CPU can read or
-    ///write it. The memory must have been allocated from a memory type with
-    ///`MEMORY_PROPERTY_HOST_VISIBLE`.
-    ///
-    ///**Persistently mapped memory**: it is valid (and recommended) to keep
-    ///memory mapped for the lifetime of the allocation. Map once after
-    ///`allocate_memory` and unmap only before `free_memory`. This avoids
-    ///repeated map/unmap overhead.
-    ///
-    ///**Coherency**: if the memory type does not include
-    ///`MEMORY_PROPERTY_HOST_COHERENT`, you must call:
-    ///
-    ///- `flush_mapped_memory_ranges` after CPU writes, before GPU reads.
-    ///- `invalidate_mapped_memory_ranges` after GPU writes, before CPU reads.
-    ///
-    ///Host-coherent memory skips both calls at the cost of slightly lower
-    ///throughput on some architectures.
-    ///
-    ///**Alignment**: when sub-allocating from a large allocation, ensure
-    ///offsets respect `non_coherent_atom_size` for flush/invalidate ranges.
-    pub unsafe fn map_memory(
-        &self,
-        memory: DeviceMemory,
-        offset: u64,
-        size: u64,
-        flags: MemoryMapFlags,
-        pp_data: *mut *mut core::ffi::c_void,
-    ) -> VkResult<()> {
-        let fp = self.commands().map_memory.expect("vkMapMemory not loaded");
-        check(unsafe { fp(self.handle(), memory, offset, size, flags, pp_data) })
-    }
     ///Wraps [`vkUnmapMemory`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory.html).
     /**
     Provided by **VK_BASE_VERSION_1_0**.*/
@@ -20182,46 +20131,6 @@ impl crate::Device {
             .get_device_image_subresource_layout
             .expect("vkGetDeviceImageSubresourceLayout not loaded");
         unsafe { fp(self.handle(), p_info, p_layout) };
-    }
-    ///Wraps [`vkMapMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkMapMemory2.html).
-    /**
-    Provided by **VK_BASE_VERSION_1_4**.*/
-    ///
-    ///# Errors
-    ///- `VK_ERROR_OUT_OF_HOST_MEMORY`
-    ///- `VK_ERROR_OUT_OF_DEVICE_MEMORY`
-    ///- `VK_ERROR_MEMORY_MAP_FAILED`
-    ///- `VK_ERROR_UNKNOWN`
-    ///- `VK_ERROR_VALIDATION_FAILED`
-    ///
-    ///# Safety
-    ///- `device` (self) must be valid and not destroyed.
-    ///
-    ///# Panics
-    ///Panics if `vkMapMemory2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
-    ///
-    ///# Usage Notes
-    ///
-    ///Vulkan 1.4 version of `map_memory` that uses an extensible
-    ///`MemoryMapInfo` struct. Supports additional flags via
-    ///`MemoryMapFlags` that are not available in the original 1.0 version.
-    ///
-    ///`MEMORY_MAP_PLACED` (if supported) allows mapping at a
-    ///caller-specified virtual address, useful for deterministic replay
-    ///tools.
-    ///
-    ///For most applications, `map_memory` and `map_memory2` are
-    ///equivalent. Prefer this when targeting Vulkan 1.4+.
-    pub unsafe fn map_memory2(
-        &self,
-        p_memory_map_info: &MemoryMapInfo,
-        pp_data: *mut *mut core::ffi::c_void,
-    ) -> VkResult<()> {
-        let fp = self
-            .commands()
-            .map_memory2
-            .expect("vkMapMemory2 not loaded");
-        check(unsafe { fp(self.handle(), p_memory_map_info, pp_data) })
     }
     ///Wraps [`vkUnmapMemory2`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnmapMemory2.html).
     /**

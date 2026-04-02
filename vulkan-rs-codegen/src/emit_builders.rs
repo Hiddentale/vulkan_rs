@@ -146,13 +146,17 @@ fn emit_setter(member: &MemberDef, parent: &StructDef) -> TokenStream {
 
     // const char* const* with a count field → &[*const c_char] slice setter.
     // Covers ppEnabledLayerNames, ppEnabledExtensionNames, etc.
-    if member.is_double_pointer
-        && member.is_const
-        && member.type_name == "char"
-        && let Some(ref len) = member.len
-        && let Some(count_member) = find_count_member(parent, len)
-    {
-        return emit_cstr_ptr_slice_setter(member, count_member);
+    // Some fields (deprecated device layers) lack a `len` attribute in vk.xml,
+    // so we also try inferring the count field: ppEnabledFooNames → enabledFooCount.
+    if member.is_double_pointer && member.is_const && member.type_name == "char" {
+        let count_member = member
+            .len
+            .as_deref()
+            .and_then(|len| find_count_member(parent, len))
+            .or_else(|| infer_count_member(parent, &member.name));
+        if let Some(count_member) = count_member {
+            return emit_cstr_ptr_slice_setter(member, count_member);
+        }
     }
 
     emit_simple_setter(member)
@@ -187,6 +191,22 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
             #[inline]
             pub fn #ident(mut self, value: &'a core::ffi::CStr) -> Self {
                 self.inner.#ident = value.as_ptr();
+                self
+            }
+        };
+    }
+
+    // *const VkFoo fields accept &T instead of raw pointers.
+    if member.is_pointer
+        && member.is_const
+        && !member.is_double_pointer
+        && member.type_name.starts_with("Vk")
+    {
+        let base = resolve_base_type(&member.type_name);
+        return quote! {
+            #[inline]
+            pub fn #ident(mut self, value: &'a #base) -> Self {
+                self.inner.#ident = value;
                 self
             }
         };
@@ -293,11 +313,27 @@ fn collect_count_fields(def: &StructDef) -> HashSet<String> {
                 counts.insert(count_name.to_string());
             }
         }
+        // Also check inferred count for double-pointer char fields without len.
+        if m.is_double_pointer
+            && m.is_const
+            && m.type_name == "char"
+            && m.len.is_none()
+            && let Some(count) = infer_count_member(def, &m.name)
+        {
+            counts.insert(count.name.clone());
+        }
     }
     counts
 }
 
 /// Find the count member referenced by a pointer's `len` attribute.
+/// Infer a count member for `ppEnabledFooNames` → `enabledFooCount`.
+fn infer_count_member<'a>(def: &'a StructDef, ptr_name: &str) -> Option<&'a MemberDef> {
+    let stem = ptr_name.strip_prefix("ppEnabled")?.strip_suffix("Names")?;
+    let count_name = format!("enabled{stem}Count");
+    def.members.iter().find(|m| m.name == count_name)
+}
+
 fn find_count_member<'a>(def: &'a StructDef, len: &str) -> Option<&'a MemberDef> {
     let count_name = len.split(',').next()?.trim();
     if count_name.contains("null-terminated") || count_name.contains('/') {

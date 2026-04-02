@@ -253,14 +253,12 @@ let staging_memory = unsafe {
 unsafe { device.bind_buffer_memory(staging_buffer, staging_memory, 0)? };
 
 // Map the staging memory, copy vertex data in, then unmap.
-let mut data_ptr: *mut core::ffi::c_void = core::ptr::null_mut();
 unsafe {
-    device.map_memory(
+    let data_ptr = device.map_memory(
         staging_memory,
         0,
         vertex_data_size,
         MemoryMapFlags::empty(),
-        &mut data_ptr,
     )?;
 
     core::ptr::copy_nonoverlapping(

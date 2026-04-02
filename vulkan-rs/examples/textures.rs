@@ -138,7 +138,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&*app_info)
+        .p_application_info(&app_info)
         .enabled_extension_names(&extension_ptrs)
         .enabled_layer_names(&layer_ptrs);
 
@@ -179,7 +179,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .queue_family_index(graphics_family_index)
         .queue_priorities(std::slice::from_ref(&queue_priority));
     let device_info = DeviceCreateInfo::builder()
-        .queue_create_infos(std::slice::from_ref(&*queue_info))
+        .queue_create_infos(std::slice::from_ref(&queue_info))
         .enabled_extension_names(&device_extensions);
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
@@ -314,15 +314,8 @@ fn init_vulkan(window: Window) -> VulkanState {
 
     // Map, copy pixels, unmap.
     unsafe {
-        let mut ptr: *mut core::ffi::c_void = core::ptr::null_mut();
-        device
-            .map_memory(
-                staging_memory,
-                0,
-                image_size,
-                MemoryMapFlags::empty(),
-                &mut ptr,
-            )
+        let ptr = device
+            .map_memory(staging_memory, 0, image_size, MemoryMapFlags::empty())
             .expect("Failed to map memory");
         core::ptr::copy_nonoverlapping(pixels.as_ptr(), ptr as *mut u8, image_size as usize);
         device.unmap_memory(staging_memory);
@@ -668,13 +661,13 @@ fn init_vulkan(window: Window) -> VulkanState {
 
     let pipeline_info = GraphicsPipelineCreateInfo::builder()
         .stages(&stages)
-        .p_vertex_input_state(&*vertex_input)
-        .p_input_assembly_state(&*input_assembly)
-        .p_viewport_state(&*viewport_state)
-        .p_rasterization_state(&*rasterizer)
-        .p_multisample_state(&*multisampling)
-        .p_color_blend_state(&*color_blending)
-        .p_dynamic_state(&*dynamic_state)
+        .p_vertex_input_state(&vertex_input)
+        .p_input_assembly_state(&input_assembly)
+        .p_viewport_state(&viewport_state)
+        .p_rasterization_state(&rasterizer)
+        .p_multisample_state(&multisampling)
+        .p_color_blend_state(&color_blending)
+        .p_dynamic_state(&dynamic_state)
         .layout(pipeline_layout)
         .render_pass(render_pass)
         .subpass(0);

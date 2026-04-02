@@ -24,7 +24,7 @@ fn main() {
         .engine_version(1)
         .api_version(Version::new(1, 0, 0).to_raw());
 
-    let create_info = InstanceCreateInfo::builder().p_application_info(&*app_info);
+    let create_info = InstanceCreateInfo::builder().p_application_info(&app_info);
 
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
@@ -62,7 +62,7 @@ fn main() {
         .queue_priorities(std::slice::from_ref(&queue_priority));
 
     let device_info =
-        DeviceCreateInfo::builder().queue_create_infos(std::slice::from_ref(&*queue_info));
+        DeviceCreateInfo::builder().queue_create_infos(std::slice::from_ref(&queue_info));
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
         .expect("Failed to create device");

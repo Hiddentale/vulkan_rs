@@ -99,7 +99,7 @@ let app_info = ApplicationInfo::builder()
 // No layers or extensions yet. We will add validation layers and
 // surface extensions in later parts.
 let create_info = InstanceCreateInfo::builder()
-    .p_application_info(&*app_info);
+    .p_application_info(&app_info);
 
 // ── Create the instance ────────────────────────────────────────
 let instance = unsafe { entry.create_instance(&create_info, None) }
@@ -229,7 +229,7 @@ let queue_info = DeviceQueueCreateInfo::builder()
 // No extensions or features yet. We will add the swapchain
 // extension in Part 2.
 let device_info = DeviceCreateInfo::builder()
-    .queue_create_infos(std::slice::from_ref(&*queue_info));
+    .queue_create_infos(std::slice::from_ref(&queue_info));
 
 let device = unsafe {
     instance.create_device(physical_device, &device_info, None)
@@ -318,7 +318,7 @@ fn main() {
         .api_version(1 << 22);  // Vulkan 1.0
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&*app_info);
+        .p_application_info(&app_info);
 
     let instance = unsafe { entry.create_instance(&create_info, None) }
         .expect("Failed to create instance");
@@ -361,7 +361,7 @@ fn main() {
         .queue_priorities(std::slice::from_ref(&queue_priority));
 
     let device_info = DeviceCreateInfo::builder()
-        .queue_create_infos(std::slice::from_ref(&*queue_info));
+        .queue_create_infos(std::slice::from_ref(&queue_info));
 
     let device = unsafe {
         instance.create_device(physical_device, &device_info, None)

@@ -135,7 +135,7 @@ let queue_info = DeviceQueueCreateInfo::builder()
     .queue_family_index(0)
     .queue_priorities(&[1.0]);
 let device_info = DeviceCreateInfo::builder()
-    .queue_create_infos(std::slice::from_ref(&*queue_info));
+    .queue_create_infos(std::slice::from_ref(&queue_info));
 let device = unsafe {
     instance.create_device(physical_device, &device_info, None)
 }
