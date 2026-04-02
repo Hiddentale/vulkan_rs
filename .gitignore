@@ -7,5 +7,6 @@ CLAUDE.md
 docs/wrapper_audit.md
 docs/project_evaluation.md
 docs/custom_vulkan_bindings.md
+docs/total_audit.md
 rust_out.*
 guide/book
