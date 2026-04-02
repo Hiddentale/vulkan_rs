@@ -76,10 +76,8 @@ fn run(window: &Window) {
 
     let create_info = InstanceCreateInfo::builder()
         .p_application_info(&*app_info)
-        .enabled_extension_count(extension_ptrs.len() as u32)
-        .pp_enabled_extension_names(extension_ptrs.as_ptr())
-        .enabled_layer_count(layer_ptrs.len() as u32)
-        .pp_enabled_layer_names(layer_ptrs.as_ptr());
+        .enabled_extension_names(&extension_ptrs)
+        .enabled_layer_names(&layer_ptrs);
 
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
@@ -129,8 +127,7 @@ fn run(window: &Window) {
         .queue_priorities(std::slice::from_ref(&queue_priority));
     let device_info = DeviceCreateInfo::builder()
         .queue_create_infos(std::slice::from_ref(&*queue_info))
-        .enabled_extension_count(device_extensions.len() as u32)
-        .pp_enabled_extension_names(device_extensions.as_ptr());
+        .enabled_extension_names(&device_extensions);
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
         .expect("Failed to create device");

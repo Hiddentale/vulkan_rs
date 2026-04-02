@@ -144,6 +144,17 @@ fn emit_setter(member: &MemberDef, parent: &StructDef) -> TokenStream {
         return emit_slice_setter(member, count_member);
     }
 
+    // const char* const* with a count field → &[*const c_char] slice setter.
+    // Covers ppEnabledLayerNames, ppEnabledExtensionNames, etc.
+    if member.is_double_pointer
+        && member.is_const
+        && member.type_name == "char"
+        && let Some(ref len) = member.len
+        && let Some(count_member) = find_count_member(parent, len)
+    {
+        return emit_cstr_ptr_slice_setter(member, count_member);
+    }
+
     emit_simple_setter(member)
 }
 
@@ -219,6 +230,32 @@ fn emit_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenS
     }
 }
 
+/// Emit a slice setter for `const char* const*` fields (e.g. `ppEnabledLayerNames`).
+/// Accepts `&[*const c_char]` and sets both the pointer and count.
+fn emit_cstr_ptr_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenStream {
+    let rust_name = member_name(&ptr_member.name);
+    // Strip leading `pp_` for the setter name: `pp_enabled_layer_names` → `enabled_layer_names`.
+    let setter_name = rust_name
+        .strip_prefix("pp_")
+        .or_else(|| rust_name.strip_prefix("p_"))
+        .unwrap_or(&rust_name);
+    let setter_ident = format_ident!("{}", setter_name);
+
+    let ptr_field = format_ident!("{}", member_name(&ptr_member.name));
+    let count_field = format_ident!("{}", member_name(&count_member.name));
+
+    let count_ty = resolve_member_type(count_member);
+
+    quote! {
+        #[inline]
+        pub fn #setter_ident(mut self, slice: &'a [*const core::ffi::c_char]) -> Self {
+            self.inner.#count_field = slice.len() as #count_ty;
+            self.inner.#ptr_field = slice.as_ptr();
+            self
+        }
+    }
+}
+
 // ---------------------------------------------------------------------------
 // Pointer/count pairing
 // ---------------------------------------------------------------------------
@@ -227,10 +264,10 @@ fn emit_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenS
 fn collect_count_fields(def: &StructDef) -> HashSet<String> {
     let mut counts = HashSet::new();
     for m in &def.members {
-        if m.is_pointer
-            && !m.is_double_pointer
-            && let Some(ref len) = m.len
-        {
+        // Single-pointer arrays and const char* const* arrays both have count fields.
+        let is_slice_candidate =
+            m.is_pointer && (!m.is_double_pointer || (m.is_const && m.type_name == "char"));
+        if is_slice_candidate && let Some(ref len) = m.len {
             // len can be a comma-separated list (e.g. "codeSize/4"); take the first simple name.
             let count_name = len.split(',').next().unwrap_or(len).trim();
             // Skip "null-terminated" and expressions with `/`.

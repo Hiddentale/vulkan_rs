@@ -181,16 +181,12 @@ impl<'a> DeviceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn enabled_extension_count(mut self, value: u32) -> Self {
-        self.inner.enabled_extension_count = value;
-        self
-    }
-    #[inline]
-    pub fn pp_enabled_extension_names(
+    pub fn enabled_extension_names(
         mut self,
-        value: *const *const core::ffi::c_char,
+        slice: &'a [*const core::ffi::c_char],
     ) -> Self {
-        self.inner.pp_enabled_extension_names = value;
+        self.inner.enabled_extension_count = slice.len() as u32;
+        self.inner.pp_enabled_extension_names = slice.as_ptr();
         self
     }
     #[inline]
@@ -254,29 +250,18 @@ impl<'a> InstanceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn enabled_layer_count(mut self, value: u32) -> Self {
-        self.inner.enabled_layer_count = value;
+    pub fn enabled_layer_names(mut self, slice: &'a [*const core::ffi::c_char]) -> Self {
+        self.inner.enabled_layer_count = slice.len() as u32;
+        self.inner.pp_enabled_layer_names = slice.as_ptr();
         self
     }
     #[inline]
-    pub fn pp_enabled_layer_names(
+    pub fn enabled_extension_names(
         mut self,
-        value: *const *const core::ffi::c_char,
+        slice: &'a [*const core::ffi::c_char],
     ) -> Self {
-        self.inner.pp_enabled_layer_names = value;
-        self
-    }
-    #[inline]
-    pub fn enabled_extension_count(mut self, value: u32) -> Self {
-        self.inner.enabled_extension_count = value;
-        self
-    }
-    #[inline]
-    pub fn pp_enabled_extension_names(
-        mut self,
-        value: *const *const core::ffi::c_char,
-    ) -> Self {
-        self.inner.pp_enabled_extension_names = value;
+        self.inner.enabled_extension_count = slice.len() as u32;
+        self.inner.pp_enabled_extension_names = slice.as_ptr();
         self
     }
     ///Prepend a struct to the pNext chain. See [`InstanceCreateInfo`]'s **Extended By** section for valid types.
