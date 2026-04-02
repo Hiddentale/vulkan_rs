@@ -71,6 +71,26 @@ jobs:
       - name: Check formatting
         run: cargo fmt --all -- --check
 
+  msrv:
+    name: MSRV Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install MSRV toolchain
+        uses: dtolnay/rust-toolchain@1.85
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Check vulkan-rs-sys
+        run: cargo +1.85 check -p vulkan-rs-sys
+
+      - name: Check vulkan-rs
+        run: cargo +1.85 check -p vulkan-rs --all-features
+
   clippy:
     name: Clippy Lints
     runs-on: ubuntu-latest
