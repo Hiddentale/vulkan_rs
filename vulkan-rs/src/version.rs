@@ -25,6 +25,23 @@ pub struct Version {
 }
 
 impl Version {
+    /// Create a version from major, minor, and patch components.
+    ///
+    /// ```
+    /// use vulkan_rs::Version;
+    ///
+    /// let v = Version::new(1, 3, 0);
+    /// assert_eq!(v.to_raw(), 0x00403000);
+    /// assert_eq!(v.to_string(), "1.3.0");
+    /// ```
+    pub const fn new(major: u32, minor: u32, patch: u32) -> Self {
+        Self {
+            major,
+            minor,
+            patch,
+        }
+    }
+
     /// Decode a packed Vulkan version `u32` into its components.
     ///
     /// ```

@@ -7,7 +7,7 @@ use vk::enums::*;
 use vk::handles::*;
 use vk::structs::*;
 use vulkan_rs::vk;
-use vulkan_rs::{Entry, LibloadingLoader};
+use vulkan_rs::{Entry, LibloadingLoader, Version};
 use winit::application::ApplicationHandler;
 use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
@@ -72,7 +72,7 @@ fn run(window: &Window) {
         .application_version(1)
         .p_engine_name(c"No Engine")
         .engine_version(1)
-        .api_version(1 << 22);
+        .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
         .p_application_info(&*app_info)

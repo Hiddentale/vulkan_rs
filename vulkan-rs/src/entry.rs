@@ -153,14 +153,14 @@ impl Entry {
     /// # Examples
     ///
     /// ```no_run
-    /// use vulkan_rs::{Entry, LibloadingLoader};
+    /// use vulkan_rs::{Entry, LibloadingLoader, Version};
     /// use vulkan_rs::vk::structs::*;
     ///
     /// let loader = unsafe { LibloadingLoader::new() }.expect("Vulkan not found");
     /// let entry = unsafe { Entry::new(loader) }.expect("entry creation failed");
     ///
     /// let app_info = ApplicationInfo::builder()
-    ///     .api_version(1 << 22); // Vulkan 1.0
+    ///     .api_version(Version::new(1, 0, 0).to_raw());
     /// let create_info = InstanceCreateInfo::builder()
     ///     .p_application_info(&*app_info);
     /// let instance = unsafe { entry.create_instance(&create_info, None) }

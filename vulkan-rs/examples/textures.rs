@@ -8,7 +8,7 @@ use vk::enums::*;
 use vk::handles::*;
 use vk::structs::*;
 use vulkan_rs::vk;
-use vulkan_rs::{Device, Entry, LibloadingLoader, cast_to_u32};
+use vulkan_rs::{Device, Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
 use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
@@ -135,7 +135,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .application_version(1)
         .p_engine_name(c"No Engine")
         .engine_version(1)
-        .api_version(1 << 22);
+        .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
         .p_application_info(&*app_info)
