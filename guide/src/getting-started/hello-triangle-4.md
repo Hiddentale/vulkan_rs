@@ -242,7 +242,7 @@ unsafe fn draw_frame(
 ) {
     unsafe {
     // ── 1. Wait for previous frame ─────────────────────────────
-    device.wait_for_fences(&[in_flight_fence], 1, u64::MAX)
+    device.wait_for_fences(&[in_flight_fence], true, u64::MAX)
         .expect("Failed to wait for fence");
     device.reset_fences(&[in_flight_fence])
         .expect("Failed to reset fence");

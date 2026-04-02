@@ -432,7 +432,7 @@ fn create_swapchain_resources(
         .pre_transform(caps.current_transform)
         .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
         .present_mode(present_mode)
-        .clipped(1)
+        .clipped(true)
         .old_swapchain(old_swapchain);
 
     let swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }
@@ -543,7 +543,7 @@ unsafe fn draw_frame(state: &mut VulkanState, framebuffer_resized: &mut bool) {
     let d = &state.device;
 
     unsafe {
-        d.wait_for_fences(&[state.in_flight_fence], 1, u64::MAX)
+        d.wait_for_fences(&[state.in_flight_fence], true, u64::MAX)
             .expect("Failed to wait for fence");
 
         let acquire_result = d.acquire_next_image_khr(

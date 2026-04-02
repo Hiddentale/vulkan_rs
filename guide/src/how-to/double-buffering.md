@@ -133,7 +133,7 @@ loop {
 
     unsafe {
     // --- 1. Wait for this frame's previous submission to finish ---
-    device.wait_for_fences(&[sync.in_flight_fence], 1, u64::MAX)
+    device.wait_for_fences(&[sync.in_flight_fence], true, u64::MAX)
         .expect("Failed to wait for fence");
 
     // --- 2. Acquire the next swapchain image ---

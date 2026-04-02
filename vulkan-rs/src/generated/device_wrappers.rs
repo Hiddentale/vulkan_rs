@@ -1025,7 +1025,7 @@ impl crate::Device {
     pub unsafe fn wait_for_fences(
         &self,
         p_fences: &[Fence],
-        wait_all: u32,
+        wait_all: bool,
         timeout: u64,
     ) -> VkResult<()> {
         let fp = self
@@ -1037,7 +1037,7 @@ impl crate::Device {
                 self.handle(),
                 p_fences.len() as u32,
                 p_fences.as_ptr(),
-                wait_all,
+                wait_all as u32,
                 timeout,
             )
         })
@@ -6753,14 +6753,20 @@ impl crate::Device {
     pub unsafe fn cmd_execute_generated_commands_nv(
         &self,
         command_buffer: CommandBuffer,
-        is_preprocessed: u32,
+        is_preprocessed: bool,
         p_generated_commands_info: &GeneratedCommandsInfoNV,
     ) {
         let fp = self
             .commands()
             .cmd_execute_generated_commands_nv
             .expect("vkCmdExecuteGeneratedCommandsNV not loaded");
-        unsafe { fp(command_buffer, is_preprocessed, p_generated_commands_info) };
+        unsafe {
+            fp(
+                command_buffer,
+                is_preprocessed as u32,
+                p_generated_commands_info,
+            )
+        };
     }
     ///Wraps [`vkCmdPreprocessGeneratedCommandsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsNV.html).
     /**
@@ -6947,14 +6953,20 @@ impl crate::Device {
     pub unsafe fn cmd_execute_generated_commands_ext(
         &self,
         command_buffer: CommandBuffer,
-        is_preprocessed: u32,
+        is_preprocessed: bool,
         p_generated_commands_info: &GeneratedCommandsInfoEXT,
     ) {
         let fp = self
             .commands()
             .cmd_execute_generated_commands_ext
             .expect("vkCmdExecuteGeneratedCommandsEXT not loaded");
-        unsafe { fp(command_buffer, is_preprocessed, p_generated_commands_info) };
+        unsafe {
+            fp(
+                command_buffer,
+                is_preprocessed as u32,
+                p_generated_commands_info,
+            )
+        };
     }
     ///Wraps [`vkCmdPreprocessGeneratedCommandsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdPreprocessGeneratedCommandsEXT.html).
     /**
@@ -9222,13 +9234,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_discard_rectangle_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        discard_rectangle_enable: u32,
+        discard_rectangle_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_discard_rectangle_enable_ext
             .expect("vkCmdSetDiscardRectangleEnableEXT not loaded");
-        unsafe { fp(command_buffer, discard_rectangle_enable) };
+        unsafe { fp(command_buffer, discard_rectangle_enable as u32) };
     }
     ///Wraps [`vkCmdSetDiscardRectangleModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDiscardRectangleModeEXT.html).
     /**
@@ -9984,13 +9996,13 @@ impl crate::Device {
     pub unsafe fn set_local_dimming_amd(
         &self,
         swap_chain: SwapchainKHR,
-        local_dimming_enable: u32,
+        local_dimming_enable: bool,
     ) {
         let fp = self
             .commands()
             .set_local_dimming_amd
             .expect("vkSetLocalDimmingAMD not loaded");
-        unsafe { fp(self.handle(), swap_chain, local_dimming_enable) };
+        unsafe { fp(self.handle(), swap_chain, local_dimming_enable as u32) };
     }
     ///Wraps [`vkGetCalibratedTimestampsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetCalibratedTimestampsKHR.html).
     /**
@@ -12146,7 +12158,7 @@ impl crate::Device {
         p_info: &AccelerationStructureInfoNV,
         instance_data: Buffer,
         instance_offset: u64,
-        update: u32,
+        update: bool,
         dst: AccelerationStructureNV,
         src: AccelerationStructureNV,
         scratch: Buffer,
@@ -12162,7 +12174,7 @@ impl crate::Device {
                 p_info,
                 instance_data,
                 instance_offset,
-                update,
+                update as u32,
                 dst,
                 src,
                 scratch,
@@ -14614,13 +14626,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_depth_test_enable(
         &self,
         command_buffer: CommandBuffer,
-        depth_test_enable: u32,
+        depth_test_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_depth_test_enable
             .expect("vkCmdSetDepthTestEnable not loaded");
-        unsafe { fp(command_buffer, depth_test_enable) };
+        unsafe { fp(command_buffer, depth_test_enable as u32) };
     }
     ///Wraps [`vkCmdSetDepthWriteEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthWriteEnable.html).
     /**
@@ -14653,13 +14665,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_depth_write_enable(
         &self,
         command_buffer: CommandBuffer,
-        depth_write_enable: u32,
+        depth_write_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_depth_write_enable
             .expect("vkCmdSetDepthWriteEnable not loaded");
-        unsafe { fp(command_buffer, depth_write_enable) };
+        unsafe { fp(command_buffer, depth_write_enable as u32) };
     }
     ///Wraps [`vkCmdSetDepthCompareOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthCompareOp.html).
     /**
@@ -14725,13 +14737,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_depth_bounds_test_enable(
         &self,
         command_buffer: CommandBuffer,
-        depth_bounds_test_enable: u32,
+        depth_bounds_test_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_depth_bounds_test_enable
             .expect("vkCmdSetDepthBoundsTestEnable not loaded");
-        unsafe { fp(command_buffer, depth_bounds_test_enable) };
+        unsafe { fp(command_buffer, depth_bounds_test_enable as u32) };
     }
     ///Wraps [`vkCmdSetStencilTestEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilTestEnable.html).
     /**
@@ -14757,13 +14769,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_stencil_test_enable(
         &self,
         command_buffer: CommandBuffer,
-        stencil_test_enable: u32,
+        stencil_test_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_stencil_test_enable
             .expect("vkCmdSetStencilTestEnable not loaded");
-        unsafe { fp(command_buffer, stencil_test_enable) };
+        unsafe { fp(command_buffer, stencil_test_enable as u32) };
     }
     ///Wraps [`vkCmdSetStencilOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetStencilOp.html).
     /**
@@ -14883,13 +14895,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_rasterizer_discard_enable(
         &self,
         command_buffer: CommandBuffer,
-        rasterizer_discard_enable: u32,
+        rasterizer_discard_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_rasterizer_discard_enable
             .expect("vkCmdSetRasterizerDiscardEnable not loaded");
-        unsafe { fp(command_buffer, rasterizer_discard_enable) };
+        unsafe { fp(command_buffer, rasterizer_discard_enable as u32) };
     }
     ///Wraps [`vkCmdSetDepthBiasEnable`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthBiasEnable.html).
     /**
@@ -14917,13 +14929,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_depth_bias_enable(
         &self,
         command_buffer: CommandBuffer,
-        depth_bias_enable: u32,
+        depth_bias_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_depth_bias_enable
             .expect("vkCmdSetDepthBiasEnable not loaded");
-        unsafe { fp(command_buffer, depth_bias_enable) };
+        unsafe { fp(command_buffer, depth_bias_enable as u32) };
     }
     ///Wraps [`vkCmdSetLogicOpEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEXT.html).
     /**
@@ -14983,13 +14995,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_primitive_restart_enable(
         &self,
         command_buffer: CommandBuffer,
-        primitive_restart_enable: u32,
+        primitive_restart_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_primitive_restart_enable
             .expect("vkCmdSetPrimitiveRestartEnable not loaded");
-        unsafe { fp(command_buffer, primitive_restart_enable) };
+        unsafe { fp(command_buffer, primitive_restart_enable as u32) };
     }
     ///Wraps [`vkCmdSetTessellationDomainOriginEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetTessellationDomainOriginEXT.html).
     /**
@@ -15049,13 +15061,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_depth_clamp_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        depth_clamp_enable: u32,
+        depth_clamp_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_depth_clamp_enable_ext
             .expect("vkCmdSetDepthClampEnableEXT not loaded");
-        unsafe { fp(command_buffer, depth_clamp_enable) };
+        unsafe { fp(command_buffer, depth_clamp_enable as u32) };
     }
     ///Wraps [`vkCmdSetPolygonModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetPolygonModeEXT.html).
     /**
@@ -15176,13 +15188,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_alpha_to_coverage_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        alpha_to_coverage_enable: u32,
+        alpha_to_coverage_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_alpha_to_coverage_enable_ext
             .expect("vkCmdSetAlphaToCoverageEnableEXT not loaded");
-        unsafe { fp(command_buffer, alpha_to_coverage_enable) };
+        unsafe { fp(command_buffer, alpha_to_coverage_enable as u32) };
     }
     ///Wraps [`vkCmdSetAlphaToOneEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetAlphaToOneEnableEXT.html).
     /**
@@ -15207,13 +15219,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_alpha_to_one_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        alpha_to_one_enable: u32,
+        alpha_to_one_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_alpha_to_one_enable_ext
             .expect("vkCmdSetAlphaToOneEnableEXT not loaded");
-        unsafe { fp(command_buffer, alpha_to_one_enable) };
+        unsafe { fp(command_buffer, alpha_to_one_enable as u32) };
     }
     ///Wraps [`vkCmdSetLogicOpEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetLogicOpEnableEXT.html).
     /**
@@ -15240,13 +15252,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_logic_op_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        logic_op_enable: u32,
+        logic_op_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_logic_op_enable_ext
             .expect("vkCmdSetLogicOpEnableEXT not loaded");
-        unsafe { fp(command_buffer, logic_op_enable) };
+        unsafe { fp(command_buffer, logic_op_enable as u32) };
     }
     ///Wraps [`vkCmdSetColorBlendEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendEnableEXT.html).
     /**
@@ -15489,13 +15501,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_depth_clip_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        depth_clip_enable: u32,
+        depth_clip_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_depth_clip_enable_ext
             .expect("vkCmdSetDepthClipEnableEXT not loaded");
-        unsafe { fp(command_buffer, depth_clip_enable) };
+        unsafe { fp(command_buffer, depth_clip_enable as u32) };
     }
     ///Wraps [`vkCmdSetSampleLocationsEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetSampleLocationsEnableEXT.html).
     /**
@@ -15521,13 +15533,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_sample_locations_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        sample_locations_enable: u32,
+        sample_locations_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_sample_locations_enable_ext
             .expect("vkCmdSetSampleLocationsEnableEXT not loaded");
-        unsafe { fp(command_buffer, sample_locations_enable) };
+        unsafe { fp(command_buffer, sample_locations_enable as u32) };
     }
     ///Wraps [`vkCmdSetColorBlendAdvancedEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetColorBlendAdvancedEXT.html).
     /**
@@ -15662,13 +15674,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_line_stipple_enable_ext(
         &self,
         command_buffer: CommandBuffer,
-        stippled_line_enable: u32,
+        stippled_line_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_line_stipple_enable_ext
             .expect("vkCmdSetLineStippleEnableEXT not loaded");
-        unsafe { fp(command_buffer, stippled_line_enable) };
+        unsafe { fp(command_buffer, stippled_line_enable as u32) };
     }
     ///Wraps [`vkCmdSetDepthClipNegativeOneToOneEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetDepthClipNegativeOneToOneEXT.html).
     /**
@@ -15697,13 +15709,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_depth_clip_negative_one_to_one_ext(
         &self,
         command_buffer: CommandBuffer,
-        negative_one_to_one: u32,
+        negative_one_to_one: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_depth_clip_negative_one_to_one_ext
             .expect("vkCmdSetDepthClipNegativeOneToOneEXT not loaded");
-        unsafe { fp(command_buffer, negative_one_to_one) };
+        unsafe { fp(command_buffer, negative_one_to_one as u32) };
     }
     ///Wraps [`vkCmdSetViewportWScalingEnableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportWScalingEnableNV.html).
     /**
@@ -15729,13 +15741,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_viewport_w_scaling_enable_nv(
         &self,
         command_buffer: CommandBuffer,
-        viewport_w_scaling_enable: u32,
+        viewport_w_scaling_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_viewport_w_scaling_enable_nv
             .expect("vkCmdSetViewportWScalingEnableNV not loaded");
-        unsafe { fp(command_buffer, viewport_w_scaling_enable) };
+        unsafe { fp(command_buffer, viewport_w_scaling_enable as u32) };
     }
     ///Wraps [`vkCmdSetViewportSwizzleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetViewportSwizzleNV.html).
     /**
@@ -15803,13 +15815,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_coverage_to_color_enable_nv(
         &self,
         command_buffer: CommandBuffer,
-        coverage_to_color_enable: u32,
+        coverage_to_color_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_coverage_to_color_enable_nv
             .expect("vkCmdSetCoverageToColorEnableNV not loaded");
-        unsafe { fp(command_buffer, coverage_to_color_enable) };
+        unsafe { fp(command_buffer, coverage_to_color_enable as u32) };
     }
     ///Wraps [`vkCmdSetCoverageToColorLocationNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageToColorLocationNV.html).
     /**
@@ -15899,13 +15911,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_coverage_modulation_table_enable_nv(
         &self,
         command_buffer: CommandBuffer,
-        coverage_modulation_table_enable: u32,
+        coverage_modulation_table_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_coverage_modulation_table_enable_nv
             .expect("vkCmdSetCoverageModulationTableEnableNV not loaded");
-        unsafe { fp(command_buffer, coverage_modulation_table_enable) };
+        unsafe { fp(command_buffer, coverage_modulation_table_enable as u32) };
     }
     ///Wraps [`vkCmdSetCoverageModulationTableNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageModulationTableNV.html).
     /**
@@ -15969,13 +15981,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_shading_rate_image_enable_nv(
         &self,
         command_buffer: CommandBuffer,
-        shading_rate_image_enable: u32,
+        shading_rate_image_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_shading_rate_image_enable_nv
             .expect("vkCmdSetShadingRateImageEnableNV not loaded");
-        unsafe { fp(command_buffer, shading_rate_image_enable) };
+        unsafe { fp(command_buffer, shading_rate_image_enable as u32) };
     }
     ///Wraps [`vkCmdSetCoverageReductionModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetCoverageReductionModeNV.html).
     /**
@@ -16035,13 +16047,13 @@ impl crate::Device {
     pub unsafe fn cmd_set_representative_fragment_test_enable_nv(
         &self,
         command_buffer: CommandBuffer,
-        representative_fragment_test_enable: u32,
+        representative_fragment_test_enable: bool,
     ) {
         let fp = self
             .commands()
             .cmd_set_representative_fragment_test_enable_nv
             .expect("vkCmdSetRepresentativeFragmentTestEnableNV not loaded");
-        unsafe { fp(command_buffer, representative_fragment_test_enable) };
+        unsafe { fp(command_buffer, representative_fragment_test_enable as u32) };
     }
     ///Wraps [`vkCreatePrivateDataSlot`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreatePrivateDataSlot.html).
     /**
@@ -22856,14 +22868,21 @@ impl crate::Device {
     pub unsafe fn register_custom_border_color_ext(
         &self,
         p_border_color: &SamplerCustomBorderColorCreateInfoEXT,
-        request_index: u32,
+        request_index: bool,
     ) -> VkResult<u32> {
         let fp = self
             .commands()
             .register_custom_border_color_ext
             .expect("vkRegisterCustomBorderColorEXT not loaded");
         let mut out = unsafe { core::mem::zeroed() };
-        check(unsafe { fp(self.handle(), p_border_color, request_index, &mut out) })?;
+        check(unsafe {
+            fp(
+                self.handle(),
+                p_border_color,
+                request_index as u32,
+                &mut out,
+            )
+        })?;
         Ok(out)
     }
     ///Wraps [`vkUnregisterCustomBorderColorEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkUnregisterCustomBorderColorEXT.html).

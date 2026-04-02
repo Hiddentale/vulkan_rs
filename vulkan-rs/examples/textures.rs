@@ -244,7 +244,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .pre_transform(caps.current_transform)
         .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
         .present_mode(present_mode)
-        .clipped(1)
+        .clipped(true)
         .old_swapchain(SwapchainKHR::null());
 
     let swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }
@@ -503,7 +503,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .address_mode_u(SamplerAddressMode::REPEAT)
         .address_mode_v(SamplerAddressMode::REPEAT)
         .address_mode_w(SamplerAddressMode::REPEAT)
-        .anisotropy_enable(0)
+        .anisotropy_enable(false)
         .max_anisotropy(1.0)
         .border_color(BorderColor::INT_OPAQUE_BLACK)
         .mipmap_mode(SamplerMipmapMode::LINEAR)
@@ -761,7 +761,7 @@ unsafe fn draw_frame(state: &VulkanState) {
     let d = &state.device;
 
     unsafe {
-        d.wait_for_fences(&[state.in_flight_fence], 1, u64::MAX)
+        d.wait_for_fences(&[state.in_flight_fence], true, u64::MAX)
             .expect("Failed to wait for fence");
         d.reset_fences(&[state.in_flight_fence])
             .expect("Failed to reset fence");

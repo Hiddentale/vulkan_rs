@@ -154,6 +154,18 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
     } else {
         format_ident!("{}", rust_name)
     };
+
+    // VkBool32 fields accept `bool` and cast to u32 internally.
+    if member.type_name == "VkBool32" && !member.is_pointer {
+        return quote! {
+            #[inline]
+            pub fn #ident(mut self, value: bool) -> Self {
+                self.inner.#ident = value as u32;
+                self
+            }
+        };
+    }
+
     let ty = resolve_member_type(member);
 
     quote! {

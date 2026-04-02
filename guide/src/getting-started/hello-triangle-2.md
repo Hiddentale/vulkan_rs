@@ -366,7 +366,7 @@ let swapchain_info = SwapchainCreateInfoKHR::builder()
     .pre_transform(capabilities.current_transform)
     .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
     .present_mode(present_mode)
-    .clipped(1)       // discard pixels behind other windows
+    .clipped(true)       // discard pixels behind other windows
     .old_swapchain(SwapchainKHR::null());
 
 let swapchain = unsafe {

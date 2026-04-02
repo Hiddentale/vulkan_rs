@@ -223,7 +223,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .pre_transform(caps.current_transform)
         .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
         .present_mode(present_mode)
-        .clipped(1)
+        .clipped(true)
         .old_swapchain(SwapchainKHR::null());
 
     let swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }
@@ -470,7 +470,7 @@ unsafe fn draw_frame(state: &mut VulkanState) {
 
     unsafe {
         // 1. Wait for this frame's previous submission to finish
-        d.wait_for_fences(&[sync.in_flight_fence], 1, u64::MAX)
+        d.wait_for_fences(&[sync.in_flight_fence], true, u64::MAX)
             .expect("Failed to wait for fence");
 
         // 2. Acquire next swapchain image

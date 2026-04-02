@@ -2006,8 +2006,8 @@ impl<'a> PipelineInputAssemblyStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn primitive_restart_enable(mut self, value: u32) -> Self {
-        self.inner.primitive_restart_enable = value;
+    pub fn primitive_restart_enable(mut self, value: bool) -> Self {
+        self.inner.primitive_restart_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PipelineInputAssemblyStateCreateInfo`]'s **Extended By** section for valid types.
@@ -2187,13 +2187,13 @@ impl<'a> PipelineRasterizationStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn depth_clamp_enable(mut self, value: u32) -> Self {
-        self.inner.depth_clamp_enable = value;
+    pub fn depth_clamp_enable(mut self, value: bool) -> Self {
+        self.inner.depth_clamp_enable = value as u32;
         self
     }
     #[inline]
-    pub fn rasterizer_discard_enable(mut self, value: u32) -> Self {
-        self.inner.rasterizer_discard_enable = value;
+    pub fn rasterizer_discard_enable(mut self, value: bool) -> Self {
+        self.inner.rasterizer_discard_enable = value as u32;
         self
     }
     #[inline]
@@ -2212,8 +2212,8 @@ impl<'a> PipelineRasterizationStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn depth_bias_enable(mut self, value: u32) -> Self {
-        self.inner.depth_bias_enable = value;
+    pub fn depth_bias_enable(mut self, value: bool) -> Self {
+        self.inner.depth_bias_enable = value as u32;
         self
     }
     #[inline]
@@ -2295,8 +2295,8 @@ impl<'a> PipelineMultisampleStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn sample_shading_enable(mut self, value: u32) -> Self {
-        self.inner.sample_shading_enable = value;
+    pub fn sample_shading_enable(mut self, value: bool) -> Self {
+        self.inner.sample_shading_enable = value as u32;
         self
     }
     #[inline]
@@ -2310,13 +2310,13 @@ impl<'a> PipelineMultisampleStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn alpha_to_coverage_enable(mut self, value: u32) -> Self {
-        self.inner.alpha_to_coverage_enable = value;
+    pub fn alpha_to_coverage_enable(mut self, value: bool) -> Self {
+        self.inner.alpha_to_coverage_enable = value as u32;
         self
     }
     #[inline]
-    pub fn alpha_to_one_enable(mut self, value: u32) -> Self {
-        self.inner.alpha_to_one_enable = value;
+    pub fn alpha_to_one_enable(mut self, value: bool) -> Self {
+        self.inner.alpha_to_one_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PipelineMultisampleStateCreateInfo`]'s **Extended By** section for valid types.
@@ -2373,8 +2373,8 @@ impl<'a> PipelineColorBlendStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn logic_op_enable(mut self, value: u32) -> Self {
-        self.inner.logic_op_enable = value;
+    pub fn logic_op_enable(mut self, value: bool) -> Self {
+        self.inner.logic_op_enable = value as u32;
         self
     }
     #[inline]
@@ -2509,13 +2509,13 @@ impl<'a> PipelineDepthStencilStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn depth_test_enable(mut self, value: u32) -> Self {
-        self.inner.depth_test_enable = value;
+    pub fn depth_test_enable(mut self, value: bool) -> Self {
+        self.inner.depth_test_enable = value as u32;
         self
     }
     #[inline]
-    pub fn depth_write_enable(mut self, value: u32) -> Self {
-        self.inner.depth_write_enable = value;
+    pub fn depth_write_enable(mut self, value: bool) -> Self {
+        self.inner.depth_write_enable = value as u32;
         self
     }
     #[inline]
@@ -2524,13 +2524,13 @@ impl<'a> PipelineDepthStencilStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn depth_bounds_test_enable(mut self, value: u32) -> Self {
-        self.inner.depth_bounds_test_enable = value;
+    pub fn depth_bounds_test_enable(mut self, value: bool) -> Self {
+        self.inner.depth_bounds_test_enable = value as u32;
         self
     }
     #[inline]
-    pub fn stencil_test_enable(mut self, value: u32) -> Self {
-        self.inner.stencil_test_enable = value;
+    pub fn stencil_test_enable(mut self, value: bool) -> Self {
+        self.inner.stencil_test_enable = value as u32;
         self
     }
     #[inline]
@@ -3311,8 +3311,8 @@ impl<'a> SamplerCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn anisotropy_enable(mut self, value: u32) -> Self {
-        self.inner.anisotropy_enable = value;
+    pub fn anisotropy_enable(mut self, value: bool) -> Self {
+        self.inner.anisotropy_enable = value as u32;
         self
     }
     #[inline]
@@ -3321,8 +3321,8 @@ impl<'a> SamplerCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn compare_enable(mut self, value: u32) -> Self {
-        self.inner.compare_enable = value;
+    pub fn compare_enable(mut self, value: bool) -> Self {
+        self.inner.compare_enable = value as u32;
         self
     }
     #[inline]
@@ -3346,8 +3346,8 @@ impl<'a> SamplerCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn unnormalized_coordinates(mut self, value: u32) -> Self {
-        self.inner.unnormalized_coordinates = value;
+    pub fn unnormalized_coordinates(mut self, value: bool) -> Self {
+        self.inner.unnormalized_coordinates = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SamplerCreateInfo`]'s **Extended By** section for valid types.
@@ -3532,8 +3532,8 @@ impl<'a> CommandBufferInheritanceInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn occlusion_query_enable(mut self, value: u32) -> Self {
-        self.inner.occlusion_query_enable = value;
+    pub fn occlusion_query_enable(mut self, value: bool) -> Self {
+        self.inner.occlusion_query_enable = value as u32;
         self
     }
     #[inline]
@@ -4362,8 +4362,8 @@ impl<'a> DisplayPresentInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn persistent(mut self, value: u32) -> Self {
-        self.inner.persistent = value;
+    pub fn persistent(mut self, value: bool) -> Self {
+        self.inner.persistent = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`DisplayPresentInfoKHR`]'s **Extended By** section for valid types.
@@ -5154,8 +5154,8 @@ impl<'a> SwapchainCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn clipped(mut self, value: u32) -> Self {
-        self.inner.clipped = value;
+    pub fn clipped(mut self, value: bool) -> Self {
+        self.inner.clipped = value as u32;
         self
     }
     #[inline]
@@ -5831,8 +5831,8 @@ impl DedicatedAllocationImageCreateInfoNV {
 }
 impl<'a> DedicatedAllocationImageCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn dedicated_allocation(mut self, value: u32) -> Self {
-        self.inner.dedicated_allocation = value;
+    pub fn dedicated_allocation(mut self, value: bool) -> Self {
+        self.inner.dedicated_allocation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`DedicatedAllocationImageCreateInfoNV`]'s **Extended By** section for valid types.
@@ -5884,8 +5884,8 @@ impl DedicatedAllocationBufferCreateInfoNV {
 }
 impl<'a> DedicatedAllocationBufferCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn dedicated_allocation(mut self, value: u32) -> Self {
-        self.inner.dedicated_allocation = value;
+    pub fn dedicated_allocation(mut self, value: bool) -> Self {
+        self.inner.dedicated_allocation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`DedicatedAllocationBufferCreateInfoNV`]'s **Extended By** section for valid types.
@@ -6439,13 +6439,13 @@ impl PhysicalDeviceExternalMemorySciBufFeaturesNV {
 }
 impl<'a> PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn sci_buf_import(mut self, value: u32) -> Self {
-        self.inner.sci_buf_import = value;
+    pub fn sci_buf_import(mut self, value: bool) -> Self {
+        self.inner.sci_buf_import = value as u32;
         self
     }
     #[inline]
-    pub fn sci_buf_export(mut self, value: u32) -> Self {
-        self.inner.sci_buf_export = value;
+    pub fn sci_buf_export(mut self, value: bool) -> Self {
+        self.inner.sci_buf_export = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalMemorySciBufFeaturesNV`]'s **Extended By** section for valid types.
@@ -6576,8 +6576,8 @@ impl PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
 }
 impl<'a> PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn device_generated_commands(mut self, value: u32) -> Self {
-        self.inner.device_generated_commands = value;
+    pub fn device_generated_commands(mut self, value: bool) -> Self {
+        self.inner.device_generated_commands = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceGeneratedCommandsFeaturesNV`]'s **Extended By** section for valid types.
@@ -6684,8 +6684,8 @@ impl PhysicalDevicePushConstantBankFeaturesNV {
 }
 impl<'a> PhysicalDevicePushConstantBankFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn push_constant_bank(mut self, value: u32) -> Self {
-        self.inner.push_constant_bank = value;
+    pub fn push_constant_bank(mut self, value: bool) -> Self {
+        self.inner.push_constant_bank = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePushConstantBankFeaturesNV`]'s **Extended By** section for valid types.
@@ -6792,18 +6792,18 @@ impl PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
 }
 impl<'a> PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn device_generated_compute(mut self, value: u32) -> Self {
-        self.inner.device_generated_compute = value;
+    pub fn device_generated_compute(mut self, value: bool) -> Self {
+        self.inner.device_generated_compute = value as u32;
         self
     }
     #[inline]
-    pub fn device_generated_compute_pipelines(mut self, value: u32) -> Self {
-        self.inner.device_generated_compute_pipelines = value;
+    pub fn device_generated_compute_pipelines(mut self, value: bool) -> Self {
+        self.inner.device_generated_compute_pipelines = value as u32;
         self
     }
     #[inline]
-    pub fn device_generated_compute_capture_replay(mut self, value: u32) -> Self {
-        self.inner.device_generated_compute_capture_replay = value;
+    pub fn device_generated_compute_capture_replay(mut self, value: bool) -> Self {
+        self.inner.device_generated_compute_capture_replay = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV`]'s **Extended By** section for valid types.
@@ -6963,8 +6963,8 @@ impl PhysicalDevicePrivateDataFeatures {
 }
 impl<'a> PhysicalDevicePrivateDataFeaturesBuilder<'a> {
     #[inline]
-    pub fn private_data(mut self, value: u32) -> Self {
-        self.inner.private_data = value;
+    pub fn private_data(mut self, value: bool) -> Self {
+        self.inner.private_data = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePrivateDataFeatures`]'s **Extended By** section for valid types.
@@ -7100,8 +7100,8 @@ impl PhysicalDeviceClusterAccelerationStructureFeaturesNV {
 }
 impl<'a> PhysicalDeviceClusterAccelerationStructureFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn cluster_acceleration_structure(mut self, value: u32) -> Self {
-        self.inner.cluster_acceleration_structure = value;
+    pub fn cluster_acceleration_structure(mut self, value: bool) -> Self {
+        self.inner.cluster_acceleration_structure = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceClusterAccelerationStructureFeaturesNV`]'s **Extended By** section for valid types.
@@ -7234,8 +7234,8 @@ impl RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
 }
 impl<'a> RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn allow_cluster_acceleration_structure(mut self, value: u32) -> Self {
-        self.inner.allow_cluster_acceleration_structure = value;
+    pub fn allow_cluster_acceleration_structure(mut self, value: bool) -> Self {
+        self.inner.allow_cluster_acceleration_structure = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`RayTracingPipelineClusterAccelerationStructureCreateInfoNV`]'s **Extended By** section for valid types.
@@ -7447,8 +7447,8 @@ impl<'a> ClusterAccelerationStructureMoveObjectsInputNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn no_move_overlap(mut self, value: u32) -> Self {
-        self.inner.no_move_overlap = value;
+    pub fn no_move_overlap(mut self, value: bool) -> Self {
+        self.inner.no_move_overlap = value as u32;
         self
     }
     #[inline]
@@ -7858,8 +7858,8 @@ impl<'a> IndirectCommandsLayoutTokenNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn vertex_dynamic_stride(mut self, value: u32) -> Self {
-        self.inner.vertex_dynamic_stride = value;
+    pub fn vertex_dynamic_stride(mut self, value: bool) -> Self {
+        self.inner.vertex_dynamic_stride = value as u32;
         self
     }
     #[inline]
@@ -8828,13 +8828,13 @@ impl PhysicalDeviceVariablePointersFeatures {
 }
 impl<'a> PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
     #[inline]
-    pub fn variable_pointers_storage_buffer(mut self, value: u32) -> Self {
-        self.inner.variable_pointers_storage_buffer = value;
+    pub fn variable_pointers_storage_buffer(mut self, value: bool) -> Self {
+        self.inner.variable_pointers_storage_buffer = value as u32;
         self
     }
     #[inline]
-    pub fn variable_pointers(mut self, value: u32) -> Self {
-        self.inner.variable_pointers = value;
+    pub fn variable_pointers(mut self, value: bool) -> Self {
+        self.inner.variable_pointers = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVariablePointersFeatures`]'s **Extended By** section for valid types.
@@ -9104,8 +9104,8 @@ impl<'a> PhysicalDeviceIDPropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn device_luid_valid(mut self, value: u32) -> Self {
-        self.inner.device_luid_valid = value;
+    pub fn device_luid_valid(mut self, value: bool) -> Self {
+        self.inner.device_luid_valid = value as u32;
         self
     }
 }
@@ -11609,23 +11609,23 @@ impl PhysicalDeviceExternalSciSyncFeaturesNV {
 }
 impl<'a> PhysicalDeviceExternalSciSyncFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn sci_sync_fence(mut self, value: u32) -> Self {
-        self.inner.sci_sync_fence = value;
+    pub fn sci_sync_fence(mut self, value: bool) -> Self {
+        self.inner.sci_sync_fence = value as u32;
         self
     }
     #[inline]
-    pub fn sci_sync_semaphore(mut self, value: u32) -> Self {
-        self.inner.sci_sync_semaphore = value;
+    pub fn sci_sync_semaphore(mut self, value: bool) -> Self {
+        self.inner.sci_sync_semaphore = value as u32;
         self
     }
     #[inline]
-    pub fn sci_sync_import(mut self, value: u32) -> Self {
-        self.inner.sci_sync_import = value;
+    pub fn sci_sync_import(mut self, value: bool) -> Self {
+        self.inner.sci_sync_import = value as u32;
         self
     }
     #[inline]
-    pub fn sci_sync_export(mut self, value: u32) -> Self {
-        self.inner.sci_sync_export = value;
+    pub fn sci_sync_export(mut self, value: bool) -> Self {
+        self.inner.sci_sync_export = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalSciSyncFeaturesNV`]'s **Extended By** section for valid types.
@@ -11677,23 +11677,23 @@ impl PhysicalDeviceExternalSciSync2FeaturesNV {
 }
 impl<'a> PhysicalDeviceExternalSciSync2FeaturesNVBuilder<'a> {
     #[inline]
-    pub fn sci_sync_fence(mut self, value: u32) -> Self {
-        self.inner.sci_sync_fence = value;
+    pub fn sci_sync_fence(mut self, value: bool) -> Self {
+        self.inner.sci_sync_fence = value as u32;
         self
     }
     #[inline]
-    pub fn sci_sync_semaphore2(mut self, value: u32) -> Self {
-        self.inner.sci_sync_semaphore2 = value;
+    pub fn sci_sync_semaphore2(mut self, value: bool) -> Self {
+        self.inner.sci_sync_semaphore2 = value as u32;
         self
     }
     #[inline]
-    pub fn sci_sync_import(mut self, value: u32) -> Self {
-        self.inner.sci_sync_import = value;
+    pub fn sci_sync_import(mut self, value: bool) -> Self {
+        self.inner.sci_sync_import = value as u32;
         self
     }
     #[inline]
-    pub fn sci_sync_export(mut self, value: u32) -> Self {
-        self.inner.sci_sync_export = value;
+    pub fn sci_sync_export(mut self, value: bool) -> Self {
+        self.inner.sci_sync_export = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalSciSync2FeaturesNV`]'s **Extended By** section for valid types.
@@ -11913,18 +11913,18 @@ impl PhysicalDeviceMultiviewFeatures {
 }
 impl<'a> PhysicalDeviceMultiviewFeaturesBuilder<'a> {
     #[inline]
-    pub fn multiview(mut self, value: u32) -> Self {
-        self.inner.multiview = value;
+    pub fn multiview(mut self, value: bool) -> Self {
+        self.inner.multiview = value as u32;
         self
     }
     #[inline]
-    pub fn multiview_geometry_shader(mut self, value: u32) -> Self {
-        self.inner.multiview_geometry_shader = value;
+    pub fn multiview_geometry_shader(mut self, value: bool) -> Self {
+        self.inner.multiview_geometry_shader = value as u32;
         self
     }
     #[inline]
-    pub fn multiview_tessellation_shader(mut self, value: u32) -> Self {
-        self.inner.multiview_tessellation_shader = value;
+    pub fn multiview_tessellation_shader(mut self, value: bool) -> Self {
+        self.inner.multiview_tessellation_shader = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiviewFeatures`]'s **Extended By** section for valid types.
@@ -12389,8 +12389,8 @@ impl<'a> PhysicalDeviceGroupPropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn subset_allocation(mut self, value: u32) -> Self {
-        self.inner.subset_allocation = value;
+    pub fn subset_allocation(mut self, value: bool) -> Self {
+        self.inner.subset_allocation = value as u32;
         self
     }
 }
@@ -13435,8 +13435,8 @@ impl PhysicalDevicePresentIdFeaturesKHR {
 }
 impl<'a> PhysicalDevicePresentIdFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn present_id(mut self, value: u32) -> Self {
-        self.inner.present_id = value;
+    pub fn present_id(mut self, value: bool) -> Self {
+        self.inner.present_id = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentIdFeaturesKHR`]'s **Extended By** section for valid types.
@@ -13539,8 +13539,8 @@ impl PhysicalDevicePresentId2FeaturesKHR {
 }
 impl<'a> PhysicalDevicePresentId2FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn present_id2(mut self, value: u32) -> Self {
-        self.inner.present_id2 = value;
+    pub fn present_id2(mut self, value: bool) -> Self {
+        self.inner.present_id2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentId2FeaturesKHR`]'s **Extended By** section for valid types.
@@ -13698,8 +13698,8 @@ impl PhysicalDevicePresentWaitFeaturesKHR {
 }
 impl<'a> PhysicalDevicePresentWaitFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn present_wait(mut self, value: u32) -> Self {
-        self.inner.present_wait = value;
+    pub fn present_wait(mut self, value: bool) -> Self {
+        self.inner.present_wait = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentWaitFeaturesKHR`]'s **Extended By** section for valid types.
@@ -13751,8 +13751,8 @@ impl PhysicalDevicePresentWait2FeaturesKHR {
 }
 impl<'a> PhysicalDevicePresentWait2FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn present_wait2(mut self, value: u32) -> Self {
-        self.inner.present_wait2 = value;
+    pub fn present_wait2(mut self, value: bool) -> Self {
+        self.inner.present_wait2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentWait2FeaturesKHR`]'s **Extended By** section for valid types.
@@ -13804,18 +13804,18 @@ impl PhysicalDevicePresentTimingFeaturesEXT {
 }
 impl<'a> PhysicalDevicePresentTimingFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn present_timing(mut self, value: u32) -> Self {
-        self.inner.present_timing = value;
+    pub fn present_timing(mut self, value: bool) -> Self {
+        self.inner.present_timing = value as u32;
         self
     }
     #[inline]
-    pub fn present_at_absolute_time(mut self, value: u32) -> Self {
-        self.inner.present_at_absolute_time = value;
+    pub fn present_at_absolute_time(mut self, value: bool) -> Self {
+        self.inner.present_at_absolute_time = value as u32;
         self
     }
     #[inline]
-    pub fn present_at_relative_time(mut self, value: u32) -> Self {
-        self.inner.present_at_relative_time = value;
+    pub fn present_at_relative_time(mut self, value: bool) -> Self {
+        self.inner.present_at_relative_time = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentTimingFeaturesEXT`]'s **Extended By** section for valid types.
@@ -13867,18 +13867,18 @@ impl PresentTimingSurfaceCapabilitiesEXT {
 }
 impl<'a> PresentTimingSurfaceCapabilitiesEXTBuilder<'a> {
     #[inline]
-    pub fn present_timing_supported(mut self, value: u32) -> Self {
-        self.inner.present_timing_supported = value;
+    pub fn present_timing_supported(mut self, value: bool) -> Self {
+        self.inner.present_timing_supported = value as u32;
         self
     }
     #[inline]
-    pub fn present_at_absolute_time_supported(mut self, value: u32) -> Self {
-        self.inner.present_at_absolute_time_supported = value;
+    pub fn present_at_absolute_time_supported(mut self, value: bool) -> Self {
+        self.inner.present_at_absolute_time_supported = value as u32;
         self
     }
     #[inline]
-    pub fn present_at_relative_time_supported(mut self, value: u32) -> Self {
-        self.inner.present_at_relative_time_supported = value;
+    pub fn present_at_relative_time_supported(mut self, value: bool) -> Self {
+        self.inner.present_at_relative_time_supported = value as u32;
         self
     }
     #[inline]
@@ -14144,8 +14144,8 @@ impl<'a> PastPresentationTimingEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn report_complete(mut self, value: u32) -> Self {
-        self.inner.report_complete = value;
+    pub fn report_complete(mut self, value: bool) -> Self {
+        self.inner.report_complete = value as u32;
         self
     }
 }
@@ -14511,8 +14511,8 @@ impl DisplayNativeHdrSurfaceCapabilitiesAMD {
 }
 impl<'a> DisplayNativeHdrSurfaceCapabilitiesAMDBuilder<'a> {
     #[inline]
-    pub fn local_dimming_support(mut self, value: u32) -> Self {
-        self.inner.local_dimming_support = value;
+    pub fn local_dimming_support(mut self, value: bool) -> Self {
+        self.inner.local_dimming_support = value as u32;
         self
     }
 }
@@ -14549,8 +14549,8 @@ impl SwapchainDisplayNativeHdrCreateInfoAMD {
 }
 impl<'a> SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'a> {
     #[inline]
-    pub fn local_dimming_enable(mut self, value: u32) -> Self {
-        self.inner.local_dimming_enable = value;
+    pub fn local_dimming_enable(mut self, value: bool) -> Self {
+        self.inner.local_dimming_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SwapchainDisplayNativeHdrCreateInfoAMD`]'s **Extended By** section for valid types.
@@ -14830,8 +14830,8 @@ impl PipelineViewportWScalingStateCreateInfoNV {
 }
 impl<'a> PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn viewport_w_scaling_enable(mut self, value: u32) -> Self {
-        self.inner.viewport_w_scaling_enable = value;
+    pub fn viewport_w_scaling_enable(mut self, value: bool) -> Self {
+        self.inner.viewport_w_scaling_enable = value as u32;
         self
     }
     #[inline]
@@ -15052,8 +15052,8 @@ impl PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
 }
 impl<'a> PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder<'a> {
     #[inline]
-    pub fn per_view_position_all_components(mut self, value: u32) -> Self {
-        self.inner.per_view_position_all_components = value;
+    pub fn per_view_position_all_components(mut self, value: bool) -> Self {
+        self.inner.per_view_position_all_components = value as u32;
         self
     }
 }
@@ -15392,8 +15392,8 @@ impl DisplayModeStereoPropertiesNV {
 }
 impl<'a> DisplayModeStereoPropertiesNVBuilder<'a> {
     #[inline]
-    pub fn hdmi3_d_supported(mut self, value: u32) -> Self {
-        self.inner.hdmi3_d_supported = value;
+    pub fn hdmi3_d_supported(mut self, value: bool) -> Self {
+        self.inner.hdmi3_d_supported = value as u32;
         self
     }
 }
@@ -15564,23 +15564,23 @@ impl PhysicalDevice16BitStorageFeatures {
 }
 impl<'a> PhysicalDevice16BitStorageFeaturesBuilder<'a> {
     #[inline]
-    pub fn storage_buffer16_bit_access(mut self, value: u32) -> Self {
-        self.inner.storage_buffer16_bit_access = value;
+    pub fn storage_buffer16_bit_access(mut self, value: bool) -> Self {
+        self.inner.storage_buffer16_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn uniform_and_storage_buffer16_bit_access(mut self, value: u32) -> Self {
-        self.inner.uniform_and_storage_buffer16_bit_access = value;
+    pub fn uniform_and_storage_buffer16_bit_access(mut self, value: bool) -> Self {
+        self.inner.uniform_and_storage_buffer16_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn storage_push_constant16(mut self, value: u32) -> Self {
-        self.inner.storage_push_constant16 = value;
+    pub fn storage_push_constant16(mut self, value: bool) -> Self {
+        self.inner.storage_push_constant16 = value as u32;
         self
     }
     #[inline]
-    pub fn storage_input_output16(mut self, value: u32) -> Self {
-        self.inner.storage_input_output16 = value;
+    pub fn storage_input_output16(mut self, value: bool) -> Self {
+        self.inner.storage_input_output16 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevice16BitStorageFeatures`]'s **Extended By** section for valid types.
@@ -15647,8 +15647,8 @@ impl<'a> PhysicalDeviceSubgroupPropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn quad_operations_in_all_stages(mut self, value: u32) -> Self {
-        self.inner.quad_operations_in_all_stages = value;
+    pub fn quad_operations_in_all_stages(mut self, value: bool) -> Self {
+        self.inner.quad_operations_in_all_stages = value as u32;
         self
     }
 }
@@ -15687,8 +15687,8 @@ impl PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
 }
 impl<'a> PhysicalDeviceShaderSubgroupExtendedTypesFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_subgroup_extended_types(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_extended_types = value;
+    pub fn shader_subgroup_extended_types(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_extended_types = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupExtendedTypesFeatures`]'s **Extended By** section for valid types.
@@ -16126,13 +16126,13 @@ impl MemoryDedicatedRequirements {
 }
 impl<'a> MemoryDedicatedRequirementsBuilder<'a> {
     #[inline]
-    pub fn prefers_dedicated_allocation(mut self, value: u32) -> Self {
-        self.inner.prefers_dedicated_allocation = value;
+    pub fn prefers_dedicated_allocation(mut self, value: bool) -> Self {
+        self.inner.prefers_dedicated_allocation = value as u32;
         self
     }
     #[inline]
-    pub fn requires_dedicated_allocation(mut self, value: u32) -> Self {
-        self.inner.requires_dedicated_allocation = value;
+    pub fn requires_dedicated_allocation(mut self, value: bool) -> Self {
+        self.inner.requires_dedicated_allocation = value as u32;
         self
     }
 }
@@ -16481,8 +16481,8 @@ impl<'a> SamplerYcbcrConversionCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn force_explicit_reconstruction(mut self, value: u32) -> Self {
-        self.inner.force_explicit_reconstruction = value;
+    pub fn force_explicit_reconstruction(mut self, value: bool) -> Self {
+        self.inner.force_explicit_reconstruction = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SamplerYcbcrConversionCreateInfo`]'s **Extended By** section for valid types.
@@ -16640,8 +16640,8 @@ impl PhysicalDeviceSamplerYcbcrConversionFeatures {
 }
 impl<'a> PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder<'a> {
     #[inline]
-    pub fn sampler_ycbcr_conversion(mut self, value: u32) -> Self {
-        self.inner.sampler_ycbcr_conversion = value;
+    pub fn sampler_ycbcr_conversion(mut self, value: bool) -> Self {
+        self.inner.sampler_ycbcr_conversion = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSamplerYcbcrConversionFeatures`]'s **Extended By** section for valid types.
@@ -16732,8 +16732,8 @@ impl TextureLODGatherFormatPropertiesAMD {
 }
 impl<'a> TextureLODGatherFormatPropertiesAMDBuilder<'a> {
     #[inline]
-    pub fn supports_texture_gather_lod_bias_amd(mut self, value: u32) -> Self {
-        self.inner.supports_texture_gather_lod_bias_amd = value;
+    pub fn supports_texture_gather_lod_bias_amd(mut self, value: bool) -> Self {
+        self.inner.supports_texture_gather_lod_bias_amd = value as u32;
         self
     }
 }
@@ -16833,8 +16833,8 @@ impl ProtectedSubmitInfo {
 }
 impl<'a> ProtectedSubmitInfoBuilder<'a> {
     #[inline]
-    pub fn protected_submit(mut self, value: u32) -> Self {
-        self.inner.protected_submit = value;
+    pub fn protected_submit(mut self, value: bool) -> Self {
+        self.inner.protected_submit = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`ProtectedSubmitInfo`]'s **Extended By** section for valid types.
@@ -16883,8 +16883,8 @@ impl PhysicalDeviceProtectedMemoryFeatures {
 }
 impl<'a> PhysicalDeviceProtectedMemoryFeaturesBuilder<'a> {
     #[inline]
-    pub fn protected_memory(mut self, value: u32) -> Self {
-        self.inner.protected_memory = value;
+    pub fn protected_memory(mut self, value: bool) -> Self {
+        self.inner.protected_memory = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceProtectedMemoryFeatures`]'s **Extended By** section for valid types.
@@ -16936,8 +16936,8 @@ impl PhysicalDeviceProtectedMemoryProperties {
 }
 impl<'a> PhysicalDeviceProtectedMemoryPropertiesBuilder<'a> {
     #[inline]
-    pub fn protected_no_fault(mut self, value: u32) -> Self {
-        self.inner.protected_no_fault = value;
+    pub fn protected_no_fault(mut self, value: bool) -> Self {
+        self.inner.protected_no_fault = value as u32;
         self
     }
 }
@@ -17039,8 +17039,8 @@ impl<'a> PipelineCoverageToColorStateCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn coverage_to_color_enable(mut self, value: u32) -> Self {
-        self.inner.coverage_to_color_enable = value;
+    pub fn coverage_to_color_enable(mut self, value: bool) -> Self {
+        self.inner.coverage_to_color_enable = value as u32;
         self
     }
     #[inline]
@@ -17097,13 +17097,13 @@ impl PhysicalDeviceSamplerFilterMinmaxProperties {
 }
 impl<'a> PhysicalDeviceSamplerFilterMinmaxPropertiesBuilder<'a> {
     #[inline]
-    pub fn filter_minmax_single_component_formats(mut self, value: u32) -> Self {
-        self.inner.filter_minmax_single_component_formats = value;
+    pub fn filter_minmax_single_component_formats(mut self, value: bool) -> Self {
+        self.inner.filter_minmax_single_component_formats = value as u32;
         self
     }
     #[inline]
-    pub fn filter_minmax_image_component_mapping(mut self, value: u32) -> Self {
-        self.inner.filter_minmax_image_component_mapping = value;
+    pub fn filter_minmax_image_component_mapping(mut self, value: bool) -> Self {
+        self.inner.filter_minmax_image_component_mapping = value as u32;
         self
     }
 }
@@ -17270,8 +17270,8 @@ impl PipelineSampleLocationsStateCreateInfoEXT {
 }
 impl<'a> PipelineSampleLocationsStateCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn sample_locations_enable(mut self, value: u32) -> Self {
-        self.inner.sample_locations_enable = value;
+    pub fn sample_locations_enable(mut self, value: bool) -> Self {
+        self.inner.sample_locations_enable = value as u32;
         self
     }
     #[inline]
@@ -17348,8 +17348,8 @@ impl<'a> PhysicalDeviceSampleLocationsPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn variable_sample_locations(mut self, value: u32) -> Self {
-        self.inner.variable_sample_locations = value;
+    pub fn variable_sample_locations(mut self, value: bool) -> Self {
+        self.inner.variable_sample_locations = value as u32;
         self
     }
 }
@@ -17477,8 +17477,8 @@ impl PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
 }
 impl<'a> PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn advanced_blend_coherent_operations(mut self, value: u32) -> Self {
-        self.inner.advanced_blend_coherent_operations = value;
+    pub fn advanced_blend_coherent_operations(mut self, value: bool) -> Self {
+        self.inner.advanced_blend_coherent_operations = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBlendOperationAdvancedFeaturesEXT`]'s **Extended By** section for valid types.
@@ -17532,8 +17532,8 @@ impl PhysicalDeviceMultiDrawFeaturesEXT {
 }
 impl<'a> PhysicalDeviceMultiDrawFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn multi_draw(mut self, value: u32) -> Self {
-        self.inner.multi_draw = value;
+    pub fn multi_draw(mut self, value: bool) -> Self {
+        self.inner.multi_draw = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiDrawFeaturesEXT`]'s **Extended By** section for valid types.
@@ -17592,28 +17592,28 @@ impl<'a> PhysicalDeviceBlendOperationAdvancedPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn advanced_blend_independent_blend(mut self, value: u32) -> Self {
-        self.inner.advanced_blend_independent_blend = value;
+    pub fn advanced_blend_independent_blend(mut self, value: bool) -> Self {
+        self.inner.advanced_blend_independent_blend = value as u32;
         self
     }
     #[inline]
-    pub fn advanced_blend_non_premultiplied_src_color(mut self, value: u32) -> Self {
-        self.inner.advanced_blend_non_premultiplied_src_color = value;
+    pub fn advanced_blend_non_premultiplied_src_color(mut self, value: bool) -> Self {
+        self.inner.advanced_blend_non_premultiplied_src_color = value as u32;
         self
     }
     #[inline]
-    pub fn advanced_blend_non_premultiplied_dst_color(mut self, value: u32) -> Self {
-        self.inner.advanced_blend_non_premultiplied_dst_color = value;
+    pub fn advanced_blend_non_premultiplied_dst_color(mut self, value: bool) -> Self {
+        self.inner.advanced_blend_non_premultiplied_dst_color = value as u32;
         self
     }
     #[inline]
-    pub fn advanced_blend_correlated_overlap(mut self, value: u32) -> Self {
-        self.inner.advanced_blend_correlated_overlap = value;
+    pub fn advanced_blend_correlated_overlap(mut self, value: bool) -> Self {
+        self.inner.advanced_blend_correlated_overlap = value as u32;
         self
     }
     #[inline]
-    pub fn advanced_blend_all_operations(mut self, value: u32) -> Self {
-        self.inner.advanced_blend_all_operations = value;
+    pub fn advanced_blend_all_operations(mut self, value: bool) -> Self {
+        self.inner.advanced_blend_all_operations = value as u32;
         self
     }
 }
@@ -17652,13 +17652,13 @@ impl PipelineColorBlendAdvancedStateCreateInfoEXT {
 }
 impl<'a> PipelineColorBlendAdvancedStateCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn src_premultiplied(mut self, value: u32) -> Self {
-        self.inner.src_premultiplied = value;
+    pub fn src_premultiplied(mut self, value: bool) -> Self {
+        self.inner.src_premultiplied = value as u32;
         self
     }
     #[inline]
-    pub fn dst_premultiplied(mut self, value: u32) -> Self {
-        self.inner.dst_premultiplied = value;
+    pub fn dst_premultiplied(mut self, value: bool) -> Self {
+        self.inner.dst_premultiplied = value as u32;
         self
     }
     #[inline]
@@ -17716,16 +17716,17 @@ impl PhysicalDeviceInlineUniformBlockFeatures {
 }
 impl<'a> PhysicalDeviceInlineUniformBlockFeaturesBuilder<'a> {
     #[inline]
-    pub fn inline_uniform_block(mut self, value: u32) -> Self {
-        self.inner.inline_uniform_block = value;
+    pub fn inline_uniform_block(mut self, value: bool) -> Self {
+        self.inner.inline_uniform_block = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_inline_uniform_block_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_inline_uniform_block_update_after_bind = value;
+        self.inner.descriptor_binding_inline_uniform_block_update_after_bind = value
+            as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInlineUniformBlockFeatures`]'s **Extended By** section for valid types.
@@ -17958,8 +17959,8 @@ impl<'a> PipelineCoverageModulationStateCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn coverage_modulation_table_enable(mut self, value: u32) -> Self {
-        self.inner.coverage_modulation_table_enable = value;
+    pub fn coverage_modulation_table_enable(mut self, value: bool) -> Self {
+        self.inner.coverage_modulation_table_enable = value as u32;
         self
     }
     #[inline]
@@ -18226,8 +18227,8 @@ impl PhysicalDeviceMaintenance4Features {
 }
 impl<'a> PhysicalDeviceMaintenance4FeaturesBuilder<'a> {
     #[inline]
-    pub fn maintenance4(mut self, value: u32) -> Self {
-        self.inner.maintenance4 = value;
+    pub fn maintenance4(mut self, value: bool) -> Self {
+        self.inner.maintenance4 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance4Features`]'s **Extended By** section for valid types.
@@ -18317,8 +18318,8 @@ impl PhysicalDeviceMaintenance5Features {
 }
 impl<'a> PhysicalDeviceMaintenance5FeaturesBuilder<'a> {
     #[inline]
-    pub fn maintenance5(mut self, value: u32) -> Self {
-        self.inner.maintenance5 = value;
+    pub fn maintenance5(mut self, value: bool) -> Self {
+        self.inner.maintenance5 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance5Features`]'s **Extended By** section for valid types.
@@ -18372,40 +18373,41 @@ impl<'a> PhysicalDeviceMaintenance5PropertiesBuilder<'a> {
     #[inline]
     pub fn early_fragment_multisample_coverage_after_sample_counting(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.early_fragment_multisample_coverage_after_sample_counting = value;
+        self.inner.early_fragment_multisample_coverage_after_sample_counting = value
+            as u32;
         self
     }
     #[inline]
     pub fn early_fragment_sample_mask_test_before_sample_counting(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.early_fragment_sample_mask_test_before_sample_counting = value;
+        self.inner.early_fragment_sample_mask_test_before_sample_counting = value as u32;
         self
     }
     #[inline]
-    pub fn depth_stencil_swizzle_one_support(mut self, value: u32) -> Self {
-        self.inner.depth_stencil_swizzle_one_support = value;
+    pub fn depth_stencil_swizzle_one_support(mut self, value: bool) -> Self {
+        self.inner.depth_stencil_swizzle_one_support = value as u32;
         self
     }
     #[inline]
-    pub fn polygon_mode_point_size(mut self, value: u32) -> Self {
-        self.inner.polygon_mode_point_size = value;
+    pub fn polygon_mode_point_size(mut self, value: bool) -> Self {
+        self.inner.polygon_mode_point_size = value as u32;
         self
     }
     #[inline]
     pub fn non_strict_single_pixel_wide_lines_use_parallelogram(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.non_strict_single_pixel_wide_lines_use_parallelogram = value;
+        self.inner.non_strict_single_pixel_wide_lines_use_parallelogram = value as u32;
         self
     }
     #[inline]
-    pub fn non_strict_wide_lines_use_parallelogram(mut self, value: u32) -> Self {
-        self.inner.non_strict_wide_lines_use_parallelogram = value;
+    pub fn non_strict_wide_lines_use_parallelogram(mut self, value: bool) -> Self {
+        self.inner.non_strict_wide_lines_use_parallelogram = value as u32;
         self
     }
 }
@@ -18442,8 +18444,8 @@ impl PhysicalDeviceMaintenance6Features {
 }
 impl<'a> PhysicalDeviceMaintenance6FeaturesBuilder<'a> {
     #[inline]
-    pub fn maintenance6(mut self, value: u32) -> Self {
-        self.inner.maintenance6 = value;
+    pub fn maintenance6(mut self, value: bool) -> Self {
+        self.inner.maintenance6 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance6Features`]'s **Extended By** section for valid types.
@@ -18495,8 +18497,8 @@ impl PhysicalDeviceMaintenance6Properties {
 }
 impl<'a> PhysicalDeviceMaintenance6PropertiesBuilder<'a> {
     #[inline]
-    pub fn block_texel_view_compatible_multiple_layers(mut self, value: u32) -> Self {
-        self.inner.block_texel_view_compatible_multiple_layers = value;
+    pub fn block_texel_view_compatible_multiple_layers(mut self, value: bool) -> Self {
+        self.inner.block_texel_view_compatible_multiple_layers = value as u32;
         self
     }
     #[inline]
@@ -18505,8 +18507,8 @@ impl<'a> PhysicalDeviceMaintenance6PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn fragment_shading_rate_clamp_combiner_inputs(mut self, value: u32) -> Self {
-        self.inner.fragment_shading_rate_clamp_combiner_inputs = value;
+    pub fn fragment_shading_rate_clamp_combiner_inputs(mut self, value: bool) -> Self {
+        self.inner.fragment_shading_rate_clamp_combiner_inputs = value as u32;
         self
     }
 }
@@ -18543,8 +18545,8 @@ impl PhysicalDeviceMaintenance7FeaturesKHR {
 }
 impl<'a> PhysicalDeviceMaintenance7FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn maintenance7(mut self, value: u32) -> Self {
-        self.inner.maintenance7 = value;
+    pub fn maintenance7(mut self, value: bool) -> Self {
+        self.inner.maintenance7 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance7FeaturesKHR`]'s **Extended By** section for valid types.
@@ -18596,13 +18598,16 @@ impl PhysicalDeviceMaintenance7PropertiesKHR {
 }
 impl<'a> PhysicalDeviceMaintenance7PropertiesKHRBuilder<'a> {
     #[inline]
-    pub fn robust_fragment_shading_rate_attachment_access(mut self, value: u32) -> Self {
-        self.inner.robust_fragment_shading_rate_attachment_access = value;
+    pub fn robust_fragment_shading_rate_attachment_access(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.robust_fragment_shading_rate_attachment_access = value as u32;
         self
     }
     #[inline]
-    pub fn separate_depth_stencil_attachment_access(mut self, value: u32) -> Self {
-        self.inner.separate_depth_stencil_attachment_access = value;
+    pub fn separate_depth_stencil_attachment_access(mut self, value: bool) -> Self {
+        self.inner.separate_depth_stencil_attachment_access = value as u32;
         self
     }
     #[inline]
@@ -18835,8 +18840,8 @@ impl PhysicalDeviceMaintenance8FeaturesKHR {
 }
 impl<'a> PhysicalDeviceMaintenance8FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn maintenance8(mut self, value: u32) -> Self {
-        self.inner.maintenance8 = value;
+    pub fn maintenance8(mut self, value: bool) -> Self {
+        self.inner.maintenance8 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance8FeaturesKHR`]'s **Extended By** section for valid types.
@@ -18888,8 +18893,8 @@ impl PhysicalDeviceMaintenance9FeaturesKHR {
 }
 impl<'a> PhysicalDeviceMaintenance9FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn maintenance9(mut self, value: u32) -> Self {
-        self.inner.maintenance9 = value;
+    pub fn maintenance9(mut self, value: bool) -> Self {
+        self.inner.maintenance9 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance9FeaturesKHR`]'s **Extended By** section for valid types.
@@ -18941,8 +18946,8 @@ impl PhysicalDeviceMaintenance9PropertiesKHR {
 }
 impl<'a> PhysicalDeviceMaintenance9PropertiesKHRBuilder<'a> {
     #[inline]
-    pub fn image2_d_view_of3_d_sparse(mut self, value: u32) -> Self {
-        self.inner.image2_d_view_of3_d_sparse = value;
+    pub fn image2_d_view_of3_d_sparse(mut self, value: bool) -> Self {
+        self.inner.image2_d_view_of3_d_sparse = value as u32;
         self
     }
     #[inline]
@@ -18987,21 +18992,21 @@ impl PhysicalDeviceMaintenance10PropertiesKHR {
 }
 impl<'a> PhysicalDeviceMaintenance10PropertiesKHRBuilder<'a> {
     #[inline]
-    pub fn rgba4_opaque_black_swizzled(mut self, value: u32) -> Self {
-        self.inner.rgba4_opaque_black_swizzled = value;
+    pub fn rgba4_opaque_black_swizzled(mut self, value: bool) -> Self {
+        self.inner.rgba4_opaque_black_swizzled = value as u32;
         self
     }
     #[inline]
-    pub fn resolve_srgb_format_applies_transfer_function(mut self, value: u32) -> Self {
-        self.inner.resolve_srgb_format_applies_transfer_function = value;
+    pub fn resolve_srgb_format_applies_transfer_function(mut self, value: bool) -> Self {
+        self.inner.resolve_srgb_format_applies_transfer_function = value as u32;
         self
     }
     #[inline]
     pub fn resolve_srgb_format_supports_transfer_function_control(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.resolve_srgb_format_supports_transfer_function_control = value;
+        self.inner.resolve_srgb_format_supports_transfer_function_control = value as u32;
         self
     }
 }
@@ -19038,8 +19043,8 @@ impl PhysicalDeviceMaintenance10FeaturesKHR {
 }
 impl<'a> PhysicalDeviceMaintenance10FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn maintenance10(mut self, value: u32) -> Self {
-        self.inner.maintenance10 = value;
+    pub fn maintenance10(mut self, value: bool) -> Self {
+        self.inner.maintenance10 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMaintenance10FeaturesKHR`]'s **Extended By** section for valid types.
@@ -19195,8 +19200,8 @@ impl DescriptorSetLayoutSupport {
 }
 impl<'a> DescriptorSetLayoutSupportBuilder<'a> {
     #[inline]
-    pub fn supported(mut self, value: u32) -> Self {
-        self.inner.supported = value;
+    pub fn supported(mut self, value: bool) -> Self {
+        self.inner.supported = value as u32;
         self
     }
 }
@@ -19233,8 +19238,8 @@ impl PhysicalDeviceShaderDrawParametersFeatures {
 }
 impl<'a> PhysicalDeviceShaderDrawParametersFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_draw_parameters(mut self, value: u32) -> Self {
-        self.inner.shader_draw_parameters = value;
+    pub fn shader_draw_parameters(mut self, value: bool) -> Self {
+        self.inner.shader_draw_parameters = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderDrawParametersFeatures`]'s **Extended By** section for valid types.
@@ -19286,13 +19291,13 @@ impl PhysicalDeviceShaderFloat16Int8Features {
 }
 impl<'a> PhysicalDeviceShaderFloat16Int8FeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_float16(mut self, value: u32) -> Self {
-        self.inner.shader_float16 = value;
+    pub fn shader_float16(mut self, value: bool) -> Self {
+        self.inner.shader_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_int8(mut self, value: u32) -> Self {
-        self.inner.shader_int8 = value;
+    pub fn shader_int8(mut self, value: bool) -> Self {
+        self.inner.shader_int8 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFloat16Int8Features`]'s **Extended By** section for valid types.
@@ -19360,78 +19365,78 @@ impl<'a> PhysicalDeviceFloatControlsPropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn shader_signed_zero_inf_nan_preserve_float16(mut self, value: u32) -> Self {
-        self.inner.shader_signed_zero_inf_nan_preserve_float16 = value;
+    pub fn shader_signed_zero_inf_nan_preserve_float16(mut self, value: bool) -> Self {
+        self.inner.shader_signed_zero_inf_nan_preserve_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_signed_zero_inf_nan_preserve_float32(mut self, value: u32) -> Self {
-        self.inner.shader_signed_zero_inf_nan_preserve_float32 = value;
+    pub fn shader_signed_zero_inf_nan_preserve_float32(mut self, value: bool) -> Self {
+        self.inner.shader_signed_zero_inf_nan_preserve_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_signed_zero_inf_nan_preserve_float64(mut self, value: u32) -> Self {
-        self.inner.shader_signed_zero_inf_nan_preserve_float64 = value;
+    pub fn shader_signed_zero_inf_nan_preserve_float64(mut self, value: bool) -> Self {
+        self.inner.shader_signed_zero_inf_nan_preserve_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_preserve_float16(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_preserve_float16 = value;
+    pub fn shader_denorm_preserve_float16(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_preserve_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_preserve_float32(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_preserve_float32 = value;
+    pub fn shader_denorm_preserve_float32(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_preserve_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_preserve_float64(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_preserve_float64 = value;
+    pub fn shader_denorm_preserve_float64(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_preserve_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_flush_to_zero_float16(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_flush_to_zero_float16 = value;
+    pub fn shader_denorm_flush_to_zero_float16(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_flush_to_zero_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_flush_to_zero_float32(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_flush_to_zero_float32 = value;
+    pub fn shader_denorm_flush_to_zero_float32(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_flush_to_zero_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_flush_to_zero_float64(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_flush_to_zero_float64 = value;
+    pub fn shader_denorm_flush_to_zero_float64(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_flush_to_zero_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rte_float16(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rte_float16 = value;
+    pub fn shader_rounding_mode_rte_float16(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rte_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rte_float32(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rte_float32 = value;
+    pub fn shader_rounding_mode_rte_float32(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rte_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rte_float64(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rte_float64 = value;
+    pub fn shader_rounding_mode_rte_float64(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rte_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rtz_float16(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rtz_float16 = value;
+    pub fn shader_rounding_mode_rtz_float16(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rtz_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rtz_float32(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rtz_float32 = value;
+    pub fn shader_rounding_mode_rtz_float32(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rtz_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rtz_float64(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rtz_float64 = value;
+    pub fn shader_rounding_mode_rtz_float64(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rtz_float64 = value as u32;
         self
     }
 }
@@ -19468,8 +19473,8 @@ impl PhysicalDeviceHostQueryResetFeatures {
 }
 impl<'a> PhysicalDeviceHostQueryResetFeaturesBuilder<'a> {
     #[inline]
-    pub fn host_query_reset(mut self, value: u32) -> Self {
-        self.inner.host_query_reset = value;
+    pub fn host_query_reset(mut self, value: bool) -> Self {
+        self.inner.host_query_reset = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHostQueryResetFeatures`]'s **Extended By** section for valid types.
@@ -19644,8 +19649,8 @@ impl PhysicalDevicePresentationPropertiesANDROID {
 }
 impl<'a> PhysicalDevicePresentationPropertiesANDROIDBuilder<'a> {
     #[inline]
-    pub fn shared_image(mut self, value: u32) -> Self {
-        self.inner.shared_image = value;
+    pub fn shared_image(mut self, value: bool) -> Self {
+        self.inner.shared_image = value as u32;
         self
     }
 }
@@ -19735,8 +19740,8 @@ impl PhysicalDeviceGlobalPriorityQueryFeatures {
 }
 impl<'a> PhysicalDeviceGlobalPriorityQueryFeaturesBuilder<'a> {
     #[inline]
-    pub fn global_priority_query(mut self, value: u32) -> Self {
-        self.inner.global_priority_query = value;
+    pub fn global_priority_query(mut self, value: bool) -> Self {
+        self.inner.global_priority_query = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceGlobalPriorityQueryFeatures`]'s **Extended By** section for valid types.
@@ -20183,8 +20188,8 @@ impl PhysicalDeviceDeviceMemoryReportFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn device_memory_report(mut self, value: u32) -> Self {
-        self.inner.device_memory_report = value;
+    pub fn device_memory_report(mut self, value: bool) -> Self {
+        self.inner.device_memory_report = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceMemoryReportFeaturesEXT`]'s **Extended By** section for valid types.
@@ -20525,33 +20530,36 @@ impl<'a> PhysicalDeviceConservativeRasterizationPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn primitive_underestimation(mut self, value: u32) -> Self {
-        self.inner.primitive_underestimation = value;
+    pub fn primitive_underestimation(mut self, value: bool) -> Self {
+        self.inner.primitive_underestimation = value as u32;
         self
     }
     #[inline]
-    pub fn conservative_point_and_line_rasterization(mut self, value: u32) -> Self {
-        self.inner.conservative_point_and_line_rasterization = value;
+    pub fn conservative_point_and_line_rasterization(mut self, value: bool) -> Self {
+        self.inner.conservative_point_and_line_rasterization = value as u32;
         self
     }
     #[inline]
-    pub fn degenerate_triangles_rasterized(mut self, value: u32) -> Self {
-        self.inner.degenerate_triangles_rasterized = value;
+    pub fn degenerate_triangles_rasterized(mut self, value: bool) -> Self {
+        self.inner.degenerate_triangles_rasterized = value as u32;
         self
     }
     #[inline]
-    pub fn degenerate_lines_rasterized(mut self, value: u32) -> Self {
-        self.inner.degenerate_lines_rasterized = value;
+    pub fn degenerate_lines_rasterized(mut self, value: bool) -> Self {
+        self.inner.degenerate_lines_rasterized = value as u32;
         self
     }
     #[inline]
-    pub fn fully_covered_fragment_shader_input_variable(mut self, value: u32) -> Self {
-        self.inner.fully_covered_fragment_shader_input_variable = value;
+    pub fn fully_covered_fragment_shader_input_variable(mut self, value: bool) -> Self {
+        self.inner.fully_covered_fragment_shader_input_variable = value as u32;
         self
     }
     #[inline]
-    pub fn conservative_rasterization_post_depth_coverage(mut self, value: u32) -> Self {
-        self.inner.conservative_rasterization_post_depth_coverage = value;
+    pub fn conservative_rasterization_post_depth_coverage(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.conservative_rasterization_post_depth_coverage = value as u32;
         self
     }
 }
@@ -20862,148 +20870,156 @@ impl PhysicalDeviceDescriptorIndexingFeatures {
 }
 impl<'a> PhysicalDeviceDescriptorIndexingFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_input_attachment_array_dynamic_indexing(mut self, value: u32) -> Self {
-        self.inner.shader_input_attachment_array_dynamic_indexing = value;
+    pub fn shader_input_attachment_array_dynamic_indexing(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.shader_input_attachment_array_dynamic_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_uniform_texel_buffer_array_dynamic_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_texel_buffer_array_dynamic_indexing = value;
+        self.inner.shader_uniform_texel_buffer_array_dynamic_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_texel_buffer_array_dynamic_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_texel_buffer_array_dynamic_indexing = value;
+        self.inner.shader_storage_texel_buffer_array_dynamic_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_uniform_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_uniform_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_sampled_image_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_sampled_image_array_non_uniform_indexing = value;
+        self.inner.shader_sampled_image_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_storage_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_image_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_image_array_non_uniform_indexing = value;
+        self.inner.shader_storage_image_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_input_attachment_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_input_attachment_array_non_uniform_indexing = value;
+        self.inner.shader_input_attachment_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_uniform_texel_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_texel_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_uniform_texel_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_texel_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_texel_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_storage_texel_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_uniform_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_uniform_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_uniform_buffer_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_sampled_image_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_sampled_image_update_after_bind = value;
+        self.inner.descriptor_binding_sampled_image_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_storage_image_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_storage_image_update_after_bind = value;
+        self.inner.descriptor_binding_storage_image_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_storage_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_storage_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_storage_buffer_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_uniform_texel_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_uniform_texel_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_uniform_texel_buffer_update_after_bind = value
+            as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_storage_texel_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_storage_texel_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_storage_texel_buffer_update_after_bind = value
+            as u32;
         self
     }
     #[inline]
-    pub fn descriptor_binding_update_unused_while_pending(mut self, value: u32) -> Self {
-        self.inner.descriptor_binding_update_unused_while_pending = value;
+    pub fn descriptor_binding_update_unused_while_pending(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.descriptor_binding_update_unused_while_pending = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_binding_partially_bound(mut self, value: u32) -> Self {
-        self.inner.descriptor_binding_partially_bound = value;
+    pub fn descriptor_binding_partially_bound(mut self, value: bool) -> Self {
+        self.inner.descriptor_binding_partially_bound = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_binding_variable_descriptor_count(mut self, value: u32) -> Self {
-        self.inner.descriptor_binding_variable_descriptor_count = value;
+    pub fn descriptor_binding_variable_descriptor_count(mut self, value: bool) -> Self {
+        self.inner.descriptor_binding_variable_descriptor_count = value as u32;
         self
     }
     #[inline]
-    pub fn runtime_descriptor_array(mut self, value: u32) -> Self {
-        self.inner.runtime_descriptor_array = value;
+    pub fn runtime_descriptor_array(mut self, value: bool) -> Self {
+        self.inner.runtime_descriptor_array = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorIndexingFeatures`]'s **Extended By** section for valid types.
@@ -21062,51 +21078,54 @@ impl<'a> PhysicalDeviceDescriptorIndexingPropertiesBuilder<'a> {
     #[inline]
     pub fn shader_uniform_buffer_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_buffer_array_non_uniform_indexing_native = value;
+        self.inner.shader_uniform_buffer_array_non_uniform_indexing_native = value
+            as u32;
         self
     }
     #[inline]
     pub fn shader_sampled_image_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_sampled_image_array_non_uniform_indexing_native = value;
+        self.inner.shader_sampled_image_array_non_uniform_indexing_native = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_buffer_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_buffer_array_non_uniform_indexing_native = value;
+        self.inner.shader_storage_buffer_array_non_uniform_indexing_native = value
+            as u32;
         self
     }
     #[inline]
     pub fn shader_storage_image_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_image_array_non_uniform_indexing_native = value;
+        self.inner.shader_storage_image_array_non_uniform_indexing_native = value as u32;
         self
     }
     #[inline]
     pub fn shader_input_attachment_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_input_attachment_array_non_uniform_indexing_native = value;
+        self.inner.shader_input_attachment_array_non_uniform_indexing_native = value
+            as u32;
         self
     }
     #[inline]
-    pub fn robust_buffer_access_update_after_bind(mut self, value: u32) -> Self {
-        self.inner.robust_buffer_access_update_after_bind = value;
+    pub fn robust_buffer_access_update_after_bind(mut self, value: bool) -> Self {
+        self.inner.robust_buffer_access_update_after_bind = value as u32;
         self
     }
     #[inline]
-    pub fn quad_divergent_implicit_lod(mut self, value: u32) -> Self {
-        self.inner.quad_divergent_implicit_lod = value;
+    pub fn quad_divergent_implicit_lod(mut self, value: bool) -> Self {
+        self.inner.quad_divergent_implicit_lod = value as u32;
         self
     }
     #[inline]
@@ -21911,8 +21930,8 @@ impl PhysicalDeviceTimelineSemaphoreFeatures {
 }
 impl<'a> PhysicalDeviceTimelineSemaphoreFeaturesBuilder<'a> {
     #[inline]
-    pub fn timeline_semaphore(mut self, value: u32) -> Self {
-        self.inner.timeline_semaphore = value;
+    pub fn timeline_semaphore(mut self, value: bool) -> Self {
+        self.inner.timeline_semaphore = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTimelineSemaphoreFeatures`]'s **Extended By** section for valid types.
@@ -22341,8 +22360,8 @@ impl<'a> PhysicalDeviceVertexAttributeDivisorPropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn supports_non_zero_first_instance(mut self, value: u32) -> Self {
-        self.inner.supports_non_zero_first_instance = value;
+    pub fn supports_non_zero_first_instance(mut self, value: bool) -> Self {
+        self.inner.supports_non_zero_first_instance = value as u32;
         self
     }
 }
@@ -22699,8 +22718,8 @@ impl CommandBufferInheritanceConditionalRenderingInfoEXT {
 }
 impl<'a> CommandBufferInheritanceConditionalRenderingInfoEXTBuilder<'a> {
     #[inline]
-    pub fn conditional_rendering_enable(mut self, value: u32) -> Self {
-        self.inner.conditional_rendering_enable = value;
+    pub fn conditional_rendering_enable(mut self, value: bool) -> Self {
+        self.inner.conditional_rendering_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`CommandBufferInheritanceConditionalRenderingInfoEXT`]'s **Extended By** section for valid types.
@@ -22807,18 +22826,18 @@ impl PhysicalDevice8BitStorageFeatures {
 }
 impl<'a> PhysicalDevice8BitStorageFeaturesBuilder<'a> {
     #[inline]
-    pub fn storage_buffer8_bit_access(mut self, value: u32) -> Self {
-        self.inner.storage_buffer8_bit_access = value;
+    pub fn storage_buffer8_bit_access(mut self, value: bool) -> Self {
+        self.inner.storage_buffer8_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn uniform_and_storage_buffer8_bit_access(mut self, value: u32) -> Self {
-        self.inner.uniform_and_storage_buffer8_bit_access = value;
+    pub fn uniform_and_storage_buffer8_bit_access(mut self, value: bool) -> Self {
+        self.inner.uniform_and_storage_buffer8_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn storage_push_constant8(mut self, value: u32) -> Self {
-        self.inner.storage_push_constant8 = value;
+    pub fn storage_push_constant8(mut self, value: bool) -> Self {
+        self.inner.storage_push_constant8 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevice8BitStorageFeatures`]'s **Extended By** section for valid types.
@@ -22870,13 +22889,13 @@ impl PhysicalDeviceConditionalRenderingFeaturesEXT {
 }
 impl<'a> PhysicalDeviceConditionalRenderingFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn conditional_rendering(mut self, value: u32) -> Self {
-        self.inner.conditional_rendering = value;
+    pub fn conditional_rendering(mut self, value: bool) -> Self {
+        self.inner.conditional_rendering = value as u32;
         self
     }
     #[inline]
-    pub fn inherited_conditional_rendering(mut self, value: u32) -> Self {
-        self.inner.inherited_conditional_rendering = value;
+    pub fn inherited_conditional_rendering(mut self, value: bool) -> Self {
+        self.inner.inherited_conditional_rendering = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceConditionalRenderingFeaturesEXT`]'s **Extended By** section for valid types.
@@ -22929,21 +22948,21 @@ impl PhysicalDeviceVulkanMemoryModelFeatures {
 }
 impl<'a> PhysicalDeviceVulkanMemoryModelFeaturesBuilder<'a> {
     #[inline]
-    pub fn vulkan_memory_model(mut self, value: u32) -> Self {
-        self.inner.vulkan_memory_model = value;
+    pub fn vulkan_memory_model(mut self, value: bool) -> Self {
+        self.inner.vulkan_memory_model = value as u32;
         self
     }
     #[inline]
-    pub fn vulkan_memory_model_device_scope(mut self, value: u32) -> Self {
-        self.inner.vulkan_memory_model_device_scope = value;
+    pub fn vulkan_memory_model_device_scope(mut self, value: bool) -> Self {
+        self.inner.vulkan_memory_model_device_scope = value as u32;
         self
     }
     #[inline]
     pub fn vulkan_memory_model_availability_visibility_chains(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.vulkan_memory_model_availability_visibility_chains = value;
+        self.inner.vulkan_memory_model_availability_visibility_chains = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkanMemoryModelFeatures`]'s **Extended By** section for valid types.
@@ -22995,13 +23014,13 @@ impl PhysicalDeviceShaderAtomicInt64Features {
 }
 impl<'a> PhysicalDeviceShaderAtomicInt64FeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_buffer_int64_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_int64_atomics = value;
+    pub fn shader_buffer_int64_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_int64_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_int64_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_shared_int64_atomics = value;
+    pub fn shader_shared_int64_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_shared_int64_atomics = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicInt64Features`]'s **Extended By** section for valid types.
@@ -23053,63 +23072,63 @@ impl PhysicalDeviceShaderAtomicFloatFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_buffer_float32_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float32_atomics = value;
+    pub fn shader_buffer_float32_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float32_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_float32_atomic_add(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float32_atomic_add = value;
+    pub fn shader_buffer_float32_atomic_add(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float32_atomic_add = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_float64_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float64_atomics = value;
+    pub fn shader_buffer_float64_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float64_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_float64_atomic_add(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float64_atomic_add = value;
+    pub fn shader_buffer_float64_atomic_add(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float64_atomic_add = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float32_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float32_atomics = value;
+    pub fn shader_shared_float32_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float32_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float32_atomic_add(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float32_atomic_add = value;
+    pub fn shader_shared_float32_atomic_add(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float32_atomic_add = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float64_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float64_atomics = value;
+    pub fn shader_shared_float64_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float64_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float64_atomic_add(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float64_atomic_add = value;
+    pub fn shader_shared_float64_atomic_add(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float64_atomic_add = value as u32;
         self
     }
     #[inline]
-    pub fn shader_image_float32_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_image_float32_atomics = value;
+    pub fn shader_image_float32_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_image_float32_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_image_float32_atomic_add(mut self, value: u32) -> Self {
-        self.inner.shader_image_float32_atomic_add = value;
+    pub fn shader_image_float32_atomic_add(mut self, value: bool) -> Self {
+        self.inner.shader_image_float32_atomic_add = value as u32;
         self
     }
     #[inline]
-    pub fn sparse_image_float32_atomics(mut self, value: u32) -> Self {
-        self.inner.sparse_image_float32_atomics = value;
+    pub fn sparse_image_float32_atomics(mut self, value: bool) -> Self {
+        self.inner.sparse_image_float32_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn sparse_image_float32_atomic_add(mut self, value: u32) -> Self {
-        self.inner.sparse_image_float32_atomic_add = value;
+    pub fn sparse_image_float32_atomic_add(mut self, value: bool) -> Self {
+        self.inner.sparse_image_float32_atomic_add = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicFloatFeaturesEXT`]'s **Extended By** section for valid types.
@@ -23161,63 +23180,63 @@ impl PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_buffer_float16_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float16_atomics = value;
+    pub fn shader_buffer_float16_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float16_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_float16_atomic_add(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float16_atomic_add = value;
+    pub fn shader_buffer_float16_atomic_add(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float16_atomic_add = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_float16_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float16_atomic_min_max = value;
+    pub fn shader_buffer_float16_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float16_atomic_min_max = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_float32_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float32_atomic_min_max = value;
+    pub fn shader_buffer_float32_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float32_atomic_min_max = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_float64_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_float64_atomic_min_max = value;
+    pub fn shader_buffer_float64_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_float64_atomic_min_max = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float16_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float16_atomics = value;
+    pub fn shader_shared_float16_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float16_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float16_atomic_add(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float16_atomic_add = value;
+    pub fn shader_shared_float16_atomic_add(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float16_atomic_add = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float16_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float16_atomic_min_max = value;
+    pub fn shader_shared_float16_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float16_atomic_min_max = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float32_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float32_atomic_min_max = value;
+    pub fn shader_shared_float32_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float32_atomic_min_max = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_float64_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.shader_shared_float64_atomic_min_max = value;
+    pub fn shader_shared_float64_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.shader_shared_float64_atomic_min_max = value as u32;
         self
     }
     #[inline]
-    pub fn shader_image_float32_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.shader_image_float32_atomic_min_max = value;
+    pub fn shader_image_float32_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.shader_image_float32_atomic_min_max = value as u32;
         self
     }
     #[inline]
-    pub fn sparse_image_float32_atomic_min_max(mut self, value: u32) -> Self {
-        self.inner.sparse_image_float32_atomic_min_max = value;
+    pub fn sparse_image_float32_atomic_min_max(mut self, value: bool) -> Self {
+        self.inner.sparse_image_float32_atomic_min_max = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicFloat2FeaturesEXT`]'s **Extended By** section for valid types.
@@ -23269,13 +23288,13 @@ impl PhysicalDeviceVertexAttributeDivisorFeatures {
 }
 impl<'a> PhysicalDeviceVertexAttributeDivisorFeaturesBuilder<'a> {
     #[inline]
-    pub fn vertex_attribute_instance_rate_divisor(mut self, value: u32) -> Self {
-        self.inner.vertex_attribute_instance_rate_divisor = value;
+    pub fn vertex_attribute_instance_rate_divisor(mut self, value: bool) -> Self {
+        self.inner.vertex_attribute_instance_rate_divisor = value as u32;
         self
     }
     #[inline]
-    pub fn vertex_attribute_instance_rate_zero_divisor(mut self, value: u32) -> Self {
-        self.inner.vertex_attribute_instance_rate_zero_divisor = value;
+    pub fn vertex_attribute_instance_rate_zero_divisor(mut self, value: bool) -> Self {
+        self.inner.vertex_attribute_instance_rate_zero_divisor = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVertexAttributeDivisorFeatures`]'s **Extended By** section for valid types.
@@ -23419,13 +23438,13 @@ impl<'a> PhysicalDeviceDepthStencilResolvePropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn independent_resolve_none(mut self, value: u32) -> Self {
-        self.inner.independent_resolve_none = value;
+    pub fn independent_resolve_none(mut self, value: bool) -> Self {
+        self.inner.independent_resolve_none = value as u32;
         self
     }
     #[inline]
-    pub fn independent_resolve(mut self, value: u32) -> Self {
-        self.inner.independent_resolve = value;
+    pub fn independent_resolve(mut self, value: bool) -> Self {
+        self.inner.independent_resolve = value as u32;
         self
     }
 }
@@ -23581,8 +23600,8 @@ impl PhysicalDeviceASTCDecodeFeaturesEXT {
 }
 impl<'a> PhysicalDeviceASTCDecodeFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn decode_mode_shared_exponent(mut self, value: u32) -> Self {
-        self.inner.decode_mode_shared_exponent = value;
+    pub fn decode_mode_shared_exponent(mut self, value: bool) -> Self {
+        self.inner.decode_mode_shared_exponent = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceASTCDecodeFeaturesEXT`]'s **Extended By** section for valid types.
@@ -23634,13 +23653,13 @@ impl PhysicalDeviceTransformFeedbackFeaturesEXT {
 }
 impl<'a> PhysicalDeviceTransformFeedbackFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn transform_feedback(mut self, value: u32) -> Self {
-        self.inner.transform_feedback = value;
+    pub fn transform_feedback(mut self, value: bool) -> Self {
+        self.inner.transform_feedback = value as u32;
         self
     }
     #[inline]
-    pub fn geometry_streams(mut self, value: u32) -> Self {
-        self.inner.geometry_streams = value;
+    pub fn geometry_streams(mut self, value: bool) -> Self {
+        self.inner.geometry_streams = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTransformFeedbackFeaturesEXT`]'s **Extended By** section for valid types.
@@ -23722,23 +23741,26 @@ impl<'a> PhysicalDeviceTransformFeedbackPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn transform_feedback_queries(mut self, value: u32) -> Self {
-        self.inner.transform_feedback_queries = value;
+    pub fn transform_feedback_queries(mut self, value: bool) -> Self {
+        self.inner.transform_feedback_queries = value as u32;
         self
     }
     #[inline]
-    pub fn transform_feedback_streams_lines_triangles(mut self, value: u32) -> Self {
-        self.inner.transform_feedback_streams_lines_triangles = value;
+    pub fn transform_feedback_streams_lines_triangles(mut self, value: bool) -> Self {
+        self.inner.transform_feedback_streams_lines_triangles = value as u32;
         self
     }
     #[inline]
-    pub fn transform_feedback_rasterization_stream_select(mut self, value: u32) -> Self {
-        self.inner.transform_feedback_rasterization_stream_select = value;
+    pub fn transform_feedback_rasterization_stream_select(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.transform_feedback_rasterization_stream_select = value as u32;
         self
     }
     #[inline]
-    pub fn transform_feedback_draw(mut self, value: u32) -> Self {
-        self.inner.transform_feedback_draw = value;
+    pub fn transform_feedback_draw(mut self, value: bool) -> Self {
+        self.inner.transform_feedback_draw = value as u32;
         self
     }
 }
@@ -23840,8 +23862,8 @@ impl PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
 }
 impl<'a> PhysicalDeviceRepresentativeFragmentTestFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn representative_fragment_test(mut self, value: u32) -> Self {
-        self.inner.representative_fragment_test = value;
+    pub fn representative_fragment_test(mut self, value: bool) -> Self {
+        self.inner.representative_fragment_test = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRepresentativeFragmentTestFeaturesNV`]'s **Extended By** section for valid types.
@@ -23897,8 +23919,8 @@ impl PipelineRepresentativeFragmentTestStateCreateInfoNV {
 }
 impl<'a> PipelineRepresentativeFragmentTestStateCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn representative_fragment_test_enable(mut self, value: u32) -> Self {
-        self.inner.representative_fragment_test_enable = value;
+    pub fn representative_fragment_test_enable(mut self, value: bool) -> Self {
+        self.inner.representative_fragment_test_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PipelineRepresentativeFragmentTestStateCreateInfoNV`]'s **Extended By** section for valid types.
@@ -23952,8 +23974,8 @@ impl PhysicalDeviceExclusiveScissorFeaturesNV {
 }
 impl<'a> PhysicalDeviceExclusiveScissorFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn exclusive_scissor(mut self, value: u32) -> Self {
-        self.inner.exclusive_scissor = value;
+    pub fn exclusive_scissor(mut self, value: bool) -> Self {
+        self.inner.exclusive_scissor = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExclusiveScissorFeaturesNV`]'s **Extended By** section for valid types.
@@ -24063,8 +24085,8 @@ impl PhysicalDeviceCornerSampledImageFeaturesNV {
 }
 impl<'a> PhysicalDeviceCornerSampledImageFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn corner_sampled_image(mut self, value: u32) -> Self {
-        self.inner.corner_sampled_image = value;
+    pub fn corner_sampled_image(mut self, value: bool) -> Self {
+        self.inner.corner_sampled_image = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCornerSampledImageFeaturesNV`]'s **Extended By** section for valid types.
@@ -24118,13 +24140,13 @@ impl PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
 }
 impl<'a> PhysicalDeviceComputeShaderDerivativesFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn compute_derivative_group_quads(mut self, value: u32) -> Self {
-        self.inner.compute_derivative_group_quads = value;
+    pub fn compute_derivative_group_quads(mut self, value: bool) -> Self {
+        self.inner.compute_derivative_group_quads = value as u32;
         self
     }
     #[inline]
-    pub fn compute_derivative_group_linear(mut self, value: u32) -> Self {
-        self.inner.compute_derivative_group_linear = value;
+    pub fn compute_derivative_group_linear(mut self, value: bool) -> Self {
+        self.inner.compute_derivative_group_linear = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceComputeShaderDerivativesFeaturesKHR`]'s **Extended By** section for valid types.
@@ -24180,8 +24202,8 @@ impl PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
 }
 impl<'a> PhysicalDeviceComputeShaderDerivativesPropertiesKHRBuilder<'a> {
     #[inline]
-    pub fn mesh_and_task_shader_derivatives(mut self, value: u32) -> Self {
-        self.inner.mesh_and_task_shader_derivatives = value;
+    pub fn mesh_and_task_shader_derivatives(mut self, value: bool) -> Self {
+        self.inner.mesh_and_task_shader_derivatives = value as u32;
         self
     }
 }
@@ -24220,8 +24242,8 @@ impl PhysicalDeviceShaderImageFootprintFeaturesNV {
 }
 impl<'a> PhysicalDeviceShaderImageFootprintFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn image_footprint(mut self, value: u32) -> Self {
-        self.inner.image_footprint = value;
+    pub fn image_footprint(mut self, value: bool) -> Self {
+        self.inner.image_footprint = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderImageFootprintFeaturesNV`]'s **Extended By** section for valid types.
@@ -24276,8 +24298,8 @@ impl PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
 }
 impl<'a> PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn dedicated_allocation_image_aliasing(mut self, value: u32) -> Self {
-        self.inner.dedicated_allocation_image_aliasing = value;
+    pub fn dedicated_allocation_image_aliasing(mut self, value: bool) -> Self {
+        self.inner.dedicated_allocation_image_aliasing = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV`]'s **Extended By** section for valid types.
@@ -24331,13 +24353,13 @@ impl PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
 }
 impl<'a> PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn indirect_memory_copy(mut self, value: u32) -> Self {
-        self.inner.indirect_memory_copy = value;
+    pub fn indirect_memory_copy(mut self, value: bool) -> Self {
+        self.inner.indirect_memory_copy = value as u32;
         self
     }
     #[inline]
-    pub fn indirect_memory_to_image_copy(mut self, value: u32) -> Self {
-        self.inner.indirect_memory_to_image_copy = value;
+    pub fn indirect_memory_to_image_copy(mut self, value: bool) -> Self {
+        self.inner.indirect_memory_to_image_copy = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCopyMemoryIndirectFeaturesKHR`]'s **Extended By** section for valid types.
@@ -24389,8 +24411,8 @@ impl PhysicalDeviceCopyMemoryIndirectFeaturesNV {
 }
 impl<'a> PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn indirect_copy(mut self, value: u32) -> Self {
-        self.inner.indirect_copy = value;
+    pub fn indirect_copy(mut self, value: bool) -> Self {
+        self.inner.indirect_copy = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCopyMemoryIndirectFeaturesNV`]'s **Extended By** section for valid types.
@@ -24481,8 +24503,8 @@ impl PhysicalDeviceMemoryDecompressionFeaturesEXT {
 }
 impl<'a> PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn memory_decompression(mut self, value: u32) -> Self {
-        self.inner.memory_decompression = value;
+    pub fn memory_decompression(mut self, value: bool) -> Self {
+        self.inner.memory_decompression = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMemoryDecompressionFeaturesEXT`]'s **Extended By** section for valid types.
@@ -24584,8 +24606,8 @@ impl PipelineViewportShadingRateImageStateCreateInfoNV {
 }
 impl<'a> PipelineViewportShadingRateImageStateCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn shading_rate_image_enable(mut self, value: u32) -> Self {
-        self.inner.shading_rate_image_enable = value;
+    pub fn shading_rate_image_enable(mut self, value: bool) -> Self {
+        self.inner.shading_rate_image_enable = value as u32;
         self
     }
     #[inline]
@@ -24645,13 +24667,13 @@ impl PhysicalDeviceShadingRateImageFeaturesNV {
 }
 impl<'a> PhysicalDeviceShadingRateImageFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn shading_rate_image(mut self, value: u32) -> Self {
-        self.inner.shading_rate_image = value;
+    pub fn shading_rate_image(mut self, value: bool) -> Self {
+        self.inner.shading_rate_image = value as u32;
         self
     }
     #[inline]
-    pub fn shading_rate_coarse_sample_order(mut self, value: u32) -> Self {
-        self.inner.shading_rate_coarse_sample_order = value;
+    pub fn shading_rate_coarse_sample_order(mut self, value: bool) -> Self {
+        self.inner.shading_rate_coarse_sample_order = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShadingRateImageFeaturesNV`]'s **Extended By** section for valid types.
@@ -24751,8 +24773,8 @@ impl PhysicalDeviceInvocationMaskFeaturesHUAWEI {
 }
 impl<'a> PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder<'a> {
     #[inline]
-    pub fn invocation_mask(mut self, value: u32) -> Self {
-        self.inner.invocation_mask = value;
+    pub fn invocation_mask(mut self, value: bool) -> Self {
+        self.inner.invocation_mask = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInvocationMaskFeaturesHUAWEI`]'s **Extended By** section for valid types.
@@ -24870,13 +24892,13 @@ impl PhysicalDeviceMeshShaderFeaturesNV {
 }
 impl<'a> PhysicalDeviceMeshShaderFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn task_shader(mut self, value: u32) -> Self {
-        self.inner.task_shader = value;
+    pub fn task_shader(mut self, value: bool) -> Self {
+        self.inner.task_shader = value as u32;
         self
     }
     #[inline]
-    pub fn mesh_shader(mut self, value: u32) -> Self {
-        self.inner.mesh_shader = value;
+    pub fn mesh_shader(mut self, value: bool) -> Self {
+        self.inner.mesh_shader = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMeshShaderFeaturesNV`]'s **Extended By** section for valid types.
@@ -25026,28 +25048,28 @@ impl PhysicalDeviceMeshShaderFeaturesEXT {
 }
 impl<'a> PhysicalDeviceMeshShaderFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn task_shader(mut self, value: u32) -> Self {
-        self.inner.task_shader = value;
+    pub fn task_shader(mut self, value: bool) -> Self {
+        self.inner.task_shader = value as u32;
         self
     }
     #[inline]
-    pub fn mesh_shader(mut self, value: u32) -> Self {
-        self.inner.mesh_shader = value;
+    pub fn mesh_shader(mut self, value: bool) -> Self {
+        self.inner.mesh_shader = value as u32;
         self
     }
     #[inline]
-    pub fn multiview_mesh_shader(mut self, value: u32) -> Self {
-        self.inner.multiview_mesh_shader = value;
+    pub fn multiview_mesh_shader(mut self, value: bool) -> Self {
+        self.inner.multiview_mesh_shader = value as u32;
         self
     }
     #[inline]
-    pub fn primitive_fragment_shading_rate_mesh_shader(mut self, value: u32) -> Self {
-        self.inner.primitive_fragment_shading_rate_mesh_shader = value;
+    pub fn primitive_fragment_shading_rate_mesh_shader(mut self, value: bool) -> Self {
+        self.inner.primitive_fragment_shading_rate_mesh_shader = value as u32;
         self
     }
     #[inline]
-    pub fn mesh_shader_queries(mut self, value: u32) -> Self {
-        self.inner.mesh_shader_queries = value;
+    pub fn mesh_shader_queries(mut self, value: bool) -> Self {
+        self.inner.mesh_shader_queries = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMeshShaderFeaturesEXT`]'s **Extended By** section for valid types.
@@ -25219,23 +25241,23 @@ impl<'a> PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn prefers_local_invocation_vertex_output(mut self, value: u32) -> Self {
-        self.inner.prefers_local_invocation_vertex_output = value;
+    pub fn prefers_local_invocation_vertex_output(mut self, value: bool) -> Self {
+        self.inner.prefers_local_invocation_vertex_output = value as u32;
         self
     }
     #[inline]
-    pub fn prefers_local_invocation_primitive_output(mut self, value: u32) -> Self {
-        self.inner.prefers_local_invocation_primitive_output = value;
+    pub fn prefers_local_invocation_primitive_output(mut self, value: bool) -> Self {
+        self.inner.prefers_local_invocation_primitive_output = value as u32;
         self
     }
     #[inline]
-    pub fn prefers_compact_vertex_output(mut self, value: u32) -> Self {
-        self.inner.prefers_compact_vertex_output = value;
+    pub fn prefers_compact_vertex_output(mut self, value: bool) -> Self {
+        self.inner.prefers_compact_vertex_output = value as u32;
         self
     }
     #[inline]
-    pub fn prefers_compact_primitive_output(mut self, value: u32) -> Self {
-        self.inner.prefers_compact_primitive_output = value;
+    pub fn prefers_compact_primitive_output(mut self, value: bool) -> Self {
+        self.inner.prefers_compact_primitive_output = value as u32;
         self
     }
 }
@@ -26214,31 +26236,32 @@ impl PhysicalDeviceAccelerationStructureFeaturesKHR {
 }
 impl<'a> PhysicalDeviceAccelerationStructureFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn acceleration_structure(mut self, value: u32) -> Self {
-        self.inner.acceleration_structure = value;
+    pub fn acceleration_structure(mut self, value: bool) -> Self {
+        self.inner.acceleration_structure = value as u32;
         self
     }
     #[inline]
-    pub fn acceleration_structure_capture_replay(mut self, value: u32) -> Self {
-        self.inner.acceleration_structure_capture_replay = value;
+    pub fn acceleration_structure_capture_replay(mut self, value: bool) -> Self {
+        self.inner.acceleration_structure_capture_replay = value as u32;
         self
     }
     #[inline]
-    pub fn acceleration_structure_indirect_build(mut self, value: u32) -> Self {
-        self.inner.acceleration_structure_indirect_build = value;
+    pub fn acceleration_structure_indirect_build(mut self, value: bool) -> Self {
+        self.inner.acceleration_structure_indirect_build = value as u32;
         self
     }
     #[inline]
-    pub fn acceleration_structure_host_commands(mut self, value: u32) -> Self {
-        self.inner.acceleration_structure_host_commands = value;
+    pub fn acceleration_structure_host_commands(mut self, value: bool) -> Self {
+        self.inner.acceleration_structure_host_commands = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_acceleration_structure_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_acceleration_structure_update_after_bind = value;
+        self.inner.descriptor_binding_acceleration_structure_update_after_bind = value
+            as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAccelerationStructureFeaturesKHR`]'s **Extended By** section for valid types.
@@ -26291,34 +26314,36 @@ impl PhysicalDeviceRayTracingPipelineFeaturesKHR {
 }
 impl<'a> PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn ray_tracing_pipeline(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_pipeline = value;
+    pub fn ray_tracing_pipeline(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_pipeline = value as u32;
         self
     }
     #[inline]
     pub fn ray_tracing_pipeline_shader_group_handle_capture_replay(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.ray_tracing_pipeline_shader_group_handle_capture_replay = value;
+        self.inner.ray_tracing_pipeline_shader_group_handle_capture_replay = value
+            as u32;
         self
     }
     #[inline]
     pub fn ray_tracing_pipeline_shader_group_handle_capture_replay_mixed(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.ray_tracing_pipeline_shader_group_handle_capture_replay_mixed = value;
+        self.inner.ray_tracing_pipeline_shader_group_handle_capture_replay_mixed = value
+            as u32;
         self
     }
     #[inline]
-    pub fn ray_tracing_pipeline_trace_rays_indirect(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_pipeline_trace_rays_indirect = value;
+    pub fn ray_tracing_pipeline_trace_rays_indirect(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_pipeline_trace_rays_indirect = value as u32;
         self
     }
     #[inline]
-    pub fn ray_traversal_primitive_culling(mut self, value: u32) -> Self {
-        self.inner.ray_traversal_primitive_culling = value;
+    pub fn ray_traversal_primitive_culling(mut self, value: bool) -> Self {
+        self.inner.ray_traversal_primitive_culling = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingPipelineFeaturesKHR`]'s **Extended By** section for valid types.
@@ -26370,8 +26395,8 @@ impl PhysicalDeviceRayQueryFeaturesKHR {
 }
 impl<'a> PhysicalDeviceRayQueryFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn ray_query(mut self, value: u32) -> Self {
-        self.inner.ray_query = value;
+    pub fn ray_query(mut self, value: bool) -> Self {
+        self.inner.ray_query = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayQueryFeaturesKHR`]'s **Extended By** section for valid types.
@@ -26657,13 +26682,13 @@ impl PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
 }
 impl<'a> PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn ray_tracing_maintenance1(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_maintenance1 = value;
+    pub fn ray_tracing_maintenance1(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_maintenance1 = value as u32;
         self
     }
     #[inline]
-    pub fn ray_tracing_pipeline_trace_rays_indirect2(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_pipeline_trace_rays_indirect2 = value;
+    pub fn ray_tracing_pipeline_trace_rays_indirect2(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_pipeline_trace_rays_indirect2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingMaintenance1FeaturesKHR`]'s **Extended By** section for valid types.
@@ -27083,18 +27108,18 @@ impl PhysicalDeviceFragmentDensityMapFeaturesEXT {
 }
 impl<'a> PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn fragment_density_map(mut self, value: u32) -> Self {
-        self.inner.fragment_density_map = value;
+    pub fn fragment_density_map(mut self, value: bool) -> Self {
+        self.inner.fragment_density_map = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_density_map_dynamic(mut self, value: u32) -> Self {
-        self.inner.fragment_density_map_dynamic = value;
+    pub fn fragment_density_map_dynamic(mut self, value: bool) -> Self {
+        self.inner.fragment_density_map_dynamic = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_density_map_non_subsampled_images(mut self, value: u32) -> Self {
-        self.inner.fragment_density_map_non_subsampled_images = value;
+    pub fn fragment_density_map_non_subsampled_images(mut self, value: bool) -> Self {
+        self.inner.fragment_density_map_non_subsampled_images = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMapFeaturesEXT`]'s **Extended By** section for valid types.
@@ -27146,8 +27171,8 @@ impl PhysicalDeviceFragmentDensityMap2FeaturesEXT {
 }
 impl<'a> PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn fragment_density_map_deferred(mut self, value: u32) -> Self {
-        self.inner.fragment_density_map_deferred = value;
+    pub fn fragment_density_map_deferred(mut self, value: bool) -> Self {
+        self.inner.fragment_density_map_deferred = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMap2FeaturesEXT`]'s **Extended By** section for valid types.
@@ -27202,8 +27227,8 @@ impl PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
 }
 impl<'a> PhysicalDeviceFragmentDensityMapOffsetFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn fragment_density_map_offset(mut self, value: u32) -> Self {
-        self.inner.fragment_density_map_offset = value;
+    pub fn fragment_density_map_offset(mut self, value: bool) -> Self {
+        self.inner.fragment_density_map_offset = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT`]'s **Extended By** section for valid types.
@@ -27267,8 +27292,8 @@ impl<'a> PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn fragment_density_invocations(mut self, value: u32) -> Self {
-        self.inner.fragment_density_invocations = value;
+    pub fn fragment_density_invocations(mut self, value: bool) -> Self {
+        self.inner.fragment_density_invocations = value as u32;
         self
     }
 }
@@ -27306,13 +27331,13 @@ impl PhysicalDeviceFragmentDensityMap2PropertiesEXT {
 }
 impl<'a> PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn subsampled_loads(mut self, value: u32) -> Self {
-        self.inner.subsampled_loads = value;
+    pub fn subsampled_loads(mut self, value: bool) -> Self {
+        self.inner.subsampled_loads = value as u32;
         self
     }
     #[inline]
-    pub fn subsampled_coarse_reconstruction_early_access(mut self, value: u32) -> Self {
-        self.inner.subsampled_coarse_reconstruction_early_access = value;
+    pub fn subsampled_coarse_reconstruction_early_access(mut self, value: bool) -> Self {
+        self.inner.subsampled_coarse_reconstruction_early_access = value as u32;
         self
     }
     #[inline]
@@ -27513,8 +27538,8 @@ impl PhysicalDeviceScalarBlockLayoutFeatures {
 }
 impl<'a> PhysicalDeviceScalarBlockLayoutFeaturesBuilder<'a> {
     #[inline]
-    pub fn scalar_block_layout(mut self, value: u32) -> Self {
-        self.inner.scalar_block_layout = value;
+    pub fn scalar_block_layout(mut self, value: bool) -> Self {
+        self.inner.scalar_block_layout = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceScalarBlockLayoutFeatures`]'s **Extended By** section for valid types.
@@ -27566,8 +27591,8 @@ impl SurfaceProtectedCapabilitiesKHR {
 }
 impl<'a> SurfaceProtectedCapabilitiesKHRBuilder<'a> {
     #[inline]
-    pub fn supports_protected(mut self, value: u32) -> Self {
-        self.inner.supports_protected = value;
+    pub fn supports_protected(mut self, value: bool) -> Self {
+        self.inner.supports_protected = value as u32;
         self
     }
 }
@@ -27606,8 +27631,8 @@ impl PhysicalDeviceUniformBufferStandardLayoutFeatures {
 }
 impl<'a> PhysicalDeviceUniformBufferStandardLayoutFeaturesBuilder<'a> {
     #[inline]
-    pub fn uniform_buffer_standard_layout(mut self, value: u32) -> Self {
-        self.inner.uniform_buffer_standard_layout = value;
+    pub fn uniform_buffer_standard_layout(mut self, value: bool) -> Self {
+        self.inner.uniform_buffer_standard_layout = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceUniformBufferStandardLayoutFeatures`]'s **Extended By** section for valid types.
@@ -27661,8 +27686,8 @@ impl PhysicalDeviceDepthClipEnableFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDepthClipEnableFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn depth_clip_enable(mut self, value: u32) -> Self {
-        self.inner.depth_clip_enable = value;
+    pub fn depth_clip_enable(mut self, value: bool) -> Self {
+        self.inner.depth_clip_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClipEnableFeaturesEXT`]'s **Extended By** section for valid types.
@@ -27722,8 +27747,8 @@ impl<'a> PipelineRasterizationDepthClipStateCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn depth_clip_enable(mut self, value: u32) -> Self {
-        self.inner.depth_clip_enable = value;
+    pub fn depth_clip_enable(mut self, value: bool) -> Self {
+        self.inner.depth_clip_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PipelineRasterizationDepthClipStateCreateInfoEXT`]'s **Extended By** section for valid types.
@@ -27820,8 +27845,8 @@ impl PhysicalDeviceMemoryPriorityFeaturesEXT {
 }
 impl<'a> PhysicalDeviceMemoryPriorityFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn memory_priority(mut self, value: u32) -> Self {
-        self.inner.memory_priority = value;
+    pub fn memory_priority(mut self, value: bool) -> Self {
+        self.inner.memory_priority = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMemoryPriorityFeaturesEXT`]'s **Extended By** section for valid types.
@@ -27928,8 +27953,8 @@ impl PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
 }
 impl<'a> PhysicalDevicePageableDeviceLocalMemoryFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn pageable_device_local_memory(mut self, value: u32) -> Self {
-        self.inner.pageable_device_local_memory = value;
+    pub fn pageable_device_local_memory(mut self, value: bool) -> Self {
+        self.inner.pageable_device_local_memory = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT`]'s **Extended By** section for valid types.
@@ -27983,18 +28008,18 @@ impl PhysicalDeviceBufferDeviceAddressFeatures {
 }
 impl<'a> PhysicalDeviceBufferDeviceAddressFeaturesBuilder<'a> {
     #[inline]
-    pub fn buffer_device_address(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address = value;
+    pub fn buffer_device_address(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address = value as u32;
         self
     }
     #[inline]
-    pub fn buffer_device_address_capture_replay(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address_capture_replay = value;
+    pub fn buffer_device_address_capture_replay(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address_capture_replay = value as u32;
         self
     }
     #[inline]
-    pub fn buffer_device_address_multi_device(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address_multi_device = value;
+    pub fn buffer_device_address_multi_device(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address_multi_device = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBufferDeviceAddressFeatures`]'s **Extended By** section for valid types.
@@ -28046,18 +28071,18 @@ impl PhysicalDeviceBufferDeviceAddressFeaturesEXT {
 }
 impl<'a> PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn buffer_device_address(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address = value;
+    pub fn buffer_device_address(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address = value as u32;
         self
     }
     #[inline]
-    pub fn buffer_device_address_capture_replay(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address_capture_replay = value;
+    pub fn buffer_device_address_capture_replay(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address_capture_replay = value as u32;
         self
     }
     #[inline]
-    pub fn buffer_device_address_multi_device(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address_multi_device = value;
+    pub fn buffer_device_address_multi_device(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address_multi_device = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBufferDeviceAddressFeaturesEXT`]'s **Extended By** section for valid types.
@@ -28322,13 +28347,13 @@ impl FilterCubicImageViewImageFormatPropertiesEXT {
 }
 impl<'a> FilterCubicImageViewImageFormatPropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn filter_cubic(mut self, value: u32) -> Self {
-        self.inner.filter_cubic = value;
+    pub fn filter_cubic(mut self, value: bool) -> Self {
+        self.inner.filter_cubic = value as u32;
         self
     }
     #[inline]
-    pub fn filter_cubic_minmax(mut self, value: u32) -> Self {
-        self.inner.filter_cubic_minmax = value;
+    pub fn filter_cubic_minmax(mut self, value: bool) -> Self {
+        self.inner.filter_cubic_minmax = value as u32;
         self
     }
 }
@@ -28366,8 +28391,8 @@ impl PhysicalDeviceImagelessFramebufferFeatures {
 }
 impl<'a> PhysicalDeviceImagelessFramebufferFeaturesBuilder<'a> {
     #[inline]
-    pub fn imageless_framebuffer(mut self, value: u32) -> Self {
-        self.inner.imageless_framebuffer = value;
+    pub fn imageless_framebuffer(mut self, value: bool) -> Self {
+        self.inner.imageless_framebuffer = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImagelessFramebufferFeatures`]'s **Extended By** section for valid types.
@@ -28609,8 +28634,8 @@ impl PhysicalDeviceTextureCompressionASTCHDRFeatures {
 }
 impl<'a> PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder<'a> {
     #[inline]
-    pub fn texture_compression_astc_hdr(mut self, value: u32) -> Self {
-        self.inner.texture_compression_astc_hdr = value;
+    pub fn texture_compression_astc_hdr(mut self, value: bool) -> Self {
+        self.inner.texture_compression_astc_hdr = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTextureCompressionASTCHDRFeatures`]'s **Extended By** section for valid types.
@@ -28664,13 +28689,13 @@ impl PhysicalDeviceCooperativeMatrixFeaturesNV {
 }
 impl<'a> PhysicalDeviceCooperativeMatrixFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn cooperative_matrix(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix = value;
+    pub fn cooperative_matrix(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_robust_buffer_access(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_robust_buffer_access = value;
+    pub fn cooperative_matrix_robust_buffer_access(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_robust_buffer_access = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrixFeaturesNV`]'s **Extended By** section for valid types.
@@ -28836,8 +28861,8 @@ impl PhysicalDeviceYcbcrImageArraysFeaturesEXT {
 }
 impl<'a> PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn ycbcr_image_arrays(mut self, value: u32) -> Self {
-        self.inner.ycbcr_image_arrays = value;
+    pub fn ycbcr_image_arrays(mut self, value: bool) -> Self {
+        self.inner.ycbcr_image_arrays = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceYcbcrImageArraysFeaturesEXT`]'s **Extended By** section for valid types.
@@ -29216,8 +29241,8 @@ impl SurfaceCapabilitiesFullScreenExclusiveEXT {
 }
 impl<'a> SurfaceCapabilitiesFullScreenExclusiveEXTBuilder<'a> {
     #[inline]
-    pub fn full_screen_exclusive_supported(mut self, value: u32) -> Self {
-        self.inner.full_screen_exclusive_supported = value;
+    pub fn full_screen_exclusive_supported(mut self, value: bool) -> Self {
+        self.inner.full_screen_exclusive_supported = value as u32;
         self
     }
 }
@@ -29254,8 +29279,8 @@ impl PhysicalDevicePresentBarrierFeaturesNV {
 }
 impl<'a> PhysicalDevicePresentBarrierFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn present_barrier(mut self, value: u32) -> Self {
-        self.inner.present_barrier = value;
+    pub fn present_barrier(mut self, value: bool) -> Self {
+        self.inner.present_barrier = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentBarrierFeaturesNV`]'s **Extended By** section for valid types.
@@ -29307,8 +29332,8 @@ impl SurfaceCapabilitiesPresentBarrierNV {
 }
 impl<'a> SurfaceCapabilitiesPresentBarrierNVBuilder<'a> {
     #[inline]
-    pub fn present_barrier_supported(mut self, value: u32) -> Self {
-        self.inner.present_barrier_supported = value;
+    pub fn present_barrier_supported(mut self, value: bool) -> Self {
+        self.inner.present_barrier_supported = value as u32;
         self
     }
 }
@@ -29345,8 +29370,8 @@ impl SwapchainPresentBarrierCreateInfoNV {
 }
 impl<'a> SwapchainPresentBarrierCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn present_barrier_enable(mut self, value: u32) -> Self {
-        self.inner.present_barrier_enable = value;
+    pub fn present_barrier_enable(mut self, value: bool) -> Self {
+        self.inner.present_barrier_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SwapchainPresentBarrierCreateInfoNV`]'s **Extended By** section for valid types.
@@ -29398,13 +29423,13 @@ impl PhysicalDevicePerformanceQueryFeaturesKHR {
 }
 impl<'a> PhysicalDevicePerformanceQueryFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn performance_counter_query_pools(mut self, value: u32) -> Self {
-        self.inner.performance_counter_query_pools = value;
+    pub fn performance_counter_query_pools(mut self, value: bool) -> Self {
+        self.inner.performance_counter_query_pools = value as u32;
         self
     }
     #[inline]
-    pub fn performance_counter_multiple_query_pools(mut self, value: u32) -> Self {
-        self.inner.performance_counter_multiple_query_pools = value;
+    pub fn performance_counter_multiple_query_pools(mut self, value: bool) -> Self {
+        self.inner.performance_counter_multiple_query_pools = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePerformanceQueryFeaturesKHR`]'s **Extended By** section for valid types.
@@ -29456,8 +29481,8 @@ impl PhysicalDevicePerformanceQueryPropertiesKHR {
 }
 impl<'a> PhysicalDevicePerformanceQueryPropertiesKHRBuilder<'a> {
     #[inline]
-    pub fn allow_command_buffer_query_copies(mut self, value: u32) -> Self {
-        self.inner.allow_command_buffer_query_copies = value;
+    pub fn allow_command_buffer_query_copies(mut self, value: bool) -> Self {
+        self.inner.allow_command_buffer_query_copies = value as u32;
         self
     }
 }
@@ -29885,8 +29910,8 @@ impl PhysicalDeviceCoverageReductionModeFeaturesNV {
 }
 impl<'a> PhysicalDeviceCoverageReductionModeFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn coverage_reduction_mode(mut self, value: u32) -> Self {
-        self.inner.coverage_reduction_mode = value;
+    pub fn coverage_reduction_mode(mut self, value: bool) -> Self {
+        self.inner.coverage_reduction_mode = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCoverageReductionModeFeaturesNV`]'s **Extended By** section for valid types.
@@ -30052,8 +30077,8 @@ impl PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
 }
 impl<'a> PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<'a> {
     #[inline]
-    pub fn shader_integer_functions2(mut self, value: u32) -> Self {
-        self.inner.shader_integer_functions2 = value;
+    pub fn shader_integer_functions2(mut self, value: bool) -> Self {
+        self.inner.shader_integer_functions2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL`]'s **Extended By** section for valid types.
@@ -30327,8 +30352,8 @@ impl<'a> PerformanceOverrideInfoINTELBuilder<'a> {
         self
     }
     #[inline]
-    pub fn enable(mut self, value: u32) -> Self {
-        self.inner.enable = value;
+    pub fn enable(mut self, value: bool) -> Self {
+        self.inner.enable = value as u32;
         self
     }
     #[inline]
@@ -30438,13 +30463,13 @@ impl PhysicalDeviceShaderClockFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderClockFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_subgroup_clock(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_clock = value;
+    pub fn shader_subgroup_clock(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_clock = value as u32;
         self
     }
     #[inline]
-    pub fn shader_device_clock(mut self, value: u32) -> Self {
-        self.inner.shader_device_clock = value;
+    pub fn shader_device_clock(mut self, value: bool) -> Self {
+        self.inner.shader_device_clock = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderClockFeaturesKHR`]'s **Extended By** section for valid types.
@@ -30496,8 +30521,8 @@ impl PhysicalDeviceIndexTypeUint8Features {
 }
 impl<'a> PhysicalDeviceIndexTypeUint8FeaturesBuilder<'a> {
     #[inline]
-    pub fn index_type_uint8(mut self, value: u32) -> Self {
-        self.inner.index_type_uint8 = value;
+    pub fn index_type_uint8(mut self, value: bool) -> Self {
+        self.inner.index_type_uint8 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceIndexTypeUint8Features`]'s **Extended By** section for valid types.
@@ -30592,8 +30617,8 @@ impl PhysicalDeviceShaderSMBuiltinsFeaturesNV {
 }
 impl<'a> PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn shader_sm_builtins(mut self, value: u32) -> Self {
-        self.inner.shader_sm_builtins = value;
+    pub fn shader_sm_builtins(mut self, value: bool) -> Self {
+        self.inner.shader_sm_builtins = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSMBuiltinsFeaturesNV`]'s **Extended By** section for valid types.
@@ -30645,18 +30670,18 @@ impl PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
 }
 impl<'a> PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn fragment_shader_sample_interlock(mut self, value: u32) -> Self {
-        self.inner.fragment_shader_sample_interlock = value;
+    pub fn fragment_shader_sample_interlock(mut self, value: bool) -> Self {
+        self.inner.fragment_shader_sample_interlock = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_shader_pixel_interlock(mut self, value: u32) -> Self {
-        self.inner.fragment_shader_pixel_interlock = value;
+    pub fn fragment_shader_pixel_interlock(mut self, value: bool) -> Self {
+        self.inner.fragment_shader_pixel_interlock = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_shader_shading_rate_interlock(mut self, value: u32) -> Self {
-        self.inner.fragment_shader_shading_rate_interlock = value;
+    pub fn fragment_shader_shading_rate_interlock(mut self, value: bool) -> Self {
+        self.inner.fragment_shader_shading_rate_interlock = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShaderInterlockFeaturesEXT`]'s **Extended By** section for valid types.
@@ -30712,8 +30737,8 @@ impl PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
 }
 impl<'a> PhysicalDeviceSeparateDepthStencilLayoutsFeaturesBuilder<'a> {
     #[inline]
-    pub fn separate_depth_stencil_layouts(mut self, value: u32) -> Self {
-        self.inner.separate_depth_stencil_layouts = value;
+    pub fn separate_depth_stencil_layouts(mut self, value: bool) -> Self {
+        self.inner.separate_depth_stencil_layouts = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSeparateDepthStencilLayoutsFeatures`]'s **Extended By** section for valid types.
@@ -30822,13 +30847,13 @@ impl PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
 }
 impl<'a> PhysicalDevicePrimitiveTopologyListRestartFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn primitive_topology_list_restart(mut self, value: u32) -> Self {
-        self.inner.primitive_topology_list_restart = value;
+    pub fn primitive_topology_list_restart(mut self, value: bool) -> Self {
+        self.inner.primitive_topology_list_restart = value as u32;
         self
     }
     #[inline]
-    pub fn primitive_topology_patch_list_restart(mut self, value: u32) -> Self {
-        self.inner.primitive_topology_patch_list_restart = value;
+    pub fn primitive_topology_patch_list_restart(mut self, value: bool) -> Self {
+        self.inner.primitive_topology_patch_list_restart = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT`]'s **Extended By** section for valid types.
@@ -30942,8 +30967,8 @@ impl PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
 }
 impl<'a> PhysicalDevicePipelineExecutablePropertiesFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn pipeline_executable_info(mut self, value: u32) -> Self {
-        self.inner.pipeline_executable_info = value;
+    pub fn pipeline_executable_info(mut self, value: bool) -> Self {
+        self.inner.pipeline_executable_info = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineExecutablePropertiesFeaturesKHR`]'s **Extended By** section for valid types.
@@ -31239,8 +31264,8 @@ impl<'a> PipelineExecutableInternalRepresentationKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn is_text(mut self, value: u32) -> Self {
-        self.inner.is_text = value;
+    pub fn is_text(mut self, value: bool) -> Self {
+        self.inner.is_text = value as u32;
         self
     }
     #[inline]
@@ -31285,8 +31310,8 @@ impl PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
 }
 impl<'a> PhysicalDeviceShaderDemoteToHelperInvocationFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_demote_to_helper_invocation(mut self, value: u32) -> Self {
-        self.inner.shader_demote_to_helper_invocation = value;
+    pub fn shader_demote_to_helper_invocation(mut self, value: bool) -> Self {
+        self.inner.shader_demote_to_helper_invocation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderDemoteToHelperInvocationFeatures`]'s **Extended By** section for valid types.
@@ -31340,8 +31365,8 @@ impl PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
 }
 impl<'a> PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn texel_buffer_alignment(mut self, value: u32) -> Self {
-        self.inner.texel_buffer_alignment = value;
+    pub fn texel_buffer_alignment(mut self, value: bool) -> Self {
+        self.inner.texel_buffer_alignment = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTexelBufferAlignmentFeaturesEXT`]'s **Extended By** section for valid types.
@@ -31401,9 +31426,9 @@ impl<'a> PhysicalDeviceTexelBufferAlignmentPropertiesBuilder<'a> {
     #[inline]
     pub fn storage_texel_buffer_offset_single_texel_alignment(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.storage_texel_buffer_offset_single_texel_alignment = value;
+        self.inner.storage_texel_buffer_offset_single_texel_alignment = value as u32;
         self
     }
     #[inline]
@@ -31414,9 +31439,9 @@ impl<'a> PhysicalDeviceTexelBufferAlignmentPropertiesBuilder<'a> {
     #[inline]
     pub fn uniform_texel_buffer_offset_single_texel_alignment(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.uniform_texel_buffer_offset_single_texel_alignment = value;
+        self.inner.uniform_texel_buffer_offset_single_texel_alignment = value as u32;
         self
     }
 }
@@ -31454,13 +31479,13 @@ impl PhysicalDeviceSubgroupSizeControlFeatures {
 }
 impl<'a> PhysicalDeviceSubgroupSizeControlFeaturesBuilder<'a> {
     #[inline]
-    pub fn subgroup_size_control(mut self, value: u32) -> Self {
-        self.inner.subgroup_size_control = value;
+    pub fn subgroup_size_control(mut self, value: bool) -> Self {
+        self.inner.subgroup_size_control = value as u32;
         self
     }
     #[inline]
-    pub fn compute_full_subgroups(mut self, value: u32) -> Self {
-        self.inner.compute_full_subgroups = value;
+    pub fn compute_full_subgroups(mut self, value: bool) -> Self {
+        self.inner.compute_full_subgroups = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSubgroupSizeControlFeatures`]'s **Extended By** section for valid types.
@@ -31885,33 +31910,33 @@ impl PhysicalDeviceLineRasterizationFeatures {
 }
 impl<'a> PhysicalDeviceLineRasterizationFeaturesBuilder<'a> {
     #[inline]
-    pub fn rectangular_lines(mut self, value: u32) -> Self {
-        self.inner.rectangular_lines = value;
+    pub fn rectangular_lines(mut self, value: bool) -> Self {
+        self.inner.rectangular_lines = value as u32;
         self
     }
     #[inline]
-    pub fn bresenham_lines(mut self, value: u32) -> Self {
-        self.inner.bresenham_lines = value;
+    pub fn bresenham_lines(mut self, value: bool) -> Self {
+        self.inner.bresenham_lines = value as u32;
         self
     }
     #[inline]
-    pub fn smooth_lines(mut self, value: u32) -> Self {
-        self.inner.smooth_lines = value;
+    pub fn smooth_lines(mut self, value: bool) -> Self {
+        self.inner.smooth_lines = value as u32;
         self
     }
     #[inline]
-    pub fn stippled_rectangular_lines(mut self, value: u32) -> Self {
-        self.inner.stippled_rectangular_lines = value;
+    pub fn stippled_rectangular_lines(mut self, value: bool) -> Self {
+        self.inner.stippled_rectangular_lines = value as u32;
         self
     }
     #[inline]
-    pub fn stippled_bresenham_lines(mut self, value: u32) -> Self {
-        self.inner.stippled_bresenham_lines = value;
+    pub fn stippled_bresenham_lines(mut self, value: bool) -> Self {
+        self.inner.stippled_bresenham_lines = value as u32;
         self
     }
     #[inline]
-    pub fn stippled_smooth_lines(mut self, value: u32) -> Self {
-        self.inner.stippled_smooth_lines = value;
+    pub fn stippled_smooth_lines(mut self, value: bool) -> Self {
+        self.inner.stippled_smooth_lines = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLineRasterizationFeatures`]'s **Extended By** section for valid types.
@@ -32006,8 +32031,8 @@ impl<'a> PipelineRasterizationLineStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn stippled_line_enable(mut self, value: u32) -> Self {
-        self.inner.stippled_line_enable = value;
+    pub fn stippled_line_enable(mut self, value: bool) -> Self {
+        self.inner.stippled_line_enable = value as u32;
         self
     }
     #[inline]
@@ -32071,8 +32096,8 @@ impl PhysicalDevicePipelineCreationCacheControlFeatures {
 }
 impl<'a> PhysicalDevicePipelineCreationCacheControlFeaturesBuilder<'a> {
     #[inline]
-    pub fn pipeline_creation_cache_control(mut self, value: u32) -> Self {
-        self.inner.pipeline_creation_cache_control = value;
+    pub fn pipeline_creation_cache_control(mut self, value: bool) -> Self {
+        self.inner.pipeline_creation_cache_control = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineCreationCacheControlFeatures`]'s **Extended By** section for valid types.
@@ -32126,63 +32151,63 @@ impl PhysicalDeviceVulkan11Features {
 }
 impl<'a> PhysicalDeviceVulkan11FeaturesBuilder<'a> {
     #[inline]
-    pub fn storage_buffer16_bit_access(mut self, value: u32) -> Self {
-        self.inner.storage_buffer16_bit_access = value;
+    pub fn storage_buffer16_bit_access(mut self, value: bool) -> Self {
+        self.inner.storage_buffer16_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn uniform_and_storage_buffer16_bit_access(mut self, value: u32) -> Self {
-        self.inner.uniform_and_storage_buffer16_bit_access = value;
+    pub fn uniform_and_storage_buffer16_bit_access(mut self, value: bool) -> Self {
+        self.inner.uniform_and_storage_buffer16_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn storage_push_constant16(mut self, value: u32) -> Self {
-        self.inner.storage_push_constant16 = value;
+    pub fn storage_push_constant16(mut self, value: bool) -> Self {
+        self.inner.storage_push_constant16 = value as u32;
         self
     }
     #[inline]
-    pub fn storage_input_output16(mut self, value: u32) -> Self {
-        self.inner.storage_input_output16 = value;
+    pub fn storage_input_output16(mut self, value: bool) -> Self {
+        self.inner.storage_input_output16 = value as u32;
         self
     }
     #[inline]
-    pub fn multiview(mut self, value: u32) -> Self {
-        self.inner.multiview = value;
+    pub fn multiview(mut self, value: bool) -> Self {
+        self.inner.multiview = value as u32;
         self
     }
     #[inline]
-    pub fn multiview_geometry_shader(mut self, value: u32) -> Self {
-        self.inner.multiview_geometry_shader = value;
+    pub fn multiview_geometry_shader(mut self, value: bool) -> Self {
+        self.inner.multiview_geometry_shader = value as u32;
         self
     }
     #[inline]
-    pub fn multiview_tessellation_shader(mut self, value: u32) -> Self {
-        self.inner.multiview_tessellation_shader = value;
+    pub fn multiview_tessellation_shader(mut self, value: bool) -> Self {
+        self.inner.multiview_tessellation_shader = value as u32;
         self
     }
     #[inline]
-    pub fn variable_pointers_storage_buffer(mut self, value: u32) -> Self {
-        self.inner.variable_pointers_storage_buffer = value;
+    pub fn variable_pointers_storage_buffer(mut self, value: bool) -> Self {
+        self.inner.variable_pointers_storage_buffer = value as u32;
         self
     }
     #[inline]
-    pub fn variable_pointers(mut self, value: u32) -> Self {
-        self.inner.variable_pointers = value;
+    pub fn variable_pointers(mut self, value: bool) -> Self {
+        self.inner.variable_pointers = value as u32;
         self
     }
     #[inline]
-    pub fn protected_memory(mut self, value: u32) -> Self {
-        self.inner.protected_memory = value;
+    pub fn protected_memory(mut self, value: bool) -> Self {
+        self.inner.protected_memory = value as u32;
         self
     }
     #[inline]
-    pub fn sampler_ycbcr_conversion(mut self, value: u32) -> Self {
-        self.inner.sampler_ycbcr_conversion = value;
+    pub fn sampler_ycbcr_conversion(mut self, value: bool) -> Self {
+        self.inner.sampler_ycbcr_conversion = value as u32;
         self
     }
     #[inline]
-    pub fn shader_draw_parameters(mut self, value: u32) -> Self {
-        self.inner.shader_draw_parameters = value;
+    pub fn shader_draw_parameters(mut self, value: bool) -> Self {
+        self.inner.shader_draw_parameters = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan11Features`]'s **Extended By** section for valid types.
@@ -32254,8 +32279,8 @@ impl<'a> PhysicalDeviceVulkan11PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn device_luid_valid(mut self, value: u32) -> Self {
-        self.inner.device_luid_valid = value;
+    pub fn device_luid_valid(mut self, value: bool) -> Self {
+        self.inner.device_luid_valid = value as u32;
         self
     }
     #[inline]
@@ -32274,8 +32299,8 @@ impl<'a> PhysicalDeviceVulkan11PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn subgroup_quad_operations_in_all_stages(mut self, value: u32) -> Self {
-        self.inner.subgroup_quad_operations_in_all_stages = value;
+    pub fn subgroup_quad_operations_in_all_stages(mut self, value: bool) -> Self {
+        self.inner.subgroup_quad_operations_in_all_stages = value as u32;
         self
     }
     #[inline]
@@ -32294,8 +32319,8 @@ impl<'a> PhysicalDeviceVulkan11PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn protected_no_fault(mut self, value: u32) -> Self {
-        self.inner.protected_no_fault = value;
+    pub fn protected_no_fault(mut self, value: bool) -> Self {
+        self.inner.protected_no_fault = value as u32;
         self
     }
     #[inline]
@@ -32342,286 +32367,294 @@ impl PhysicalDeviceVulkan12Features {
 }
 impl<'a> PhysicalDeviceVulkan12FeaturesBuilder<'a> {
     #[inline]
-    pub fn sampler_mirror_clamp_to_edge(mut self, value: u32) -> Self {
-        self.inner.sampler_mirror_clamp_to_edge = value;
+    pub fn sampler_mirror_clamp_to_edge(mut self, value: bool) -> Self {
+        self.inner.sampler_mirror_clamp_to_edge = value as u32;
         self
     }
     #[inline]
-    pub fn draw_indirect_count(mut self, value: u32) -> Self {
-        self.inner.draw_indirect_count = value;
+    pub fn draw_indirect_count(mut self, value: bool) -> Self {
+        self.inner.draw_indirect_count = value as u32;
         self
     }
     #[inline]
-    pub fn storage_buffer8_bit_access(mut self, value: u32) -> Self {
-        self.inner.storage_buffer8_bit_access = value;
+    pub fn storage_buffer8_bit_access(mut self, value: bool) -> Self {
+        self.inner.storage_buffer8_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn uniform_and_storage_buffer8_bit_access(mut self, value: u32) -> Self {
-        self.inner.uniform_and_storage_buffer8_bit_access = value;
+    pub fn uniform_and_storage_buffer8_bit_access(mut self, value: bool) -> Self {
+        self.inner.uniform_and_storage_buffer8_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn storage_push_constant8(mut self, value: u32) -> Self {
-        self.inner.storage_push_constant8 = value;
+    pub fn storage_push_constant8(mut self, value: bool) -> Self {
+        self.inner.storage_push_constant8 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_buffer_int64_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_buffer_int64_atomics = value;
+    pub fn shader_buffer_int64_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_buffer_int64_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_shared_int64_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_shared_int64_atomics = value;
+    pub fn shader_shared_int64_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_shared_int64_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn shader_float16(mut self, value: u32) -> Self {
-        self.inner.shader_float16 = value;
+    pub fn shader_float16(mut self, value: bool) -> Self {
+        self.inner.shader_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_int8(mut self, value: u32) -> Self {
-        self.inner.shader_int8 = value;
+    pub fn shader_int8(mut self, value: bool) -> Self {
+        self.inner.shader_int8 = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_indexing(mut self, value: u32) -> Self {
-        self.inner.descriptor_indexing = value;
+    pub fn descriptor_indexing(mut self, value: bool) -> Self {
+        self.inner.descriptor_indexing = value as u32;
         self
     }
     #[inline]
-    pub fn shader_input_attachment_array_dynamic_indexing(mut self, value: u32) -> Self {
-        self.inner.shader_input_attachment_array_dynamic_indexing = value;
+    pub fn shader_input_attachment_array_dynamic_indexing(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.shader_input_attachment_array_dynamic_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_uniform_texel_buffer_array_dynamic_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_texel_buffer_array_dynamic_indexing = value;
+        self.inner.shader_uniform_texel_buffer_array_dynamic_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_texel_buffer_array_dynamic_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_texel_buffer_array_dynamic_indexing = value;
+        self.inner.shader_storage_texel_buffer_array_dynamic_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_uniform_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_uniform_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_sampled_image_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_sampled_image_array_non_uniform_indexing = value;
+        self.inner.shader_sampled_image_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_storage_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_image_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_image_array_non_uniform_indexing = value;
+        self.inner.shader_storage_image_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_input_attachment_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_input_attachment_array_non_uniform_indexing = value;
+        self.inner.shader_input_attachment_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_uniform_texel_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_texel_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_uniform_texel_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_texel_buffer_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_texel_buffer_array_non_uniform_indexing = value;
+        self.inner.shader_storage_texel_buffer_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_uniform_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_uniform_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_uniform_buffer_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_sampled_image_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_sampled_image_update_after_bind = value;
+        self.inner.descriptor_binding_sampled_image_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_storage_image_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_storage_image_update_after_bind = value;
+        self.inner.descriptor_binding_storage_image_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_storage_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_storage_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_storage_buffer_update_after_bind = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_uniform_texel_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_uniform_texel_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_uniform_texel_buffer_update_after_bind = value
+            as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_storage_texel_buffer_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_storage_texel_buffer_update_after_bind = value;
+        self.inner.descriptor_binding_storage_texel_buffer_update_after_bind = value
+            as u32;
         self
     }
     #[inline]
-    pub fn descriptor_binding_update_unused_while_pending(mut self, value: u32) -> Self {
-        self.inner.descriptor_binding_update_unused_while_pending = value;
+    pub fn descriptor_binding_update_unused_while_pending(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.descriptor_binding_update_unused_while_pending = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_binding_partially_bound(mut self, value: u32) -> Self {
-        self.inner.descriptor_binding_partially_bound = value;
+    pub fn descriptor_binding_partially_bound(mut self, value: bool) -> Self {
+        self.inner.descriptor_binding_partially_bound = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_binding_variable_descriptor_count(mut self, value: u32) -> Self {
-        self.inner.descriptor_binding_variable_descriptor_count = value;
+    pub fn descriptor_binding_variable_descriptor_count(mut self, value: bool) -> Self {
+        self.inner.descriptor_binding_variable_descriptor_count = value as u32;
         self
     }
     #[inline]
-    pub fn runtime_descriptor_array(mut self, value: u32) -> Self {
-        self.inner.runtime_descriptor_array = value;
+    pub fn runtime_descriptor_array(mut self, value: bool) -> Self {
+        self.inner.runtime_descriptor_array = value as u32;
         self
     }
     #[inline]
-    pub fn sampler_filter_minmax(mut self, value: u32) -> Self {
-        self.inner.sampler_filter_minmax = value;
+    pub fn sampler_filter_minmax(mut self, value: bool) -> Self {
+        self.inner.sampler_filter_minmax = value as u32;
         self
     }
     #[inline]
-    pub fn scalar_block_layout(mut self, value: u32) -> Self {
-        self.inner.scalar_block_layout = value;
+    pub fn scalar_block_layout(mut self, value: bool) -> Self {
+        self.inner.scalar_block_layout = value as u32;
         self
     }
     #[inline]
-    pub fn imageless_framebuffer(mut self, value: u32) -> Self {
-        self.inner.imageless_framebuffer = value;
+    pub fn imageless_framebuffer(mut self, value: bool) -> Self {
+        self.inner.imageless_framebuffer = value as u32;
         self
     }
     #[inline]
-    pub fn uniform_buffer_standard_layout(mut self, value: u32) -> Self {
-        self.inner.uniform_buffer_standard_layout = value;
+    pub fn uniform_buffer_standard_layout(mut self, value: bool) -> Self {
+        self.inner.uniform_buffer_standard_layout = value as u32;
         self
     }
     #[inline]
-    pub fn shader_subgroup_extended_types(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_extended_types = value;
+    pub fn shader_subgroup_extended_types(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_extended_types = value as u32;
         self
     }
     #[inline]
-    pub fn separate_depth_stencil_layouts(mut self, value: u32) -> Self {
-        self.inner.separate_depth_stencil_layouts = value;
+    pub fn separate_depth_stencil_layouts(mut self, value: bool) -> Self {
+        self.inner.separate_depth_stencil_layouts = value as u32;
         self
     }
     #[inline]
-    pub fn host_query_reset(mut self, value: u32) -> Self {
-        self.inner.host_query_reset = value;
+    pub fn host_query_reset(mut self, value: bool) -> Self {
+        self.inner.host_query_reset = value as u32;
         self
     }
     #[inline]
-    pub fn timeline_semaphore(mut self, value: u32) -> Self {
-        self.inner.timeline_semaphore = value;
+    pub fn timeline_semaphore(mut self, value: bool) -> Self {
+        self.inner.timeline_semaphore = value as u32;
         self
     }
     #[inline]
-    pub fn buffer_device_address(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address = value;
+    pub fn buffer_device_address(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address = value as u32;
         self
     }
     #[inline]
-    pub fn buffer_device_address_capture_replay(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address_capture_replay = value;
+    pub fn buffer_device_address_capture_replay(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address_capture_replay = value as u32;
         self
     }
     #[inline]
-    pub fn buffer_device_address_multi_device(mut self, value: u32) -> Self {
-        self.inner.buffer_device_address_multi_device = value;
+    pub fn buffer_device_address_multi_device(mut self, value: bool) -> Self {
+        self.inner.buffer_device_address_multi_device = value as u32;
         self
     }
     #[inline]
-    pub fn vulkan_memory_model(mut self, value: u32) -> Self {
-        self.inner.vulkan_memory_model = value;
+    pub fn vulkan_memory_model(mut self, value: bool) -> Self {
+        self.inner.vulkan_memory_model = value as u32;
         self
     }
     #[inline]
-    pub fn vulkan_memory_model_device_scope(mut self, value: u32) -> Self {
-        self.inner.vulkan_memory_model_device_scope = value;
+    pub fn vulkan_memory_model_device_scope(mut self, value: bool) -> Self {
+        self.inner.vulkan_memory_model_device_scope = value as u32;
         self
     }
     #[inline]
     pub fn vulkan_memory_model_availability_visibility_chains(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.vulkan_memory_model_availability_visibility_chains = value;
+        self.inner.vulkan_memory_model_availability_visibility_chains = value as u32;
         self
     }
     #[inline]
-    pub fn shader_output_viewport_index(mut self, value: u32) -> Self {
-        self.inner.shader_output_viewport_index = value;
+    pub fn shader_output_viewport_index(mut self, value: bool) -> Self {
+        self.inner.shader_output_viewport_index = value as u32;
         self
     }
     #[inline]
-    pub fn shader_output_layer(mut self, value: u32) -> Self {
-        self.inner.shader_output_layer = value;
+    pub fn shader_output_layer(mut self, value: bool) -> Self {
+        self.inner.shader_output_layer = value as u32;
         self
     }
     #[inline]
-    pub fn subgroup_broadcast_dynamic_id(mut self, value: u32) -> Self {
-        self.inner.subgroup_broadcast_dynamic_id = value;
+    pub fn subgroup_broadcast_dynamic_id(mut self, value: bool) -> Self {
+        self.inner.subgroup_broadcast_dynamic_id = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan12Features`]'s **Extended By** section for valid types.
@@ -32715,78 +32748,78 @@ impl<'a> PhysicalDeviceVulkan12PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn shader_signed_zero_inf_nan_preserve_float16(mut self, value: u32) -> Self {
-        self.inner.shader_signed_zero_inf_nan_preserve_float16 = value;
+    pub fn shader_signed_zero_inf_nan_preserve_float16(mut self, value: bool) -> Self {
+        self.inner.shader_signed_zero_inf_nan_preserve_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_signed_zero_inf_nan_preserve_float32(mut self, value: u32) -> Self {
-        self.inner.shader_signed_zero_inf_nan_preserve_float32 = value;
+    pub fn shader_signed_zero_inf_nan_preserve_float32(mut self, value: bool) -> Self {
+        self.inner.shader_signed_zero_inf_nan_preserve_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_signed_zero_inf_nan_preserve_float64(mut self, value: u32) -> Self {
-        self.inner.shader_signed_zero_inf_nan_preserve_float64 = value;
+    pub fn shader_signed_zero_inf_nan_preserve_float64(mut self, value: bool) -> Self {
+        self.inner.shader_signed_zero_inf_nan_preserve_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_preserve_float16(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_preserve_float16 = value;
+    pub fn shader_denorm_preserve_float16(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_preserve_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_preserve_float32(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_preserve_float32 = value;
+    pub fn shader_denorm_preserve_float32(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_preserve_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_preserve_float64(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_preserve_float64 = value;
+    pub fn shader_denorm_preserve_float64(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_preserve_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_flush_to_zero_float16(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_flush_to_zero_float16 = value;
+    pub fn shader_denorm_flush_to_zero_float16(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_flush_to_zero_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_flush_to_zero_float32(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_flush_to_zero_float32 = value;
+    pub fn shader_denorm_flush_to_zero_float32(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_flush_to_zero_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_denorm_flush_to_zero_float64(mut self, value: u32) -> Self {
-        self.inner.shader_denorm_flush_to_zero_float64 = value;
+    pub fn shader_denorm_flush_to_zero_float64(mut self, value: bool) -> Self {
+        self.inner.shader_denorm_flush_to_zero_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rte_float16(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rte_float16 = value;
+    pub fn shader_rounding_mode_rte_float16(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rte_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rte_float32(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rte_float32 = value;
+    pub fn shader_rounding_mode_rte_float32(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rte_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rte_float64(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rte_float64 = value;
+    pub fn shader_rounding_mode_rte_float64(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rte_float64 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rtz_float16(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rtz_float16 = value;
+    pub fn shader_rounding_mode_rtz_float16(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rtz_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rtz_float32(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rtz_float32 = value;
+    pub fn shader_rounding_mode_rtz_float32(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rtz_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_rounding_mode_rtz_float64(mut self, value: u32) -> Self {
-        self.inner.shader_rounding_mode_rtz_float64 = value;
+    pub fn shader_rounding_mode_rtz_float64(mut self, value: bool) -> Self {
+        self.inner.shader_rounding_mode_rtz_float64 = value as u32;
         self
     }
     #[inline]
@@ -32797,51 +32830,54 @@ impl<'a> PhysicalDeviceVulkan12PropertiesBuilder<'a> {
     #[inline]
     pub fn shader_uniform_buffer_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_uniform_buffer_array_non_uniform_indexing_native = value;
+        self.inner.shader_uniform_buffer_array_non_uniform_indexing_native = value
+            as u32;
         self
     }
     #[inline]
     pub fn shader_sampled_image_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_sampled_image_array_non_uniform_indexing_native = value;
+        self.inner.shader_sampled_image_array_non_uniform_indexing_native = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_buffer_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_buffer_array_non_uniform_indexing_native = value;
+        self.inner.shader_storage_buffer_array_non_uniform_indexing_native = value
+            as u32;
         self
     }
     #[inline]
     pub fn shader_storage_image_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_image_array_non_uniform_indexing_native = value;
+        self.inner.shader_storage_image_array_non_uniform_indexing_native = value as u32;
         self
     }
     #[inline]
     pub fn shader_input_attachment_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_input_attachment_array_non_uniform_indexing_native = value;
+        self.inner.shader_input_attachment_array_non_uniform_indexing_native = value
+            as u32;
         self
     }
     #[inline]
-    pub fn robust_buffer_access_update_after_bind(mut self, value: u32) -> Self {
-        self.inner.robust_buffer_access_update_after_bind = value;
+    pub fn robust_buffer_access_update_after_bind(mut self, value: bool) -> Self {
+        self.inner.robust_buffer_access_update_after_bind = value as u32;
         self
     }
     #[inline]
-    pub fn quad_divergent_implicit_lod(mut self, value: u32) -> Self {
-        self.inner.quad_divergent_implicit_lod = value;
+    pub fn quad_divergent_implicit_lod(mut self, value: bool) -> Self {
+        self.inner.quad_divergent_implicit_lod = value as u32;
         self
     }
     #[inline]
@@ -32969,23 +33005,23 @@ impl<'a> PhysicalDeviceVulkan12PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn independent_resolve_none(mut self, value: u32) -> Self {
-        self.inner.independent_resolve_none = value;
+    pub fn independent_resolve_none(mut self, value: bool) -> Self {
+        self.inner.independent_resolve_none = value as u32;
         self
     }
     #[inline]
-    pub fn independent_resolve(mut self, value: u32) -> Self {
-        self.inner.independent_resolve = value;
+    pub fn independent_resolve(mut self, value: bool) -> Self {
+        self.inner.independent_resolve = value as u32;
         self
     }
     #[inline]
-    pub fn filter_minmax_single_component_formats(mut self, value: u32) -> Self {
-        self.inner.filter_minmax_single_component_formats = value;
+    pub fn filter_minmax_single_component_formats(mut self, value: bool) -> Self {
+        self.inner.filter_minmax_single_component_formats = value as u32;
         self
     }
     #[inline]
-    pub fn filter_minmax_image_component_mapping(mut self, value: u32) -> Self {
-        self.inner.filter_minmax_image_component_mapping = value;
+    pub fn filter_minmax_image_component_mapping(mut self, value: bool) -> Self {
+        self.inner.filter_minmax_image_component_mapping = value as u32;
         self
     }
     #[inline]
@@ -33035,81 +33071,82 @@ impl PhysicalDeviceVulkan13Features {
 }
 impl<'a> PhysicalDeviceVulkan13FeaturesBuilder<'a> {
     #[inline]
-    pub fn robust_image_access(mut self, value: u32) -> Self {
-        self.inner.robust_image_access = value;
+    pub fn robust_image_access(mut self, value: bool) -> Self {
+        self.inner.robust_image_access = value as u32;
         self
     }
     #[inline]
-    pub fn inline_uniform_block(mut self, value: u32) -> Self {
-        self.inner.inline_uniform_block = value;
+    pub fn inline_uniform_block(mut self, value: bool) -> Self {
+        self.inner.inline_uniform_block = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_inline_uniform_block_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_inline_uniform_block_update_after_bind = value;
+        self.inner.descriptor_binding_inline_uniform_block_update_after_bind = value
+            as u32;
         self
     }
     #[inline]
-    pub fn pipeline_creation_cache_control(mut self, value: u32) -> Self {
-        self.inner.pipeline_creation_cache_control = value;
+    pub fn pipeline_creation_cache_control(mut self, value: bool) -> Self {
+        self.inner.pipeline_creation_cache_control = value as u32;
         self
     }
     #[inline]
-    pub fn private_data(mut self, value: u32) -> Self {
-        self.inner.private_data = value;
+    pub fn private_data(mut self, value: bool) -> Self {
+        self.inner.private_data = value as u32;
         self
     }
     #[inline]
-    pub fn shader_demote_to_helper_invocation(mut self, value: u32) -> Self {
-        self.inner.shader_demote_to_helper_invocation = value;
+    pub fn shader_demote_to_helper_invocation(mut self, value: bool) -> Self {
+        self.inner.shader_demote_to_helper_invocation = value as u32;
         self
     }
     #[inline]
-    pub fn shader_terminate_invocation(mut self, value: u32) -> Self {
-        self.inner.shader_terminate_invocation = value;
+    pub fn shader_terminate_invocation(mut self, value: bool) -> Self {
+        self.inner.shader_terminate_invocation = value as u32;
         self
     }
     #[inline]
-    pub fn subgroup_size_control(mut self, value: u32) -> Self {
-        self.inner.subgroup_size_control = value;
+    pub fn subgroup_size_control(mut self, value: bool) -> Self {
+        self.inner.subgroup_size_control = value as u32;
         self
     }
     #[inline]
-    pub fn compute_full_subgroups(mut self, value: u32) -> Self {
-        self.inner.compute_full_subgroups = value;
+    pub fn compute_full_subgroups(mut self, value: bool) -> Self {
+        self.inner.compute_full_subgroups = value as u32;
         self
     }
     #[inline]
-    pub fn synchronization2(mut self, value: u32) -> Self {
-        self.inner.synchronization2 = value;
+    pub fn synchronization2(mut self, value: bool) -> Self {
+        self.inner.synchronization2 = value as u32;
         self
     }
     #[inline]
-    pub fn texture_compression_astc_hdr(mut self, value: u32) -> Self {
-        self.inner.texture_compression_astc_hdr = value;
+    pub fn texture_compression_astc_hdr(mut self, value: bool) -> Self {
+        self.inner.texture_compression_astc_hdr = value as u32;
         self
     }
     #[inline]
-    pub fn shader_zero_initialize_workgroup_memory(mut self, value: u32) -> Self {
-        self.inner.shader_zero_initialize_workgroup_memory = value;
+    pub fn shader_zero_initialize_workgroup_memory(mut self, value: bool) -> Self {
+        self.inner.shader_zero_initialize_workgroup_memory = value as u32;
         self
     }
     #[inline]
-    pub fn dynamic_rendering(mut self, value: u32) -> Self {
-        self.inner.dynamic_rendering = value;
+    pub fn dynamic_rendering(mut self, value: bool) -> Self {
+        self.inner.dynamic_rendering = value as u32;
         self
     }
     #[inline]
-    pub fn shader_integer_dot_product(mut self, value: u32) -> Self {
-        self.inner.shader_integer_dot_product = value;
+    pub fn shader_integer_dot_product(mut self, value: bool) -> Self {
+        self.inner.shader_integer_dot_product = value as u32;
         self
     }
     #[inline]
-    pub fn maintenance4(mut self, value: u32) -> Self {
-        self.inner.maintenance4 = value;
+    pub fn maintenance4(mut self, value: bool) -> Self {
+        self.inner.maintenance4 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan13Features`]'s **Extended By** section for valid types.
@@ -33217,247 +33254,272 @@ impl<'a> PhysicalDeviceVulkan13PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn integer_dot_product8_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product8_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product8_bit_unsigned_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product8_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product8_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product8_bit_signed_accelerated = value;
+    pub fn integer_dot_product8_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product8_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product8_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product8_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product8_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product4x8_bit_packed_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product4x8_bit_packed_unsigned_accelerated = value;
+        self.inner.integer_dot_product4x8_bit_packed_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product4x8_bit_packed_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product4x8_bit_packed_signed_accelerated = value;
+        self.inner.integer_dot_product4x8_bit_packed_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product4x8_bit_packed_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product4x8_bit_packed_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product4x8_bit_packed_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product16_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product16_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product16_bit_unsigned_accelerated(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.integer_dot_product16_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product16_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product16_bit_signed_accelerated = value;
+    pub fn integer_dot_product16_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product16_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product16_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product16_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product16_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product32_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product32_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product32_bit_unsigned_accelerated(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.integer_dot_product32_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product32_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product32_bit_signed_accelerated = value;
+    pub fn integer_dot_product32_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product32_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product32_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product32_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product32_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product64_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product64_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product64_bit_unsigned_accelerated(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.integer_dot_product64_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product64_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product64_bit_signed_accelerated = value;
+    pub fn integer_dot_product64_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product64_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product64_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product64_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product64_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating8_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating8_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating8_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating8_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product_accumulating_saturating8_bit_signed_accelerated = value;
+        self.inner.integer_dot_product_accumulating_saturating8_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating8_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating8_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating8_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating4x8_bit_packed_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating4x8_bit_packed_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating4x8_bit_packed_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating4x8_bit_packed_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating4x8_bit_packed_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating4x8_bit_packed_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating4x8_bit_packed_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating4x8_bit_packed_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating4x8_bit_packed_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating16_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating16_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating16_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating16_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating16_bit_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating16_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating16_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating16_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating16_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating32_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating32_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating32_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating32_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating32_bit_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating32_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating32_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating32_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating32_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating64_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating64_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating64_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating64_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating64_bit_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating64_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating64_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating64_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating64_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
@@ -33468,9 +33530,9 @@ impl<'a> PhysicalDeviceVulkan13PropertiesBuilder<'a> {
     #[inline]
     pub fn storage_texel_buffer_offset_single_texel_alignment(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.storage_texel_buffer_offset_single_texel_alignment = value;
+        self.inner.storage_texel_buffer_offset_single_texel_alignment = value as u32;
         self
     }
     #[inline]
@@ -33481,9 +33543,9 @@ impl<'a> PhysicalDeviceVulkan13PropertiesBuilder<'a> {
     #[inline]
     pub fn uniform_texel_buffer_offset_single_texel_alignment(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.uniform_texel_buffer_offset_single_texel_alignment = value;
+        self.inner.uniform_texel_buffer_offset_single_texel_alignment = value as u32;
         self
     }
     #[inline]
@@ -33525,108 +33587,108 @@ impl PhysicalDeviceVulkan14Features {
 }
 impl<'a> PhysicalDeviceVulkan14FeaturesBuilder<'a> {
     #[inline]
-    pub fn global_priority_query(mut self, value: u32) -> Self {
-        self.inner.global_priority_query = value;
+    pub fn global_priority_query(mut self, value: bool) -> Self {
+        self.inner.global_priority_query = value as u32;
         self
     }
     #[inline]
-    pub fn shader_subgroup_rotate(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_rotate = value;
+    pub fn shader_subgroup_rotate(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_rotate = value as u32;
         self
     }
     #[inline]
-    pub fn shader_subgroup_rotate_clustered(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_rotate_clustered = value;
+    pub fn shader_subgroup_rotate_clustered(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_rotate_clustered = value as u32;
         self
     }
     #[inline]
-    pub fn shader_float_controls2(mut self, value: u32) -> Self {
-        self.inner.shader_float_controls2 = value;
+    pub fn shader_float_controls2(mut self, value: bool) -> Self {
+        self.inner.shader_float_controls2 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_expect_assume(mut self, value: u32) -> Self {
-        self.inner.shader_expect_assume = value;
+    pub fn shader_expect_assume(mut self, value: bool) -> Self {
+        self.inner.shader_expect_assume = value as u32;
         self
     }
     #[inline]
-    pub fn rectangular_lines(mut self, value: u32) -> Self {
-        self.inner.rectangular_lines = value;
+    pub fn rectangular_lines(mut self, value: bool) -> Self {
+        self.inner.rectangular_lines = value as u32;
         self
     }
     #[inline]
-    pub fn bresenham_lines(mut self, value: u32) -> Self {
-        self.inner.bresenham_lines = value;
+    pub fn bresenham_lines(mut self, value: bool) -> Self {
+        self.inner.bresenham_lines = value as u32;
         self
     }
     #[inline]
-    pub fn smooth_lines(mut self, value: u32) -> Self {
-        self.inner.smooth_lines = value;
+    pub fn smooth_lines(mut self, value: bool) -> Self {
+        self.inner.smooth_lines = value as u32;
         self
     }
     #[inline]
-    pub fn stippled_rectangular_lines(mut self, value: u32) -> Self {
-        self.inner.stippled_rectangular_lines = value;
+    pub fn stippled_rectangular_lines(mut self, value: bool) -> Self {
+        self.inner.stippled_rectangular_lines = value as u32;
         self
     }
     #[inline]
-    pub fn stippled_bresenham_lines(mut self, value: u32) -> Self {
-        self.inner.stippled_bresenham_lines = value;
+    pub fn stippled_bresenham_lines(mut self, value: bool) -> Self {
+        self.inner.stippled_bresenham_lines = value as u32;
         self
     }
     #[inline]
-    pub fn stippled_smooth_lines(mut self, value: u32) -> Self {
-        self.inner.stippled_smooth_lines = value;
+    pub fn stippled_smooth_lines(mut self, value: bool) -> Self {
+        self.inner.stippled_smooth_lines = value as u32;
         self
     }
     #[inline]
-    pub fn vertex_attribute_instance_rate_divisor(mut self, value: u32) -> Self {
-        self.inner.vertex_attribute_instance_rate_divisor = value;
+    pub fn vertex_attribute_instance_rate_divisor(mut self, value: bool) -> Self {
+        self.inner.vertex_attribute_instance_rate_divisor = value as u32;
         self
     }
     #[inline]
-    pub fn vertex_attribute_instance_rate_zero_divisor(mut self, value: u32) -> Self {
-        self.inner.vertex_attribute_instance_rate_zero_divisor = value;
+    pub fn vertex_attribute_instance_rate_zero_divisor(mut self, value: bool) -> Self {
+        self.inner.vertex_attribute_instance_rate_zero_divisor = value as u32;
         self
     }
     #[inline]
-    pub fn index_type_uint8(mut self, value: u32) -> Self {
-        self.inner.index_type_uint8 = value;
+    pub fn index_type_uint8(mut self, value: bool) -> Self {
+        self.inner.index_type_uint8 = value as u32;
         self
     }
     #[inline]
-    pub fn dynamic_rendering_local_read(mut self, value: u32) -> Self {
-        self.inner.dynamic_rendering_local_read = value;
+    pub fn dynamic_rendering_local_read(mut self, value: bool) -> Self {
+        self.inner.dynamic_rendering_local_read = value as u32;
         self
     }
     #[inline]
-    pub fn maintenance5(mut self, value: u32) -> Self {
-        self.inner.maintenance5 = value;
+    pub fn maintenance5(mut self, value: bool) -> Self {
+        self.inner.maintenance5 = value as u32;
         self
     }
     #[inline]
-    pub fn maintenance6(mut self, value: u32) -> Self {
-        self.inner.maintenance6 = value;
+    pub fn maintenance6(mut self, value: bool) -> Self {
+        self.inner.maintenance6 = value as u32;
         self
     }
     #[inline]
-    pub fn pipeline_protected_access(mut self, value: u32) -> Self {
-        self.inner.pipeline_protected_access = value;
+    pub fn pipeline_protected_access(mut self, value: bool) -> Self {
+        self.inner.pipeline_protected_access = value as u32;
         self
     }
     #[inline]
-    pub fn pipeline_robustness(mut self, value: u32) -> Self {
-        self.inner.pipeline_robustness = value;
+    pub fn pipeline_robustness(mut self, value: bool) -> Self {
+        self.inner.pipeline_robustness = value as u32;
         self
     }
     #[inline]
-    pub fn host_image_copy(mut self, value: u32) -> Self {
-        self.inner.host_image_copy = value;
+    pub fn host_image_copy(mut self, value: bool) -> Self {
+        self.inner.host_image_copy = value as u32;
         self
     }
     #[inline]
-    pub fn push_descriptor(mut self, value: u32) -> Self {
-        self.inner.push_descriptor = value;
+    pub fn push_descriptor(mut self, value: bool) -> Self {
+        self.inner.push_descriptor = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkan14Features`]'s **Extended By** section for valid types.
@@ -33688,8 +33750,8 @@ impl<'a> PhysicalDeviceVulkan14PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn supports_non_zero_first_instance(mut self, value: u32) -> Self {
-        self.inner.supports_non_zero_first_instance = value;
+    pub fn supports_non_zero_first_instance(mut self, value: bool) -> Self {
+        self.inner.supports_non_zero_first_instance = value as u32;
         self
     }
     #[inline]
@@ -33700,61 +33762,62 @@ impl<'a> PhysicalDeviceVulkan14PropertiesBuilder<'a> {
     #[inline]
     pub fn dynamic_rendering_local_read_depth_stencil_attachments(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.dynamic_rendering_local_read_depth_stencil_attachments = value;
+        self.inner.dynamic_rendering_local_read_depth_stencil_attachments = value as u32;
         self
     }
     #[inline]
     pub fn dynamic_rendering_local_read_multisampled_attachments(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.dynamic_rendering_local_read_multisampled_attachments = value;
+        self.inner.dynamic_rendering_local_read_multisampled_attachments = value as u32;
         self
     }
     #[inline]
     pub fn early_fragment_multisample_coverage_after_sample_counting(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.early_fragment_multisample_coverage_after_sample_counting = value;
+        self.inner.early_fragment_multisample_coverage_after_sample_counting = value
+            as u32;
         self
     }
     #[inline]
     pub fn early_fragment_sample_mask_test_before_sample_counting(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.early_fragment_sample_mask_test_before_sample_counting = value;
+        self.inner.early_fragment_sample_mask_test_before_sample_counting = value as u32;
         self
     }
     #[inline]
-    pub fn depth_stencil_swizzle_one_support(mut self, value: u32) -> Self {
-        self.inner.depth_stencil_swizzle_one_support = value;
+    pub fn depth_stencil_swizzle_one_support(mut self, value: bool) -> Self {
+        self.inner.depth_stencil_swizzle_one_support = value as u32;
         self
     }
     #[inline]
-    pub fn polygon_mode_point_size(mut self, value: u32) -> Self {
-        self.inner.polygon_mode_point_size = value;
+    pub fn polygon_mode_point_size(mut self, value: bool) -> Self {
+        self.inner.polygon_mode_point_size = value as u32;
         self
     }
     #[inline]
     pub fn non_strict_single_pixel_wide_lines_use_parallelogram(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.non_strict_single_pixel_wide_lines_use_parallelogram = value;
+        self.inner.non_strict_single_pixel_wide_lines_use_parallelogram = value as u32;
         self
     }
     #[inline]
-    pub fn non_strict_wide_lines_use_parallelogram(mut self, value: u32) -> Self {
-        self.inner.non_strict_wide_lines_use_parallelogram = value;
+    pub fn non_strict_wide_lines_use_parallelogram(mut self, value: bool) -> Self {
+        self.inner.non_strict_wide_lines_use_parallelogram = value as u32;
         self
     }
     #[inline]
-    pub fn block_texel_view_compatible_multiple_layers(mut self, value: u32) -> Self {
-        self.inner.block_texel_view_compatible_multiple_layers = value;
+    pub fn block_texel_view_compatible_multiple_layers(mut self, value: bool) -> Self {
+        self.inner.block_texel_view_compatible_multiple_layers = value as u32;
         self
     }
     #[inline]
@@ -33763,8 +33826,8 @@ impl<'a> PhysicalDeviceVulkan14PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn fragment_shading_rate_clamp_combiner_inputs(mut self, value: u32) -> Self {
-        self.inner.fragment_shading_rate_clamp_combiner_inputs = value;
+    pub fn fragment_shading_rate_clamp_combiner_inputs(mut self, value: bool) -> Self {
+        self.inner.fragment_shading_rate_clamp_combiner_inputs = value as u32;
         self
     }
     #[inline]
@@ -33820,8 +33883,8 @@ impl<'a> PhysicalDeviceVulkan14PropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn identical_memory_type_requirements(mut self, value: u32) -> Self {
-        self.inner.identical_memory_type_requirements = value;
+    pub fn identical_memory_type_requirements(mut self, value: bool) -> Self {
+        self.inner.identical_memory_type_requirements = value as u32;
         self
     }
 }
@@ -33914,8 +33977,8 @@ impl PhysicalDeviceCoherentMemoryFeaturesAMD {
 }
 impl<'a> PhysicalDeviceCoherentMemoryFeaturesAMDBuilder<'a> {
     #[inline]
-    pub fn device_coherent_memory(mut self, value: u32) -> Self {
-        self.inner.device_coherent_memory = value;
+    pub fn device_coherent_memory(mut self, value: bool) -> Self {
+        self.inner.device_coherent_memory = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCoherentMemoryFeaturesAMD`]'s **Extended By** section for valid types.
@@ -34233,13 +34296,13 @@ impl PhysicalDeviceCustomBorderColorFeaturesEXT {
 }
 impl<'a> PhysicalDeviceCustomBorderColorFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn custom_border_colors(mut self, value: u32) -> Self {
-        self.inner.custom_border_colors = value;
+    pub fn custom_border_colors(mut self, value: bool) -> Self {
+        self.inner.custom_border_colors = value as u32;
         self
     }
     #[inline]
-    pub fn custom_border_color_without_format(mut self, value: u32) -> Self {
-        self.inner.custom_border_color_without_format = value;
+    pub fn custom_border_color_without_format(mut self, value: bool) -> Self {
+        self.inner.custom_border_color_without_format = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCustomBorderColorFeaturesEXT`]'s **Extended By** section for valid types.
@@ -34296,8 +34359,8 @@ impl<'a> SamplerBorderColorComponentMappingCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn srgb(mut self, value: u32) -> Self {
-        self.inner.srgb = value;
+    pub fn srgb(mut self, value: bool) -> Self {
+        self.inner.srgb = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SamplerBorderColorComponentMappingCreateInfoEXT`]'s **Extended By** section for valid types.
@@ -34351,13 +34414,13 @@ impl PhysicalDeviceBorderColorSwizzleFeaturesEXT {
 }
 impl<'a> PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn border_color_swizzle(mut self, value: u32) -> Self {
-        self.inner.border_color_swizzle = value;
+    pub fn border_color_swizzle(mut self, value: bool) -> Self {
+        self.inner.border_color_swizzle = value as u32;
         self
     }
     #[inline]
-    pub fn border_color_swizzle_from_image(mut self, value: u32) -> Self {
-        self.inner.border_color_swizzle_from_image = value;
+    pub fn border_color_swizzle_from_image(mut self, value: bool) -> Self {
+        self.inner.border_color_swizzle_from_image = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceBorderColorSwizzleFeaturesEXT`]'s **Extended By** section for valid types.
@@ -34551,8 +34614,8 @@ impl AccelerationStructureGeometryInstancesDataKHR {
 }
 impl<'a> AccelerationStructureGeometryInstancesDataKHRBuilder<'a> {
     #[inline]
-    pub fn array_of_pointers(mut self, value: u32) -> Self {
-        self.inner.array_of_pointers = value;
+    pub fn array_of_pointers(mut self, value: bool) -> Self {
+        self.inner.array_of_pointers = value as u32;
         self
     }
     #[inline]
@@ -35507,8 +35570,8 @@ impl PhysicalDeviceExtendedDynamicStateFeaturesEXT {
 }
 impl<'a> PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn extended_dynamic_state(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state = value;
+    pub fn extended_dynamic_state(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedDynamicStateFeaturesEXT`]'s **Extended By** section for valid types.
@@ -35561,18 +35624,18 @@ impl PhysicalDeviceExtendedDynamicState2FeaturesEXT {
 }
 impl<'a> PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn extended_dynamic_state2(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state2 = value;
+    pub fn extended_dynamic_state2(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state2 = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state2_logic_op(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state2_logic_op = value;
+    pub fn extended_dynamic_state2_logic_op(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state2_logic_op = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state2_patch_control_points(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state2_patch_control_points = value;
+    pub fn extended_dynamic_state2_patch_control_points(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state2_patch_control_points = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedDynamicState2FeaturesEXT`]'s **Extended By** section for valid types.
@@ -35627,204 +35690,208 @@ impl<'a> PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder<'a> {
     #[inline]
     pub fn extended_dynamic_state3_tessellation_domain_origin(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_tessellation_domain_origin = value;
+        self.inner.extended_dynamic_state3_tessellation_domain_origin = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_depth_clamp_enable(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_depth_clamp_enable = value;
+    pub fn extended_dynamic_state3_depth_clamp_enable(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_depth_clamp_enable = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_polygon_mode(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_polygon_mode = value;
+    pub fn extended_dynamic_state3_polygon_mode(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_polygon_mode = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_rasterization_samples(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_rasterization_samples = value;
+    pub fn extended_dynamic_state3_rasterization_samples(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_rasterization_samples = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_sample_mask(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_sample_mask = value;
+    pub fn extended_dynamic_state3_sample_mask(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_sample_mask = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_alpha_to_coverage_enable(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_alpha_to_coverage_enable = value;
+        self.inner.extended_dynamic_state3_alpha_to_coverage_enable = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_alpha_to_one_enable(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_alpha_to_one_enable = value;
+    pub fn extended_dynamic_state3_alpha_to_one_enable(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_alpha_to_one_enable = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_logic_op_enable(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_logic_op_enable = value;
+    pub fn extended_dynamic_state3_logic_op_enable(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_logic_op_enable = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_color_blend_enable(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_color_blend_enable = value;
+    pub fn extended_dynamic_state3_color_blend_enable(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_color_blend_enable = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_color_blend_equation(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_color_blend_equation = value;
+    pub fn extended_dynamic_state3_color_blend_equation(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_color_blend_equation = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_color_write_mask(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_color_write_mask = value;
+    pub fn extended_dynamic_state3_color_write_mask(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_color_write_mask = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_rasterization_stream(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_rasterization_stream = value;
+    pub fn extended_dynamic_state3_rasterization_stream(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_rasterization_stream = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_conservative_rasterization_mode(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_conservative_rasterization_mode = value;
+        self.inner.extended_dynamic_state3_conservative_rasterization_mode = value
+            as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_extra_primitive_overestimation_size(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_extra_primitive_overestimation_size = value;
+        self.inner.extended_dynamic_state3_extra_primitive_overestimation_size = value
+            as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_depth_clip_enable(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_depth_clip_enable = value;
+    pub fn extended_dynamic_state3_depth_clip_enable(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_depth_clip_enable = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_sample_locations_enable(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_sample_locations_enable = value;
+        self.inner.extended_dynamic_state3_sample_locations_enable = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_color_blend_advanced(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_color_blend_advanced = value;
+    pub fn extended_dynamic_state3_color_blend_advanced(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_color_blend_advanced = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_provoking_vertex_mode(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_provoking_vertex_mode = value;
+    pub fn extended_dynamic_state3_provoking_vertex_mode(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_provoking_vertex_mode = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_line_rasterization_mode(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_line_rasterization_mode = value;
+        self.inner.extended_dynamic_state3_line_rasterization_mode = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_line_stipple_enable(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_line_stipple_enable = value;
+    pub fn extended_dynamic_state3_line_stipple_enable(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_line_stipple_enable = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_depth_clip_negative_one_to_one(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_depth_clip_negative_one_to_one = value;
+        self.inner.extended_dynamic_state3_depth_clip_negative_one_to_one = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_viewport_w_scaling_enable(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_viewport_w_scaling_enable = value;
+        self.inner.extended_dynamic_state3_viewport_w_scaling_enable = value as u32;
         self
     }
     #[inline]
-    pub fn extended_dynamic_state3_viewport_swizzle(mut self, value: u32) -> Self {
-        self.inner.extended_dynamic_state3_viewport_swizzle = value;
+    pub fn extended_dynamic_state3_viewport_swizzle(mut self, value: bool) -> Self {
+        self.inner.extended_dynamic_state3_viewport_swizzle = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_coverage_to_color_enable(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_coverage_to_color_enable = value;
+        self.inner.extended_dynamic_state3_coverage_to_color_enable = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_coverage_to_color_location(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_coverage_to_color_location = value;
+        self.inner.extended_dynamic_state3_coverage_to_color_location = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_coverage_modulation_mode(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_coverage_modulation_mode = value;
+        self.inner.extended_dynamic_state3_coverage_modulation_mode = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_coverage_modulation_table_enable(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_coverage_modulation_table_enable = value;
+        self.inner.extended_dynamic_state3_coverage_modulation_table_enable = value
+            as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_coverage_modulation_table(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_coverage_modulation_table = value;
+        self.inner.extended_dynamic_state3_coverage_modulation_table = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_coverage_reduction_mode(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_coverage_reduction_mode = value;
+        self.inner.extended_dynamic_state3_coverage_reduction_mode = value as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_representative_fragment_test_enable(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_representative_fragment_test_enable = value;
+        self.inner.extended_dynamic_state3_representative_fragment_test_enable = value
+            as u32;
         self
     }
     #[inline]
     pub fn extended_dynamic_state3_shading_rate_image_enable(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.extended_dynamic_state3_shading_rate_image_enable = value;
+        self.inner.extended_dynamic_state3_shading_rate_image_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedDynamicState3FeaturesEXT`]'s **Extended By** section for valid types.
@@ -35877,8 +35944,8 @@ impl PhysicalDeviceExtendedDynamicState3PropertiesEXT {
 }
 impl<'a> PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn dynamic_primitive_topology_unrestricted(mut self, value: u32) -> Self {
-        self.inner.dynamic_primitive_topology_unrestricted = value;
+    pub fn dynamic_primitive_topology_unrestricted(mut self, value: bool) -> Self {
+        self.inner.dynamic_primitive_topology_unrestricted = value as u32;
         self
     }
 }
@@ -36087,8 +36154,8 @@ impl PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
 }
 impl<'a> PhysicalDevicePartitionedAccelerationStructureFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn partitioned_acceleration_structure(mut self, value: u32) -> Self {
-        self.inner.partitioned_acceleration_structure = value;
+    pub fn partitioned_acceleration_structure(mut self, value: bool) -> Self {
+        self.inner.partitioned_acceleration_structure = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePartitionedAccelerationStructureFeaturesNV`]'s **Extended By** section for valid types.
@@ -36184,8 +36251,8 @@ impl PartitionedAccelerationStructureFlagsNV {
 }
 impl<'a> PartitionedAccelerationStructureFlagsNVBuilder<'a> {
     #[inline]
-    pub fn enable_partition_translation(mut self, value: u32) -> Self {
-        self.inner.enable_partition_translation = value;
+    pub fn enable_partition_translation(mut self, value: bool) -> Self {
+        self.inner.enable_partition_translation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PartitionedAccelerationStructureFlagsNV`]'s **Extended By** section for valid types.
@@ -36451,8 +36518,8 @@ impl PhysicalDeviceDiagnosticsConfigFeaturesNV {
 }
 impl<'a> PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn diagnostics_config(mut self, value: u32) -> Self {
-        self.inner.diagnostics_config = value;
+    pub fn diagnostics_config(mut self, value: bool) -> Self {
+        self.inner.diagnostics_config = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDiagnosticsConfigFeaturesNV`]'s **Extended By** section for valid types.
@@ -36622,8 +36689,8 @@ impl PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
 }
 impl<'a> PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_zero_initialize_workgroup_memory(mut self, value: u32) -> Self {
-        self.inner.shader_zero_initialize_workgroup_memory = value;
+    pub fn shader_zero_initialize_workgroup_memory(mut self, value: bool) -> Self {
+        self.inner.shader_zero_initialize_workgroup_memory = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures`]'s **Extended By** section for valid types.
@@ -36679,8 +36746,8 @@ impl PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_subgroup_uniform_control_flow(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_uniform_control_flow = value;
+    pub fn shader_subgroup_uniform_control_flow(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_uniform_control_flow = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR`]'s **Extended By** section for valid types.
@@ -36733,18 +36800,18 @@ impl PhysicalDeviceRobustness2FeaturesKHR {
 }
 impl<'a> PhysicalDeviceRobustness2FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn robust_buffer_access2(mut self, value: u32) -> Self {
-        self.inner.robust_buffer_access2 = value;
+    pub fn robust_buffer_access2(mut self, value: bool) -> Self {
+        self.inner.robust_buffer_access2 = value as u32;
         self
     }
     #[inline]
-    pub fn robust_image_access2(mut self, value: u32) -> Self {
-        self.inner.robust_image_access2 = value;
+    pub fn robust_image_access2(mut self, value: bool) -> Self {
+        self.inner.robust_image_access2 = value as u32;
         self
     }
     #[inline]
-    pub fn null_descriptor(mut self, value: u32) -> Self {
-        self.inner.null_descriptor = value;
+    pub fn null_descriptor(mut self, value: bool) -> Self {
+        self.inner.null_descriptor = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRobustness2FeaturesKHR`]'s **Extended By** section for valid types.
@@ -36839,8 +36906,8 @@ impl PhysicalDeviceImageRobustnessFeatures {
 }
 impl<'a> PhysicalDeviceImageRobustnessFeaturesBuilder<'a> {
     #[inline]
-    pub fn robust_image_access(mut self, value: u32) -> Self {
-        self.inner.robust_image_access = value;
+    pub fn robust_image_access(mut self, value: bool) -> Self {
+        self.inner.robust_image_access = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageRobustnessFeatures`]'s **Extended By** section for valid types.
@@ -36894,26 +36961,26 @@ impl PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
 }
 impl<'a> PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn workgroup_memory_explicit_layout(mut self, value: u32) -> Self {
-        self.inner.workgroup_memory_explicit_layout = value;
+    pub fn workgroup_memory_explicit_layout(mut self, value: bool) -> Self {
+        self.inner.workgroup_memory_explicit_layout = value as u32;
         self
     }
     #[inline]
     pub fn workgroup_memory_explicit_layout_scalar_block_layout(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.workgroup_memory_explicit_layout_scalar_block_layout = value;
+        self.inner.workgroup_memory_explicit_layout_scalar_block_layout = value as u32;
         self
     }
     #[inline]
-    pub fn workgroup_memory_explicit_layout8_bit_access(mut self, value: u32) -> Self {
-        self.inner.workgroup_memory_explicit_layout8_bit_access = value;
+    pub fn workgroup_memory_explicit_layout8_bit_access(mut self, value: bool) -> Self {
+        self.inner.workgroup_memory_explicit_layout8_bit_access = value as u32;
         self
     }
     #[inline]
-    pub fn workgroup_memory_explicit_layout16_bit_access(mut self, value: u32) -> Self {
-        self.inner.workgroup_memory_explicit_layout16_bit_access = value;
+    pub fn workgroup_memory_explicit_layout16_bit_access(mut self, value: bool) -> Self {
+        self.inner.workgroup_memory_explicit_layout16_bit_access = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR`]'s **Extended By** section for valid types.
@@ -36967,78 +37034,78 @@ impl PhysicalDevicePortabilitySubsetFeaturesKHR {
 }
 impl<'a> PhysicalDevicePortabilitySubsetFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn constant_alpha_color_blend_factors(mut self, value: u32) -> Self {
-        self.inner.constant_alpha_color_blend_factors = value;
+    pub fn constant_alpha_color_blend_factors(mut self, value: bool) -> Self {
+        self.inner.constant_alpha_color_blend_factors = value as u32;
         self
     }
     #[inline]
-    pub fn events(mut self, value: u32) -> Self {
-        self.inner.events = value;
+    pub fn events(mut self, value: bool) -> Self {
+        self.inner.events = value as u32;
         self
     }
     #[inline]
-    pub fn image_view_format_reinterpretation(mut self, value: u32) -> Self {
-        self.inner.image_view_format_reinterpretation = value;
+    pub fn image_view_format_reinterpretation(mut self, value: bool) -> Self {
+        self.inner.image_view_format_reinterpretation = value as u32;
         self
     }
     #[inline]
-    pub fn image_view_format_swizzle(mut self, value: u32) -> Self {
-        self.inner.image_view_format_swizzle = value;
+    pub fn image_view_format_swizzle(mut self, value: bool) -> Self {
+        self.inner.image_view_format_swizzle = value as u32;
         self
     }
     #[inline]
-    pub fn image_view2_d_on3_d_image(mut self, value: u32) -> Self {
-        self.inner.image_view2_d_on3_d_image = value;
+    pub fn image_view2_d_on3_d_image(mut self, value: bool) -> Self {
+        self.inner.image_view2_d_on3_d_image = value as u32;
         self
     }
     #[inline]
-    pub fn multisample_array_image(mut self, value: u32) -> Self {
-        self.inner.multisample_array_image = value;
+    pub fn multisample_array_image(mut self, value: bool) -> Self {
+        self.inner.multisample_array_image = value as u32;
         self
     }
     #[inline]
-    pub fn mutable_comparison_samplers(mut self, value: u32) -> Self {
-        self.inner.mutable_comparison_samplers = value;
+    pub fn mutable_comparison_samplers(mut self, value: bool) -> Self {
+        self.inner.mutable_comparison_samplers = value as u32;
         self
     }
     #[inline]
-    pub fn point_polygons(mut self, value: u32) -> Self {
-        self.inner.point_polygons = value;
+    pub fn point_polygons(mut self, value: bool) -> Self {
+        self.inner.point_polygons = value as u32;
         self
     }
     #[inline]
-    pub fn sampler_mip_lod_bias(mut self, value: u32) -> Self {
-        self.inner.sampler_mip_lod_bias = value;
+    pub fn sampler_mip_lod_bias(mut self, value: bool) -> Self {
+        self.inner.sampler_mip_lod_bias = value as u32;
         self
     }
     #[inline]
-    pub fn separate_stencil_mask_ref(mut self, value: u32) -> Self {
-        self.inner.separate_stencil_mask_ref = value;
+    pub fn separate_stencil_mask_ref(mut self, value: bool) -> Self {
+        self.inner.separate_stencil_mask_ref = value as u32;
         self
     }
     #[inline]
-    pub fn shader_sample_rate_interpolation_functions(mut self, value: u32) -> Self {
-        self.inner.shader_sample_rate_interpolation_functions = value;
+    pub fn shader_sample_rate_interpolation_functions(mut self, value: bool) -> Self {
+        self.inner.shader_sample_rate_interpolation_functions = value as u32;
         self
     }
     #[inline]
-    pub fn tessellation_isolines(mut self, value: u32) -> Self {
-        self.inner.tessellation_isolines = value;
+    pub fn tessellation_isolines(mut self, value: bool) -> Self {
+        self.inner.tessellation_isolines = value as u32;
         self
     }
     #[inline]
-    pub fn tessellation_point_mode(mut self, value: u32) -> Self {
-        self.inner.tessellation_point_mode = value;
+    pub fn tessellation_point_mode(mut self, value: bool) -> Self {
+        self.inner.tessellation_point_mode = value as u32;
         self
     }
     #[inline]
-    pub fn triangle_fans(mut self, value: u32) -> Self {
-        self.inner.triangle_fans = value;
+    pub fn triangle_fans(mut self, value: bool) -> Self {
+        self.inner.triangle_fans = value as u32;
         self
     }
     #[inline]
-    pub fn vertex_attribute_access_beyond_stride(mut self, value: u32) -> Self {
-        self.inner.vertex_attribute_access_beyond_stride = value;
+    pub fn vertex_attribute_access_beyond_stride(mut self, value: bool) -> Self {
+        self.inner.vertex_attribute_access_beyond_stride = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePortabilitySubsetFeaturesKHR`]'s **Extended By** section for valid types.
@@ -37129,13 +37196,13 @@ impl PhysicalDevice4444FormatsFeaturesEXT {
 }
 impl<'a> PhysicalDevice4444FormatsFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn format_a4r4g4b4(mut self, value: u32) -> Self {
-        self.inner.format_a4r4g4b4 = value;
+    pub fn format_a4r4g4b4(mut self, value: bool) -> Self {
+        self.inner.format_a4r4g4b4 = value as u32;
         self
     }
     #[inline]
-    pub fn format_a4b4g4r4(mut self, value: u32) -> Self {
-        self.inner.format_a4b4g4r4 = value;
+    pub fn format_a4b4g4r4(mut self, value: bool) -> Self {
+        self.inner.format_a4b4g4r4 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevice4444FormatsFeaturesEXT`]'s **Extended By** section for valid types.
@@ -37187,8 +37254,8 @@ impl PhysicalDeviceSubpassShadingFeaturesHUAWEI {
 }
 impl<'a> PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder<'a> {
     #[inline]
-    pub fn subpass_shading(mut self, value: u32) -> Self {
-        self.inner.subpass_shading = value;
+    pub fn subpass_shading(mut self, value: bool) -> Self {
+        self.inner.subpass_shading = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSubpassShadingFeaturesHUAWEI`]'s **Extended By** section for valid types.
@@ -37240,13 +37307,13 @@ impl PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
 }
 impl<'a> PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder<'a> {
     #[inline]
-    pub fn clusterculling_shader(mut self, value: u32) -> Self {
-        self.inner.clusterculling_shader = value;
+    pub fn clusterculling_shader(mut self, value: bool) -> Self {
+        self.inner.clusterculling_shader = value as u32;
         self
     }
     #[inline]
-    pub fn multiview_cluster_culling_shader(mut self, value: u32) -> Self {
-        self.inner.multiview_cluster_culling_shader = value;
+    pub fn multiview_cluster_culling_shader(mut self, value: bool) -> Self {
+        self.inner.multiview_cluster_culling_shader = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceClusterCullingShaderFeaturesHUAWEI`]'s **Extended By** section for valid types.
@@ -37302,8 +37369,8 @@ impl PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
 }
 impl<'a> PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEIBuilder<'a> {
     #[inline]
-    pub fn cluster_shading_rate(mut self, value: u32) -> Self {
-        self.inner.cluster_shading_rate = value;
+    pub fn cluster_shading_rate(mut self, value: bool) -> Self {
+        self.inner.cluster_shading_rate = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI`]'s **Extended By** section for valid types.
@@ -38114,13 +38181,13 @@ impl PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_image_int64_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_image_int64_atomics = value;
+    pub fn shader_image_int64_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_image_int64_atomics = value as u32;
         self
     }
     #[inline]
-    pub fn sparse_image_int64_atomics(mut self, value: u32) -> Self {
-        self.inner.sparse_image_int64_atomics = value;
+    pub fn sparse_image_int64_atomics(mut self, value: bool) -> Self {
+        self.inner.sparse_image_int64_atomics = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderImageAtomicInt64FeaturesEXT`]'s **Extended By** section for valid types.
@@ -38297,18 +38364,18 @@ impl PhysicalDeviceFragmentShadingRateFeaturesKHR {
 }
 impl<'a> PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn pipeline_fragment_shading_rate(mut self, value: u32) -> Self {
-        self.inner.pipeline_fragment_shading_rate = value;
+    pub fn pipeline_fragment_shading_rate(mut self, value: bool) -> Self {
+        self.inner.pipeline_fragment_shading_rate = value as u32;
         self
     }
     #[inline]
-    pub fn primitive_fragment_shading_rate(mut self, value: u32) -> Self {
-        self.inner.primitive_fragment_shading_rate = value;
+    pub fn primitive_fragment_shading_rate(mut self, value: bool) -> Self {
+        self.inner.primitive_fragment_shading_rate = value as u32;
         self
     }
     #[inline]
-    pub fn attachment_fragment_shading_rate(mut self, value: u32) -> Self {
-        self.inner.attachment_fragment_shading_rate = value;
+    pub fn attachment_fragment_shading_rate(mut self, value: bool) -> Self {
+        self.inner.attachment_fragment_shading_rate = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShadingRateFeaturesKHR`]'s **Extended By** section for valid types.
@@ -38387,19 +38454,23 @@ impl<'a> PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder<'a> {
     #[inline]
     pub fn primitive_fragment_shading_rate_with_multiple_viewports(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.primitive_fragment_shading_rate_with_multiple_viewports = value;
+        self.inner.primitive_fragment_shading_rate_with_multiple_viewports = value
+            as u32;
         self
     }
     #[inline]
-    pub fn layered_shading_rate_attachments(mut self, value: u32) -> Self {
-        self.inner.layered_shading_rate_attachments = value;
+    pub fn layered_shading_rate_attachments(mut self, value: bool) -> Self {
+        self.inner.layered_shading_rate_attachments = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_shading_rate_non_trivial_combiner_ops(mut self, value: u32) -> Self {
-        self.inner.fragment_shading_rate_non_trivial_combiner_ops = value;
+    pub fn fragment_shading_rate_non_trivial_combiner_ops(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.fragment_shading_rate_non_trivial_combiner_ops = value as u32;
         self
     }
     #[inline]
@@ -38428,48 +38499,51 @@ impl<'a> PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder<'a> {
     #[inline]
     pub fn fragment_shading_rate_with_shader_depth_stencil_writes(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.fragment_shading_rate_with_shader_depth_stencil_writes = value;
+        self.inner.fragment_shading_rate_with_shader_depth_stencil_writes = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_shading_rate_with_sample_mask(mut self, value: u32) -> Self {
-        self.inner.fragment_shading_rate_with_sample_mask = value;
+    pub fn fragment_shading_rate_with_sample_mask(mut self, value: bool) -> Self {
+        self.inner.fragment_shading_rate_with_sample_mask = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_shading_rate_with_shader_sample_mask(mut self, value: u32) -> Self {
-        self.inner.fragment_shading_rate_with_shader_sample_mask = value;
+    pub fn fragment_shading_rate_with_shader_sample_mask(mut self, value: bool) -> Self {
+        self.inner.fragment_shading_rate_with_shader_sample_mask = value as u32;
         self
     }
     #[inline]
     pub fn fragment_shading_rate_with_conservative_rasterization(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.fragment_shading_rate_with_conservative_rasterization = value;
+        self.inner.fragment_shading_rate_with_conservative_rasterization = value as u32;
         self
     }
     #[inline]
     pub fn fragment_shading_rate_with_fragment_shader_interlock(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.fragment_shading_rate_with_fragment_shader_interlock = value;
+        self.inner.fragment_shading_rate_with_fragment_shader_interlock = value as u32;
         self
     }
     #[inline]
     pub fn fragment_shading_rate_with_custom_sample_locations(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.fragment_shading_rate_with_custom_sample_locations = value;
+        self.inner.fragment_shading_rate_with_custom_sample_locations = value as u32;
         self
     }
     #[inline]
-    pub fn fragment_shading_rate_strict_multiply_combiner(mut self, value: u32) -> Self {
-        self.inner.fragment_shading_rate_strict_multiply_combiner = value;
+    pub fn fragment_shading_rate_strict_multiply_combiner(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.fragment_shading_rate_strict_multiply_combiner = value as u32;
         self
     }
 }
@@ -38550,8 +38624,8 @@ impl PhysicalDeviceShaderTerminateInvocationFeatures {
 }
 impl<'a> PhysicalDeviceShaderTerminateInvocationFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_terminate_invocation(mut self, value: u32) -> Self {
-        self.inner.shader_terminate_invocation = value;
+    pub fn shader_terminate_invocation(mut self, value: bool) -> Self {
+        self.inner.shader_terminate_invocation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderTerminateInvocationFeatures`]'s **Extended By** section for valid types.
@@ -38605,18 +38679,18 @@ impl PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
 }
 impl<'a> PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn fragment_shading_rate_enums(mut self, value: u32) -> Self {
-        self.inner.fragment_shading_rate_enums = value;
+    pub fn fragment_shading_rate_enums(mut self, value: bool) -> Self {
+        self.inner.fragment_shading_rate_enums = value as u32;
         self
     }
     #[inline]
-    pub fn supersample_fragment_shading_rates(mut self, value: u32) -> Self {
-        self.inner.supersample_fragment_shading_rates = value;
+    pub fn supersample_fragment_shading_rates(mut self, value: bool) -> Self {
+        self.inner.supersample_fragment_shading_rates = value as u32;
         self
     }
     #[inline]
-    pub fn no_invocation_fragment_shading_rates(mut self, value: u32) -> Self {
-        self.inner.no_invocation_fragment_shading_rates = value;
+    pub fn no_invocation_fragment_shading_rates(mut self, value: bool) -> Self {
+        self.inner.no_invocation_fragment_shading_rates = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShadingRateEnumsFeaturesNV`]'s **Extended By** section for valid types.
@@ -38831,13 +38905,13 @@ impl PhysicalDeviceImage2DViewOf3DFeaturesEXT {
 }
 impl<'a> PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn image2_d_view_of3_d(mut self, value: u32) -> Self {
-        self.inner.image2_d_view_of3_d = value;
+    pub fn image2_d_view_of3_d(mut self, value: bool) -> Self {
+        self.inner.image2_d_view_of3_d = value as u32;
         self
     }
     #[inline]
-    pub fn sampler2_d_view_of3_d(mut self, value: u32) -> Self {
-        self.inner.sampler2_d_view_of3_d = value;
+    pub fn sampler2_d_view_of3_d(mut self, value: bool) -> Self {
+        self.inner.sampler2_d_view_of3_d = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImage2DViewOf3DFeaturesEXT`]'s **Extended By** section for valid types.
@@ -38889,8 +38963,8 @@ impl PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
 }
 impl<'a> PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn image_sliced_view_of3_d(mut self, value: u32) -> Self {
-        self.inner.image_sliced_view_of3_d = value;
+    pub fn image_sliced_view_of3_d(mut self, value: bool) -> Self {
+        self.inner.image_sliced_view_of3_d = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageSlicedViewOf3DFeaturesEXT`]'s **Extended By** section for valid types.
@@ -38945,8 +39019,8 @@ impl PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
 }
 impl<'a> PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn attachment_feedback_loop_dynamic_state(mut self, value: u32) -> Self {
-        self.inner.attachment_feedback_loop_dynamic_state = value;
+    pub fn attachment_feedback_loop_dynamic_state(mut self, value: bool) -> Self {
+        self.inner.attachment_feedback_loop_dynamic_state = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT`]'s **Extended By** section for valid types.
@@ -38999,8 +39073,8 @@ impl PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
 }
 impl<'a> PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn legacy_vertex_attributes(mut self, value: u32) -> Self {
-        self.inner.legacy_vertex_attributes = value;
+    pub fn legacy_vertex_attributes(mut self, value: bool) -> Self {
+        self.inner.legacy_vertex_attributes = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLegacyVertexAttributesFeaturesEXT`]'s **Extended By** section for valid types.
@@ -39056,8 +39130,8 @@ impl PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
 }
 impl<'a> PhysicalDeviceLegacyVertexAttributesPropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn native_unaligned_performance(mut self, value: u32) -> Self {
-        self.inner.native_unaligned_performance = value;
+    pub fn native_unaligned_performance(mut self, value: bool) -> Self {
+        self.inner.native_unaligned_performance = value as u32;
         self
     }
 }
@@ -39096,8 +39170,8 @@ impl PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
 }
 impl<'a> PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn mutable_descriptor_type(mut self, value: u32) -> Self {
-        self.inner.mutable_descriptor_type = value;
+    pub fn mutable_descriptor_type(mut self, value: bool) -> Self {
+        self.inner.mutable_descriptor_type = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMutableDescriptorTypeFeaturesEXT`]'s **Extended By** section for valid types.
@@ -39207,8 +39281,8 @@ impl PhysicalDeviceDepthClipControlFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDepthClipControlFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn depth_clip_control(mut self, value: u32) -> Self {
-        self.inner.depth_clip_control = value;
+    pub fn depth_clip_control(mut self, value: bool) -> Self {
+        self.inner.depth_clip_control = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClipControlFeaturesEXT`]'s **Extended By** section for valid types.
@@ -39262,8 +39336,8 @@ impl PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
 }
 impl<'a> PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn zero_initialize_device_memory(mut self, value: u32) -> Self {
-        self.inner.zero_initialize_device_memory = value;
+    pub fn zero_initialize_device_memory(mut self, value: bool) -> Self {
+        self.inner.zero_initialize_device_memory = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT`]'s **Extended By** section for valid types.
@@ -39365,8 +39439,8 @@ impl PhysicalDeviceCustomResolveFeaturesEXT {
 }
 impl<'a> PhysicalDeviceCustomResolveFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn custom_resolve(mut self, value: u32) -> Self {
-        self.inner.custom_resolve = value;
+    pub fn custom_resolve(mut self, value: bool) -> Self {
+        self.inner.custom_resolve = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCustomResolveFeaturesEXT`]'s **Extended By** section for valid types.
@@ -39418,8 +39492,8 @@ impl CustomResolveCreateInfoEXT {
 }
 impl<'a> CustomResolveCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn custom_resolve(mut self, value: u32) -> Self {
-        self.inner.custom_resolve = value;
+    pub fn custom_resolve(mut self, value: bool) -> Self {
+        self.inner.custom_resolve = value as u32;
         self
     }
     #[inline]
@@ -39487,13 +39561,13 @@ impl PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn device_generated_commands(mut self, value: u32) -> Self {
-        self.inner.device_generated_commands = value;
+    pub fn device_generated_commands(mut self, value: bool) -> Self {
+        self.inner.device_generated_commands = value as u32;
         self
     }
     #[inline]
-    pub fn dynamic_generated_pipeline_layout(mut self, value: u32) -> Self {
-        self.inner.dynamic_generated_pipeline_layout = value;
+    pub fn dynamic_generated_pipeline_layout(mut self, value: bool) -> Self {
+        self.inner.dynamic_generated_pipeline_layout = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT`]'s **Extended By** section for valid types.
@@ -39611,16 +39685,16 @@ impl<'a> PhysicalDeviceDeviceGeneratedCommandsPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn device_generated_commands_transform_feedback(mut self, value: u32) -> Self {
-        self.inner.device_generated_commands_transform_feedback = value;
+    pub fn device_generated_commands_transform_feedback(mut self, value: bool) -> Self {
+        self.inner.device_generated_commands_transform_feedback = value as u32;
         self
     }
     #[inline]
     pub fn device_generated_commands_multi_draw_indirect_count(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.device_generated_commands_multi_draw_indirect_count = value;
+        self.inner.device_generated_commands_multi_draw_indirect_count = value as u32;
         self
     }
 }
@@ -40429,8 +40503,8 @@ impl PipelineViewportDepthClipControlCreateInfoEXT {
 }
 impl<'a> PipelineViewportDepthClipControlCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn negative_one_to_one(mut self, value: u32) -> Self {
-        self.inner.negative_one_to_one = value;
+    pub fn negative_one_to_one(mut self, value: bool) -> Self {
+        self.inner.negative_one_to_one = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PipelineViewportDepthClipControlCreateInfoEXT`]'s **Extended By** section for valid types.
@@ -40483,8 +40557,8 @@ impl PhysicalDeviceDepthClampControlFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDepthClampControlFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn depth_clamp_control(mut self, value: u32) -> Self {
-        self.inner.depth_clamp_control = value;
+    pub fn depth_clamp_control(mut self, value: bool) -> Self {
+        self.inner.depth_clamp_control = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClampControlFeaturesEXT`]'s **Extended By** section for valid types.
@@ -40595,8 +40669,8 @@ impl PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
 }
 impl<'a> PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn vertex_input_dynamic_state(mut self, value: u32) -> Self {
-        self.inner.vertex_input_dynamic_state = value;
+    pub fn vertex_input_dynamic_state(mut self, value: bool) -> Self {
+        self.inner.vertex_input_dynamic_state = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVertexInputDynamicStateFeaturesEXT`]'s **Extended By** section for valid types.
@@ -40650,8 +40724,8 @@ impl PhysicalDeviceExternalMemoryRDMAFeaturesNV {
 }
 impl<'a> PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn external_memory_rdma(mut self, value: u32) -> Self {
-        self.inner.external_memory_rdma = value;
+    pub fn external_memory_rdma(mut self, value: bool) -> Self {
+        self.inner.external_memory_rdma = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalMemoryRDMAFeaturesNV`]'s **Extended By** section for valid types.
@@ -40705,8 +40779,8 @@ impl PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_relaxed_extended_instruction(mut self, value: u32) -> Self {
-        self.inner.shader_relaxed_extended_instruction = value;
+    pub fn shader_relaxed_extended_instruction(mut self, value: bool) -> Self {
+        self.inner.shader_relaxed_extended_instruction = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR`]'s **Extended By** section for valid types.
@@ -40895,8 +40969,8 @@ impl PhysicalDeviceColorWriteEnableFeaturesEXT {
 }
 impl<'a> PhysicalDeviceColorWriteEnableFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn color_write_enable(mut self, value: u32) -> Self {
-        self.inner.color_write_enable = value;
+    pub fn color_write_enable(mut self, value: bool) -> Self {
+        self.inner.color_write_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceColorWriteEnableFeaturesEXT`]'s **Extended By** section for valid types.
@@ -41653,8 +41727,8 @@ impl PhysicalDeviceSynchronization2Features {
 }
 impl<'a> PhysicalDeviceSynchronization2FeaturesBuilder<'a> {
     #[inline]
-    pub fn synchronization2(mut self, value: u32) -> Self {
-        self.inner.synchronization2 = value;
+    pub fn synchronization2(mut self, value: bool) -> Self {
+        self.inner.synchronization2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSynchronization2Features`]'s **Extended By** section for valid types.
@@ -41706,13 +41780,13 @@ impl PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
 }
 impl<'a> PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn unified_image_layouts(mut self, value: u32) -> Self {
-        self.inner.unified_image_layouts = value;
+    pub fn unified_image_layouts(mut self, value: bool) -> Self {
+        self.inner.unified_image_layouts = value as u32;
         self
     }
     #[inline]
-    pub fn unified_image_layouts_video(mut self, value: u32) -> Self {
-        self.inner.unified_image_layouts_video = value;
+    pub fn unified_image_layouts_video(mut self, value: bool) -> Self {
+        self.inner.unified_image_layouts_video = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceUnifiedImageLayoutsFeaturesKHR`]'s **Extended By** section for valid types.
@@ -41765,8 +41839,8 @@ impl PhysicalDeviceHostImageCopyFeatures {
 }
 impl<'a> PhysicalDeviceHostImageCopyFeaturesBuilder<'a> {
     #[inline]
-    pub fn host_image_copy(mut self, value: u32) -> Self {
-        self.inner.host_image_copy = value;
+    pub fn host_image_copy(mut self, value: bool) -> Self {
+        self.inner.host_image_copy = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHostImageCopyFeatures`]'s **Extended By** section for valid types.
@@ -41838,8 +41912,8 @@ impl<'a> PhysicalDeviceHostImageCopyPropertiesBuilder<'a> {
         self
     }
     #[inline]
-    pub fn identical_memory_type_requirements(mut self, value: u32) -> Self {
-        self.inner.identical_memory_type_requirements = value;
+    pub fn identical_memory_type_requirements(mut self, value: bool) -> Self {
+        self.inner.identical_memory_type_requirements = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHostImageCopyProperties`]'s **Extended By** section for valid types.
@@ -42361,13 +42435,13 @@ impl HostImageCopyDevicePerformanceQuery {
 }
 impl<'a> HostImageCopyDevicePerformanceQueryBuilder<'a> {
     #[inline]
-    pub fn optimal_device_access(mut self, value: u32) -> Self {
-        self.inner.optimal_device_access = value;
+    pub fn optimal_device_access(mut self, value: bool) -> Self {
+        self.inner.optimal_device_access = value as u32;
         self
     }
     #[inline]
-    pub fn identical_memory_layout(mut self, value: u32) -> Self {
-        self.inner.identical_memory_layout = value;
+    pub fn identical_memory_layout(mut self, value: bool) -> Self {
+        self.inner.identical_memory_layout = value as u32;
         self
     }
 }
@@ -42404,49 +42478,49 @@ impl PhysicalDeviceVulkanSC10Properties {
 }
 impl<'a> PhysicalDeviceVulkanSC10PropertiesBuilder<'a> {
     #[inline]
-    pub fn device_no_dynamic_host_allocations(mut self, value: u32) -> Self {
-        self.inner.device_no_dynamic_host_allocations = value;
+    pub fn device_no_dynamic_host_allocations(mut self, value: bool) -> Self {
+        self.inner.device_no_dynamic_host_allocations = value as u32;
         self
     }
     #[inline]
-    pub fn device_destroy_frees_memory(mut self, value: u32) -> Self {
-        self.inner.device_destroy_frees_memory = value;
+    pub fn device_destroy_frees_memory(mut self, value: bool) -> Self {
+        self.inner.device_destroy_frees_memory = value as u32;
         self
     }
     #[inline]
     pub fn command_pool_multiple_command_buffers_recording(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.command_pool_multiple_command_buffers_recording = value;
+        self.inner.command_pool_multiple_command_buffers_recording = value as u32;
         self
     }
     #[inline]
-    pub fn command_pool_reset_command_buffer(mut self, value: u32) -> Self {
-        self.inner.command_pool_reset_command_buffer = value;
+    pub fn command_pool_reset_command_buffer(mut self, value: bool) -> Self {
+        self.inner.command_pool_reset_command_buffer = value as u32;
         self
     }
     #[inline]
-    pub fn command_buffer_simultaneous_use(mut self, value: u32) -> Self {
-        self.inner.command_buffer_simultaneous_use = value;
+    pub fn command_buffer_simultaneous_use(mut self, value: bool) -> Self {
+        self.inner.command_buffer_simultaneous_use = value as u32;
         self
     }
     #[inline]
     pub fn secondary_command_buffer_null_or_imageless_framebuffer(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.secondary_command_buffer_null_or_imageless_framebuffer = value;
+        self.inner.secondary_command_buffer_null_or_imageless_framebuffer = value as u32;
         self
     }
     #[inline]
-    pub fn recycle_descriptor_set_memory(mut self, value: u32) -> Self {
-        self.inner.recycle_descriptor_set_memory = value;
+    pub fn recycle_descriptor_set_memory(mut self, value: bool) -> Self {
+        self.inner.recycle_descriptor_set_memory = value as u32;
         self
     }
     #[inline]
-    pub fn recycle_pipeline_memory(mut self, value: u32) -> Self {
-        self.inner.recycle_pipeline_memory = value;
+    pub fn recycle_pipeline_memory(mut self, value: bool) -> Self {
+        self.inner.recycle_pipeline_memory = value as u32;
         self
     }
     #[inline]
@@ -42945,8 +43019,8 @@ impl PhysicalDeviceVulkanSC10Features {
 }
 impl<'a> PhysicalDeviceVulkanSC10FeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_atomic_instructions(mut self, value: u32) -> Self {
-        self.inner.shader_atomic_instructions = value;
+    pub fn shader_atomic_instructions(mut self, value: bool) -> Self {
+        self.inner.shader_atomic_instructions = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVulkanSC10Features`]'s **Extended By** section for valid types.
@@ -43000,24 +43074,24 @@ impl PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
 }
 impl<'a> PhysicalDevicePrimitivesGeneratedQueryFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn primitives_generated_query(mut self, value: u32) -> Self {
-        self.inner.primitives_generated_query = value;
+    pub fn primitives_generated_query(mut self, value: bool) -> Self {
+        self.inner.primitives_generated_query = value as u32;
         self
     }
     #[inline]
     pub fn primitives_generated_query_with_rasterizer_discard(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.primitives_generated_query_with_rasterizer_discard = value;
+        self.inner.primitives_generated_query_with_rasterizer_discard = value as u32;
         self
     }
     #[inline]
     pub fn primitives_generated_query_with_non_zero_streams(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.primitives_generated_query_with_non_zero_streams = value;
+        self.inner.primitives_generated_query_with_non_zero_streams = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT`]'s **Extended By** section for valid types.
@@ -43071,8 +43145,8 @@ impl PhysicalDeviceLegacyDitheringFeaturesEXT {
 }
 impl<'a> PhysicalDeviceLegacyDitheringFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn legacy_dithering(mut self, value: u32) -> Self {
-        self.inner.legacy_dithering = value;
+    pub fn legacy_dithering(mut self, value: bool) -> Self {
+        self.inner.legacy_dithering = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLegacyDitheringFeaturesEXT`]'s **Extended By** section for valid types.
@@ -43126,8 +43200,8 @@ impl PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
 }
 impl<'a> PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn multisampled_render_to_single_sampled(mut self, value: u32) -> Self {
-        self.inner.multisampled_render_to_single_sampled = value;
+    pub fn multisampled_render_to_single_sampled(mut self, value: bool) -> Self {
+        self.inner.multisampled_render_to_single_sampled = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT`]'s **Extended By** section for valid types.
@@ -43180,8 +43254,8 @@ impl SurfaceCapabilitiesPresentId2KHR {
 }
 impl<'a> SurfaceCapabilitiesPresentId2KHRBuilder<'a> {
     #[inline]
-    pub fn present_id2_supported(mut self, value: u32) -> Self {
-        self.inner.present_id2_supported = value;
+    pub fn present_id2_supported(mut self, value: bool) -> Self {
+        self.inner.present_id2_supported = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SurfaceCapabilitiesPresentId2KHR`]'s **Extended By** section for valid types.
@@ -43233,8 +43307,8 @@ impl SurfaceCapabilitiesPresentWait2KHR {
 }
 impl<'a> SurfaceCapabilitiesPresentWait2KHRBuilder<'a> {
     #[inline]
-    pub fn present_wait2_supported(mut self, value: u32) -> Self {
-        self.inner.present_wait2_supported = value;
+    pub fn present_wait2_supported(mut self, value: bool) -> Self {
+        self.inner.present_wait2_supported = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SurfaceCapabilitiesPresentWait2KHR`]'s **Extended By** section for valid types.
@@ -43286,8 +43360,8 @@ impl SubpassResolvePerformanceQueryEXT {
 }
 impl<'a> SubpassResolvePerformanceQueryEXTBuilder<'a> {
     #[inline]
-    pub fn optimal(mut self, value: u32) -> Self {
-        self.inner.optimal = value;
+    pub fn optimal(mut self, value: bool) -> Self {
+        self.inner.optimal = value as u32;
         self
     }
 }
@@ -43324,8 +43398,8 @@ impl MultisampledRenderToSingleSampledInfoEXT {
 }
 impl<'a> MultisampledRenderToSingleSampledInfoEXTBuilder<'a> {
     #[inline]
-    pub fn multisampled_render_to_single_sampled_enable(mut self, value: u32) -> Self {
-        self.inner.multisampled_render_to_single_sampled_enable = value;
+    pub fn multisampled_render_to_single_sampled_enable(mut self, value: bool) -> Self {
+        self.inner.multisampled_render_to_single_sampled_enable = value as u32;
         self
     }
     #[inline]
@@ -43382,8 +43456,8 @@ impl PhysicalDevicePipelineProtectedAccessFeatures {
 }
 impl<'a> PhysicalDevicePipelineProtectedAccessFeaturesBuilder<'a> {
     #[inline]
-    pub fn pipeline_protected_access(mut self, value: u32) -> Self {
-        self.inner.pipeline_protected_access = value;
+    pub fn pipeline_protected_access(mut self, value: bool) -> Self {
+        self.inner.pipeline_protected_access = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineProtectedAccessFeatures`]'s **Extended By** section for valid types.
@@ -43474,8 +43548,8 @@ impl QueueFamilyQueryResultStatusPropertiesKHR {
 }
 impl<'a> QueueFamilyQueryResultStatusPropertiesKHRBuilder<'a> {
     #[inline]
-    pub fn query_result_status_support(mut self, value: u32) -> Self {
-        self.inner.query_result_status_support = value;
+    pub fn query_result_status_support(mut self, value: bool) -> Self {
+        self.inner.query_result_status_support = value as u32;
         self
     }
 }
@@ -44533,8 +44607,8 @@ impl PhysicalDeviceVideoMaintenance1FeaturesKHR {
 }
 impl<'a> PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn video_maintenance1(mut self, value: u32) -> Self {
-        self.inner.video_maintenance1 = value;
+    pub fn video_maintenance1(mut self, value: bool) -> Self {
+        self.inner.video_maintenance1 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoMaintenance1FeaturesKHR`]'s **Extended By** section for valid types.
@@ -44586,8 +44660,8 @@ impl PhysicalDeviceVideoMaintenance2FeaturesKHR {
 }
 impl<'a> PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn video_maintenance2(mut self, value: u32) -> Self {
-        self.inner.video_maintenance2 = value;
+    pub fn video_maintenance2(mut self, value: bool) -> Self {
+        self.inner.video_maintenance2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoMaintenance2FeaturesKHR`]'s **Extended By** section for valid types.
@@ -45521,8 +45595,8 @@ impl PhysicalDeviceVideoDecodeVP9FeaturesKHR {
 }
 impl<'a> PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn video_decode_vp9(mut self, value: u32) -> Self {
-        self.inner.video_decode_vp9 = value;
+    pub fn video_decode_vp9(mut self, value: bool) -> Self {
+        self.inner.video_decode_vp9 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoDecodeVP9FeaturesKHR`]'s **Extended By** section for valid types.
@@ -45749,8 +45823,8 @@ impl<'a> VideoDecodeAV1ProfileInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn film_grain_support(mut self, value: u32) -> Self {
-        self.inner.film_grain_support = value;
+    pub fn film_grain_support(mut self, value: bool) -> Self {
+        self.inner.film_grain_support = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`VideoDecodeAV1ProfileInfoKHR`]'s **Extended By** section for valid types.
@@ -46356,8 +46430,8 @@ impl VideoEncodeSessionParametersFeedbackInfoKHR {
 }
 impl<'a> VideoEncodeSessionParametersFeedbackInfoKHRBuilder<'a> {
     #[inline]
-    pub fn has_overrides(mut self, value: u32) -> Self {
-        self.inner.has_overrides = value;
+    pub fn has_overrides(mut self, value: bool) -> Self {
+        self.inner.has_overrides = value as u32;
         self
     }
 }
@@ -46838,8 +46912,8 @@ impl PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
 }
 impl<'a> PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn video_encode_quantization_map(mut self, value: u32) -> Self {
-        self.inner.video_encode_quantization_map = value;
+    pub fn video_encode_quantization_map(mut self, value: bool) -> Self {
+        self.inner.video_encode_quantization_map = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR`]'s **Extended By** section for valid types.
@@ -47358,8 +47432,8 @@ impl<'a> VideoEncodeH264CapabilitiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn expect_dyadic_temporal_layer_pattern(mut self, value: u32) -> Self {
-        self.inner.expect_dyadic_temporal_layer_pattern = value;
+    pub fn expect_dyadic_temporal_layer_pattern(mut self, value: bool) -> Self {
+        self.inner.expect_dyadic_temporal_layer_pattern = value as u32;
         self
     }
     #[inline]
@@ -47373,13 +47447,13 @@ impl<'a> VideoEncodeH264CapabilitiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn prefers_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.prefers_gop_remaining_frames = value;
+    pub fn prefers_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.prefers_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
-    pub fn requires_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.requires_gop_remaining_frames = value;
+    pub fn requires_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.requires_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
@@ -47464,8 +47538,8 @@ impl<'a> VideoEncodeH264QualityLevelPropertiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn preferred_std_entropy_coding_mode_flag(mut self, value: u32) -> Self {
-        self.inner.preferred_std_entropy_coding_mode_flag = value;
+    pub fn preferred_std_entropy_coding_mode_flag(mut self, value: bool) -> Self {
+        self.inner.preferred_std_entropy_coding_mode_flag = value as u32;
         self
     }
 }
@@ -47502,8 +47576,8 @@ impl VideoEncodeH264SessionCreateInfoKHR {
 }
 impl<'a> VideoEncodeH264SessionCreateInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_max_level_idc(mut self, value: u32) -> Self {
-        self.inner.use_max_level_idc = value;
+    pub fn use_max_level_idc(mut self, value: bool) -> Self {
+        self.inner.use_max_level_idc = value as u32;
         self
     }
     #[inline]
@@ -47687,13 +47761,13 @@ impl VideoEncodeH264SessionParametersGetInfoKHR {
 }
 impl<'a> VideoEncodeH264SessionParametersGetInfoKHRBuilder<'a> {
     #[inline]
-    pub fn write_std_sps(mut self, value: u32) -> Self {
-        self.inner.write_std_sps = value;
+    pub fn write_std_sps(mut self, value: bool) -> Self {
+        self.inner.write_std_sps = value as u32;
         self
     }
     #[inline]
-    pub fn write_std_pps(mut self, value: u32) -> Self {
-        self.inner.write_std_pps = value;
+    pub fn write_std_pps(mut self, value: bool) -> Self {
+        self.inner.write_std_pps = value as u32;
         self
     }
     #[inline]
@@ -47755,13 +47829,13 @@ impl VideoEncodeH264SessionParametersFeedbackInfoKHR {
 }
 impl<'a> VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder<'a> {
     #[inline]
-    pub fn has_std_sps_overrides(mut self, value: u32) -> Self {
-        self.inner.has_std_sps_overrides = value;
+    pub fn has_std_sps_overrides(mut self, value: bool) -> Self {
+        self.inner.has_std_sps_overrides = value as u32;
         self
     }
     #[inline]
-    pub fn has_std_pps_overrides(mut self, value: u32) -> Self {
-        self.inner.has_std_pps_overrides = value;
+    pub fn has_std_pps_overrides(mut self, value: bool) -> Self {
+        self.inner.has_std_pps_overrides = value as u32;
         self
     }
 }
@@ -47873,8 +47947,8 @@ impl<'a> VideoEncodeH264PictureInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn generate_prefix_nalu(mut self, value: u32) -> Self {
-        self.inner.generate_prefix_nalu = value;
+    pub fn generate_prefix_nalu(mut self, value: bool) -> Self {
+        self.inner.generate_prefix_nalu = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`VideoEncodeH264PictureInfoKHR`]'s **Extended By** section for valid types.
@@ -48113,8 +48187,8 @@ impl VideoEncodeH264GopRemainingFrameInfoKHR {
 }
 impl<'a> VideoEncodeH264GopRemainingFrameInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.use_gop_remaining_frames = value;
+    pub fn use_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.use_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
@@ -48181,8 +48255,8 @@ impl VideoEncodeH264RateControlLayerInfoKHR {
 }
 impl<'a> VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_min_qp(mut self, value: u32) -> Self {
-        self.inner.use_min_qp = value;
+    pub fn use_min_qp(mut self, value: bool) -> Self {
+        self.inner.use_min_qp = value as u32;
         self
     }
     #[inline]
@@ -48191,8 +48265,8 @@ impl<'a> VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn use_max_qp(mut self, value: u32) -> Self {
-        self.inner.use_max_qp = value;
+    pub fn use_max_qp(mut self, value: bool) -> Self {
+        self.inner.use_max_qp = value as u32;
         self
     }
     #[inline]
@@ -48201,8 +48275,8 @@ impl<'a> VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn use_max_frame_size(mut self, value: u32) -> Self {
-        self.inner.use_max_frame_size = value;
+    pub fn use_max_frame_size(mut self, value: bool) -> Self {
+        self.inner.use_max_frame_size = value as u32;
         self
     }
     #[inline]
@@ -48312,8 +48386,8 @@ impl<'a> VideoEncodeH265CapabilitiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn expect_dyadic_temporal_sub_layer_pattern(mut self, value: u32) -> Self {
-        self.inner.expect_dyadic_temporal_sub_layer_pattern = value;
+    pub fn expect_dyadic_temporal_sub_layer_pattern(mut self, value: bool) -> Self {
+        self.inner.expect_dyadic_temporal_sub_layer_pattern = value as u32;
         self
     }
     #[inline]
@@ -48327,13 +48401,13 @@ impl<'a> VideoEncodeH265CapabilitiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn prefers_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.prefers_gop_remaining_frames = value;
+    pub fn prefers_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.prefers_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
-    pub fn requires_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.requires_gop_remaining_frames = value;
+    pub fn requires_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.requires_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
@@ -48451,8 +48525,8 @@ impl VideoEncodeH265SessionCreateInfoKHR {
 }
 impl<'a> VideoEncodeH265SessionCreateInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_max_level_idc(mut self, value: u32) -> Self {
-        self.inner.use_max_level_idc = value;
+    pub fn use_max_level_idc(mut self, value: bool) -> Self {
+        self.inner.use_max_level_idc = value as u32;
         self
     }
     #[inline]
@@ -48647,18 +48721,18 @@ impl VideoEncodeH265SessionParametersGetInfoKHR {
 }
 impl<'a> VideoEncodeH265SessionParametersGetInfoKHRBuilder<'a> {
     #[inline]
-    pub fn write_std_vps(mut self, value: u32) -> Self {
-        self.inner.write_std_vps = value;
+    pub fn write_std_vps(mut self, value: bool) -> Self {
+        self.inner.write_std_vps = value as u32;
         self
     }
     #[inline]
-    pub fn write_std_sps(mut self, value: u32) -> Self {
-        self.inner.write_std_sps = value;
+    pub fn write_std_sps(mut self, value: bool) -> Self {
+        self.inner.write_std_sps = value as u32;
         self
     }
     #[inline]
-    pub fn write_std_pps(mut self, value: u32) -> Self {
-        self.inner.write_std_pps = value;
+    pub fn write_std_pps(mut self, value: bool) -> Self {
+        self.inner.write_std_pps = value as u32;
         self
     }
     #[inline]
@@ -48725,18 +48799,18 @@ impl VideoEncodeH265SessionParametersFeedbackInfoKHR {
 }
 impl<'a> VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder<'a> {
     #[inline]
-    pub fn has_std_vps_overrides(mut self, value: u32) -> Self {
-        self.inner.has_std_vps_overrides = value;
+    pub fn has_std_vps_overrides(mut self, value: bool) -> Self {
+        self.inner.has_std_vps_overrides = value as u32;
         self
     }
     #[inline]
-    pub fn has_std_sps_overrides(mut self, value: u32) -> Self {
-        self.inner.has_std_sps_overrides = value;
+    pub fn has_std_sps_overrides(mut self, value: bool) -> Self {
+        self.inner.has_std_sps_overrides = value as u32;
         self
     }
     #[inline]
-    pub fn has_std_pps_overrides(mut self, value: u32) -> Self {
-        self.inner.has_std_pps_overrides = value;
+    pub fn has_std_pps_overrides(mut self, value: bool) -> Self {
+        self.inner.has_std_pps_overrides = value as u32;
         self
     }
 }
@@ -48974,8 +49048,8 @@ impl VideoEncodeH265GopRemainingFrameInfoKHR {
 }
 impl<'a> VideoEncodeH265GopRemainingFrameInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.use_gop_remaining_frames = value;
+    pub fn use_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.use_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
@@ -49042,8 +49116,8 @@ impl VideoEncodeH265RateControlLayerInfoKHR {
 }
 impl<'a> VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_min_qp(mut self, value: u32) -> Self {
-        self.inner.use_min_qp = value;
+    pub fn use_min_qp(mut self, value: bool) -> Self {
+        self.inner.use_min_qp = value as u32;
         self
     }
     #[inline]
@@ -49052,8 +49126,8 @@ impl<'a> VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn use_max_qp(mut self, value: u32) -> Self {
-        self.inner.use_max_qp = value;
+    pub fn use_max_qp(mut self, value: bool) -> Self {
+        self.inner.use_max_qp = value as u32;
         self
     }
     #[inline]
@@ -49062,8 +49136,8 @@ impl<'a> VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn use_max_frame_size(mut self, value: u32) -> Self {
-        self.inner.use_max_frame_size = value;
+    pub fn use_max_frame_size(mut self, value: bool) -> Self {
+        self.inner.use_max_frame_size = value as u32;
         self
     }
     #[inline]
@@ -49346,13 +49420,13 @@ impl<'a> VideoEncodeAV1CapabilitiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn prefers_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.prefers_gop_remaining_frames = value;
+    pub fn prefers_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.prefers_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
-    pub fn requires_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.requires_gop_remaining_frames = value;
+    pub fn requires_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.requires_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
@@ -49526,8 +49600,8 @@ impl PhysicalDeviceVideoEncodeAV1FeaturesKHR {
 }
 impl<'a> PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn video_encode_av1(mut self, value: u32) -> Self {
-        self.inner.video_encode_av1 = value;
+    pub fn video_encode_av1(mut self, value: bool) -> Self {
+        self.inner.video_encode_av1 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeAV1FeaturesKHR`]'s **Extended By** section for valid types.
@@ -49579,8 +49653,8 @@ impl VideoEncodeAV1SessionCreateInfoKHR {
 }
 impl<'a> VideoEncodeAV1SessionCreateInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_max_level(mut self, value: u32) -> Self {
-        self.inner.use_max_level = value;
+    pub fn use_max_level(mut self, value: bool) -> Self {
+        self.inner.use_max_level = value as u32;
         self
     }
     #[inline]
@@ -49801,13 +49875,13 @@ impl<'a> VideoEncodeAV1PictureInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn primary_reference_cdf_only(mut self, value: u32) -> Self {
-        self.inner.primary_reference_cdf_only = value;
+    pub fn primary_reference_cdf_only(mut self, value: bool) -> Self {
+        self.inner.primary_reference_cdf_only = value as u32;
         self
     }
     #[inline]
-    pub fn generate_obu_extension_header(mut self, value: u32) -> Self {
-        self.inner.generate_obu_extension_header = value;
+    pub fn generate_obu_extension_header(mut self, value: bool) -> Self {
+        self.inner.generate_obu_extension_header = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`VideoEncodeAV1PictureInfoKHR`]'s **Extended By** section for valid types.
@@ -49985,8 +50059,8 @@ impl VideoEncodeAV1GopRemainingFrameInfoKHR {
 }
 impl<'a> VideoEncodeAV1GopRemainingFrameInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_gop_remaining_frames(mut self, value: u32) -> Self {
-        self.inner.use_gop_remaining_frames = value;
+    pub fn use_gop_remaining_frames(mut self, value: bool) -> Self {
+        self.inner.use_gop_remaining_frames = value as u32;
         self
     }
     #[inline]
@@ -50053,8 +50127,8 @@ impl VideoEncodeAV1RateControlLayerInfoKHR {
 }
 impl<'a> VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
     #[inline]
-    pub fn use_min_q_index(mut self, value: u32) -> Self {
-        self.inner.use_min_q_index = value;
+    pub fn use_min_q_index(mut self, value: bool) -> Self {
+        self.inner.use_min_q_index = value as u32;
         self
     }
     #[inline]
@@ -50063,8 +50137,8 @@ impl<'a> VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn use_max_q_index(mut self, value: u32) -> Self {
-        self.inner.use_max_q_index = value;
+    pub fn use_max_q_index(mut self, value: bool) -> Self {
+        self.inner.use_max_q_index = value as u32;
         self
     }
     #[inline]
@@ -50073,8 +50147,8 @@ impl<'a> VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn use_max_frame_size(mut self, value: u32) -> Self {
-        self.inner.use_max_frame_size = value;
+    pub fn use_max_frame_size(mut self, value: bool) -> Self {
+        self.inner.use_max_frame_size = value as u32;
         self
     }
     #[inline]
@@ -50131,8 +50205,8 @@ impl PhysicalDeviceInheritedViewportScissorFeaturesNV {
 }
 impl<'a> PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn inherited_viewport_scissor2_d(mut self, value: u32) -> Self {
-        self.inner.inherited_viewport_scissor2_d = value;
+    pub fn inherited_viewport_scissor2_d(mut self, value: bool) -> Self {
+        self.inner.inherited_viewport_scissor2_d = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInheritedViewportScissorFeaturesNV`]'s **Extended By** section for valid types.
@@ -50186,8 +50260,8 @@ impl CommandBufferInheritanceViewportScissorInfoNV {
 }
 impl<'a> CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
     #[inline]
-    pub fn viewport_scissor2_d(mut self, value: u32) -> Self {
-        self.inner.viewport_scissor2_d = value;
+    pub fn viewport_scissor2_d(mut self, value: bool) -> Self {
+        self.inner.viewport_scissor2_d = value as u32;
         self
     }
     #[inline]
@@ -50250,8 +50324,8 @@ impl PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
 }
 impl<'a> PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn ycbcr2plane444_formats(mut self, value: u32) -> Self {
-        self.inner.ycbcr2plane444_formats = value;
+    pub fn ycbcr2plane444_formats(mut self, value: bool) -> Self {
+        self.inner.ycbcr2plane444_formats = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT`]'s **Extended By** section for valid types.
@@ -50304,13 +50378,13 @@ impl PhysicalDeviceProvokingVertexFeaturesEXT {
 }
 impl<'a> PhysicalDeviceProvokingVertexFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn provoking_vertex_last(mut self, value: u32) -> Self {
-        self.inner.provoking_vertex_last = value;
+    pub fn provoking_vertex_last(mut self, value: bool) -> Self {
+        self.inner.provoking_vertex_last = value as u32;
         self
     }
     #[inline]
-    pub fn transform_feedback_preserves_provoking_vertex(mut self, value: u32) -> Self {
-        self.inner.transform_feedback_preserves_provoking_vertex = value;
+    pub fn transform_feedback_preserves_provoking_vertex(mut self, value: bool) -> Self {
+        self.inner.transform_feedback_preserves_provoking_vertex = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceProvokingVertexFeaturesEXT`]'s **Extended By** section for valid types.
@@ -50362,16 +50436,17 @@ impl PhysicalDeviceProvokingVertexPropertiesEXT {
 }
 impl<'a> PhysicalDeviceProvokingVertexPropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn provoking_vertex_mode_per_pipeline(mut self, value: u32) -> Self {
-        self.inner.provoking_vertex_mode_per_pipeline = value;
+    pub fn provoking_vertex_mode_per_pipeline(mut self, value: bool) -> Self {
+        self.inner.provoking_vertex_mode_per_pipeline = value as u32;
         self
     }
     #[inline]
     pub fn transform_feedback_preserves_triangle_fan_provoking_vertex(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.transform_feedback_preserves_triangle_fan_provoking_vertex = value;
+        self.inner.transform_feedback_preserves_triangle_fan_provoking_vertex = value
+            as u32;
         self
     }
 }
@@ -50483,13 +50558,13 @@ impl<'a> VideoEncodeIntraRefreshCapabilitiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn partition_independent_intra_refresh_regions(mut self, value: u32) -> Self {
-        self.inner.partition_independent_intra_refresh_regions = value;
+    pub fn partition_independent_intra_refresh_regions(mut self, value: bool) -> Self {
+        self.inner.partition_independent_intra_refresh_regions = value as u32;
         self
     }
     #[inline]
-    pub fn non_rectangular_intra_refresh_regions(mut self, value: u32) -> Self {
-        self.inner.non_rectangular_intra_refresh_regions = value;
+    pub fn non_rectangular_intra_refresh_regions(mut self, value: bool) -> Self {
+        self.inner.non_rectangular_intra_refresh_regions = value as u32;
         self
     }
 }
@@ -50693,8 +50768,8 @@ impl PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
 }
 impl<'a> PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn video_encode_intra_refresh(mut self, value: u32) -> Self {
-        self.inner.video_encode_intra_refresh = value;
+    pub fn video_encode_intra_refresh(mut self, value: bool) -> Self {
+        self.inner.video_encode_intra_refresh = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR`]'s **Extended By** section for valid types.
@@ -50802,8 +50877,8 @@ impl CuModuleTexturingModeCreateInfoNVX {
 }
 impl<'a> CuModuleTexturingModeCreateInfoNVXBuilder<'a> {
     #[inline]
-    pub fn use64bit_texturing(mut self, value: u32) -> Self {
-        self.inner.use64bit_texturing = value;
+    pub fn use64bit_texturing(mut self, value: bool) -> Self {
+        self.inner.use64bit_texturing = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`CuModuleTexturingModeCreateInfoNVX`]'s **Extended By** section for valid types.
@@ -51018,23 +51093,23 @@ impl PhysicalDeviceDescriptorBufferFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDescriptorBufferFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn descriptor_buffer(mut self, value: u32) -> Self {
-        self.inner.descriptor_buffer = value;
+    pub fn descriptor_buffer(mut self, value: bool) -> Self {
+        self.inner.descriptor_buffer = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_buffer_capture_replay(mut self, value: u32) -> Self {
-        self.inner.descriptor_buffer_capture_replay = value;
+    pub fn descriptor_buffer_capture_replay(mut self, value: bool) -> Self {
+        self.inner.descriptor_buffer_capture_replay = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_buffer_image_layout_ignored(mut self, value: u32) -> Self {
-        self.inner.descriptor_buffer_image_layout_ignored = value;
+    pub fn descriptor_buffer_image_layout_ignored(mut self, value: bool) -> Self {
+        self.inner.descriptor_buffer_image_layout_ignored = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_buffer_push_descriptors(mut self, value: u32) -> Self {
-        self.inner.descriptor_buffer_push_descriptors = value;
+    pub fn descriptor_buffer_push_descriptors(mut self, value: bool) -> Self {
+        self.inner.descriptor_buffer_push_descriptors = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorBufferFeaturesEXT`]'s **Extended By** section for valid types.
@@ -51086,18 +51161,21 @@ impl PhysicalDeviceDescriptorBufferPropertiesEXT {
 }
 impl<'a> PhysicalDeviceDescriptorBufferPropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn combined_image_sampler_descriptor_single_array(mut self, value: u32) -> Self {
-        self.inner.combined_image_sampler_descriptor_single_array = value;
+    pub fn combined_image_sampler_descriptor_single_array(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.combined_image_sampler_descriptor_single_array = value as u32;
         self
     }
     #[inline]
-    pub fn bufferless_push_descriptors(mut self, value: u32) -> Self {
-        self.inner.bufferless_push_descriptors = value;
+    pub fn bufferless_push_descriptors(mut self, value: bool) -> Self {
+        self.inner.bufferless_push_descriptors = value as u32;
         self
     }
     #[inline]
-    pub fn allow_sampler_image_view_post_submit_creation(mut self, value: u32) -> Self {
-        self.inner.allow_sampler_image_view_post_submit_creation = value;
+    pub fn allow_sampler_image_view_post_submit_creation(mut self, value: bool) -> Self {
+        self.inner.allow_sampler_image_view_post_submit_creation = value as u32;
         self
     }
     #[inline]
@@ -51898,8 +51976,8 @@ impl PhysicalDeviceShaderIntegerDotProductFeatures {
 }
 impl<'a> PhysicalDeviceShaderIntegerDotProductFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_integer_dot_product(mut self, value: u32) -> Self {
-        self.inner.shader_integer_dot_product = value;
+    pub fn shader_integer_dot_product(mut self, value: bool) -> Self {
+        self.inner.shader_integer_dot_product = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderIntegerDotProductFeatures`]'s **Extended By** section for valid types.
@@ -51952,247 +52030,272 @@ impl PhysicalDeviceShaderIntegerDotProductProperties {
 }
 impl<'a> PhysicalDeviceShaderIntegerDotProductPropertiesBuilder<'a> {
     #[inline]
-    pub fn integer_dot_product8_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product8_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product8_bit_unsigned_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product8_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product8_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product8_bit_signed_accelerated = value;
+    pub fn integer_dot_product8_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product8_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product8_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product8_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product8_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product4x8_bit_packed_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product4x8_bit_packed_unsigned_accelerated = value;
+        self.inner.integer_dot_product4x8_bit_packed_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product4x8_bit_packed_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product4x8_bit_packed_signed_accelerated = value;
+        self.inner.integer_dot_product4x8_bit_packed_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product4x8_bit_packed_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product4x8_bit_packed_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product4x8_bit_packed_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product16_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product16_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product16_bit_unsigned_accelerated(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.integer_dot_product16_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product16_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product16_bit_signed_accelerated = value;
+    pub fn integer_dot_product16_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product16_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product16_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product16_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product16_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product32_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product32_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product32_bit_unsigned_accelerated(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.integer_dot_product32_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product32_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product32_bit_signed_accelerated = value;
+    pub fn integer_dot_product32_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product32_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product32_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product32_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product32_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product64_bit_unsigned_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product64_bit_unsigned_accelerated = value;
+    pub fn integer_dot_product64_bit_unsigned_accelerated(
+        mut self,
+        value: bool,
+    ) -> Self {
+        self.inner.integer_dot_product64_bit_unsigned_accelerated = value as u32;
         self
     }
     #[inline]
-    pub fn integer_dot_product64_bit_signed_accelerated(mut self, value: u32) -> Self {
-        self.inner.integer_dot_product64_bit_signed_accelerated = value;
+    pub fn integer_dot_product64_bit_signed_accelerated(mut self, value: bool) -> Self {
+        self.inner.integer_dot_product64_bit_signed_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product64_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product64_bit_mixed_signedness_accelerated = value;
+        self.inner.integer_dot_product64_bit_mixed_signedness_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating8_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating8_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating8_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating8_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.integer_dot_product_accumulating_saturating8_bit_signed_accelerated = value;
+        self.inner.integer_dot_product_accumulating_saturating8_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating8_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating8_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating8_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating4x8_bit_packed_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating4x8_bit_packed_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating4x8_bit_packed_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating4x8_bit_packed_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating4x8_bit_packed_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating4x8_bit_packed_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating4x8_bit_packed_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating4x8_bit_packed_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating4x8_bit_packed_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating16_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating16_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating16_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating16_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating16_bit_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating16_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating16_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating16_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating16_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating32_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating32_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating32_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating32_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating32_bit_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating32_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating32_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating32_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating32_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating64_bit_unsigned_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating64_bit_unsigned_accelerated = value;
+            .integer_dot_product_accumulating_saturating64_bit_unsigned_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating64_bit_signed_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating64_bit_signed_accelerated = value;
+            .integer_dot_product_accumulating_saturating64_bit_signed_accelerated = value
+            as u32;
         self
     }
     #[inline]
     pub fn integer_dot_product_accumulating_saturating64_bit_mixed_signedness_accelerated(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
         self
             .inner
-            .integer_dot_product_accumulating_saturating64_bit_mixed_signedness_accelerated = value;
+            .integer_dot_product_accumulating_saturating64_bit_mixed_signedness_accelerated = value
+            as u32;
         self
     }
 }
@@ -52231,13 +52334,13 @@ impl PhysicalDeviceDrmPropertiesEXT {
 }
 impl<'a> PhysicalDeviceDrmPropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn has_primary(mut self, value: u32) -> Self {
-        self.inner.has_primary = value;
+    pub fn has_primary(mut self, value: bool) -> Self {
+        self.inner.has_primary = value as u32;
         self
     }
     #[inline]
-    pub fn has_render(mut self, value: u32) -> Self {
-        self.inner.has_render = value;
+    pub fn has_render(mut self, value: bool) -> Self {
+        self.inner.has_render = value as u32;
         self
     }
     #[inline]
@@ -52296,8 +52399,8 @@ impl PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
 }
 impl<'a> PhysicalDeviceFragmentShaderBarycentricFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn fragment_shader_barycentric(mut self, value: u32) -> Self {
-        self.inner.fragment_shader_barycentric = value;
+    pub fn fragment_shader_barycentric(mut self, value: bool) -> Self {
+        self.inner.fragment_shader_barycentric = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentShaderBarycentricFeaturesKHR`]'s **Extended By** section for valid types.
@@ -52355,9 +52458,9 @@ impl<'a> PhysicalDeviceFragmentShaderBarycentricPropertiesKHRBuilder<'a> {
     #[inline]
     pub fn tri_strip_vertex_order_independent_of_provoking_vertex(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.tri_strip_vertex_order_independent_of_provoking_vertex = value;
+        self.inner.tri_strip_vertex_order_independent_of_provoking_vertex = value as u32;
         self
     }
 }
@@ -52396,18 +52499,18 @@ impl PhysicalDeviceShaderFmaFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderFmaFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_fma_float16(mut self, value: u32) -> Self {
-        self.inner.shader_fma_float16 = value;
+    pub fn shader_fma_float16(mut self, value: bool) -> Self {
+        self.inner.shader_fma_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_fma_float32(mut self, value: u32) -> Self {
-        self.inner.shader_fma_float32 = value;
+    pub fn shader_fma_float32(mut self, value: bool) -> Self {
+        self.inner.shader_fma_float32 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_fma_float64(mut self, value: u32) -> Self {
-        self.inner.shader_fma_float64 = value;
+    pub fn shader_fma_float64(mut self, value: bool) -> Self {
+        self.inner.shader_fma_float64 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFmaFeaturesKHR`]'s **Extended By** section for valid types.
@@ -52459,16 +52562,16 @@ impl PhysicalDeviceRayTracingMotionBlurFeaturesNV {
 }
 impl<'a> PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn ray_tracing_motion_blur(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_motion_blur = value;
+    pub fn ray_tracing_motion_blur(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_motion_blur = value as u32;
         self
     }
     #[inline]
     pub fn ray_tracing_motion_blur_pipeline_trace_rays_indirect(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.ray_tracing_motion_blur_pipeline_trace_rays_indirect = value;
+        self.inner.ray_tracing_motion_blur_pipeline_trace_rays_indirect = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingMotionBlurFeaturesNV`]'s **Extended By** section for valid types.
@@ -52521,8 +52624,8 @@ impl PhysicalDeviceRayTracingValidationFeaturesNV {
 }
 impl<'a> PhysicalDeviceRayTracingValidationFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn ray_tracing_validation(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_validation = value;
+    pub fn ray_tracing_validation(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_validation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingValidationFeaturesNV`]'s **Extended By** section for valid types.
@@ -52577,13 +52680,13 @@ impl PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
 }
 impl<'a> PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn spheres(mut self, value: u32) -> Self {
-        self.inner.spheres = value;
+    pub fn spheres(mut self, value: bool) -> Self {
+        self.inner.spheres = value as u32;
         self
     }
     #[inline]
-    pub fn linear_swept_spheres(mut self, value: u32) -> Self {
-        self.inner.linear_swept_spheres = value;
+    pub fn linear_swept_spheres(mut self, value: bool) -> Self {
+        self.inner.linear_swept_spheres = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV`]'s **Extended By** section for valid types.
@@ -53681,8 +53784,8 @@ impl PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
 }
 impl<'a> PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn format_rgba10x6_without_y_cb_cr_sampler(mut self, value: u32) -> Self {
-        self.inner.format_rgba10x6_without_y_cb_cr_sampler = value;
+    pub fn format_rgba10x6_without_y_cb_cr_sampler(mut self, value: bool) -> Self {
+        self.inner.format_rgba10x6_without_y_cb_cr_sampler = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRGBA10X6FormatsFeaturesEXT`]'s **Extended By** section for valid types.
@@ -54310,8 +54413,8 @@ impl PhysicalDeviceDynamicRenderingFeatures {
 }
 impl<'a> PhysicalDeviceDynamicRenderingFeaturesBuilder<'a> {
     #[inline]
-    pub fn dynamic_rendering(mut self, value: u32) -> Self {
-        self.inner.dynamic_rendering = value;
+    pub fn dynamic_rendering(mut self, value: bool) -> Self {
+        self.inner.dynamic_rendering = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDynamicRenderingFeatures`]'s **Extended By** section for valid types.
@@ -54504,13 +54607,13 @@ impl MultiviewPerViewAttributesInfoNVX {
 }
 impl<'a> MultiviewPerViewAttributesInfoNVXBuilder<'a> {
     #[inline]
-    pub fn per_view_attributes(mut self, value: u32) -> Self {
-        self.inner.per_view_attributes = value;
+    pub fn per_view_attributes(mut self, value: bool) -> Self {
+        self.inner.per_view_attributes = value as u32;
         self
     }
     #[inline]
-    pub fn per_view_attributes_position_x_only(mut self, value: u32) -> Self {
-        self.inner.per_view_attributes_position_x_only = value;
+    pub fn per_view_attributes_position_x_only(mut self, value: bool) -> Self {
+        self.inner.per_view_attributes_position_x_only = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`MultiviewPerViewAttributesInfoNVX`]'s **Extended By** section for valid types.
@@ -54562,8 +54665,8 @@ impl PhysicalDeviceImageViewMinLodFeaturesEXT {
 }
 impl<'a> PhysicalDeviceImageViewMinLodFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn min_lod(mut self, value: u32) -> Self {
-        self.inner.min_lod = value;
+    pub fn min_lod(mut self, value: bool) -> Self {
+        self.inner.min_lod = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageViewMinLodFeaturesEXT`]'s **Extended By** section for valid types.
@@ -54670,18 +54773,18 @@ impl PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
 }
 impl<'a> PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn rasterization_order_color_attachment_access(mut self, value: u32) -> Self {
-        self.inner.rasterization_order_color_attachment_access = value;
+    pub fn rasterization_order_color_attachment_access(mut self, value: bool) -> Self {
+        self.inner.rasterization_order_color_attachment_access = value as u32;
         self
     }
     #[inline]
-    pub fn rasterization_order_depth_attachment_access(mut self, value: u32) -> Self {
-        self.inner.rasterization_order_depth_attachment_access = value;
+    pub fn rasterization_order_depth_attachment_access(mut self, value: bool) -> Self {
+        self.inner.rasterization_order_depth_attachment_access = value as u32;
         self
     }
     #[inline]
-    pub fn rasterization_order_stencil_attachment_access(mut self, value: u32) -> Self {
-        self.inner.rasterization_order_stencil_attachment_access = value;
+    pub fn rasterization_order_stencil_attachment_access(mut self, value: bool) -> Self {
+        self.inner.rasterization_order_stencil_attachment_access = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT`]'s **Extended By** section for valid types.
@@ -54734,8 +54837,8 @@ impl PhysicalDeviceLinearColorAttachmentFeaturesNV {
 }
 impl<'a> PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn linear_color_attachment(mut self, value: u32) -> Self {
-        self.inner.linear_color_attachment = value;
+    pub fn linear_color_attachment(mut self, value: bool) -> Self {
+        self.inner.linear_color_attachment = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceLinearColorAttachmentFeaturesNV`]'s **Extended By** section for valid types.
@@ -54788,8 +54891,8 @@ impl PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
 }
 impl<'a> PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn graphics_pipeline_library(mut self, value: u32) -> Self {
-        self.inner.graphics_pipeline_library = value;
+    pub fn graphics_pipeline_library(mut self, value: bool) -> Self {
+        self.inner.graphics_pipeline_library = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT`]'s **Extended By** section for valid types.
@@ -54843,8 +54946,8 @@ impl PhysicalDevicePipelineBinaryFeaturesKHR {
 }
 impl<'a> PhysicalDevicePipelineBinaryFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn pipeline_binaries(mut self, value: u32) -> Self {
-        self.inner.pipeline_binaries = value;
+    pub fn pipeline_binaries(mut self, value: bool) -> Self {
+        self.inner.pipeline_binaries = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineBinaryFeaturesKHR`]'s **Extended By** section for valid types.
@@ -54896,8 +54999,8 @@ impl DevicePipelineBinaryInternalCacheControlKHR {
 }
 impl<'a> DevicePipelineBinaryInternalCacheControlKHRBuilder<'a> {
     #[inline]
-    pub fn disable_internal_cache(mut self, value: u32) -> Self {
-        self.inner.disable_internal_cache = value;
+    pub fn disable_internal_cache(mut self, value: bool) -> Self {
+        self.inner.disable_internal_cache = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`DevicePipelineBinaryInternalCacheControlKHR`]'s **Extended By** section for valid types.
@@ -54949,28 +55052,28 @@ impl PhysicalDevicePipelineBinaryPropertiesKHR {
 }
 impl<'a> PhysicalDevicePipelineBinaryPropertiesKHRBuilder<'a> {
     #[inline]
-    pub fn pipeline_binary_internal_cache(mut self, value: u32) -> Self {
-        self.inner.pipeline_binary_internal_cache = value;
+    pub fn pipeline_binary_internal_cache(mut self, value: bool) -> Self {
+        self.inner.pipeline_binary_internal_cache = value as u32;
         self
     }
     #[inline]
-    pub fn pipeline_binary_internal_cache_control(mut self, value: u32) -> Self {
-        self.inner.pipeline_binary_internal_cache_control = value;
+    pub fn pipeline_binary_internal_cache_control(mut self, value: bool) -> Self {
+        self.inner.pipeline_binary_internal_cache_control = value as u32;
         self
     }
     #[inline]
-    pub fn pipeline_binary_prefers_internal_cache(mut self, value: u32) -> Self {
-        self.inner.pipeline_binary_prefers_internal_cache = value;
+    pub fn pipeline_binary_prefers_internal_cache(mut self, value: bool) -> Self {
+        self.inner.pipeline_binary_prefers_internal_cache = value as u32;
         self
     }
     #[inline]
-    pub fn pipeline_binary_precompiled_internal_cache(mut self, value: u32) -> Self {
-        self.inner.pipeline_binary_precompiled_internal_cache = value;
+    pub fn pipeline_binary_precompiled_internal_cache(mut self, value: bool) -> Self {
+        self.inner.pipeline_binary_precompiled_internal_cache = value as u32;
         self
     }
     #[inline]
-    pub fn pipeline_binary_compressed_data(mut self, value: u32) -> Self {
-        self.inner.pipeline_binary_compressed_data = value;
+    pub fn pipeline_binary_compressed_data(mut self, value: bool) -> Self {
+        self.inner.pipeline_binary_compressed_data = value as u32;
         self
     }
 }
@@ -55009,16 +55112,17 @@ impl PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
 }
 impl<'a> PhysicalDeviceGraphicsPipelineLibraryPropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn graphics_pipeline_library_fast_linking(mut self, value: u32) -> Self {
-        self.inner.graphics_pipeline_library_fast_linking = value;
+    pub fn graphics_pipeline_library_fast_linking(mut self, value: bool) -> Self {
+        self.inner.graphics_pipeline_library_fast_linking = value as u32;
         self
     }
     #[inline]
     pub fn graphics_pipeline_library_independent_interpolation_decoration(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.graphics_pipeline_library_independent_interpolation_decoration = value;
+        self.inner.graphics_pipeline_library_independent_interpolation_decoration = value
+            as u32;
         self
     }
 }
@@ -55112,8 +55216,8 @@ impl PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
 }
 impl<'a> PhysicalDeviceDescriptorSetHostMappingFeaturesVALVEBuilder<'a> {
     #[inline]
-    pub fn descriptor_set_host_mapping(mut self, value: u32) -> Self {
-        self.inner.descriptor_set_host_mapping = value;
+    pub fn descriptor_set_host_mapping(mut self, value: bool) -> Self {
+        self.inner.descriptor_set_host_mapping = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE`]'s **Extended By** section for valid types.
@@ -55283,18 +55387,18 @@ impl PhysicalDeviceNestedCommandBufferFeaturesEXT {
 }
 impl<'a> PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn nested_command_buffer(mut self, value: u32) -> Self {
-        self.inner.nested_command_buffer = value;
+    pub fn nested_command_buffer(mut self, value: bool) -> Self {
+        self.inner.nested_command_buffer = value as u32;
         self
     }
     #[inline]
-    pub fn nested_command_buffer_rendering(mut self, value: u32) -> Self {
-        self.inner.nested_command_buffer_rendering = value;
+    pub fn nested_command_buffer_rendering(mut self, value: bool) -> Self {
+        self.inner.nested_command_buffer_rendering = value as u32;
         self
     }
     #[inline]
-    pub fn nested_command_buffer_simultaneous_use(mut self, value: u32) -> Self {
-        self.inner.nested_command_buffer_simultaneous_use = value;
+    pub fn nested_command_buffer_simultaneous_use(mut self, value: bool) -> Self {
+        self.inner.nested_command_buffer_simultaneous_use = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceNestedCommandBufferFeaturesEXT`]'s **Extended By** section for valid types.
@@ -55386,8 +55490,8 @@ impl PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_module_identifier(mut self, value: u32) -> Self {
-        self.inner.shader_module_identifier = value;
+    pub fn shader_module_identifier(mut self, value: bool) -> Self {
+        self.inner.shader_module_identifier = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderModuleIdentifierFeaturesEXT`]'s **Extended By** section for valid types.
@@ -55650,8 +55754,8 @@ impl PhysicalDeviceImageCompressionControlFeaturesEXT {
 }
 impl<'a> PhysicalDeviceImageCompressionControlFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn image_compression_control(mut self, value: u32) -> Self {
-        self.inner.image_compression_control = value;
+    pub fn image_compression_control(mut self, value: bool) -> Self {
+        self.inner.image_compression_control = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageCompressionControlFeaturesEXT`]'s **Extended By** section for valid types.
@@ -55753,8 +55857,8 @@ impl PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
 }
 impl<'a> PhysicalDeviceImageCompressionControlSwapchainFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn image_compression_control_swapchain(mut self, value: u32) -> Self {
-        self.inner.image_compression_control_swapchain = value;
+    pub fn image_compression_control_swapchain(mut self, value: bool) -> Self {
+        self.inner.image_compression_control_swapchain = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT`]'s **Extended By** section for valid types.
@@ -55895,8 +55999,8 @@ impl RenderPassCreationControlEXT {
 }
 impl<'a> RenderPassCreationControlEXTBuilder<'a> {
     #[inline]
-    pub fn disallow_merging(mut self, value: u32) -> Self {
-        self.inner.disallow_merging = value;
+    pub fn disallow_merging(mut self, value: bool) -> Self {
+        self.inner.disallow_merging = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`RenderPassCreationControlEXT`]'s **Extended By** section for valid types.
@@ -56060,8 +56164,8 @@ impl PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
 }
 impl<'a> PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn subpass_merge_feedback(mut self, value: u32) -> Self {
-        self.inner.subpass_merge_feedback = value;
+    pub fn subpass_merge_feedback(mut self, value: bool) -> Self {
+        self.inner.subpass_merge_feedback = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSubpassMergeFeedbackFeaturesEXT`]'s **Extended By** section for valid types.
@@ -56537,8 +56641,8 @@ impl<'a> MicromapBuildSizesInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn discardable(mut self, value: u32) -> Self {
-        self.inner.discardable = value;
+    pub fn discardable(mut self, value: bool) -> Self {
+        self.inner.discardable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`MicromapBuildSizesInfoEXT`]'s **Extended By** section for valid types.
@@ -56590,18 +56694,18 @@ impl PhysicalDeviceOpacityMicromapFeaturesEXT {
 }
 impl<'a> PhysicalDeviceOpacityMicromapFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn micromap(mut self, value: u32) -> Self {
-        self.inner.micromap = value;
+    pub fn micromap(mut self, value: bool) -> Self {
+        self.inner.micromap = value as u32;
         self
     }
     #[inline]
-    pub fn micromap_capture_replay(mut self, value: u32) -> Self {
-        self.inner.micromap_capture_replay = value;
+    pub fn micromap_capture_replay(mut self, value: bool) -> Self {
+        self.inner.micromap_capture_replay = value as u32;
         self
     }
     #[inline]
-    pub fn micromap_host_commands(mut self, value: u32) -> Self {
-        self.inner.micromap_host_commands = value;
+    pub fn micromap_host_commands(mut self, value: bool) -> Self {
+        self.inner.micromap_host_commands = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceOpacityMicromapFeaturesEXT`]'s **Extended By** section for valid types.
@@ -56782,8 +56886,8 @@ impl PhysicalDeviceDisplacementMicromapFeaturesNV {
 }
 impl<'a> PhysicalDeviceDisplacementMicromapFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn displacement_micromap(mut self, value: u32) -> Self {
-        self.inner.displacement_micromap = value;
+    pub fn displacement_micromap(mut self, value: bool) -> Self {
+        self.inner.displacement_micromap = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDisplacementMicromapFeaturesNV`]'s **Extended By** section for valid types.
@@ -57050,8 +57154,8 @@ impl PhysicalDevicePipelinePropertiesFeaturesEXT {
 }
 impl<'a> PhysicalDevicePipelinePropertiesFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn pipeline_properties_identifier(mut self, value: u32) -> Self {
-        self.inner.pipeline_properties_identifier = value;
+    pub fn pipeline_properties_identifier(mut self, value: bool) -> Self {
+        self.inner.pipeline_properties_identifier = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelinePropertiesFeaturesEXT`]'s **Extended By** section for valid types.
@@ -57105,8 +57209,8 @@ impl PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
 }
 impl<'a> PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMDBuilder<'a> {
     #[inline]
-    pub fn shader_early_and_late_fragment_tests(mut self, value: u32) -> Self {
-        self.inner.shader_early_and_late_fragment_tests = value;
+    pub fn shader_early_and_late_fragment_tests(mut self, value: bool) -> Self {
+        self.inner.shader_early_and_late_fragment_tests = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD`]'s **Extended By** section for valid types.
@@ -57160,8 +57264,8 @@ impl ExternalMemoryAcquireUnmodifiedEXT {
 }
 impl<'a> ExternalMemoryAcquireUnmodifiedEXTBuilder<'a> {
     #[inline]
-    pub fn acquire_unmodified_memory(mut self, value: u32) -> Self {
-        self.inner.acquire_unmodified_memory = value;
+    pub fn acquire_unmodified_memory(mut self, value: bool) -> Self {
+        self.inner.acquire_unmodified_memory = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`ExternalMemoryAcquireUnmodifiedEXT`]'s **Extended By** section for valid types.
@@ -57897,8 +58001,8 @@ impl PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
 }
 impl<'a> PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn non_seamless_cube_map(mut self, value: u32) -> Self {
-        self.inner.non_seamless_cube_map = value;
+    pub fn non_seamless_cube_map(mut self, value: bool) -> Self {
+        self.inner.non_seamless_cube_map = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceNonSeamlessCubeMapFeaturesEXT`]'s **Extended By** section for valid types.
@@ -57950,8 +58054,8 @@ impl PhysicalDevicePipelineRobustnessFeatures {
 }
 impl<'a> PhysicalDevicePipelineRobustnessFeaturesBuilder<'a> {
     #[inline]
-    pub fn pipeline_robustness(mut self, value: u32) -> Self {
-        self.inner.pipeline_robustness = value;
+    pub fn pipeline_robustness(mut self, value: bool) -> Self {
+        self.inner.pipeline_robustness = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineRobustnessFeatures`]'s **Extended By** section for valid types.
@@ -58199,18 +58303,18 @@ impl PhysicalDeviceImageProcessingFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceImageProcessingFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn texture_sample_weighted(mut self, value: u32) -> Self {
-        self.inner.texture_sample_weighted = value;
+    pub fn texture_sample_weighted(mut self, value: bool) -> Self {
+        self.inner.texture_sample_weighted = value as u32;
         self
     }
     #[inline]
-    pub fn texture_box_filter(mut self, value: u32) -> Self {
-        self.inner.texture_box_filter = value;
+    pub fn texture_box_filter(mut self, value: bool) -> Self {
+        self.inner.texture_box_filter = value as u32;
         self
     }
     #[inline]
-    pub fn texture_block_match(mut self, value: u32) -> Self {
-        self.inner.texture_block_match = value;
+    pub fn texture_block_match(mut self, value: bool) -> Self {
+        self.inner.texture_block_match = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageProcessingFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -58315,8 +58419,8 @@ impl PhysicalDeviceTilePropertiesFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceTilePropertiesFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn tile_properties(mut self, value: u32) -> Self {
-        self.inner.tile_properties = value;
+    pub fn tile_properties(mut self, value: bool) -> Self {
+        self.inner.tile_properties = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTilePropertiesFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -58481,8 +58585,8 @@ impl PhysicalDeviceAmigoProfilingFeaturesSEC {
 }
 impl<'a> PhysicalDeviceAmigoProfilingFeaturesSECBuilder<'a> {
     #[inline]
-    pub fn amigo_profiling(mut self, value: u32) -> Self {
-        self.inner.amigo_profiling = value;
+    pub fn amigo_profiling(mut self, value: bool) -> Self {
+        self.inner.amigo_profiling = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAmigoProfilingFeaturesSEC`]'s **Extended By** section for valid types.
@@ -58594,8 +58698,8 @@ impl PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
 }
 impl<'a> PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn attachment_feedback_loop_layout(mut self, value: u32) -> Self {
-        self.inner.attachment_feedback_loop_layout = value;
+    pub fn attachment_feedback_loop_layout(mut self, value: bool) -> Self {
+        self.inner.attachment_feedback_loop_layout = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT`]'s **Extended By** section for valid types.
@@ -58649,8 +58753,8 @@ impl AttachmentFeedbackLoopInfoEXT {
 }
 impl<'a> AttachmentFeedbackLoopInfoEXTBuilder<'a> {
     #[inline]
-    pub fn feedback_loop_enable(mut self, value: u32) -> Self {
-        self.inner.feedback_loop_enable = value;
+    pub fn feedback_loop_enable(mut self, value: bool) -> Self {
+        self.inner.feedback_loop_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`AttachmentFeedbackLoopInfoEXT`]'s **Extended By** section for valid types.
@@ -58702,8 +58806,8 @@ impl PhysicalDeviceAddressBindingReportFeaturesEXT {
 }
 impl<'a> PhysicalDeviceAddressBindingReportFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn report_address_binding(mut self, value: u32) -> Self {
-        self.inner.report_address_binding = value;
+    pub fn report_address_binding(mut self, value: bool) -> Self {
+        self.inner.report_address_binding = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAddressBindingReportFeaturesEXT`]'s **Extended By** section for valid types.
@@ -58940,8 +59044,8 @@ impl PhysicalDeviceOpticalFlowFeaturesNV {
 }
 impl<'a> PhysicalDeviceOpticalFlowFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn optical_flow(mut self, value: u32) -> Self {
-        self.inner.optical_flow = value;
+    pub fn optical_flow(mut self, value: bool) -> Self {
+        self.inner.optical_flow = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceOpticalFlowFeaturesNV`]'s **Extended By** section for valid types.
@@ -59009,23 +59113,23 @@ impl<'a> PhysicalDeviceOpticalFlowPropertiesNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn hint_supported(mut self, value: u32) -> Self {
-        self.inner.hint_supported = value;
+    pub fn hint_supported(mut self, value: bool) -> Self {
+        self.inner.hint_supported = value as u32;
         self
     }
     #[inline]
-    pub fn cost_supported(mut self, value: u32) -> Self {
-        self.inner.cost_supported = value;
+    pub fn cost_supported(mut self, value: bool) -> Self {
+        self.inner.cost_supported = value as u32;
         self
     }
     #[inline]
-    pub fn bidirectional_flow_supported(mut self, value: u32) -> Self {
-        self.inner.bidirectional_flow_supported = value;
+    pub fn bidirectional_flow_supported(mut self, value: bool) -> Self {
+        self.inner.bidirectional_flow_supported = value as u32;
         self
     }
     #[inline]
-    pub fn global_flow_supported(mut self, value: u32) -> Self {
-        self.inner.global_flow_supported = value;
+    pub fn global_flow_supported(mut self, value: bool) -> Self {
+        self.inner.global_flow_supported = value as u32;
         self
     }
     #[inline]
@@ -59393,13 +59497,13 @@ impl PhysicalDeviceFaultFeaturesEXT {
 }
 impl<'a> PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn device_fault(mut self, value: u32) -> Self {
-        self.inner.device_fault = value;
+    pub fn device_fault(mut self, value: bool) -> Self {
+        self.inner.device_fault = value as u32;
         self
     }
     #[inline]
-    pub fn device_fault_vendor_binary(mut self, value: u32) -> Self {
-        self.inner.device_fault_vendor_binary = value;
+    pub fn device_fault_vendor_binary(mut self, value: bool) -> Self {
+        self.inner.device_fault_vendor_binary = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFaultFeaturesEXT`]'s **Extended By** section for valid types.
@@ -59672,23 +59776,23 @@ impl PhysicalDeviceFaultFeaturesKHR {
 }
 impl<'a> PhysicalDeviceFaultFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn device_fault(mut self, value: u32) -> Self {
-        self.inner.device_fault = value;
+    pub fn device_fault(mut self, value: bool) -> Self {
+        self.inner.device_fault = value as u32;
         self
     }
     #[inline]
-    pub fn device_fault_vendor_binary(mut self, value: u32) -> Self {
-        self.inner.device_fault_vendor_binary = value;
+    pub fn device_fault_vendor_binary(mut self, value: bool) -> Self {
+        self.inner.device_fault_vendor_binary = value as u32;
         self
     }
     #[inline]
-    pub fn device_fault_report_masked(mut self, value: u32) -> Self {
-        self.inner.device_fault_report_masked = value;
+    pub fn device_fault_report_masked(mut self, value: bool) -> Self {
+        self.inner.device_fault_report_masked = value as u32;
         self
     }
     #[inline]
-    pub fn device_fault_device_lost_on_masked(mut self, value: u32) -> Self {
-        self.inner.device_fault_device_lost_on_masked = value;
+    pub fn device_fault_device_lost_on_masked(mut self, value: bool) -> Self {
+        self.inner.device_fault_device_lost_on_masked = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFaultFeaturesKHR`]'s **Extended By** section for valid types.
@@ -59780,8 +59884,8 @@ impl PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
 }
 impl<'a> PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn pipeline_library_group_handles(mut self, value: u32) -> Self {
-        self.inner.pipeline_library_group_handles = value;
+    pub fn pipeline_library_group_handles(mut self, value: bool) -> Self {
+        self.inner.pipeline_library_group_handles = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT`]'s **Extended By** section for valid types.
@@ -59903,8 +60007,8 @@ impl<'a> DepthBiasRepresentationInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn depth_bias_exact(mut self, value: u32) -> Self {
-        self.inner.depth_bias_exact = value;
+    pub fn depth_bias_exact(mut self, value: bool) -> Self {
+        self.inner.depth_bias_exact = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`DepthBiasRepresentationInfoEXT`]'s **Extended By** section for valid types.
@@ -60067,8 +60171,8 @@ impl PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
 }
 impl<'a> PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn shader_core_builtins(mut self, value: u32) -> Self {
-        self.inner.shader_core_builtins = value;
+    pub fn shader_core_builtins(mut self, value: bool) -> Self {
+        self.inner.shader_core_builtins = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderCoreBuiltinsFeaturesARM`]'s **Extended By** section for valid types.
@@ -60198,8 +60302,8 @@ impl PhysicalDeviceFrameBoundaryFeaturesEXT {
 }
 impl<'a> PhysicalDeviceFrameBoundaryFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn frame_boundary(mut self, value: u32) -> Self {
-        self.inner.frame_boundary = value;
+    pub fn frame_boundary(mut self, value: bool) -> Self {
+        self.inner.frame_boundary = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFrameBoundaryFeaturesEXT`]'s **Extended By** section for valid types.
@@ -60253,8 +60357,8 @@ impl PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn dynamic_rendering_unused_attachments(mut self, value: u32) -> Self {
-        self.inner.dynamic_rendering_unused_attachments = value;
+    pub fn dynamic_rendering_unused_attachments(mut self, value: bool) -> Self {
+        self.inner.dynamic_rendering_unused_attachments = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT`]'s **Extended By** section for valid types.
@@ -60309,8 +60413,8 @@ impl PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
 }
 impl<'a> PhysicalDeviceInternallySynchronizedQueuesFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn internally_synchronized_queues(mut self, value: u32) -> Self {
-        self.inner.internally_synchronized_queues = value;
+    pub fn internally_synchronized_queues(mut self, value: bool) -> Self {
+        self.inner.internally_synchronized_queues = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR`]'s **Extended By** section for valid types.
@@ -60544,8 +60648,8 @@ impl PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
 }
 impl<'a> PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn swapchain_maintenance1(mut self, value: u32) -> Self {
-        self.inner.swapchain_maintenance1 = value;
+    pub fn swapchain_maintenance1(mut self, value: bool) -> Self {
+        self.inner.swapchain_maintenance1 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSwapchainMaintenance1FeaturesKHR`]'s **Extended By** section for valid types.
@@ -60882,26 +60986,26 @@ impl PhysicalDeviceDepthBiasControlFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDepthBiasControlFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn depth_bias_control(mut self, value: u32) -> Self {
-        self.inner.depth_bias_control = value;
+    pub fn depth_bias_control(mut self, value: bool) -> Self {
+        self.inner.depth_bias_control = value as u32;
         self
     }
     #[inline]
     pub fn least_representable_value_force_unorm_representation(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.least_representable_value_force_unorm_representation = value;
+        self.inner.least_representable_value_force_unorm_representation = value as u32;
         self
     }
     #[inline]
-    pub fn float_representation(mut self, value: u32) -> Self {
-        self.inner.float_representation = value;
+    pub fn float_representation(mut self, value: bool) -> Self {
+        self.inner.float_representation = value as u32;
         self
     }
     #[inline]
-    pub fn depth_bias_exact(mut self, value: u32) -> Self {
-        self.inner.depth_bias_exact = value;
+    pub fn depth_bias_exact(mut self, value: bool) -> Self {
+        self.inner.depth_bias_exact = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthBiasControlFeaturesEXT`]'s **Extended By** section for valid types.
@@ -60955,8 +61059,8 @@ impl PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
 }
 impl<'a> PhysicalDeviceRayTracingInvocationReorderFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn ray_tracing_invocation_reorder(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_invocation_reorder = value;
+    pub fn ray_tracing_invocation_reorder(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_invocation_reorder = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingInvocationReorderFeaturesEXT`]'s **Extended By** section for valid types.
@@ -61012,8 +61116,8 @@ impl PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
 }
 impl<'a> PhysicalDeviceRayTracingInvocationReorderFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn ray_tracing_invocation_reorder(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_invocation_reorder = value;
+    pub fn ray_tracing_invocation_reorder(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_invocation_reorder = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingInvocationReorderFeaturesNV`]'s **Extended By** section for valid types.
@@ -61164,8 +61268,8 @@ impl PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
 }
 impl<'a> PhysicalDeviceExtendedSparseAddressSpaceFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn extended_sparse_address_space(mut self, value: u32) -> Self {
-        self.inner.extended_sparse_address_space = value;
+    pub fn extended_sparse_address_space(mut self, value: bool) -> Self {
+        self.inner.extended_sparse_address_space = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV`]'s **Extended By** section for valid types.
@@ -61396,8 +61500,8 @@ impl PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn multiview_per_view_viewports(mut self, value: u32) -> Self {
-        self.inner.multiview_per_view_viewports = value;
+    pub fn multiview_per_view_viewports(mut self, value: bool) -> Self {
+        self.inner.multiview_per_view_viewports = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -61451,8 +61555,8 @@ impl PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
 }
 impl<'a> PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn ray_tracing_position_fetch(mut self, value: u32) -> Self {
-        self.inner.ray_tracing_position_fetch = value;
+    pub fn ray_tracing_position_fetch(mut self, value: bool) -> Self {
+        self.inner.ray_tracing_position_fetch = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRayTracingPositionFetchFeaturesKHR`]'s **Extended By** section for valid types.
@@ -61614,8 +61718,8 @@ impl PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn multiview_per_view_render_areas(mut self, value: u32) -> Self {
-        self.inner.multiview_per_view_render_areas = value;
+    pub fn multiview_per_view_render_areas(mut self, value: bool) -> Self {
+        self.inner.multiview_per_view_render_areas = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -61900,8 +62004,8 @@ impl PhysicalDeviceShaderObjectFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderObjectFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_object(mut self, value: u32) -> Self {
-        self.inner.shader_object = value;
+    pub fn shader_object(mut self, value: bool) -> Self {
+        self.inner.shader_object = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderObjectFeaturesEXT`]'s **Extended By** section for valid types.
@@ -62089,18 +62193,18 @@ impl PhysicalDeviceShaderTileImageFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderTileImageFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_tile_image_color_read_access(mut self, value: u32) -> Self {
-        self.inner.shader_tile_image_color_read_access = value;
+    pub fn shader_tile_image_color_read_access(mut self, value: bool) -> Self {
+        self.inner.shader_tile_image_color_read_access = value as u32;
         self
     }
     #[inline]
-    pub fn shader_tile_image_depth_read_access(mut self, value: u32) -> Self {
-        self.inner.shader_tile_image_depth_read_access = value;
+    pub fn shader_tile_image_depth_read_access(mut self, value: bool) -> Self {
+        self.inner.shader_tile_image_depth_read_access = value as u32;
         self
     }
     #[inline]
-    pub fn shader_tile_image_stencil_read_access(mut self, value: u32) -> Self {
-        self.inner.shader_tile_image_stencil_read_access = value;
+    pub fn shader_tile_image_stencil_read_access(mut self, value: bool) -> Self {
+        self.inner.shader_tile_image_stencil_read_access = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderTileImageFeaturesEXT`]'s **Extended By** section for valid types.
@@ -62152,21 +62256,22 @@ impl PhysicalDeviceShaderTileImagePropertiesEXT {
 }
 impl<'a> PhysicalDeviceShaderTileImagePropertiesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_tile_image_coherent_read_accelerated(mut self, value: u32) -> Self {
-        self.inner.shader_tile_image_coherent_read_accelerated = value;
+    pub fn shader_tile_image_coherent_read_accelerated(mut self, value: bool) -> Self {
+        self.inner.shader_tile_image_coherent_read_accelerated = value as u32;
         self
     }
     #[inline]
     pub fn shader_tile_image_read_sample_from_pixel_rate_invocation(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_tile_image_read_sample_from_pixel_rate_invocation = value;
+        self.inner.shader_tile_image_read_sample_from_pixel_rate_invocation = value
+            as u32;
         self
     }
     #[inline]
-    pub fn shader_tile_image_read_from_helper_invocation(mut self, value: u32) -> Self {
-        self.inner.shader_tile_image_read_from_helper_invocation = value;
+    pub fn shader_tile_image_read_from_helper_invocation(mut self, value: bool) -> Self {
+        self.inner.shader_tile_image_read_from_helper_invocation = value as u32;
         self
     }
 }
@@ -62432,8 +62537,8 @@ impl PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
 }
 impl<'a> PhysicalDeviceExternalMemoryScreenBufferFeaturesQNXBuilder<'a> {
     #[inline]
-    pub fn screen_buffer_import(mut self, value: u32) -> Self {
-        self.inner.screen_buffer_import = value;
+    pub fn screen_buffer_import(mut self, value: bool) -> Self {
+        self.inner.screen_buffer_import = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX`]'s **Extended By** section for valid types.
@@ -62487,13 +62592,13 @@ impl PhysicalDeviceCooperativeMatrixFeaturesKHR {
 }
 impl<'a> PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn cooperative_matrix(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix = value;
+    pub fn cooperative_matrix(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_robust_buffer_access(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_robust_buffer_access = value;
+    pub fn cooperative_matrix_robust_buffer_access(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_robust_buffer_access = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrixFeaturesKHR`]'s **Extended By** section for valid types.
@@ -62580,8 +62685,8 @@ impl<'a> CooperativeMatrixPropertiesKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn saturating_accumulation(mut self, value: u32) -> Self {
-        self.inner.saturating_accumulation = value;
+    pub fn saturating_accumulation(mut self, value: bool) -> Self {
+        self.inner.saturating_accumulation = value as u32;
         self
     }
     #[inline]
@@ -62667,8 +62772,8 @@ impl PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceCooperativeMatrixConversionFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn cooperative_matrix_conversion(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_conversion = value;
+    pub fn cooperative_matrix_conversion(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_conversion = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -62790,13 +62895,13 @@ impl PhysicalDeviceShaderEnqueueFeaturesAMDX {
 }
 impl<'a> PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder<'a> {
     #[inline]
-    pub fn shader_enqueue(mut self, value: u32) -> Self {
-        self.inner.shader_enqueue = value;
+    pub fn shader_enqueue(mut self, value: bool) -> Self {
+        self.inner.shader_enqueue = value as u32;
         self
     }
     #[inline]
-    pub fn shader_mesh_enqueue(mut self, value: u32) -> Self {
-        self.inner.shader_mesh_enqueue = value;
+    pub fn shader_mesh_enqueue(mut self, value: bool) -> Self {
+        self.inner.shader_mesh_enqueue = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderEnqueueFeaturesAMDX`]'s **Extended By** section for valid types.
@@ -63048,8 +63153,8 @@ impl PhysicalDeviceAntiLagFeaturesAMD {
 }
 impl<'a> PhysicalDeviceAntiLagFeaturesAMDBuilder<'a> {
     #[inline]
-    pub fn anti_lag(mut self, value: u32) -> Self {
-        self.inner.anti_lag = value;
+    pub fn anti_lag(mut self, value: bool) -> Self {
+        self.inner.anti_lag = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceAntiLagFeaturesAMD`]'s **Extended By** section for valid types.
@@ -63272,8 +63377,8 @@ impl PhysicalDeviceTileMemoryHeapFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn tile_memory_heap(mut self, value: u32) -> Self {
-        self.inner.tile_memory_heap = value;
+    pub fn tile_memory_heap(mut self, value: bool) -> Self {
+        self.inner.tile_memory_heap = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTileMemoryHeapFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -63325,13 +63430,13 @@ impl PhysicalDeviceTileMemoryHeapPropertiesQCOM {
 }
 impl<'a> PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder<'a> {
     #[inline]
-    pub fn queue_submit_boundary(mut self, value: u32) -> Self {
-        self.inner.queue_submit_boundary = value;
+    pub fn queue_submit_boundary(mut self, value: bool) -> Self {
+        self.inner.queue_submit_boundary = value as u32;
         self
     }
     #[inline]
-    pub fn tile_buffer_transfers(mut self, value: u32) -> Self {
-        self.inner.tile_buffer_transfers = value;
+    pub fn tile_buffer_transfers(mut self, value: bool) -> Self {
+        self.inner.tile_buffer_transfers = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTileMemoryHeapPropertiesQCOM`]'s **Extended By** section for valid types.
@@ -63913,8 +64018,8 @@ impl PhysicalDeviceCubicClampFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceCubicClampFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn cubic_range_clamp(mut self, value: u32) -> Self {
-        self.inner.cubic_range_clamp = value;
+    pub fn cubic_range_clamp(mut self, value: bool) -> Self {
+        self.inner.cubic_range_clamp = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCubicClampFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -63966,8 +64071,8 @@ impl PhysicalDeviceYcbcrDegammaFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn ycbcr_degamma(mut self, value: u32) -> Self {
-        self.inner.ycbcr_degamma = value;
+    pub fn ycbcr_degamma(mut self, value: bool) -> Self {
+        self.inner.ycbcr_degamma = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceYcbcrDegammaFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -64019,13 +64124,13 @@ impl SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
 }
 impl<'a> SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder<'a> {
     #[inline]
-    pub fn enable_y_degamma(mut self, value: u32) -> Self {
-        self.inner.enable_y_degamma = value;
+    pub fn enable_y_degamma(mut self, value: bool) -> Self {
+        self.inner.enable_y_degamma = value as u32;
         self
     }
     #[inline]
-    pub fn enable_cb_cr_degamma(mut self, value: u32) -> Self {
-        self.inner.enable_cb_cr_degamma = value;
+    pub fn enable_cb_cr_degamma(mut self, value: bool) -> Self {
+        self.inner.enable_cb_cr_degamma = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM`]'s **Extended By** section for valid types.
@@ -64079,8 +64184,8 @@ impl PhysicalDeviceCubicWeightsFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceCubicWeightsFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn selectable_cubic_weights(mut self, value: u32) -> Self {
-        self.inner.selectable_cubic_weights = value;
+    pub fn selectable_cubic_weights(mut self, value: bool) -> Self {
+        self.inner.selectable_cubic_weights = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCubicWeightsFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -64238,8 +64343,8 @@ impl PhysicalDeviceImageProcessing2FeaturesQCOM {
 }
 impl<'a> PhysicalDeviceImageProcessing2FeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn texture_block_match2(mut self, value: u32) -> Self {
-        self.inner.texture_block_match2 = value;
+    pub fn texture_block_match2(mut self, value: bool) -> Self {
+        self.inner.texture_block_match2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageProcessing2FeaturesQCOM`]'s **Extended By** section for valid types.
@@ -64393,8 +64498,8 @@ impl PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
 }
 impl<'a> PhysicalDeviceDescriptorPoolOverallocationFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn descriptor_pool_overallocation(mut self, value: u32) -> Self {
-        self.inner.descriptor_pool_overallocation = value;
+    pub fn descriptor_pool_overallocation(mut self, value: bool) -> Self {
+        self.inner.descriptor_pool_overallocation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorPoolOverallocationFeaturesNV`]'s **Extended By** section for valid types.
@@ -64486,13 +64591,13 @@ impl PhysicalDevicePerStageDescriptorSetFeaturesNV {
 }
 impl<'a> PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn per_stage_descriptor_set(mut self, value: u32) -> Self {
-        self.inner.per_stage_descriptor_set = value;
+    pub fn per_stage_descriptor_set(mut self, value: bool) -> Self {
+        self.inner.per_stage_descriptor_set = value as u32;
         self
     }
     #[inline]
-    pub fn dynamic_pipeline_layout(mut self, value: u32) -> Self {
-        self.inner.dynamic_pipeline_layout = value;
+    pub fn dynamic_pipeline_layout(mut self, value: bool) -> Self {
+        self.inner.dynamic_pipeline_layout = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePerStageDescriptorSetFeaturesNV`]'s **Extended By** section for valid types.
@@ -64547,8 +64652,8 @@ impl PhysicalDeviceExternalFormatResolveFeaturesANDROID {
 }
 impl<'a> PhysicalDeviceExternalFormatResolveFeaturesANDROIDBuilder<'a> {
     #[inline]
-    pub fn external_format_resolve(mut self, value: u32) -> Self {
-        self.inner.external_format_resolve = value;
+    pub fn external_format_resolve(mut self, value: bool) -> Self {
+        self.inner.external_format_resolve = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceExternalFormatResolveFeaturesANDROID`]'s **Extended By** section for valid types.
@@ -64606,9 +64711,9 @@ impl<'a> PhysicalDeviceExternalFormatResolvePropertiesANDROIDBuilder<'a> {
     #[inline]
     pub fn null_color_attachment_with_external_format_resolve(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.null_color_attachment_with_external_format_resolve = value;
+        self.inner.null_color_attachment_with_external_format_resolve = value as u32;
         self
     }
     #[inline]
@@ -64705,13 +64810,13 @@ impl LatencySleepModeInfoNV {
 }
 impl<'a> LatencySleepModeInfoNVBuilder<'a> {
     #[inline]
-    pub fn low_latency_mode(mut self, value: u32) -> Self {
-        self.inner.low_latency_mode = value;
+    pub fn low_latency_mode(mut self, value: bool) -> Self {
+        self.inner.low_latency_mode = value as u32;
         self
     }
     #[inline]
-    pub fn low_latency_boost(mut self, value: u32) -> Self {
-        self.inner.low_latency_boost = value;
+    pub fn low_latency_boost(mut self, value: bool) -> Self {
+        self.inner.low_latency_boost = value as u32;
         self
     }
     #[inline]
@@ -65144,8 +65249,8 @@ impl SwapchainLatencyCreateInfoNV {
 }
 impl<'a> SwapchainLatencyCreateInfoNVBuilder<'a> {
     #[inline]
-    pub fn latency_mode_enable(mut self, value: u32) -> Self {
-        self.inner.latency_mode_enable = value;
+    pub fn latency_mode_enable(mut self, value: bool) -> Self {
+        self.inner.latency_mode_enable = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`SwapchainLatencyCreateInfoNV`]'s **Extended By** section for valid types.
@@ -65251,8 +65356,8 @@ impl PhysicalDeviceCudaKernelLaunchFeaturesNV {
 }
 impl<'a> PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn cuda_kernel_launch_features(mut self, value: u32) -> Self {
-        self.inner.cuda_kernel_launch_features = value;
+    pub fn cuda_kernel_launch_features(mut self, value: bool) -> Self {
+        self.inner.cuda_kernel_launch_features = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCudaKernelLaunchFeaturesNV`]'s **Extended By** section for valid types.
@@ -65400,8 +65505,8 @@ impl PhysicalDeviceSchedulingControlsFeaturesARM {
 }
 impl<'a> PhysicalDeviceSchedulingControlsFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn scheduling_controls(mut self, value: u32) -> Self {
-        self.inner.scheduling_controls = value;
+    pub fn scheduling_controls(mut self, value: bool) -> Self {
+        self.inner.scheduling_controls = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceSchedulingControlsFeaturesARM`]'s **Extended By** section for valid types.
@@ -65497,8 +65602,8 @@ impl PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
 }
 impl<'a> PhysicalDeviceRelaxedLineRasterizationFeaturesIMGBuilder<'a> {
     #[inline]
-    pub fn relaxed_line_rasterization(mut self, value: u32) -> Self {
-        self.inner.relaxed_line_rasterization = value;
+    pub fn relaxed_line_rasterization(mut self, value: bool) -> Self {
+        self.inner.relaxed_line_rasterization = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRelaxedLineRasterizationFeaturesIMG`]'s **Extended By** section for valid types.
@@ -65552,8 +65657,8 @@ impl PhysicalDeviceRenderPassStripedFeaturesARM {
 }
 impl<'a> PhysicalDeviceRenderPassStripedFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn render_pass_striped(mut self, value: u32) -> Self {
-        self.inner.render_pass_striped = value;
+    pub fn render_pass_striped(mut self, value: bool) -> Self {
+        self.inner.render_pass_striped = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRenderPassStripedFeaturesARM`]'s **Extended By** section for valid types.
@@ -65810,8 +65915,8 @@ impl PhysicalDevicePipelineOpacityMicromapFeaturesARM {
 }
 impl<'a> PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn pipeline_opacity_micromap(mut self, value: u32) -> Self {
-        self.inner.pipeline_opacity_micromap = value;
+    pub fn pipeline_opacity_micromap(mut self, value: bool) -> Self {
+        self.inner.pipeline_opacity_micromap = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineOpacityMicromapFeaturesARM`]'s **Extended By** section for valid types.
@@ -65867,8 +65972,8 @@ impl PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderMaximalReconvergenceFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_maximal_reconvergence(mut self, value: u32) -> Self {
-        self.inner.shader_maximal_reconvergence = value;
+    pub fn shader_maximal_reconvergence(mut self, value: bool) -> Self {
+        self.inner.shader_maximal_reconvergence = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR`]'s **Extended By** section for valid types.
@@ -65922,13 +66027,13 @@ impl PhysicalDeviceShaderSubgroupRotateFeatures {
 }
 impl<'a> PhysicalDeviceShaderSubgroupRotateFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_subgroup_rotate(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_rotate = value;
+    pub fn shader_subgroup_rotate(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_rotate = value as u32;
         self
     }
     #[inline]
-    pub fn shader_subgroup_rotate_clustered(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_rotate_clustered = value;
+    pub fn shader_subgroup_rotate_clustered(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_rotate_clustered = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupRotateFeatures`]'s **Extended By** section for valid types.
@@ -65980,8 +66085,8 @@ impl PhysicalDeviceShaderExpectAssumeFeatures {
 }
 impl<'a> PhysicalDeviceShaderExpectAssumeFeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_expect_assume(mut self, value: u32) -> Self {
-        self.inner.shader_expect_assume = value;
+    pub fn shader_expect_assume(mut self, value: bool) -> Self {
+        self.inner.shader_expect_assume = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderExpectAssumeFeatures`]'s **Extended By** section for valid types.
@@ -66033,8 +66138,8 @@ impl PhysicalDeviceShaderFloatControls2Features {
 }
 impl<'a> PhysicalDeviceShaderFloatControls2FeaturesBuilder<'a> {
     #[inline]
-    pub fn shader_float_controls2(mut self, value: u32) -> Self {
-        self.inner.shader_float_controls2 = value;
+    pub fn shader_float_controls2(mut self, value: bool) -> Self {
+        self.inner.shader_float_controls2 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFloatControls2Features`]'s **Extended By** section for valid types.
@@ -66086,8 +66191,8 @@ impl PhysicalDeviceDynamicRenderingLocalReadFeatures {
 }
 impl<'a> PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder<'a> {
     #[inline]
-    pub fn dynamic_rendering_local_read(mut self, value: u32) -> Self {
-        self.inner.dynamic_rendering_local_read = value;
+    pub fn dynamic_rendering_local_read(mut self, value: bool) -> Self {
+        self.inner.dynamic_rendering_local_read = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDynamicRenderingLocalReadFeatures`]'s **Extended By** section for valid types.
@@ -66259,8 +66364,8 @@ impl PhysicalDeviceShaderQuadControlFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderQuadControlFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_quad_control(mut self, value: u32) -> Self {
-        self.inner.shader_quad_control = value;
+    pub fn shader_quad_control(mut self, value: bool) -> Self {
+        self.inner.shader_quad_control = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderQuadControlFeaturesKHR`]'s **Extended By** section for valid types.
@@ -66314,8 +66419,8 @@ impl PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
 }
 impl<'a> PhysicalDeviceShaderAtomicFloat16VectorFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn shader_float16_vector_atomics(mut self, value: u32) -> Self {
-        self.inner.shader_float16_vector_atomics = value;
+    pub fn shader_float16_vector_atomics(mut self, value: bool) -> Self {
+        self.inner.shader_float16_vector_atomics = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV`]'s **Extended By** section for valid types.
@@ -66369,18 +66474,18 @@ impl PhysicalDeviceMapMemoryPlacedFeaturesEXT {
 }
 impl<'a> PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn memory_map_placed(mut self, value: u32) -> Self {
-        self.inner.memory_map_placed = value;
+    pub fn memory_map_placed(mut self, value: bool) -> Self {
+        self.inner.memory_map_placed = value as u32;
         self
     }
     #[inline]
-    pub fn memory_map_range_placed(mut self, value: u32) -> Self {
-        self.inner.memory_map_range_placed = value;
+    pub fn memory_map_range_placed(mut self, value: bool) -> Self {
+        self.inner.memory_map_range_placed = value as u32;
         self
     }
     #[inline]
-    pub fn memory_unmap_reserve(mut self, value: u32) -> Self {
-        self.inner.memory_unmap_reserve = value;
+    pub fn memory_unmap_reserve(mut self, value: bool) -> Self {
+        self.inner.memory_unmap_reserve = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceMapMemoryPlacedFeaturesEXT`]'s **Extended By** section for valid types.
@@ -66523,18 +66628,18 @@ impl PhysicalDeviceShaderBfloat16FeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderBfloat16FeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_b_float16_type(mut self, value: u32) -> Self {
-        self.inner.shader_b_float16_type = value;
+    pub fn shader_b_float16_type(mut self, value: bool) -> Self {
+        self.inner.shader_b_float16_type = value as u32;
         self
     }
     #[inline]
-    pub fn shader_b_float16_dot_product(mut self, value: u32) -> Self {
-        self.inner.shader_b_float16_dot_product = value;
+    pub fn shader_b_float16_dot_product(mut self, value: bool) -> Self {
+        self.inner.shader_b_float16_dot_product = value as u32;
         self
     }
     #[inline]
-    pub fn shader_b_float16_cooperative_matrix(mut self, value: u32) -> Self {
-        self.inner.shader_b_float16_cooperative_matrix = value;
+    pub fn shader_b_float16_cooperative_matrix(mut self, value: bool) -> Self {
+        self.inner.shader_b_float16_cooperative_matrix = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderBfloat16FeaturesKHR`]'s **Extended By** section for valid types.
@@ -66586,8 +66691,8 @@ impl PhysicalDeviceRawAccessChainsFeaturesNV {
 }
 impl<'a> PhysicalDeviceRawAccessChainsFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn shader_raw_access_chains(mut self, value: u32) -> Self {
-        self.inner.shader_raw_access_chains = value;
+    pub fn shader_raw_access_chains(mut self, value: bool) -> Self {
+        self.inner.shader_raw_access_chains = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceRawAccessChainsFeaturesNV`]'s **Extended By** section for valid types.
@@ -66639,8 +66744,8 @@ impl PhysicalDeviceCommandBufferInheritanceFeaturesNV {
 }
 impl<'a> PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn command_buffer_inheritance(mut self, value: u32) -> Self {
-        self.inner.command_buffer_inheritance = value;
+    pub fn command_buffer_inheritance(mut self, value: bool) -> Self {
+        self.inner.command_buffer_inheritance = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCommandBufferInheritanceFeaturesNV`]'s **Extended By** section for valid types.
@@ -66694,8 +66799,8 @@ impl PhysicalDeviceImageAlignmentControlFeaturesMESA {
 }
 impl<'a> PhysicalDeviceImageAlignmentControlFeaturesMESABuilder<'a> {
     #[inline]
-    pub fn image_alignment_control(mut self, value: u32) -> Self {
-        self.inner.image_alignment_control = value;
+    pub fn image_alignment_control(mut self, value: bool) -> Self {
+        self.inner.image_alignment_control = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceImageAlignmentControlFeaturesMESA`]'s **Extended By** section for valid types.
@@ -66846,8 +66951,8 @@ impl PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderReplicatedCompositesFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_replicated_composites(mut self, value: u32) -> Self {
-        self.inner.shader_replicated_composites = value;
+    pub fn shader_replicated_composites(mut self, value: bool) -> Self {
+        self.inner.shader_replicated_composites = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderReplicatedCompositesFeaturesEXT`]'s **Extended By** section for valid types.
@@ -66903,8 +67008,8 @@ impl PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
 }
 impl<'a> PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn present_mode_fifo_latest_ready(mut self, value: u32) -> Self {
-        self.inner.present_mode_fifo_latest_ready = value;
+    pub fn present_mode_fifo_latest_ready(mut self, value: bool) -> Self {
+        self.inner.present_mode_fifo_latest_ready = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR`]'s **Extended By** section for valid types.
@@ -66958,38 +67063,38 @@ impl PhysicalDeviceCooperativeMatrix2FeaturesNV {
 }
 impl<'a> PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder<'a> {
     #[inline]
-    pub fn cooperative_matrix_workgroup_scope(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_workgroup_scope = value;
+    pub fn cooperative_matrix_workgroup_scope(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_workgroup_scope = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_flexible_dimensions(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_flexible_dimensions = value;
+    pub fn cooperative_matrix_flexible_dimensions(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_flexible_dimensions = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_reductions(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_reductions = value;
+    pub fn cooperative_matrix_reductions(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_reductions = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_conversions(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_conversions = value;
+    pub fn cooperative_matrix_conversions(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_conversions = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_per_element_operations(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_per_element_operations = value;
+    pub fn cooperative_matrix_per_element_operations(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_per_element_operations = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_tensor_addressing(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_tensor_addressing = value;
+    pub fn cooperative_matrix_tensor_addressing(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_tensor_addressing = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_matrix_block_loads(mut self, value: u32) -> Self {
-        self.inner.cooperative_matrix_block_loads = value;
+    pub fn cooperative_matrix_block_loads(mut self, value: bool) -> Self {
+        self.inner.cooperative_matrix_block_loads = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeMatrix2FeaturesNV`]'s **Extended By** section for valid types.
@@ -67134,8 +67239,8 @@ impl<'a> CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn saturating_accumulation(mut self, value: u32) -> Self {
-        self.inner.saturating_accumulation = value;
+    pub fn saturating_accumulation(mut self, value: bool) -> Self {
+        self.inner.saturating_accumulation = value as u32;
         self
     }
     #[inline]
@@ -67184,8 +67289,8 @@ impl PhysicalDeviceHdrVividFeaturesHUAWEI {
 }
 impl<'a> PhysicalDeviceHdrVividFeaturesHUAWEIBuilder<'a> {
     #[inline]
-    pub fn hdr_vivid(mut self, value: u32) -> Self {
-        self.inner.hdr_vivid = value;
+    pub fn hdr_vivid(mut self, value: bool) -> Self {
+        self.inner.hdr_vivid = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceHdrVividFeaturesHUAWEI`]'s **Extended By** section for valid types.
@@ -67239,8 +67344,8 @@ impl PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
 }
 impl<'a> PhysicalDeviceVertexAttributeRobustnessFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn vertex_attribute_robustness(mut self, value: u32) -> Self {
-        self.inner.vertex_attribute_robustness = value;
+    pub fn vertex_attribute_robustness(mut self, value: bool) -> Self {
+        self.inner.vertex_attribute_robustness = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVertexAttributeRobustnessFeaturesEXT`]'s **Extended By** section for valid types.
@@ -67294,8 +67399,8 @@ impl PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
 }
 impl<'a> PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder<'a> {
     #[inline]
-    pub fn dense_geometry_format(mut self, value: u32) -> Self {
-        self.inner.dense_geometry_format = value;
+    pub fn dense_geometry_format(mut self, value: bool) -> Self {
+        self.inner.dense_geometry_format = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDenseGeometryFormatFeaturesAMDX`]'s **Extended By** section for valid types.
@@ -67434,8 +67539,8 @@ impl PhysicalDeviceDepthClampZeroOneFeaturesKHR {
 }
 impl<'a> PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn depth_clamp_zero_one(mut self, value: u32) -> Self {
-        self.inner.depth_clamp_zero_one = value;
+    pub fn depth_clamp_zero_one(mut self, value: bool) -> Self {
+        self.inner.depth_clamp_zero_one = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDepthClampZeroOneFeaturesKHR`]'s **Extended By** section for valid types.
@@ -67487,13 +67592,13 @@ impl PhysicalDeviceCooperativeVectorFeaturesNV {
 }
 impl<'a> PhysicalDeviceCooperativeVectorFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn cooperative_vector(mut self, value: u32) -> Self {
-        self.inner.cooperative_vector = value;
+    pub fn cooperative_vector(mut self, value: bool) -> Self {
+        self.inner.cooperative_vector = value as u32;
         self
     }
     #[inline]
-    pub fn cooperative_vector_training(mut self, value: u32) -> Self {
-        self.inner.cooperative_vector_training = value;
+    pub fn cooperative_vector_training(mut self, value: bool) -> Self {
+        self.inner.cooperative_vector_training = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceCooperativeVectorFeaturesNV`]'s **Extended By** section for valid types.
@@ -67570,8 +67675,8 @@ impl<'a> CooperativeVectorPropertiesNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn transpose(mut self, value: u32) -> Self {
-        self.inner.transpose = value;
+    pub fn transpose(mut self, value: bool) -> Self {
+        self.inner.transpose = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`CooperativeVectorPropertiesNV`]'s **Extended By** section for valid types.
@@ -67633,17 +67738,17 @@ impl<'a> PhysicalDeviceCooperativeVectorPropertiesNVBuilder<'a> {
     #[inline]
     pub fn cooperative_vector_training_float16_accumulation(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.cooperative_vector_training_float16_accumulation = value;
+        self.inner.cooperative_vector_training_float16_accumulation = value as u32;
         self
     }
     #[inline]
     pub fn cooperative_vector_training_float32_accumulation(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.cooperative_vector_training_float32_accumulation = value;
+        self.inner.cooperative_vector_training_float32_accumulation = value as u32;
         self
     }
     #[inline]
@@ -67793,73 +67898,73 @@ impl PhysicalDeviceTileShadingFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceTileShadingFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn tile_shading(mut self, value: u32) -> Self {
-        self.inner.tile_shading = value;
+    pub fn tile_shading(mut self, value: bool) -> Self {
+        self.inner.tile_shading = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_fragment_stage(mut self, value: u32) -> Self {
-        self.inner.tile_shading_fragment_stage = value;
+    pub fn tile_shading_fragment_stage(mut self, value: bool) -> Self {
+        self.inner.tile_shading_fragment_stage = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_color_attachments(mut self, value: u32) -> Self {
-        self.inner.tile_shading_color_attachments = value;
+    pub fn tile_shading_color_attachments(mut self, value: bool) -> Self {
+        self.inner.tile_shading_color_attachments = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_depth_attachments(mut self, value: u32) -> Self {
-        self.inner.tile_shading_depth_attachments = value;
+    pub fn tile_shading_depth_attachments(mut self, value: bool) -> Self {
+        self.inner.tile_shading_depth_attachments = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_stencil_attachments(mut self, value: u32) -> Self {
-        self.inner.tile_shading_stencil_attachments = value;
+    pub fn tile_shading_stencil_attachments(mut self, value: bool) -> Self {
+        self.inner.tile_shading_stencil_attachments = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_input_attachments(mut self, value: u32) -> Self {
-        self.inner.tile_shading_input_attachments = value;
+    pub fn tile_shading_input_attachments(mut self, value: bool) -> Self {
+        self.inner.tile_shading_input_attachments = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_sampled_attachments(mut self, value: u32) -> Self {
-        self.inner.tile_shading_sampled_attachments = value;
+    pub fn tile_shading_sampled_attachments(mut self, value: bool) -> Self {
+        self.inner.tile_shading_sampled_attachments = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_per_tile_draw(mut self, value: u32) -> Self {
-        self.inner.tile_shading_per_tile_draw = value;
+    pub fn tile_shading_per_tile_draw(mut self, value: bool) -> Self {
+        self.inner.tile_shading_per_tile_draw = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_per_tile_dispatch(mut self, value: u32) -> Self {
-        self.inner.tile_shading_per_tile_dispatch = value;
+    pub fn tile_shading_per_tile_dispatch(mut self, value: bool) -> Self {
+        self.inner.tile_shading_per_tile_dispatch = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_dispatch_tile(mut self, value: u32) -> Self {
-        self.inner.tile_shading_dispatch_tile = value;
+    pub fn tile_shading_dispatch_tile(mut self, value: bool) -> Self {
+        self.inner.tile_shading_dispatch_tile = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_apron(mut self, value: u32) -> Self {
-        self.inner.tile_shading_apron = value;
+    pub fn tile_shading_apron(mut self, value: bool) -> Self {
+        self.inner.tile_shading_apron = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_anisotropic_apron(mut self, value: u32) -> Self {
-        self.inner.tile_shading_anisotropic_apron = value;
+    pub fn tile_shading_anisotropic_apron(mut self, value: bool) -> Self {
+        self.inner.tile_shading_anisotropic_apron = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_atomic_ops(mut self, value: u32) -> Self {
-        self.inner.tile_shading_atomic_ops = value;
+    pub fn tile_shading_atomic_ops(mut self, value: bool) -> Self {
+        self.inner.tile_shading_atomic_ops = value as u32;
         self
     }
     #[inline]
-    pub fn tile_shading_image_processing(mut self, value: u32) -> Self {
-        self.inner.tile_shading_image_processing = value;
+    pub fn tile_shading_image_processing(mut self, value: bool) -> Self {
+        self.inner.tile_shading_image_processing = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTileShadingFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -67916,8 +68021,8 @@ impl<'a> PhysicalDeviceTileShadingPropertiesQCOMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn prefer_non_coherent(mut self, value: u32) -> Self {
-        self.inner.prefer_non_coherent = value;
+    pub fn prefer_non_coherent(mut self, value: bool) -> Self {
+        self.inner.prefer_non_coherent = value as u32;
         self
     }
     #[inline]
@@ -68201,8 +68306,8 @@ impl PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
 }
 impl<'a> PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVEBuilder<'a> {
     #[inline]
-    pub fn fragment_density_map_layered(mut self, value: u32) -> Self {
-        self.inner.fragment_density_map_layered = value;
+    pub fn fragment_density_map_layered(mut self, value: bool) -> Self {
+        self.inner.fragment_density_map_layered = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE`]'s **Extended By** section for valid types.
@@ -68366,8 +68471,8 @@ impl PhysicalDevicePresentMeteringFeaturesNV {
 }
 impl<'a> PhysicalDevicePresentMeteringFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn present_metering(mut self, value: u32) -> Self {
-        self.inner.present_metering = value;
+    pub fn present_metering(mut self, value: bool) -> Self {
+        self.inner.present_metering = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePresentMeteringFeaturesNV`]'s **Extended By** section for valid types.
@@ -68624,8 +68729,8 @@ impl PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_uniform_buffer_unsized_array(mut self, value: u32) -> Self {
-        self.inner.shader_uniform_buffer_unsized_array = value;
+    pub fn shader_uniform_buffer_unsized_array(mut self, value: bool) -> Self {
+        self.inner.shader_uniform_buffer_unsized_array = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT`]'s **Extended By** section for valid types.
@@ -68683,30 +68788,30 @@ impl<'a> PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEBuilder<'a> {
     #[inline]
     pub fn shader_mixed_float_dot_product_float16_acc_float32(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_mixed_float_dot_product_float16_acc_float32 = value;
+        self.inner.shader_mixed_float_dot_product_float16_acc_float32 = value as u32;
         self
     }
     #[inline]
     pub fn shader_mixed_float_dot_product_float16_acc_float16(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_mixed_float_dot_product_float16_acc_float16 = value;
+        self.inner.shader_mixed_float_dot_product_float16_acc_float16 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_mixed_float_dot_product_b_float16_acc(mut self, value: u32) -> Self {
-        self.inner.shader_mixed_float_dot_product_b_float16_acc = value;
+    pub fn shader_mixed_float_dot_product_b_float16_acc(mut self, value: bool) -> Self {
+        self.inner.shader_mixed_float_dot_product_b_float16_acc = value as u32;
         self
     }
     #[inline]
     pub fn shader_mixed_float_dot_product_float8_acc_float32(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_mixed_float_dot_product_float8_acc_float32 = value;
+        self.inner.shader_mixed_float_dot_product_float8_acc_float32 = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE`]'s **Extended By** section for valid types.
@@ -68760,8 +68865,8 @@ impl PhysicalDeviceFormatPackFeaturesARM {
 }
 impl<'a> PhysicalDeviceFormatPackFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn format_pack(mut self, value: u32) -> Self {
-        self.inner.format_pack = value;
+    pub fn format_pack(mut self, value: bool) -> Self {
+        self.inner.format_pack = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceFormatPackFeaturesARM`]'s **Extended By** section for valid types.
@@ -69290,9 +69395,10 @@ impl<'a> PhysicalDeviceTensorPropertiesARMBuilder<'a> {
     #[inline]
     pub fn shader_storage_tensor_array_non_uniform_indexing_native(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_tensor_array_non_uniform_indexing_native = value;
+        self.inner.shader_storage_tensor_array_non_uniform_indexing_native = value
+            as u32;
         self
     }
     #[inline]
@@ -69478,39 +69584,39 @@ impl PhysicalDeviceTensorFeaturesARM {
 }
 impl<'a> PhysicalDeviceTensorFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn tensor_non_packed(mut self, value: u32) -> Self {
-        self.inner.tensor_non_packed = value;
+    pub fn tensor_non_packed(mut self, value: bool) -> Self {
+        self.inner.tensor_non_packed = value as u32;
         self
     }
     #[inline]
-    pub fn shader_tensor_access(mut self, value: u32) -> Self {
-        self.inner.shader_tensor_access = value;
+    pub fn shader_tensor_access(mut self, value: bool) -> Self {
+        self.inner.shader_tensor_access = value as u32;
         self
     }
     #[inline]
-    pub fn shader_storage_tensor_array_dynamic_indexing(mut self, value: u32) -> Self {
-        self.inner.shader_storage_tensor_array_dynamic_indexing = value;
+    pub fn shader_storage_tensor_array_dynamic_indexing(mut self, value: bool) -> Self {
+        self.inner.shader_storage_tensor_array_dynamic_indexing = value as u32;
         self
     }
     #[inline]
     pub fn shader_storage_tensor_array_non_uniform_indexing(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.shader_storage_tensor_array_non_uniform_indexing = value;
+        self.inner.shader_storage_tensor_array_non_uniform_indexing = value as u32;
         self
     }
     #[inline]
     pub fn descriptor_binding_storage_tensor_update_after_bind(
         mut self,
-        value: u32,
+        value: bool,
     ) -> Self {
-        self.inner.descriptor_binding_storage_tensor_update_after_bind = value;
+        self.inner.descriptor_binding_storage_tensor_update_after_bind = value as u32;
         self
     }
     #[inline]
-    pub fn tensors(mut self, value: u32) -> Self {
-        self.inner.tensors = value;
+    pub fn tensors(mut self, value: bool) -> Self {
+        self.inner.tensors = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTensorFeaturesARM`]'s **Extended By** section for valid types.
@@ -69862,8 +69968,8 @@ impl PhysicalDeviceDescriptorBufferTensorFeaturesARM {
 }
 impl<'a> PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn descriptor_buffer_tensor_descriptors(mut self, value: u32) -> Self {
-        self.inner.descriptor_buffer_tensor_descriptors = value;
+    pub fn descriptor_buffer_tensor_descriptors(mut self, value: bool) -> Self {
+        self.inner.descriptor_buffer_tensor_descriptors = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorBufferTensorFeaturesARM`]'s **Extended By** section for valid types.
@@ -70302,13 +70408,13 @@ impl PhysicalDeviceShaderFloat8FeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderFloat8FeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_float8(mut self, value: u32) -> Self {
-        self.inner.shader_float8 = value;
+    pub fn shader_float8(mut self, value: bool) -> Self {
+        self.inner.shader_float8 = value as u32;
         self
     }
     #[inline]
-    pub fn shader_float8_cooperative_matrix(mut self, value: u32) -> Self {
-        self.inner.shader_float8_cooperative_matrix = value;
+    pub fn shader_float8_cooperative_matrix(mut self, value: bool) -> Self {
+        self.inner.shader_float8_cooperative_matrix = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderFloat8FeaturesEXT`]'s **Extended By** section for valid types.
@@ -70418,28 +70524,28 @@ impl PhysicalDeviceDataGraphFeaturesARM {
 }
 impl<'a> PhysicalDeviceDataGraphFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn data_graph(mut self, value: u32) -> Self {
-        self.inner.data_graph = value;
+    pub fn data_graph(mut self, value: bool) -> Self {
+        self.inner.data_graph = value as u32;
         self
     }
     #[inline]
-    pub fn data_graph_update_after_bind(mut self, value: u32) -> Self {
-        self.inner.data_graph_update_after_bind = value;
+    pub fn data_graph_update_after_bind(mut self, value: bool) -> Self {
+        self.inner.data_graph_update_after_bind = value as u32;
         self
     }
     #[inline]
-    pub fn data_graph_specialization_constants(mut self, value: u32) -> Self {
-        self.inner.data_graph_specialization_constants = value;
+    pub fn data_graph_specialization_constants(mut self, value: bool) -> Self {
+        self.inner.data_graph_specialization_constants = value as u32;
         self
     }
     #[inline]
-    pub fn data_graph_descriptor_buffer(mut self, value: u32) -> Self {
-        self.inner.data_graph_descriptor_buffer = value;
+    pub fn data_graph_descriptor_buffer(mut self, value: bool) -> Self {
+        self.inner.data_graph_descriptor_buffer = value as u32;
         self
     }
     #[inline]
-    pub fn data_graph_shader_module(mut self, value: u32) -> Self {
-        self.inner.data_graph_shader_module = value;
+    pub fn data_graph_shader_module(mut self, value: bool) -> Self {
+        self.inner.data_graph_shader_module = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDataGraphFeaturesARM`]'s **Extended By** section for valid types.
@@ -71234,8 +71340,8 @@ impl<'a> DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn is_text(mut self, value: u32) -> Self {
-        self.inner.is_text = value;
+    pub fn is_text(mut self, value: bool) -> Self {
+        self.inner.is_text = value as u32;
         self
     }
     #[inline]
@@ -71622,8 +71728,8 @@ impl PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
 }
 impl<'a> PhysicalDevicePipelineCacheIncrementalModeFeaturesSECBuilder<'a> {
     #[inline]
-    pub fn pipeline_cache_incremental_mode(mut self, value: u32) -> Self {
-        self.inner.pipeline_cache_incremental_mode = value;
+    pub fn pipeline_cache_incremental_mode(mut self, value: bool) -> Self {
+        self.inner.pipeline_cache_incremental_mode = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC`]'s **Extended By** section for valid types.
@@ -71733,8 +71839,8 @@ impl PhysicalDeviceDataGraphModelFeaturesQCOM {
 }
 impl<'a> PhysicalDeviceDataGraphModelFeaturesQCOMBuilder<'a> {
     #[inline]
-    pub fn data_graph_model(mut self, value: u32) -> Self {
-        self.inner.data_graph_model = value;
+    pub fn data_graph_model(mut self, value: bool) -> Self {
+        self.inner.data_graph_model = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDataGraphModelFeaturesQCOM`]'s **Extended By** section for valid types.
@@ -71786,8 +71892,8 @@ impl PhysicalDeviceShaderUntypedPointersFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_untyped_pointers(mut self, value: u32) -> Self {
-        self.inner.shader_untyped_pointers = value;
+    pub fn shader_untyped_pointers(mut self, value: bool) -> Self {
+        self.inner.shader_untyped_pointers = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderUntypedPointersFeaturesKHR`]'s **Extended By** section for valid types.
@@ -71943,8 +72049,8 @@ impl PhysicalDevicePresentationPropertiesOHOS {
 }
 impl<'a> PhysicalDevicePresentationPropertiesOHOSBuilder<'a> {
     #[inline]
-    pub fn shared_image(mut self, value: u32) -> Self {
-        self.inner.shared_image = value;
+    pub fn shared_image(mut self, value: bool) -> Self {
+        self.inner.shared_image = value as u32;
         self
     }
 }
@@ -71983,8 +72089,8 @@ impl PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
 }
 impl<'a> PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVEBuilder<'a> {
     #[inline]
-    pub fn video_encode_rgb_conversion(mut self, value: u32) -> Self {
-        self.inner.video_encode_rgb_conversion = value;
+    pub fn video_encode_rgb_conversion(mut self, value: bool) -> Self {
+        self.inner.video_encode_rgb_conversion = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE`]'s **Extended By** section for valid types.
@@ -72100,8 +72206,8 @@ impl VideoEncodeProfileRgbConversionInfoVALVE {
 }
 impl<'a> VideoEncodeProfileRgbConversionInfoVALVEBuilder<'a> {
     #[inline]
-    pub fn perform_encode_rgb_conversion(mut self, value: u32) -> Self {
-        self.inner.perform_encode_rgb_conversion = value;
+    pub fn perform_encode_rgb_conversion(mut self, value: bool) -> Self {
+        self.inner.perform_encode_rgb_conversion = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`VideoEncodeProfileRgbConversionInfoVALVE`]'s **Extended By** section for valid types.
@@ -72234,8 +72340,8 @@ impl PhysicalDeviceShader64BitIndexingFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader64_bit_indexing(mut self, value: u32) -> Self {
-        self.inner.shader64_bit_indexing = value;
+    pub fn shader64_bit_indexing(mut self, value: bool) -> Self {
+        self.inner.shader64_bit_indexing = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShader64BitIndexingFeaturesEXT`]'s **Extended By** section for valid types.
@@ -72603,8 +72709,8 @@ impl PhysicalDevicePerformanceCountersByRegionFeaturesARM {
 }
 impl<'a> PhysicalDevicePerformanceCountersByRegionFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn performance_counters_by_region(mut self, value: u32) -> Self {
-        self.inner.performance_counters_by_region = value;
+    pub fn performance_counters_by_region(mut self, value: bool) -> Self {
+        self.inner.performance_counters_by_region = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDevicePerformanceCountersByRegionFeaturesARM`]'s **Extended By** section for valid types.
@@ -72680,8 +72786,8 @@ impl<'a> PhysicalDevicePerformanceCountersByRegionPropertiesARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn identity_transform_order(mut self, value: u32) -> Self {
-        self.inner.identity_transform_order = value;
+    pub fn identity_transform_order(mut self, value: bool) -> Self {
+        self.inner.identity_transform_order = value as u32;
         self
     }
 }
@@ -72812,8 +72918,8 @@ impl<'a> RenderPassPerformanceCountersByRegionBeginInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn serialize_regions(mut self, value: u32) -> Self {
-        self.inner.serialize_regions = value;
+    pub fn serialize_regions(mut self, value: bool) -> Self {
+        self.inner.serialize_regions = value as u32;
         self
     }
     #[inline]
@@ -72931,8 +73037,8 @@ impl PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
 }
 impl<'a> PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder<'a> {
     #[inline]
-    pub fn compute_occupancy_priority(mut self, value: u32) -> Self {
-        self.inner.compute_occupancy_priority = value;
+    pub fn compute_occupancy_priority(mut self, value: bool) -> Self {
+        self.inner.compute_occupancy_priority = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceComputeOccupancyPriorityFeaturesNV`]'s **Extended By** section for valid types.
@@ -72986,8 +73092,8 @@ impl PhysicalDeviceShaderLongVectorFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderLongVectorFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn long_vector(mut self, value: u32) -> Self {
-        self.inner.long_vector = value;
+    pub fn long_vector(mut self, value: bool) -> Self {
+        self.inner.long_vector = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderLongVectorFeaturesEXT`]'s **Extended By** section for valid types.
@@ -73079,8 +73185,8 @@ impl PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
 }
 impl<'a> PhysicalDeviceTextureCompressionASTC3DFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn texture_compression_astc_3d(mut self, value: u32) -> Self {
-        self.inner.texture_compression_astc_3d = value;
+    pub fn texture_compression_astc_3d(mut self, value: bool) -> Self {
+        self.inner.texture_compression_astc_3d = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceTextureCompressionASTC3DFeaturesEXT`]'s **Extended By** section for valid types.
@@ -73136,8 +73242,8 @@ impl PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
 }
 impl<'a> PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn shader_subgroup_partitioned(mut self, value: u32) -> Self {
-        self.inner.shader_subgroup_partitioned = value;
+    pub fn shader_subgroup_partitioned(mut self, value: bool) -> Self {
+        self.inner.shader_subgroup_partitioned = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT`]'s **Extended By** section for valid types.
@@ -73829,13 +73935,13 @@ impl PhysicalDeviceDescriptorHeapFeaturesEXT {
 }
 impl<'a> PhysicalDeviceDescriptorHeapFeaturesEXTBuilder<'a> {
     #[inline]
-    pub fn descriptor_heap(mut self, value: u32) -> Self {
-        self.inner.descriptor_heap = value;
+    pub fn descriptor_heap(mut self, value: bool) -> Self {
+        self.inner.descriptor_heap = value as u32;
         self
     }
     #[inline]
-    pub fn descriptor_heap_capture_replay(mut self, value: u32) -> Self {
-        self.inner.descriptor_heap_capture_replay = value;
+    pub fn descriptor_heap_capture_replay(mut self, value: bool) -> Self {
+        self.inner.descriptor_heap_capture_replay = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDescriptorHeapFeaturesEXT`]'s **Extended By** section for valid types.
@@ -73972,13 +74078,13 @@ impl<'a> PhysicalDeviceDescriptorHeapPropertiesEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn sparse_descriptor_heaps(mut self, value: u32) -> Self {
-        self.inner.sparse_descriptor_heaps = value;
+    pub fn sparse_descriptor_heaps(mut self, value: bool) -> Self {
+        self.inner.sparse_descriptor_heaps = value as u32;
         self
     }
     #[inline]
-    pub fn protected_descriptor_heaps(mut self, value: u32) -> Self {
-        self.inner.protected_descriptor_heaps = value;
+    pub fn protected_descriptor_heaps(mut self, value: bool) -> Self {
+        self.inner.protected_descriptor_heaps = value as u32;
         self
     }
 }
@@ -74124,8 +74230,8 @@ impl PhysicalDeviceShaderInstrumentationFeaturesARM {
 }
 impl<'a> PhysicalDeviceShaderInstrumentationFeaturesARMBuilder<'a> {
     #[inline]
-    pub fn shader_instrumentation(mut self, value: u32) -> Self {
-        self.inner.shader_instrumentation = value;
+    pub fn shader_instrumentation(mut self, value: bool) -> Self {
+        self.inner.shader_instrumentation = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderInstrumentationFeaturesARM`]'s **Extended By** section for valid types.
@@ -74183,8 +74289,8 @@ impl<'a> PhysicalDeviceShaderInstrumentationPropertiesARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn per_basic_block_granularity(mut self, value: u32) -> Self {
-        self.inner.per_basic_block_granularity = value;
+    pub fn per_basic_block_granularity(mut self, value: bool) -> Self {
+        self.inner.per_basic_block_granularity = value as u32;
         self
     }
 }
@@ -74743,8 +74849,8 @@ impl PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
 }
 impl<'a> PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn device_address_commands(mut self, value: u32) -> Self {
-        self.inner.device_address_commands = value;
+    pub fn device_address_commands(mut self, value: bool) -> Self {
+        self.inner.device_address_commands = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceDeviceAddressCommandsFeaturesKHR`]'s **Extended By** section for valid types.
@@ -74991,8 +75097,8 @@ impl BindVertexBuffer3InfoKHR {
 }
 impl<'a> BindVertexBuffer3InfoKHRBuilder<'a> {
     #[inline]
-    pub fn set_stride(mut self, value: u32) -> Self {
-        self.inner.set_stride = value;
+    pub fn set_stride(mut self, value: bool) -> Self {
+        self.inner.set_stride = value as u32;
         self
     }
     #[inline]
@@ -75368,8 +75474,8 @@ impl PhysicalDeviceShaderConstantDataFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderConstantDataFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_constant_data(mut self, value: u32) -> Self {
-        self.inner.shader_constant_data = value;
+    pub fn shader_constant_data(mut self, value: bool) -> Self {
+        self.inner.shader_constant_data = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderConstantDataFeaturesKHR`]'s **Extended By** section for valid types.
@@ -75421,8 +75527,8 @@ impl PhysicalDeviceShaderAbortFeaturesKHR {
 }
 impl<'a> PhysicalDeviceShaderAbortFeaturesKHRBuilder<'a> {
     #[inline]
-    pub fn shader_abort(mut self, value: u32) -> Self {
-        self.inner.shader_abort = value;
+    pub fn shader_abort(mut self, value: bool) -> Self {
+        self.inner.shader_abort = value as u32;
         self
     }
     ///Prepend a struct to the pNext chain. See [`PhysicalDeviceShaderAbortFeaturesKHR`]'s **Extended By** section for valid types.

@@ -273,7 +273,7 @@ let sampler_info = SamplerCreateInfo::builder()
     .address_mode_w(SamplerAddressMode::REPEAT)
     // Requires the samplerAnisotropy device feature to be enabled.
     // Set anisotropy_enable(0) if the feature is not available.
-    .anisotropy_enable(1)
+    .anisotropy_enable(true)
     .max_anisotropy(16.0)
     .border_color(BorderColor::INT_OPAQUE_BLACK)
     .mipmap_mode(SamplerMipmapMode::LINEAR)

@@ -100,7 +100,7 @@ use vk::structs::*;
 //   timeout = u64::MAX means "wait forever"
 //   wait_all = 1 (true) means "wait for ALL fences in the slice"
 unsafe {
-    device.wait_for_fences(&[fence], 1, u64::MAX)?;
+    device.wait_for_fences(&[fence], true, u64::MAX)?;
 };
 
 // Step 2: Reset the fence so it can be signaled again.

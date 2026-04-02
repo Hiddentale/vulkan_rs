@@ -281,7 +281,7 @@ fn create_and_destroy_fence() {
     assert!(!fence.is_null());
 
     // Wait for signaled fence should succeed immediately.
-    let result = unsafe { t.device.wait_for_fences(&[fence], 1, 0) };
+    let result = unsafe { t.device.wait_for_fences(&[fence], true, 0) };
     assert!(result.is_ok(), "wait_for_fences failed: {result:?}");
 
     // Reset and verify it's unsignaled.
@@ -382,7 +382,7 @@ fn create_command_pool_and_submit_empty_buffer() {
     unsafe { t.device.queue_submit(queue, &[submit_info], fence) }.expect("queue_submit failed");
 
     // Wait for completion.
-    unsafe { t.device.wait_for_fences(&[fence], 1, u64::MAX) }.expect("wait_for_fences failed");
+    unsafe { t.device.wait_for_fences(&[fence], true, u64::MAX) }.expect("wait_for_fences failed");
 
     // Cleanup.
     unsafe {

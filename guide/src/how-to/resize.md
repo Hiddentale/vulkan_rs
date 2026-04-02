@@ -199,7 +199,7 @@ let swapchain_info = SwapchainCreateInfoKHR::builder()
     .pre_transform(surface_caps.current_transform)
     .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
     .present_mode(present_mode)
-    .clipped(1)
+    .clipped(true)
     .old_swapchain(old_swapchain); // <-- reuse hint
 
 swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }

@@ -301,6 +301,9 @@ fn emit_signature_param(param: &ParamDef, role: &ParamRole) -> Option<TokenStrea
 /// `*const VkFoo` → `&Foo` (or `Option<&Foo>` when optional).
 /// Everything else passes through as the raw resolved C type.
 fn wrapper_param_type(param: &ParamDef) -> TokenStream {
+    if param.type_name == "VkBool32" && !param.is_pointer {
+        return quote! { bool };
+    }
     if param.is_pointer
         && param.is_const
         && !param.is_double_pointer
@@ -589,6 +592,9 @@ fn emit_call_arg(
             if is_optional_vk_const_ptr(param) {
                 let ptr_name = format_ident!("{}_ptr", param.name.to_snake_case());
                 quote! { #ptr_name }
+            } else if param.type_name == "VkBool32" && !param.is_pointer {
+                let name = param_ident(&param.name);
+                quote! { #name as u32 }
             } else {
                 let name = param_ident(&param.name);
                 quote! { #name }
