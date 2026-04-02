@@ -16,7 +16,7 @@ fn check_entry_creation() {
     let entry = unsafe { vulkan_rs::Entry::new(loader) }.expect("Failed to create entry");
 
     let app_info = ApplicationInfo::builder().api_version((1 << 22) | (3 << 12)); // Vulkan 1.3
-    let create_info = InstanceCreateInfo::builder().p_application_info(&*app_info);
+    let create_info = InstanceCreateInfo::builder().p_application_info(&app_info);
     let _instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
 }
@@ -28,7 +28,7 @@ unsafe fn check_device_creation(instance: &vulkan_rs::Instance, physical_device:
             .queue_family_index(0)
             .queue_priorities(&[1.0]);
         let device_info =
-            DeviceCreateInfo::builder().queue_create_infos(std::slice::from_ref(&*queue_info));
+            DeviceCreateInfo::builder().queue_create_infos(std::slice::from_ref(&queue_info));
         let _device = instance
             .create_device(physical_device, &device_info, None)
             .expect("Failed to create device");

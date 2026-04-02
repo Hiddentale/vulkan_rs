@@ -192,6 +192,22 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
         };
     }
 
+    // *const VkFoo fields accept &T instead of raw pointers.
+    if member.is_pointer
+        && member.is_const
+        && !member.is_double_pointer
+        && member.type_name.starts_with("Vk")
+    {
+        let base = resolve_base_type(&member.type_name);
+        return quote! {
+            #[inline]
+            pub fn #ident(mut self, value: &'a #base) -> Self {
+                self.inner.#ident = value;
+                self
+            }
+        };
+    }
+
     let ty = resolve_member_type(member);
 
     quote! {

@@ -123,7 +123,7 @@ let app_info = ApplicationInfo::builder()
     .api_version(1 << 22);  // Vulkan 1.0
 
 let create_info = InstanceCreateInfo::builder()
-    .p_application_info(&*app_info)
+    .p_application_info(&app_info)
     .enabled_extension_names(&extension_ptrs)
     .enabled_layer_names(&layer_ptrs);
 
@@ -237,7 +237,7 @@ let queue_info = DeviceQueueCreateInfo::builder()
     .queue_priorities(std::slice::from_ref(&queue_priority));
 
 let device_info = DeviceCreateInfo::builder()
-    .queue_create_infos(std::slice::from_ref(&*queue_info))
+    .queue_create_infos(std::slice::from_ref(&queue_info))
     .enabled_extension_names(&device_extensions);
 
 let device = unsafe {
