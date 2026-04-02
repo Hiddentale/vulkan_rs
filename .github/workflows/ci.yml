@@ -257,7 +257,7 @@ jobs:
         run: |
           # Extract the exact version from our vk.xml so we compile against
           # the same spec revision we generate from. Mismatch = false failures.
-          VK_PATCH=$(grep '<name>VK_HEADER_VERSION</name>' generator/vk.xml \
+          VK_PATCH=$(grep '<name>VK_HEADER_VERSION</name>' vulkan-rs-codegen/vk.xml \
             | head -1 | grep -oP '\d+(?=</type>)')
           VK_TAG="v1.4.${VK_PATCH}"
           echo "Our vk.xml is version 1.4.${VK_PATCH}, checking out Vulkan-Headers at ${VK_TAG}"
@@ -319,9 +319,9 @@ jobs:
 
       - name: Re-run generator and check for diffs
         run: |
-          cargo run -p generator
+          cargo run -p vulkan-rs-codegen
           if ! git diff --quiet; then
-            echo "::error::Generated files are stale. Run 'cargo run -p generator' and commit the output."
+            echo "::error::Generated files are stale. Run 'cargo run -p vulkan-rs-codegen' and commit the output."
             git diff --stat
             exit 1
           fi

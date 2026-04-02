@@ -30,7 +30,7 @@ fn workspace_root() -> &'static Path {
 fn generator_runs_successfully() {
     let _lock = GENERATOR_LOCK.lock().expect("GENERATOR_LOCK poisoned");
     let output = cargo()
-        .args(["run", "-p", "generator"])
+        .args(["run", "-p", "vulkan-rs-codegen"])
         .output()
         .expect("failed to launch generator");
     let stderr = String::from_utf8_lossy(&output.stderr);
@@ -42,7 +42,7 @@ fn generated_output_compiles() {
     let _lock = GENERATOR_LOCK.lock().expect("GENERATOR_LOCK poisoned");
     // Ensure generator has run first.
     let run = cargo()
-        .args(["run", "-p", "generator"])
+        .args(["run", "-p", "vulkan-rs-codegen"])
         .output()
         .expect("failed to launch generator");
     assert!(run.status.success(), "generator failed before build check");
@@ -87,7 +87,7 @@ fn generator_output_is_deterministic() {
 
     // Run 1.
     let run1 = cargo()
-        .args(["run", "-p", "generator"])
+        .args(["run", "-p", "vulkan-rs-codegen"])
         .output()
         .expect("failed to launch generator (run 1)");
     assert!(run1.status.success(), "generator run 1 failed");
@@ -104,7 +104,7 @@ fn generator_output_is_deterministic() {
 
     // Run 2.
     let run2 = cargo()
-        .args(["run", "-p", "generator"])
+        .args(["run", "-p", "vulkan-rs-codegen"])
         .output()
         .expect("failed to launch generator (run 2)");
     assert!(run2.status.success(), "generator run 2 failed");

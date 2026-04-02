@@ -7,9 +7,9 @@
 use std::path::Path;
 
 /// Load the real vk.xml registry for testing.
-fn load_registry() -> generator::parse::VkRegistry {
+fn load_registry() -> vulkan_rs_codegen::parse::VkRegistry {
     let vk_xml = Path::new(env!("CARGO_MANIFEST_DIR")).join("vk.xml");
-    generator::parse::parse_registry(&vk_xml)
+    vulkan_rs_codegen::parse::parse_registry(&vk_xml)
 }
 
 /// Read generated file content as a string.
@@ -90,23 +90,26 @@ fn two_call_method_count_does_not_regress() {
 #[test]
 fn two_call_commands_have_output_pairs() {
     let registry = load_registry();
-    let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
+    let pnext = vulkan_rs_codegen::wrapper_utils::build_pnext_struct_set(&registry);
 
     let mut false_positives = Vec::new();
 
     for cmd in &registry.commands {
-        let roles = generator::wrapper_utils::classify_params(cmd, &pnext);
-        let pattern = generator::wrapper_utils::classify_command(cmd, &roles);
+        let roles = vulkan_rs_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let pattern = vulkan_rs_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         if matches!(
             pattern,
-            generator::wrapper_utils::CommandPattern::Enumerate
-                | generator::wrapper_utils::CommandPattern::Fill
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Enumerate
+                | vulkan_rs_codegen::wrapper_utils::CommandPattern::Fill
         ) {
             // Must have at least one OutputArray role.
-            let has_output_array = roles
-                .iter()
-                .any(|r| matches!(r, generator::wrapper_utils::ParamRole::OutputArray { .. }));
+            let has_output_array = roles.iter().any(|r| {
+                matches!(
+                    r,
+                    vulkan_rs_codegen::wrapper_utils::ParamRole::OutputArray { .. }
+                )
+            });
             if !has_output_array {
                 false_positives.push(cmd.name.as_str());
             }
@@ -128,16 +131,16 @@ fn two_call_commands_have_output_pairs() {
 #[test]
 fn two_call_return_type_consistency() {
     let registry = load_registry();
-    let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
+    let pnext = vulkan_rs_codegen::wrapper_utils::build_pnext_struct_set(&registry);
 
     let mut mismatches = Vec::new();
 
     for cmd in &registry.commands {
-        let roles = generator::wrapper_utils::classify_params(cmd, &pnext);
-        let pattern = generator::wrapper_utils::classify_command(cmd, &roles);
+        let roles = vulkan_rs_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let pattern = vulkan_rs_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         match pattern {
-            generator::wrapper_utils::CommandPattern::Enumerate => {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Enumerate => {
                 if cmd.return_type != "VkResult" {
                     mismatches.push(format!(
                         "{}: Enumerate but returns '{}'",
@@ -145,7 +148,7 @@ fn two_call_return_type_consistency() {
                     ));
                 }
             }
-            generator::wrapper_utils::CommandPattern::Fill => {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Fill => {
                 if cmd.return_type != "void" {
                     mismatches.push(format!(
                         "{}: Fill but returns '{}'",
@@ -287,7 +290,7 @@ fn all_struct_members_resolve() {
                 && !known.contains(&m.type_name)
                 && !m.type_name.starts_with("StdVideo")
                 && !is_known_flags(&m.type_name)
-                && generator::type_map::c_type_to_rust(&m.type_name).is_none()
+                && vulkan_rs_codegen::type_map::c_type_to_rust(&m.type_name).is_none()
             {
                 unresolved.push(format!("{}.{}: type '{}'", s.name, m.name, m.type_name));
             }
@@ -385,7 +388,7 @@ fn type_alias_chains_resolve() {
     let alias_map: std::collections::HashMap<String, String> = registry
         .aliases
         .iter()
-        .filter(|a| a.kind == generator::parse::AliasKind::Type)
+        .filter(|a| a.kind == vulkan_rs_codegen::parse::AliasKind::Type)
         .map(|a| (strip_vk(&a.name), strip_vk(&a.target)))
         .collect();
 
@@ -396,7 +399,7 @@ fn type_alias_chains_resolve() {
 
     let mut dangling = Vec::new();
     for a in &registry.aliases {
-        if a.kind != generator::parse::AliasKind::Type {
+        if a.kind != vulkan_rs_codegen::parse::AliasKind::Type {
             continue;
         }
 
@@ -443,7 +446,7 @@ fn command_alias_targets_resolve() {
 
     let mut dangling = Vec::new();
     for a in &registry.aliases {
-        if a.kind == generator::parse::AliasKind::Command
+        if a.kind == vulkan_rs_codegen::parse::AliasKind::Command
             && !known_commands.contains(a.target.as_str())
         {
             dangling.push(format!("{} → {}", a.name, a.target));
@@ -482,7 +485,7 @@ fn command_dispatch_level_is_correct() {
             .unwrap_or("");
 
         match cmd.dispatch_level {
-            generator::parse::DispatchLevel::Instance => {
+            vulkan_rs_codegen::parse::DispatchLevel::Instance => {
                 if !instance_handles.contains(&first_param_type) {
                     misclassified.push(format!(
                         "{}: Instance-level but first param is '{first_param_type}'",
@@ -490,7 +493,7 @@ fn command_dispatch_level_is_correct() {
                     ));
                 }
             }
-            generator::parse::DispatchLevel::Device => {
+            vulkan_rs_codegen::parse::DispatchLevel::Device => {
                 if !device_handles.contains(&first_param_type) {
                     misclassified.push(format!(
                         "{}: Device-level but first param is '{first_param_type}'",
@@ -498,7 +501,7 @@ fn command_dispatch_level_is_correct() {
                     ));
                 }
             }
-            generator::parse::DispatchLevel::Entry => {
+            vulkan_rs_codegen::parse::DispatchLevel::Entry => {
                 // Entry commands can have any first param (or none).
             }
         }
@@ -525,7 +528,7 @@ fn command_aliases_have_fallback_loading() {
 
     let mut missing = Vec::new();
     for a in &registry.aliases {
-        if a.kind != generator::parse::AliasKind::Command {
+        if a.kind != vulkan_rs_codegen::parse::AliasKind::Command {
             continue;
         }
         // The alias name (e.g. "vkCreateRenderPass2KHR") should appear
@@ -700,7 +703,7 @@ fn result_returning_wrappers_have_error_docs() {
 #[test]
 fn all_wrappers_have_doc_overrides() {
     let registry = load_registry();
-    let exclusions = generator::emit_wrappers::exclusion_set();
+    let exclusions = vulkan_rs_codegen::emit_wrappers::exclusion_set();
     let overrides_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
 
     let missing: Vec<&str> = registry
@@ -730,8 +733,8 @@ fn all_wrappers_have_doc_overrides() {
 #[test]
 fn wrapper_return_types_match_patterns() {
     let registry = load_registry();
-    let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
-    let exclusions = generator::emit_wrappers::exclusion_set();
+    let pnext = vulkan_rs_codegen::wrapper_utils::build_pnext_struct_set(&registry);
+    let exclusions = vulkan_rs_codegen::emit_wrappers::exclusion_set();
 
     let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
     let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
@@ -761,8 +764,8 @@ fn wrapper_return_types_match_patterns() {
         if exclusions.contains(&cmd.name) {
             continue;
         }
-        let roles = generator::wrapper_utils::classify_params(cmd, &pnext);
-        let pattern = generator::wrapper_utils::classify_command(cmd, &roles);
+        let roles = vulkan_rs_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let pattern = vulkan_rs_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
         let method_name = <str as heck::ToSnakeCase>::to_snake_case(stripped);
@@ -773,19 +776,21 @@ fn wrapper_return_types_match_patterns() {
         };
 
         let ok = match pattern {
-            generator::wrapper_utils::CommandPattern::Create => {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Create => {
                 ret.starts_with("VkResult<") && !ret.contains("Vec")
             }
-            generator::wrapper_utils::CommandPattern::Enumerate => ret.starts_with("VkResult<Vec<"),
-            generator::wrapper_utils::CommandPattern::Fill => {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Enumerate => {
+                ret.starts_with("VkResult<Vec<")
+            }
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Fill => {
                 ret.starts_with("Vec<") && !ret.contains("VkResult")
             }
-            generator::wrapper_utils::CommandPattern::Query => {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Query => {
                 !ret.is_empty() && !ret.contains("VkResult") && !ret.contains("Vec")
             }
-            generator::wrapper_utils::CommandPattern::ResultOnly => ret == "VkResult<()>",
-            generator::wrapper_utils::CommandPattern::Destroy
-            | generator::wrapper_utils::CommandPattern::VoidForward => ret.is_empty(),
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::ResultOnly => ret == "VkResult<()>",
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Destroy
+            | vulkan_rs_codegen::wrapper_utils::CommandPattern::VoidForward => ret.is_empty(),
         };
 
         if !ok {
@@ -812,7 +817,7 @@ fn wrapper_return_types_match_patterns() {
 #[test]
 fn wrapper_signatures_elide_self_handle() {
     let registry = load_registry();
-    let exclusions = generator::emit_wrappers::exclusion_set();
+    let exclusions = vulkan_rs_codegen::emit_wrappers::exclusion_set();
 
     let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
     let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
@@ -842,8 +847,8 @@ fn wrapper_signatures_elide_self_handle() {
 
         // Find the method signature in the generated wrappers.
         let source = match cmd.dispatch_level {
-            generator::parse::DispatchLevel::Instance => &instance_wrappers,
-            generator::parse::DispatchLevel::Device => &device_wrappers,
+            vulkan_rs_codegen::parse::DispatchLevel::Instance => &instance_wrappers,
+            vulkan_rs_codegen::parse::DispatchLevel::Device => &device_wrappers,
             _ => continue,
         };
 
@@ -889,7 +894,7 @@ fn wrapper_signatures_elide_self_handle() {
 #[test]
 fn all_wrappers_dispatch_through_fp() {
     let registry = load_registry();
-    let exclusions = generator::emit_wrappers::exclusion_set();
+    let exclusions = vulkan_rs_codegen::emit_wrappers::exclusion_set();
 
     let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
     let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
@@ -932,7 +937,7 @@ fn all_wrappers_dispatch_through_fp() {
 #[test]
 fn allocator_params_are_option_ref() {
     let registry = load_registry();
-    let exclusions = generator::emit_wrappers::exclusion_set();
+    let exclusions = vulkan_rs_codegen::emit_wrappers::exclusion_set();
 
     let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
     let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
@@ -991,8 +996,8 @@ fn allocator_params_are_option_ref() {
 #[test]
 fn two_call_wrappers_use_correct_helper() {
     let registry = load_registry();
-    let pnext = generator::wrapper_utils::build_pnext_struct_set(&registry);
-    let exclusions = generator::emit_wrappers::exclusion_set();
+    let pnext = vulkan_rs_codegen::wrapper_utils::build_pnext_struct_set(&registry);
+    let exclusions = vulkan_rs_codegen::emit_wrappers::exclusion_set();
 
     let instance_wrappers = read_generated("vulkan-rs/src/generated/instance_wrappers.rs");
     let device_wrappers = read_generated("vulkan-rs/src/generated/device_wrappers.rs");
@@ -1021,8 +1026,8 @@ fn two_call_wrappers_use_correct_helper() {
         if exclusions.contains(&cmd.name) {
             continue;
         }
-        let roles = generator::wrapper_utils::classify_params(cmd, &pnext);
-        let pattern = generator::wrapper_utils::classify_command(cmd, &roles);
+        let roles = vulkan_rs_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let pattern = vulkan_rs_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
         let method_name = <str as heck::ToSnakeCase>::to_snake_case(stripped);
@@ -1033,7 +1038,7 @@ fn two_call_wrappers_use_correct_helper() {
         };
 
         match pattern {
-            generator::wrapper_utils::CommandPattern::Enumerate => {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Enumerate => {
                 if !body.contains("enumerate_two_call") {
                     wrong_helper.push(format!(
                         "{}: Enumerate but missing enumerate_two_call",
@@ -1044,7 +1049,7 @@ fn two_call_wrappers_use_correct_helper() {
                     wrong_helper.push(format!("{}: Enumerate but uses fill_two_call", cmd.name));
                 }
             }
-            generator::wrapper_utils::CommandPattern::Fill => {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::Fill => {
                 if !body.contains("fill_two_call") {
                     wrong_helper.push(format!("{}: Fill but missing fill_two_call", cmd.name));
                 }
@@ -1081,7 +1086,7 @@ fn two_call_wrappers_use_correct_helper() {
 #[test]
 fn no_orphan_doc_overrides() {
     let registry = load_registry();
-    let exclusions = generator::emit_wrappers::exclusion_set();
+    let exclusions = vulkan_rs_codegen::emit_wrappers::exclusion_set();
     let overrides_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
 
     let wrapper_names: std::collections::HashSet<&str> = registry

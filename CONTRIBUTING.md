@@ -41,10 +41,10 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 
 ## Generated vs Hand-Written Code
 
-- `vulkan-rs-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p generator`.
+- `vulkan-rs-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p vulkan-rs-codegen`.
 - `vulkan-rs/src/generated/`, fully generated. Same as above.
 - `vulkan-rs/src/*.rs` (non-generated), hand-written, highest doc quality bar.
-- `generator/doc_overrides/`, hand-written doc additions appended to generated wrappers.
+- `vulkan-rs-codegen/doc_overrides/`, hand-written doc additions appended to generated wrappers.
 
 ## Before Submitting
 
@@ -54,4 +54,4 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 - [ ] Examples compile: `cargo test --doc`
 - [ ] No broken doc links: `RUSTDOCFLAGS="-D warnings" cargo doc --no-deps`
 - [ ] All tests pass: `cargo test --workspace`
-- [ ] Generated output is up to date: `cargo run -p generator` then check `git diff`
+- [ ] Generated output is up to date: `cargo run -p vulkan-rs-codegen` then check `git diff`

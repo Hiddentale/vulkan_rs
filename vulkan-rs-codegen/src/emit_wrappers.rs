@@ -1447,7 +1447,7 @@ mod tests {
 
     /// Generates `docs/wrapper_audit.md` with every command's classification.
     ///
-    /// Run with: `cargo test -p generator -- generate_wrapper_audit --ignored --nocapture`
+    /// Run with: `cargo test -p vulkan-rs-codegen -- generate_wrapper_audit --ignored --nocapture`
     #[test]
     #[ignore] // expensive, writes to docs/
     fn generate_wrapper_audit() {
@@ -1462,7 +1462,7 @@ mod tests {
         writeln!(report, "# Wrapper Audit Report\n").expect("write to String");
         writeln!(
             report,
-            "Auto-generated. Run `cargo test -p generator -- generate_wrapper_audit --ignored` to regenerate.\n"
+            "Auto-generated. Run `cargo test -p vulkan-rs-codegen -- generate_wrapper_audit --ignored` to regenerate.\n"
         )
         .expect("write to String");
 

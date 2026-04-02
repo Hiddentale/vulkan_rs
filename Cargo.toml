@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["generator", "vulkan-rs-sys", "vulkan-rs"]
+members = ["vulkan-rs-codegen", "vulkan-rs-sys", "vulkan-rs"]

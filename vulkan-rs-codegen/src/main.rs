@@ -1,7 +1,7 @@
 use std::fs;
 use std::path::Path;
 
-use generator::{
+use vulkan_rs_codegen::{
     emit_bitmasks, emit_builders, emit_commands, emit_constants, emit_enums, emit_handles,
     emit_layout_check, emit_structs, emit_wrappers, parse, validate,
 };
@@ -163,8 +163,8 @@ fn write_engine_mod_rs(out_dir: &Path) {
     let content = "\
 //! Generated wrapper methods for Entry, Instance, and Device.
 //!
-//! These methods are auto-generated from `vk.xml` by the `generator` crate.
-//! Do not edit by hand,run `cargo run -p generator` to regenerate.
+//! These methods are auto-generated from `vk.xml` by the `vulkan-rs-codegen` crate.
+//! Do not edit by hand,run `cargo run -p vulkan-rs-codegen` to regenerate.
 //!
 //! Each method wraps a single Vulkan command, adding:
 //! - Output-parameter returns (instead of out-pointer + `VkResult`)
