@@ -85,6 +85,20 @@ pub use loader::{LibloadingLoader, Loader};
 pub use surface::{SurfaceError, required_extensions};
 pub use version::Version;
 
+// Static assertions: Entry, Instance, and Device must be Send + Sync.
+// They are auto-derived (handle is usize, commands are Option<fn ptr>,
+// loader is Option<Arc<dyn Loader>> where Loader: Send + Sync), but
+// we pin this here so a future field change triggers a compile error.
+const _: () = {
+    fn assert_send_sync<T: Send + Sync>() {}
+    #[allow(dead_code)]
+    fn _check() {
+        assert_send_sync::<Entry>();
+        assert_send_sync::<Instance>();
+        assert_send_sync::<Device>();
+    }
+};
+
 /// Shared mutex for Vulkan runtime tests.
 ///
 /// NVIDIA implicit layers (`VK_LAYER_NV_optimus`, `VK_LAYER_NV_present`)
