@@ -7,7 +7,7 @@
 [![crates.io](https://img.shields.io/crates/v/vulkan-rs?logo=rust)](https://crates.io/crates/vulkan-rs)
 [![License](https://img.shields.io/crates/l/vulkan-rs)](LICENSE-MIT)
 
-Ergonomic, thin Vulkan bindings for Rust, generated from `vk.xml`.
+Ergonomic, minimal Vulkan bindings for Rust, generated from `vk.xml`.
 
 All commands are inherent methods on `Entry`, `Instance`, and `Device`, no trait imports needed.
 Supports `from_raw_parts` for OpenXR and middleware interop, complete command loading for
