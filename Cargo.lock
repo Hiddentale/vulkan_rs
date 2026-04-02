@@ -1973,7 +1973,7 @@ dependencies = [
 
 [[package]]
 name = "vulkan-rs"
-version = "0.2.0"
+version = "1.0.0"
 dependencies = [
  "image",
  "libloading",
@@ -1984,7 +1984,7 @@ dependencies = [
 
 [[package]]
 name = "vulkan-rs-codegen"
-version = "0.2.0"
+version = "1.0.0"
 dependencies = [
  "heck",
  "nom",
@@ -1997,7 +1997,7 @@ dependencies = [
 
 [[package]]
 name = "vulkan-rs-sys"
-version = "0.2.0"
+version = "1.0.0"
 
 [[package]]
 name = "walkdir"

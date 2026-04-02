@@ -79,6 +79,7 @@ cargo test --workspace -- --ignored --test-threads=1
 |--------|---------------|
 | `fuzz_cast_to_u32` | SPIR-V byte alignment validation (property-based) |
 | `fuzz_entry_loader` | Loader trait with randomized symbol resolution modes |
+| `fuzz_push_next` | Builder pNext chain ordering and linked-list integrity |
 
 ### Layout Cross-Validation
 
