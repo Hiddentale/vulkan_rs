@@ -1,6 +1,7 @@
 // How-To: Push Constants
 // Based on hello_triangle_4.rs, modified to pass push constants to the shader.
 // The push constant data includes a time value that shifts the triangle color.
+// <https://hiddentale.github.io/vulkan_rs/how-to/push-constants.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;

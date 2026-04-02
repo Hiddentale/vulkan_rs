@@ -1,5 +1,5 @@
-// Exact copy of the "Putting it all together" block from
-// guide/src/getting-started/hello-triangle-1.md
+// Exact copy of the "Putting it all together" section from
+// <https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html>
 
 use vk::structs::*;
 use vulkan_rs::vk;

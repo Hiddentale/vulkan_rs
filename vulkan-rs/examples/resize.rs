@@ -1,5 +1,6 @@
 // How-To: Handle Window Resize
 // Based on hello_triangle_4.rs, modified to recreate the swapchain on resize.
+// <https://hiddentale.github.io/vulkan_rs/how-to/resize.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;

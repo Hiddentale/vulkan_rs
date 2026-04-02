@@ -1,5 +1,6 @@
 // Hello Triangle Part 4: Complete application with render loop.
 // Parts 1+2+3 setup + sync objects, command recording, drawing.
+// <https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-4.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;

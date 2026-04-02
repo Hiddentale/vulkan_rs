@@ -1,7 +1,7 @@
 // How-To: Load and Sample Textures
 // Based on hello_triangle_4.rs, modified to load a texture from disk,
 // upload it to the GPU, and sample it in a fragment shader.
-// Uses code identical to guide/src/how-to/textures.md.
+// <https://hiddentale.github.io/vulkan_rs/how-to/textures.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;

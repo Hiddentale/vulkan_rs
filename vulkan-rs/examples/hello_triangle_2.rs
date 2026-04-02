@@ -1,5 +1,6 @@
 // Hello Triangle Part 2: Instance & Device + Swapchain & Surface
 // Complete runnable program. Builds on Part 1.
+// <https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;

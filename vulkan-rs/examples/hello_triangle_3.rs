@@ -1,5 +1,6 @@
 // Hello Triangle Part 3: Parts 1+2 setup + Render Pass & Pipeline
 // Complete runnable program.
+// <https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-3.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;

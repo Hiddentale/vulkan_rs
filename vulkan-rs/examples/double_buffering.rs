@@ -1,5 +1,6 @@
 // How-To: Double Buffering (frames in flight)
 // Based on hello_triangle_4.rs, modified to use 2 frames in flight.
+// <https://hiddentale.github.io/vulkan_rs/how-to/double-buffering.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;
