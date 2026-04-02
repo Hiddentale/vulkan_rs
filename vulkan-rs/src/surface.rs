@@ -100,6 +100,24 @@ pub fn required_extensions() -> &'static [&'static CStr] {
     {
         &[c"VK_KHR_surface", c"VK_KHR_android_surface"]
     }
+    #[cfg(not(any(
+        target_os = "windows",
+        target_os = "android",
+        target_os = "macos",
+        target_os = "ios",
+        all(
+            unix,
+            not(target_os = "android"),
+            not(target_os = "macos"),
+            not(target_os = "ios"),
+        ),
+    )))]
+    {
+        compile_error!(
+            "vulkan-rs surface support: unsupported platform. \
+             Disable the `surface` feature or open an issue."
+        );
+    }
 }
 
 impl Instance {
