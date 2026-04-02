@@ -46,6 +46,22 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 - `vulkan-rs/src/*.rs` (non-generated), hand-written, highest doc quality bar.
 - `vulkan-rs-codegen/doc_overrides/`, hand-written doc additions appended to generated wrappers.
 
+## Deprecation Policy
+
+Public API items must never be removed without a deprecation cycle:
+
+1. **Deprecate** in a minor release using the built-in attribute:
+   ```rust
+   #[deprecated(since = "0.3.0", note = "renamed to `create_instance_handle`")]
+   pub unsafe fn create_instance_raw(...) -> VkResult<vk::handles::Instance> {
+       self.create_instance_handle(...)
+   }
+   ```
+2. **Keep** the deprecated item compiling and forwarding to the replacement for the duration of that minor version.
+3. **Remove** the deprecated item in the next breaking version (the next `0.x.0` pre-1.0, or the next major version post-1.0).
+
+This applies to all public functions, types, traits, re-exports, and feature flags. Internal (`pub(crate)`) items can be changed freely.
+
 ## Before Submitting
 
 - [ ] All new public items have doc comments
