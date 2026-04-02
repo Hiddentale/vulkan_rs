@@ -33,7 +33,7 @@ If you're new to Vulkan, start with the [Hello Triangle tutorial](https://hidden
 
 - **No trait imports.** `device.create_buffer(...)` works directly, no `use DeviceV1_0`.
 - **`from_raw_parts` everywhere.** Construct `Instance`/`Device` from raw handles + `vkGetInstanceProcAddr`. Critical for OpenXR (`XR_KHR_vulkan_enable2`), middleware, and testing.
-- **World-class documentation.** Every public item documented with spec links, usage notes, and examples. A companion [guide](https://hiddentale.github.io/vulkan_rs/) covers Vulkan concepts in depth.
+- **Full documentation coverage.** Every public item documented with spec links, usage notes, and examples. A companion [guide](https://hiddentale.github.io/vulkan_rs/) covers Vulkan concepts in depth.
 
 ## Crate Structure
 
