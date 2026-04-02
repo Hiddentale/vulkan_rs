@@ -150,6 +150,12 @@ fn update_lib_rs(out_dir: &Path) {
 #![allow(non_camel_case_types)]
 #![allow(non_upper_case_globals)]
 
+mod string_array;
+pub use string_array::{
+    StringArray, ExtensionName, LayerName, DeviceName,
+    DescriptionName, DriverName, DriverInfo,
+};
+
 pub mod handles;
 pub mod enums;
 pub mod bitmasks;
@@ -315,6 +321,9 @@ mod tests {
 
         let content = fs::read_to_string(dir.join("lib.rs")).unwrap();
         assert!(content.contains("#![no_std]"));
+        assert!(content.contains("pub use string_array::"));
+        assert!(content.contains("StringArray"));
+        assert!(content.contains("ExtensionName"));
         assert!(content.contains("pub mod handles;"));
         assert!(content.contains("pub mod enums;"));
         assert!(content.contains("pub mod bitmasks;"));

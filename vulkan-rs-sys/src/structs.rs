@@ -937,7 +937,7 @@ pub struct PhysicalDeviceProperties {
     pub vendor_id: u32,
     pub device_id: u32,
     pub device_type: PhysicalDeviceType,
-    pub device_name: [core::ffi::c_char; MAX_PHYSICAL_DEVICE_NAME_SIZE as usize],
+    pub device_name: crate::StringArray<{ MAX_PHYSICAL_DEVICE_NAME_SIZE as usize }>,
     pub pipeline_cache_uuid: [u8; UUID_SIZE as usize],
     pub limits: PhysicalDeviceLimits,
     pub sparse_properties: PhysicalDeviceSparseProperties,
@@ -957,7 +957,7 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkExtensionProperties")]
 pub struct ExtensionProperties {
-    pub extension_name: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
+    pub extension_name: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
     pub spec_version: u32,
 }
 impl Default for ExtensionProperties {
@@ -975,10 +975,10 @@ Provided by **VK_BASE_VERSION_1_0**.*/
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkLayerProperties")]
 pub struct LayerProperties {
-    pub layer_name: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
+    pub layer_name: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
     pub spec_version: u32,
     pub implementation_version: u32,
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
 }
 impl Default for LayerProperties {
     #[inline]
@@ -8040,8 +8040,8 @@ pub struct PhysicalDeviceDriverProperties {
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub driver_id: DriverId,
-    pub driver_name: [core::ffi::c_char; MAX_DRIVER_NAME_SIZE as usize],
-    pub driver_info: [core::ffi::c_char; MAX_DRIVER_INFO_SIZE as usize],
+    pub driver_name: crate::StringArray<{ MAX_DRIVER_NAME_SIZE as usize }>,
+    pub driver_info: crate::StringArray<{ MAX_DRIVER_INFO_SIZE as usize }>,
     pub conformance_version: ConformanceVersion,
 }
 impl Default for PhysicalDeviceDriverProperties {
@@ -13518,7 +13518,7 @@ pub struct PhysicalDeviceLayeredApiPropertiesKHR {
     pub vendor_id: u32,
     pub device_id: u32,
     pub layered_api: PhysicalDeviceLayeredApiKHR,
-    pub device_name: [core::ffi::c_char; MAX_PHYSICAL_DEVICE_NAME_SIZE as usize],
+    pub device_name: crate::StringArray<{ MAX_PHYSICAL_DEVICE_NAME_SIZE as usize }>,
 }
 impl Default for PhysicalDeviceLayeredApiPropertiesKHR {
     #[inline]
@@ -19393,9 +19393,9 @@ pub struct PerformanceCounterDescriptionKHR {
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: PerformanceCounterDescriptionFlagsKHR,
-    pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    pub category: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub name: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    pub category: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
 }
 impl Default for PerformanceCounterDescriptionKHR {
     #[inline]
@@ -20184,8 +20184,8 @@ pub struct PipelineExecutablePropertiesKHR {
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub stages: ShaderStageFlags,
-    pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub name: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     pub subgroup_size: u32,
 }
 impl Default for PipelineExecutablePropertiesKHR {
@@ -20264,8 +20264,8 @@ pub struct PipelineExecutableStatisticKHR {
     pub s_type: StructureType,
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
-    pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub name: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     pub format: PipelineExecutableStatisticFormatKHR,
     pub value: PipelineExecutableStatisticValueKHR,
 }
@@ -20295,8 +20295,8 @@ pub struct PipelineExecutableInternalRepresentationKHR {
     pub s_type: StructureType,
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
-    pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub name: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     pub is_text: u32,
     ///Length of `p_data`.
     pub data_size: usize,
@@ -20999,8 +20999,8 @@ pub struct PhysicalDeviceVulkan12Properties {
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub driver_id: DriverId,
-    pub driver_name: [core::ffi::c_char; MAX_DRIVER_NAME_SIZE as usize],
-    pub driver_info: [core::ffi::c_char; MAX_DRIVER_INFO_SIZE as usize],
+    pub driver_name: crate::StringArray<{ MAX_DRIVER_NAME_SIZE as usize }>,
+    pub driver_info: crate::StringArray<{ MAX_DRIVER_INFO_SIZE as usize }>,
     pub conformance_version: ConformanceVersion,
     pub denorm_behavior_independence: ShaderFloatControlsIndependence,
     pub rounding_mode_independence: ShaderFloatControlsIndependence,
@@ -21557,11 +21557,11 @@ pub struct PhysicalDeviceToolProperties {
     pub s_type: StructureType,
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
-    pub name: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
-    pub version: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
+    pub name: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
+    pub version: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
     pub purposes: ToolPurposeFlags,
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    pub layer: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    pub layer: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
 }
 impl Default for PhysicalDeviceToolProperties {
     #[inline]
@@ -33316,7 +33316,7 @@ Provided by **VK_EXT_subpass_merge_feedback**.*/
 #[doc(alias = "VkRenderPassSubpassFeedbackInfoEXT")]
 pub struct RenderPassSubpassFeedbackInfoEXT {
     pub subpass_merge_status: SubpassMergeStatusEXT,
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     pub post_merge_index: u32,
 }
 impl Default for RenderPassSubpassFeedbackInfoEXT {
@@ -35096,7 +35096,7 @@ Provided by **VK_KHR_device_fault**.*/
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkDeviceFaultVendorInfoKHR")]
 pub struct DeviceFaultVendorInfoKHR {
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     pub vendor_fault_code: u64,
     pub vendor_fault_data: u64,
 }
@@ -35121,7 +35121,7 @@ pub struct DeviceFaultInfoKHR {
     pub p_next: *mut core::ffi::c_void,
     pub flags: DeviceFaultFlagsKHR,
     pub group_id: u64,
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     pub fault_address_info: DeviceFaultAddressInfoKHR,
     pub instruction_address_info: DeviceFaultAddressInfoKHR,
     pub vendor_info: DeviceFaultVendorInfoKHR,
@@ -35213,7 +35213,7 @@ pub struct DeviceFaultInfoEXT {
     pub s_type: StructureType,
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ///Optional, may be null.
     pub p_address_infos: *mut DeviceFaultAddressInfoKHR,
     ///Optional, may be null.
@@ -41291,8 +41291,9 @@ Provided by **VK_ARM_data_graph**.*/
 #[doc(alias = "VkPhysicalDeviceDataGraphOperationSupportARM")]
 pub struct PhysicalDeviceDataGraphOperationSupportARM {
     pub operation_type: PhysicalDeviceDataGraphOperationTypeARM,
-    pub name: [core::ffi::c_char; MAX_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_SET_NAME_SIZE_ARM
-        as usize],
+    pub name: crate::StringArray<
+        { MAX_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_SET_NAME_SIZE_ARM as usize },
+    >,
     pub version: u32,
 }
 impl Default for PhysicalDeviceDataGraphOperationSupportARM {
@@ -42020,7 +42021,7 @@ pub struct PerformanceCounterDescriptionARM {
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
     pub flags: PerformanceCounterDescriptionFlagsARM,
-    pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub name: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
 }
 impl Default for PerformanceCounterDescriptionARM {
     #[inline]
@@ -43023,8 +43024,8 @@ pub struct ShaderInstrumentationMetricDescriptionARM {
     pub s_type: StructureType,
     ///Optional, may be null.
     pub p_next: *mut core::ffi::c_void,
-    pub name: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
-    pub description: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+    pub name: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    pub description: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
 }
 impl Default for ShaderInstrumentationMetricDescriptionARM {
     #[inline]

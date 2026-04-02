@@ -64,6 +64,10 @@ fn resolve_type_fields(
     let base = resolve_base_type(type_name);
 
     if let Some(size) = array_size {
+        // char arrays → StringArray<N> for null-terminated name fields.
+        if type_name == "char" && !is_pointer {
+            return wrap_string_array(size);
+        }
         return wrap_array(&base, size);
     }
 
@@ -136,6 +140,17 @@ pub fn resolve_flags_alias(name: &str) -> String {
 
 /// Wrap a type in array brackets. Supports multi-dimensional arrays
 /// encoded as `"3:4"` (produces `[[base; 4]; 3]`).
+/// Emit `StringArray<N>` for char array fields.
+fn wrap_string_array(size: &str) -> TokenStream {
+    if let Ok(n) = size.parse::<usize>() {
+        quote! { crate::StringArray<#n> }
+    } else {
+        let const_name = size.strip_prefix("VK_").unwrap_or(size);
+        let ident = format_ident!("{}", const_name);
+        quote! { crate::StringArray<{ #ident as usize }> }
+    }
+}
+
 fn wrap_array(base: &TokenStream, size: &str) -> TokenStream {
     // Multi-dimensional: "3:4" → [[base; 4]; 3] (outer dimension first)
     if size.contains(':') {
@@ -297,7 +312,7 @@ mod tests {
         let m = make_array_member("deviceName", "char", "VK_MAX_PHYSICAL_DEVICE_NAME_SIZE");
         assert_eq!(
             resolve_member_type(&m).to_string(),
-            "[core :: ffi :: c_char ; MAX_PHYSICAL_DEVICE_NAME_SIZE as usize]"
+            "crate :: StringArray < { MAX_PHYSICAL_DEVICE_NAME_SIZE as usize } >"
         );
     }
 

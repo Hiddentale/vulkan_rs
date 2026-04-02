@@ -8710,7 +8710,7 @@ impl<'a> PhysicalDeviceDriverPropertiesBuilder<'a> {
     #[inline]
     pub fn driver_name(
         mut self,
-        value: [core::ffi::c_char; MAX_DRIVER_NAME_SIZE as usize],
+        value: crate::StringArray<{ MAX_DRIVER_NAME_SIZE as usize }>,
     ) -> Self {
         self.inner.driver_name = value;
         self
@@ -8718,7 +8718,7 @@ impl<'a> PhysicalDeviceDriverPropertiesBuilder<'a> {
     #[inline]
     pub fn driver_info(
         mut self,
-        value: [core::ffi::c_char; MAX_DRIVER_INFO_SIZE as usize],
+        value: crate::StringArray<{ MAX_DRIVER_INFO_SIZE as usize }>,
     ) -> Self {
         self.inner.driver_info = value;
         self
@@ -18748,7 +18748,7 @@ impl<'a> PhysicalDeviceLayeredApiPropertiesKHRBuilder<'a> {
     #[inline]
     pub fn device_name(
         mut self,
-        value: [core::ffi::c_char; MAX_PHYSICAL_DEVICE_NAME_SIZE as usize],
+        value: crate::StringArray<{ MAX_PHYSICAL_DEVICE_NAME_SIZE as usize }>,
     ) -> Self {
         self.inner.device_name = value;
         self
@@ -29564,7 +29564,7 @@ impl<'a> PerformanceCounterDescriptionKHRBuilder<'a> {
     #[inline]
     pub fn name(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.name = value;
         self
@@ -29572,7 +29572,7 @@ impl<'a> PerformanceCounterDescriptionKHRBuilder<'a> {
     #[inline]
     pub fn category(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.category = value;
         self
@@ -29580,7 +29580,7 @@ impl<'a> PerformanceCounterDescriptionKHRBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self
@@ -31064,7 +31064,7 @@ impl<'a> PipelineExecutablePropertiesKHRBuilder<'a> {
     #[inline]
     pub fn name(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.name = value;
         self
@@ -31072,7 +31072,7 @@ impl<'a> PipelineExecutablePropertiesKHRBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self
@@ -31176,7 +31176,7 @@ impl<'a> PipelineExecutableStatisticKHRBuilder<'a> {
     #[inline]
     pub fn name(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.name = value;
         self
@@ -31184,7 +31184,7 @@ impl<'a> PipelineExecutableStatisticKHRBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self
@@ -31235,7 +31235,7 @@ impl<'a> PipelineExecutableInternalRepresentationKHRBuilder<'a> {
     #[inline]
     pub fn name(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.name = value;
         self
@@ -31243,7 +31243,7 @@ impl<'a> PipelineExecutableInternalRepresentationKHRBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self
@@ -32698,7 +32698,7 @@ impl<'a> PhysicalDeviceVulkan12PropertiesBuilder<'a> {
     #[inline]
     pub fn driver_name(
         mut self,
-        value: [core::ffi::c_char; MAX_DRIVER_NAME_SIZE as usize],
+        value: crate::StringArray<{ MAX_DRIVER_NAME_SIZE as usize }>,
     ) -> Self {
         self.inner.driver_name = value;
         self
@@ -32706,7 +32706,7 @@ impl<'a> PhysicalDeviceVulkan12PropertiesBuilder<'a> {
     #[inline]
     pub fn driver_info(
         mut self,
-        value: [core::ffi::c_char; MAX_DRIVER_INFO_SIZE as usize],
+        value: crate::StringArray<{ MAX_DRIVER_INFO_SIZE as usize }>,
     ) -> Self {
         self.inner.driver_info = value;
         self
@@ -34116,7 +34116,7 @@ impl<'a> PhysicalDeviceToolPropertiesBuilder<'a> {
     #[inline]
     pub fn name(
         mut self,
-        value: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
+        value: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
     ) -> Self {
         self.inner.name = value;
         self
@@ -34124,7 +34124,7 @@ impl<'a> PhysicalDeviceToolPropertiesBuilder<'a> {
     #[inline]
     pub fn version(
         mut self,
-        value: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
+        value: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
     ) -> Self {
         self.inner.version = value;
         self
@@ -34137,7 +34137,7 @@ impl<'a> PhysicalDeviceToolPropertiesBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self
@@ -34145,7 +34145,7 @@ impl<'a> PhysicalDeviceToolPropertiesBuilder<'a> {
     #[inline]
     pub fn layer(
         mut self,
-        value: [core::ffi::c_char; MAX_EXTENSION_NAME_SIZE as usize],
+        value: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
     ) -> Self {
         self.inner.layer = value;
         self
@@ -59552,7 +59552,7 @@ impl<'a> DeviceFaultInfoKHRBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self
@@ -59707,7 +59707,7 @@ impl<'a> DeviceFaultInfoEXTBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self
@@ -72856,7 +72856,7 @@ impl<'a> PerformanceCounterDescriptionARMBuilder<'a> {
     #[inline]
     pub fn name(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.name = value;
         self
@@ -74364,7 +74364,7 @@ impl<'a> ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
     #[inline]
     pub fn name(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.name = value;
         self
@@ -74372,7 +74372,7 @@ impl<'a> ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
     #[inline]
     pub fn description(
         mut self,
-        value: [core::ffi::c_char; MAX_DESCRIPTION_SIZE as usize],
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
     ) -> Self {
         self.inner.description = value;
         self

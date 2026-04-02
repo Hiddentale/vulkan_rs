@@ -10,6 +10,12 @@
 #![allow(non_camel_case_types)]
 #![allow(non_upper_case_globals)]
 
+mod string_array;
+pub use string_array::{
+    StringArray, ExtensionName, LayerName, DeviceName,
+    DescriptionName, DriverName, DriverInfo,
+};
+
 pub mod handles;
 pub mod enums;
 pub mod bitmasks;
