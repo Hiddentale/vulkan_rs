@@ -1,0 +1,30 @@
+[package]
+name = "vulkan-rs-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+vulkan-rs = { path = ".." }
+vulkan-rs-sys = { path = "../../vulkan-rs-sys" }
+
+[[bin]]
+name = "fuzz_cast_to_u32"
+path = "fuzz_targets/fuzz_cast_to_u32.rs"
+doc = false
+
+[[bin]]
+name = "fuzz_entry_loader"
+path = "fuzz_targets/fuzz_entry_loader.rs"
+doc = false
+
+[[bin]]
+name = "fuzz_push_next"
+path = "fuzz_targets/fuzz_push_next.rs"
+doc = false
+
+[workspace]

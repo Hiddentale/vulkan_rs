@@ -67,9 +67,9 @@ newer Vulkan versions or extensions.
 ### Without vulkan_rs builders (raw C-style)
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
-use vk_engine::vk::enums::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
+use vulkan_rs::vk::enums::*;
 
 // You would need to manually link the structs:
 let mut features_13 = PhysicalDeviceVulkan13Features {
@@ -101,8 +101,8 @@ link the chain. vulkan_rs builders fix all of these problems.
 ### With vulkan_rs builders (type-safe)
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
 
 let mut features_12 = *PhysicalDeviceVulkan12Features::builder()
     .buffer_device_address(1)
@@ -191,8 +191,8 @@ These traits are generated from the `structextends` attribute in
 If you try to `push_next` a struct that doesn't implement the trait:
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
 
 // Compile error: PhysicalDeviceMemoryProperties does not implement
 // ExtendsDeviceCreateInfo
@@ -206,8 +206,8 @@ vulkan_rs builders implement `Deref<Target = InnerStruct>`, so you can
 pass a builder anywhere a reference to the inner struct is expected:
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
 
 let info = DeviceCreateInfo::builder()
     .queue_create_infos(&queue_infos)
@@ -237,8 +237,8 @@ This means the builder and everything chained into it must live in
 the same scope. The compiler enforces this:
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
 
 let info = {
     let mut features = PhysicalDeviceVulkan12Features::builder();
@@ -256,8 +256,8 @@ Chain feature structs into `PhysicalDeviceFeatures2` and call
 `get_physical_device_features2`:
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
 
 let mut features_12 = *PhysicalDeviceVulkan12Features::builder();
 let mut features_13 = *PhysicalDeviceVulkan13Features::builder();
@@ -305,8 +305,8 @@ above.
 
 ### API reference links
 
-- [`BaseOutStructure`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.BaseOutStructure.html)
-- [`StructureType`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.StructureType.html)
+- [`BaseOutStructure`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.BaseOutStructure.html)
+- [`StructureType`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.StructureType.html)
 - [Vulkan spec: Extending Structures](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fundamentals-validusage-pNext)
 
 ## Key takeaways

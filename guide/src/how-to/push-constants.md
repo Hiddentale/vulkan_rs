@@ -61,7 +61,7 @@ The push constant range tells Vulkan how many bytes of push constant
 data your shaders use and which stages access them.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -90,7 +90,7 @@ options:
 - **Two ranges** at different offsets if each stage reads different data.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -140,7 +140,7 @@ Use `cmd_push_constants` to write the data into the command buffer. This
 is typically called once per draw, right before the draw command.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::bitmasks::*;
 
 let push_data = PushConstants {
@@ -168,7 +168,7 @@ unsafe {
 For a scene with many objects, you push new constants before each draw:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::bitmasks::*;
 
 for entity in &scene.entities {
@@ -202,7 +202,7 @@ The `std::slice::from_raw_parts` pattern is error-prone. A small
 helper makes it clearer:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::bitmasks::*;
 
 /// Reinterpret a reference to a `Copy` type as a `&[c_void]` slice

@@ -57,7 +57,7 @@ Each frame in flight needs its own set of sync primitives:
 > go wrong if all frames shared a single fence?*
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::handles::*;
 
@@ -96,7 +96,7 @@ Each frame in flight needs its own command buffer so the CPU can record
 into one while the GPU executes the other.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::handles::*;
@@ -119,7 +119,7 @@ The frame index cycles through `0..MAX_FRAMES_IN_FLIGHT`. Each
 iteration uses only the resources belonging to that frame index.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::handles::*;
 

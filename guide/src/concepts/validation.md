@@ -60,7 +60,7 @@ Your app ──────────────────────> Vul
 
 ```rust,ignore
 use std::ffi::CStr;
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // The standard validation layer name.
@@ -85,7 +85,7 @@ The debug messenger calls your function whenever validation finds a
 problem.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -123,7 +123,7 @@ unsafe extern "system" fn debug_callback(
 ```
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -150,7 +150,7 @@ let messenger = unsafe {
 To verify validation is working, do something wrong on purpose:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -170,7 +170,7 @@ let bad_buffer = unsafe { device.create_buffer(&bad_buffer_info, None)? };
 ### Step 4: Clean up
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 
 // Destroy the messenger before destroying the instance.
 unsafe {
@@ -209,7 +209,7 @@ via pNext. The validation layer will use it for messages during
 `create_instance`:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -302,9 +302,9 @@ extension. Enable it with `c"VK_EXT_debug_utils"` as a C string literal.
 
 ### API reference links
 
-- [`DebugUtilsMessengerEXT`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DebugUtilsMessengerEXT.html)
-- [`DebugUtilsMessengerCreateInfoEXT`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DebugUtilsMessengerCreateInfoEXT.html)
-- [`DebugUtilsMessageSeverityFlagsEXT`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DebugUtilsMessageSeverityFlagsEXT.html)
+- [`DebugUtilsMessengerEXT`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DebugUtilsMessengerEXT.html)
+- [`DebugUtilsMessengerCreateInfoEXT`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DebugUtilsMessengerCreateInfoEXT.html)
+- [`DebugUtilsMessageSeverityFlagsEXT`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DebugUtilsMessageSeverityFlagsEXT.html)
 - [Vulkan spec: Debugging](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#debugging)
 
 ## Key takeaways

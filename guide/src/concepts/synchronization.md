@@ -76,7 +76,7 @@ safely re-record the command buffer for the next frame.
 signals it when all commands in that submission finish.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // ── Create a fence ──────────────────────────────────────────────
@@ -91,7 +91,7 @@ let fence = unsafe { device.create_fence(&fence_info, None)? };
 ```
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // ── The render loop ─────────────────────────────────────────────
@@ -152,7 +152,7 @@ render commands finish.
 into." The other says "rendering is done, safe to present."
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // Create two semaphores (no flags needed).
@@ -162,7 +162,7 @@ let render_finished = unsafe { device.create_semaphore(&sem_info, None)? };
 ```
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::handles::*;
 
@@ -251,7 +251,7 @@ finish the transition before the shader reads.
 **Solution:** A pipeline barrier with an image memory barrier.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -383,7 +383,7 @@ point. This gives the GPU more room to reorder work between the signal
 and the wait.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // Signal the event after the transfer completes.
@@ -488,11 +488,11 @@ even after the operation completes.
 
 ### API reference links
 
-- [`Fence`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.Fence.html)
-- [`Semaphore`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.Semaphore.html)
-- [`PipelineStageFlags`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.PipelineStageFlags.html)
-- [`AccessFlags`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.AccessFlags.html)
-- [`ImageMemoryBarrier`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.ImageMemoryBarrier.html)
+- [`Fence`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.Fence.html)
+- [`Semaphore`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.Semaphore.html)
+- [`PipelineStageFlags`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.PipelineStageFlags.html)
+- [`AccessFlags`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.AccessFlags.html)
+- [`ImageMemoryBarrier`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.ImageMemoryBarrier.html)
 - [Vulkan spec: Synchronization](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization)
 
 ## Common mistakes

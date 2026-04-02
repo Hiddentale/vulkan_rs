@@ -2,7 +2,7 @@
 
 ## Documentation Template
 
-All new public items in `vk-engine` must follow this section order:
+All new public items in `vulkan-rs` must follow this section order:
 
 ```rust
 /// One-line summary in imperative mood.
@@ -32,7 +32,7 @@ All new public items in `vk-engine` must follow this section order:
 /// # Examples
 ///
 /// ```no_run
-/// # use vk_engine::*;
+/// # use vulkan_rs::*;
 /// // example code here
 /// ```
 ```
@@ -41,10 +41,26 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 
 ## Generated vs Hand-Written Code
 
-- `vk-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p generator`.
-- `vk-engine/src/generated/`, fully generated. Same as above.
-- `vk-engine/src/*.rs` (non-generated), hand-written, highest doc quality bar.
-- `generator/doc_overrides/`, hand-written doc additions appended to generated wrappers.
+- `vulkan-rs-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p vulkan-rs-codegen`.
+- `vulkan-rs/src/generated/`, fully generated. Same as above.
+- `vulkan-rs/src/*.rs` (non-generated), hand-written, highest doc quality bar.
+- `vulkan-rs-codegen/doc_overrides/`, hand-written doc additions appended to generated wrappers.
+
+## Deprecation Policy
+
+Public API items must never be removed without a deprecation cycle:
+
+1. **Deprecate** in a minor release using the built-in attribute:
+   ```rust
+   #[deprecated(since = "0.3.0", note = "renamed to `create_instance_handle`")]
+   pub unsafe fn create_instance_raw(...) -> VkResult<vk::handles::Instance> {
+       self.create_instance_handle(...)
+   }
+   ```
+2. **Keep** the deprecated item compiling and forwarding to the replacement for the duration of that minor version.
+3. **Remove** the deprecated item in the next breaking version (the next `0.x.0` pre-1.0, or the next major version post-1.0).
+
+This applies to all public functions, types, traits, re-exports, and feature flags. Internal (`pub(crate)`) items can be changed freely.
 
 ## Before Submitting
 
@@ -54,4 +70,4 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 - [ ] Examples compile: `cargo test --doc`
 - [ ] No broken doc links: `RUSTDOCFLAGS="-D warnings" cargo doc --no-deps`
 - [ ] All tests pass: `cargo test --workspace`
-- [ ] Generated output is up to date: `cargo run -p generator` then check `git diff`
+- [ ] Generated output is up to date: `cargo run -p vulkan-rs-codegen` then check `git diff`

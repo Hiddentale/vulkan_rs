@@ -1,0 +1,15 @@
+[package]
+name = "vulkan-rs-codegen"
+version = "1.0.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[dependencies]
+vk-parse = "0.20"
+nom = "8"
+quote = "1"
+proc-macro2 = "1"
+heck = "0.5"
+prettyplease = "0.2.37"
+syn = { version = "2.0.117", features = ["full"] }

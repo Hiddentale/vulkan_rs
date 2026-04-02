@@ -1,0 +1,17 @@
+[package]
+name = "vulkan-rs-sys"
+version = "1.0.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Raw Vulkan FFI types generated from vk.xml"
+license = "MIT OR Apache-2.0"
+readme = "../README.md"
+documentation = "https://docs.rs/vulkan-rs-sys"
+repository = "https://github.com/Hiddentale/vulkan_rs"
+authors = ["Johan Voskamp <55276630+Hiddentale@users.noreply.github.com>"]
+keywords = ["vulkan", "ffi", "graphics", "gpu", "vk-xml"]
+categories = ["api-bindings", "graphics", "rendering::graphics-api"]
+
+[[bin]]
+name = "rust_layout_check"
+path = "src/bin/rust_layout_check.rs"

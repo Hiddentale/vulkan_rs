@@ -39,7 +39,7 @@ The CPU cannot write directly to device-local memory on most hardware.
 Upload the pixels into a host-visible staging buffer first.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -85,7 +85,7 @@ The image needs `TRANSFER_DST` (we will copy into it) and `SAMPLED`
 (the fragment shader will sample it).
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -125,7 +125,7 @@ engine can write to. This requires a pipeline barrier.
 > UNDEFINED layout? What does the layout tell the driver?*
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -168,7 +168,7 @@ unsafe {
 ## Step 5: Copy staging buffer to image
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -204,7 +204,7 @@ unsafe {
 After the copy, transition the image to a layout the shader can read.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -245,7 +245,7 @@ The shader does not access images directly. It reads through an
 **sampler** (which controls filtering and addressing).
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -290,7 +290,7 @@ Update a descriptor set so the shader can access the combined
 image/sampler pair at a binding point.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 

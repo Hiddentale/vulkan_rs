@@ -8,24 +8,24 @@ question.
 
 `vulkan_rs` is split into two crates with distinct roles:
 
-- **`vk-sys`** is machine-generated from `vk.xml`. It contains ~40,000 lines
+- **`vulkan-rs-sys`** is machine-generated from `vk.xml`. It contains ~40,000 lines
   of `#[repr(C)]` structs, `#[repr(transparent)]` enum newtypes, bitmask
   types, handle types, and function pointer typedefs. It is `#![no_std]`.
-- **`vk-engine`** is hand-written. It provides `Entry`, `Instance`, `Device`,
+- **`vulkan-rs`** is hand-written. It provides `Entry`, `Instance`, `Device`,
   command loading, builders, surface helpers, and the error types.
 
-Users depend on `vk-engine` and access raw types via `vk_engine::vk::*`.
+Users depend on `vulkan-rs` and access raw types via `vulkan_rs::vk::*`.
 
 This separation exists for three reasons:
 
-1. **Build speed.** Regenerating `vk-sys` only happens when a new Vulkan
-   spec version arrives. Day-to-day development in `vk-engine` does not
+1. **Build speed.** Regenerating `vulkan-rs-sys` only happens when a new Vulkan
+   spec version arrives. Day-to-day development in `vulkan-rs` does not
    trigger a rebuild of 40k lines of generated code.
 2. **Reviewability.** Generated code is validated by the generator's test
    suite, not by human review. Hand-written code gets normal review. Mixing
    them in one crate blurs that boundary.
-3. **`no_std` compatibility.** `vk-sys` has zero dependencies and can be
-   used in environments without `std`. `vk-engine` requires `std` for
+3. **`no_std` compatibility.** `vulkan-rs-sys` has zero dependencies and can be
+   used in environments without `std`. `vulkan-rs` requires `std` for
    library loading and allocation.
 
 ## Why inherent methods instead of traits?
@@ -33,7 +33,7 @@ This separation exists for three reasons:
 All Vulkan commands are inherent methods on `Device` or `Instance`:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 
 // No trait import needed, just call the method.
 let buffer = unsafe { device.create_buffer(&info, None) }?;
@@ -63,7 +63,7 @@ Both `Instance` and `Device` provide an `unsafe fn from_raw_parts`
 constructor that wraps an externally-owned Vulkan handle:
 
 ```rust,ignore
-use vk_engine::Device;
+use vulkan_rs::Device;
 
 let device = unsafe {
     Device::from_raw_parts(raw_vk_device, Some(get_device_proc_addr_fn))
@@ -82,7 +82,7 @@ This exists for three use cases:
 `Instance` and `Device` do not implement `Drop`. Destruction is explicit:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 
 unsafe { device.destroy_device(None) };
 ```
@@ -108,7 +108,7 @@ own model.
 Every builder dereferences to its inner `vk::*` struct:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -131,11 +131,11 @@ Vulkan "enums" are integer constants, not closed sets. Drivers and extensions
 can return values that did not exist when your code was compiled. A Rust
 `enum` with unknown discriminants is instant undefined behavior.
 
-Instead, `vk-sys` represents each Vulkan enum as a `#[repr(transparent)]`
+Instead, `vulkan-rs-sys` represents each Vulkan enum as a `#[repr(transparent)]`
 newtype around `i32`:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::enums::*;
 
 #[repr(transparent)]
@@ -178,7 +178,7 @@ Instead, the safety strategy is:
 
 ## What the generator handles vs what is hand-written
 
-| Generated (`vk-sys`)                  | Hand-written (`vk-engine`)                |
+| Generated (`vulkan-rs-sys`)                  | Hand-written (`vulkan-rs`)                |
 |----------------------------------------|-------------------------------------------|
 | `#[repr(C)]` struct definitions        | `Entry`, `Instance`, `Device` wrappers    |
 | `#[repr(transparent)]` enum newtypes   | Command loading and dispatch tables       |

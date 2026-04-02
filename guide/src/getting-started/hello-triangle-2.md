@@ -21,7 +21,7 @@ works with anything that implements `raw-window-handle`.
 
 ```toml
 [dependencies]
-vk-engine = "0.1"
+vulkan-rs = "0.1"
 winit = "0.30"
 ```
 
@@ -85,8 +85,8 @@ platform surface extensions so Vulkan can render to our window.
 extensions for your platform.
 
 ```rust,ignore
-use vk_engine::{Entry, LibloadingLoader};
-use vk_engine::vk;
+use vulkan_rs::{Entry, LibloadingLoader};
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // ── Load Vulkan ────────────────────────────────────────────────
@@ -101,7 +101,7 @@ let entry = unsafe { Entry::new(loader) }
 //   Windows: VK_KHR_surface + VK_KHR_win32_surface
 //   Linux:   VK_KHR_surface + VK_KHR_xlib_surface + VK_KHR_wayland_surface
 //   macOS:   VK_KHR_surface + VK_EXT_metal_surface
-let surface_extensions = vk_engine::required_extensions();
+let surface_extensions = vulkan_rs::required_extensions();
 let extension_ptrs: Vec<*const i8> = surface_extensions
     .iter()
     .map(|ext| ext.as_ptr())

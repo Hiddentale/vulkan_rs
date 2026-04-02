@@ -110,13 +110,13 @@ This example shows the full create-use-destroy lifecycle. Each step
 is labeled with its purpose.
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
-use vk_engine::vk::enums::*;
-use vk_engine::vk::bitmasks::*;
-use vk_engine::vk::handles::*;
-use vk_engine::vk::Handle;
-use vk_engine::Device;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
+use vulkan_rs::vk::enums::*;
+use vulkan_rs::vk::bitmasks::*;
+use vulkan_rs::vk::handles::*;
+use vulkan_rs::vk::Handle;
+use vulkan_rs::Device;
 
 unsafe fn buffer_lifecycle(device: &Device) {
     // ── Step 1: Describe what you want ──────────────────────────
@@ -175,11 +175,11 @@ are *allocated in bulk* from a pool, and freed back to that pool (or
 the entire pool is reset/destroyed at once):
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
-use vk_engine::vk::enums::*;
-use vk_engine::vk::handles::*;
-use vk_engine::vk::Handle;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
+use vulkan_rs::vk::enums::*;
+use vulkan_rs::vk::handles::*;
+use vulkan_rs::vk::Handle;
 
 // Pool-based lifecycle (simplified)
 unsafe {
@@ -303,10 +303,10 @@ created through `Entry::create_instance`.
 
 ### API reference links
 
-- [`Handle` trait](https://docs.rs/vk-engine/latest/vk_engine/vk/trait.Handle.html)
-- [`Instance`](https://docs.rs/vk-engine/latest/vk_engine/struct.Instance.html)
-- [`Device`](https://docs.rs/vk-engine/latest/vk_engine/struct.Device.html)
-- [`Buffer`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.Buffer.html)
+- [`Handle` trait](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/trait.Handle.html)
+- [`Instance`](https://docs.rs/vulkan-rs/latest/vulkan_rs/struct.Instance.html)
+- [`Device`](https://docs.rs/vulkan-rs/latest/vulkan_rs/struct.Device.html)
+- [`Buffer`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.Buffer.html)
 - [Vulkan spec: Object Model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fundamentals-objectmodel-overview)
 
 ## Key takeaways

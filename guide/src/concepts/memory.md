@@ -123,7 +123,7 @@ from the CPU into fast GPU memory. It uses the **staging buffer pattern**.
 ### Step 1: Create the destination buffer
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -158,7 +158,7 @@ let mem_requirements = unsafe {
 ### Step 3: Find the right memory type
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 // Query what memory the hardware offers.
@@ -191,7 +191,7 @@ let memory_type_index = (0..mem_properties.memory_type_count)
 ### Step 4: Allocate and bind
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 let alloc_info = MemoryAllocateInfo::builder()
@@ -212,7 +212,7 @@ it directly from the CPU. The solution: create a temporary *staging buffer*
 in host-visible memory, write your data there, then copy to the GPU buffer.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -310,7 +310,7 @@ available on all hardware. The staging buffer pattern works everywhere.
 ### The memory type selection algorithm
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 fn find_memory_type(
@@ -368,9 +368,9 @@ before freeing it.
 
 ### API reference links
 
-- [`MemoryPropertyFlags`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.MemoryPropertyFlags.html)
-- [`PhysicalDeviceMemoryProperties`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.PhysicalDeviceMemoryProperties.html)
-- [`MemoryRequirements`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.MemoryRequirements.html)
+- [`MemoryPropertyFlags`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.MemoryPropertyFlags.html)
+- [`PhysicalDeviceMemoryProperties`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.PhysicalDeviceMemoryProperties.html)
+- [`MemoryRequirements`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.MemoryRequirements.html)
 - [Vulkan spec: Memory Allocation](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory)
 
 ## Key takeaways

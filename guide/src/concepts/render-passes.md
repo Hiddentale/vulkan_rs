@@ -90,7 +90,7 @@ image) and one depth attachment.
 ### Step 1: Describe the attachments
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -125,7 +125,7 @@ let depth_attachment = AttachmentDescription {
 ### Step 2: Define the subpass
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 
@@ -156,7 +156,7 @@ let subpass = SubpassDescription {
 ### Step 3: Add a subpass dependency
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::constants::SUBPASS_EXTERNAL;
 
@@ -180,7 +180,7 @@ let dependency = SubpassDependency {
 ### Step 4: Create the render pass
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 let attachments = [color_attachment, depth_attachment];
@@ -198,7 +198,7 @@ let render_pass = unsafe {
 ### Step 5: Create framebuffers (one per swapchain image)
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::handles::*;
 
@@ -224,7 +224,7 @@ let framebuffers: Vec<Framebuffer> = swapchain_image_views
 ### Step 6: Use in command recording
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 
@@ -273,7 +273,7 @@ which lets you skip render pass and framebuffer objects entirely.
 You specify attachments inline at recording time:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 
@@ -345,10 +345,10 @@ transitions inside a render pass.
 
 ### API reference links
 
-- [`RenderPass`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.RenderPass.html)
-- [`Framebuffer`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.Framebuffer.html)
-- [`AttachmentDescription`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.AttachmentDescription.html)
-- [`RenderingInfo`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.RenderingInfo.html)
+- [`RenderPass`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.RenderPass.html)
+- [`Framebuffer`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.Framebuffer.html)
+- [`AttachmentDescription`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.AttachmentDescription.html)
+- [`RenderingInfo`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.RenderingInfo.html)
 - [Vulkan spec: Render Pass](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass)
 
 ## Key takeaways

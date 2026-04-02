@@ -82,8 +82,8 @@ you prefer, adjust the path in the code below).
 ## Step 2: Load SPIR-V and create shader modules
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::cast_to_u32;
+use vulkan_rs::vk;
+use vulkan_rs::cast_to_u32;
 use vk::structs::*;
 
 // ── Load SPIR-V bytecode ───────────────────────────────────────
@@ -120,7 +120,7 @@ are handled. See [Render Passes & Framebuffers](../concepts/render-passes.md)
 for the full concept.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -187,7 +187,7 @@ Our shaders don't use any descriptors or push constants, so the layout
 is empty.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 let layout_info = PipelineLayoutCreateInfo::builder();
@@ -203,7 +203,7 @@ This is the largest struct in the Vulkan API. Every piece of rendering
 state is specified here.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -311,7 +311,7 @@ A framebuffer binds specific image views to a render pass. We need one
 per swapchain image.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::handles::*;
 

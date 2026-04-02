@@ -68,7 +68,7 @@ The most common are `UNIFORM_BUFFER` and `COMBINED_IMAGE_SAMPLER`.
 ### Step 1: Create a descriptor set layout
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 
@@ -106,7 +106,7 @@ let descriptor_layout = unsafe {
 ### Step 2: Create a descriptor pool
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 
@@ -135,7 +135,7 @@ let descriptor_pool = unsafe {
 ### Step 3: Allocate a descriptor set
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::handles::*;
 
@@ -152,7 +152,7 @@ unsafe {
 ### Step 4: Write descriptors (point slots to actual resources)
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 
@@ -190,7 +190,7 @@ unsafe { device.update_descriptor_sets(&writes, &[]) };
 ### Step 5: Bind during command recording
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::enums::*;
 
 unsafe {
@@ -224,7 +224,7 @@ changes once per frame, set 1 changes when you switch materials,
 set 2 changes per object. You only rebind the sets that changed.
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 
@@ -316,11 +316,11 @@ cmd_bind_descriptor_sets ──────> (shaders can access resources)
 
 ### API reference links
 
-- [`DescriptorSetLayout`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DescriptorSetLayout.html)
-- [`DescriptorPool`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DescriptorPool.html)
-- [`DescriptorSet`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DescriptorSet.html)
-- [`WriteDescriptorSet`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.WriteDescriptorSet.html)
-- [`DescriptorType`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DescriptorType.html)
+- [`DescriptorSetLayout`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DescriptorSetLayout.html)
+- [`DescriptorPool`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DescriptorPool.html)
+- [`DescriptorSet`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DescriptorSet.html)
+- [`WriteDescriptorSet`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.WriteDescriptorSet.html)
+- [`DescriptorType`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DescriptorType.html)
 - [Vulkan spec: Resource Descriptors](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets)
 
 ## Key takeaways

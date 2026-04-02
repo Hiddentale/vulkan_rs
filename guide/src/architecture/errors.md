@@ -18,22 +18,22 @@ return value after every call.
 
 ## The `VkResult<T>` type alias
 
-`vk-engine` defines a single result type for all Vulkan command wrappers:
+`vulkan-rs` defines a single result type for all Vulkan command wrappers:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 
 pub type VkResult<T> = std::result::Result<T, vk::enums::Result>;
 ```
 
-Here `vk::Result` is the `#[repr(transparent)]` i32 newtype from `vk-sys`.
+Here `vk::Result` is the `#[repr(transparent)]` i32 newtype from `vulkan-rs-sys`.
 The `Err` variant holds any negative value. The `Ok` variant holds the
 command's output (a handle, a vector of properties, or just `()`).
 
 A helper function performs the conversion:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 
 pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
     if result.as_raw() >= 0 {
@@ -52,7 +52,7 @@ are treated as success by default.
 Some Vulkan commands return positive success codes that carry meaning:
 
 - **`INCOMPLETE`** from enumeration commands means the output buffer was
-  too small. `vk-engine`'s two-call helpers handle this internally by
+  too small. `vulkan-rs`'s two-call helpers handle this internally by
   querying the count first, so callers rarely see it.
 - **`SUBOPTIMAL_KHR`** from `vkAcquireNextImageKHR` means the swapchain
   still works but no longer matches the surface optimally. You should
@@ -73,7 +73,7 @@ is not available at all.
 `LoadError` captures these:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 
 pub enum LoadError {
     /// The Vulkan shared library could not be found or opened.
@@ -92,7 +92,7 @@ Creating a window surface involves platform-specific logic and
 `raw-window-handle` integration. Three distinct failure modes exist:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 
 pub enum SurfaceError {
     /// The display/window handle combination is not supported.
@@ -130,8 +130,8 @@ Most application code follows the same pattern: call the command, propagate
 errors with `?`, handle them at the boundary.
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::Device;
+use vulkan_rs::vk;
+use vulkan_rs::Device;
 use vk::handles::*;
 
 unsafe fn create_pipeline(

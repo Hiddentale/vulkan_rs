@@ -86,8 +86,8 @@ This is a minimal pipeline for rendering colored triangles.
 ### Step 1: Load shaders
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
 
 // SPIR-V bytecode, compiled from GLSL with glslc or shaderc.
 let vert_code: &[u32] = /* load from file or include_bytes! */;
@@ -119,9 +119,9 @@ let stages = [
 ### Step 2: Define vertex input
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
-use vk_engine::vk::enums::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
+use vulkan_rs::vk::enums::*;
 
 // Describe how vertex data is laid out in memory.
 let binding = VertexInputBindingDescription {
@@ -155,10 +155,10 @@ let vertex_input = PipelineVertexInputStateCreateInfo::builder()
 ### Step 3: Configure fixed-function state
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
-use vk_engine::vk::enums::*;
-use vk_engine::vk::bitmasks::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
+use vulkan_rs::vk::enums::*;
+use vulkan_rs::vk::bitmasks::*;
 
 let input_assembly = PipelineInputAssemblyStateCreateInfo::builder()
     .topology(PrimitiveTopology::TRIANGLE_LIST);
@@ -209,10 +209,10 @@ let dynamic_state = PipelineDynamicStateCreateInfo::builder()
 ### Step 4: Create pipeline layout and pipeline
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
-use vk_engine::vk::handles::*;
-use vk_engine::vk::Handle;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
+use vulkan_rs::vk::handles::*;
+use vulkan_rs::vk::Handle;
 
 // Empty layout (no descriptor sets, no push constants).
 let layout_info = PipelineLayoutCreateInfo::builder();
@@ -257,8 +257,8 @@ unsafe {
 ### Step 5: Use in command recording
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::enums::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::enums::*;
 
 unsafe {
     device.cmd_bind_pipeline(
@@ -282,10 +282,10 @@ Compute pipelines are dramatically simpler: just a shader stage and
 a pipeline layout. No vertex input, no rasterization, no blending.
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
-use vk_engine::vk::handles::*;
-use vk_engine::vk::Handle;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
+use vulkan_rs::vk::handles::*;
+use vulkan_rs::vk::Handle;
 
 let compute_info = ComputePipelineCreateInfo::builder()
     .stage(*PipelineShaderStageCreateInfo::builder()
@@ -313,8 +313,8 @@ creations (in the same run or across runs, if you save/load the cache)
 are faster.
 
 ```rust,ignore
-use vk_engine::vk;
-use vk_engine::vk::structs::*;
+use vulkan_rs::vk;
+use vulkan_rs::vk::structs::*;
 
 // Create a cache (optionally seeded with data from a previous run).
 let cache_info = PipelineCacheCreateInfo::builder();
@@ -375,10 +375,10 @@ different cull modes, use one pipeline with `CULL_MODE` dynamic.
 
 ### API reference links
 
-- [`Pipeline`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.Pipeline.html)
-- [`PipelineLayout`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.PipelineLayout.html)
-- [`GraphicsPipelineCreateInfo`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.GraphicsPipelineCreateInfo.html)
-- [`DynamicState`](https://docs.rs/vk-engine/latest/vk_engine/vk/struct.DynamicState.html)
+- [`Pipeline`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.Pipeline.html)
+- [`PipelineLayout`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.PipelineLayout.html)
+- [`GraphicsPipelineCreateInfo`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.GraphicsPipelineCreateInfo.html)
+- [`DynamicState`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.DynamicState.html)
 - [Vulkan spec: Pipelines](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines)
 
 ## Key takeaways

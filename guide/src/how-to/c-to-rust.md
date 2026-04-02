@@ -62,7 +62,7 @@ Strip the type prefix and the `_BIT` suffix:
 Combine flags with the `|` operator, just like in C:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::bitmasks::*;
 
 let usage = BufferUsageFlags::VERTEX_BUFFER
@@ -99,7 +99,7 @@ vkCreateBuffer(device, &info, NULL, &buffer);
 
 ```rust,ignore
 // vulkan_rs
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -140,7 +140,7 @@ In `vulkan_rs`, use `push_next()`:
 
 ```rust,ignore
 // vulkan_rs
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 
 let mut features12 = *PhysicalDeviceVulkan12Features::builder()
@@ -190,7 +190,7 @@ if (result != VK_SUCCESS) { /* handle error */ }
 
 ```rust,ignore
 // vulkan_rs
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::handles::*;
 
 let buffer: Buffer = unsafe { device.create_buffer(&info, None) }
@@ -201,7 +201,7 @@ For functions that output multiple handles (like `vkAllocateCommandBuffers`),
 you pass a mutable pointer to pre-allocated storage:
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::handles::*;
 
 let mut cmd_buffers = vec![CommandBuffer::null(); count as usize];
@@ -300,7 +300,7 @@ vkUnmapMemory(device, memory);
 ### vulkan_rs version
 
 ```rust,ignore
-use vk_engine::vk;
+use vulkan_rs::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
