@@ -5,7 +5,7 @@ All notable changes to vulkan-rust will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.10.0] - 2026-04-03
 
 ### Added
 
@@ -31,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - PFN callback types (`PFN_vkDebugUtilsMessengerCallbackEXT`, etc.) are now fully typed instead of type-erased `fn()`
 - Parser prefers `altlen` over `len` from vk.xml, giving parseable C expressions instead of LaTeX
+- `#[doc(inline)]` on all re-exports so docs.rs renders type pages under `vk::`
+- README links use absolute GitHub URLs for crates.io compatibility
+- Guide dependency version corrected from `"0.1"` to `"0.10"`
 
 ## [0.9.0] - 2026-04-03
 
