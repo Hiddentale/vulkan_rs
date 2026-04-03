@@ -1,6 +1,6 @@
 [package]
 name = "vulkan-rust"
-version = "1.0.0"
+version = "0.9.0"
 edition = "2024"
 rust-version = "1.85"
 description = "Ergonomic Vulkan bindings for Rust, generated from vk.xml"
