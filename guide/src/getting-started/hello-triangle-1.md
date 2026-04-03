@@ -31,7 +31,7 @@ Add `vulkan-rust` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-vulkan-rust = "0.1"
+vulkan-rust = "0.9"
 ```
 
 ## Step 1: Load the Vulkan library

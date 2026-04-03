@@ -21,7 +21,7 @@ works with anything that implements `raw-window-handle`.
 
 ```toml
 [dependencies]
-vulkan-rust = "0.1"
+vulkan-rust = "0.9"
 winit = "0.30"
 ```
 

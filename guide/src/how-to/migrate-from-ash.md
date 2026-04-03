@@ -40,7 +40,7 @@ ash = "0.38"
 
 # After (vulkan_rust)
 [dependencies]
-vulkan-rust = "0.1"
+vulkan-rust = "0.9"
 ```
 
 ## Step 2: Remove trait imports

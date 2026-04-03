@@ -6,7 +6,7 @@
 
 ```toml
 [dependencies]
-vulkan-rust = "0.1"
+vulkan-rust = "0.9"
 ```
 
 ## Platform requirements

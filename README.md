@@ -20,6 +20,8 @@ See the [examples](vulkan-rust/examples) directory for progressively complex Vul
 
 If you're new to Vulkan, start with the [Hello Triangle tutorial](https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-1.html) in the companion guide.
 
+For a comprehensive project using vulkan-rust, check out [Manifold](https://github.com/Hiddentale/manifold).
+
 ## Why vulkan-rust?
 
 | | vulkan-rust | ash | vulkanalia |
