@@ -173,7 +173,7 @@ fn parse_member_def(def: &TypeMemberDefinition) -> MemberDef {
         array_size,
         optional: def.optional.as_deref().is_some_and(|o| o.contains("true")),
         values: def.values.clone(),
-        len: def.len.clone(),
+        len: def.altlen.clone().or_else(|| def.len.clone()),
         extern_sync: def.externsync.clone(),
         is_bitfield,
         bitwidth,

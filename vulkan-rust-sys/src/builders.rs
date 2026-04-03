@@ -3369,13 +3369,9 @@ impl<'a> ShaderModuleCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn code_size(mut self, value: usize) -> Self {
-        self.inner.code_size = value;
-        self
-    }
-    #[inline]
-    pub fn p_code(mut self, value: *const u32) -> Self {
-        self.inner.p_code = value;
+    pub fn code(mut self, slice: &'a [u32]) -> Self {
+        self.inner.code_size = core::mem::size_of_val(slice);
+        self.inner.p_code = slice.as_ptr();
         self
     }
     ///Prepend a struct to the pNext chain. See [`ShaderModuleCreateInfo`]'s **Extended By** section for valid types.

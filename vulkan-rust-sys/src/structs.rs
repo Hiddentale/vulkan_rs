@@ -2,17 +2,75 @@ use super::enums::*;
 use super::handles::*;
 use super::bitmasks::*;
 use super::constants::*;
-pub type PFN_vkInternalAllocationNotification = Option<unsafe extern "system" fn()>;
-pub type PFN_vkInternalFreeNotification = Option<unsafe extern "system" fn()>;
-pub type PFN_vkReallocationFunction = Option<unsafe extern "system" fn()>;
-pub type PFN_vkAllocationFunction = Option<unsafe extern "system" fn()>;
-pub type PFN_vkFreeFunction = Option<unsafe extern "system" fn()>;
+pub type PFN_vkInternalAllocationNotification = Option<
+    unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        usize,
+        InternalAllocationType,
+        SystemAllocationScope,
+    ),
+>;
+pub type PFN_vkInternalFreeNotification = Option<
+    unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        usize,
+        InternalAllocationType,
+        SystemAllocationScope,
+    ),
+>;
+pub type PFN_vkReallocationFunction = Option<
+    unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        usize,
+        usize,
+        SystemAllocationScope,
+    ) -> *mut core::ffi::c_void,
+>;
+pub type PFN_vkAllocationFunction = Option<
+    unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        usize,
+        usize,
+        SystemAllocationScope,
+    ) -> *mut core::ffi::c_void,
+>;
+pub type PFN_vkFreeFunction = Option<
+    unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
+>;
 pub type PFN_vkVoidFunction = Option<unsafe extern "system" fn()>;
-pub type PFN_vkDebugReportCallbackEXT = Option<unsafe extern "system" fn()>;
-pub type PFN_vkDebugUtilsMessengerCallbackEXT = Option<unsafe extern "system" fn()>;
-pub type PFN_vkFaultCallbackFunction = Option<unsafe extern "system" fn()>;
-pub type PFN_vkDeviceMemoryReportCallbackEXT = Option<unsafe extern "system" fn()>;
-pub type PFN_vkGetInstanceProcAddrLUNARG = Option<unsafe extern "system" fn()>;
+pub type PFN_vkDebugReportCallbackEXT = Option<
+    unsafe extern "system" fn(
+        DebugReportFlagsEXT,
+        DebugReportObjectTypeEXT,
+        u64,
+        usize,
+        i32,
+        *const core::ffi::c_char,
+        *const core::ffi::c_char,
+        *mut core::ffi::c_void,
+    ) -> u32,
+>;
+pub type PFN_vkDebugUtilsMessengerCallbackEXT = Option<
+    unsafe extern "system" fn(
+        DebugUtilsMessageSeverityFlagBitsEXT,
+        DebugUtilsMessageTypeFlagsEXT,
+        *const DebugUtilsMessengerCallbackDataEXT,
+        *mut core::ffi::c_void,
+    ) -> u32,
+>;
+pub type PFN_vkFaultCallbackFunction = Option<
+    unsafe extern "system" fn(u32, u32, *const FaultData),
+>;
+pub type PFN_vkDeviceMemoryReportCallbackEXT = Option<
+    unsafe extern "system" fn(
+        *const DeviceMemoryReportCallbackDataEXT,
+        *mut core::ffi::c_void,
+    ),
+>;
+pub type PFN_vkGetInstanceProcAddrLUNARG = Option<
+    unsafe extern "system" fn(Instance, *const core::ffi::c_char) -> PFN_vkVoidFunction,
+>;
 /// Video codec enum type (C `int32_t`, defined in vulkan_video_codec headers).
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Default, PartialEq, Eq)]

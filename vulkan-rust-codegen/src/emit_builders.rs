@@ -237,6 +237,9 @@ fn emit_setter(member: &MemberDef, parent: &StructDef) -> TokenStream {
         && let Some(ref len) = member.len
         && let Some(count_member) = find_count_member(parent, len)
     {
+        if is_byte_count_len(len) {
+            return emit_byte_slice_setter(member, count_member);
+        }
         return emit_slice_setter(member, count_member);
     }
 
@@ -387,6 +390,39 @@ fn emit_cstr_ptr_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) 
     }
 }
 
+/// Emit a slice setter where the count field is in bytes, not elements.
+/// For `pCode` with `len="codeSize / 4"`, this emits a setter that takes
+/// `&[u32]` and sets `code_size = slice.len() * size_of::<u32>()`.
+fn emit_byte_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenStream {
+    let rust_name = member_name(&ptr_member.name);
+    let setter_name = rust_name.strip_prefix("p_").unwrap_or(&rust_name);
+    let setter_ident = format_ident!("{}", setter_name);
+
+    let ptr_field = format_ident!("{}", member_name(&ptr_member.name));
+    let count_field = format_ident!("{}", member_name(&count_member.name));
+    let elem_ty = resolve_base_type(&ptr_member.type_name);
+
+    if ptr_member.is_const {
+        quote! {
+            #[inline]
+            pub fn #setter_ident(mut self, slice: &'a [#elem_ty]) -> Self {
+                self.inner.#count_field = core::mem::size_of_val(slice);
+                self.inner.#ptr_field = slice.as_ptr();
+                self
+            }
+        }
+    } else {
+        quote! {
+            #[inline]
+            pub fn #setter_ident(mut self, slice: &'a mut [#elem_ty]) -> Self {
+                self.inner.#count_field = core::mem::size_of_val(slice);
+                self.inner.#ptr_field = slice.as_mut_ptr();
+                self
+            }
+        }
+    }
+}
+
 fn has_bitfield_members(def: &StructDef) -> bool {
     def.members.iter().any(|m| m.is_bitfield)
 }
@@ -403,14 +439,20 @@ fn collect_count_fields(def: &StructDef) -> HashSet<String> {
         let is_slice_candidate =
             m.is_pointer && (!m.is_double_pointer || (m.is_const && m.type_name == "char"));
         if is_slice_candidate && let Some(ref len) = m.len {
-            // len can be a comma-separated list (e.g. "codeSize/4"); take the first simple name.
+            // len can be a comma-separated list; take the first element.
             let count_name = len.split(',').next().unwrap_or(len).trim();
-            // Skip "null-terminated" and expressions with `/`.
-            if !count_name.contains("null-terminated")
-                && !count_name.contains('/')
-                && def.members.iter().any(|other| other.name == count_name)
-            {
-                counts.insert(count_name.to_string());
+            // Skip "null-terminated".
+            if count_name.contains("null-terminated") {
+                continue;
+            }
+            // Handle division expressions like "codeSize / 4".
+            let base_name = if let Some((name, _)) = count_name.split_once('/') {
+                name.trim()
+            } else {
+                count_name
+            };
+            if def.members.iter().any(|other| other.name == base_name) {
+                counts.insert(base_name.to_string());
             }
         }
         // Also check inferred count for double-pointer char fields without len.
@@ -436,10 +478,22 @@ fn infer_count_member<'a>(def: &'a StructDef, ptr_name: &str) -> Option<&'a Memb
 
 fn find_count_member<'a>(def: &'a StructDef, len: &str) -> Option<&'a MemberDef> {
     let count_name = len.split(',').next()?.trim();
-    if count_name.contains("null-terminated") || count_name.contains('/') {
+    if count_name.contains("null-terminated") {
         return None;
     }
-    def.members.iter().find(|m| m.name == count_name)
+    // Handle division expressions like "codeSize / 4".
+    let base_name = if let Some((name, _)) = count_name.split_once('/') {
+        name.trim()
+    } else {
+        count_name
+    };
+    def.members.iter().find(|m| m.name == base_name)
+}
+
+/// Check if a len expression contains a division (e.g. "codeSize / 4").
+fn is_byte_count_len(len: &str) -> bool {
+    let count_name = len.split(',').next().unwrap_or(len).trim();
+    count_name.contains('/')
 }
 
 // ---------------------------------------------------------------------------

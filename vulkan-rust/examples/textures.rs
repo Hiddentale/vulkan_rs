@@ -557,12 +557,8 @@ fn init_vulkan(window: Window) -> VulkanState {
     let vert_code = cast_to_u32(vert_bytes).expect("Vertex SPIR-V not aligned");
     let frag_code = cast_to_u32(frag_bytes).expect("Fragment SPIR-V not aligned");
 
-    let vert_info = ShaderModuleCreateInfo::builder()
-        .code_size(vert_code.len() * 4)
-        .p_code(vert_code.as_ptr());
-    let frag_info = ShaderModuleCreateInfo::builder()
-        .code_size(frag_code.len() * 4)
-        .p_code(frag_code.as_ptr());
+    let vert_info = ShaderModuleCreateInfo::builder().code(vert_code);
+    let frag_info = ShaderModuleCreateInfo::builder().code(frag_code);
 
     let vert_module = unsafe { device.create_shader_module(&vert_info, None) }
         .expect("Failed to create vertex shader module");
