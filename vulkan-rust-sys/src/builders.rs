@@ -3432,6 +3432,11 @@ impl<'a> DescriptorSetLayoutBindingBuilder<'a> {
         self
     }
     #[inline]
+    pub fn descriptor_count(mut self, value: u32) -> Self {
+        self.inner.descriptor_count = value;
+        self
+    }
+    #[inline]
     pub fn stage_flags(mut self, value: ShaderStageFlags) -> Self {
         self.inner.stage_flags = value;
         self
@@ -4341,9 +4346,19 @@ impl<'a> PipelineViewportStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
+    pub fn viewport_count(mut self, value: u32) -> Self {
+        self.inner.viewport_count = value;
+        self
+    }
+    #[inline]
     pub fn viewports(mut self, slice: &'a [Viewport]) -> Self {
         self.inner.viewport_count = slice.len() as u32;
         self.inner.p_viewports = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn scissor_count(mut self, value: u32) -> Self {
+        self.inner.scissor_count = value;
         self
     }
     #[inline]
@@ -4669,6 +4684,11 @@ impl<'a> PipelineColorBlendStateCreateInfoBuilder<'a> {
     #[inline]
     pub fn logic_op(mut self, value: LogicOp) -> Self {
         self.inner.logic_op = value;
+        self
+    }
+    #[inline]
+    pub fn attachment_count(mut self, value: u32) -> Self {
+        self.inner.attachment_count = value;
         self
     }
     #[inline]
@@ -5557,6 +5577,11 @@ impl PipelineBinaryHandlesInfoKHR {
 }
 impl<'a> PipelineBinaryHandlesInfoKHRBuilder<'a> {
     #[inline]
+    pub fn pipeline_binary_count(mut self, value: u32) -> Self {
+        self.inner.pipeline_binary_count = value;
+        self
+    }
+    #[inline]
     pub fn pipeline_binaries(mut self, slice: &'a mut [PipelineBinaryKHR]) -> Self {
         self.inner.pipeline_binary_count = slice.len() as u32;
         self.inner.p_pipeline_binaries = slice.as_mut_ptr();
@@ -5961,6 +5986,11 @@ impl<'a> PipelineLayoutCreateInfoBuilder<'a> {
     #[inline]
     pub fn flags(mut self, value: PipelineLayoutCreateFlags) -> Self {
         self.inner.flags = value;
+        self
+    }
+    #[inline]
+    pub fn set_layout_count(mut self, value: u32) -> Self {
+        self.inner.set_layout_count = value;
         self
     }
     #[inline]
@@ -13979,6 +14009,11 @@ impl PresentRegionsKHR {
 }
 impl<'a> PresentRegionsKHRBuilder<'a> {
     #[inline]
+    pub fn swapchain_count(mut self, value: u32) -> Self {
+        self.inner.swapchain_count = value;
+        self
+    }
+    #[inline]
     pub fn regions(mut self, slice: &'a [PresentRegionKHR]) -> Self {
         self.inner.swapchain_count = slice.len() as u32;
         self.inner.p_regions = slice.as_ptr();
@@ -14028,6 +14063,11 @@ impl PresentRegionKHR {
     }
 }
 impl<'a> PresentRegionKHRBuilder<'a> {
+    #[inline]
+    pub fn rectangle_count(mut self, value: u32) -> Self {
+        self.inner.rectangle_count = value;
+        self
+    }
     #[inline]
     pub fn rectangles(mut self, slice: &'a [RectLayerKHR]) -> Self {
         self.inner.rectangle_count = slice.len() as u32;
@@ -15698,9 +15738,19 @@ impl D3D12FenceSubmitInfoKHR {
 }
 impl<'a> D3D12FenceSubmitInfoKHRBuilder<'a> {
     #[inline]
+    pub fn wait_semaphore_values_count(mut self, value: u32) -> Self {
+        self.inner.wait_semaphore_values_count = value;
+        self
+    }
+    #[inline]
     pub fn wait_semaphore_values(mut self, slice: &'a [u64]) -> Self {
         self.inner.wait_semaphore_values_count = slice.len() as u32;
         self.inner.p_wait_semaphore_values = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn signal_semaphore_values_count(mut self, value: u32) -> Self {
+        self.inner.signal_semaphore_values_count = value;
         self
     }
     #[inline]
@@ -18925,6 +18975,11 @@ impl PresentIdKHR {
 }
 impl<'a> PresentIdKHRBuilder<'a> {
     #[inline]
+    pub fn swapchain_count(mut self, value: u32) -> Self {
+        self.inner.swapchain_count = value;
+        self
+    }
+    #[inline]
     pub fn present_ids(mut self, slice: &'a [u64]) -> Self {
         self.inner.swapchain_count = slice.len() as u32;
         self.inner.p_present_ids = slice.as_ptr();
@@ -19028,6 +19083,11 @@ impl PresentId2KHR {
     }
 }
 impl<'a> PresentId2KHRBuilder<'a> {
+    #[inline]
+    pub fn swapchain_count(mut self, value: u32) -> Self {
+        self.inner.swapchain_count = value;
+        self
+    }
     #[inline]
     pub fn present_ids(mut self, slice: &'a [u64]) -> Self {
         self.inner.swapchain_count = slice.len() as u32;
@@ -19400,6 +19460,11 @@ impl SwapchainTimeDomainPropertiesEXT {
 }
 impl<'a> SwapchainTimeDomainPropertiesEXTBuilder<'a> {
     #[inline]
+    pub fn time_domain_count(mut self, value: u32) -> Self {
+        self.inner.time_domain_count = value;
+        self
+    }
+    #[inline]
     pub fn time_domains(mut self, slice: &'a mut [TimeDomainKHR]) -> Self {
         self.inner.time_domain_count = slice.len() as u32;
         self.inner.p_time_domains = slice.as_mut_ptr();
@@ -19658,6 +19723,11 @@ impl PresentTimingsInfoEXT {
     }
 }
 impl<'a> PresentTimingsInfoEXTBuilder<'a> {
+    #[inline]
+    pub fn swapchain_count(mut self, value: u32) -> Self {
+        self.inner.swapchain_count = value;
+        self
+    }
     #[inline]
     pub fn timing_infos(mut self, slice: &'a [PresentTimingInfoEXT]) -> Self {
         self.inner.swapchain_count = slice.len() as u32;
@@ -20169,6 +20239,11 @@ impl PresentTimesInfoGOOGLE {
 }
 impl<'a> PresentTimesInfoGOOGLEBuilder<'a> {
     #[inline]
+    pub fn swapchain_count(mut self, value: u32) -> Self {
+        self.inner.swapchain_count = value;
+        self
+    }
+    #[inline]
     pub fn times(mut self, slice: &'a [PresentTimeGOOGLE]) -> Self {
         self.inner.swapchain_count = slice.len() as u32;
         self.inner.p_times = slice.as_ptr();
@@ -20479,6 +20554,11 @@ impl<'a> PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
     #[inline]
     pub fn viewport_w_scaling_enable(mut self, value: bool) -> Self {
         self.inner.viewport_w_scaling_enable = value as u32;
+        self
+    }
+    #[inline]
+    pub fn viewport_count(mut self, value: u32) -> Self {
+        self.inner.viewport_count = value;
         self
     }
     #[inline]
@@ -23826,6 +23906,11 @@ impl<'a> PipelineCoverageModulationStateCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
+    pub fn coverage_modulation_table_count(mut self, value: u32) -> Self {
+        self.inner.coverage_modulation_table_count = value;
+        self
+    }
+    #[inline]
     pub fn coverage_modulation_table(mut self, slice: &'a [f32]) -> Self {
         self.inner.coverage_modulation_table_count = slice.len() as u32;
         self.inner.p_coverage_modulation_table = slice.as_ptr();
@@ -24550,6 +24635,11 @@ impl PhysicalDeviceLayeredApiPropertiesListKHR {
     }
 }
 impl<'a> PhysicalDeviceLayeredApiPropertiesListKHRBuilder<'a> {
+    #[inline]
+    pub fn layered_api_count(mut self, value: u32) -> Self {
+        self.inner.layered_api_count = value;
+        self
+    }
     #[inline]
     pub fn layered_apis(
         mut self,
@@ -27298,6 +27388,11 @@ impl DescriptorSetLayoutBindingFlagsCreateInfo {
 }
 impl<'a> DescriptorSetLayoutBindingFlagsCreateInfoBuilder<'a> {
     #[inline]
+    pub fn binding_count(mut self, value: u32) -> Self {
+        self.inner.binding_count = value;
+        self
+    }
+    #[inline]
     pub fn binding_flags(mut self, slice: &'a [DescriptorBindingFlags]) -> Self {
         self.inner.binding_count = slice.len() as u32;
         self.inner.p_binding_flags = slice.as_ptr();
@@ -28101,9 +28196,19 @@ impl TimelineSemaphoreSubmitInfo {
 }
 impl<'a> TimelineSemaphoreSubmitInfoBuilder<'a> {
     #[inline]
+    pub fn wait_semaphore_value_count(mut self, value: u32) -> Self {
+        self.inner.wait_semaphore_value_count = value;
+        self
+    }
+    #[inline]
     pub fn wait_semaphore_values(mut self, slice: &'a [u64]) -> Self {
         self.inner.wait_semaphore_value_count = slice.len() as u32;
         self.inner.p_wait_semaphore_values = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn signal_semaphore_value_count(mut self, value: u32) -> Self {
+        self.inner.signal_semaphore_value_count = value;
         self
     }
     #[inline]
@@ -32378,6 +32483,11 @@ impl WriteDescriptorSetAccelerationStructureKHR {
 }
 impl<'a> WriteDescriptorSetAccelerationStructureKHRBuilder<'a> {
     #[inline]
+    pub fn acceleration_structure_count(mut self, value: u32) -> Self {
+        self.inner.acceleration_structure_count = value;
+        self
+    }
+    #[inline]
     pub fn acceleration_structures(
         mut self,
         slice: &'a [AccelerationStructureKHR],
@@ -32434,6 +32544,11 @@ impl WriteDescriptorSetAccelerationStructureNV {
     }
 }
 impl<'a> WriteDescriptorSetAccelerationStructureNVBuilder<'a> {
+    #[inline]
+    pub fn acceleration_structure_count(mut self, value: u32) -> Self {
+        self.inner.acceleration_structure_count = value;
+        self
+    }
     #[inline]
     pub fn acceleration_structures(
         mut self,
@@ -33249,6 +33364,11 @@ impl DrmFormatModifierPropertiesListEXT {
     }
 }
 impl<'a> DrmFormatModifierPropertiesListEXTBuilder<'a> {
+    #[inline]
+    pub fn drm_format_modifier_count(mut self, value: u32) -> Self {
+        self.inner.drm_format_modifier_count = value;
+        self
+    }
     #[inline]
     pub fn drm_format_modifier_properties(
         mut self,
@@ -37905,6 +38025,11 @@ impl<'a> PipelineExecutableInternalRepresentationKHRBuilder<'a> {
         self
     }
     #[inline]
+    pub fn data_size(mut self, value: usize) -> Self {
+        self.inner.data_size = value;
+        self
+    }
+    #[inline]
     pub fn data(mut self, slice: &'a mut [core::ffi::c_void]) -> Self {
         self.inner.data_size = slice.len();
         self.inner.p_data = slice.as_mut_ptr();
@@ -40499,9 +40624,19 @@ impl<'a> PhysicalDeviceVulkan14PropertiesBuilder<'a> {
         self
     }
     #[inline]
+    pub fn copy_src_layout_count(mut self, value: u32) -> Self {
+        self.inner.copy_src_layout_count = value;
+        self
+    }
+    #[inline]
     pub fn copy_src_layouts(mut self, slice: &'a mut [ImageLayout]) -> Self {
         self.inner.copy_src_layout_count = slice.len() as u32;
         self.inner.p_copy_src_layouts = slice.as_mut_ptr();
+        self
+    }
+    #[inline]
+    pub fn copy_dst_layout_count(mut self, value: u32) -> Self {
+        self.inner.copy_dst_layout_count = value;
         self
     }
     #[inline]
@@ -40708,6 +40843,11 @@ impl FaultCallbackInfo {
     }
 }
 impl<'a> FaultCallbackInfoBuilder<'a> {
+    #[inline]
+    pub fn fault_count(mut self, value: u32) -> Self {
+        self.inner.fault_count = value;
+        self
+    }
     #[inline]
     pub fn faults(mut self, slice: &'a mut [FaultData]) -> Self {
         self.inner.fault_count = slice.len() as u32;
@@ -41600,6 +41740,11 @@ impl<'a> AccelerationStructureBuildGeometryInfoKHRBuilder<'a> {
         value: AccelerationStructureKHR,
     ) -> Self {
         self.inner.dst_acceleration_structure = value;
+        self
+    }
+    #[inline]
+    pub fn geometry_count(mut self, value: u32) -> Self {
+        self.inner.geometry_count = value;
         self
     }
     #[inline]
@@ -43458,6 +43603,11 @@ impl WriteDescriptorSetPartitionedAccelerationStructureNV {
     }
 }
 impl<'a> WriteDescriptorSetPartitionedAccelerationStructureNVBuilder<'a> {
+    #[inline]
+    pub fn acceleration_structure_count(mut self, value: u32) -> Self {
+        self.inner.acceleration_structure_count = value;
+        self
+    }
     #[inline]
     pub fn acceleration_structures(mut self, slice: &'a [u64]) -> Self {
         self.inner.acceleration_structure_count = slice.len() as u32;
@@ -47157,6 +47307,11 @@ impl IndirectExecutionSetShaderLayoutInfoEXT {
 }
 impl<'a> IndirectExecutionSetShaderLayoutInfoEXTBuilder<'a> {
     #[inline]
+    pub fn set_layout_count(mut self, value: u32) -> Self {
+        self.inner.set_layout_count = value;
+        self
+    }
+    #[inline]
     pub fn set_layouts(mut self, slice: &'a [DescriptorSetLayout]) -> Self {
         self.inner.set_layout_count = slice.len() as u32;
         self.inner.p_set_layouts = slice.as_ptr();
@@ -49363,9 +49518,19 @@ impl PhysicalDeviceHostImageCopyProperties {
 }
 impl<'a> PhysicalDeviceHostImageCopyPropertiesBuilder<'a> {
     #[inline]
+    pub fn copy_src_layout_count(mut self, value: u32) -> Self {
+        self.inner.copy_src_layout_count = value;
+        self
+    }
+    #[inline]
     pub fn copy_src_layouts(mut self, slice: &'a mut [ImageLayout]) -> Self {
         self.inner.copy_src_layout_count = slice.len() as u32;
         self.inner.p_copy_src_layouts = slice.as_mut_ptr();
+        self
+    }
+    #[inline]
+    pub fn copy_dst_layout_count(mut self, value: u32) -> Self {
+        self.inner.copy_dst_layout_count = value;
         self
     }
     #[inline]
@@ -55102,9 +55267,19 @@ impl VideoEncodeH264SessionParametersAddInfoKHR {
 }
 impl<'a> VideoEncodeH264SessionParametersAddInfoKHRBuilder<'a> {
     #[inline]
+    pub fn std_sps_count(mut self, value: u32) -> Self {
+        self.inner.std_sps_count = value;
+        self
+    }
+    #[inline]
     pub fn std_sp_ss(mut self, slice: &'a [StdVideoH264SequenceParameterSet]) -> Self {
         self.inner.std_sps_count = slice.len() as u32;
         self.inner.p_std_sp_ss = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn std_pps_count(mut self, value: u32) -> Self {
+        self.inner.std_pps_count = value;
         self
     }
     #[inline]
@@ -56141,15 +56316,30 @@ impl VideoEncodeH265SessionParametersAddInfoKHR {
 }
 impl<'a> VideoEncodeH265SessionParametersAddInfoKHRBuilder<'a> {
     #[inline]
+    pub fn std_vps_count(mut self, value: u32) -> Self {
+        self.inner.std_vps_count = value;
+        self
+    }
+    #[inline]
     pub fn std_vp_ss(mut self, slice: &'a [StdVideoH265VideoParameterSet]) -> Self {
         self.inner.std_vps_count = slice.len() as u32;
         self.inner.p_std_vp_ss = slice.as_ptr();
         self
     }
     #[inline]
+    pub fn std_sps_count(mut self, value: u32) -> Self {
+        self.inner.std_sps_count = value;
+        self
+    }
+    #[inline]
     pub fn std_sp_ss(mut self, slice: &'a [StdVideoH265SequenceParameterSet]) -> Self {
         self.inner.std_sps_count = slice.len() as u32;
         self.inner.p_std_sp_ss = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn std_pps_count(mut self, value: u32) -> Self {
+        self.inner.std_pps_count = value;
         self
     }
     #[inline]
@@ -57372,6 +57562,11 @@ impl<'a> VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         value: *const StdVideoEncodeAV1DecoderModelInfo,
     ) -> Self {
         self.inner.p_std_decoder_model_info = value;
+        self
+    }
+    #[inline]
+    pub fn std_operating_point_count(mut self, value: u32) -> Self {
+        self.inner.std_operating_point_count = value;
         self
     }
     #[inline]
@@ -61776,6 +61971,11 @@ impl DrmFormatModifierPropertiesList2EXT {
 }
 impl<'a> DrmFormatModifierPropertiesList2EXTBuilder<'a> {
     #[inline]
+    pub fn drm_format_modifier_count(mut self, value: u32) -> Self {
+        self.inner.drm_format_modifier_count = value;
+        self
+    }
+    #[inline]
     pub fn drm_format_modifier_properties(
         mut self,
         slice: &'a mut [DrmFormatModifierProperties2EXT],
@@ -64257,6 +64457,11 @@ impl<'a> MicromapBuildInfoEXTBuilder<'a> {
         self
     }
     #[inline]
+    pub fn usage_counts_count(mut self, value: u32) -> Self {
+        self.inner.usage_counts_count = value;
+        self
+    }
+    #[inline]
     pub fn usage_counts(mut self, slice: &'a [MicromapUsageEXT]) -> Self {
         self.inner.usage_counts_count = slice.len() as u32;
         self.inner.p_usage_counts = slice.as_ptr();
@@ -64929,6 +65134,11 @@ impl<'a> AccelerationStructureTrianglesOpacityMicromapEXTBuilder<'a> {
         self
     }
     #[inline]
+    pub fn usage_counts_count(mut self, value: u32) -> Self {
+        self.inner.usage_counts_count = value;
+        self
+    }
+    #[inline]
     pub fn usage_counts(mut self, slice: &'a [MicromapUsageEXT]) -> Self {
         self.inner.usage_counts_count = slice.len() as u32;
         self.inner.p_usage_counts = slice.as_ptr();
@@ -65156,6 +65366,11 @@ impl<'a> AccelerationStructureTrianglesDisplacementMicromapNVBuilder<'a> {
     #[inline]
     pub fn base_triangle(mut self, value: u32) -> Self {
         self.inner.base_triangle = value;
+        self
+    }
+    #[inline]
+    pub fn usage_counts_count(mut self, value: u32) -> Self {
+        self.inner.usage_counts_count = value;
         self
     }
     #[inline]
@@ -67823,6 +68038,11 @@ impl DeviceFaultDebugInfoKHR {
 }
 impl<'a> DeviceFaultDebugInfoKHRBuilder<'a> {
     #[inline]
+    pub fn vendor_binary_size(mut self, value: u32) -> Self {
+        self.inner.vendor_binary_size = value;
+        self
+    }
+    #[inline]
     pub fn vendor_binary_data(mut self, slice: &'a mut [core::ffi::c_void]) -> Self {
         self.inner.vendor_binary_size = slice.len() as u32;
         self.inner.p_vendor_binary_data = slice.as_mut_ptr();
@@ -68632,9 +68852,19 @@ impl<'a> FrameBoundaryEXTBuilder<'a> {
         self
     }
     #[inline]
+    pub fn image_count(mut self, value: u32) -> Self {
+        self.inner.image_count = value;
+        self
+    }
+    #[inline]
     pub fn images(mut self, slice: &'a [Image]) -> Self {
         self.inner.image_count = slice.len() as u32;
         self.inner.p_images = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn buffer_count(mut self, value: u32) -> Self {
+        self.inner.buffer_count = value;
         self
     }
     #[inline]
@@ -68646,6 +68876,11 @@ impl<'a> FrameBoundaryEXTBuilder<'a> {
     #[inline]
     pub fn tag_name(mut self, value: u64) -> Self {
         self.inner.tag_name = value;
+        self
+    }
+    #[inline]
+    pub fn tag_size(mut self, value: usize) -> Self {
+        self.inner.tag_size = value;
         self
     }
     #[inline]
@@ -68992,6 +69227,11 @@ impl SurfacePresentModeCompatibilityKHR {
 }
 impl<'a> SurfacePresentModeCompatibilityKHRBuilder<'a> {
     #[inline]
+    pub fn present_mode_count(mut self, value: u32) -> Self {
+        self.inner.present_mode_count = value;
+        self
+    }
+    #[inline]
     pub fn present_modes(mut self, slice: &'a mut [PresentModeKHR]) -> Self {
         self.inner.present_mode_count = slice.len() as u32;
         self.inner.p_present_modes = slice.as_mut_ptr();
@@ -69099,6 +69339,11 @@ impl SwapchainPresentFenceInfoKHR {
     }
 }
 impl<'a> SwapchainPresentFenceInfoKHRBuilder<'a> {
+    #[inline]
+    pub fn swapchain_count(mut self, value: u32) -> Self {
+        self.inner.swapchain_count = value;
+        self
+    }
     #[inline]
     pub fn fences(mut self, slice: &'a [Fence]) -> Self {
         self.inner.swapchain_count = slice.len() as u32;
@@ -70529,9 +70774,19 @@ impl<'a> ShaderCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
+    pub fn set_layout_count(mut self, value: u32) -> Self {
+        self.inner.set_layout_count = value;
+        self
+    }
+    #[inline]
     pub fn set_layouts(mut self, slice: &'a [DescriptorSetLayout]) -> Self {
         self.inner.set_layout_count = slice.len() as u32;
         self.inner.p_set_layouts = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn push_constant_range_count(mut self, value: u32) -> Self {
+        self.inner.push_constant_range_count = value;
         self
     }
     #[inline]
@@ -71356,6 +71611,11 @@ impl<'a> ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
         self
     }
     #[inline]
+    pub fn stage_count(mut self, value: u32) -> Self {
+        self.inner.stage_count = value;
+        self
+    }
+    #[inline]
     pub fn stages(mut self, slice: &'a [PipelineShaderStageCreateInfo]) -> Self {
         self.inner.stage_count = slice.len() as u32;
         self.inner.p_stages = slice.as_ptr();
@@ -72107,6 +72367,11 @@ impl<'a> BindDescriptorSetsInfoBuilder<'a> {
     pub fn descriptor_sets(mut self, slice: &'a [DescriptorSet]) -> Self {
         self.inner.descriptor_set_count = slice.len() as u32;
         self.inner.p_descriptor_sets = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn dynamic_offset_count(mut self, value: u32) -> Self {
+        self.inner.dynamic_offset_count = value;
         self
     }
     #[inline]
@@ -73476,6 +73741,11 @@ impl GetLatencyMarkerInfoNV {
 }
 impl<'a> GetLatencyMarkerInfoNVBuilder<'a> {
     #[inline]
+    pub fn timing_count(mut self, value: u32) -> Self {
+        self.inner.timing_count = value;
+        self
+    }
+    #[inline]
     pub fn timings(mut self, slice: &'a mut [LatencyTimingsFrameReportNV]) -> Self {
         self.inner.timing_count = slice.len() as u32;
         self.inner.p_timings = slice.as_mut_ptr();
@@ -73791,6 +74061,11 @@ impl LatencySurfaceCapabilitiesNV {
     }
 }
 impl<'a> LatencySurfaceCapabilitiesNVBuilder<'a> {
+    #[inline]
+    pub fn present_mode_count(mut self, value: u32) -> Self {
+        self.inner.present_mode_count = value;
+        self
+    }
     #[inline]
     pub fn present_modes(mut self, slice: &'a mut [PresentModeKHR]) -> Self {
         self.inner.present_mode_count = slice.len() as u32;
@@ -74789,6 +75064,11 @@ impl RenderingInputAttachmentIndexInfo {
     }
 }
 impl<'a> RenderingInputAttachmentIndexInfoBuilder<'a> {
+    #[inline]
+    pub fn color_attachment_count(mut self, value: u32) -> Self {
+        self.inner.color_attachment_count = value;
+        self
+    }
     #[inline]
     pub fn color_attachment_input_indices(mut self, slice: &'a [u32]) -> Self {
         self.inner.color_attachment_count = slice.len() as u32;
@@ -77765,6 +78045,11 @@ impl WriteDescriptorSetTensorARM {
 }
 impl<'a> WriteDescriptorSetTensorARMBuilder<'a> {
     #[inline]
+    pub fn tensor_view_count(mut self, value: u32) -> Self {
+        self.inner.tensor_view_count = value;
+        self
+    }
+    #[inline]
     pub fn tensor_views(mut self, slice: &'a [TensorViewARM]) -> Self {
         self.inner.tensor_view_count = slice.len() as u32;
         self.inner.p_tensor_views = slice.as_ptr();
@@ -78311,6 +78596,11 @@ impl TensorCopyARM {
     }
 }
 impl<'a> TensorCopyARMBuilder<'a> {
+    #[inline]
+    pub fn dimension_count(mut self, value: u32) -> Self {
+        self.inner.dimension_count = value;
+        self
+    }
     #[inline]
     pub fn src_offset(mut self, slice: &'a [u64]) -> Self {
         self.inner.dimension_count = slice.len() as u32;
@@ -79450,6 +79740,11 @@ impl<'a> DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
         self
     }
     #[inline]
+    pub fn constant_count(mut self, value: u32) -> Self {
+        self.inner.constant_count = value;
+        self
+    }
+    #[inline]
     pub fn constants(mut self, slice: &'a [DataGraphPipelineConstantARM]) -> Self {
         self.inner.constant_count = slice.len() as u32;
         self.inner.p_constants = slice.as_ptr();
@@ -79872,6 +80167,11 @@ impl<'a> DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
     #[inline]
     pub fn is_text(mut self, value: bool) -> Self {
         self.inner.is_text = value as u32;
+        self
+    }
+    #[inline]
+    pub fn data_size(mut self, value: usize) -> Self {
+        self.inner.data_size = value;
         self
     }
     #[inline]

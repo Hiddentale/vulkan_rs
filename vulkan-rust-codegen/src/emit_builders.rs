@@ -439,6 +439,12 @@ fn collect_count_fields(def: &StructDef) -> HashSet<String> {
         let is_slice_candidate =
             m.is_pointer && (!m.is_double_pointer || (m.is_const && m.type_name == "char"));
         if is_slice_candidate && let Some(ref len) = m.len {
+            // When the pointer is optional, the count has independent meaning
+            // (e.g. descriptorCount with optional pImmutableSamplers), so keep
+            // the count field's standalone setter.
+            if m.optional {
+                continue;
+            }
             // len can be a comma-separated list; take the first element.
             let count_name = len.split(',').next().unwrap_or(len).trim();
             // Skip "null-terminated".
