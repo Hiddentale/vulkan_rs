@@ -308,6 +308,9 @@ fn wrapper_param_type(param: &ParamDef) -> TokenStream {
     if param.type_name == "VkBool32" && !param.is_pointer {
         return quote! { bool };
     }
+    if is_optional_cstr_param(param) {
+        return quote! { Option<&core::ffi::CStr> };
+    }
     if param.is_pointer
         && param.is_const
         && !param.is_double_pointer
@@ -518,6 +521,13 @@ fn emit_bindings(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
                     let #ptr_name = #name.map_or(core::ptr::null(), core::ptr::from_ref);
                 });
             }
+            ParamRole::Regular if is_optional_cstr_param(param) => {
+                let ptr_name = format_ident!("{}_ptr", param.name.to_snake_case());
+                let name = param_ident(&param.name);
+                bindings.extend(quote! {
+                    let #ptr_name = #name.map_or(core::ptr::null(), core::ffi::CStr::as_ptr);
+                });
+            }
             _ => {}
         }
     }
@@ -531,6 +541,14 @@ fn is_optional_vk_const_ptr(param: &ParamDef) -> bool {
         && param.is_const
         && !param.is_double_pointer
         && is_vk_type(&param.type_name)
+}
+
+fn is_optional_cstr_param(param: &ParamDef) -> bool {
+    param.optional
+        && param.is_pointer
+        && param.is_const
+        && !param.is_double_pointer
+        && param.type_name == "char"
 }
 
 // ---------------------------------------------------------------------------
@@ -626,7 +644,7 @@ fn emit_call_arg(
         ParamRole::Allocator => quote! { alloc_ptr },
 
         ParamRole::Regular => {
-            if is_optional_vk_const_ptr(param) {
+            if is_optional_vk_const_ptr(param) || is_optional_cstr_param(param) {
                 let ptr_name = format_ident!("{}_ptr", param.name.to_snake_case());
                 quote! { #ptr_name }
             } else if param.type_name == "VkBool32" && !param.is_pointer {
@@ -1176,12 +1194,16 @@ mod tests {
         assert!(method.contains("pub unsafe fn enumerate_device_extension_properties"));
         // physicalDevice is Regular (not self-handle for Instance)
         assert!(method.contains("physical_device"));
-        // pLayerName is *const char, optional, but not Vk type → raw pointer
-        assert!(method.contains("p_layer_name"));
+        // pLayerName is optional const char* → Option<&CStr>
+        assert!(method.contains("p_layer_name : Option < & core :: ffi :: CStr >"));
         assert!(method.contains("-> VkResult < Vec < ExtensionProperties >>"));
         assert!(method.contains("enumerate_two_call"));
-        // The closure passes physical_device, p_layer_name, then count/data
-        assert!(method.contains("unsafe { fp (physical_device , p_layer_name , count , data) }"));
+        // The binding converts Option<&CStr> to raw pointer
+        assert!(method.contains("p_layer_name_ptr"));
+        // The closure passes physical_device, the converted pointer, then count/data
+        assert!(
+            method.contains("unsafe { fp (physical_device , p_layer_name_ptr , count , data) }")
+        );
     }
 
     #[test]

@@ -89,9 +89,8 @@ fn enumerate_device_extension_properties() {
     let devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");
 
-    let extensions =
-        unsafe { instance.enumerate_device_extension_properties(devices[0], std::ptr::null()) }
-            .expect("enumerate_device_extension_properties failed");
+    let extensions = unsafe { instance.enumerate_device_extension_properties(devices[0], None) }
+        .expect("enumerate_device_extension_properties failed");
 
     println!("Device extensions: {}", extensions.len());
     assert!(

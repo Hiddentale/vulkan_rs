@@ -508,13 +508,16 @@ impl crate::Instance {
     pub unsafe fn enumerate_device_extension_properties(
         &self,
         physical_device: PhysicalDevice,
-        p_layer_name: *const core::ffi::c_char,
+        p_layer_name: Option<&core::ffi::CStr>,
     ) -> VkResult<Vec<ExtensionProperties>> {
         let fp = self
             .commands()
             .enumerate_device_extension_properties
             .expect("vkEnumerateDeviceExtensionProperties not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, p_layer_name, count, data) })
+        let p_layer_name_ptr = p_layer_name.map_or(core::ptr::null(), core::ffi::CStr::as_ptr);
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, p_layer_name_ptr, count, data)
+        })
     }
     ///Wraps [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties.html).
     /**
