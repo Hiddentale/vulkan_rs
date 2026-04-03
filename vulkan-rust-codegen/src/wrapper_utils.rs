@@ -101,7 +101,8 @@ pub fn build_pnext_struct_set(registry: &VkRegistry) -> HashSet<String> {
 // Parameter classification
 // ---------------------------------------------------------------------------
 
-/// Returns the Vulkan handle type that maps to `&self` for a given dispatch level.
+/// Each dispatch level implicitly passes its owning handle as the first
+/// parameter, which the wrapper receives as `&self`.
 fn self_handle_type(level: DispatchLevel) -> Option<&'static str> {
     match level {
         DispatchLevel::Entry => None,

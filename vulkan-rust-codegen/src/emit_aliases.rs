@@ -136,8 +136,8 @@ pub fn emit_func_pointer_stubs(registry: &VkRegistry) -> TokenStream {
     quote! { #(#stubs)* }
 }
 
-/// Returns true if the StdVideo type is used by value (not pointer) in any struct.
-/// By-value StdVideo types are C enums (i32), not opaque structs.
+/// By-value StdVideo types are C enums (i32) that can be aliased directly,
+/// while pointer-only types are opaque structs that need a stub definition.
 fn is_by_value_stdvideo(registry: &VkRegistry, type_name: &str) -> bool {
     registry.structs.iter().any(|s| {
         s.members

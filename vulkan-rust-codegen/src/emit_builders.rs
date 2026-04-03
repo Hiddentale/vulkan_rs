@@ -99,7 +99,7 @@ fn emit_builder(
         }
 
         impl #struct_name {
-            /// Returns a builder for this struct with sType pre-filled.
+            /// Start building this struct; `s_type` is already set to the correct variant.
             #[inline]
             pub fn builder<'a>() -> #builder_name<'a> {
                 #builder_name {

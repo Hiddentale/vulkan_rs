@@ -180,8 +180,9 @@ fn parse_member_def(def: &TypeMemberDefinition) -> MemberDef {
     }
 }
 
-/// Extract fixed array dimensions from C code like `float color[4]` or `float matrix[3][4]`.
-/// Returns dimensions joined by `:` for multi-dimensional arrays (e.g. `"3:4"`).
+/// Multi-dimensional C arrays (e.g. `float matrix[3][4]`) are stored as
+/// colon-joined dimensions (`"3:4"`) so the emitter can reconstruct
+/// nested `[T; N]` types.
 fn parse_fixed_array_size(code: &str) -> Option<String> {
     let mut dims = Vec::new();
     let mut rest = code;

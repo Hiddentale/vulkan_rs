@@ -34,7 +34,8 @@ fn untestable_extensions(registry: &VkRegistry) -> HashSet<String> {
         .collect()
 }
 
-/// Returns true if this struct is available in standard vulkan.h.
+/// Platform-specific and Vulkan SC structs are excluded from layout tests
+/// because the C compiler may not have their definitions.
 fn is_testable(s: &StructDef, skip_extensions: &HashSet<String>) -> bool {
     if s.members.is_empty() || is_opaque(&s.name) {
         return false;
@@ -46,7 +47,8 @@ fn is_testable(s: &StructDef, skip_extensions: &HashSet<String>) -> bool {
     }
 }
 
-/// Returns true if the struct has any bit-field members.
+/// Bitfield structs need manual layout verification since `offset_of!`
+/// cannot address individual bitfields.
 fn has_bitfields(s: &StructDef) -> bool {
     s.members.iter().any(|m| m.is_bitfield)
 }

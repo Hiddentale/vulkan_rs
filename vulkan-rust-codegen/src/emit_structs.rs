@@ -76,7 +76,8 @@ pub fn is_base_pnext_struct(name: &str) -> bool {
     BASE_PNEXT_STRUCTS.contains(&name)
 }
 
-/// Returns true if the struct has both sType and pNext members.
+/// Structs with sType/pNext participate in extension chains and need
+/// special handling in builders and Default impls.
 pub fn has_stype_pnext(def: &StructDef) -> bool {
     def.members.iter().any(|m| m.name == "sType") && def.members.iter().any(|m| m.name == "pNext")
 }

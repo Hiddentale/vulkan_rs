@@ -139,10 +139,9 @@ pub fn enum_variant_prefix(rust_type_name: &str) -> String {
     format!("VK_{}_", base.to_shouty_snake_case())
 }
 
-/// Strip a C variant name like `VK_FORMAT_R8G8B8A8_SRGB` given prefix `VK_FORMAT_`.
-/// Returns the Rust constant name like `R8G8B8A8_SRGB`.
-///
-/// Also strips trailing extension suffixes from the result if present.
+/// Converts a C enum variant to idiomatic Rust by removing the type prefix
+/// and any trailing extension suffix (e.g. `_KHR`), so variants read cleanly
+/// when qualified by the Rust type name.
 pub fn strip_variant_prefix(c_name: &str, prefix: &str) -> Option<String> {
     let stripped = if let Some(s) = c_name.strip_prefix(prefix) {
         s
