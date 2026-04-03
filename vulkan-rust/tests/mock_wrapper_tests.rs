@@ -275,7 +275,7 @@ unsafe extern "system" fn mock_get_physical_device_memory_properties(
 /// Verifies the wrapper passes device handle + create_info pointer,
 /// writes the output handle, and wraps in Ok.
 #[test]
-fn pattern_create() {
+fn pattern_create_returns_handle() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
@@ -297,7 +297,7 @@ fn pattern_create() {
 /// Verifies the wrapper forwards the device handle, object handle,
 /// and null allocator.
 #[test]
-fn pattern_destroy() {
+fn pattern_destroy_forwards_args() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
@@ -312,7 +312,7 @@ fn pattern_destroy() {
 /// Verifies the two-call protocol (first call for count, second for data)
 /// and that the Vec is correctly populated.
 #[test]
-fn pattern_enumerate() {
+fn pattern_enumerate_returns_vec() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
@@ -327,7 +327,7 @@ fn pattern_enumerate() {
 /// **Fill pattern**: `get_physical_device_queue_family_properties` returns `Vec<T>`.
 /// Verifies the void two-call protocol works without VkResult wrapping.
 #[test]
-fn pattern_fill() {
+fn pattern_fill_returns_populated_vec() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
@@ -348,7 +348,7 @@ fn pattern_fill() {
 /// **Query pattern**: `get_physical_device_memory_properties` returns `T` directly.
 /// Verifies the wrapper zeroes output, calls fp, and returns the struct.
 #[test]
-fn pattern_query() {
+fn pattern_query_returns_struct() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
@@ -364,7 +364,7 @@ fn pattern_query() {
 /// **ResultOnly pattern**: `device_wait_idle` returns `VkResult<()>`.
 /// Verifies the wrapper calls check() and returns Ok(()).
 #[test]
-fn pattern_result_only() {
+fn pattern_result_only_returns_ok() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
@@ -378,7 +378,7 @@ fn pattern_result_only() {
 /// **VoidForward pattern**: `cmd_draw` returns `()`.
 /// Verifies all arguments are forwarded correctly to the PFN.
 #[test]
-fn pattern_void_forward() {
+fn pattern_void_forward_passes_all_args() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
