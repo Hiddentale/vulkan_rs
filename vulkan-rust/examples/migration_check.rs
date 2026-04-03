@@ -3,10 +3,7 @@
 // Exercises every vulkan_rust API call shown in those guides.
 // NOT meant to be run.
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::Device;
 use vulkan_rust::vk;
 
@@ -17,7 +14,7 @@ fn check_entry_creation() {
 
     let app_info =
         ApplicationInfo::builder().api_version(vulkan_rust::Version::new(1, 3, 0).to_raw());
-    let create_info = InstanceCreateInfo::builder().p_application_info(&app_info);
+    let create_info = InstanceCreateInfo::builder().application_info(&app_info);
     let _instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
 }
@@ -110,7 +107,7 @@ unsafe fn check_submit(
 
 /// Verify error handling (migrate-from-ash Step 7)
 unsafe fn check_error_handling(device: &Device) {
-    use vk::enums::Result as VkError;
+    use vk::Result as VkError;
 
     let info = BufferCreateInfo::builder()
         .size(1024)

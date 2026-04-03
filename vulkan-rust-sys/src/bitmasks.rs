@@ -1,6 +1,6 @@
 ///[`VkAccelerationStructureCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCreateFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureCreateFlagBitsKHR")]
 pub struct AccelerationStructureCreateFlagBitsKHR(u32);
 impl AccelerationStructureCreateFlagBitsKHR {
@@ -23,6 +23,10 @@ impl AccelerationStructureCreateFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(13u32)
     }
     ///Bit 0.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(1u32);
@@ -119,7 +123,7 @@ impl core::fmt::Debug for AccelerationStructureCreateFlagBitsKHR {
 }
 ///[`VkAccessFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits")]
 pub struct AccessFlagBits(u32);
 impl AccessFlagBits {
@@ -142,6 +146,10 @@ impl AccessFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(268042239u32)
     }
     ///Bit 0.
     pub const INDIRECT_COMMAND_READ: Self = Self(1u32);
@@ -470,7 +478,7 @@ impl core::fmt::Debug for AccessFlagBits {
 }
 ///[`VkAccessFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits2.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits2")]
 pub struct AccessFlagBits2(u64);
 impl AccessFlagBits2 {
@@ -493,6 +501,10 @@ impl AccessFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(547679931907833855u64)
     }
     pub const _2_NONE: Self = Self(0u64);
     ///Bit 0.
@@ -1041,7 +1053,7 @@ impl core::fmt::Debug for AccessFlagBits2 {
 }
 ///[`VkAccessFlagBits3KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits3KHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits3KHR")]
 pub struct AccessFlagBits3KHR(u64);
 impl AccessFlagBits3KHR {
@@ -1064,6 +1076,10 @@ impl AccessFlagBits3KHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u64)
     }
     pub const ACCESS_3_NONE: Self = Self(0u64);
 }
@@ -1131,7 +1147,7 @@ impl core::fmt::Debug for AccessFlagBits3KHR {
 }
 ///[`VkAcquireProfilingLockFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireProfilingLockFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAcquireProfilingLockFlagBitsKHR")]
 pub struct AcquireProfilingLockFlagBitsKHR(u32);
 impl AcquireProfilingLockFlagBitsKHR {
@@ -1154,6 +1170,10 @@ impl AcquireProfilingLockFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for AcquireProfilingLockFlagBitsKHR {
@@ -1220,7 +1240,7 @@ impl core::fmt::Debug for AcquireProfilingLockFlagBitsKHR {
 }
 ///[`VkAddressCommandFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAddressCommandFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAddressCommandFlagBitsKHR")]
 pub struct AddressCommandFlagBitsKHR(u32);
 impl AddressCommandFlagBitsKHR {
@@ -1243,6 +1263,10 @@ impl AddressCommandFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
@@ -1369,7 +1393,7 @@ impl core::fmt::Debug for AddressCommandFlagBitsKHR {
 }
 ///[`VkAddressCopyFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAddressCopyFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAddressCopyFlagBitsKHR")]
 pub struct AddressCopyFlagBitsKHR(u32);
 impl AddressCopyFlagBitsKHR {
@@ -1392,6 +1416,10 @@ impl AddressCopyFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
@@ -1488,7 +1516,7 @@ impl core::fmt::Debug for AddressCopyFlagBitsKHR {
 }
 ///[`VkAttachmentDescriptionFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentDescriptionFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAttachmentDescriptionFlagBits")]
 pub struct AttachmentDescriptionFlagBits(u32);
 impl AttachmentDescriptionFlagBits {
@@ -1511,6 +1539,10 @@ impl AttachmentDescriptionFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const MAY_ALIAS: Self = Self(1u32);
@@ -1607,7 +1639,7 @@ impl core::fmt::Debug for AttachmentDescriptionFlagBits {
 }
 ///[`VkBufferCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBufferCreateFlagBits")]
 pub struct BufferCreateFlagBits(u32);
 impl BufferCreateFlagBits {
@@ -1630,6 +1662,10 @@ impl BufferCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(127u32)
     }
     ///Bit 0.
     pub const SPARSE_BINDING: Self = Self(1u32);
@@ -1766,7 +1802,7 @@ impl core::fmt::Debug for BufferCreateFlagBits {
 }
 ///[`VkBufferUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferUsageFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBufferUsageFlagBits")]
 pub struct BufferUsageFlagBits(u32);
 impl BufferUsageFlagBits {
@@ -1789,6 +1825,10 @@ impl BufferUsageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(536608767u32)
     }
     ///Bit 0.
     pub const TRANSFER_SRC: Self = Self(1u32);
@@ -2136,7 +2176,7 @@ impl core::fmt::Debug for BufferUsageFlagBits {
 }
 ///[`VkBufferUsageFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferUsageFlagBits2.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBufferUsageFlagBits2")]
 pub struct BufferUsageFlagBits2(u64);
 impl BufferUsageFlagBits2 {
@@ -2159,6 +2199,10 @@ impl BufferUsageFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(16105865215u64)
     }
     ///Bit 0.
     pub const _2_TRANSFER_SRC: Self = Self(1u64);
@@ -2546,7 +2590,7 @@ impl core::fmt::Debug for BufferUsageFlagBits2 {
 }
 ///[`VkBuildAccelerationStructureFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildAccelerationStructureFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBuildAccelerationStructureFlagBitsKHR")]
 pub struct BuildAccelerationStructureFlagBitsKHR(u32);
 impl BuildAccelerationStructureFlagBitsKHR {
@@ -2569,6 +2613,10 @@ impl BuildAccelerationStructureFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7167u32)
     }
     ///Bit 0.
     pub const ALLOW_UPDATE: Self = Self(1u32);
@@ -2755,7 +2803,7 @@ impl core::fmt::Debug for BuildAccelerationStructureFlagBitsKHR {
 }
 ///[`VkBuildMicromapFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildMicromapFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBuildMicromapFlagBitsEXT")]
 pub struct BuildMicromapFlagBitsEXT(u32);
 impl BuildMicromapFlagBitsEXT {
@@ -2778,6 +2826,10 @@ impl BuildMicromapFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const PREFER_FAST_TRACE: Self = Self(1u32);
@@ -2874,7 +2926,7 @@ impl core::fmt::Debug for BuildMicromapFlagBitsEXT {
 }
 ///[`VkClusterAccelerationStructureAddressResolutionFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagBitsNV")]
 pub struct ClusterAccelerationStructureAddressResolutionFlagBitsNV(u32);
 impl ClusterAccelerationStructureAddressResolutionFlagBitsNV {
@@ -2897,6 +2949,10 @@ impl ClusterAccelerationStructureAddressResolutionFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -3026,7 +3082,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureAddressResolutionFlagBitsN
 }
 ///[`VkClusterAccelerationStructureClusterFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureClusterFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureClusterFlagBitsNV")]
 pub struct ClusterAccelerationStructureClusterFlagBitsNV(u32);
 impl ClusterAccelerationStructureClusterFlagBitsNV {
@@ -3049,6 +3105,10 @@ impl ClusterAccelerationStructureClusterFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const ALLOW_DISABLE_OPACITY_MICROMAPS: Self = Self(1u32);
@@ -3125,7 +3185,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureClusterFlagBitsNV {
 }
 ///[`VkClusterAccelerationStructureGeometryFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureGeometryFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureGeometryFlagBitsNV")]
 pub struct ClusterAccelerationStructureGeometryFlagBitsNV(u32);
 impl ClusterAccelerationStructureGeometryFlagBitsNV {
@@ -3148,6 +3208,10 @@ impl ClusterAccelerationStructureGeometryFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const CULL_DISABLE: Self = Self(1u32);
@@ -3244,7 +3308,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureGeometryFlagBitsNV {
 }
 ///[`VkClusterAccelerationStructureIndexFormatFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureIndexFormatFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagBitsNV")]
 pub struct ClusterAccelerationStructureIndexFormatFlagBitsNV(u32);
 impl ClusterAccelerationStructureIndexFormatFlagBitsNV {
@@ -3267,6 +3331,10 @@ impl ClusterAccelerationStructureIndexFormatFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const _8BIT: Self = Self(1u32);
@@ -3363,7 +3431,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureIndexFormatFlagBitsNV {
 }
 ///[`VkColorComponentFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorComponentFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkColorComponentFlagBits")]
 pub struct ColorComponentFlagBits(u32);
 impl ColorComponentFlagBits {
@@ -3386,6 +3454,10 @@ impl ColorComponentFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const R: Self = Self(1u32);
@@ -3492,7 +3564,7 @@ impl core::fmt::Debug for ColorComponentFlagBits {
 }
 ///[`VkCommandBufferResetFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferResetFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCommandBufferResetFlagBits")]
 pub struct CommandBufferResetFlagBits(u32);
 impl CommandBufferResetFlagBits {
@@ -3515,6 +3587,10 @@ impl CommandBufferResetFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const RELEASE_RESOURCES: Self = Self(1u32);
@@ -3591,7 +3667,7 @@ impl core::fmt::Debug for CommandBufferResetFlagBits {
 }
 ///[`VkCommandBufferUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferUsageFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCommandBufferUsageFlagBits")]
 pub struct CommandBufferUsageFlagBits(u32);
 impl CommandBufferUsageFlagBits {
@@ -3614,6 +3690,10 @@ impl CommandBufferUsageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const ONE_TIME_SUBMIT: Self = Self(1u32);
@@ -3710,7 +3790,7 @@ impl core::fmt::Debug for CommandBufferUsageFlagBits {
 }
 ///[`VkCommandPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCommandPoolCreateFlagBits")]
 pub struct CommandPoolCreateFlagBits(u32);
 impl CommandPoolCreateFlagBits {
@@ -3733,6 +3813,10 @@ impl CommandPoolCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const TRANSIENT: Self = Self(1u32);
@@ -3829,7 +3913,7 @@ impl core::fmt::Debug for CommandPoolCreateFlagBits {
 }
 ///[`VkCommandPoolResetFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolResetFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCommandPoolResetFlagBits")]
 pub struct CommandPoolResetFlagBits(u32);
 impl CommandPoolResetFlagBits {
@@ -3852,6 +3936,10 @@ impl CommandPoolResetFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const RELEASE_RESOURCES: Self = Self(1u32);
@@ -3928,7 +4016,7 @@ impl core::fmt::Debug for CommandPoolResetFlagBits {
 }
 ///[`VkCompositeAlphaFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompositeAlphaFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCompositeAlphaFlagBitsKHR")]
 pub struct CompositeAlphaFlagBitsKHR(u32);
 impl CompositeAlphaFlagBitsKHR {
@@ -3951,6 +4039,10 @@ impl CompositeAlphaFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
@@ -4057,7 +4149,7 @@ impl core::fmt::Debug for CompositeAlphaFlagBitsKHR {
 }
 ///[`VkConditionalRenderingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkConditionalRenderingFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkConditionalRenderingFlagBitsEXT")]
 pub struct ConditionalRenderingFlagBitsEXT(u32);
 impl ConditionalRenderingFlagBitsEXT {
@@ -4080,6 +4172,10 @@ impl ConditionalRenderingFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const INVERTED: Self = Self(1u32);
@@ -4156,7 +4252,7 @@ impl core::fmt::Debug for ConditionalRenderingFlagBitsEXT {
 }
 ///[`VkCullModeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCullModeFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCullModeFlagBits")]
 pub struct CullModeFlagBits(u32);
 impl CullModeFlagBits {
@@ -4179,6 +4275,10 @@ impl CullModeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -4267,7 +4367,7 @@ impl core::fmt::Debug for CullModeFlagBits {
 }
 ///[`VkDataGraphPipelineDispatchFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineDispatchFlagBitsARM.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineDispatchFlagBitsARM")]
 pub struct DataGraphPipelineDispatchFlagBitsARM(u64);
 impl DataGraphPipelineDispatchFlagBitsARM {
@@ -4290,6 +4390,10 @@ impl DataGraphPipelineDispatchFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u64)
     }
 }
 impl core::ops::BitOr for DataGraphPipelineDispatchFlagBitsARM {
@@ -4356,7 +4460,7 @@ impl core::fmt::Debug for DataGraphPipelineDispatchFlagBitsARM {
 }
 ///[`VkDataGraphPipelineSessionCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineSessionCreateFlagBitsARM.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineSessionCreateFlagBitsARM")]
 pub struct DataGraphPipelineSessionCreateFlagBitsARM(u64);
 impl DataGraphPipelineSessionCreateFlagBitsARM {
@@ -4379,6 +4483,10 @@ impl DataGraphPipelineSessionCreateFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
     }
     ///Bit 0.
     pub const PROTECTED_BIT: Self = Self(1u64);
@@ -4455,7 +4563,7 @@ impl core::fmt::Debug for DataGraphPipelineSessionCreateFlagBitsARM {
 }
 ///[`VkDebugReportFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugReportFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDebugReportFlagBitsEXT")]
 pub struct DebugReportFlagBitsEXT(u32);
 impl DebugReportFlagBitsEXT {
@@ -4478,6 +4586,10 @@ impl DebugReportFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const INFORMATION: Self = Self(1u32);
@@ -4594,7 +4706,7 @@ impl core::fmt::Debug for DebugReportFlagBitsEXT {
 }
 ///[`VkDebugUtilsMessageSeverityFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageSeverityFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDebugUtilsMessageSeverityFlagBitsEXT")]
 pub struct DebugUtilsMessageSeverityFlagBitsEXT(u32);
 impl DebugUtilsMessageSeverityFlagBitsEXT {
@@ -4617,6 +4729,10 @@ impl DebugUtilsMessageSeverityFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(4369u32)
     }
     ///Bit 0.
     pub const VERBOSE: Self = Self(1u32);
@@ -4723,7 +4839,7 @@ impl core::fmt::Debug for DebugUtilsMessageSeverityFlagBitsEXT {
 }
 ///[`VkDebugUtilsMessageTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageTypeFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDebugUtilsMessageTypeFlagBitsEXT")]
 pub struct DebugUtilsMessageTypeFlagBitsEXT(u32);
 impl DebugUtilsMessageTypeFlagBitsEXT {
@@ -4746,6 +4862,10 @@ impl DebugUtilsMessageTypeFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const GENERAL: Self = Self(1u32);
@@ -4852,7 +4972,7 @@ impl core::fmt::Debug for DebugUtilsMessageTypeFlagBitsEXT {
 }
 ///[`VkDependencyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDependencyFlagBits")]
 pub struct DependencyFlagBits(u32);
 impl DependencyFlagBits {
@@ -4875,6 +4995,10 @@ impl DependencyFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(111u32)
     }
     ///Bit 0.
     pub const BY_REGION: Self = Self(1u32);
@@ -5001,7 +5125,7 @@ impl core::fmt::Debug for DependencyFlagBits {
 }
 ///[`VkDescriptorBindingFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorBindingFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDescriptorBindingFlagBits")]
 pub struct DescriptorBindingFlagBits(u32);
 impl DescriptorBindingFlagBits {
@@ -5024,6 +5148,10 @@ impl DescriptorBindingFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const UPDATE_AFTER_BIND: Self = Self(1u32);
@@ -5130,7 +5258,7 @@ impl core::fmt::Debug for DescriptorBindingFlagBits {
 }
 ///[`VkDescriptorPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPoolCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDescriptorPoolCreateFlagBits")]
 pub struct DescriptorPoolCreateFlagBits(u32);
 impl DescriptorPoolCreateFlagBits {
@@ -5153,6 +5281,10 @@ impl DescriptorPoolCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const FREE_DESCRIPTOR_SET: Self = Self(1u32);
@@ -5270,7 +5402,7 @@ impl core::fmt::Debug for DescriptorPoolCreateFlagBits {
 }
 ///[`VkDescriptorSetLayoutCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDescriptorSetLayoutCreateFlagBits")]
 pub struct DescriptorSetLayoutCreateFlagBits(u32);
 impl DescriptorSetLayoutCreateFlagBits {
@@ -5293,6 +5425,10 @@ impl DescriptorSetLayoutCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(247u32)
     }
     ///Bit 1.
     pub const UPDATE_AFTER_BIND_POOL: Self = Self(2u32);
@@ -5430,7 +5566,7 @@ impl core::fmt::Debug for DescriptorSetLayoutCreateFlagBits {
 }
 ///[`VkDeviceAddressBindingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddressBindingFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceAddressBindingFlagBitsEXT")]
 pub struct DeviceAddressBindingFlagBitsEXT(u32);
 impl DeviceAddressBindingFlagBitsEXT {
@@ -5453,6 +5589,10 @@ impl DeviceAddressBindingFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const INTERNAL_OBJECT: Self = Self(1u32);
@@ -5529,7 +5669,7 @@ impl core::fmt::Debug for DeviceAddressBindingFlagBitsEXT {
 }
 ///[`VkDeviceDiagnosticsConfigFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceDiagnosticsConfigFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceDiagnosticsConfigFlagBitsNV")]
 pub struct DeviceDiagnosticsConfigFlagBitsNV(u32);
 impl DeviceDiagnosticsConfigFlagBitsNV {
@@ -5552,6 +5692,10 @@ impl DeviceDiagnosticsConfigFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const ENABLE_SHADER_DEBUG_INFO: Self = Self(1u32);
@@ -5658,7 +5802,7 @@ impl core::fmt::Debug for DeviceDiagnosticsConfigFlagBitsNV {
 }
 ///[`VkDeviceFaultFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceFaultFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceFaultFlagBitsKHR")]
 pub struct DeviceFaultFlagBitsKHR(u32);
 impl DeviceFaultFlagBitsKHR {
@@ -5681,6 +5825,10 @@ impl DeviceFaultFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const FLAG_DEVICE_LOST: Self = Self(1u32);
@@ -5807,7 +5955,7 @@ impl core::fmt::Debug for DeviceFaultFlagBitsKHR {
 }
 ///[`VkDeviceGroupPresentModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceGroupPresentModeFlagBitsKHR")]
 pub struct DeviceGroupPresentModeFlagBitsKHR(u32);
 impl DeviceGroupPresentModeFlagBitsKHR {
@@ -5830,6 +5978,10 @@ impl DeviceGroupPresentModeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const LOCAL: Self = Self(1u32);
@@ -5936,7 +6088,7 @@ impl core::fmt::Debug for DeviceGroupPresentModeFlagBitsKHR {
 }
 ///[`VkDeviceQueueCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceQueueCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceQueueCreateFlagBits")]
 pub struct DeviceQueueCreateFlagBits(u32);
 impl DeviceQueueCreateFlagBits {
@@ -5959,6 +6111,10 @@ impl DeviceQueueCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(5u32)
     }
     ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
@@ -6045,7 +6201,7 @@ impl core::fmt::Debug for DeviceQueueCreateFlagBits {
 }
 ///[`VkDisplayPlaneAlphaFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayPlaneAlphaFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDisplayPlaneAlphaFlagBitsKHR")]
 pub struct DisplayPlaneAlphaFlagBitsKHR(u32);
 impl DisplayPlaneAlphaFlagBitsKHR {
@@ -6068,6 +6224,10 @@ impl DisplayPlaneAlphaFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
@@ -6174,7 +6334,7 @@ impl core::fmt::Debug for DisplayPlaneAlphaFlagBitsKHR {
 }
 ///[`VkEventCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEventCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkEventCreateFlagBits")]
 pub struct EventCreateFlagBits(u32);
 impl EventCreateFlagBits {
@@ -6197,6 +6357,10 @@ impl EventCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const DEVICE_ONLY: Self = Self(1u32);
@@ -6273,7 +6437,7 @@ impl core::fmt::Debug for EventCreateFlagBits {
 }
 ///[`VkExportMetalObjectTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectTypeFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExportMetalObjectTypeFlagBitsEXT")]
 pub struct ExportMetalObjectTypeFlagBitsEXT(u32);
 impl ExportMetalObjectTypeFlagBitsEXT {
@@ -6296,6 +6460,10 @@ impl ExportMetalObjectTypeFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const METAL_DEVICE: Self = Self(1u32);
@@ -6422,7 +6590,7 @@ impl core::fmt::Debug for ExportMetalObjectTypeFlagBitsEXT {
 }
 ///[`VkExternalFenceFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceFeatureFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalFenceFeatureFlagBits")]
 pub struct ExternalFenceFeatureFlagBits(u32);
 impl ExternalFenceFeatureFlagBits {
@@ -6445,6 +6613,10 @@ impl ExternalFenceFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const EXPORTABLE: Self = Self(1u32);
@@ -6531,7 +6703,7 @@ impl core::fmt::Debug for ExternalFenceFeatureFlagBits {
 }
 ///[`VkExternalFenceHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceHandleTypeFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalFenceHandleTypeFlagBits")]
 pub struct ExternalFenceHandleTypeFlagBits(u32);
 impl ExternalFenceHandleTypeFlagBits {
@@ -6554,6 +6726,10 @@ impl ExternalFenceHandleTypeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
@@ -6660,7 +6836,7 @@ impl core::fmt::Debug for ExternalFenceHandleTypeFlagBits {
 }
 ///[`VkExternalMemoryFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryFeatureFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalMemoryFeatureFlagBits")]
 pub struct ExternalMemoryFeatureFlagBits(u32);
 impl ExternalMemoryFeatureFlagBits {
@@ -6683,6 +6859,10 @@ impl ExternalMemoryFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const DEDICATED_ONLY: Self = Self(1u32);
@@ -6779,7 +6959,7 @@ impl core::fmt::Debug for ExternalMemoryFeatureFlagBits {
 }
 ///[`VkExternalMemoryFeatureFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryFeatureFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalMemoryFeatureFlagBitsNV")]
 pub struct ExternalMemoryFeatureFlagBitsNV(u32);
 impl ExternalMemoryFeatureFlagBitsNV {
@@ -6802,6 +6982,10 @@ impl ExternalMemoryFeatureFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const DEDICATED_ONLY: Self = Self(1u32);
@@ -6898,7 +7082,7 @@ impl core::fmt::Debug for ExternalMemoryFeatureFlagBitsNV {
 }
 ///[`VkExternalMemoryHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalMemoryHandleTypeFlagBits")]
 pub struct ExternalMemoryHandleTypeFlagBits(u32);
 impl ExternalMemoryHandleTypeFlagBits {
@@ -6921,6 +7105,10 @@ impl ExternalMemoryHandleTypeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(516095u32)
     }
     ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
@@ -7167,7 +7355,7 @@ impl core::fmt::Debug for ExternalMemoryHandleTypeFlagBits {
 }
 ///[`VkExternalMemoryHandleTypeFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalMemoryHandleTypeFlagBitsNV")]
 pub struct ExternalMemoryHandleTypeFlagBitsNV(u32);
 impl ExternalMemoryHandleTypeFlagBitsNV {
@@ -7190,6 +7378,10 @@ impl ExternalMemoryHandleTypeFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const OPAQUE_WIN32: Self = Self(1u32);
@@ -7296,7 +7488,7 @@ impl core::fmt::Debug for ExternalMemoryHandleTypeFlagBitsNV {
 }
 ///[`VkExternalSemaphoreFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalSemaphoreFeatureFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalSemaphoreFeatureFlagBits")]
 pub struct ExternalSemaphoreFeatureFlagBits(u32);
 impl ExternalSemaphoreFeatureFlagBits {
@@ -7319,6 +7511,10 @@ impl ExternalSemaphoreFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const EXPORTABLE: Self = Self(1u32);
@@ -7405,7 +7601,7 @@ impl core::fmt::Debug for ExternalSemaphoreFeatureFlagBits {
 }
 ///[`VkExternalSemaphoreHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalSemaphoreHandleTypeFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkExternalSemaphoreHandleTypeFlagBits")]
 pub struct ExternalSemaphoreHandleTypeFlagBits(u32);
 impl ExternalSemaphoreHandleTypeFlagBits {
@@ -7428,6 +7624,10 @@ impl ExternalSemaphoreHandleTypeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(159u32)
     }
     ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
@@ -7555,7 +7755,7 @@ impl core::fmt::Debug for ExternalSemaphoreHandleTypeFlagBits {
 }
 ///[`VkFenceCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFenceCreateFlagBits")]
 pub struct FenceCreateFlagBits(u32);
 impl FenceCreateFlagBits {
@@ -7578,6 +7778,10 @@ impl FenceCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const SIGNALED: Self = Self(1u32);
@@ -7654,7 +7858,7 @@ impl core::fmt::Debug for FenceCreateFlagBits {
 }
 ///[`VkFenceImportFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceImportFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFenceImportFlagBits")]
 pub struct FenceImportFlagBits(u32);
 impl FenceImportFlagBits {
@@ -7677,6 +7881,10 @@ impl FenceImportFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const TEMPORARY: Self = Self(1u32);
@@ -7753,7 +7961,7 @@ impl core::fmt::Debug for FenceImportFlagBits {
 }
 ///[`VkFormatFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFormatFeatureFlagBits")]
 pub struct FormatFeatureFlagBits(u32);
 impl FormatFeatureFlagBits {
@@ -7776,6 +7984,10 @@ impl FormatFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     ///Bit 0.
     pub const SAMPLED_IMAGE: Self = Self(1u32);
@@ -8178,7 +8390,7 @@ impl core::fmt::Debug for FormatFeatureFlagBits {
 }
 ///[`VkFormatFeatureFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits2.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFormatFeatureFlagBits2")]
 pub struct FormatFeatureFlagBits2(u64);
 impl FormatFeatureFlagBits2 {
@@ -8201,6 +8413,10 @@ impl FormatFeatureFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(648324832294862847u64)
     }
     ///Bit 0.
     pub const _2_SAMPLED_IMAGE: Self = Self(1u64);
@@ -8834,7 +9050,7 @@ impl core::fmt::Debug for FormatFeatureFlagBits2 {
 }
 ///[`VkFrameBoundaryFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFrameBoundaryFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFrameBoundaryFlagBitsEXT")]
 pub struct FrameBoundaryFlagBitsEXT(u32);
 impl FrameBoundaryFlagBitsEXT {
@@ -8857,6 +9073,10 @@ impl FrameBoundaryFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const FRAME_END: Self = Self(1u32);
@@ -8933,7 +9153,7 @@ impl core::fmt::Debug for FrameBoundaryFlagBitsEXT {
 }
 ///[`VkFramebufferCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebufferCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFramebufferCreateFlagBits")]
 pub struct FramebufferCreateFlagBits(u32);
 impl FramebufferCreateFlagBits {
@@ -8956,6 +9176,10 @@ impl FramebufferCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const IMAGELESS: Self = Self(1u32);
@@ -9032,7 +9256,7 @@ impl core::fmt::Debug for FramebufferCreateFlagBits {
 }
 ///[`VkGeometryFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkGeometryFlagBitsKHR")]
 pub struct GeometryFlagBitsKHR(u32);
 impl GeometryFlagBitsKHR {
@@ -9055,6 +9279,10 @@ impl GeometryFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
@@ -9141,7 +9369,7 @@ impl core::fmt::Debug for GeometryFlagBitsKHR {
 }
 ///[`VkGeometryInstanceFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryInstanceFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkGeometryInstanceFlagBitsKHR")]
 pub struct GeometryInstanceFlagBitsKHR(u32);
 impl GeometryInstanceFlagBitsKHR {
@@ -9164,6 +9392,10 @@ impl GeometryInstanceFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const TRIANGLE_FACING_CULL_DISABLE: Self = Self(1u32);
@@ -9292,7 +9524,7 @@ impl core::fmt::Debug for GeometryInstanceFlagBitsKHR {
 }
 ///[`VkGraphicsPipelineLibraryFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineLibraryFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkGraphicsPipelineLibraryFlagBitsEXT")]
 pub struct GraphicsPipelineLibraryFlagBitsEXT(u32);
 impl GraphicsPipelineLibraryFlagBitsEXT {
@@ -9315,6 +9547,10 @@ impl GraphicsPipelineLibraryFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const VERTEX_INPUT_INTERFACE: Self = Self(1u32);
@@ -9421,7 +9657,7 @@ impl core::fmt::Debug for GraphicsPipelineLibraryFlagBitsEXT {
 }
 ///[`VkHostImageCopyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkHostImageCopyFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkHostImageCopyFlagBits")]
 pub struct HostImageCopyFlagBits(u32);
 impl HostImageCopyFlagBits {
@@ -9444,6 +9680,10 @@ impl HostImageCopyFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const MEMCPY: Self = Self(1u32);
@@ -9520,7 +9760,7 @@ impl core::fmt::Debug for HostImageCopyFlagBits {
 }
 ///[`VkImageAspectFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageAspectFlagBits")]
 pub struct ImageAspectFlagBits(u32);
 impl ImageAspectFlagBits {
@@ -9543,6 +9783,10 @@ impl ImageAspectFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2047u32)
     }
     ///Bit 0.
     pub const COLOR: Self = Self(1u32);
@@ -9720,7 +9964,7 @@ impl core::fmt::Debug for ImageAspectFlagBits {
 }
 ///[`VkImageCompressionFixedRateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionFixedRateFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageCompressionFixedRateFlagBitsEXT")]
 pub struct ImageCompressionFixedRateFlagBitsEXT(u32);
 impl ImageCompressionFixedRateFlagBitsEXT {
@@ -9743,6 +9987,10 @@ impl ImageCompressionFixedRateFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(16777215u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -10050,7 +10298,7 @@ impl core::fmt::Debug for ImageCompressionFixedRateFlagBitsEXT {
 }
 ///[`VkImageCompressionFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageCompressionFlagBitsEXT")]
 pub struct ImageCompressionFlagBitsEXT(u32);
 impl ImageCompressionFlagBitsEXT {
@@ -10073,6 +10321,10 @@ impl ImageCompressionFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
@@ -10170,7 +10422,7 @@ impl core::fmt::Debug for ImageCompressionFlagBitsEXT {
 }
 ///[`VkImageConstraintsInfoFlagBitsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageConstraintsInfoFlagBitsFUCHSIA.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageConstraintsInfoFlagBitsFUCHSIA")]
 pub struct ImageConstraintsInfoFlagBitsFUCHSIA(u32);
 impl ImageConstraintsInfoFlagBitsFUCHSIA {
@@ -10193,6 +10445,10 @@ impl ImageConstraintsInfoFlagBitsFUCHSIA {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const CPU_READ_RARELY: Self = Self(1u32);
@@ -10309,7 +10565,7 @@ impl core::fmt::Debug for ImageConstraintsInfoFlagBitsFUCHSIA {
 }
 ///[`VkImageCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageCreateFlagBits")]
 pub struct ImageCreateFlagBits(u32);
 impl ImageCreateFlagBits {
@@ -10332,6 +10588,10 @@ impl ImageCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1572863u32)
     }
     ///Bit 0.
     pub const SPARSE_BINDING: Self = Self(1u32);
@@ -10600,7 +10860,7 @@ impl core::fmt::Debug for ImageCreateFlagBits {
 }
 ///[`VkImageFormatConstraintsFlagBitsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageFormatConstraintsFlagBitsFUCHSIA.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageFormatConstraintsFlagBitsFUCHSIA")]
 pub struct ImageFormatConstraintsFlagBitsFUCHSIA(u32);
 impl ImageFormatConstraintsFlagBitsFUCHSIA {
@@ -10623,6 +10883,10 @@ impl ImageFormatConstraintsFlagBitsFUCHSIA {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for ImageFormatConstraintsFlagBitsFUCHSIA {
@@ -10689,7 +10953,7 @@ impl core::fmt::Debug for ImageFormatConstraintsFlagBitsFUCHSIA {
 }
 ///[`VkImageUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageUsageFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageUsageFlagBits")]
 pub struct ImageUsageFlagBits(u32);
 impl ImageUsageFlagBits {
@@ -10712,6 +10976,10 @@ impl ImageUsageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(251461631u32)
     }
     ///Bit 0.
     pub const TRANSFER_SRC: Self = Self(1u32);
@@ -11029,7 +11297,7 @@ impl core::fmt::Debug for ImageUsageFlagBits {
 }
 ///[`VkImageViewCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageViewCreateFlagBits")]
 pub struct ImageViewCreateFlagBits(u32);
 impl ImageViewCreateFlagBits {
@@ -11052,6 +11320,10 @@ impl ImageViewCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const FRAGMENT_DENSITY_MAP_DYNAMIC: Self = Self(1u32);
@@ -11148,7 +11420,7 @@ impl core::fmt::Debug for ImageViewCreateFlagBits {
 }
 ///[`VkIndirectCommandsInputModeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsInputModeFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsInputModeFlagBitsEXT")]
 pub struct IndirectCommandsInputModeFlagBitsEXT(u32);
 impl IndirectCommandsInputModeFlagBitsEXT {
@@ -11171,6 +11443,10 @@ impl IndirectCommandsInputModeFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const VULKAN_INDEX_BUFFER: Self = Self(1u32);
@@ -11257,7 +11533,7 @@ impl core::fmt::Debug for IndirectCommandsInputModeFlagBitsEXT {
 }
 ///[`VkIndirectCommandsLayoutUsageFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutUsageFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsEXT")]
 pub struct IndirectCommandsLayoutUsageFlagBitsEXT(u32);
 impl IndirectCommandsLayoutUsageFlagBitsEXT {
@@ -11280,6 +11556,10 @@ impl IndirectCommandsLayoutUsageFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const EXPLICIT_PREPROCESS: Self = Self(1u32);
@@ -11366,7 +11646,7 @@ impl core::fmt::Debug for IndirectCommandsLayoutUsageFlagBitsEXT {
 }
 ///[`VkIndirectCommandsLayoutUsageFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutUsageFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsNV")]
 pub struct IndirectCommandsLayoutUsageFlagBitsNV(u32);
 impl IndirectCommandsLayoutUsageFlagBitsNV {
@@ -11389,6 +11669,10 @@ impl IndirectCommandsLayoutUsageFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const EXPLICIT_PREPROCESS: Self = Self(1u32);
@@ -11485,7 +11769,7 @@ impl core::fmt::Debug for IndirectCommandsLayoutUsageFlagBitsNV {
 }
 ///[`VkIndirectStateFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectStateFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndirectStateFlagBitsNV")]
 pub struct IndirectStateFlagBitsNV(u32);
 impl IndirectStateFlagBitsNV {
@@ -11508,6 +11792,10 @@ impl IndirectStateFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const FLAG_FRONTFACE: Self = Self(1u32);
@@ -11584,7 +11872,7 @@ impl core::fmt::Debug for IndirectStateFlagBitsNV {
 }
 ///[`VkInstanceCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkInstanceCreateFlagBits")]
 pub struct InstanceCreateFlagBits(u32);
 impl InstanceCreateFlagBits {
@@ -11607,6 +11895,10 @@ impl InstanceCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const ENUMERATE_PORTABILITY: Self = Self(1u32);
@@ -11683,7 +11975,7 @@ impl core::fmt::Debug for InstanceCreateFlagBits {
 }
 ///[`VkMemoryAllocateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMemoryAllocateFlagBits")]
 pub struct MemoryAllocateFlagBits(u32);
 impl MemoryAllocateFlagBits {
@@ -11706,6 +11998,10 @@ impl MemoryAllocateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const DEVICE_MASK: Self = Self(1u32);
@@ -11812,7 +12108,7 @@ impl core::fmt::Debug for MemoryAllocateFlagBits {
 }
 ///[`VkMemoryDecompressionMethodFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryDecompressionMethodFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMemoryDecompressionMethodFlagBitsEXT")]
 pub struct MemoryDecompressionMethodFlagBitsEXT(u64);
 impl MemoryDecompressionMethodFlagBitsEXT {
@@ -11835,6 +12131,10 @@ impl MemoryDecompressionMethodFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
     }
     ///Bit 0.
     pub const GDEFLATE_1_0: Self = Self(1u64);
@@ -11911,7 +12211,7 @@ impl core::fmt::Debug for MemoryDecompressionMethodFlagBitsEXT {
 }
 ///[`VkMemoryHeapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryHeapFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMemoryHeapFlagBits")]
 pub struct MemoryHeapFlagBits(u32);
 impl MemoryHeapFlagBits {
@@ -11934,6 +12234,10 @@ impl MemoryHeapFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
@@ -12040,7 +12344,7 @@ impl core::fmt::Debug for MemoryHeapFlagBits {
 }
 ///[`VkMemoryMapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryMapFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMemoryMapFlagBits")]
 pub struct MemoryMapFlagBits(u32);
 impl MemoryMapFlagBits {
@@ -12063,6 +12367,10 @@ impl MemoryMapFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const PLACED: Self = Self(1u32);
@@ -12139,7 +12447,7 @@ impl core::fmt::Debug for MemoryMapFlagBits {
 }
 ///[`VkMemoryPropertyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryPropertyFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMemoryPropertyFlagBits")]
 pub struct MemoryPropertyFlagBits(u32);
 impl MemoryPropertyFlagBits {
@@ -12162,6 +12470,10 @@ impl MemoryPropertyFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(511u32)
     }
     ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
@@ -12318,7 +12630,7 @@ impl core::fmt::Debug for MemoryPropertyFlagBits {
 }
 ///[`VkMemoryUnmapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryUnmapFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMemoryUnmapFlagBits")]
 pub struct MemoryUnmapFlagBits(u32);
 impl MemoryUnmapFlagBits {
@@ -12341,6 +12653,10 @@ impl MemoryUnmapFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const RESERVE: Self = Self(1u32);
@@ -12417,7 +12733,7 @@ impl core::fmt::Debug for MemoryUnmapFlagBits {
 }
 ///[`VkMicromapCreateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMicromapCreateFlagBitsEXT")]
 pub struct MicromapCreateFlagBitsEXT(u32);
 impl MicromapCreateFlagBitsEXT {
@@ -12440,6 +12756,10 @@ impl MicromapCreateFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(1u32);
@@ -12516,7 +12836,7 @@ impl core::fmt::Debug for MicromapCreateFlagBitsEXT {
 }
 ///[`VkOpticalFlowExecuteFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowExecuteFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpticalFlowExecuteFlagBitsNV")]
 pub struct OpticalFlowExecuteFlagBitsNV(u32);
 impl OpticalFlowExecuteFlagBitsNV {
@@ -12539,6 +12859,10 @@ impl OpticalFlowExecuteFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const DISABLE_TEMPORAL_HINTS: Self = Self(1u32);
@@ -12615,7 +12939,7 @@ impl core::fmt::Debug for OpticalFlowExecuteFlagBitsNV {
 }
 ///[`VkOpticalFlowGridSizeFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowGridSizeFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpticalFlowGridSizeFlagBitsNV")]
 pub struct OpticalFlowGridSizeFlagBitsNV(u32);
 impl OpticalFlowGridSizeFlagBitsNV {
@@ -12638,6 +12962,10 @@ impl OpticalFlowGridSizeFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const UNKNOWN: Self = Self(0u32);
     ///Bit 0.
@@ -12745,7 +13073,7 @@ impl core::fmt::Debug for OpticalFlowGridSizeFlagBitsNV {
 }
 ///[`VkOpticalFlowSessionCreateFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreateFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpticalFlowSessionCreateFlagBitsNV")]
 pub struct OpticalFlowSessionCreateFlagBitsNV(u32);
 impl OpticalFlowSessionCreateFlagBitsNV {
@@ -12768,6 +13096,10 @@ impl OpticalFlowSessionCreateFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const ENABLE_HINT: Self = Self(1u32);
@@ -12884,7 +13216,7 @@ impl core::fmt::Debug for OpticalFlowSessionCreateFlagBitsNV {
 }
 ///[`VkOpticalFlowUsageFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowUsageFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpticalFlowUsageFlagBitsNV")]
 pub struct OpticalFlowUsageFlagBitsNV(u32);
 impl OpticalFlowUsageFlagBitsNV {
@@ -12907,6 +13239,10 @@ impl OpticalFlowUsageFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     pub const UNKNOWN: Self = Self(0u32);
     ///Bit 0.
@@ -13024,7 +13360,7 @@ impl core::fmt::Debug for OpticalFlowUsageFlagBitsNV {
 }
 ///[`VkPartitionedAccelerationStructureInstanceFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagBitsNV")]
 pub struct PartitionedAccelerationStructureInstanceFlagBitsNV(u32);
 impl PartitionedAccelerationStructureInstanceFlagBitsNV {
@@ -13047,6 +13383,10 @@ impl PartitionedAccelerationStructureInstanceFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const FLAG_TRIANGLE_FACING_CULL_DISABLE: Self = Self(1u32);
@@ -13163,7 +13503,7 @@ impl core::fmt::Debug for PartitionedAccelerationStructureInstanceFlagBitsNV {
 }
 ///[`VkPastPresentationTimingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPastPresentationTimingFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPastPresentationTimingFlagBitsEXT")]
 pub struct PastPresentationTimingFlagBitsEXT(u32);
 impl PastPresentationTimingFlagBitsEXT {
@@ -13186,6 +13526,10 @@ impl PastPresentationTimingFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const ALLOW_PARTIAL_RESULTS: Self = Self(1u32);
@@ -13272,7 +13616,7 @@ impl core::fmt::Debug for PastPresentationTimingFlagBitsEXT {
 }
 ///[`VkPeerMemoryFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPeerMemoryFeatureFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPeerMemoryFeatureFlagBits")]
 pub struct PeerMemoryFeatureFlagBits(u32);
 impl PeerMemoryFeatureFlagBits {
@@ -13295,6 +13639,10 @@ impl PeerMemoryFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const COPY_SRC: Self = Self(1u32);
@@ -13401,7 +13749,7 @@ impl core::fmt::Debug for PeerMemoryFeatureFlagBits {
 }
 ///[`VkPerformanceCounterDescriptionFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterDescriptionFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceCounterDescriptionFlagBitsKHR")]
 pub struct PerformanceCounterDescriptionFlagBitsKHR(u32);
 impl PerformanceCounterDescriptionFlagBitsKHR {
@@ -13424,6 +13772,10 @@ impl PerformanceCounterDescriptionFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const PERFORMANCE_IMPACTING: Self = Self(1u32);
@@ -13510,7 +13862,7 @@ impl core::fmt::Debug for PerformanceCounterDescriptionFlagBitsKHR {
 }
 ///[`VkPhysicalDeviceSchedulingControlsFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSchedulingControlsFlagBitsARM.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagBitsARM")]
 pub struct PhysicalDeviceSchedulingControlsFlagBitsARM(u64);
 impl PhysicalDeviceSchedulingControlsFlagBitsARM {
@@ -13533,6 +13885,10 @@ impl PhysicalDeviceSchedulingControlsFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
     }
     ///Bit 0.
     pub const SHADER_CORE_COUNT: Self = Self(1u64);
@@ -13609,7 +13965,7 @@ impl core::fmt::Debug for PhysicalDeviceSchedulingControlsFlagBitsARM {
 }
 ///[`VkPipelineCacheCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineCacheCreateFlagBits")]
 pub struct PipelineCacheCreateFlagBits(u32);
 impl PipelineCacheCreateFlagBits {
@@ -13632,6 +13988,10 @@ impl PipelineCacheCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const EXTERNALLY_SYNCHRONIZED: Self = Self(1u32);
@@ -13738,7 +14098,7 @@ impl core::fmt::Debug for PipelineCacheCreateFlagBits {
 }
 ///[`VkPipelineColorBlendStateCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendStateCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineColorBlendStateCreateFlagBits")]
 pub struct PipelineColorBlendStateCreateFlagBits(u32);
 impl PipelineColorBlendStateCreateFlagBits {
@@ -13761,6 +14121,10 @@ impl PipelineColorBlendStateCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_ACCESS;
     ///Bit 0.
@@ -13838,7 +14202,7 @@ impl core::fmt::Debug for PipelineColorBlendStateCreateFlagBits {
 }
 ///[`VkPipelineCompilerControlFlagBitsAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCompilerControlFlagBitsAMD.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineCompilerControlFlagBitsAMD")]
 pub struct PipelineCompilerControlFlagBitsAMD(u32);
 impl PipelineCompilerControlFlagBitsAMD {
@@ -13861,6 +14225,10 @@ impl PipelineCompilerControlFlagBitsAMD {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for PipelineCompilerControlFlagBitsAMD {
@@ -13927,7 +14295,7 @@ impl core::fmt::Debug for PipelineCompilerControlFlagBitsAMD {
 }
 ///[`VkPipelineCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineCreateFlagBits")]
 pub struct PipelineCreateFlagBits(u32);
 impl PipelineCreateFlagBits {
@@ -13950,6 +14318,10 @@ impl PipelineCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     ///Bit 0.
     pub const DISABLE_OPTIMIZATION: Self = Self(1u32);
@@ -14328,7 +14700,7 @@ impl core::fmt::Debug for PipelineCreateFlagBits {
 }
 ///[`VkPipelineCreateFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits2.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineCreateFlagBits2")]
 pub struct PipelineCreateFlagBits2(u64);
 impl PipelineCreateFlagBits2 {
@@ -14351,6 +14723,10 @@ impl PipelineCreateFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(10685878632447u64)
     }
     ///Bit 0.
     pub const _2_DISABLE_OPTIMIZATION: Self = Self(1u64);
@@ -14821,7 +15197,7 @@ impl core::fmt::Debug for PipelineCreateFlagBits2 {
 }
 ///[`VkPipelineCreationFeedbackFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineCreationFeedbackFlagBits")]
 pub struct PipelineCreationFeedbackFlagBits(u32);
 impl PipelineCreationFeedbackFlagBits {
@@ -14844,6 +15220,10 @@ impl PipelineCreationFeedbackFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const VALID: Self = Self(1u32);
@@ -14940,7 +15320,7 @@ impl core::fmt::Debug for PipelineCreationFeedbackFlagBits {
 }
 ///[`VkPipelineDepthStencilStateCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDepthStencilStateCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineDepthStencilStateCreateFlagBits")]
 pub struct PipelineDepthStencilStateCreateFlagBits(u32);
 impl PipelineDepthStencilStateCreateFlagBits {
@@ -14963,6 +15343,10 @@ impl PipelineDepthStencilStateCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
@@ -15051,7 +15435,7 @@ impl core::fmt::Debug for PipelineDepthStencilStateCreateFlagBits {
 }
 ///[`VkPipelineLayoutCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayoutCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineLayoutCreateFlagBits")]
 pub struct PipelineLayoutCreateFlagBits(u32);
 impl PipelineLayoutCreateFlagBits {
@@ -15074,6 +15458,10 @@ impl PipelineLayoutCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2u32)
     }
     ///Bit 1.
     pub const INDEPENDENT_SETS: Self = Self(2u32);
@@ -15150,7 +15538,7 @@ impl core::fmt::Debug for PipelineLayoutCreateFlagBits {
 }
 ///[`VkPipelineShaderStageCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineShaderStageCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineShaderStageCreateFlagBits")]
 pub struct PipelineShaderStageCreateFlagBits(u32);
 impl PipelineShaderStageCreateFlagBits {
@@ -15173,6 +15561,10 @@ impl PipelineShaderStageCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const ALLOW_VARYING_SUBGROUP_SIZE: Self = Self(1u32);
@@ -15259,7 +15651,7 @@ impl core::fmt::Debug for PipelineShaderStageCreateFlagBits {
 }
 ///[`VkPipelineStageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineStageFlagBits")]
 pub struct PipelineStageFlagBits(u32);
 impl PipelineStageFlagBits {
@@ -15282,6 +15674,10 @@ impl PipelineStageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(65404927u32)
     }
     ///Bit 0.
     pub const TOP_OF_PIPE: Self = Self(1u32);
@@ -15580,7 +15976,7 @@ impl core::fmt::Debug for PipelineStageFlagBits {
 }
 ///[`VkPipelineStageFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits2.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineStageFlagBits2")]
 pub struct PipelineStageFlagBits2(u64);
 impl PipelineStageFlagBits2 {
@@ -15603,6 +15999,10 @@ impl PipelineStageFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(131939246145535u64)
     }
     pub const _2_NONE: Self = Self(0u64);
     ///Bit 0.
@@ -16093,7 +16493,7 @@ impl core::fmt::Debug for PipelineStageFlagBits2 {
 }
 ///[`VkPresentGravityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentGravityFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPresentGravityFlagBitsKHR")]
 pub struct PresentGravityFlagBitsKHR(u32);
 impl PresentGravityFlagBitsKHR {
@@ -16116,6 +16516,10 @@ impl PresentGravityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const MIN: Self = Self(1u32);
@@ -16212,7 +16616,7 @@ impl core::fmt::Debug for PresentGravityFlagBitsKHR {
 }
 ///[`VkPresentScalingFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentScalingFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPresentScalingFlagBitsKHR")]
 pub struct PresentScalingFlagBitsKHR(u32);
 impl PresentScalingFlagBitsKHR {
@@ -16235,6 +16639,10 @@ impl PresentScalingFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const ONE_TO_ONE: Self = Self(1u32);
@@ -16331,7 +16739,7 @@ impl core::fmt::Debug for PresentScalingFlagBitsKHR {
 }
 ///[`VkPresentStageFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentStageFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPresentStageFlagBitsEXT")]
 pub struct PresentStageFlagBitsEXT(u32);
 impl PresentStageFlagBitsEXT {
@@ -16354,6 +16762,10 @@ impl PresentStageFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const QUEUE_OPERATIONS_END: Self = Self(1u32);
@@ -16460,7 +16872,7 @@ impl core::fmt::Debug for PresentStageFlagBitsEXT {
 }
 ///[`VkPresentTimingInfoFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentTimingInfoFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPresentTimingInfoFlagBitsEXT")]
 pub struct PresentTimingInfoFlagBitsEXT(u32);
 impl PresentTimingInfoFlagBitsEXT {
@@ -16483,6 +16895,10 @@ impl PresentTimingInfoFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const PRESENT_AT_RELATIVE_TIME: Self = Self(1u32);
@@ -16569,7 +16985,7 @@ impl core::fmt::Debug for PresentTimingInfoFlagBitsEXT {
 }
 ///[`VkPrivateDataSlotCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPrivateDataSlotCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPrivateDataSlotCreateFlagBits")]
 pub struct PrivateDataSlotCreateFlagBits(u32);
 impl PrivateDataSlotCreateFlagBits {
@@ -16592,6 +17008,10 @@ impl PrivateDataSlotCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for PrivateDataSlotCreateFlagBits {
@@ -16658,7 +17078,7 @@ impl core::fmt::Debug for PrivateDataSlotCreateFlagBits {
 }
 ///[`VkQueryControlFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryControlFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueryControlFlagBits")]
 pub struct QueryControlFlagBits(u32);
 impl QueryControlFlagBits {
@@ -16681,6 +17101,10 @@ impl QueryControlFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const PRECISE: Self = Self(1u32);
@@ -16757,7 +17181,7 @@ impl core::fmt::Debug for QueryControlFlagBits {
 }
 ///[`VkQueryPipelineStatisticFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPipelineStatisticFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueryPipelineStatisticFlagBits")]
 pub struct QueryPipelineStatisticFlagBits(u32);
 impl QueryPipelineStatisticFlagBits {
@@ -16780,6 +17204,10 @@ impl QueryPipelineStatisticFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(16383u32)
     }
     ///Bit 0.
     pub const INPUT_ASSEMBLY_VERTICES: Self = Self(1u32);
@@ -16986,7 +17414,7 @@ impl core::fmt::Debug for QueryPipelineStatisticFlagBits {
 }
 ///[`VkQueryPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueryPoolCreateFlagBits")]
 pub struct QueryPoolCreateFlagBits(u32);
 impl QueryPoolCreateFlagBits {
@@ -17009,6 +17437,10 @@ impl QueryPoolCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const RESET: Self = Self(1u32);
@@ -17085,7 +17517,7 @@ impl core::fmt::Debug for QueryPoolCreateFlagBits {
 }
 ///[`VkQueryResultFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryResultFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueryResultFlagBits")]
 pub struct QueryResultFlagBits(u32);
 impl QueryResultFlagBits {
@@ -17108,6 +17540,10 @@ impl QueryResultFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const _64: Self = Self(1u32);
@@ -17224,7 +17660,7 @@ impl core::fmt::Debug for QueryResultFlagBits {
 }
 ///[`VkQueueFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueueFlagBits")]
 pub struct QueueFlagBits(u32);
 impl QueueFlagBits {
@@ -17247,6 +17683,10 @@ impl QueueFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1407u32)
     }
     ///Bit 0.
     pub const GRAPHICS: Self = Self(1u32);
@@ -17403,7 +17843,7 @@ impl core::fmt::Debug for QueueFlagBits {
 }
 ///[`VkRefreshObjectFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRefreshObjectFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRefreshObjectFlagBitsKHR")]
 pub struct RefreshObjectFlagBitsKHR(u32);
 impl RefreshObjectFlagBitsKHR {
@@ -17426,6 +17866,10 @@ impl RefreshObjectFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for RefreshObjectFlagBitsKHR {
@@ -17492,7 +17936,7 @@ impl core::fmt::Debug for RefreshObjectFlagBitsKHR {
 }
 ///[`VkRenderPassCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRenderPassCreateFlagBits")]
 pub struct RenderPassCreateFlagBits(u32);
 impl RenderPassCreateFlagBits {
@@ -17515,6 +17959,10 @@ impl RenderPassCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(6u32)
     }
     ///Bit 1.
     pub const TRANSFORM_BIT: Self = Self(2u32);
@@ -17601,7 +18049,7 @@ impl core::fmt::Debug for RenderPassCreateFlagBits {
 }
 ///[`VkRenderingAttachmentFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRenderingAttachmentFlagBitsKHR")]
 pub struct RenderingAttachmentFlagBitsKHR(u32);
 impl RenderingAttachmentFlagBitsKHR {
@@ -17624,6 +18072,10 @@ impl RenderingAttachmentFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const INPUT_ATTACHMENT_FEEDBACK: Self = Self(1u32);
@@ -17720,7 +18172,7 @@ impl core::fmt::Debug for RenderingAttachmentFlagBitsKHR {
 }
 ///[`VkRenderingFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRenderingFlagBits")]
 pub struct RenderingFlagBits(u32);
 impl RenderingFlagBits {
@@ -17743,6 +18195,10 @@ impl RenderingFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(495u32)
     }
     ///Bit 0.
     pub const CONTENTS_SECONDARY_COMMAND_BUFFERS: Self = Self(1u32);
@@ -17889,7 +18345,7 @@ impl core::fmt::Debug for RenderingFlagBits {
 }
 ///[`VkResolveImageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResolveImageFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkResolveImageFlagBitsKHR")]
 pub struct ResolveImageFlagBitsKHR(u32);
 impl ResolveImageFlagBitsKHR {
@@ -17912,6 +18368,10 @@ impl ResolveImageFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const SKIP_TRANSFER_FUNCTION: Self = Self(1u32);
@@ -17998,7 +18458,7 @@ impl core::fmt::Debug for ResolveImageFlagBitsKHR {
 }
 ///[`VkResolveModeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResolveModeFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkResolveModeFlagBits")]
 pub struct ResolveModeFlagBits(u32);
 impl ResolveModeFlagBits {
@@ -18021,6 +18481,10 @@ impl ResolveModeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -18149,7 +18613,7 @@ impl core::fmt::Debug for ResolveModeFlagBits {
 }
 ///[`VkSampleCountFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSampleCountFlagBits")]
 pub struct SampleCountFlagBits(u32);
 impl SampleCountFlagBits {
@@ -18172,6 +18636,10 @@ impl SampleCountFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(127u32)
     }
     ///Bit 0.
     pub const _1: Self = Self(1u32);
@@ -18308,7 +18776,7 @@ impl core::fmt::Debug for SampleCountFlagBits {
 }
 ///[`VkSamplerCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSamplerCreateFlagBits")]
 pub struct SamplerCreateFlagBits(u32);
 impl SamplerCreateFlagBits {
@@ -18331,6 +18799,10 @@ impl SamplerCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const SUBSAMPLED: Self = Self(1u32);
@@ -18447,7 +18919,7 @@ impl core::fmt::Debug for SamplerCreateFlagBits {
 }
 ///[`VkSemaphoreCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSemaphoreCreateFlagBits")]
 pub struct SemaphoreCreateFlagBits(u32);
 impl SemaphoreCreateFlagBits {
@@ -18470,6 +18942,10 @@ impl SemaphoreCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for SemaphoreCreateFlagBits {
@@ -18536,7 +19012,7 @@ impl core::fmt::Debug for SemaphoreCreateFlagBits {
 }
 ///[`VkSemaphoreImportFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreImportFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSemaphoreImportFlagBits")]
 pub struct SemaphoreImportFlagBits(u32);
 impl SemaphoreImportFlagBits {
@@ -18559,6 +19035,10 @@ impl SemaphoreImportFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const TEMPORARY: Self = Self(1u32);
@@ -18635,7 +19115,7 @@ impl core::fmt::Debug for SemaphoreImportFlagBits {
 }
 ///[`VkSemaphoreWaitFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreWaitFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSemaphoreWaitFlagBits")]
 pub struct SemaphoreWaitFlagBits(u32);
 impl SemaphoreWaitFlagBits {
@@ -18658,6 +19138,10 @@ impl SemaphoreWaitFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const ANY: Self = Self(1u32);
@@ -18734,7 +19218,7 @@ impl core::fmt::Debug for SemaphoreWaitFlagBits {
 }
 ///[`VkShaderCorePropertiesFlagBitsAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCorePropertiesFlagBitsAMD.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderCorePropertiesFlagBitsAMD")]
 pub struct ShaderCorePropertiesFlagBitsAMD(u32);
 impl ShaderCorePropertiesFlagBitsAMD {
@@ -18757,6 +19241,10 @@ impl ShaderCorePropertiesFlagBitsAMD {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for ShaderCorePropertiesFlagBitsAMD {
@@ -18823,7 +19311,7 @@ impl core::fmt::Debug for ShaderCorePropertiesFlagBitsAMD {
 }
 ///[`VkShaderCreateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderCreateFlagBitsEXT")]
 pub struct ShaderCreateFlagBitsEXT(u32);
 impl ShaderCreateFlagBitsEXT {
@@ -18846,6 +19334,10 @@ impl ShaderCreateFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(36095u32)
     }
     ///Bit 0.
     pub const LINK_STAGE: Self = Self(1u32);
@@ -19022,7 +19514,7 @@ impl core::fmt::Debug for ShaderCreateFlagBitsEXT {
 }
 ///[`VkShaderModuleCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModuleCreateFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderModuleCreateFlagBits")]
 pub struct ShaderModuleCreateFlagBits(u32);
 impl ShaderModuleCreateFlagBits {
@@ -19045,6 +19537,10 @@ impl ShaderModuleCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for ShaderModuleCreateFlagBits {
@@ -19111,7 +19607,7 @@ impl core::fmt::Debug for ShaderModuleCreateFlagBits {
 }
 ///[`VkShaderStageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderStageFlagBits")]
 pub struct ShaderStageFlagBits(u32);
 impl ShaderStageFlagBits {
@@ -19134,6 +19630,10 @@ impl ShaderStageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     ///Bit 0.
     pub const VERTEX: Self = Self(1u32);
@@ -19342,7 +19842,7 @@ impl core::fmt::Debug for ShaderStageFlagBits {
 }
 ///[`VkSparseImageFormatFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseImageFormatFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSparseImageFormatFlagBits")]
 pub struct SparseImageFormatFlagBits(u32);
 impl SparseImageFormatFlagBits {
@@ -19365,6 +19865,10 @@ impl SparseImageFormatFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const SINGLE_MIPTAIL: Self = Self(1u32);
@@ -19461,7 +19965,7 @@ impl core::fmt::Debug for SparseImageFormatFlagBits {
 }
 ///[`VkSparseMemoryBindFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBindFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSparseMemoryBindFlagBits")]
 pub struct SparseMemoryBindFlagBits(u32);
 impl SparseMemoryBindFlagBits {
@@ -19484,6 +19988,10 @@ impl SparseMemoryBindFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const METADATA: Self = Self(1u32);
@@ -19560,7 +20068,7 @@ impl core::fmt::Debug for SparseMemoryBindFlagBits {
 }
 ///[`VkSpirvResourceTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSpirvResourceTypeFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSpirvResourceTypeFlagBitsEXT")]
 pub struct SpirvResourceTypeFlagBitsEXT(u32);
 impl SpirvResourceTypeFlagBitsEXT {
@@ -19583,6 +20091,10 @@ impl SpirvResourceTypeFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     pub const ALL: Self = Self(2147483647u32);
     ///Bit 0.
@@ -19750,7 +20262,7 @@ impl core::fmt::Debug for SpirvResourceTypeFlagBitsEXT {
 }
 ///[`VkStencilFaceFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilFaceFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkStencilFaceFlagBits")]
 pub struct StencilFaceFlagBits(u32);
 impl StencilFaceFlagBits {
@@ -19773,6 +20285,10 @@ impl StencilFaceFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const FRONT: Self = Self(1u32);
@@ -19861,7 +20377,7 @@ impl core::fmt::Debug for StencilFaceFlagBits {
 }
 ///[`VkSubgroupFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubgroupFeatureFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSubgroupFeatureFlagBits")]
 pub struct SubgroupFeatureFlagBits(u32);
 impl SubgroupFeatureFlagBits {
@@ -19884,6 +20400,10 @@ impl SubgroupFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1791u32)
     }
     ///Bit 0.
     pub const BASIC: Self = Self(1u32);
@@ -20050,7 +20570,7 @@ impl core::fmt::Debug for SubgroupFeatureFlagBits {
 }
 ///[`VkSubmitFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSubmitFlagBits")]
 pub struct SubmitFlagBits(u32);
 impl SubmitFlagBits {
@@ -20073,6 +20593,10 @@ impl SubmitFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
@@ -20149,7 +20673,7 @@ impl core::fmt::Debug for SubmitFlagBits {
 }
 ///[`VkSubpassDescriptionFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassDescriptionFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSubpassDescriptionFlagBits")]
 pub struct SubpassDescriptionFlagBits(u32);
 impl SubpassDescriptionFlagBits {
@@ -20172,6 +20696,10 @@ impl SubpassDescriptionFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(511u32)
     }
     ///Bit 0.
     pub const PER_VIEW_ATTRIBUTES_BIT: Self = Self(1u32);
@@ -20333,7 +20861,7 @@ impl core::fmt::Debug for SubpassDescriptionFlagBits {
 }
 ///[`VkSurfaceCounterFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCounterFlagBitsEXT.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSurfaceCounterFlagBitsEXT")]
 pub struct SurfaceCounterFlagBitsEXT(u32);
 impl SurfaceCounterFlagBitsEXT {
@@ -20356,6 +20884,10 @@ impl SurfaceCounterFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const VBLANK: Self = Self(1u32);
@@ -20432,7 +20964,7 @@ impl core::fmt::Debug for SurfaceCounterFlagBitsEXT {
 }
 ///[`VkSurfaceTransformFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceTransformFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSurfaceTransformFlagBitsKHR")]
 pub struct SurfaceTransformFlagBitsKHR(u32);
 impl SurfaceTransformFlagBitsKHR {
@@ -20455,6 +20987,10 @@ impl SurfaceTransformFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(511u32)
     }
     ///Bit 0.
     pub const IDENTITY: Self = Self(1u32);
@@ -20611,7 +21147,7 @@ impl core::fmt::Debug for SurfaceTransformFlagBitsKHR {
 }
 ///[`VkSwapchainCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSwapchainCreateFlagBitsKHR")]
 pub struct SwapchainCreateFlagBitsKHR(u32);
 impl SwapchainCreateFlagBitsKHR {
@@ -20634,6 +21170,10 @@ impl SwapchainCreateFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(711u32)
     }
     ///Bit 0.
     pub const SPLIT_INSTANCE_BIND_REGIONS: Self = Self(1u32);
@@ -20760,7 +21300,7 @@ impl core::fmt::Debug for SwapchainCreateFlagBitsKHR {
 }
 ///[`VkSwapchainImageUsageFlagBitsANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainImageUsageFlagBitsANDROID.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSwapchainImageUsageFlagBitsANDROID")]
 pub struct SwapchainImageUsageFlagBitsANDROID(u32);
 impl SwapchainImageUsageFlagBitsANDROID {
@@ -20783,6 +21323,10 @@ impl SwapchainImageUsageFlagBitsANDROID {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const SHARED_BIT: Self = Self(1u32);
@@ -20859,7 +21403,7 @@ impl core::fmt::Debug for SwapchainImageUsageFlagBitsANDROID {
 }
 ///[`VkSwapchainImageUsageFlagBitsOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainImageUsageFlagBitsOHOS.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSwapchainImageUsageFlagBitsOHOS")]
 pub struct SwapchainImageUsageFlagBitsOHOS(u32);
 impl SwapchainImageUsageFlagBitsOHOS {
@@ -20882,6 +21426,10 @@ impl SwapchainImageUsageFlagBitsOHOS {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const SHARED_BIT: Self = Self(1u32);
@@ -20958,7 +21506,7 @@ impl core::fmt::Debug for SwapchainImageUsageFlagBitsOHOS {
 }
 ///[`VkTensorCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCreateFlagBitsARM.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkTensorCreateFlagBitsARM")]
 pub struct TensorCreateFlagBitsARM(u64);
 impl TensorCreateFlagBitsARM {
@@ -20981,6 +21529,10 @@ impl TensorCreateFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u64)
     }
     ///Bit 0.
     pub const MUTABLE_FORMAT_BIT: Self = Self(1u64);
@@ -21087,7 +21639,7 @@ impl core::fmt::Debug for TensorCreateFlagBitsARM {
 }
 ///[`VkTensorUsageFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorUsageFlagBitsARM.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkTensorUsageFlagBitsARM")]
 pub struct TensorUsageFlagBitsARM(u64);
 impl TensorUsageFlagBitsARM {
@@ -21110,6 +21662,10 @@ impl TensorUsageFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(62u64)
     }
     ///Bit 1.
     pub const SHADER_BIT: Self = Self(2u64);
@@ -21226,7 +21782,7 @@ impl core::fmt::Debug for TensorUsageFlagBitsARM {
 }
 ///[`VkTensorViewCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorViewCreateFlagBitsARM.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkTensorViewCreateFlagBitsARM")]
 pub struct TensorViewCreateFlagBitsARM(u64);
 impl TensorViewCreateFlagBitsARM {
@@ -21249,6 +21805,10 @@ impl TensorViewCreateFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
     }
     ///Bit 0.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT: Self = Self(1u64);
@@ -21325,7 +21885,7 @@ impl core::fmt::Debug for TensorViewCreateFlagBitsARM {
 }
 ///[`VkTileShadingRenderPassFlagBitsQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTileShadingRenderPassFlagBitsQCOM.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkTileShadingRenderPassFlagBitsQCOM")]
 pub struct TileShadingRenderPassFlagBitsQCOM(u32);
 impl TileShadingRenderPassFlagBitsQCOM {
@@ -21348,6 +21908,10 @@ impl TileShadingRenderPassFlagBitsQCOM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const ENABLE_BIT: Self = Self(1u32);
@@ -21434,7 +21998,7 @@ impl core::fmt::Debug for TileShadingRenderPassFlagBitsQCOM {
 }
 ///[`VkToolPurposeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBits.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkToolPurposeFlagBits")]
 pub struct ToolPurposeFlagBits(u32);
 impl ToolPurposeFlagBits {
@@ -21457,6 +22021,10 @@ impl ToolPurposeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(127u32)
     }
     ///Bit 0.
     pub const VALIDATION: Self = Self(1u32);
@@ -21593,7 +22161,7 @@ impl core::fmt::Debug for ToolPurposeFlagBits {
 }
 ///[`VkVideoCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoCapabilityFlagBitsKHR")]
 pub struct VideoCapabilityFlagBitsKHR(u32);
 impl VideoCapabilityFlagBitsKHR {
@@ -21616,6 +22184,10 @@ impl VideoCapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const PROTECTED_CONTENT: Self = Self(1u32);
@@ -21702,7 +22274,7 @@ impl core::fmt::Debug for VideoCapabilityFlagBitsKHR {
 }
 ///[`VkVideoChromaSubsamplingFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoChromaSubsamplingFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoChromaSubsamplingFlagBitsKHR")]
 pub struct VideoChromaSubsamplingFlagBitsKHR(u32);
 impl VideoChromaSubsamplingFlagBitsKHR {
@@ -21725,6 +22297,10 @@ impl VideoChromaSubsamplingFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const INVALID: Self = Self(0u32);
     ///Bit 0.
@@ -21832,7 +22408,7 @@ impl core::fmt::Debug for VideoChromaSubsamplingFlagBitsKHR {
 }
 ///[`VkVideoCodecOperationFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodecOperationFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoCodecOperationFlagBitsKHR")]
 pub struct VideoCodecOperationFlagBitsKHR(u32);
 impl VideoCodecOperationFlagBitsKHR {
@@ -21855,6 +22431,10 @@ impl VideoCodecOperationFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(458767u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 16.
@@ -21992,7 +22572,7 @@ impl core::fmt::Debug for VideoCodecOperationFlagBitsKHR {
 }
 ///[`VkVideoCodingControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodingControlFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoCodingControlFlagBitsKHR")]
 pub struct VideoCodingControlFlagBitsKHR(u32);
 impl VideoCodingControlFlagBitsKHR {
@@ -22015,6 +22595,10 @@ impl VideoCodingControlFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const RESET: Self = Self(1u32);
@@ -22111,7 +22695,7 @@ impl core::fmt::Debug for VideoCodingControlFlagBitsKHR {
 }
 ///[`VkVideoComponentBitDepthFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoComponentBitDepthFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoComponentBitDepthFlagBitsKHR")]
 pub struct VideoComponentBitDepthFlagBitsKHR(u32);
 impl VideoComponentBitDepthFlagBitsKHR {
@@ -22134,6 +22718,10 @@ impl VideoComponentBitDepthFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(21u32)
     }
     pub const INVALID: Self = Self(0u32);
     ///Bit 0.
@@ -22231,7 +22819,7 @@ impl core::fmt::Debug for VideoComponentBitDepthFlagBitsKHR {
 }
 ///[`VkVideoDecodeCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoDecodeCapabilityFlagBitsKHR")]
 pub struct VideoDecodeCapabilityFlagBitsKHR(u32);
 impl VideoDecodeCapabilityFlagBitsKHR {
@@ -22254,6 +22842,10 @@ impl VideoDecodeCapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const DPB_AND_OUTPUT_COINCIDE: Self = Self(1u32);
@@ -22340,7 +22932,7 @@ impl core::fmt::Debug for VideoDecodeCapabilityFlagBitsKHR {
 }
 ///[`VkVideoDecodeH264PictureLayoutFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeH264PictureLayoutFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagBitsKHR")]
 pub struct VideoDecodeH264PictureLayoutFlagBitsKHR(u32);
 impl VideoDecodeH264PictureLayoutFlagBitsKHR {
@@ -22363,6 +22955,10 @@ impl VideoDecodeH264PictureLayoutFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     pub const PROGRESSIVE: Self = Self(0u32);
     ///Bit 0.
@@ -22450,7 +23046,7 @@ impl core::fmt::Debug for VideoDecodeH264PictureLayoutFlagBitsKHR {
 }
 ///[`VkVideoDecodeUsageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeUsageFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoDecodeUsageFlagBitsKHR")]
 pub struct VideoDecodeUsageFlagBitsKHR(u32);
 impl VideoDecodeUsageFlagBitsKHR {
@@ -22473,6 +23069,10 @@ impl VideoDecodeUsageFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
@@ -22570,7 +23170,7 @@ impl core::fmt::Debug for VideoDecodeUsageFlagBitsKHR {
 }
 ///[`VkVideoEncodeAV1CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1CapabilityFlagBitsKHR")]
 pub struct VideoEncodeAV1CapabilityFlagBitsKHR(u32);
 impl VideoEncodeAV1CapabilityFlagBitsKHR {
@@ -22593,6 +23193,10 @@ impl VideoEncodeAV1CapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX: Self = Self(1u32);
@@ -22719,7 +23323,7 @@ impl core::fmt::Debug for VideoEncodeAV1CapabilityFlagBitsKHR {
 }
 ///[`VkVideoEncodeAV1RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1RateControlFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1RateControlFlagBitsKHR")]
 pub struct VideoEncodeAV1RateControlFlagBitsKHR(u32);
 impl VideoEncodeAV1RateControlFlagBitsKHR {
@@ -22742,6 +23346,10 @@ impl VideoEncodeAV1RateControlFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const REGULAR_GOP: Self = Self(1u32);
@@ -22848,7 +23456,7 @@ impl core::fmt::Debug for VideoEncodeAV1RateControlFlagBitsKHR {
 }
 ///[`VkVideoEncodeAV1StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1StdFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1StdFlagBitsKHR")]
 pub struct VideoEncodeAV1StdFlagBitsKHR(u32);
 impl VideoEncodeAV1StdFlagBitsKHR {
@@ -22871,6 +23479,10 @@ impl VideoEncodeAV1StdFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const UNIFORM_TILE_SPACING_FLAG_SET: Self = Self(1u32);
@@ -22977,7 +23589,7 @@ impl core::fmt::Debug for VideoEncodeAV1StdFlagBitsKHR {
 }
 ///[`VkVideoEncodeAV1SuperblockSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1SuperblockSizeFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagBitsKHR")]
 pub struct VideoEncodeAV1SuperblockSizeFlagBitsKHR(u32);
 impl VideoEncodeAV1SuperblockSizeFlagBitsKHR {
@@ -23000,6 +23612,10 @@ impl VideoEncodeAV1SuperblockSizeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const _64: Self = Self(1u32);
@@ -23086,7 +23702,7 @@ impl core::fmt::Debug for VideoEncodeAV1SuperblockSizeFlagBitsKHR {
 }
 ///[`VkVideoEncodeCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeCapabilityFlagBitsKHR")]
 pub struct VideoEncodeCapabilityFlagBitsKHR(u32);
 impl VideoEncodeCapabilityFlagBitsKHR {
@@ -23109,6 +23725,10 @@ impl VideoEncodeCapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const PRECEDING_EXTERNALLY_ENCODED_BYTES: Self = Self(1u32);
@@ -23215,7 +23835,7 @@ impl core::fmt::Debug for VideoEncodeCapabilityFlagBitsKHR {
 }
 ///[`VkVideoEncodeContentFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeContentFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeContentFlagBitsKHR")]
 pub struct VideoEncodeContentFlagBitsKHR(u32);
 impl VideoEncodeContentFlagBitsKHR {
@@ -23238,6 +23858,10 @@ impl VideoEncodeContentFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
@@ -23335,7 +23959,7 @@ impl core::fmt::Debug for VideoEncodeContentFlagBitsKHR {
 }
 ///[`VkVideoEncodeFeedbackFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFeedbackFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeFeedbackFlagBitsKHR")]
 pub struct VideoEncodeFeedbackFlagBitsKHR(u32);
 impl VideoEncodeFeedbackFlagBitsKHR {
@@ -23358,6 +23982,10 @@ impl VideoEncodeFeedbackFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const BITSTREAM_BUFFER_OFFSET: Self = Self(1u32);
@@ -23454,7 +24082,7 @@ impl core::fmt::Debug for VideoEncodeFeedbackFlagBitsKHR {
 }
 ///[`VkVideoEncodeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeFlagBitsKHR")]
 pub struct VideoEncodeFlagBitsKHR(u32);
 impl VideoEncodeFlagBitsKHR {
@@ -23477,6 +24105,10 @@ impl VideoEncodeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 2.
     pub const INTRA_REFRESH: Self = Self(4u32);
@@ -23573,7 +24205,7 @@ impl core::fmt::Debug for VideoEncodeFlagBitsKHR {
 }
 ///[`VkVideoEncodeH264CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264CapabilityFlagBitsKHR")]
 pub struct VideoEncodeH264CapabilityFlagBitsKHR(u32);
 impl VideoEncodeH264CapabilityFlagBitsKHR {
@@ -23596,6 +24228,10 @@ impl VideoEncodeH264CapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2047u32)
     }
     ///Bit 0.
     pub const HRD_COMPLIANCE: Self = Self(1u32);
@@ -23772,7 +24408,7 @@ impl core::fmt::Debug for VideoEncodeH264CapabilityFlagBitsKHR {
 }
 ///[`VkVideoEncodeH264RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264RateControlFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264RateControlFlagBitsKHR")]
 pub struct VideoEncodeH264RateControlFlagBitsKHR(u32);
 impl VideoEncodeH264RateControlFlagBitsKHR {
@@ -23795,6 +24431,10 @@ impl VideoEncodeH264RateControlFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const ATTEMPT_HRD_COMPLIANCE: Self = Self(1u32);
@@ -23911,7 +24551,7 @@ impl core::fmt::Debug for VideoEncodeH264RateControlFlagBitsKHR {
 }
 ///[`VkVideoEncodeH264StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264StdFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264StdFlagBitsKHR")]
 pub struct VideoEncodeH264StdFlagBitsKHR(u32);
 impl VideoEncodeH264StdFlagBitsKHR {
@@ -23934,6 +24574,10 @@ impl VideoEncodeH264StdFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1835007u32)
     }
     ///Bit 0.
     pub const SEPARATE_COLOR_PLANE_FLAG_SET: Self = Self(1u32);
@@ -24200,7 +24844,7 @@ impl core::fmt::Debug for VideoEncodeH264StdFlagBitsKHR {
 }
 ///[`VkVideoEncodeH265CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265CapabilityFlagBitsKHR")]
 pub struct VideoEncodeH265CapabilityFlagBitsKHR(u32);
 impl VideoEncodeH265CapabilityFlagBitsKHR {
@@ -24223,6 +24867,10 @@ impl VideoEncodeH265CapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(4095u32)
     }
     ///Bit 0.
     pub const HRD_COMPLIANCE: Self = Self(1u32);
@@ -24409,7 +25057,7 @@ impl core::fmt::Debug for VideoEncodeH265CapabilityFlagBitsKHR {
 }
 ///[`VkVideoEncodeH265CtbSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CtbSizeFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265CtbSizeFlagBitsKHR")]
 pub struct VideoEncodeH265CtbSizeFlagBitsKHR(u32);
 impl VideoEncodeH265CtbSizeFlagBitsKHR {
@@ -24432,6 +25080,10 @@ impl VideoEncodeH265CtbSizeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const _16: Self = Self(1u32);
@@ -24528,7 +25180,7 @@ impl core::fmt::Debug for VideoEncodeH265CtbSizeFlagBitsKHR {
 }
 ///[`VkVideoEncodeH265RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265RateControlFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265RateControlFlagBitsKHR")]
 pub struct VideoEncodeH265RateControlFlagBitsKHR(u32);
 impl VideoEncodeH265RateControlFlagBitsKHR {
@@ -24551,6 +25203,10 @@ impl VideoEncodeH265RateControlFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const ATTEMPT_HRD_COMPLIANCE: Self = Self(1u32);
@@ -24667,7 +25323,7 @@ impl core::fmt::Debug for VideoEncodeH265RateControlFlagBitsKHR {
 }
 ///[`VkVideoEncodeH265StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265StdFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265StdFlagBitsKHR")]
 pub struct VideoEncodeH265StdFlagBitsKHR(u32);
 impl VideoEncodeH265StdFlagBitsKHR {
@@ -24690,6 +25346,10 @@ impl VideoEncodeH265StdFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2097151u32)
     }
     ///Bit 0.
     pub const SEPARATE_COLOR_PLANE_FLAG_SET: Self = Self(1u32);
@@ -24966,7 +25626,7 @@ impl core::fmt::Debug for VideoEncodeH265StdFlagBitsKHR {
 }
 ///[`VkVideoEncodeH265TransformBlockSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265TransformBlockSizeFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagBitsKHR")]
 pub struct VideoEncodeH265TransformBlockSizeFlagBitsKHR(u32);
 impl VideoEncodeH265TransformBlockSizeFlagBitsKHR {
@@ -24989,6 +25649,10 @@ impl VideoEncodeH265TransformBlockSizeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const _4: Self = Self(1u32);
@@ -25095,7 +25759,7 @@ impl core::fmt::Debug for VideoEncodeH265TransformBlockSizeFlagBitsKHR {
 }
 ///[`VkVideoEncodeIntraRefreshModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeIntraRefreshModeFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagBitsKHR")]
 pub struct VideoEncodeIntraRefreshModeFlagBitsKHR(u32);
 impl VideoEncodeIntraRefreshModeFlagBitsKHR {
@@ -25118,6 +25782,10 @@ impl VideoEncodeIntraRefreshModeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -25225,7 +25893,7 @@ impl core::fmt::Debug for VideoEncodeIntraRefreshModeFlagBitsKHR {
 }
 ///[`VkVideoEncodeRateControlModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRateControlModeFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRateControlModeFlagBitsKHR")]
 pub struct VideoEncodeRateControlModeFlagBitsKHR(u32);
 impl VideoEncodeRateControlModeFlagBitsKHR {
@@ -25248,6 +25916,10 @@ impl VideoEncodeRateControlModeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
@@ -25345,7 +26017,7 @@ impl core::fmt::Debug for VideoEncodeRateControlModeFlagBitsKHR {
 }
 ///[`VkVideoEncodeRgbChromaOffsetFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbChromaOffsetFlagBitsVALVE.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagBitsVALVE")]
 pub struct VideoEncodeRgbChromaOffsetFlagBitsVALVE(u32);
 impl VideoEncodeRgbChromaOffsetFlagBitsVALVE {
@@ -25368,6 +26040,10 @@ impl VideoEncodeRgbChromaOffsetFlagBitsVALVE {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const COSITED_EVEN_BIT: Self = Self(1u32);
@@ -25454,7 +26130,7 @@ impl core::fmt::Debug for VideoEncodeRgbChromaOffsetFlagBitsVALVE {
 }
 ///[`VkVideoEncodeRgbModelConversionFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbModelConversionFlagBitsVALVE.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbModelConversionFlagBitsVALVE")]
 pub struct VideoEncodeRgbModelConversionFlagBitsVALVE(u32);
 impl VideoEncodeRgbModelConversionFlagBitsVALVE {
@@ -25477,6 +26153,10 @@ impl VideoEncodeRgbModelConversionFlagBitsVALVE {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const RGB_IDENTITY_BIT: Self = Self(1u32);
@@ -25593,7 +26273,7 @@ impl core::fmt::Debug for VideoEncodeRgbModelConversionFlagBitsVALVE {
 }
 ///[`VkVideoEncodeRgbRangeCompressionFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbRangeCompressionFlagBitsVALVE.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagBitsVALVE")]
 pub struct VideoEncodeRgbRangeCompressionFlagBitsVALVE(u32);
 impl VideoEncodeRgbRangeCompressionFlagBitsVALVE {
@@ -25616,6 +26296,10 @@ impl VideoEncodeRgbRangeCompressionFlagBitsVALVE {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const FULL_RANGE_BIT: Self = Self(1u32);
@@ -25702,7 +26386,7 @@ impl core::fmt::Debug for VideoEncodeRgbRangeCompressionFlagBitsVALVE {
 }
 ///[`VkVideoEncodeUsageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeUsageFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeUsageFlagBitsKHR")]
 pub struct VideoEncodeUsageFlagBitsKHR(u32);
 impl VideoEncodeUsageFlagBitsKHR {
@@ -25725,6 +26409,10 @@ impl VideoEncodeUsageFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
@@ -25832,7 +26520,7 @@ impl core::fmt::Debug for VideoEncodeUsageFlagBitsKHR {
 }
 ///[`VkVideoSessionCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionCreateFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoSessionCreateFlagBitsKHR")]
 pub struct VideoSessionCreateFlagBitsKHR(u32);
 impl VideoSessionCreateFlagBitsKHR {
@@ -25855,6 +26543,10 @@ impl VideoSessionCreateFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const PROTECTED_CONTENT: Self = Self(1u32);
@@ -25981,7 +26673,7 @@ impl core::fmt::Debug for VideoSessionCreateFlagBitsKHR {
 }
 ///[`VkVideoSessionParametersCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionParametersCreateFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoSessionParametersCreateFlagBitsKHR")]
 pub struct VideoSessionParametersCreateFlagBitsKHR(u32);
 impl VideoSessionParametersCreateFlagBitsKHR {
@@ -26004,6 +26696,10 @@ impl VideoSessionParametersCreateFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const QUANTIZATION_MAP_COMPATIBLE: Self = Self(1u32);
@@ -26080,7 +26776,7 @@ impl core::fmt::Debug for VideoSessionParametersCreateFlagBitsKHR {
 }
 ///[`VkWaylandSurfaceCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWaylandSurfaceCreateFlagBitsKHR.html)
 #[repr(transparent)]
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkWaylandSurfaceCreateFlagBitsKHR")]
 pub struct WaylandSurfaceCreateFlagBitsKHR(u32);
 impl WaylandSurfaceCreateFlagBitsKHR {
@@ -26103,6 +26799,10 @@ impl WaylandSurfaceCreateFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for WaylandSurfaceCreateFlagBitsKHR {

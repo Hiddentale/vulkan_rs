@@ -16,11 +16,24 @@ pub use string_array::{
     DescriptionName, DriverName, DriverInfo,
 };
 
-pub mod handles;
-pub mod enums;
-pub mod bitmasks;
-pub mod constants;
+mod handles;
+mod enums;
+mod bitmasks;
+mod constants;
 pub mod extension_names;
-pub mod structs;
-pub mod builders;
+mod structs;
+mod builders;
+mod clear_value;
 pub mod commands;
+
+pub use handles::*;
+pub use enums::*;
+pub use bitmasks::*;
+pub use constants::*;
+pub use structs::*;
+pub use builders::*;
+
+/// Vulkan device memory size, in bytes.
+pub type DeviceSize = u64;
+/// Vulkan device memory address.
+pub type DeviceAddress = u64;

@@ -97,7 +97,7 @@ All new public items in `vulkan-rust` must follow this section order:
 ///
 /// # Errors
 ///
-/// - [`vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY`], Host allocation failed.
+/// - [`vk::Result::ERROR_OUT_OF_HOST_MEMORY`], Host allocation failed.
 ///
 /// # Safety
 ///
@@ -128,7 +128,7 @@ Public API items must never be removed without a deprecation cycle:
 1. **Deprecate** in a minor release using the built-in attribute:
    ```rust
    #[deprecated(since = "0.3.0", note = "renamed to `create_instance_handle`")]
-   pub unsafe fn create_instance_raw(...) -> VkResult<vk::handles::Instance> {
+   pub unsafe fn create_instance_raw(...) -> VkResult<vk::Instance> {
        self.create_instance_handle(...)
    }
    ```

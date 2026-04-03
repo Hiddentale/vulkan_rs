@@ -1,8 +1,7 @@
 #![no_main]
 
 use libfuzzer_sys::fuzz_target;
-use vulkan_rust::vk::enums::StructureType;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 /// Walk a pNext chain starting from `head`, collecting sType values.
 /// Returns None if the chain exceeds `max_depth` (likely a cycle).

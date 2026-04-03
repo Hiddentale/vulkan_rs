@@ -77,7 +77,7 @@ signals it when all commands in that submission finish.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // ── Create a fence ──────────────────────────────────────────────
 //
@@ -92,7 +92,7 @@ let fence = unsafe { device.create_fence(&fence_info, None)? };
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // ── The render loop ─────────────────────────────────────────────
 
@@ -153,7 +153,7 @@ into." The other says "rendering is done, safe to present."
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // Create two semaphores (no flags needed).
 let sem_info = SemaphoreCreateInfo::builder();
@@ -163,8 +163,7 @@ let render_finished = unsafe { device.create_semaphore(&sem_info, None)? };
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 // ── Acquire a swapchain image ───────────────────────────────────
 //
@@ -252,10 +251,7 @@ finish the transition before the shader reads.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
-use vk::constants::QUEUE_FAMILY_IGNORED;
+use vk::*;
 
 // Transition image from TRANSFER_DST to SHADER_READ_ONLY.
 //
@@ -384,7 +380,7 @@ and the wait.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // Signal the event after the transfer completes.
 unsafe {

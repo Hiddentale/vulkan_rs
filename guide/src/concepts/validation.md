@@ -61,7 +61,7 @@ Your app ──────────────────────> Vul
 ```rust,ignore
 use std::ffi::CStr;
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // The standard validation layer name.
 let validation_layer = c"VK_LAYER_KHRONOS_validation";
@@ -87,8 +87,7 @@ problem.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // This callback receives validation messages.
 // The signature must match PFN_vkDebugUtilsMessengerCallbackEXT.
@@ -125,8 +124,7 @@ unsafe extern "system" fn debug_callback(
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Create the messenger.
 let messenger_info = DebugUtilsMessengerCreateInfoEXT::builder()
@@ -152,9 +150,7 @@ To verify validation is working, do something wrong on purpose:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Create a buffer without TRANSFER_DST usage, then try to copy into it.
 let bad_buffer_info = BufferCreateInfo::builder()
@@ -211,8 +207,7 @@ via pNext. The validation layer will use it for messages during
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let mut debug_info = DebugUtilsMessengerCreateInfoEXT::builder()
     .message_severity(

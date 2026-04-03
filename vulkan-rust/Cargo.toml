@@ -1,6 +1,6 @@
 [package]
 name = "vulkan-rust"
-version = "0.9.0"
+version = "0.10.0"
 edition = "2024"
 rust-version = "1.85"
 description = "Ergonomic Vulkan bindings for Rust, generated from vk.xml"
@@ -17,7 +17,7 @@ default = ["surface"]
 surface = ["dep:raw-window-handle"]
 
 [dependencies]
-vulkan-rust-sys = { version = "0.9.0", path = "../vulkan-rust-sys" }
+vulkan-rust-sys = { version = "0.10.0", path = "../vulkan-rust-sys" }
 libloading = "0.8"
 raw-window-handle = { version = "0.6", optional = true }
 

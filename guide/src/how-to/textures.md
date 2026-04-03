@@ -40,9 +40,7 @@ Upload the pixels into a host-visible staging buffer first.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let staging_info = BufferCreateInfo::builder()
     .size(image_size)
@@ -85,9 +83,7 @@ The image needs `TRANSFER_DST` (we will copy into it) and `SAMPLED`
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let image_info = ImageCreateInfo::builder()
     .image_type(ImageType::_2D)
@@ -125,16 +121,14 @@ engine can write to. This requires a pipeline barrier.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 use vk::constants;
 
 let barrier_to_transfer = ImageMemoryBarrier::builder()
     .old_layout(ImageLayout::UNDEFINED)
     .new_layout(ImageLayout::TRANSFER_DST_OPTIMAL)
-    .src_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
-    .dst_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
+    .src_queue_family_index(QUEUE_FAMILY_IGNORED)
+    .dst_queue_family_index(QUEUE_FAMILY_IGNORED)
     .image(texture_image)
     .subresource_range(ImageSubresourceRange {
         aspect_mask: ImageAspectFlags::COLOR,
@@ -168,9 +162,7 @@ unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let region = BufferImageCopy {
     buffer_offset: 0,
@@ -204,16 +196,14 @@ After the copy, transition the image to a layout the shader can read.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 use vk::constants;
 
 let barrier_to_shader = ImageMemoryBarrier::builder()
     .old_layout(ImageLayout::TRANSFER_DST_OPTIMAL)
     .new_layout(ImageLayout::SHADER_READ_ONLY_OPTIMAL)
-    .src_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
-    .dst_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
+    .src_queue_family_index(QUEUE_FAMILY_IGNORED)
+    .dst_queue_family_index(QUEUE_FAMILY_IGNORED)
     .image(texture_image)
     .subresource_range(ImageSubresourceRange {
         aspect_mask: ImageAspectFlags::COLOR,
@@ -245,9 +235,7 @@ The shader does not access images directly. It reads through an
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let view_info = ImageViewCreateInfo::builder()
     .image(texture_image)
@@ -290,8 +278,7 @@ image/sampler pair at a binding point.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 let image_descriptor = DescriptorImageInfo {
     sampler,

@@ -121,19 +121,68 @@ pub fn emit_type_aliases(registry: &VkRegistry) -> TokenStream {
     quote! { #(#aliases)* }
 }
 
-/// Emit opaque stubs for PFN_vk* function pointer types.
+/// Emit typed function pointer aliases for PFN_vk* callback types.
 pub fn emit_func_pointer_stubs(registry: &VkRegistry) -> TokenStream {
     let stubs: Vec<TokenStream> = registry
         .func_pointers
         .iter()
-        .map(|fp| {
-            let ident = format_ident!("{}", &fp.name);
-            quote! {
-                pub type #ident = Option<unsafe extern "system" fn()>;
-            }
-        })
+        .map(emit_func_pointer)
         .collect();
     quote! { #(#stubs)* }
+}
+
+fn emit_func_pointer(fp: &crate::parse::FuncPointerDef) -> TokenStream {
+    let ident = format_ident!("{}", &fp.name);
+
+    // PFN_vkVoidFunction has no meaningful params, keep as opaque.
+    if fp.name == "PFN_vkVoidFunction" {
+        return quote! {
+            pub type #ident = Option<unsafe extern "system" fn()>;
+        };
+    }
+
+    let params: Vec<TokenStream> = fp
+        .params
+        .iter()
+        .map(|p| {
+            let ty = resolve_pfn_param_type(p);
+            quote! { #ty }
+        })
+        .collect();
+
+    let ret = resolve_pfn_return_type(&fp.return_type, fp.is_return_pointer);
+
+    quote! {
+        pub type #ident = Option<unsafe extern "system" fn(#(#params),*) #ret>;
+    }
+}
+
+fn resolve_pfn_param_type(param: &crate::parse::ParamDef) -> TokenStream {
+    let base = crate::resolve_types::resolve_base_type(&param.type_name);
+
+    if param.is_double_pointer && param.is_const {
+        quote! { *const *const #base }
+    } else if param.is_double_pointer {
+        quote! { *mut *mut #base }
+    } else if param.is_pointer && param.is_const {
+        quote! { *const #base }
+    } else if param.is_pointer {
+        quote! { *mut #base }
+    } else {
+        base
+    }
+}
+
+fn resolve_pfn_return_type(return_type: &str, is_pointer: bool) -> TokenStream {
+    if return_type == "void" && !is_pointer {
+        return TokenStream::new();
+    }
+    let base = crate::resolve_types::resolve_base_type(return_type);
+    if is_pointer {
+        quote! { -> *mut #base }
+    } else {
+        quote! { -> #base }
+    }
 }
 
 /// By-value StdVideo types are C enums (i32) that can be aliased directly,
@@ -423,7 +472,7 @@ mod tests {
         let mut reg = empty_registry();
         reg.func_pointers.push(FuncPointerDef {
             name: "PFN_vkAllocationFunction".to_string(),
-            return_type: "void*".to_string(),
+            return_type: "void".to_string(),
             is_return_pointer: true,
             params: vec![],
         });
@@ -431,5 +480,6 @@ mod tests {
         assert!(code.contains("PFN_vkAllocationFunction"));
         assert!(code.contains("Option"));
         assert!(code.contains("extern \"system\""));
+        assert!(code.contains("c_void"));
     }
 }

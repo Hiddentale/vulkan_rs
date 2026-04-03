@@ -11,7 +11,7 @@ use raw_window_handle::{HasDisplayHandle, HasWindowHandle, RawDisplayHandle, Raw
 use crate::error::check;
 use crate::instance::Instance;
 use crate::vk;
-use vk::handles::Handle;
+use vk::Handle;
 
 /// Error returned by surface creation.
 ///
@@ -30,7 +30,7 @@ pub enum SurfaceError {
     /// `raw-window-handle` returned an error.
     HandleError(raw_window_handle::HandleError),
     /// Vulkan error from the surface creation call.
-    Vulkan(vk::enums::Result),
+    Vulkan(vk::Result),
 }
 
 impl fmt::Display for SurfaceError {
@@ -53,8 +53,8 @@ impl From<raw_window_handle::HandleError> for SurfaceError {
     }
 }
 
-impl From<vk::enums::Result> for SurfaceError {
-    fn from(e: vk::enums::Result) -> Self {
+impl From<vk::Result> for SurfaceError {
+    fn from(e: vk::Result) -> Self {
         Self::Vulkan(e)
     }
 }
@@ -141,8 +141,8 @@ impl Instance {
         &self,
         display: &dyn HasDisplayHandle,
         window: &dyn HasWindowHandle,
-        allocator: Option<&vk::structs::AllocationCallbacks>,
-    ) -> Result<vk::handles::SurfaceKHR, SurfaceError> {
+        allocator: Option<&vk::AllocationCallbacks>,
+    ) -> Result<vk::SurfaceKHR, SurfaceError> {
         let raw_display = display.display_handle()?.as_raw();
         let raw_window = window.window_handle()?.as_raw();
         let alloc_ptr = allocator.map_or(std::ptr::null(), |a| a as *const _);
@@ -153,7 +153,7 @@ impl Instance {
         match (raw_display, raw_window) {
             #[cfg(target_os = "windows")]
             (RawDisplayHandle::Windows(_), RawWindowHandle::Win32(h)) => {
-                let info = vk::structs::Win32SurfaceCreateInfoKHR {
+                let info = vk::Win32SurfaceCreateInfoKHR {
                     hinstance: h.hinstance.map_or(0, |v| v.get()),
                     hwnd: h.hwnd.get(),
                     ..Default::default()
@@ -162,7 +162,7 @@ impl Instance {
                     .commands()
                     .create_win32_surface_khr
                     .expect("VK_KHR_win32_surface not loaded");
-                let mut surface = vk::handles::SurfaceKHR::null();
+                let mut surface = vk::SurfaceKHR::null();
                 check(unsafe { fp(self.handle(), &info, alloc_ptr, &mut surface) })?;
                 Ok(surface)
             }
@@ -174,7 +174,7 @@ impl Instance {
                 not(target_os = "ios"),
             ))]
             (RawDisplayHandle::Xlib(d), RawWindowHandle::Xlib(w)) => {
-                let info = vk::structs::XlibSurfaceCreateInfoKHR {
+                let info = vk::XlibSurfaceCreateInfoKHR {
                     dpy: d.display.map_or(std::ptr::null_mut(), |p| p.as_ptr()),
                     window: w.window,
                     ..Default::default()
@@ -183,7 +183,7 @@ impl Instance {
                     .commands()
                     .create_xlib_surface_khr
                     .expect("VK_KHR_xlib_surface not loaded");
-                let mut surface = vk::handles::SurfaceKHR::null();
+                let mut surface = vk::SurfaceKHR::null();
                 check(unsafe { fp(self.handle(), &info, alloc_ptr, &mut surface) })?;
                 Ok(surface)
             }
@@ -195,7 +195,7 @@ impl Instance {
                 not(target_os = "ios"),
             ))]
             (RawDisplayHandle::Xcb(d), RawWindowHandle::Xcb(w)) => {
-                let info = vk::structs::XcbSurfaceCreateInfoKHR {
+                let info = vk::XcbSurfaceCreateInfoKHR {
                     connection: d.connection.map_or(std::ptr::null_mut(), |p| p.as_ptr()),
                     window: w.window.get(),
                     ..Default::default()
@@ -204,7 +204,7 @@ impl Instance {
                     .commands()
                     .create_xcb_surface_khr
                     .expect("VK_KHR_xcb_surface not loaded");
-                let mut surface = vk::handles::SurfaceKHR::null();
+                let mut surface = vk::SurfaceKHR::null();
                 check(unsafe { fp(self.handle(), &info, alloc_ptr, &mut surface) })?;
                 Ok(surface)
             }
@@ -216,7 +216,7 @@ impl Instance {
                 not(target_os = "ios"),
             ))]
             (RawDisplayHandle::Wayland(d), RawWindowHandle::Wayland(w)) => {
-                let info = vk::structs::WaylandSurfaceCreateInfoKHR {
+                let info = vk::WaylandSurfaceCreateInfoKHR {
                     display: d.display.as_ptr(),
                     surface: w.surface.as_ptr(),
                     ..Default::default()
@@ -225,7 +225,7 @@ impl Instance {
                     .commands()
                     .create_wayland_surface_khr
                     .expect("VK_KHR_wayland_surface not loaded");
-                let mut surface = vk::handles::SurfaceKHR::null();
+                let mut surface = vk::SurfaceKHR::null();
                 check(unsafe { fp(self.handle(), &info, alloc_ptr, &mut surface) })?;
                 Ok(surface)
             }
@@ -234,7 +234,7 @@ impl Instance {
             (RawDisplayHandle::AppKit(_), RawWindowHandle::AppKit(w)) => {
                 // The caller's NSView must be backed by a CAMetalLayer
                 // (typically set up by the windowing library).
-                let info = vk::structs::MetalSurfaceCreateInfoEXT {
+                let info = vk::MetalSurfaceCreateInfoEXT {
                     p_layer: w.ns_view.as_ptr() as *const _,
                     ..Default::default()
                 };
@@ -242,14 +242,14 @@ impl Instance {
                     .commands()
                     .create_metal_surface_ext
                     .expect("VK_EXT_metal_surface not loaded");
-                let mut surface = vk::handles::SurfaceKHR::null();
+                let mut surface = vk::SurfaceKHR::null();
                 check(unsafe { fp(self.handle(), &info, alloc_ptr, &mut surface) })?;
                 Ok(surface)
             }
 
             #[cfg(target_os = "android")]
             (RawDisplayHandle::Android(_), RawWindowHandle::AndroidNdk(w)) => {
-                let info = vk::structs::AndroidSurfaceCreateInfoKHR {
+                let info = vk::AndroidSurfaceCreateInfoKHR {
                     window: w.a_native_window.as_ptr(),
                     ..Default::default()
                 };
@@ -257,7 +257,7 @@ impl Instance {
                     .commands()
                     .create_android_surface_khr
                     .expect("VK_KHR_android_surface not loaded");
-                let mut surface = vk::handles::SurfaceKHR::null();
+                let mut surface = vk::SurfaceKHR::null();
                 check(unsafe { fp(self.handle(), &info, alloc_ptr, &mut surface) })?;
                 Ok(surface)
             }
@@ -274,8 +274,8 @@ impl Instance {
     /// - The surface must have been created from this instance.
     pub unsafe fn destroy_surface(
         &self,
-        surface: vk::handles::SurfaceKHR,
-        allocator: Option<&vk::structs::AllocationCallbacks>,
+        surface: vk::SurfaceKHR,
+        allocator: Option<&vk::AllocationCallbacks>,
     ) {
         let fp = self
             .commands()
@@ -327,7 +327,7 @@ mod tests {
     fn destroy_surface_panics_when_extension_not_loaded() {
         let instance = mock_instance();
         unsafe {
-            instance.destroy_surface(vk::handles::SurfaceKHR::null(), None);
+            instance.destroy_surface(vk::SurfaceKHR::null(), None);
         }
     }
 
@@ -342,7 +342,7 @@ mod tests {
 
     #[test]
     fn surface_error_display_vulkan() {
-        let err = SurfaceError::Vulkan(vk::enums::Result::ERROR_SURFACE_LOST);
+        let err = SurfaceError::Vulkan(vk::Result::ERROR_SURFACE_LOST);
         let msg = err.to_string();
         assert!(msg.contains("Vulkan surface creation failed"));
     }
@@ -363,7 +363,7 @@ mod tests {
 
     #[test]
     fn surface_error_from_vk_result() {
-        let vk_err = vk::enums::Result::ERROR_SURFACE_LOST;
+        let vk_err = vk::Result::ERROR_SURFACE_LOST;
         let se: SurfaceError = vk_err.into();
         assert!(matches!(se, SurfaceError::Vulkan(_)));
     }
@@ -372,15 +372,15 @@ mod tests {
         use std::ffi::c_char;
 
         unsafe extern "system" fn mock_get_instance_proc_addr(
-            _instance: vk::handles::Instance,
+            _instance: vk::Instance,
             _name: *const c_char,
-        ) -> vk::structs::PFN_vkVoidFunction {
+        ) -> vk::PFN_vkVoidFunction {
             None
         }
 
         unsafe {
             Instance::from_raw_parts(
-                vk::handles::Instance::from_raw(0xDEAD),
+                vk::Instance::from_raw(0xDEAD),
                 Some(mock_get_instance_proc_addr),
             )
         }
@@ -406,56 +406,56 @@ mod tests {
         };
 
         unsafe extern "system" fn mock_create_win32_surface(
-            _instance: vk::handles::Instance,
-            _p_create_info: *const vk::structs::Win32SurfaceCreateInfoKHR,
-            _p_allocator: *const vk::structs::AllocationCallbacks,
-            p_surface: *mut vk::handles::SurfaceKHR,
-        ) -> vk::enums::Result {
-            unsafe { *p_surface = vk::handles::SurfaceKHR::from_raw(0xEF01) };
-            vk::enums::Result::SUCCESS
+            _instance: vk::Instance,
+            _p_create_info: *const vk::Win32SurfaceCreateInfoKHR,
+            _p_allocator: *const vk::AllocationCallbacks,
+            p_surface: *mut vk::SurfaceKHR,
+        ) -> vk::Result {
+            unsafe { *p_surface = vk::SurfaceKHR::from_raw(0xEF01) };
+            vk::Result::SUCCESS
         }
 
         unsafe extern "system" fn failing_create_win32_surface(
-            _instance: vk::handles::Instance,
-            _p_create_info: *const vk::structs::Win32SurfaceCreateInfoKHR,
-            _p_allocator: *const vk::structs::AllocationCallbacks,
-            _p_surface: *mut vk::handles::SurfaceKHR,
-        ) -> vk::enums::Result {
-            vk::enums::Result::ERROR_INITIALIZATION_FAILED
+            _instance: vk::Instance,
+            _p_create_info: *const vk::Win32SurfaceCreateInfoKHR,
+            _p_allocator: *const vk::AllocationCallbacks,
+            _p_surface: *mut vk::SurfaceKHR,
+        ) -> vk::Result {
+            vk::Result::ERROR_INITIALIZATION_FAILED
         }
 
         unsafe extern "system" fn mock_destroy_surface(
-            instance: vk::handles::Instance,
-            surface: vk::handles::SurfaceKHR,
-            _p_allocator: *const vk::structs::AllocationCallbacks,
+            instance: vk::Instance,
+            surface: vk::SurfaceKHR,
+            _p_allocator: *const vk::AllocationCallbacks,
         ) {
             assert_eq!(instance.as_raw(), 0xDEAD, "wrong instance handle");
             assert_eq!(surface.as_raw(), 0xABCD, "wrong surface handle");
         }
 
         unsafe extern "system" fn surface_instance_proc_addr(
-            _instance: vk::handles::Instance,
+            _instance: vk::Instance,
             name: *const c_char,
-        ) -> vk::structs::PFN_vkVoidFunction {
+        ) -> vk::PFN_vkVoidFunction {
             let name = unsafe { CStr::from_ptr(name) };
             match name.to_bytes() {
                 b"vkCreateWin32SurfaceKHR" => Some(unsafe {
                     std::mem::transmute::<
                         unsafe extern "system" fn(
-                            vk::handles::Instance,
-                            *const vk::structs::Win32SurfaceCreateInfoKHR,
-                            *const vk::structs::AllocationCallbacks,
-                            *mut vk::handles::SurfaceKHR,
-                        ) -> vk::enums::Result,
+                            vk::Instance,
+                            *const vk::Win32SurfaceCreateInfoKHR,
+                            *const vk::AllocationCallbacks,
+                            *mut vk::SurfaceKHR,
+                        ) -> vk::Result,
                         unsafe extern "system" fn(),
                     >(mock_create_win32_surface)
                 }),
                 b"vkDestroySurfaceKHR" => Some(unsafe {
                     std::mem::transmute::<
                         unsafe extern "system" fn(
-                            vk::handles::Instance,
-                            vk::handles::SurfaceKHR,
-                            *const vk::structs::AllocationCallbacks,
+                            vk::Instance,
+                            vk::SurfaceKHR,
+                            *const vk::AllocationCallbacks,
                         ),
                         unsafe extern "system" fn(),
                     >(mock_destroy_surface)
@@ -465,19 +465,19 @@ mod tests {
         }
 
         unsafe extern "system" fn failing_surface_instance_proc_addr(
-            _instance: vk::handles::Instance,
+            _instance: vk::Instance,
             name: *const c_char,
-        ) -> vk::structs::PFN_vkVoidFunction {
+        ) -> vk::PFN_vkVoidFunction {
             let name = unsafe { CStr::from_ptr(name) };
             match name.to_bytes() {
                 b"vkCreateWin32SurfaceKHR" => Some(unsafe {
                     std::mem::transmute::<
                         unsafe extern "system" fn(
-                            vk::handles::Instance,
-                            *const vk::structs::Win32SurfaceCreateInfoKHR,
-                            *const vk::structs::AllocationCallbacks,
-                            *mut vk::handles::SurfaceKHR,
-                        ) -> vk::enums::Result,
+                            vk::Instance,
+                            *const vk::Win32SurfaceCreateInfoKHR,
+                            *const vk::AllocationCallbacks,
+                            *mut vk::SurfaceKHR,
+                        ) -> vk::Result,
                         unsafe extern "system" fn(),
                     >(failing_create_win32_surface)
                 }),
@@ -499,7 +499,7 @@ mod tests {
         fn surface_instance() -> Instance {
             unsafe {
                 Instance::from_raw_parts(
-                    vk::handles::Instance::from_raw(0xDEAD),
+                    vk::Instance::from_raw(0xDEAD),
                     Some(surface_instance_proc_addr),
                 )
             }
@@ -520,7 +520,7 @@ mod tests {
         fn create_surface_win32_propagates_vulkan_error() {
             let instance = unsafe {
                 Instance::from_raw_parts(
-                    vk::handles::Instance::from_raw(0xDEAD),
+                    vk::Instance::from_raw(0xDEAD),
                     Some(failing_surface_instance_proc_addr),
                 )
             };
@@ -530,7 +530,7 @@ mod tests {
             let result = unsafe { instance.create_surface(&display, &window, None) };
             match result {
                 Err(SurfaceError::Vulkan(e)) => {
-                    assert_eq!(e, vk::enums::Result::ERROR_INITIALIZATION_FAILED);
+                    assert_eq!(e, vk::Result::ERROR_INITIALIZATION_FAILED);
                 }
                 other => panic!("expected SurfaceError::Vulkan, got {other:?}"),
             }
@@ -539,7 +539,7 @@ mod tests {
         #[test]
         fn destroy_surface_calls_fp_with_correct_args() {
             let instance = surface_instance();
-            let surface = vk::handles::SurfaceKHR::from_raw(0xABCD);
+            let surface = vk::SurfaceKHR::from_raw(0xABCD);
             // The mock asserts handle values internally.
             unsafe { instance.destroy_surface(surface, None) };
         }

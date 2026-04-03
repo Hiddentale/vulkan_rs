@@ -2,10 +2,7 @@
 // Based on hello_triangle_4.rs, modified to recreate the swapchain on resize.
 // <https://hiddentale.github.io/vulkan_rust/how-to/resize.html>
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Device, Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
@@ -115,14 +112,14 @@ fn init_vulkan(window: Window) -> VulkanState {
     let layer_ptrs = [validation_layer.as_ptr()];
 
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Resize Example")
+        .application_name(c"Resize Example")
         .application_version(1)
-        .p_engine_name(c"No Engine")
+        .engine_name(c"No Engine")
         .engine_version(1)
         .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&app_info)
+        .application_info(&app_info)
         .enabled_extension_names(&extension_ptrs)
         .enabled_layer_names(&layer_ptrs);
 
@@ -144,8 +141,7 @@ fn init_vulkan(window: Window) -> VulkanState {
             let graphics = family.queue_flags & QueueFlags::GRAPHICS != QueueFlags::empty();
             let present =
                 unsafe { instance.get_physical_device_surface_support_khr(pd, i as u32, surface) }
-                    .unwrap_or(0)
-                    != 0;
+                    .unwrap_or(false);
             if graphics && present {
                 physical_device = pd;
                 graphics_family_index = i as u32;
@@ -206,12 +202,8 @@ fn init_vulkan(window: Window) -> VulkanState {
     let vert_code = cast_to_u32(vert_bytes).expect("Vertex SPIR-V not aligned");
     let frag_code = cast_to_u32(frag_bytes).expect("Fragment SPIR-V not aligned");
 
-    let vert_info = ShaderModuleCreateInfo::builder()
-        .code_size(vert_code.len() * 4)
-        .p_code(vert_code.as_ptr());
-    let frag_info = ShaderModuleCreateInfo::builder()
-        .code_size(frag_code.len() * 4)
-        .p_code(frag_code.as_ptr());
+    let vert_info = ShaderModuleCreateInfo::builder().code(vert_code);
+    let frag_info = ShaderModuleCreateInfo::builder().code(frag_code);
 
     let vert_module = unsafe { device.create_shader_module(&vert_info, None) }
         .expect("Failed to create vertex shader module");
@@ -246,7 +238,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         p_preserve_attachments: core::ptr::null(),
     };
     let dependency = SubpassDependency {
-        src_subpass: vk::constants::SUBPASS_EXTERNAL,
+        src_subpass: vk::SUBPASS_EXTERNAL,
         dst_subpass: 0,
         src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
         dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
@@ -271,11 +263,11 @@ fn init_vulkan(window: Window) -> VulkanState {
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::VERTEX)
             .module(vert_module)
-            .p_name(entry_name),
+            .name(entry_name),
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::FRAGMENT)
             .module(frag_module)
-            .p_name(entry_name),
+            .name(entry_name),
     ];
     let vertex_input = PipelineVertexInputStateCreateInfo::builder();
     let input_assembly =
@@ -305,13 +297,13 @@ fn init_vulkan(window: Window) -> VulkanState {
 
     let pipeline_info = GraphicsPipelineCreateInfo::builder()
         .stages(&stages)
-        .p_vertex_input_state(&vertex_input)
-        .p_input_assembly_state(&input_assembly)
-        .p_viewport_state(&viewport_state)
-        .p_rasterization_state(&rasterizer)
-        .p_multisample_state(&multisampling)
-        .p_color_blend_state(&color_blending)
-        .p_dynamic_state(&dynamic_state)
+        .vertex_input_state(&vertex_input)
+        .input_assembly_state(&input_assembly)
+        .viewport_state(&viewport_state)
+        .rasterization_state(&rasterizer)
+        .multisample_state(&multisampling)
+        .color_blend_state(&color_blending)
+        .dynamic_state(&dynamic_state)
         .layout(pipeline_layout)
         .render_pass(render_pass)
         .subpass(0);
@@ -552,7 +544,7 @@ unsafe fn draw_frame(state: &mut VulkanState, framebuffer_resized: &mut bool) {
 
         let image_index = match acquire_result {
             Ok(index) => index,
-            Err(vk::enums::Result::ERROR_OUT_OF_DATE) => {
+            Err(vk::Result::ERROR_OUT_OF_DATE) => {
                 recreate_swapchain(state);
                 return;
             }
@@ -592,7 +584,7 @@ unsafe fn draw_frame(state: &mut VulkanState, framebuffer_resized: &mut bool) {
 
         match present_result {
             Ok(_) => {}
-            Err(vk::enums::Result::ERROR_OUT_OF_DATE | vk::enums::Result::SUBOPTIMAL) => {
+            Err(vk::Result::ERROR_OUT_OF_DATE | vk::Result::SUBOPTIMAL) => {
                 *framebuffer_resized = false;
                 recreate_swapchain(state);
                 return;

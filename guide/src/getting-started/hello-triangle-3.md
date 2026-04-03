@@ -84,7 +84,7 @@ you prefer, adjust the path in the code below).
 ```rust,ignore
 use vulkan_rust::vk;
 use vulkan_rust::cast_to_u32;
-use vk::structs::*;
+use vk::*;
 
 // ── Load SPIR-V bytecode ───────────────────────────────────────
 let vert_bytes = include_bytes!("triangle.vert.spv");
@@ -98,11 +98,9 @@ let frag_code = cast_to_u32(frag_bytes)
 
 // ── Create shader modules ──────────────────────────────────────
 let vert_info = ShaderModuleCreateInfo::builder()
-    .code_size(vert_code.len() * 4)
-    .p_code(vert_code.as_ptr());
+    .code(vert_code);
 let frag_info = ShaderModuleCreateInfo::builder()
-    .code_size(frag_code.len() * 4)
-    .p_code(frag_code.as_ptr());
+    .code(frag_code);
 
 let vert_module = unsafe { device.create_shader_module(&vert_info, None) }
     .expect("Failed to create vertex shader module");
@@ -121,9 +119,7 @@ for the full concept.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // ── Color attachment: the swapchain image ──────────────────────
 let color_attachment = AttachmentDescription {
@@ -161,7 +157,7 @@ let subpass = SubpassDescription {
 //
 // Ensure the image layout transition happens before we write color.
 let dependency = SubpassDependency {
-    src_subpass: vk::constants::SUBPASS_EXTERNAL,
+    src_subpass: vk::SUBPASS_EXTERNAL,
     dst_subpass: 0,
     src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
     dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
@@ -188,7 +184,7 @@ is empty.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 let layout_info = PipelineLayoutCreateInfo::builder();
 let pipeline_layout = unsafe {
@@ -204,10 +200,7 @@ state is specified here.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
-use vk::handles::*;
+use vk::*;
 
 // ── Shader stages ──────────────────────────────────────────────
 let entry_name = c"main";
@@ -215,11 +208,11 @@ let stages = [
     *PipelineShaderStageCreateInfo::builder()
         .stage(ShaderStageFlags::VERTEX)
         .module(vert_module)
-        .p_name(entry_name.as_ptr()),
+        .name(entry_name),
     *PipelineShaderStageCreateInfo::builder()
         .stage(ShaderStageFlags::FRAGMENT)
         .module(frag_module)
-        .p_name(entry_name.as_ptr()),
+        .name(entry_name),
 ];
 
 // ── Vertex input: empty (positions are hard-coded in shader) ───
@@ -266,13 +259,13 @@ let dynamic_state = PipelineDynamicStateCreateInfo::builder()
 // ── Assemble the pipeline ──────────────────────────────────────
 let pipeline_info = GraphicsPipelineCreateInfo::builder()
     .stages(&stages)
-    .p_vertex_input_state(&vertex_input)
-    .p_input_assembly_state(&input_assembly)
-    .p_viewport_state(&viewport_state)
-    .p_rasterization_state(&rasterizer)
-    .p_multisample_state(&multisampling)
-    .p_color_blend_state(&color_blending)
-    .p_dynamic_state(&dynamic_state)
+    .vertex_input_state(&vertex_input)
+    .input_assembly_state(&input_assembly)
+    .viewport_state(&viewport_state)
+    .rasterization_state(&rasterizer)
+    .multisample_state(&multisampling)
+    .color_blend_state(&color_blending)
+    .dynamic_state(&dynamic_state)
     .layout(pipeline_layout)
     .render_pass(render_pass)
     .subpass(0);
@@ -310,8 +303,7 @@ per swapchain image.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 let framebuffers: Vec<Framebuffer> = swapchain_image_views
     .iter()

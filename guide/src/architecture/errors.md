@@ -23,7 +23,7 @@ return value after every call.
 ```rust,ignore
 use vulkan_rust::vk;
 
-pub type VkResult<T> = std::result::Result<T, vk::enums::Result>;
+pub type VkResult<T> = std::result::Result<T, vk::Result>;
 ```
 
 Here `vk::Result` is the `#[repr(transparent)]` i32 newtype from `vulkan-rust-sys`.
@@ -35,7 +35,7 @@ A helper function performs the conversion:
 ```rust,ignore
 use vulkan_rust::vk;
 
-pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
+pub(crate) fn check(result: vk::Result) -> VkResult<()> {
     if result.as_raw() >= 0 {
         Ok(())
     } else {
@@ -100,7 +100,7 @@ pub enum SurfaceError {
     /// raw-window-handle returned an error.
     HandleError(raw_window_handle::HandleError),
     /// Vulkan error from the surface creation call.
-    Vulkan(vk::enums::Result),
+    Vulkan(vk::Result),
 }
 ```
 
@@ -132,7 +132,7 @@ errors with `?`, handle them at the boundary.
 ```rust,ignore
 use vulkan_rust::vk;
 use vulkan_rust::Device;
-use vk::handles::*;
+use vk::*;
 
 unsafe fn create_pipeline(
     device: &Device,

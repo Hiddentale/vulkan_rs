@@ -87,7 +87,7 @@ This is a minimal pipeline for rendering colored triangles.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 // SPIR-V bytecode, compiled from GLSL with glslc or shaderc.
 let vert_code: &[u32] = /* load from file or include_bytes! */;
@@ -120,8 +120,7 @@ let stages = [
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
-use vulkan_rust::vk::enums::*;
+use vulkan_rust::vk::*;
 
 // Describe how vertex data is laid out in memory.
 let binding = VertexInputBindingDescription {
@@ -156,9 +155,7 @@ let vertex_input = PipelineVertexInputStateCreateInfo::builder()
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
-use vulkan_rust::vk::enums::*;
-use vulkan_rust::vk::bitmasks::*;
+use vulkan_rust::vk::*;
 
 let input_assembly = PipelineInputAssemblyStateCreateInfo::builder()
     .topology(PrimitiveTopology::TRIANGLE_LIST);
@@ -210,8 +207,7 @@ let dynamic_state = PipelineDynamicStateCreateInfo::builder()
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
-use vulkan_rust::vk::handles::*;
+use vulkan_rust::vk::*;
 use vulkan_rust::vk::Handle;
 
 // Empty layout (no descriptor sets, no push constants).
@@ -256,7 +252,7 @@ unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::enums::*;
+use vulkan_rust::vk::*;
 
 unsafe {
     device.cmd_bind_pipeline(
@@ -281,8 +277,7 @@ a pipeline layout. No vertex input, no rasterization, no blending.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
-use vulkan_rust::vk::handles::*;
+use vulkan_rust::vk::*;
 use vulkan_rust::vk::Handle;
 
 let compute_info = ComputePipelineCreateInfo::builder()
@@ -312,7 +307,7 @@ are faster.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 // Create a cache (optionally seeded with data from a previous run).
 let cache_info = PipelineCacheCreateInfo::builder();

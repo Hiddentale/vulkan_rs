@@ -7,8 +7,8 @@ pub fn create_entry() -> Entry {
 
 pub fn create_instance() -> (Entry, Instance) {
     let entry = create_entry();
-    let app_info = vk::structs::ApplicationInfo {
-        s_type: vk::enums::StructureType::APPLICATION_INFO,
+    let app_info = vk::ApplicationInfo {
+        s_type: vk::StructureType::APPLICATION_INFO,
         p_next: std::ptr::null(),
         p_application_name: std::ptr::null(),
         application_version: 0,
@@ -16,10 +16,10 @@ pub fn create_instance() -> (Entry, Instance) {
         engine_version: 0,
         api_version: vulkan_rust::Version::new(1, 0, 0).to_raw(),
     };
-    let create_info = vk::structs::InstanceCreateInfo {
-        s_type: vk::enums::StructureType::INSTANCE_CREATE_INFO,
+    let create_info = vk::InstanceCreateInfo {
+        s_type: vk::StructureType::INSTANCE_CREATE_INFO,
         p_next: std::ptr::null(),
-        flags: vk::bitmasks::InstanceCreateFlagBits::empty(),
+        flags: vk::InstanceCreateFlagBits::empty(),
         p_application_info: &app_info,
         enabled_layer_count: 0,
         pp_enabled_layer_names: std::ptr::null(),

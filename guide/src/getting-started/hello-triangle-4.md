@@ -23,7 +23,7 @@ We need fences and semaphores to coordinate CPU and GPU work. See
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // ── Semaphores: GPU-to-GPU synchronization ─────────────────────
 let sem_info = SemaphoreCreateInfo::builder();
@@ -59,9 +59,7 @@ let in_flight_fence = unsafe { device.create_fence(&fence_info, None) }
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::handles::*;
+use vk::*;
 
 // ── Command pool ───────────────────────────────────────────────
 let pool_info = CommandPoolCreateInfo::builder()
@@ -91,9 +89,7 @@ swapchain image.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::handles::*;
+use vk::*;
 
 unsafe fn record_commands(
     device: &vulkan_rust::Device,
@@ -224,8 +220,7 @@ The `draw_frame` function:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 unsafe fn draw_frame(
     device: &vulkan_rust::Device,

@@ -16,7 +16,7 @@ static TEST_MUTEX: Mutex<()> = Mutex::new(());
 use std::ffi::{CStr, c_char};
 use std::sync::atomic::{AtomicBool, AtomicU32, Ordering};
 
-use vk::handles::Handle;
+use vk::Handle;
 use vulkan_rust::vk;
 
 // ---------------------------------------------------------------------------
@@ -39,41 +39,37 @@ fn reset_mocks() {
 
 /// Mock `vkGetDeviceProcAddr` that returns fake fps for specific commands.
 unsafe extern "system" fn mock_device_proc_addr(
-    _device: vk::handles::Device,
+    _device: vk::Device,
     name: *const c_char,
-) -> vk::structs::PFN_vkVoidFunction {
+) -> vk::PFN_vkVoidFunction {
     let name = unsafe { CStr::from_ptr(name) };
     match name.to_bytes() {
         b"vkCreateFence" => Some(unsafe {
             std::mem::transmute::<
                 unsafe extern "system" fn(
-                    vk::handles::Device,
-                    *const vk::structs::FenceCreateInfo,
-                    *const vk::structs::AllocationCallbacks,
-                    *mut vk::handles::Fence,
-                ) -> vk::enums::Result,
+                    vk::Device,
+                    *const vk::FenceCreateInfo,
+                    *const vk::AllocationCallbacks,
+                    *mut vk::Fence,
+                ) -> vk::Result,
                 unsafe extern "system" fn(),
             >(mock_create_fence)
         }),
         b"vkDestroyFence" => Some(unsafe {
             std::mem::transmute::<
-                unsafe extern "system" fn(
-                    vk::handles::Device,
-                    vk::handles::Fence,
-                    *const vk::structs::AllocationCallbacks,
-                ),
+                unsafe extern "system" fn(vk::Device, vk::Fence, *const vk::AllocationCallbacks),
                 unsafe extern "system" fn(),
             >(mock_destroy_fence)
         }),
         b"vkDeviceWaitIdle" => Some(unsafe {
             std::mem::transmute::<
-                unsafe extern "system" fn(vk::handles::Device) -> vk::enums::Result,
+                unsafe extern "system" fn(vk::Device) -> vk::Result,
                 unsafe extern "system" fn(),
             >(mock_device_wait_idle)
         }),
         b"vkCmdDraw" => Some(unsafe {
             std::mem::transmute::<
-                unsafe extern "system" fn(vk::handles::CommandBuffer, u32, u32, u32, u32),
+                unsafe extern "system" fn(vk::CommandBuffer, u32, u32, u32, u32),
                 unsafe extern "system" fn(),
             >(mock_cmd_draw)
         }),
@@ -84,7 +80,7 @@ unsafe extern "system" fn mock_device_proc_addr(
 fn mock_device() -> vulkan_rust::Device {
     unsafe {
         vulkan_rust::Device::from_raw_parts(
-            vk::handles::Device::from_raw(0xD001),
+            vk::Device::from_raw(0xD001),
             Some(mock_device_proc_addr),
         )
     }
@@ -96,24 +92,24 @@ fn mock_device() -> vulkan_rust::Device {
 
 /// Create pattern: writes output handle, returns SUCCESS.
 unsafe extern "system" fn mock_create_fence(
-    device: vk::handles::Device,
-    p_create_info: *const vk::structs::FenceCreateInfo,
-    _p_allocator: *const vk::structs::AllocationCallbacks,
-    p_fence: *mut vk::handles::Fence,
-) -> vk::enums::Result {
+    device: vk::Device,
+    p_create_info: *const vk::FenceCreateInfo,
+    _p_allocator: *const vk::AllocationCallbacks,
+    p_fence: *mut vk::Fence,
+) -> vk::Result {
     MOCK_CALLED.store(true, Ordering::SeqCst);
     assert_eq!(device.as_raw(), 0xD001, "wrong device handle");
     assert!(!p_create_info.is_null(), "create_info must not be null");
     assert!(!p_fence.is_null(), "output pointer must not be null");
-    unsafe { *p_fence = vk::handles::Fence::from_raw(0xFE01) };
-    vk::enums::Result::SUCCESS
+    unsafe { *p_fence = vk::Fence::from_raw(0xFE01) };
+    vk::Result::SUCCESS
 }
 
 /// Destroy pattern: verifies handle and allocator forwarding.
 unsafe extern "system" fn mock_destroy_fence(
-    device: vk::handles::Device,
-    fence: vk::handles::Fence,
-    p_allocator: *const vk::structs::AllocationCallbacks,
+    device: vk::Device,
+    fence: vk::Fence,
+    p_allocator: *const vk::AllocationCallbacks,
 ) {
     MOCK_CALLED.store(true, Ordering::SeqCst);
     assert_eq!(device.as_raw(), 0xD001, "wrong device handle");
@@ -122,15 +118,15 @@ unsafe extern "system" fn mock_destroy_fence(
 }
 
 /// ResultOnly pattern: returns SUCCESS.
-unsafe extern "system" fn mock_device_wait_idle(device: vk::handles::Device) -> vk::enums::Result {
+unsafe extern "system" fn mock_device_wait_idle(device: vk::Device) -> vk::Result {
     MOCK_CALLED.store(true, Ordering::SeqCst);
     assert_eq!(device.as_raw(), 0xD001, "wrong device handle");
-    vk::enums::Result::SUCCESS
+    vk::Result::SUCCESS
 }
 
 /// VoidForward pattern: captures arguments for verification.
 unsafe extern "system" fn mock_cmd_draw(
-    _command_buffer: vk::handles::CommandBuffer,
+    _command_buffer: vk::CommandBuffer,
     vertex_count: u32,
     instance_count: u32,
     _first_vertex: u32,
@@ -147,36 +143,33 @@ unsafe extern "system" fn mock_cmd_draw(
 
 /// Mock `vkGetInstanceProcAddr` that returns fake fps for specific commands.
 unsafe extern "system" fn mock_instance_proc_addr(
-    _instance: vk::handles::Instance,
+    _instance: vk::Instance,
     name: *const c_char,
-) -> vk::structs::PFN_vkVoidFunction {
+) -> vk::PFN_vkVoidFunction {
     let name = unsafe { CStr::from_ptr(name) };
     match name.to_bytes() {
         b"vkGetDeviceProcAddr" => Some(unsafe {
             std::mem::transmute::<
-                unsafe extern "system" fn(
-                    vk::handles::Device,
-                    *const c_char,
-                ) -> vk::structs::PFN_vkVoidFunction,
+                unsafe extern "system" fn(vk::Device, *const c_char) -> vk::PFN_vkVoidFunction,
                 unsafe extern "system" fn(),
             >(null_device_proc_addr)
         }),
         b"vkEnumeratePhysicalDevices" => Some(unsafe {
             std::mem::transmute::<
                 unsafe extern "system" fn(
-                    vk::handles::Instance,
+                    vk::Instance,
                     *mut u32,
-                    *mut vk::handles::PhysicalDevice,
-                ) -> vk::enums::Result,
+                    *mut vk::PhysicalDevice,
+                ) -> vk::Result,
                 unsafe extern "system" fn(),
             >(mock_enumerate_physical_devices)
         }),
         b"vkGetPhysicalDeviceQueueFamilyProperties" => Some(unsafe {
             std::mem::transmute::<
                 unsafe extern "system" fn(
-                    vk::handles::PhysicalDevice,
+                    vk::PhysicalDevice,
                     *mut u32,
-                    *mut vk::structs::QueueFamilyProperties,
+                    *mut vk::QueueFamilyProperties,
                 ),
                 unsafe extern "system" fn(),
             >(mock_get_physical_device_queue_family_properties)
@@ -184,8 +177,8 @@ unsafe extern "system" fn mock_instance_proc_addr(
         b"vkGetPhysicalDeviceMemoryProperties" => Some(unsafe {
             std::mem::transmute::<
                 unsafe extern "system" fn(
-                    vk::handles::PhysicalDevice,
-                    *mut vk::structs::PhysicalDeviceMemoryProperties,
+                    vk::PhysicalDevice,
+                    *mut vk::PhysicalDeviceMemoryProperties,
                 ),
                 unsafe extern "system" fn(),
             >(mock_get_physical_device_memory_properties)
@@ -195,16 +188,16 @@ unsafe extern "system" fn mock_instance_proc_addr(
 }
 
 unsafe extern "system" fn null_device_proc_addr(
-    _device: vk::handles::Device,
+    _device: vk::Device,
     _name: *const c_char,
-) -> vk::structs::PFN_vkVoidFunction {
+) -> vk::PFN_vkVoidFunction {
     None
 }
 
 fn mock_instance() -> vulkan_rust::Instance {
     unsafe {
         vulkan_rust::Instance::from_raw_parts(
-            vk::handles::Instance::from_raw(0x1001_usize),
+            vk::Instance::from_raw(0x1001_usize),
             Some(mock_instance_proc_addr),
         )
     }
@@ -216,28 +209,28 @@ fn mock_instance() -> vulkan_rust::Instance {
 
 /// Enumerate pattern: two-call that returns 2 physical devices.
 unsafe extern "system" fn mock_enumerate_physical_devices(
-    _instance: vk::handles::Instance,
+    _instance: vk::Instance,
     p_count: *mut u32,
-    p_devices: *mut vk::handles::PhysicalDevice,
-) -> vk::enums::Result {
+    p_devices: *mut vk::PhysicalDevice,
+) -> vk::Result {
     MOCK_CALLED.store(true, Ordering::SeqCst);
     if p_devices.is_null() {
         unsafe { *p_count = 2 };
     } else {
         unsafe {
             *p_count = 2;
-            *p_devices = vk::handles::PhysicalDevice::from_raw(0xAA01_usize);
-            *p_devices.add(1) = vk::handles::PhysicalDevice::from_raw(0xAA02_usize);
+            *p_devices = vk::PhysicalDevice::from_raw(0xAA01_usize);
+            *p_devices.add(1) = vk::PhysicalDevice::from_raw(0xAA02_usize);
         }
     }
-    vk::enums::Result::SUCCESS
+    vk::Result::SUCCESS
 }
 
 /// Fill pattern: two-call that returns 1 queue family.
 unsafe extern "system" fn mock_get_physical_device_queue_family_properties(
-    _physical_device: vk::handles::PhysicalDevice,
+    _physical_device: vk::PhysicalDevice,
     p_count: *mut u32,
-    p_properties: *mut vk::structs::QueueFamilyProperties,
+    p_properties: *mut vk::QueueFamilyProperties,
 ) {
     MOCK_CALLED.store(true, Ordering::SeqCst);
     if p_properties.is_null() {
@@ -245,8 +238,8 @@ unsafe extern "system" fn mock_get_physical_device_queue_family_properties(
     } else {
         unsafe {
             *p_count = 1;
-            let mut props: vk::structs::QueueFamilyProperties = std::mem::zeroed();
-            props.queue_flags = vk::bitmasks::QueueFlagBits::GRAPHICS;
+            let mut props: vk::QueueFamilyProperties = std::mem::zeroed();
+            props.queue_flags = vk::QueueFlagBits::GRAPHICS;
             props.queue_count = 4;
             *p_properties = props;
         }
@@ -255,12 +248,12 @@ unsafe extern "system" fn mock_get_physical_device_queue_family_properties(
 
 /// Query pattern: writes output struct directly.
 unsafe extern "system" fn mock_get_physical_device_memory_properties(
-    _physical_device: vk::handles::PhysicalDevice,
-    p_memory_properties: *mut vk::structs::PhysicalDeviceMemoryProperties,
+    _physical_device: vk::PhysicalDevice,
+    p_memory_properties: *mut vk::PhysicalDeviceMemoryProperties,
 ) {
     MOCK_CALLED.store(true, Ordering::SeqCst);
     unsafe {
-        let mut props: vk::structs::PhysicalDeviceMemoryProperties = std::mem::zeroed();
+        let mut props: vk::PhysicalDeviceMemoryProperties = std::mem::zeroed();
         props.memory_type_count = 3;
         props.memory_heap_count = 2;
         *p_memory_properties = props;
@@ -280,10 +273,10 @@ fn pattern_create_returns_handle() {
     reset_mocks();
     let device = mock_device();
 
-    let fence_info = vk::structs::FenceCreateInfo {
-        s_type: vk::enums::StructureType::FENCE_CREATE_INFO,
+    let fence_info = vk::FenceCreateInfo {
+        s_type: vk::StructureType::FENCE_CREATE_INFO,
         p_next: std::ptr::null(),
-        flags: vk::bitmasks::FenceCreateFlagBits::empty(),
+        flags: vk::FenceCreateFlagBits::empty(),
     };
 
     let fence =
@@ -302,7 +295,7 @@ fn pattern_destroy_forwards_args() {
     reset_mocks();
     let device = mock_device();
 
-    let fence = vk::handles::Fence::from_raw(0xFE01);
+    let fence = vk::Fence::from_raw(0xFE01);
     unsafe { device.destroy_fence(fence, None) };
 
     assert!(MOCK_CALLED.load(Ordering::SeqCst), "mock was not called");
@@ -331,7 +324,7 @@ fn pattern_fill_returns_populated_vec() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
-    let physical_device = vk::handles::PhysicalDevice::from_raw(0xABCD);
+    let physical_device = vk::PhysicalDevice::from_raw(0xABCD);
 
     let families = unsafe { instance.get_physical_device_queue_family_properties(physical_device) };
 
@@ -341,7 +334,7 @@ fn pattern_fill_returns_populated_vec() {
     assert!(
         families[0]
             .queue_flags
-            .contains(vk::bitmasks::QueueFlagBits::GRAPHICS)
+            .contains(vk::QueueFlagBits::GRAPHICS)
     );
 }
 
@@ -352,7 +345,7 @@ fn pattern_query_returns_struct() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
-    let physical_device = vk::handles::PhysicalDevice::from_raw(0xABCD);
+    let physical_device = vk::PhysicalDevice::from_raw(0xABCD);
 
     let mem_props = unsafe { instance.get_physical_device_memory_properties(physical_device) };
 
@@ -382,7 +375,7 @@ fn pattern_void_forward_passes_all_args() {
     let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
-    let cmd_buf = vk::handles::CommandBuffer::from_raw(0xCB01);
+    let cmd_buf = vk::CommandBuffer::from_raw(0xCB01);
 
     unsafe { device.cmd_draw(cmd_buf, 36, 1, 0, 0) };
 

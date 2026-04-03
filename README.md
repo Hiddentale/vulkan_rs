@@ -5,7 +5,8 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/Hiddentale/vulkan_rust/ci.yml?branch=main&logo=github&label=CI)](https://github.com/Hiddentale/vulkan_rust/actions)
 [![docs.rs](https://img.shields.io/docsrs/vulkan-rust?logo=docs.rs&label=docs.rs)](https://docs.rs/vulkan-rust)
 [![crates.io](https://img.shields.io/crates/v/vulkan-rust?logo=rust)](https://crates.io/crates/vulkan-rust)
-[![License](https://img.shields.io/crates/l/vulkan-rust)](LICENSE-MIT)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Hiddentale/vulkan_rust/blob/main/LICENSE-MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](https://github.com/Hiddentale/vulkan_rust/blob/main/LICENSE-APACHE)
 
 Ergonomic, minimal Vulkan bindings for Rust, generated from `vk.xml`.
 
@@ -15,9 +16,11 @@ every enabled extension, and 100% documentation coverage enforced in CI.
 
 ## Getting Started
 
-See the [examples](vulkan-rust/examples) directory for progressively complex Vulkan programs, from minimal setup to textured rendering. Run them with `cargo run --example hello_triangle_4`.
+See the [examples](https://github.com/Hiddentale/vulkan_rust/tree/main/vulkan-rust/examples) directory for progressively complex Vulkan programs, from minimal setup to textured rendering. Run them with `cargo run --example hello_triangle_4`.
 
 If you're new to Vulkan, start with the [Hello Triangle tutorial](https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-1.html) in the companion guide.
+
+For a comprehensive project using vulkan-rust, check out [Manifold](https://github.com/Hiddentale/manifold).
 
 ## Why vulkan-rust?
 
@@ -66,14 +69,14 @@ Progressive examples from minimal setup to textured rendering:
 
 | Example | Lines | Concepts |
 |---------|-------|----------|
-| [hello_triangle_1](vulkan-rust/examples/hello_triangle_1.rs) | 81 | Entry, Instance |
-| [hello_triangle_2](vulkan-rust/examples/hello_triangle_2.rs) | 248 | Surface, Swapchain |
-| [hello_triangle_3](vulkan-rust/examples/hello_triangle_3.rs) | 413 | Pipeline, Command buffers |
-| [hello_triangle_4](vulkan-rust/examples/hello_triangle_4.rs) | 588 | Complete triangle |
-| [push_constants](vulkan-rust/examples/push_constants.rs) | 619 | Dynamic pipeline parameters |
-| [double_buffering](vulkan-rust/examples/double_buffering.rs) | 620 | Triple-buffered rendering |
-| [resize](vulkan-rust/examples/resize.rs) | 702 | Window resize handling |
-| [textures](vulkan-rust/examples/textures.rs) | 930 | Image loading, sampling |
+| [hello_triangle_1](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/hello_triangle_1.rs) | 81 | Entry, Instance |
+| [hello_triangle_2](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/hello_triangle_2.rs) | 248 | Surface, Swapchain |
+| [hello_triangle_3](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/hello_triangle_3.rs) | 413 | Pipeline, Command buffers |
+| [hello_triangle_4](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/hello_triangle_4.rs) | 588 | Complete triangle |
+| [push_constants](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/push_constants.rs) | 619 | Dynamic pipeline parameters |
+| [double_buffering](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/double_buffering.rs) | 620 | Triple-buffered rendering |
+| [resize](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/resize.rs) | 702 | Window resize handling |
+| [textures](https://github.com/Hiddentale/vulkan_rust/blob/main/vulkan-rust/examples/textures.rs) | 930 | Image loading, sampling |
 
 Run with `cargo run --example hello_triangle_4`.
 
@@ -91,7 +94,7 @@ The companion [vulkan_rust Guide](https://hiddentale.github.io/vulkan_rust/) cov
 
 ## Testing
 
-[Information about testing](docs/testing.md), including where tests of various kinds live and how to run them.
+[Information about testing](https://github.com/Hiddentale/vulkan_rust/blob/main/docs/testing.md), including where tests of various kinds live and how to run them.
 
 ## MSRV Policy
 
@@ -101,7 +104,7 @@ MSRV bumps are treated as breaking changes and only happen in minor version incr
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for documentation standards and the deprecation policy.
+See [CONTRIBUTING.md](https://github.com/Hiddentale/vulkan_rust/blob/main/CONTRIBUTING.md) for documentation standards and the deprecation policy.
 
 ## Disclaimer
 
@@ -112,7 +115,7 @@ This project is not affiliated with, endorsed by, or officially connected to Khr
 
 Licensed under either of
 
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
+- Apache License, Version 2.0 ([LICENSE-APACHE](https://github.com/Hiddentale/vulkan_rust/blob/main/LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
+- MIT license ([LICENSE-MIT](https://github.com/Hiddentale/vulkan_rust/blob/main/LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
 
 at your option.

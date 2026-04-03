@@ -27,7 +27,7 @@ use crate::vk;
 /// # Examples
 ///
 /// ```no_run
-/// use vulkan_rust::vk::structs::*;
+/// use vulkan_rust::vk::*;
 ///
 /// # let (entry, instance, device) = vulkan_rust::test_helpers::create_test_device().unwrap();
 /// // Use the device to create Vulkan objects.
@@ -43,7 +43,7 @@ use crate::vk;
 /// };
 /// ```
 pub struct Device {
-    handle: vk::handles::Device,
+    handle: vk::Device,
     commands: Box<vk::commands::DeviceCommands>,
     _loader: Option<Arc<dyn Loader>>,
 }
@@ -57,7 +57,7 @@ impl Device {
     /// - `get_device_proc_addr` must resolve device-level commands for
     ///   this handle.
     pub(crate) unsafe fn load(
-        handle: vk::handles::Device,
+        handle: vk::Device,
         get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
         loader: Option<Arc<dyn Loader>>,
     ) -> Self {
@@ -87,17 +87,17 @@ impl Device {
     ///
     /// ```no_run
     /// use vulkan_rust::Device;
-    /// # use vulkan_rust::vk::handles::Handle;
+    /// # use vulkan_rust::vk::Handle;
     /// # let entry = vulkan_rust::test_helpers::create_test_entry().unwrap();
     ///
     /// // Given a raw device handle and proc addr from an external source:
-    /// # let raw_device = vulkan_rust::vk::handles::Device::null();
+    /// # let raw_device = vulkan_rust::vk::Device::null();
     /// let device = unsafe {
     ///     Device::from_raw_parts(raw_device, entry.get_device_proc_addr())
     /// };
     /// ```
     pub unsafe fn from_raw_parts(
-        handle: vk::handles::Device,
+        handle: vk::Device,
         get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
     ) -> Self {
         // SAFETY: forwards caller's safety guarantees to `load`.
@@ -105,7 +105,7 @@ impl Device {
     }
 
     /// Returns the raw `VkDevice` handle.
-    pub fn handle(&self) -> vk::handles::Device {
+    pub fn handle(&self) -> vk::Device {
         self.handle
     }
 
@@ -127,10 +127,10 @@ impl Device {
     /// Same requirements as `create_graphics_pipelines`.
     pub unsafe fn create_graphics_pipeline(
         &self,
-        pipeline_cache: vk::handles::PipelineCache,
-        create_info: &vk::structs::GraphicsPipelineCreateInfo,
-        allocator: Option<&vk::structs::AllocationCallbacks>,
-    ) -> crate::VkResult<vk::handles::Pipeline> {
+        pipeline_cache: vk::PipelineCache,
+        create_info: &vk::GraphicsPipelineCreateInfo,
+        allocator: Option<&vk::AllocationCallbacks>,
+    ) -> crate::VkResult<vk::Pipeline> {
         unsafe { self.create_graphics_pipelines(pipeline_cache, &[*create_info], allocator) }
             .map(|v| v[0])
     }
@@ -145,10 +145,10 @@ impl Device {
     /// Same requirements as `create_compute_pipelines`.
     pub unsafe fn create_compute_pipeline(
         &self,
-        pipeline_cache: vk::handles::PipelineCache,
-        create_info: &vk::structs::ComputePipelineCreateInfo,
-        allocator: Option<&vk::structs::AllocationCallbacks>,
-    ) -> crate::VkResult<vk::handles::Pipeline> {
+        pipeline_cache: vk::PipelineCache,
+        create_info: &vk::ComputePipelineCreateInfo,
+        allocator: Option<&vk::AllocationCallbacks>,
+    ) -> crate::VkResult<vk::Pipeline> {
         unsafe { self.create_compute_pipelines(pipeline_cache, &[*create_info], allocator) }
             .map(|v| v[0])
     }
@@ -165,10 +165,10 @@ impl Device {
     /// - The returned pointer is only valid until `unmap_memory` is called.
     pub unsafe fn map_memory(
         &self,
-        memory: vk::handles::DeviceMemory,
+        memory: vk::DeviceMemory,
         offset: u64,
         size: u64,
-        flags: vk::structs::MemoryMapFlags,
+        flags: vk::MemoryMapFlags,
     ) -> crate::VkResult<*mut core::ffi::c_void> {
         let fp = self.commands().map_memory.expect("vkMapMemory not loaded");
         let mut data: *mut core::ffi::c_void = core::ptr::null_mut();
@@ -187,7 +187,7 @@ impl Device {
     /// - The returned pointer is only valid until the memory is unmapped.
     pub unsafe fn map_memory2(
         &self,
-        p_memory_map_info: &vk::structs::MemoryMapInfo,
+        p_memory_map_info: &vk::MemoryMapInfo,
     ) -> crate::VkResult<*mut core::ffi::c_void> {
         let fp = self
             .commands()
@@ -203,17 +203,17 @@ impl Device {
 mod tests {
     use super::*;
     use std::ffi::c_char;
-    use vk::handles::Handle;
+    use vk::Handle;
 
-    fn fake_handle() -> vk::handles::Device {
-        vk::handles::Device::from_raw(0xBEEF)
+    fn fake_handle() -> vk::Device {
+        vk::Device::from_raw(0xBEEF)
     }
 
     /// Stub `vkGetDeviceProcAddr` that returns null for all lookups.
     unsafe extern "system" fn mock_get_device_proc_addr(
-        _device: vk::handles::Device,
+        _device: vk::Device,
         _name: *const c_char,
-    ) -> vk::structs::PFN_vkVoidFunction {
+    ) -> vk::PFN_vkVoidFunction {
         None
     }
 
@@ -278,37 +278,32 @@ mod tests {
 
     // -- Rich mock that provides some real function pointers ------------------
 
-    unsafe extern "system" fn mock_device_wait_idle(
-        _device: vk::handles::Device,
-    ) -> vk::enums::Result {
-        vk::enums::Result::SUCCESS
+    unsafe extern "system" fn mock_device_wait_idle(_device: vk::Device) -> vk::Result {
+        vk::Result::SUCCESS
     }
 
     unsafe extern "system" fn mock_destroy_device(
-        _device: vk::handles::Device,
-        _p_allocator: *const vk::structs::AllocationCallbacks,
+        _device: vk::Device,
+        _p_allocator: *const vk::AllocationCallbacks,
     ) {
     }
 
     /// `vkGetDeviceProcAddr` that resolves a few commands for richer testing.
     unsafe extern "system" fn rich_get_device_proc_addr(
-        _device: vk::handles::Device,
+        _device: vk::Device,
         name: *const c_char,
-    ) -> vk::structs::PFN_vkVoidFunction {
+    ) -> vk::PFN_vkVoidFunction {
         let name = unsafe { std::ffi::CStr::from_ptr(name) };
         match name.to_bytes() {
             b"vkDeviceWaitIdle" => Some(unsafe {
                 std::mem::transmute::<
-                    unsafe extern "system" fn(vk::handles::Device) -> vk::enums::Result,
+                    unsafe extern "system" fn(vk::Device) -> vk::Result,
                     unsafe extern "system" fn(),
                 >(mock_device_wait_idle)
             }),
             b"vkDestroyDevice" => Some(unsafe {
                 std::mem::transmute::<
-                    unsafe extern "system" fn(
-                        vk::handles::Device,
-                        *const vk::structs::AllocationCallbacks,
-                    ),
+                    unsafe extern "system" fn(vk::Device, *const vk::AllocationCallbacks),
                     unsafe extern "system" fn(),
                 >(mock_destroy_device)
             }),
@@ -423,8 +418,8 @@ mod tests {
         let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
 
         let api_version_1_0 = crate::Version::new(1, 0, 0).to_raw();
-        let app_info = vk::structs::ApplicationInfo {
-            s_type: vk::enums::StructureType::APPLICATION_INFO,
+        let app_info = vk::ApplicationInfo {
+            s_type: vk::StructureType::APPLICATION_INFO,
             p_next: std::ptr::null(),
             p_application_name: std::ptr::null(),
             application_version: 0,
@@ -432,10 +427,10 @@ mod tests {
             engine_version: 0,
             api_version: api_version_1_0,
         };
-        let instance_create_info = vk::structs::InstanceCreateInfo {
-            s_type: vk::enums::StructureType::INSTANCE_CREATE_INFO,
+        let instance_create_info = vk::InstanceCreateInfo {
+            s_type: vk::StructureType::INSTANCE_CREATE_INFO,
             p_next: std::ptr::null(),
-            flags: vk::bitmasks::InstanceCreateFlagBits::empty(),
+            flags: vk::InstanceCreateFlagBits::empty(),
             p_application_info: &app_info,
             enabled_layer_count: 0,
             pp_enabled_layer_names: std::ptr::null(),
@@ -450,16 +445,16 @@ mod tests {
         let physical_device = physical_devices[0];
 
         let queue_priority = 1.0f32;
-        let queue_create_info = vk::structs::DeviceQueueCreateInfo {
-            s_type: vk::enums::StructureType::DEVICE_QUEUE_CREATE_INFO,
+        let queue_create_info = vk::DeviceQueueCreateInfo {
+            s_type: vk::StructureType::DEVICE_QUEUE_CREATE_INFO,
             p_next: std::ptr::null(),
-            flags: vk::bitmasks::DeviceQueueCreateFlagBits::empty(),
+            flags: vk::DeviceQueueCreateFlagBits::empty(),
             queue_family_index: 0,
             queue_count: 1,
             p_queue_priorities: &queue_priority,
         };
-        let device_create_info = vk::structs::DeviceCreateInfo {
-            s_type: vk::enums::StructureType::DEVICE_CREATE_INFO,
+        let device_create_info = vk::DeviceCreateInfo {
+            s_type: vk::StructureType::DEVICE_CREATE_INFO,
             p_next: std::ptr::null(),
             flags: 0,
             queue_create_info_count: 1,

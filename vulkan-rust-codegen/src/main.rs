@@ -164,14 +164,27 @@ pub use string_array::{
     DescriptionName, DriverName, DriverInfo,
 };
 
-pub mod handles;
-pub mod enums;
-pub mod bitmasks;
-pub mod constants;
+mod handles;
+mod enums;
+mod bitmasks;
+mod constants;
 pub mod extension_names;
-pub mod structs;
-pub mod builders;
+mod structs;
+mod builders;
+mod clear_value;
 pub mod commands;
+
+pub use handles::*;
+pub use enums::*;
+pub use bitmasks::*;
+pub use constants::*;
+pub use structs::*;
+pub use builders::*;
+
+/// Vulkan device memory size, in bytes.
+pub type DeviceSize = u64;
+/// Vulkan device memory address.
+pub type DeviceAddress = u64;
 ";
     write_file(&out_dir.join("lib.rs"), content);
 }
@@ -326,14 +339,22 @@ mod tests {
         assert!(content.contains("pub use string_array::"));
         assert!(content.contains("StringArray"));
         assert!(content.contains("ExtensionName"));
-        assert!(content.contains("pub mod handles;"));
-        assert!(content.contains("pub mod enums;"));
-        assert!(content.contains("pub mod bitmasks;"));
-        assert!(content.contains("pub mod constants;"));
+        assert!(content.contains("mod handles;"));
+        assert!(content.contains("mod enums;"));
+        assert!(content.contains("mod bitmasks;"));
+        assert!(content.contains("mod constants;"));
         assert!(content.contains("pub mod extension_names;"));
-        assert!(content.contains("pub mod structs;"));
-        assert!(content.contains("pub mod builders;"));
+        assert!(content.contains("mod structs;"));
+        assert!(content.contains("mod builders;"));
         assert!(content.contains("pub mod commands;"));
+        assert!(content.contains("pub use handles::*;"));
+        assert!(content.contains("pub use enums::*;"));
+        assert!(content.contains("pub use bitmasks::*;"));
+        assert!(content.contains("pub use constants::*;"));
+        assert!(content.contains("pub use structs::*;"));
+        assert!(content.contains("pub use builders::*;"));
+        assert!(content.contains("pub type DeviceSize = u64;"));
+        assert!(content.contains("pub type DeviceAddress = u64;"));
 
         let _ = fs::remove_dir_all(&dir);
     }

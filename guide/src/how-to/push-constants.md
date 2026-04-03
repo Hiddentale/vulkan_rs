@@ -62,8 +62,7 @@ data your shaders use and which stages access them.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let push_constant_range = PushConstantRange {
     stage_flags: ShaderStageFlags::VERTEX,
@@ -91,8 +90,7 @@ options:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Example: vertex reads bytes 0..64, fragment reads bytes 64..80.
 let ranges = [
@@ -141,7 +139,7 @@ is typically called once per draw, right before the draw command.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::bitmasks::*;
+use vk::*;
 
 let push_data = PushConstants {
     model: compute_model_matrix(entity),
@@ -156,7 +154,7 @@ unsafe {
         ShaderStageFlags::VERTEX,
         0, // offset in bytes
         std::slice::from_raw_parts(
-            &push_data as *const PushConstants as *const core::ffi::c_void,
+            &push_data as *const PushConstants as *const u8,
             std::mem::size_of::<PushConstants>(),
         ),
     );
@@ -169,7 +167,7 @@ For a scene with many objects, you push new constants before each draw:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::bitmasks::*;
+use vk::*;
 
 for entity in &scene.entities {
     let push_data = PushConstants {
@@ -184,7 +182,7 @@ for entity in &scene.entities {
             ShaderStageFlags::VERTEX,
             0,
             std::slice::from_raw_parts(
-                &push_data as *const PushConstants as *const core::ffi::c_void,
+                &push_data as *const PushConstants as *const u8,
                 std::mem::size_of::<PushConstants>(),
             ),
         );
@@ -203,17 +201,17 @@ helper makes it clearer:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::bitmasks::*;
+use vk::*;
 
-/// Reinterpret a reference to a `Copy` type as a `&[c_void]` slice
+/// Reinterpret a reference to a `Copy` type as a `&[u8]` slice
 /// suitable for `cmd_push_constants`.
 ///
 /// # Safety
 /// The type must be `#[repr(C)]` with no padding that contains
 /// uninitialized bytes.
-unsafe fn as_push_bytes<T: Copy>(data: &T) -> &[core::ffi::c_void] {
+unsafe fn as_push_bytes<T: Copy>(data: &T) -> &[u8] {
     std::slice::from_raw_parts(
-        data as *const T as *const core::ffi::c_void,
+        data as *const T as *const u8,
         std::mem::size_of::<T>(),
     )
 }

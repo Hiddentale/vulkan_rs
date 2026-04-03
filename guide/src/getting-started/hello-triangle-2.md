@@ -21,7 +21,7 @@ works with anything that implements `raw-window-handle`.
 
 ```toml
 [dependencies]
-vulkan-rust = "0.1"
+vulkan-rust = "0.10"
 winit = "0.30"
 ```
 
@@ -87,7 +87,7 @@ extensions for your platform.
 ```rust,ignore
 use vulkan_rust::{Entry, LibloadingLoader};
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // ── Load Vulkan ────────────────────────────────────────────────
 let loader = LibloadingLoader::new()
@@ -116,14 +116,14 @@ let layer_ptrs = [validation_layer.as_ptr()];
 
 // ── Create the instance ────────────────────────────────────────
 let app_info = ApplicationInfo::builder()
-    .p_application_name(c"Hello Triangle".as_ptr())
+    .application_name(c"Hello Triangle")
     .application_version(1)
-    .p_engine_name(c"No Engine".as_ptr())
+    .engine_name(c"No Engine")
     .engine_version(1)
     .api_version(1 << 22);  // Vulkan 1.0
 
 let create_info = InstanceCreateInfo::builder()
-    .p_application_info(&app_info)
+    .application_info(&app_info)
     .enabled_extension_names(&extension_ptrs)
     .enabled_layer_names(&layer_ptrs);
 
@@ -173,7 +173,7 @@ let physical_devices = unsafe { instance.enumerate_physical_devices() }
 
 // ── Find a GPU with a queue family that supports both graphics
 //    and presentation to our surface ────────────────────────────
-use vk::handles::*;
+use vk::*;
 
 let mut physical_device = PhysicalDevice::null();
 let mut graphics_family_index = 0u32;
@@ -196,7 +196,7 @@ let mut graphics_family_index = 0u32;
                 surface,
             )
         }
-        .unwrap_or(0) != 0;
+        .unwrap_or(false);
 
         if supports_graphics && supports_present {
             physical_device = pd;
@@ -289,8 +289,7 @@ We need to decide three things: the image format, the present mode,
 and the image extent (resolution).
 
 ```rust,ignore
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // ── Choose format ──────────────────────────────────────────────
 //

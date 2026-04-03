@@ -1,4 +1,7 @@
-//! Emits builder patterns for extensible Vulkan structs (those with sType/pNext).
+//! Emits builder patterns for Vulkan structs.
+//!
+//! Extensible structs (with sType/pNext) get lifetime-tied builders with
+//! `push_next` support. Plain structs get simple builders without lifetimes.
 
 use std::collections::HashSet;
 
@@ -10,14 +13,20 @@ use crate::parse::{MemberDef, StructDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, member_name, resolve_base_type, resolve_member_type};
 use crate::stype;
 
-/// Emit builders for all extensible structs.
+/// Emit builders for all structs.
 pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
     let stype_raw = stype::build_raw_map(registry);
     let builders: Vec<TokenStream> = registry
         .structs
         .iter()
-        .filter(|s| has_stype_pnext(s) && !is_base_pnext_struct(&s.name))
-        .map(|s| emit_builder(s, &stype_raw))
+        .filter(|s| !s.is_union && !is_base_pnext_struct(&s.name) && !has_bitfield_members(s))
+        .map(|s| {
+            if has_stype_pnext(s) {
+                emit_builder(s, &stype_raw)
+            } else {
+                emit_plain_builder(s)
+            }
+        })
         .collect();
 
     quote! {
@@ -130,6 +139,93 @@ fn emit_builder(
     }
 }
 
+/// Emit a simple builder for a plain struct (no sType/pNext).
+fn emit_plain_builder(def: &StructDef) -> TokenStream {
+    let struct_name = format_ident!("{}", &def.name);
+    let builder_name = format_ident!("{}Builder", &def.name);
+
+    let count_fields = collect_count_fields(def);
+    let needs_lifetime = def.members.iter().any(|m| m.is_pointer);
+
+    let mut seen_setters = std::collections::HashSet::new();
+    let setters: Vec<TokenStream> = def
+        .members
+        .iter()
+        .filter(|m| !count_fields.contains(&m.name) && seen_setters.insert(m.name.clone()))
+        .map(|m| emit_setter(m, def))
+        .collect();
+
+    let builder_doc = format!("Builder for [`{}`].", &def.name);
+
+    if needs_lifetime {
+        quote! {
+            #[doc = #builder_doc]
+            pub struct #builder_name<'a> {
+                inner: #struct_name,
+                _marker: core::marker::PhantomData<&'a ()>,
+            }
+
+            impl #struct_name {
+                /// Start building this struct.
+                #[inline]
+                pub fn builder<'a>() -> #builder_name<'a> {
+                    #builder_name {
+                        inner: #struct_name { ..Default::default() },
+                        _marker: core::marker::PhantomData,
+                    }
+                }
+            }
+
+            impl<'a> #builder_name<'a> {
+                #(#setters)*
+            }
+
+            impl<'a> core::ops::Deref for #builder_name<'a> {
+                type Target = #struct_name;
+                #[inline]
+                fn deref(&self) -> &Self::Target { &self.inner }
+            }
+
+            impl<'a> core::ops::DerefMut for #builder_name<'a> {
+                #[inline]
+                fn deref_mut(&mut self) -> &mut Self::Target { &mut self.inner }
+            }
+        }
+    } else {
+        quote! {
+            #[doc = #builder_doc]
+            pub struct #builder_name {
+                inner: #struct_name,
+            }
+
+            impl #struct_name {
+                /// Start building this struct.
+                #[inline]
+                pub fn builder() -> #builder_name {
+                    #builder_name {
+                        inner: #struct_name { ..Default::default() },
+                    }
+                }
+            }
+
+            impl #builder_name {
+                #(#setters)*
+            }
+
+            impl core::ops::Deref for #builder_name {
+                type Target = #struct_name;
+                #[inline]
+                fn deref(&self) -> &Self::Target { &self.inner }
+            }
+
+            impl core::ops::DerefMut for #builder_name {
+                #[inline]
+                fn deref_mut(&mut self) -> &mut Self::Target { &mut self.inner }
+            }
+        }
+    }
+}
+
 // ---------------------------------------------------------------------------
 // Setters
 // ---------------------------------------------------------------------------
@@ -141,6 +237,9 @@ fn emit_setter(member: &MemberDef, parent: &StructDef) -> TokenStream {
         && let Some(ref len) = member.len
         && let Some(count_member) = find_count_member(parent, len)
     {
+        if is_byte_count_len(len) {
+            return emit_byte_slice_setter(member, count_member);
+        }
         return emit_slice_setter(member, count_member);
     }
 
@@ -164,18 +263,31 @@ fn emit_setter(member: &MemberDef, parent: &StructDef) -> TokenStream {
 
 fn emit_simple_setter(member: &MemberDef) -> TokenStream {
     let rust_name = member_name(&member.name);
-    let ident = if is_rust_keyword(&rust_name) {
+    let field_ident = if is_rust_keyword(&rust_name) {
         format_ident!("r#{}", rust_name)
     } else {
         format_ident!("{}", rust_name)
+    };
+
+    // Strip p_ prefix for setter name when the setter takes a reference,
+    // matching how slice setters already strip it.
+    let setter_name = if member.is_pointer {
+        rust_name.strip_prefix("p_").unwrap_or(&rust_name)
+    } else {
+        &rust_name
+    };
+    let setter_ident = if is_rust_keyword(setter_name) {
+        format_ident!("r#{}", setter_name)
+    } else {
+        format_ident!("{}", setter_name)
     };
 
     // VkBool32 fields accept `bool` and cast to u32 internally.
     if member.type_name == "VkBool32" && !member.is_pointer {
         return quote! {
             #[inline]
-            pub fn #ident(mut self, value: bool) -> Self {
-                self.inner.#ident = value as u32;
+            pub fn #setter_ident(mut self, value: bool) -> Self {
+                self.inner.#field_ident = value as u32;
                 self
             }
         };
@@ -189,8 +301,8 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
     {
         return quote! {
             #[inline]
-            pub fn #ident(mut self, value: &'a core::ffi::CStr) -> Self {
-                self.inner.#ident = value.as_ptr();
+            pub fn #setter_ident(mut self, value: &'a core::ffi::CStr) -> Self {
+                self.inner.#field_ident = value.as_ptr();
                 self
             }
         };
@@ -205,8 +317,8 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
         let base = resolve_base_type(&member.type_name);
         return quote! {
             #[inline]
-            pub fn #ident(mut self, value: &'a #base) -> Self {
-                self.inner.#ident = value;
+            pub fn #setter_ident(mut self, value: &'a #base) -> Self {
+                self.inner.#field_ident = value;
                 self
             }
         };
@@ -216,8 +328,8 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
 
     quote! {
         #[inline]
-        pub fn #ident(mut self, value: #ty) -> Self {
-            self.inner.#ident = value;
+        pub fn #setter_ident(mut self, value: #ty) -> Self {
+            self.inner.#field_ident = value;
             self
         }
     }
@@ -291,6 +403,43 @@ fn emit_cstr_ptr_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) 
     }
 }
 
+/// Emit a slice setter where the count field is in bytes, not elements.
+/// For `pCode` with `len="codeSize / 4"`, this emits a setter that takes
+/// `&[u32]` and sets `code_size = slice.len() * size_of::<u32>()`.
+fn emit_byte_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenStream {
+    let rust_name = member_name(&ptr_member.name);
+    let setter_name = rust_name.strip_prefix("p_").unwrap_or(&rust_name);
+    let setter_ident = format_ident!("{}", setter_name);
+
+    let ptr_field = format_ident!("{}", member_name(&ptr_member.name));
+    let count_field = format_ident!("{}", member_name(&count_member.name));
+    let elem_ty = resolve_base_type(&ptr_member.type_name);
+
+    if ptr_member.is_const {
+        quote! {
+            #[inline]
+            pub fn #setter_ident(mut self, slice: &'a [#elem_ty]) -> Self {
+                self.inner.#count_field = core::mem::size_of_val(slice);
+                self.inner.#ptr_field = slice.as_ptr();
+                self
+            }
+        }
+    } else {
+        quote! {
+            #[inline]
+            pub fn #setter_ident(mut self, slice: &'a mut [#elem_ty]) -> Self {
+                self.inner.#count_field = core::mem::size_of_val(slice);
+                self.inner.#ptr_field = slice.as_mut_ptr();
+                self
+            }
+        }
+    }
+}
+
+fn has_bitfield_members(def: &StructDef) -> bool {
+    def.members.iter().any(|m| m.is_bitfield)
+}
+
 // ---------------------------------------------------------------------------
 // Pointer/count pairing
 // ---------------------------------------------------------------------------
@@ -303,14 +452,26 @@ fn collect_count_fields(def: &StructDef) -> HashSet<String> {
         let is_slice_candidate =
             m.is_pointer && (!m.is_double_pointer || (m.is_const && m.type_name == "char"));
         if is_slice_candidate && let Some(ref len) = m.len {
-            // len can be a comma-separated list (e.g. "codeSize/4"); take the first simple name.
+            // When the pointer is optional, the count has independent meaning
+            // (e.g. descriptorCount with optional pImmutableSamplers), so keep
+            // the count field's standalone setter.
+            if m.optional {
+                continue;
+            }
+            // len can be a comma-separated list; take the first element.
             let count_name = len.split(',').next().unwrap_or(len).trim();
-            // Skip "null-terminated" and expressions with `/`.
-            if !count_name.contains("null-terminated")
-                && !count_name.contains('/')
-                && def.members.iter().any(|other| other.name == count_name)
-            {
-                counts.insert(count_name.to_string());
+            // Skip "null-terminated".
+            if count_name.contains("null-terminated") {
+                continue;
+            }
+            // Handle division expressions like "codeSize / 4".
+            let base_name = if let Some((name, _)) = count_name.split_once('/') {
+                name.trim()
+            } else {
+                count_name
+            };
+            if def.members.iter().any(|other| other.name == base_name) {
+                counts.insert(base_name.to_string());
             }
         }
         // Also check inferred count for double-pointer char fields without len.
@@ -336,10 +497,22 @@ fn infer_count_member<'a>(def: &'a StructDef, ptr_name: &str) -> Option<&'a Memb
 
 fn find_count_member<'a>(def: &'a StructDef, len: &str) -> Option<&'a MemberDef> {
     let count_name = len.split(',').next()?.trim();
-    if count_name.contains("null-terminated") || count_name.contains('/') {
+    if count_name.contains("null-terminated") {
         return None;
     }
-    def.members.iter().find(|m| m.name == count_name)
+    // Handle division expressions like "codeSize / 4".
+    let base_name = if let Some((name, _)) = count_name.split_once('/') {
+        name.trim()
+    } else {
+        count_name
+    };
+    def.members.iter().find(|m| m.name == base_name)
+}
+
+/// Check if a len expression contains a division (e.g. "codeSize / 4").
+fn is_byte_count_len(len: &str) -> bool {
+    let count_name = len.split(',').next().unwrap_or(len).trim();
+    count_name.contains('/')
 }
 
 // ---------------------------------------------------------------------------

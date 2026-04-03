@@ -1,11 +1,7 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
 use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
-use crate::vk::bitmasks::*;
-use crate::vk::constants::*;
-use crate::vk::enums::*;
-use crate::vk::handles::*;
-use crate::vk::structs::*;
+use crate::vk::*;
 impl crate::Device {
     ///Wraps [`vkGetDeviceProcAddr`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceProcAddr.html).
     /**
@@ -1444,17 +1440,16 @@ impl crate::Device {
     ///# let (_, instance) = vulkan_rust::test_helpers::create_test_instance().expect("test setup");
     ///# let phys = unsafe { instance.enumerate_physical_devices() }.expect("no devices");
     ///# let p = [1.0f32];
-    ///# let qi = vulkan_rust::vk::structs::DeviceQueueCreateInfo::builder().queue_priorities(&p);
+    ///# let qi = vulkan_rust::vk::DeviceQueueCreateInfo::builder().queue_priorities(&p);
     ///# let qis = [*qi];
-    ///# let di = vulkan_rust::vk::structs::DeviceCreateInfo::builder().queue_create_infos(&qis);
+    ///# let di = vulkan_rust::vk::DeviceCreateInfo::builder().queue_create_infos(&qis);
     ///# let device = unsafe { instance.create_device(phys[0], &di, None) }.expect("device creation");
-    ///use vulkan_rust::vk::structs::*;
-    ///use vulkan_rust::vk::bitmasks::*;
+    ///use vulkan_rust::vk::*;
     ///
     ///let info = BufferCreateInfo::builder()
     ///    .size(1024)
     ///    .usage(BufferUsageFlagBits::VERTEX_BUFFER)
-    ///    .sharing_mode(vulkan_rust::vk::enums::SharingMode::EXCLUSIVE);
+    ///    .sharing_mode(vulkan_rust::vk::SharingMode::EXCLUSIVE);
     ///let buffer = unsafe { device.create_buffer(&info, None) }
     ///    .expect("buffer creation failed");
     #[doc = "// Use buffer..."]
@@ -4204,7 +4199,7 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         first_binding: u32,
         p_buffers: &[Buffer],
-        p_offsets: &u64,
+        p_offsets: &[u64],
     ) {
         let fp = self
             .commands()
@@ -4216,7 +4211,7 @@ impl crate::Device {
                 first_binding,
                 p_buffers.len() as u32,
                 p_buffers.as_ptr(),
-                p_offsets,
+                p_offsets.as_ptr(),
             )
         };
     }
@@ -5955,7 +5950,7 @@ impl crate::Device {
         layout: PipelineLayout,
         stage_flags: ShaderStageFlags,
         offset: u32,
-        p_values: &[core::ffi::c_void],
+        p_values: &[u8],
     ) {
         let fp = self
             .commands()
@@ -5968,7 +5963,7 @@ impl crate::Device {
                 stage_flags,
                 offset,
                 p_values.len() as u32,
-                p_values.as_ptr(),
+                p_values.as_ptr().cast(),
             )
         };
     }
@@ -8952,7 +8947,7 @@ impl crate::Device {
     pub unsafe fn set_hdr_metadata_ext(
         &self,
         p_swapchains: &[SwapchainKHR],
-        p_metadata: &HdrMetadataEXT,
+        p_metadata: &[HdrMetadataEXT],
     ) {
         let fp = self
             .commands()
@@ -8963,7 +8958,7 @@ impl crate::Device {
                 self.handle(),
                 p_swapchains.len() as u32,
                 p_swapchains.as_ptr(),
-                p_metadata,
+                p_metadata.as_ptr(),
             )
         };
     }
@@ -10890,22 +10885,21 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         first_binding: u32,
         p_buffers: &[Buffer],
-        p_offsets: &u64,
-        p_sizes: Option<&u64>,
+        p_offsets: &[u64],
+        p_sizes: &[u64],
     ) {
         let fp = self
             .commands()
             .cmd_bind_transform_feedback_buffers_ext
             .expect("vkCmdBindTransformFeedbackBuffersEXT not loaded");
-        let p_sizes_ptr = p_sizes.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
                 first_binding,
                 p_buffers.len() as u32,
                 p_buffers.as_ptr(),
-                p_offsets,
-                p_sizes_ptr,
+                p_offsets.as_ptr(),
+                p_sizes.as_ptr(),
             )
         };
     }
@@ -10939,21 +10933,19 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         first_counter_buffer: u32,
         p_counter_buffers: &[Buffer],
-        p_counter_buffer_offsets: Option<&u64>,
+        p_counter_buffer_offsets: &[u64],
     ) {
         let fp = self
             .commands()
             .cmd_begin_transform_feedback_ext
             .expect("vkCmdBeginTransformFeedbackEXT not loaded");
-        let p_counter_buffer_offsets_ptr =
-            p_counter_buffer_offsets.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
                 first_counter_buffer,
                 p_counter_buffers.len() as u32,
                 p_counter_buffers.as_ptr(),
-                p_counter_buffer_offsets_ptr,
+                p_counter_buffer_offsets.as_ptr(),
             )
         };
     }
@@ -10981,21 +10973,19 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         first_counter_buffer: u32,
         p_counter_buffers: &[Buffer],
-        p_counter_buffer_offsets: Option<&u64>,
+        p_counter_buffer_offsets: &[u64],
     ) {
         let fp = self
             .commands()
             .cmd_end_transform_feedback_ext
             .expect("vkCmdEndTransformFeedbackEXT not loaded");
-        let p_counter_buffer_offsets_ptr =
-            p_counter_buffer_offsets.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
                 first_counter_buffer,
                 p_counter_buffers.len() as u32,
                 p_counter_buffers.as_ptr(),
-                p_counter_buffer_offsets_ptr,
+                p_counter_buffer_offsets.as_ptr(),
             )
         };
     }
@@ -13918,8 +13908,8 @@ impl crate::Device {
         &self,
         command_buffer: CommandBuffer,
         p_infos: &[AccelerationStructureBuildGeometryInfoKHR],
-        p_indirect_device_addresses: &u64,
-        p_indirect_strides: *const u32,
+        p_indirect_device_addresses: &[u64],
+        p_indirect_strides: &[u32],
         pp_max_primitive_counts: *const *const u32,
     ) {
         let fp = self
@@ -13931,8 +13921,8 @@ impl crate::Device {
                 command_buffer,
                 p_infos.len() as u32,
                 p_infos.as_ptr(),
-                p_indirect_device_addresses,
-                p_indirect_strides,
+                p_indirect_device_addresses.as_ptr(),
+                p_indirect_strides.as_ptr(),
                 pp_max_primitive_counts,
             )
         };
@@ -14529,25 +14519,23 @@ impl crate::Device {
         command_buffer: CommandBuffer,
         first_binding: u32,
         p_buffers: &[Buffer],
-        p_offsets: &u64,
-        p_sizes: Option<&u64>,
-        p_strides: Option<&u64>,
+        p_offsets: &[u64],
+        p_sizes: &[u64],
+        p_strides: &[u64],
     ) {
         let fp = self
             .commands()
             .cmd_bind_vertex_buffers2
             .expect("vkCmdBindVertexBuffers2 not loaded");
-        let p_sizes_ptr = p_sizes.map_or(core::ptr::null(), core::ptr::from_ref);
-        let p_strides_ptr = p_strides.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
                 first_binding,
                 p_buffers.len() as u32,
                 p_buffers.as_ptr(),
-                p_offsets,
-                p_sizes_ptr,
-                p_strides_ptr,
+                p_offsets.as_ptr(),
+                p_sizes.as_ptr(),
+                p_strides.as_ptr(),
             )
         };
     }
@@ -16660,7 +16648,7 @@ impl crate::Device {
         &self,
         command_buffer: CommandBuffer,
         p_events: &[Event],
-        p_dependency_infos: &DependencyInfo,
+        p_dependency_infos: &[DependencyInfo],
     ) {
         let fp = self
             .commands()
@@ -16671,7 +16659,7 @@ impl crate::Device {
                 command_buffer,
                 p_events.len() as u32,
                 p_events.as_ptr(),
-                p_dependency_infos,
+                p_dependency_infos.as_ptr(),
             )
         };
     }
@@ -18119,7 +18107,7 @@ impl crate::Device {
         layout: PipelineLayout,
         first_set: u32,
         p_buffer_indices: &[u32],
-        p_offsets: &u64,
+        p_offsets: &[u64],
     ) {
         let fp = self
             .commands()
@@ -18133,7 +18121,7 @@ impl crate::Device {
                 first_set,
                 p_buffer_indices.len() as u32,
                 p_buffer_indices.as_ptr(),
-                p_offsets,
+                p_offsets.as_ptr(),
             )
         };
     }
@@ -20314,19 +20302,18 @@ impl crate::Device {
         &self,
         command_buffer: CommandBuffer,
         p_stages: &[ShaderStageFlagBits],
-        p_shaders: Option<&ShaderEXT>,
+        p_shaders: &[ShaderEXT],
     ) {
         let fp = self
             .commands()
             .cmd_bind_shaders_ext
             .expect("vkCmdBindShadersEXT not loaded");
-        let p_shaders_ptr = p_shaders.map_or(core::ptr::null(), core::ptr::from_ref);
         unsafe {
             fp(
                 command_buffer,
                 p_stages.len() as u32,
                 p_stages.as_ptr(),
-                p_shaders_ptr,
+                p_shaders.as_ptr(),
             )
         };
     }
@@ -22589,7 +22576,7 @@ impl crate::Device {
     pub unsafe fn write_sampler_descriptors_ext(
         &self,
         p_samplers: &[SamplerCreateInfo],
-        p_descriptors: &HostAddressRangeEXT,
+        p_descriptors: &[HostAddressRangeEXT],
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -22600,7 +22587,7 @@ impl crate::Device {
                 self.handle(),
                 p_samplers.len() as u32,
                 p_samplers.as_ptr(),
-                p_descriptors,
+                p_descriptors.as_ptr(),
             )
         })
     }
@@ -22631,7 +22618,7 @@ impl crate::Device {
     pub unsafe fn write_resource_descriptors_ext(
         &self,
         p_resources: &[ResourceDescriptorInfoEXT],
-        p_descriptors: &HostAddressRangeEXT,
+        p_descriptors: &[HostAddressRangeEXT],
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -22642,7 +22629,7 @@ impl crate::Device {
                 self.handle(),
                 p_resources.len() as u32,
                 p_resources.as_ptr(),
-                p_descriptors,
+                p_descriptors.as_ptr(),
             )
         })
     }

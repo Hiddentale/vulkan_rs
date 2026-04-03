@@ -1,11 +1,7 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
 use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
-use crate::vk::bitmasks::*;
-use crate::vk::constants::*;
-use crate::vk::enums::*;
-use crate::vk::handles::*;
-use crate::vk::structs::*;
+use crate::vk::*;
 impl crate::Instance {
     ///Wraps [`vkDestroyInstance`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyInstance.html).
     /**
@@ -512,13 +508,16 @@ impl crate::Instance {
     pub unsafe fn enumerate_device_extension_properties(
         &self,
         physical_device: PhysicalDevice,
-        p_layer_name: *const core::ffi::c_char,
+        p_layer_name: Option<&core::ffi::CStr>,
     ) -> VkResult<Vec<ExtensionProperties>> {
         let fp = self
             .commands()
             .enumerate_device_extension_properties
             .expect("vkEnumerateDeviceExtensionProperties not loaded");
-        enumerate_two_call(|count, data| unsafe { fp(physical_device, p_layer_name, count, data) })
+        let p_layer_name_ptr = p_layer_name.map_or(core::ptr::null(), core::ffi::CStr::as_ptr);
+        enumerate_two_call(|count, data| unsafe {
+            fp(physical_device, p_layer_name_ptr, count, data)
+        })
     }
     ///Wraps [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSparseImageFormatProperties.html).
     /**
@@ -946,14 +945,14 @@ impl crate::Instance {
         physical_device: PhysicalDevice,
         queue_family_index: u32,
         surface: SurfaceKHR,
-    ) -> VkResult<u32> {
+    ) -> VkResult<bool> {
         let fp = self
             .commands()
             .get_physical_device_surface_support_khr
             .expect("vkGetPhysicalDeviceSurfaceSupportKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(physical_device, queue_family_index, surface, &mut out) })?;
-        Ok(out)
+        Ok(out != 0)
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html).
     /**

@@ -31,7 +31,7 @@ Add `vulkan-rust` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-vulkan-rust = "0.1"
+vulkan-rust = "0.10"
 ```
 
 ## Step 1: Load the Vulkan library
@@ -81,16 +81,16 @@ Vulkan version Y, please give me access."
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // ── Describe your application ──────────────────────────────────
 //
 // ApplicationInfo tells the driver who you are. This is optional
 // but helps driver vendors optimize for known applications.
 let app_info = ApplicationInfo::builder()
-    .p_application_name(c"Hello Triangle".as_ptr())
+    .application_name(c"Hello Triangle")
     .application_version(1)
-    .p_engine_name(c"No Engine".as_ptr())
+    .engine_name(c"No Engine")
     .engine_version(1)
     .api_version(1 << 22);  // Vulkan 1.0
 
@@ -99,7 +99,7 @@ let app_info = ApplicationInfo::builder()
 // No layers or extensions yet. We will add validation layers and
 // surface extensions in later parts.
 let create_info = InstanceCreateInfo::builder()
-    .p_application_info(&app_info);
+    .application_info(&app_info);
 
 // ── Create the instance ────────────────────────────────────────
 let instance = unsafe { entry.create_instance(&create_info, None) }
@@ -123,7 +123,7 @@ A system can have multiple GPUs: a discrete NVIDIA/AMD card, an
 integrated Intel GPU, or even a software renderer. You must choose one.
 
 ```rust,ignore
-use vk::enums::PhysicalDeviceType;
+use vk::PhysicalDeviceType;
 
 // ── Enumerate GPUs ─────────────────────────────────────────────
 let physical_devices = unsafe { instance.enumerate_physical_devices() }
@@ -180,7 +180,7 @@ a specific set of operations (graphics, compute, transfer, etc.).
 We need a queue family that supports graphics operations.
 
 ```rust,ignore
-use vk::structs::QueueFlags;
+use vk::QueueFlags;
 
 // ── Query queue families ───────────────────────────────────────
 let queue_families = unsafe {
@@ -215,7 +215,7 @@ submitting work.
 Creating a Device also creates the queues you requested.
 
 ```rust,ignore
-use vk::structs::*;
+use vk::*;
 
 // ── Request one queue from the graphics family ─────────────────
 let queue_priority = 1.0_f32;
@@ -297,7 +297,7 @@ with `cargo run`.
 ```rust,no_run
 use vulkan_rust::{Entry, LibloadingLoader};
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 fn main() {
     // ── Step 1: Load Vulkan ────────────────────────────────────
@@ -311,14 +311,14 @@ fn main() {
 
     // ── Step 2: Create Instance ────────────────────────────────
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle".as_ptr())
+        .application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine".as_ptr())
+        .engine_name(c"No Engine")
         .engine_version(1)
         .api_version(1 << 22);  // Vulkan 1.0
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&app_info);
+        .application_info(&app_info);
 
     let instance = unsafe { entry.create_instance(&create_info, None) }
         .expect("Failed to create instance");

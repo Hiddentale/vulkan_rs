@@ -111,10 +111,7 @@ is labeled with its purpose.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
-use vulkan_rust::vk::enums::*;
-use vulkan_rust::vk::bitmasks::*;
-use vulkan_rust::vk::handles::*;
+use vulkan_rust::vk::*;
 use vulkan_rust::vk::Handle;
 use vulkan_rust::Device;
 
@@ -176,9 +173,7 @@ the entire pool is reset/destroyed at once):
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
-use vulkan_rust::vk::enums::*;
-use vulkan_rust::vk::handles::*;
+use vulkan_rust::vk::*;
 use vulkan_rust::vk::Handle;
 
 // Pool-based lifecycle (simplified)

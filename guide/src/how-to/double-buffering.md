@@ -58,8 +58,7 @@ Each frame in flight needs its own set of sync primitives:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 struct FrameSync {
     in_flight_fence: Fence,
@@ -97,9 +96,7 @@ into one while the GPU executes the other.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::handles::*;
+use vk::*;
 
 let alloc_info = CommandBufferAllocateInfo::builder()
     .command_pool(command_pool)
@@ -119,8 +116,7 @@ iteration uses only the resources belonging to that frame index.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 let mut current_frame: usize = 0;
 

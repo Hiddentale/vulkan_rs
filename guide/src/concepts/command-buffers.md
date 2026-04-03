@@ -104,8 +104,7 @@ records a simple buffer copy, and submits it.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Create a pool for the graphics queue family.
 // RESET_COMMAND_BUFFER lets us reset individual command buffers
@@ -123,9 +122,7 @@ let command_pool = unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::handles::*;
+use vk::*;
 
 // Allocate one primary command buffer from the pool.
 let alloc_info = CommandBufferAllocateInfo::builder()
@@ -143,8 +140,7 @@ let command_buffer = unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Begin recording. ONE_TIME_SUBMIT tells the driver this buffer
 // will be submitted once and then reset or freed, enabling
@@ -187,8 +183,7 @@ unsafe { device.end_command_buffer(command_buffer)? };
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 // Build a submit info. This describes:
 //   - which command buffers to execute
@@ -219,7 +214,7 @@ unsafe { device.queue_wait_idle(graphics_queue)? };
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // Option A: Free the command buffer back to the pool.
 unsafe {
@@ -277,10 +272,7 @@ a command buffer just once. The pattern:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
-use vk::handles::*;
+use vk::*;
 
 unsafe fn one_shot_submit(
     device: &Device,

@@ -1,7 +1,7 @@
 // Exact copy of the "Putting it all together" section from
 // <https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-1.html>
 
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Entry, LibloadingLoader, Version};
 
@@ -18,13 +18,13 @@ fn main() {
 
     // ── Step 2: Create Instance ────────────────────────────────
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle")
+        .application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine")
+        .engine_name(c"No Engine")
         .engine_version(1)
         .api_version(Version::new(1, 0, 0).to_raw());
 
-    let create_info = InstanceCreateInfo::builder().p_application_info(&app_info);
+    let create_info = InstanceCreateInfo::builder().application_info(&app_info);
 
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");

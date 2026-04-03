@@ -1,7 +1,7 @@
 //! Handle round-trip tests,verify `from_raw`, `as_raw`, `null`, `is_null`
 //! for representative dispatchable and non-dispatchable handle types.
 
-use vulkan_rust_sys::handles::*;
+use vulkan_rust_sys::*;
 
 // ── Dispatchable handles (usize) ───────────────────────────────────
 

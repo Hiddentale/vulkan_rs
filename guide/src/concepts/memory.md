@@ -124,9 +124,7 @@ from the CPU into fast GPU memory. It uses the **staging buffer pattern**.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // The buffer that will hold the mesh on the GPU.
 // TRANSFER_DST means "this buffer can receive data from a copy command."
@@ -159,7 +157,7 @@ let mem_requirements = unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // Query what memory the hardware offers.
 let mem_properties = unsafe {
@@ -192,7 +190,7 @@ let memory_type_index = (0..mem_properties.memory_type_count)
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 let alloc_info = MemoryAllocateInfo::builder()
     .allocation_size(mem_requirements.size)
@@ -213,9 +211,7 @@ in host-visible memory, write your data there, then copy to the GPU buffer.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Create a temporary staging buffer in host-visible memory.
 let staging_info = BufferCreateInfo::builder()
@@ -309,7 +305,7 @@ available on all hardware. The staging buffer pattern works everywhere.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 fn find_memory_type(
     mem_properties: &PhysicalDeviceMemoryProperties,

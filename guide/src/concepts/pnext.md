@@ -68,8 +68,7 @@ newer Vulkan versions or extensions.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
-use vulkan_rust::vk::enums::*;
+use vulkan_rust::vk::*;
 
 // You would need to manually link the structs:
 let mut features_13 = PhysicalDeviceVulkan13Features {
@@ -102,7 +101,7 @@ link the chain. vulkan_rust builders fix all of these problems.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 let mut features_12 = *PhysicalDeviceVulkan12Features::builder()
     .buffer_device_address(1)
@@ -192,7 +191,7 @@ If you try to `push_next` a struct that doesn't implement the trait:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 // Compile error: PhysicalDeviceMemoryProperties does not implement
 // ExtendsDeviceCreateInfo
@@ -207,7 +206,7 @@ pass a builder anywhere a reference to the inner struct is expected:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 let info = DeviceCreateInfo::builder()
     .queue_create_infos(&queue_infos)
@@ -238,7 +237,7 @@ the same scope. The compiler enforces this:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 let info = {
     let mut features = PhysicalDeviceVulkan12Features::builder();
@@ -257,7 +256,7 @@ Chain feature structs into `PhysicalDeviceFeatures2` and call
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::*;
 
 let mut features_12 = *PhysicalDeviceVulkan12Features::builder();
 let mut features_13 = *PhysicalDeviceVulkan13Features::builder();

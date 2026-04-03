@@ -209,7 +209,10 @@ fn mark_input_pairs(
         let Some((_, count_idx)) = resolve_len(param.len.as_deref(), name_to_idx) else {
             continue;
         };
-        if roles[count_idx] != ParamRole::Regular {
+        if !matches!(
+            roles[count_idx],
+            ParamRole::Regular | ParamRole::InputCount { .. }
+        ) {
             continue;
         }
         let count_param = &params[count_idx];
@@ -220,7 +223,9 @@ fn mark_input_pairs(
             && !count_param.is_pointer
             && count_param.type_name == "uint32_t"
         {
-            roles[count_idx] = ParamRole::InputCount { partner: i };
+            if roles[count_idx] == ParamRole::Regular {
+                roles[count_idx] = ParamRole::InputCount { partner: i };
+            }
             roles[i] = ParamRole::InputArray { count: count_idx };
         }
     }

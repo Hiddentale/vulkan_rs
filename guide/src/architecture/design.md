@@ -109,8 +109,7 @@ Every builder dereferences to its inner `vk::*` struct:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let info = BufferCreateInfo::builder()
     .size(1024)
@@ -136,7 +135,7 @@ newtype around `i32`:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::enums::*;
+use vk::*;
 
 #[repr(transparent)]
 pub struct Format(i32);

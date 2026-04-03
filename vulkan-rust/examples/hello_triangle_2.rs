@@ -2,10 +2,7 @@
 // Complete runnable program. Builds on Part 1.
 // <https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-2.html>
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Entry, LibloadingLoader, Version};
 use winit::application::ApplicationHandler;
@@ -68,14 +65,14 @@ fn run(window: &Window) {
     let layer_ptrs = [validation_layer.as_ptr()];
 
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle")
+        .application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine")
+        .engine_name(c"No Engine")
         .engine_version(1)
         .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&app_info)
+        .application_info(&app_info)
         .enabled_extension_names(&extension_ptrs)
         .enabled_layer_names(&layer_ptrs);
 
@@ -99,8 +96,7 @@ fn run(window: &Window) {
             let graphics = family.queue_flags & QueueFlags::GRAPHICS != QueueFlags::empty();
             let present =
                 unsafe { instance.get_physical_device_surface_support_khr(pd, i as u32, surface) }
-                    .unwrap_or(0)
-                    != 0;
+                    .unwrap_or(false);
             if graphics && present {
                 physical_device = pd;
                 graphics_family_index = i as u32;

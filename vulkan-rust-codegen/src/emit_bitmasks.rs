@@ -41,6 +41,13 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
         })
         .collect();
 
+    let all_value = compute_all_value(def, &prefix);
+    let all_lit = if is_64 {
+        Literal::u64_suffixed(all_value)
+    } else {
+        Literal::u32_suffixed(all_value as u32)
+    };
+
     let mut seen_debug = HashSet::new();
     let debug_arms: Vec<TokenStream> = def
         .bits
@@ -61,7 +68,7 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
     quote! {
         #[doc = #spec_link]
         #[repr(transparent)]
-        #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+        #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
         #[doc(alias = #vk_name)]
         pub struct #name(#repr);
 
@@ -82,6 +89,9 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
             pub const fn contains(self, other: Self) -> bool {
                 (self.0 & other.0) == other.0
             }
+
+            #[inline]
+            pub const fn all() -> Self { Self(#all_lit) }
 
             #(#constants)*
         }
@@ -200,6 +210,26 @@ fn emit_debug_check(bit: &BitmaskBit, prefix: &str) -> Option<TokenStream> {
             first = false;
         }
     })
+}
+
+/// Compute the OR of all defined bit values for this bitmask.
+fn compute_all_value(def: &BitmaskDef, prefix: &str) -> u64 {
+    let mut seen = HashSet::new();
+    let mut result: u64 = 0;
+    for bit in &def.bits {
+        let Some(rust_name) = strip_bit_prefix(&bit.name, prefix) else {
+            continue;
+        };
+        if !seen.insert(rust_name) {
+            continue;
+        }
+        match &bit.value {
+            BitmaskValue::Bitpos(pos) => result |= 1u64 << pos,
+            BitmaskValue::Value(val) => result |= val,
+            BitmaskValue::Alias(_) => {}
+        }
+    }
+    result
 }
 
 // ---------------------------------------------------------------------------

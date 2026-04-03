@@ -28,7 +28,7 @@ pub fn create_test_entry() -> Result<Entry, Box<dyn std::error::Error>> {
 /// Returns an error if the Vulkan runtime is not available.
 pub fn create_test_instance() -> Result<(Entry, Instance), Box<dyn std::error::Error>> {
     let entry = create_test_entry()?;
-    let create_info = vk::structs::InstanceCreateInfo::builder();
+    let create_info = vk::InstanceCreateInfo::builder();
     let instance = unsafe { entry.create_instance(&create_info, None) }
         .map_err(|e| -> Box<dyn std::error::Error> { Box::new(crate::VkError(e)) })?;
     Ok((entry, instance))
@@ -51,11 +51,11 @@ pub fn create_test_device() -> Result<(Entry, Instance, Device), Box<dyn std::er
         .ok_or("no Vulkan physical devices found")?;
 
     let priorities = [1.0f32];
-    let queue_info = vk::structs::DeviceQueueCreateInfo::builder()
+    let queue_info = vk::DeviceQueueCreateInfo::builder()
         .queue_family_index(0)
         .queue_priorities(&priorities);
     let queue_infos = [*queue_info];
-    let device_info = vk::structs::DeviceCreateInfo::builder().queue_create_infos(&queue_infos);
+    let device_info = vk::DeviceCreateInfo::builder().queue_create_infos(&queue_infos);
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
         .map_err(|e| -> Box<dyn std::error::Error> { Box::new(crate::VkError(e)) })?;

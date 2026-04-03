@@ -69,8 +69,7 @@ The most common are `UNIFORM_BUFFER` and `COMBINED_IMAGE_SAMPLER`.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 // Describe the bindings: slot 0 is a uniform buffer visible to
 // the vertex shader, slot 1 is a combined image sampler visible
@@ -107,8 +106,7 @@ let descriptor_layout = unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 // The pool must have enough room for the descriptor types we need.
 // If we want 10 sets, each with 1 uniform buffer and 1 image sampler:
@@ -136,8 +134,7 @@ let descriptor_pool = unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 let alloc_info = DescriptorSetAllocateInfo::builder()
     .descriptor_pool(descriptor_pool)
@@ -152,8 +149,7 @@ let descriptor_set = unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 // Point binding 0 to our uniform buffer.
 let buffer_info = DescriptorBufferInfo {
@@ -190,7 +186,7 @@ unsafe { device.update_descriptor_sets(&writes, &[]) };
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::enums::*;
+use vk::*;
 
 unsafe {
     device.cmd_bind_descriptor_sets(
@@ -224,8 +220,7 @@ set 2 changes per object. You only rebind the sets that changed.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 // In pipeline layout creation:
 let layouts = [per_frame_layout, per_material_layout, per_object_layout];

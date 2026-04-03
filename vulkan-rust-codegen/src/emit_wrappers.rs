@@ -124,11 +124,7 @@ fn emit_file(wrapper_type: &str, methods: TokenStream) -> TokenStream {
         // Safety docs are now generated from vk.xml metadata.
 
         use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
-        use crate::vk::bitmasks::*;
-        use crate::vk::constants::*;
-        use crate::vk::enums::*;
-        use crate::vk::handles::*;
-        use crate::vk::structs::*;
+        use crate::vk::*;
 
         impl crate::#wrapper {
             #methods
@@ -288,7 +284,11 @@ fn emit_signature_param(param: &ParamDef, role: &ParamRole) -> Option<TokenStrea
 
         ParamRole::InputArray { .. } => {
             let name = param_ident(&param.name);
-            let elem = resolve_base_type(&param.type_name);
+            let elem = if param.type_name == "void" {
+                quote! { u8 }
+            } else {
+                resolve_base_type(&param.type_name)
+            };
             Some(quote! { #name: &[#elem] })
         }
 
@@ -307,6 +307,9 @@ fn emit_signature_param(param: &ParamDef, role: &ParamRole) -> Option<TokenStrea
 fn wrapper_param_type(param: &ParamDef) -> TokenStream {
     if param.type_name == "VkBool32" && !param.is_pointer {
         return quote! { bool };
+    }
+    if is_optional_cstr_param(param) {
+        return quote! { Option<&core::ffi::CStr> };
     }
     if param.is_pointer
         && param.is_const
@@ -363,8 +366,27 @@ fn output_base_type(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
     cmd.params
         .iter()
         .zip(roles.iter())
-        .find_map(|(p, r)| matches!(r, ParamRole::Output).then(|| resolve_base_type(&p.type_name)))
+        .find_map(|(p, r)| {
+            matches!(r, ParamRole::Output).then(|| {
+                if is_bool32_output(p) {
+                    quote! { bool }
+                } else {
+                    resolve_base_type(&p.type_name)
+                }
+            })
+        })
         .expect("Create/Query pattern must have an Output role")
+}
+
+fn is_bool32_output(param: &ParamDef) -> bool {
+    param.type_name == "VkBool32" && param.is_pointer && !param.is_const
+}
+
+fn has_bool32_output(cmd: &CommandDef, roles: &[ParamRole]) -> bool {
+    cmd.params
+        .iter()
+        .zip(roles.iter())
+        .any(|(p, r)| matches!(r, ParamRole::Output) && is_bool32_output(p))
 }
 
 fn allocate_array_elem_type(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
@@ -415,12 +437,17 @@ fn emit_body(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -> 
         }
         CommandPattern::Create => {
             let args = emit_call_args(cmd, roles);
+            let out_expr = if has_bool32_output(cmd, roles) {
+                quote! { Ok(out != 0) }
+            } else {
+                quote! { Ok(out) }
+            };
             quote! {
                 #fp_load
                 #bindings
                 let mut out = unsafe { core::mem::zeroed() };
                 check(unsafe { fp(#args) })?;
-                Ok(out)
+                #out_expr
             }
         }
         CommandPattern::Destroy | CommandPattern::VoidForward => {
@@ -441,12 +468,17 @@ fn emit_body(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -> 
         }
         CommandPattern::Query => {
             let args = emit_call_args(cmd, roles);
+            let out_expr = if has_bool32_output(cmd, roles) {
+                quote! { out != 0 }
+            } else {
+                quote! { out }
+            };
             quote! {
                 #fp_load
                 #bindings
                 let mut out = unsafe { core::mem::zeroed() };
                 unsafe { fp(#args) };
-                out
+                #out_expr
             }
         }
         CommandPattern::Enumerate => {
@@ -489,6 +521,13 @@ fn emit_bindings(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
                     let #ptr_name = #name.map_or(core::ptr::null(), core::ptr::from_ref);
                 });
             }
+            ParamRole::Regular if is_optional_cstr_param(param) => {
+                let ptr_name = format_ident!("{}_ptr", param.name.to_snake_case());
+                let name = param_ident(&param.name);
+                bindings.extend(quote! {
+                    let #ptr_name = #name.map_or(core::ptr::null(), core::ffi::CStr::as_ptr);
+                });
+            }
             _ => {}
         }
     }
@@ -502,6 +541,14 @@ fn is_optional_vk_const_ptr(param: &ParamDef) -> bool {
         && param.is_const
         && !param.is_double_pointer
         && is_vk_type(&param.type_name)
+}
+
+fn is_optional_cstr_param(param: &ParamDef) -> bool {
+    param.optional
+        && param.is_pointer
+        && param.is_const
+        && !param.is_double_pointer
+        && param.type_name == "char"
 }
 
 // ---------------------------------------------------------------------------
@@ -587,13 +634,17 @@ fn emit_call_arg(
 
         ParamRole::InputArray { .. } => {
             let name = param_ident(&param.name);
-            quote! { #name.as_ptr() }
+            if param.type_name == "void" {
+                quote! { #name.as_ptr().cast() }
+            } else {
+                quote! { #name.as_ptr() }
+            }
         }
 
         ParamRole::Allocator => quote! { alloc_ptr },
 
         ParamRole::Regular => {
-            if is_optional_vk_const_ptr(param) {
+            if is_optional_vk_const_ptr(param) || is_optional_cstr_param(param) {
                 let ptr_name = format_ident!("{}_ptr", param.name.to_snake_case());
                 quote! { #ptr_name }
             } else if param.type_name == "VkBool32" && !param.is_pointer {
@@ -1143,12 +1194,16 @@ mod tests {
         assert!(method.contains("pub unsafe fn enumerate_device_extension_properties"));
         // physicalDevice is Regular (not self-handle for Instance)
         assert!(method.contains("physical_device"));
-        // pLayerName is *const char, optional, but not Vk type → raw pointer
-        assert!(method.contains("p_layer_name"));
+        // pLayerName is optional const char* → Option<&CStr>
+        assert!(method.contains("p_layer_name : Option < & core :: ffi :: CStr >"));
         assert!(method.contains("-> VkResult < Vec < ExtensionProperties >>"));
         assert!(method.contains("enumerate_two_call"));
-        // The closure passes physical_device, p_layer_name, then count/data
-        assert!(method.contains("unsafe { fp (physical_device , p_layer_name , count , data) }"));
+        // The binding converts Option<&CStr> to raw pointer
+        assert!(method.contains("p_layer_name_ptr"));
+        // The closure passes physical_device, the converted pointer, then count/data
+        assert!(
+            method.contains("unsafe { fp (physical_device , p_layer_name_ptr , count , data) }")
+        );
     }
 
     #[test]

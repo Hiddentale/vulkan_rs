@@ -26,17 +26,16 @@ but are still called on `Device`, not on the command buffer handle.
 
 ### Types
 
-Strip the `Vk` prefix. Types live in submodules of `vk`:
+Strip the `Vk` prefix. All types are re-exported at the `vk` root:
 
 | C | vulkan_rust |
 |---|-----------|
-| `VkBuffer` | `vk::handles::Buffer` |
-| `VkBufferCreateInfo` | `vk::structs::BufferCreateInfo` |
-| `VkPhysicalDeviceProperties` | `vk::structs::PhysicalDeviceProperties` |
-| `VkInstance` | `vk::handles::Instance` (the raw handle) |
+| `VkBuffer` | `vk::Buffer` |
+| `VkBufferCreateInfo` | `vk::BufferCreateInfo` |
+| `VkPhysicalDeviceProperties` | `vk::PhysicalDeviceProperties` |
+| `VkInstance` | `vk::Instance` (the raw handle) |
 
-Use `use vk::structs::*` or `use vk::handles::*` to bring them into
-scope without the module prefix.
+Use `use vk::*` to bring them into scope without the module prefix.
 
 ### Enum variants
 
@@ -44,10 +43,10 @@ Strip the type prefix and keep `SCREAMING_CASE`:
 
 | C | vulkan_rust |
 |---|-----------|
-| `VK_FORMAT_R8G8B8A8_SRGB` | `vk::enums::Format::R8G8B8A8_SRGB` |
-| `VK_IMAGE_LAYOUT_UNDEFINED` | `vk::enums::ImageLayout::UNDEFINED` |
-| `VK_PRESENT_MODE_FIFO_KHR` | `vk::enums::PresentModeKHR::FIFO` |
-| `VK_SUCCESS` | `vk::enums::Result::SUCCESS` |
+| `VK_FORMAT_R8G8B8A8_SRGB` | `vk::Format::R8G8B8A8_SRGB` |
+| `VK_IMAGE_LAYOUT_UNDEFINED` | `vk::ImageLayout::UNDEFINED` |
+| `VK_PRESENT_MODE_FIFO_KHR` | `vk::PresentModeKHR::FIFO` |
+| `VK_SUCCESS` | `vk::Result::SUCCESS` |
 
 ### Bitmask flags
 
@@ -55,15 +54,15 @@ Strip the type prefix and the `_BIT` suffix:
 
 | C | vulkan_rust |
 |---|-----------|
-| `VK_BUFFER_USAGE_VERTEX_BUFFER_BIT` | `vk::bitmasks::BufferUsageFlags::VERTEX_BUFFER` |
-| `VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT` | `vk::bitmasks::ImageUsageFlags::COLOR_ATTACHMENT` |
-| `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` | `vk::bitmasks::PipelineStageFlags::FRAGMENT_SHADER` |
+| `VK_BUFFER_USAGE_VERTEX_BUFFER_BIT` | `vk::BufferUsageFlags::VERTEX_BUFFER` |
+| `VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT` | `vk::ImageUsageFlags::COLOR_ATTACHMENT` |
+| `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` | `vk::PipelineStageFlags::FRAGMENT_SHADER` |
 
 Combine flags with the `|` operator, just like in C:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::bitmasks::*;
+use vk::*;
 
 let usage = BufferUsageFlags::VERTEX_BUFFER
     | BufferUsageFlags::TRANSFER_DST;
@@ -101,9 +100,7 @@ vkCreateBuffer(device, &info, NULL, &buffer);
 ```rust,ignore
 // vulkan_rust
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let info = BufferCreateInfo::builder()
     .size(1024)
@@ -142,7 +139,7 @@ In `vulkan_rust`, use `push_next()`:
 ```rust,ignore
 // vulkan_rust
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 let mut features12 = *PhysicalDeviceVulkan12Features::builder()
     .buffer_device_address(1);  // VkBool32: 1 = true
@@ -192,7 +189,7 @@ if (result != VK_SUCCESS) { /* handle error */ }
 ```rust,ignore
 // vulkan_rust
 use vulkan_rust::vk;
-use vk::handles::*;
+use vk::*;
 
 let buffer: Buffer = unsafe { device.create_buffer(&info, None) }
     .expect("Failed to create buffer");
@@ -203,7 +200,7 @@ return a `Vec` directly:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::handles::*;
+use vk::*;
 
 let cmd_buffers = unsafe {
     device.allocate_command_buffers(&alloc_info)
@@ -301,9 +298,7 @@ vkUnmapMemory(device, memory);
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 unsafe {
     let buf_info = BufferCreateInfo::builder()

@@ -5,7 +5,7 @@ use crate::vk;
 /// First call with null data pointer to get the count, allocate, then call
 /// again to fill the buffer.
 pub(crate) fn enumerate_two_call<T>(
-    call: impl Fn(*mut u32, *mut T) -> vk::enums::Result,
+    call: impl Fn(*mut u32, *mut T) -> vk::Result,
 ) -> VkResult<Vec<T>> {
     let mut count = 0u32;
     check(call(&mut count, std::ptr::null_mut()))?;
@@ -33,7 +33,7 @@ pub(crate) fn fill_two_call<T>(call: impl Fn(*mut u32, *mut T)) -> Vec<T> {
 
 /// Vulkan API result type.
 ///
-/// The `Err` variant is any negative `vk::enums::Result` (an error code).
+/// The `Err` variant is any negative `vk::Result` (an error code).
 /// Non-negative codes (including `SUCCESS`, `INCOMPLETE`, `SUBOPTIMAL`)
 /// are treated as success.
 ///
@@ -51,14 +51,14 @@ pub(crate) fn fill_two_call<T>(call: impl Fn(*mut u32, *mut T)) -> Vec<T> {
 /// let result = do_vulkan_work();
 /// assert!(result.is_ok());
 /// ```
-pub type VkResult<T> = std::result::Result<T, vk::enums::Result>;
+pub type VkResult<T> = std::result::Result<T, vk::Result>;
 
-/// Convert a raw `vk::enums::Result` into `VkResult<()>`.
+/// Convert a raw `vk::Result` into `VkResult<()>`.
 ///
 /// Vulkan defines success codes as non-negative and error codes as negative.
 /// Commands that need to distinguish specific success codes (e.g. `INCOMPLETE`
 /// for enumeration) handle that explicitly after calling this.
-pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
+pub(crate) fn check(result: vk::Result) -> VkResult<()> {
     if result.as_raw() >= 0 {
         Ok(())
     } else {
@@ -66,9 +66,9 @@ pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
     }
 }
 
-/// Wrapper around [`vk::enums::Result`] that implements [`std::error::Error`].
+/// Wrapper around [`vk::Result`] that implements [`std::error::Error`].
 ///
-/// `vk::enums::Result` is a generated `#[repr(transparent)]` newtype without
+/// `vk::Result` is a generated `#[repr(transparent)]` newtype without
 /// `Display` or `Error` impls. This wrapper bridges that gap so Vulkan error
 /// codes can participate in `Box<dyn Error>` chains.
 ///
@@ -78,11 +78,11 @@ pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
 /// use vulkan_rust::VkError;
 /// use vulkan_rust::vk;
 ///
-/// let err = VkError(vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY);
+/// let err = VkError(vk::Result::ERROR_OUT_OF_HOST_MEMORY);
 /// assert_eq!(err.to_string(), "ERROR_OUT_OF_HOST_MEMORY");
 /// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct VkError(pub vk::enums::Result);
+pub struct VkError(pub vk::Result);
 
 impl std::fmt::Display for VkError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -92,15 +92,15 @@ impl std::fmt::Display for VkError {
 
 impl std::error::Error for VkError {}
 
-impl From<vk::enums::Result> for VkError {
-    fn from(r: vk::enums::Result) -> Self {
+impl From<vk::Result> for VkError {
+    fn from(r: vk::Result) -> Self {
         Self(r)
     }
 }
 
 /// Error returned when the Vulkan shared library cannot be loaded.
 ///
-/// This is distinct from `vk::enums::Result`, it represents a failure to reach
+/// This is distinct from `vk::Result`, it represents a failure to reach
 /// the Vulkan API at all, not a Vulkan API error.
 ///
 /// # Examples
@@ -148,28 +148,28 @@ mod tests {
 
     #[test]
     fn check_success_returns_ok() {
-        assert!(check(vk::enums::Result::SUCCESS).is_ok());
+        assert!(check(vk::Result::SUCCESS).is_ok());
     }
 
     #[test]
     fn check_negative_returns_err() {
-        let result = check(vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY);
-        assert_eq!(result, Err(vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY));
+        let result = check(vk::Result::ERROR_OUT_OF_HOST_MEMORY);
+        assert_eq!(result, Err(vk::Result::ERROR_OUT_OF_HOST_MEMORY));
     }
 
     #[test]
     fn check_non_zero_success_codes_return_ok() {
         // INCOMPLETE and SUBOPTIMAL are non-negative success codes.
-        assert!(check(vk::enums::Result::INCOMPLETE).is_ok());
-        assert!(check(vk::enums::Result::SUBOPTIMAL).is_ok());
+        assert!(check(vk::Result::INCOMPLETE).is_ok());
+        assert!(check(vk::Result::SUBOPTIMAL).is_ok());
     }
 
     #[test]
     fn check_extension_error_codes_return_err() {
         // Extension error codes (promoted to core) must be negative.
-        assert!(check(vk::enums::Result::ERROR_OUT_OF_POOL_MEMORY).is_err());
-        assert!(check(vk::enums::Result::ERROR_SURFACE_LOST).is_err());
-        assert!(check(vk::enums::Result::ERROR_VALIDATION_FAILED).is_err());
+        assert!(check(vk::Result::ERROR_OUT_OF_POOL_MEMORY).is_err());
+        assert!(check(vk::Result::ERROR_SURFACE_LOST).is_err());
+        assert!(check(vk::Result::ERROR_VALIDATION_FAILED).is_err());
     }
 
     #[test]
@@ -184,7 +184,7 @@ mod tests {
                     *data.add(2) = 30;
                 }
             }
-            vk::enums::Result::SUCCESS
+            vk::Result::SUCCESS
         });
         assert_eq!(result.expect("should succeed"), vec![10u32, 20, 30]);
     }
@@ -193,7 +193,7 @@ mod tests {
     fn enumerate_two_call_returns_empty_on_zero_count() {
         let result = enumerate_two_call::<u32>(|count, _data| {
             unsafe { *count = 0 };
-            vk::enums::Result::SUCCESS
+            vk::Result::SUCCESS
         });
         assert!(result.expect("should succeed").is_empty());
     }
@@ -201,11 +201,8 @@ mod tests {
     #[test]
     fn enumerate_two_call_propagates_error() {
         let result =
-            enumerate_two_call::<u32>(|_count, _data| vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY);
-        assert_eq!(
-            result.unwrap_err(),
-            vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
-        );
+            enumerate_two_call::<u32>(|_count, _data| vk::Result::ERROR_OUT_OF_HOST_MEMORY);
+        assert_eq!(result.unwrap_err(), vk::Result::ERROR_OUT_OF_HOST_MEMORY);
     }
 
     #[test]

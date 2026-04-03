@@ -91,9 +91,7 @@ image) and one depth attachment.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Color attachment: the swapchain image we render into.
 let color_attachment = AttachmentDescription {
@@ -126,8 +124,7 @@ let depth_attachment = AttachmentDescription {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 // Subpass 0 uses attachment 0 as color output and attachment 1 as depth.
 let color_ref = AttachmentReference {
@@ -157,8 +154,7 @@ let subpass = SubpassDescription {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::constants::SUBPASS_EXTERNAL;
+use vk::*;
 
 // This dependency ensures that the image layout transition
 // (from the previous frame's PRESENT_SRC to our UNDEFINED→COLOR_ATTACHMENT)
@@ -181,7 +177,7 @@ let dependency = SubpassDependency {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 let attachments = [color_attachment, depth_attachment];
 
@@ -199,8 +195,7 @@ let render_pass = unsafe {
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 let framebuffers: Vec<Framebuffer> = swapchain_image_views
     .iter()
@@ -225,8 +220,7 @@ let framebuffers: Vec<Framebuffer> = swapchain_image_views
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 let clear_values = [
     ClearValue {
@@ -274,8 +268,7 @@ You specify attachments inline at recording time:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
+use vk::*;
 
 let color_attachment = RenderingAttachmentInfo::builder()
     .image_view(swapchain_image_view)

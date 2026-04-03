@@ -1,6 +1,6 @@
 mod common;
 
-use vk::handles::Handle;
+use vk::Handle;
 use vulkan_rust::vk;
 
 #[test]
@@ -72,23 +72,20 @@ fn full_lifecycle() {
     let families = unsafe { instance.get_physical_device_queue_family_properties(physical_device) };
     let graphics_family = families
         .iter()
-        .position(|f| {
-            f.queue_flags
-                .contains(vk::bitmasks::QueueFlagBits::GRAPHICS)
-        })
+        .position(|f| f.queue_flags.contains(vk::QueueFlagBits::GRAPHICS))
         .expect("no graphics queue family") as u32;
 
     let queue_priority = 1.0f32;
-    let queue_create_info = vk::structs::DeviceQueueCreateInfo {
-        s_type: vk::enums::StructureType::DEVICE_QUEUE_CREATE_INFO,
+    let queue_create_info = vk::DeviceQueueCreateInfo {
+        s_type: vk::StructureType::DEVICE_QUEUE_CREATE_INFO,
         p_next: std::ptr::null(),
-        flags: vk::bitmasks::DeviceQueueCreateFlagBits::empty(),
+        flags: vk::DeviceQueueCreateFlagBits::empty(),
         queue_family_index: graphics_family,
         queue_count: 1,
         p_queue_priorities: &queue_priority,
     };
-    let device_create_info = vk::structs::DeviceCreateInfo {
-        s_type: vk::enums::StructureType::DEVICE_CREATE_INFO,
+    let device_create_info = vk::DeviceCreateInfo {
+        s_type: vk::StructureType::DEVICE_CREATE_INFO,
         p_next: std::ptr::null(),
         flags: 0,
         queue_create_info_count: 1,

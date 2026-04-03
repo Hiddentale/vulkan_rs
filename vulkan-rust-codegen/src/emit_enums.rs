@@ -74,6 +74,14 @@ fn emit_enum(def: &EnumDef) -> TokenStream {
                 }
             }
         }
+
+        impl core::fmt::Display for #name {
+            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                core::fmt::Debug::fmt(self, f)
+            }
+        }
+
+        impl core::error::Error for #name {}
     }
 }
 

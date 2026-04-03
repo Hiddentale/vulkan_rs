@@ -23,17 +23,17 @@ struct FuzzLoader {
 
 /// Minimal valid vkGetInstanceProcAddr: returns null for all lookups.
 unsafe extern "system" fn stub_get_instance_proc_addr(
-    _instance: vulkan_rust_sys::handles::Instance,
+    _instance: vulkan_rust_sys::Instance,
     _name: *const std::ffi::c_char,
-) -> vulkan_rust_sys::structs::PFN_vkVoidFunction {
+) -> vulkan_rust_sys::PFN_vkVoidFunction {
     None
 }
 
 /// Minimal valid vkGetDeviceProcAddr: returns null for all lookups.
 unsafe extern "system" fn stub_get_device_proc_addr(
-    _device: vulkan_rust_sys::handles::Device,
+    _device: vulkan_rust_sys::Device,
     _name: *const std::ffi::c_char,
-) -> vulkan_rust_sys::structs::PFN_vkVoidFunction {
+) -> vulkan_rust_sys::PFN_vkVoidFunction {
     None
 }
 

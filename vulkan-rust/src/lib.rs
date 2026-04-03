@@ -70,6 +70,7 @@
 //! |------|---------|-------------|
 //! | `surface` | yes | Enables [`required_extensions`] and [`SurfaceError`] for window surface creation via [`raw-window-handle`](https://docs.rs/raw-window-handle). Disable with `default-features = false` for headless use. |
 
+#[doc(inline)]
 pub use vulkan_rust_sys as vk;
 
 pub mod bytecode;

@@ -44,8 +44,8 @@ In the render loop, check both the flag and the Vulkan result codes:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::handles::*;
-use vk::enums::Result as VkError;
+use vk::*;
+use vk::Result as VkError;
 
 let acquire_result = unsafe {
     device.acquire_next_image_khr(
@@ -134,7 +134,7 @@ The surface extent may have changed, so re-query it.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 let surface_caps = unsafe {
     instance.get_physical_device_surface_capabilities_khr(physical_device, surface)
@@ -181,9 +181,7 @@ reuse internal resources and can make the transition smoother.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let old_swapchain = swapchain; // save the handle
 
@@ -216,9 +214,7 @@ framebuffers.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let swapchain_images = unsafe { device.get_swapchain_images_khr(swapchain) }
     .expect("Failed to get swapchain images");
@@ -264,9 +260,7 @@ A helper function that bundles the recreation logic:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::handles::*;
+use vk::*;
 
 fn recreate_swapchain(
     instance: &vulkan_rust::Instance,
