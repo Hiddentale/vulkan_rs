@@ -942,14 +942,14 @@ impl crate::Instance {
         physical_device: PhysicalDevice,
         queue_family_index: u32,
         surface: SurfaceKHR,
-    ) -> VkResult<u32> {
+    ) -> VkResult<bool> {
         let fp = self
             .commands()
             .get_physical_device_surface_support_khr
             .expect("vkGetPhysicalDeviceSurfaceSupportKHR not loaded");
         let mut out = unsafe { core::mem::zeroed() };
         check(unsafe { fp(physical_device, queue_family_index, surface, &mut out) })?;
-        Ok(out)
+        Ok(out != 0)
     }
     ///Wraps [`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html).
     /**

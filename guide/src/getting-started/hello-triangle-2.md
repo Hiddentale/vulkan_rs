@@ -196,7 +196,7 @@ let mut graphics_family_index = 0u32;
                 surface,
             )
         }
-        .unwrap_or(0) != 0;
+        .unwrap_or(false);
 
         if supports_graphics && supports_present {
             physical_device = pd;

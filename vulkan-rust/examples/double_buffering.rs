@@ -138,8 +138,7 @@ fn init_vulkan(window: Window) -> VulkanState {
             let graphics = family.queue_flags & QueueFlags::GRAPHICS != QueueFlags::empty();
             let present =
                 unsafe { instance.get_physical_device_surface_support_khr(pd, i as u32, surface) }
-                    .unwrap_or(0)
-                    != 0;
+                    .unwrap_or(false);
             if graphics && present {
                 physical_device = pd;
                 graphics_family_index = i as u32;

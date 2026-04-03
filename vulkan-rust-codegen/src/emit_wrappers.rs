@@ -359,8 +359,27 @@ fn output_base_type(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
     cmd.params
         .iter()
         .zip(roles.iter())
-        .find_map(|(p, r)| matches!(r, ParamRole::Output).then(|| resolve_base_type(&p.type_name)))
+        .find_map(|(p, r)| {
+            matches!(r, ParamRole::Output).then(|| {
+                if is_bool32_output(p) {
+                    quote! { bool }
+                } else {
+                    resolve_base_type(&p.type_name)
+                }
+            })
+        })
         .expect("Create/Query pattern must have an Output role")
+}
+
+fn is_bool32_output(param: &ParamDef) -> bool {
+    param.type_name == "VkBool32" && param.is_pointer && !param.is_const
+}
+
+fn has_bool32_output(cmd: &CommandDef, roles: &[ParamRole]) -> bool {
+    cmd.params
+        .iter()
+        .zip(roles.iter())
+        .any(|(p, r)| matches!(r, ParamRole::Output) && is_bool32_output(p))
 }
 
 fn allocate_array_elem_type(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
@@ -411,12 +430,17 @@ fn emit_body(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -> 
         }
         CommandPattern::Create => {
             let args = emit_call_args(cmd, roles);
+            let out_expr = if has_bool32_output(cmd, roles) {
+                quote! { Ok(out != 0) }
+            } else {
+                quote! { Ok(out) }
+            };
             quote! {
                 #fp_load
                 #bindings
                 let mut out = unsafe { core::mem::zeroed() };
                 check(unsafe { fp(#args) })?;
-                Ok(out)
+                #out_expr
             }
         }
         CommandPattern::Destroy | CommandPattern::VoidForward => {
@@ -437,12 +461,17 @@ fn emit_body(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -> 
         }
         CommandPattern::Query => {
             let args = emit_call_args(cmd, roles);
+            let out_expr = if has_bool32_output(cmd, roles) {
+                quote! { out != 0 }
+            } else {
+                quote! { out }
+            };
             quote! {
                 #fp_load
                 #bindings
                 let mut out = unsafe { core::mem::zeroed() };
                 unsafe { fp(#args) };
-                out
+                #out_expr
             }
         }
         CommandPattern::Enumerate => {
