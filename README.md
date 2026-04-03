@@ -23,9 +23,9 @@ If you're new to Vulkan, start with the [Hello Triangle tutorial](https://hidden
 
 | | vulkan-rust | ash | vulkanalia |
 |---|---|---|---|
-| Command style | **Inherent methods** | Trait-based | Trait-based |
-| `from_raw_parts` | **Yes, dedicated API** | Yes | No |
-| Documentation | **100% coverage, spec links, examples** | Spec links only | Spec links + tutorial |
+| Command style | Inherent methods | Trait-based | Trait-based |
+| `from_raw_parts` | Yes, dedicated API | Yes | No |
+| Documentation | 100% coverage, spec links, examples | Spec links only | Spec links + tutorial |
 | Command loading | All enabled extensions | All enabled extensions | All enabled extensions |
 | `no_std` (sys crate) | Yes | Yes | Yes |
 
