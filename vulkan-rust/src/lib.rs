@@ -86,7 +86,7 @@ mod surface;
 pub mod test_helpers;
 mod version;
 
-pub use bytecode::{BytecodeError, cast_to_u32};
+pub use bytecode::{BytecodeError, as_bytes, cast_to_u32};
 pub use device::Device;
 pub use entry::Entry;
 pub use error::{LoadError, VkError, VkResult};

@@ -1,4 +1,4 @@
-//! SPIR-V bytecode alignment helper.
+//! Byte-level helpers for Vulkan data: SPIR-V alignment and raw struct access.
 
 use std::fmt;
 
@@ -41,6 +41,36 @@ impl fmt::Display for BytecodeError {
 }
 
 impl std::error::Error for BytecodeError {}
+
+/// Reinterprets a reference to a `Copy` type as a byte slice.
+///
+/// This is useful for passing `#[repr(C)]` structs to Vulkan commands
+/// that accept `&[u8]`, such as `cmd_push_constants`.
+///
+/// # Safety
+///
+/// `T` must not contain padding bytes. Reading uninitialized padding is
+/// undefined behavior. Use `#[repr(C)]` structs whose fields leave no
+/// gaps, or verify with `assert_eq!(size_of::<T>(), /* expected */)`.
+///
+/// # Examples
+///
+/// ```
+/// use vulkan_rust::as_bytes;
+///
+/// #[repr(C)]
+/// #[derive(Clone, Copy)]
+/// struct PushData { time: f32, scale: f32 }
+///
+/// let data = PushData { time: 1.0, scale: 2.0 };
+/// let bytes = unsafe { as_bytes(&data) };
+/// assert_eq!(bytes.len(), 8);
+/// ```
+pub unsafe fn as_bytes<T: Copy>(value: &T) -> &[u8] {
+    // SAFETY: caller guarantees T has no padding. Casting to u8 is always
+    // aligned, and the slice covers exactly size_of::<T>() bytes.
+    unsafe { std::slice::from_raw_parts(value as *const T as *const u8, std::mem::size_of::<T>()) }
+}
 
 /// Cast a byte slice to a `u32` slice for `ShaderModuleCreateInfo`.
 ///

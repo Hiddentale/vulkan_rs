@@ -541,10 +541,7 @@ unsafe fn record_commands(
             state.pipeline_layout,
             ShaderStageFlags::VERTEX,
             0,
-            std::slice::from_raw_parts(
-                push_data as *const PushConstants as *const u8,
-                std::mem::size_of::<PushConstants>(),
-            ),
+            vulkan_rust::as_bytes(push_data),
         );
 
         let viewport = Viewport {
