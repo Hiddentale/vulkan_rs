@@ -68,7 +68,7 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
     quote! {
         #[doc = #spec_link]
         #[repr(transparent)]
-        #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+        #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
         #[doc(alias = #vk_name)]
         pub struct #name(#repr);
 

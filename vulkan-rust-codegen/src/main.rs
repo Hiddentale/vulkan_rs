@@ -179,6 +179,11 @@ pub use bitmasks::*;
 pub use constants::*;
 pub use structs::*;
 pub use builders::*;
+
+/// Vulkan device memory size, in bytes.
+pub type DeviceSize = u64;
+/// Vulkan device memory address.
+pub type DeviceAddress = u64;
 ";
     write_file(&out_dir.join("lib.rs"), content);
 }
@@ -347,6 +352,8 @@ mod tests {
         assert!(content.contains("pub use constants::*;"));
         assert!(content.contains("pub use structs::*;"));
         assert!(content.contains("pub use builders::*;"));
+        assert!(content.contains("pub type DeviceSize = u64;"));
+        assert!(content.contains("pub type DeviceAddress = u64;"));
 
         let _ = fs::remove_dir_all(&dir);
     }

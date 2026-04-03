@@ -31,3 +31,8 @@ pub use bitmasks::*;
 pub use constants::*;
 pub use structs::*;
 pub use builders::*;
+
+/// Vulkan device memory size, in bytes.
+pub type DeviceSize = u64;
+/// Vulkan device memory address.
+pub type DeviceAddress = u64;
