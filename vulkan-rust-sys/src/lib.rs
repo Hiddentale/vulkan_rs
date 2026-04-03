@@ -26,17 +26,11 @@ mod builders;
 mod clear_value;
 pub mod commands;
 
-#[doc(inline)]
 pub use handles::*;
-#[doc(inline)]
 pub use enums::*;
-#[doc(inline)]
 pub use bitmasks::*;
-#[doc(inline)]
 pub use constants::*;
-#[doc(inline)]
 pub use structs::*;
-#[doc(inline)]
 pub use builders::*;
 
 /// Vulkan device memory size, in bytes.
