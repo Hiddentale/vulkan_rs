@@ -9,7 +9,7 @@ pub struct ApplicationInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ApplicationInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ApplicationInfoBuilder<'a> {
         ApplicationInfoBuilder {
@@ -79,7 +79,7 @@ pub struct DeviceQueueCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceQueueCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceQueueCreateInfoBuilder<'a> {
         DeviceQueueCreateInfoBuilder {
@@ -143,7 +143,7 @@ pub struct DeviceCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceCreateInfoBuilder<'a> {
         DeviceCreateInfoBuilder {
@@ -219,7 +219,7 @@ pub struct InstanceCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl InstanceCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> InstanceCreateInfoBuilder<'a> {
         InstanceCreateInfoBuilder {
@@ -289,7 +289,7 @@ pub struct MemoryAllocateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryAllocateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryAllocateInfoBuilder<'a> {
         MemoryAllocateInfoBuilder {
@@ -344,7 +344,7 @@ pub struct MappedMemoryRangeBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MappedMemoryRange {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MappedMemoryRangeBuilder<'a> {
         MappedMemoryRangeBuilder {
@@ -404,7 +404,7 @@ pub struct WriteDescriptorSetBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteDescriptorSet {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteDescriptorSetBuilder<'a> {
         WriteDescriptorSetBuilder {
@@ -487,7 +487,7 @@ pub struct CopyDescriptorSetBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyDescriptorSet {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyDescriptorSetBuilder<'a> {
         CopyDescriptorSetBuilder {
@@ -567,7 +567,7 @@ pub struct BufferUsageFlags2CreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferUsageFlags2CreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferUsageFlags2CreateInfoBuilder<'a> {
         BufferUsageFlags2CreateInfoBuilder {
@@ -620,7 +620,7 @@ pub struct BufferCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCreateInfoBuilder<'a> {
         BufferCreateInfoBuilder {
@@ -691,7 +691,7 @@ pub struct BufferViewCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferViewCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferViewCreateInfoBuilder<'a> {
         BufferViewCreateInfoBuilder {
@@ -761,7 +761,7 @@ pub struct MemoryBarrierBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryBarrier {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryBarrierBuilder<'a> {
         MemoryBarrierBuilder {
@@ -816,7 +816,7 @@ pub struct BufferMemoryBarrierBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferMemoryBarrier {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferMemoryBarrierBuilder<'a> {
         BufferMemoryBarrierBuilder {
@@ -896,7 +896,7 @@ pub struct ImageMemoryBarrierBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageMemoryBarrier {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageMemoryBarrierBuilder<'a> {
         ImageMemoryBarrierBuilder {
@@ -981,7 +981,7 @@ pub struct ImageCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageCreateInfoBuilder<'a> {
         ImageCreateInfoBuilder {
@@ -1087,7 +1087,7 @@ pub struct ImageViewCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewCreateInfoBuilder<'a> {
         ImageViewCreateInfoBuilder {
@@ -1162,7 +1162,7 @@ pub struct BindSparseInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindSparseInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindSparseInfoBuilder<'a> {
         BindSparseInfoBuilder {
@@ -1240,7 +1240,7 @@ pub struct CopyMemoryIndirectInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyMemoryIndirectInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyMemoryIndirectInfoKHRBuilder<'a> {
         CopyMemoryIndirectInfoKHRBuilder {
@@ -1308,7 +1308,7 @@ pub struct CopyMemoryToImageIndirectInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyMemoryToImageIndirectInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyMemoryToImageIndirectInfoKHRBuilder<'a> {
         CopyMemoryToImageIndirectInfoKHRBuilder {
@@ -1382,7 +1382,7 @@ pub struct ShaderModuleCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ShaderModuleCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ShaderModuleCreateInfoBuilder<'a> {
         ShaderModuleCreateInfoBuilder {
@@ -1445,7 +1445,7 @@ pub struct DescriptorSetLayoutCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetLayoutCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetLayoutCreateInfoBuilder<'a> {
         DescriptorSetLayoutCreateInfoBuilder {
@@ -1504,7 +1504,7 @@ pub struct DescriptorPoolCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorPoolCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorPoolCreateInfoBuilder<'a> {
         DescriptorPoolCreateInfoBuilder {
@@ -1568,7 +1568,7 @@ pub struct DescriptorSetAllocateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetAllocateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetAllocateInfoBuilder<'a> {
         DescriptorSetAllocateInfoBuilder {
@@ -1627,7 +1627,7 @@ pub struct PipelineShaderStageCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineShaderStageCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineShaderStageCreateInfoBuilder<'a> {
         PipelineShaderStageCreateInfoBuilder {
@@ -1700,7 +1700,7 @@ pub struct ComputePipelineCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ComputePipelineCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ComputePipelineCreateInfoBuilder<'a> {
         ComputePipelineCreateInfoBuilder {
@@ -1773,7 +1773,7 @@ pub struct ComputePipelineIndirectBufferInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ComputePipelineIndirectBufferInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ComputePipelineIndirectBufferInfoNVBuilder<'a> {
         ComputePipelineIndirectBufferInfoNVBuilder {
@@ -1836,7 +1836,7 @@ pub struct PipelineCreateFlags2CreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCreateFlags2CreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCreateFlags2CreateInfoBuilder<'a> {
         PipelineCreateFlags2CreateInfoBuilder {
@@ -1889,7 +1889,7 @@ pub struct PipelineVertexInputStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineVertexInputStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineVertexInputStateCreateInfoBuilder<'a> {
         PipelineVertexInputStateCreateInfoBuilder {
@@ -1960,7 +1960,7 @@ pub struct PipelineInputAssemblyStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineInputAssemblyStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineInputAssemblyStateCreateInfoBuilder<'a> {
         PipelineInputAssemblyStateCreateInfoBuilder {
@@ -2023,7 +2023,7 @@ pub struct PipelineTessellationStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineTessellationStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineTessellationStateCreateInfoBuilder<'a> {
         PipelineTessellationStateCreateInfoBuilder {
@@ -2081,7 +2081,7 @@ pub struct PipelineViewportStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportStateCreateInfoBuilder<'a> {
         PipelineViewportStateCreateInfoBuilder {
@@ -2146,7 +2146,7 @@ pub struct PipelineRasterizationStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRasterizationStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRasterizationStateCreateInfoBuilder<'a> {
         PipelineRasterizationStateCreateInfoBuilder {
@@ -2249,7 +2249,7 @@ pub struct PipelineMultisampleStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineMultisampleStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineMultisampleStateCreateInfoBuilder<'a> {
         PipelineMultisampleStateCreateInfoBuilder {
@@ -2332,7 +2332,7 @@ pub struct PipelineColorBlendStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineColorBlendStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineColorBlendStateCreateInfoBuilder<'a> {
         PipelineColorBlendStateCreateInfoBuilder {
@@ -2409,7 +2409,7 @@ pub struct PipelineDynamicStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineDynamicStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineDynamicStateCreateInfoBuilder<'a> {
         PipelineDynamicStateCreateInfoBuilder {
@@ -2468,7 +2468,7 @@ pub struct PipelineDepthStencilStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineDepthStencilStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineDepthStencilStateCreateInfoBuilder<'a> {
         PipelineDepthStencilStateCreateInfoBuilder {
@@ -2566,7 +2566,7 @@ pub struct GraphicsPipelineCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GraphicsPipelineCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GraphicsPipelineCreateInfoBuilder<'a> {
         GraphicsPipelineCreateInfoBuilder {
@@ -2719,7 +2719,7 @@ pub struct PipelineCacheCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCacheCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCacheCreateInfoBuilder<'a> {
         PipelineCacheCreateInfoBuilder {
@@ -2778,7 +2778,7 @@ pub struct PipelineBinaryCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineBinaryCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineBinaryCreateInfoKHRBuilder<'a> {
         PipelineBinaryCreateInfoKHRBuilder {
@@ -2844,7 +2844,7 @@ pub struct PipelineBinaryHandlesInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineBinaryHandlesInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineBinaryHandlesInfoKHRBuilder<'a> {
         PipelineBinaryHandlesInfoKHRBuilder {
@@ -2898,7 +2898,7 @@ pub struct PipelineBinaryKeyKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineBinaryKeyKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineBinaryKeyKHRBuilder<'a> {
         PipelineBinaryKeyKHRBuilder {
@@ -2956,7 +2956,7 @@ pub struct PipelineBinaryInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineBinaryInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineBinaryInfoKHRBuilder<'a> {
         PipelineBinaryInfoKHRBuilder {
@@ -3010,7 +3010,7 @@ pub struct ReleaseCapturedPipelineDataInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ReleaseCapturedPipelineDataInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ReleaseCapturedPipelineDataInfoKHRBuilder<'a> {
         ReleaseCapturedPipelineDataInfoKHRBuilder {
@@ -3063,7 +3063,7 @@ pub struct PipelineBinaryDataInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineBinaryDataInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineBinaryDataInfoKHRBuilder<'a> {
         PipelineBinaryDataInfoKHRBuilder {
@@ -3116,7 +3116,7 @@ pub struct PipelineCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCreateInfoKHRBuilder<'a> {
         PipelineCreateInfoKHRBuilder {
@@ -3164,7 +3164,7 @@ pub struct PipelineLayoutCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineLayoutCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineLayoutCreateInfoBuilder<'a> {
         PipelineLayoutCreateInfoBuilder {
@@ -3229,7 +3229,7 @@ pub struct SamplerCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerCreateInfoBuilder<'a> {
         SamplerCreateInfoBuilder {
@@ -3354,7 +3354,7 @@ pub struct CommandPoolCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandPoolCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandPoolCreateInfoBuilder<'a> {
         CommandPoolCreateInfoBuilder {
@@ -3412,7 +3412,7 @@ pub struct CommandBufferAllocateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferAllocateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferAllocateInfoBuilder<'a> {
         CommandBufferAllocateInfoBuilder {
@@ -3475,7 +3475,7 @@ pub struct CommandBufferInheritanceInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferInheritanceInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferInheritanceInfoBuilder<'a> {
         CommandBufferInheritanceInfoBuilder {
@@ -3553,7 +3553,7 @@ pub struct CommandBufferBeginInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferBeginInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferBeginInfoBuilder<'a> {
         CommandBufferBeginInfoBuilder {
@@ -3614,7 +3614,7 @@ pub struct RenderPassBeginInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassBeginInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassBeginInfoBuilder<'a> {
         RenderPassBeginInfoBuilder {
@@ -3680,7 +3680,7 @@ pub struct RenderPassCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassCreateInfoBuilder<'a> {
         RenderPassCreateInfoBuilder {
@@ -3748,7 +3748,7 @@ pub struct EventCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl EventCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> EventCreateInfoBuilder<'a> {
         EventCreateInfoBuilder {
@@ -3798,7 +3798,7 @@ pub struct FenceCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FenceCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FenceCreateInfoBuilder<'a> {
         FenceCreateInfoBuilder {
@@ -3848,7 +3848,7 @@ pub struct SemaphoreCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreCreateInfoBuilder<'a> {
         SemaphoreCreateInfoBuilder {
@@ -3898,7 +3898,7 @@ pub struct QueryPoolCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueryPoolCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueryPoolCreateInfoBuilder<'a> {
         QueryPoolCreateInfoBuilder {
@@ -3963,7 +3963,7 @@ pub struct FramebufferCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FramebufferCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FramebufferCreateInfoBuilder<'a> {
         FramebufferCreateInfoBuilder {
@@ -4042,7 +4042,7 @@ pub struct SubmitInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubmitInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubmitInfoBuilder<'a> {
         SubmitInfoBuilder {
@@ -4111,7 +4111,7 @@ pub struct DisplayModeCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayModeCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayModeCreateInfoKHRBuilder<'a> {
         DisplayModeCreateInfoKHRBuilder {
@@ -4169,7 +4169,7 @@ pub struct DisplaySurfaceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplaySurfaceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplaySurfaceCreateInfoKHRBuilder<'a> {
         DisplaySurfaceCreateInfoKHRBuilder {
@@ -4257,7 +4257,7 @@ pub struct DisplaySurfaceStereoCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplaySurfaceStereoCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplaySurfaceStereoCreateInfoNVBuilder<'a> {
         DisplaySurfaceStereoCreateInfoNVBuilder {
@@ -4310,7 +4310,7 @@ pub struct DisplayPresentInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayPresentInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayPresentInfoKHRBuilder<'a> {
         DisplayPresentInfoKHRBuilder {
@@ -4373,7 +4373,7 @@ pub struct AndroidSurfaceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AndroidSurfaceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AndroidSurfaceCreateInfoKHRBuilder<'a> {
         AndroidSurfaceCreateInfoKHRBuilder {
@@ -4431,7 +4431,7 @@ pub struct ViSurfaceCreateInfoNNBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ViSurfaceCreateInfoNN {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ViSurfaceCreateInfoNNBuilder<'a> {
         ViSurfaceCreateInfoNNBuilder {
@@ -4489,7 +4489,7 @@ pub struct WaylandSurfaceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WaylandSurfaceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WaylandSurfaceCreateInfoKHRBuilder<'a> {
         WaylandSurfaceCreateInfoKHRBuilder {
@@ -4552,7 +4552,7 @@ pub struct UbmSurfaceCreateInfoSECBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl UbmSurfaceCreateInfoSEC {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> UbmSurfaceCreateInfoSECBuilder<'a> {
         UbmSurfaceCreateInfoSECBuilder {
@@ -4615,7 +4615,7 @@ pub struct Win32SurfaceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl Win32SurfaceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> Win32SurfaceCreateInfoKHRBuilder<'a> {
         Win32SurfaceCreateInfoKHRBuilder {
@@ -4678,7 +4678,7 @@ pub struct XlibSurfaceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl XlibSurfaceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> XlibSurfaceCreateInfoKHRBuilder<'a> {
         XlibSurfaceCreateInfoKHRBuilder {
@@ -4741,7 +4741,7 @@ pub struct XcbSurfaceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl XcbSurfaceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> XcbSurfaceCreateInfoKHRBuilder<'a> {
         XcbSurfaceCreateInfoKHRBuilder {
@@ -4804,7 +4804,7 @@ pub struct DirectFBSurfaceCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DirectFBSurfaceCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DirectFBSurfaceCreateInfoEXTBuilder<'a> {
         DirectFBSurfaceCreateInfoEXTBuilder {
@@ -4867,7 +4867,7 @@ pub struct ImagePipeSurfaceCreateInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImagePipeSurfaceCreateInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImagePipeSurfaceCreateInfoFUCHSIABuilder<'a> {
         ImagePipeSurfaceCreateInfoFUCHSIABuilder {
@@ -4925,7 +4925,7 @@ pub struct StreamDescriptorSurfaceCreateInfoGGPBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl StreamDescriptorSurfaceCreateInfoGGP {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> StreamDescriptorSurfaceCreateInfoGGPBuilder<'a> {
         StreamDescriptorSurfaceCreateInfoGGPBuilder {
@@ -4983,7 +4983,7 @@ pub struct ScreenSurfaceCreateInfoQNXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ScreenSurfaceCreateInfoQNX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ScreenSurfaceCreateInfoQNXBuilder<'a> {
         ScreenSurfaceCreateInfoQNXBuilder {
@@ -5046,7 +5046,7 @@ pub struct SwapchainCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainCreateInfoKHRBuilder<'a> {
         SwapchainCreateInfoKHRBuilder {
@@ -5170,7 +5170,7 @@ pub struct PresentInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentInfoKHRBuilder<'a> {
         PresentInfoKHRBuilder {
@@ -5239,7 +5239,7 @@ pub struct DebugReportCallbackCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugReportCallbackCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugReportCallbackCreateInfoEXTBuilder<'a> {
         DebugReportCallbackCreateInfoEXTBuilder {
@@ -5302,7 +5302,7 @@ pub struct ValidationFlagsEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ValidationFlagsEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ValidationFlagsEXTBuilder<'a> {
         ValidationFlagsEXTBuilder {
@@ -5356,7 +5356,7 @@ pub struct ValidationFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ValidationFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ValidationFeaturesEXTBuilder<'a> {
         ValidationFeaturesEXTBuilder {
@@ -5422,7 +5422,7 @@ pub struct LayerSettingsCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl LayerSettingsCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> LayerSettingsCreateInfoEXTBuilder<'a> {
         LayerSettingsCreateInfoEXTBuilder {
@@ -5476,7 +5476,7 @@ pub struct ApplicationParametersEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ApplicationParametersEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ApplicationParametersEXTBuilder<'a> {
         ApplicationParametersEXTBuilder {
@@ -5544,7 +5544,7 @@ pub struct PipelineRasterizationStateRasterizationOrderAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRasterizationStateRasterizationOrderAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRasterizationStateRasterizationOrderAMDBuilder<'a> {
         PipelineRasterizationStateRasterizationOrderAMDBuilder {
@@ -5599,7 +5599,7 @@ pub struct DebugMarkerObjectNameInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugMarkerObjectNameInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugMarkerObjectNameInfoEXTBuilder<'a> {
         DebugMarkerObjectNameInfoEXTBuilder {
@@ -5662,7 +5662,7 @@ pub struct DebugMarkerObjectTagInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugMarkerObjectTagInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugMarkerObjectTagInfoEXTBuilder<'a> {
         DebugMarkerObjectTagInfoEXTBuilder {
@@ -5731,7 +5731,7 @@ pub struct DebugMarkerMarkerInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugMarkerMarkerInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugMarkerMarkerInfoEXTBuilder<'a> {
         DebugMarkerMarkerInfoEXTBuilder {
@@ -5789,7 +5789,7 @@ pub struct DedicatedAllocationImageCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DedicatedAllocationImageCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DedicatedAllocationImageCreateInfoNVBuilder<'a> {
         DedicatedAllocationImageCreateInfoNVBuilder {
@@ -5842,7 +5842,7 @@ pub struct DedicatedAllocationBufferCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DedicatedAllocationBufferCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DedicatedAllocationBufferCreateInfoNVBuilder<'a> {
         DedicatedAllocationBufferCreateInfoNVBuilder {
@@ -5895,7 +5895,7 @@ pub struct DedicatedAllocationMemoryAllocateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DedicatedAllocationMemoryAllocateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DedicatedAllocationMemoryAllocateInfoNVBuilder<'a> {
         DedicatedAllocationMemoryAllocateInfoNVBuilder {
@@ -5953,7 +5953,7 @@ pub struct ExternalMemoryImageCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalMemoryImageCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalMemoryImageCreateInfoNVBuilder<'a> {
         ExternalMemoryImageCreateInfoNVBuilder {
@@ -6006,7 +6006,7 @@ pub struct ExportMemoryAllocateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMemoryAllocateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMemoryAllocateInfoNVBuilder<'a> {
         ExportMemoryAllocateInfoNVBuilder {
@@ -6059,7 +6059,7 @@ pub struct ImportMemoryWin32HandleInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemoryWin32HandleInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemoryWin32HandleInfoNVBuilder<'a> {
         ImportMemoryWin32HandleInfoNVBuilder {
@@ -6117,7 +6117,7 @@ pub struct ExportMemoryWin32HandleInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMemoryWin32HandleInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMemoryWin32HandleInfoNVBuilder<'a> {
         ExportMemoryWin32HandleInfoNVBuilder {
@@ -6175,7 +6175,7 @@ pub struct ExportMemorySciBufInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMemorySciBufInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMemorySciBufInfoNVBuilder<'a> {
         ExportMemorySciBufInfoNVBuilder {
@@ -6228,7 +6228,7 @@ pub struct ImportMemorySciBufInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemorySciBufInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemorySciBufInfoNVBuilder<'a> {
         ImportMemorySciBufInfoNVBuilder {
@@ -6286,7 +6286,7 @@ pub struct MemoryGetSciBufInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetSciBufInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetSciBufInfoNVBuilder<'a> {
         MemoryGetSciBufInfoNVBuilder {
@@ -6344,7 +6344,7 @@ pub struct MemorySciBufPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemorySciBufPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemorySciBufPropertiesNVBuilder<'a> {
         MemorySciBufPropertiesNVBuilder {
@@ -6397,7 +6397,7 @@ pub struct PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalMemorySciBufFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalMemorySciBufFeaturesNVBuilder {
@@ -6456,7 +6456,7 @@ pub struct Win32KeyedMutexAcquireReleaseInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl Win32KeyedMutexAcquireReleaseInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> Win32KeyedMutexAcquireReleaseInfoNVBuilder<'a> {
         Win32KeyedMutexAcquireReleaseInfoNVBuilder {
@@ -6534,7 +6534,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder<'a> {
         PhysicalDeviceDeviceGeneratedCommandsFeaturesNVBuilder {
@@ -6589,7 +6589,7 @@ pub struct PushConstantBankInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PushConstantBankInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PushConstantBankInfoNVBuilder<'a> {
         PushConstantBankInfoNVBuilder {
@@ -6642,7 +6642,7 @@ pub struct PhysicalDevicePushConstantBankFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePushConstantBankFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePushConstantBankFeaturesNVBuilder<'a> {
         PhysicalDevicePushConstantBankFeaturesNVBuilder {
@@ -6695,7 +6695,7 @@ pub struct PhysicalDevicePushConstantBankPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePushConstantBankPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePushConstantBankPropertiesNVBuilder<'a> {
         PhysicalDevicePushConstantBankPropertiesNVBuilder {
@@ -6748,7 +6748,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVBuilder<
         'a,
@@ -6815,7 +6815,7 @@ pub struct DevicePrivateDataCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DevicePrivateDataCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DevicePrivateDataCreateInfoBuilder<'a> {
         DevicePrivateDataCreateInfoBuilder {
@@ -6868,7 +6868,7 @@ pub struct PrivateDataSlotCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PrivateDataSlotCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PrivateDataSlotCreateInfoBuilder<'a> {
         PrivateDataSlotCreateInfoBuilder {
@@ -6921,7 +6921,7 @@ pub struct PhysicalDevicePrivateDataFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePrivateDataFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePrivateDataFeaturesBuilder<'a> {
         PhysicalDevicePrivateDataFeaturesBuilder {
@@ -6974,7 +6974,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDeviceGeneratedCommandsPropertiesNVBuilder<
         'a,
@@ -7056,7 +7056,7 @@ pub struct PhysicalDeviceClusterAccelerationStructureFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceClusterAccelerationStructureFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceClusterAccelerationStructureFeaturesNVBuilder<
         'a,
@@ -7113,7 +7113,7 @@ pub struct PhysicalDeviceClusterAccelerationStructurePropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceClusterAccelerationStructurePropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceClusterAccelerationStructurePropertiesNVBuilder<
         'a,
@@ -7190,7 +7190,7 @@ pub struct RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a>
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<
         'a,
@@ -7246,7 +7246,7 @@ pub struct ClusterAccelerationStructureClustersBottomLevelInputNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ClusterAccelerationStructureClustersBottomLevelInputNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ClusterAccelerationStructureClustersBottomLevelInputNVBuilder<
         'a,
@@ -7308,7 +7308,7 @@ pub struct ClusterAccelerationStructureTriangleClusterInputNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ClusterAccelerationStructureTriangleClusterInputNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ClusterAccelerationStructureTriangleClusterInputNVBuilder<
         'a,
@@ -7400,7 +7400,7 @@ pub struct ClusterAccelerationStructureMoveObjectsInputNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ClusterAccelerationStructureMoveObjectsInputNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ClusterAccelerationStructureMoveObjectsInputNVBuilder<'a> {
         ClusterAccelerationStructureMoveObjectsInputNVBuilder {
@@ -7464,7 +7464,7 @@ pub struct ClusterAccelerationStructureInputInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ClusterAccelerationStructureInputInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ClusterAccelerationStructureInputInfoNVBuilder<'a> {
         ClusterAccelerationStructureInputInfoNVBuilder {
@@ -7537,7 +7537,7 @@ pub struct ClusterAccelerationStructureCommandsInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ClusterAccelerationStructureCommandsInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ClusterAccelerationStructureCommandsInfoNVBuilder<'a> {
         ClusterAccelerationStructureCommandsInfoNVBuilder {
@@ -7628,7 +7628,7 @@ pub struct PhysicalDeviceMultiDrawPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultiDrawPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultiDrawPropertiesEXTBuilder<'a> {
         PhysicalDeviceMultiDrawPropertiesEXTBuilder {
@@ -7666,7 +7666,7 @@ pub struct GraphicsShaderGroupCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GraphicsShaderGroupCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GraphicsShaderGroupCreateInfoNVBuilder<'a> {
         GraphicsShaderGroupCreateInfoNVBuilder {
@@ -7736,7 +7736,7 @@ pub struct GraphicsPipelineShaderGroupsCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GraphicsPipelineShaderGroupsCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GraphicsPipelineShaderGroupsCreateInfoNVBuilder<'a> {
         GraphicsPipelineShaderGroupsCreateInfoNVBuilder {
@@ -7796,7 +7796,7 @@ pub struct IndirectCommandsLayoutTokenNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectCommandsLayoutTokenNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectCommandsLayoutTokenNVBuilder<'a> {
         IndirectCommandsLayoutTokenNVBuilder {
@@ -7906,7 +7906,7 @@ pub struct IndirectCommandsLayoutCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectCommandsLayoutCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectCommandsLayoutCreateInfoNVBuilder<'a> {
         IndirectCommandsLayoutCreateInfoNVBuilder {
@@ -7976,7 +7976,7 @@ pub struct GeneratedCommandsInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeneratedCommandsInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeneratedCommandsInfoNVBuilder<'a> {
         GeneratedCommandsInfoNVBuilder {
@@ -8085,7 +8085,7 @@ pub struct GeneratedCommandsMemoryRequirementsInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeneratedCommandsMemoryRequirementsInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeneratedCommandsMemoryRequirementsInfoNVBuilder<'a> {
         GeneratedCommandsMemoryRequirementsInfoNVBuilder {
@@ -8153,7 +8153,7 @@ pub struct PipelineIndirectDeviceAddressInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineIndirectDeviceAddressInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineIndirectDeviceAddressInfoNVBuilder<'a> {
         PipelineIndirectDeviceAddressInfoNVBuilder {
@@ -8211,7 +8211,7 @@ pub struct PhysicalDeviceFeatures2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFeatures2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFeatures2Builder<'a> {
         PhysicalDeviceFeatures2Builder {
@@ -8264,7 +8264,7 @@ pub struct PhysicalDeviceProperties2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceProperties2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceProperties2Builder<'a> {
         PhysicalDeviceProperties2Builder {
@@ -8302,7 +8302,7 @@ pub struct FormatProperties2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FormatProperties2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FormatProperties2Builder<'a> {
         FormatProperties2Builder {
@@ -8340,7 +8340,7 @@ pub struct ImageFormatProperties2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageFormatProperties2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageFormatProperties2Builder<'a> {
         ImageFormatProperties2Builder {
@@ -8378,7 +8378,7 @@ pub struct PhysicalDeviceImageFormatInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageFormatInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageFormatInfo2Builder<'a> {
         PhysicalDeviceImageFormatInfo2Builder {
@@ -8451,7 +8451,7 @@ pub struct QueueFamilyProperties2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyProperties2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyProperties2Builder<'a> {
         QueueFamilyProperties2Builder {
@@ -8489,7 +8489,7 @@ pub struct PhysicalDeviceMemoryProperties2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMemoryProperties2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMemoryProperties2Builder<'a> {
         PhysicalDeviceMemoryProperties2Builder {
@@ -8527,7 +8527,7 @@ pub struct SparseImageFormatProperties2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SparseImageFormatProperties2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SparseImageFormatProperties2Builder<'a> {
         SparseImageFormatProperties2Builder {
@@ -8565,7 +8565,7 @@ pub struct PhysicalDeviceSparseImageFormatInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSparseImageFormatInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSparseImageFormatInfo2Builder<'a> {
         PhysicalDeviceSparseImageFormatInfo2Builder {
@@ -8638,7 +8638,7 @@ pub struct PhysicalDevicePushDescriptorPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePushDescriptorProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePushDescriptorPropertiesBuilder<'a> {
         PhysicalDevicePushDescriptorPropertiesBuilder {
@@ -8676,7 +8676,7 @@ pub struct PhysicalDeviceDriverPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDriverProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDriverPropertiesBuilder<'a> {
         PhysicalDeviceDriverPropertiesBuilder {
@@ -8735,7 +8735,7 @@ pub struct PresentRegionsKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentRegionsKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentRegionsKHRBuilder<'a> {
         PresentRegionsKHRBuilder {
@@ -8786,7 +8786,7 @@ pub struct PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVariablePointersFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
         PhysicalDeviceVariablePointersFeaturesBuilder {
@@ -8844,7 +8844,7 @@ pub struct PhysicalDeviceExternalImageFormatInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalImageFormatInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalImageFormatInfoBuilder<'a> {
         PhysicalDeviceExternalImageFormatInfoBuilder {
@@ -8897,7 +8897,7 @@ pub struct ExternalImageFormatPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalImageFormatProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalImageFormatPropertiesBuilder<'a> {
         ExternalImageFormatPropertiesBuilder {
@@ -8938,7 +8938,7 @@ pub struct PhysicalDeviceExternalBufferInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalBufferInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalBufferInfoBuilder<'a> {
         PhysicalDeviceExternalBufferInfoBuilder {
@@ -9001,7 +9001,7 @@ pub struct ExternalBufferPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalBufferProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalBufferPropertiesBuilder<'a> {
         ExternalBufferPropertiesBuilder {
@@ -9042,7 +9042,7 @@ pub struct PhysicalDeviceIDPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceIDProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceIDPropertiesBuilder<'a> {
         PhysicalDeviceIDPropertiesBuilder {
@@ -9100,7 +9100,7 @@ pub struct ExternalMemoryImageCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalMemoryImageCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalMemoryImageCreateInfoBuilder<'a> {
         ExternalMemoryImageCreateInfoBuilder {
@@ -9153,7 +9153,7 @@ pub struct ExternalMemoryBufferCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalMemoryBufferCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalMemoryBufferCreateInfoBuilder<'a> {
         ExternalMemoryBufferCreateInfoBuilder {
@@ -9206,7 +9206,7 @@ pub struct ExportMemoryAllocateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMemoryAllocateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMemoryAllocateInfoBuilder<'a> {
         ExportMemoryAllocateInfoBuilder {
@@ -9259,7 +9259,7 @@ pub struct ImportMemoryWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemoryWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemoryWin32HandleInfoKHRBuilder<'a> {
         ImportMemoryWin32HandleInfoKHRBuilder {
@@ -9322,7 +9322,7 @@ pub struct ExportMemoryWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMemoryWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMemoryWin32HandleInfoKHRBuilder<'a> {
         ExportMemoryWin32HandleInfoKHRBuilder {
@@ -9385,7 +9385,7 @@ pub struct ImportMemoryZirconHandleInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemoryZirconHandleInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemoryZirconHandleInfoFUCHSIABuilder<'a> {
         ImportMemoryZirconHandleInfoFUCHSIABuilder {
@@ -9443,7 +9443,7 @@ pub struct MemoryZirconHandlePropertiesFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryZirconHandlePropertiesFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryZirconHandlePropertiesFUCHSIABuilder<'a> {
         MemoryZirconHandlePropertiesFUCHSIABuilder {
@@ -9481,7 +9481,7 @@ pub struct MemoryGetZirconHandleInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetZirconHandleInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetZirconHandleInfoFUCHSIABuilder<'a> {
         MemoryGetZirconHandleInfoFUCHSIABuilder {
@@ -9539,7 +9539,7 @@ pub struct MemoryWin32HandlePropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryWin32HandlePropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryWin32HandlePropertiesKHRBuilder<'a> {
         MemoryWin32HandlePropertiesKHRBuilder {
@@ -9577,7 +9577,7 @@ pub struct MemoryGetWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetWin32HandleInfoKHRBuilder<'a> {
         MemoryGetWin32HandleInfoKHRBuilder {
@@ -9635,7 +9635,7 @@ pub struct ImportMemoryFdInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemoryFdInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemoryFdInfoKHRBuilder<'a> {
         ImportMemoryFdInfoKHRBuilder {
@@ -9693,7 +9693,7 @@ pub struct MemoryFdPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryFdPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryFdPropertiesKHRBuilder<'a> {
         MemoryFdPropertiesKHRBuilder {
@@ -9731,7 +9731,7 @@ pub struct MemoryGetFdInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetFdInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetFdInfoKHRBuilder<'a> {
         MemoryGetFdInfoKHRBuilder {
@@ -9786,7 +9786,7 @@ pub struct Win32KeyedMutexAcquireReleaseInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl Win32KeyedMutexAcquireReleaseInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> Win32KeyedMutexAcquireReleaseInfoKHRBuilder<'a> {
         Win32KeyedMutexAcquireReleaseInfoKHRBuilder {
@@ -9864,7 +9864,7 @@ pub struct ImportMemoryMetalHandleInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemoryMetalHandleInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemoryMetalHandleInfoEXTBuilder<'a> {
         ImportMemoryMetalHandleInfoEXTBuilder {
@@ -9922,7 +9922,7 @@ pub struct MemoryMetalHandlePropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryMetalHandlePropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryMetalHandlePropertiesEXTBuilder<'a> {
         MemoryMetalHandlePropertiesEXTBuilder {
@@ -9960,7 +9960,7 @@ pub struct MemoryGetMetalHandleInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetMetalHandleInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetMetalHandleInfoEXTBuilder<'a> {
         MemoryGetMetalHandleInfoEXTBuilder {
@@ -10018,7 +10018,7 @@ pub struct PhysicalDeviceExternalSemaphoreInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalSemaphoreInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalSemaphoreInfoBuilder<'a> {
         PhysicalDeviceExternalSemaphoreInfoBuilder {
@@ -10071,7 +10071,7 @@ pub struct ExternalSemaphorePropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalSemaphoreProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalSemaphorePropertiesBuilder<'a> {
         ExternalSemaphorePropertiesBuilder {
@@ -10128,7 +10128,7 @@ pub struct ExportSemaphoreCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportSemaphoreCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportSemaphoreCreateInfoBuilder<'a> {
         ExportSemaphoreCreateInfoBuilder {
@@ -10181,7 +10181,7 @@ pub struct ImportSemaphoreWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportSemaphoreWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         ImportSemaphoreWin32HandleInfoKHRBuilder {
@@ -10254,7 +10254,7 @@ pub struct ExportSemaphoreWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportSemaphoreWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportSemaphoreWin32HandleInfoKHRBuilder<'a> {
         ExportSemaphoreWin32HandleInfoKHRBuilder {
@@ -10317,7 +10317,7 @@ pub struct D3D12FenceSubmitInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl D3D12FenceSubmitInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> D3D12FenceSubmitInfoKHRBuilder<'a> {
         D3D12FenceSubmitInfoKHRBuilder {
@@ -10377,7 +10377,7 @@ pub struct SemaphoreGetWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreGetWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreGetWin32HandleInfoKHRBuilder<'a> {
         SemaphoreGetWin32HandleInfoKHRBuilder {
@@ -10435,7 +10435,7 @@ pub struct ImportSemaphoreFdInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportSemaphoreFdInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportSemaphoreFdInfoKHRBuilder<'a> {
         ImportSemaphoreFdInfoKHRBuilder {
@@ -10503,7 +10503,7 @@ pub struct SemaphoreGetFdInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreGetFdInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreGetFdInfoKHRBuilder<'a> {
         SemaphoreGetFdInfoKHRBuilder {
@@ -10561,7 +10561,7 @@ pub struct ImportSemaphoreZirconHandleInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportSemaphoreZirconHandleInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportSemaphoreZirconHandleInfoFUCHSIABuilder<'a> {
         ImportSemaphoreZirconHandleInfoFUCHSIABuilder {
@@ -10629,7 +10629,7 @@ pub struct SemaphoreGetZirconHandleInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreGetZirconHandleInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreGetZirconHandleInfoFUCHSIABuilder<'a> {
         SemaphoreGetZirconHandleInfoFUCHSIABuilder {
@@ -10687,7 +10687,7 @@ pub struct PhysicalDeviceExternalFenceInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalFenceInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalFenceInfoBuilder<'a> {
         PhysicalDeviceExternalFenceInfoBuilder {
@@ -10740,7 +10740,7 @@ pub struct ExternalFencePropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalFenceProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalFencePropertiesBuilder<'a> {
         ExternalFencePropertiesBuilder {
@@ -10794,7 +10794,7 @@ pub struct ExportFenceCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportFenceCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportFenceCreateInfoBuilder<'a> {
         ExportFenceCreateInfoBuilder {
@@ -10847,7 +10847,7 @@ pub struct ImportFenceWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportFenceWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportFenceWin32HandleInfoKHRBuilder<'a> {
         ImportFenceWin32HandleInfoKHRBuilder {
@@ -10920,7 +10920,7 @@ pub struct ExportFenceWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportFenceWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportFenceWin32HandleInfoKHRBuilder<'a> {
         ExportFenceWin32HandleInfoKHRBuilder {
@@ -10983,7 +10983,7 @@ pub struct FenceGetWin32HandleInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FenceGetWin32HandleInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FenceGetWin32HandleInfoKHRBuilder<'a> {
         FenceGetWin32HandleInfoKHRBuilder {
@@ -11041,7 +11041,7 @@ pub struct ImportFenceFdInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportFenceFdInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportFenceFdInfoKHRBuilder<'a> {
         ImportFenceFdInfoKHRBuilder {
@@ -11106,7 +11106,7 @@ pub struct FenceGetFdInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FenceGetFdInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FenceGetFdInfoKHRBuilder<'a> {
         FenceGetFdInfoKHRBuilder {
@@ -11161,7 +11161,7 @@ pub struct ExportFenceSciSyncInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportFenceSciSyncInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportFenceSciSyncInfoNVBuilder<'a> {
         ExportFenceSciSyncInfoNVBuilder {
@@ -11214,7 +11214,7 @@ pub struct ImportFenceSciSyncInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportFenceSciSyncInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportFenceSciSyncInfoNVBuilder<'a> {
         ImportFenceSciSyncInfoNVBuilder {
@@ -11277,7 +11277,7 @@ pub struct FenceGetSciSyncInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FenceGetSciSyncInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FenceGetSciSyncInfoNVBuilder<'a> {
         FenceGetSciSyncInfoNVBuilder {
@@ -11335,7 +11335,7 @@ pub struct ExportSemaphoreSciSyncInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportSemaphoreSciSyncInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportSemaphoreSciSyncInfoNVBuilder<'a> {
         ExportSemaphoreSciSyncInfoNVBuilder {
@@ -11388,7 +11388,7 @@ pub struct ImportSemaphoreSciSyncInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportSemaphoreSciSyncInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportSemaphoreSciSyncInfoNVBuilder<'a> {
         ImportSemaphoreSciSyncInfoNVBuilder {
@@ -11451,7 +11451,7 @@ pub struct SemaphoreGetSciSyncInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreGetSciSyncInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreGetSciSyncInfoNVBuilder<'a> {
         SemaphoreGetSciSyncInfoNVBuilder {
@@ -11509,7 +11509,7 @@ pub struct SciSyncAttributesInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SciSyncAttributesInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SciSyncAttributesInfoNVBuilder<'a> {
         SciSyncAttributesInfoNVBuilder {
@@ -11567,7 +11567,7 @@ pub struct PhysicalDeviceExternalSciSyncFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalSciSyncFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalSciSyncFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalSciSyncFeaturesNVBuilder {
@@ -11635,7 +11635,7 @@ pub struct PhysicalDeviceExternalSciSync2FeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalSciSync2FeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalSciSync2FeaturesNVBuilder<'a> {
         PhysicalDeviceExternalSciSync2FeaturesNVBuilder {
@@ -11703,7 +11703,7 @@ pub struct SemaphoreSciSyncPoolCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreSciSyncPoolCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreSciSyncPoolCreateInfoNVBuilder<'a> {
         SemaphoreSciSyncPoolCreateInfoNVBuilder {
@@ -11756,7 +11756,7 @@ pub struct SemaphoreSciSyncCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreSciSyncCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreSciSyncCreateInfoNVBuilder<'a> {
         SemaphoreSciSyncCreateInfoNVBuilder {
@@ -11814,7 +11814,7 @@ pub struct DeviceSemaphoreSciSyncPoolReservationCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceSemaphoreSciSyncPoolReservationCreateInfoNVBuilder<
         'a,
@@ -11871,7 +11871,7 @@ pub struct PhysicalDeviceMultiviewFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultiviewFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultiviewFeaturesBuilder<'a> {
         PhysicalDeviceMultiviewFeaturesBuilder {
@@ -11934,7 +11934,7 @@ pub struct PhysicalDeviceMultiviewPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultiviewProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultiviewPropertiesBuilder<'a> {
         PhysicalDeviceMultiviewPropertiesBuilder {
@@ -11977,7 +11977,7 @@ pub struct RenderPassMultiviewCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassMultiviewCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassMultiviewCreateInfoBuilder<'a> {
         RenderPassMultiviewCreateInfoBuilder {
@@ -12043,7 +12043,7 @@ pub struct SurfaceCapabilities2EXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceCapabilities2EXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceCapabilities2EXTBuilder<'a> {
         SurfaceCapabilities2EXTBuilder {
@@ -12131,7 +12131,7 @@ pub struct DisplayPowerInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayPowerInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayPowerInfoEXTBuilder<'a> {
         DisplayPowerInfoEXTBuilder {
@@ -12181,7 +12181,7 @@ pub struct DeviceEventInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceEventInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceEventInfoEXTBuilder<'a> {
         DeviceEventInfoEXTBuilder {
@@ -12231,7 +12231,7 @@ pub struct DisplayEventInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayEventInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayEventInfoEXTBuilder<'a> {
         DisplayEventInfoEXTBuilder {
@@ -12281,7 +12281,7 @@ pub struct SwapchainCounterCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainCounterCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainCounterCreateInfoEXTBuilder<'a> {
         SwapchainCounterCreateInfoEXTBuilder {
@@ -12334,7 +12334,7 @@ pub struct PhysicalDeviceGroupPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceGroupProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceGroupPropertiesBuilder<'a> {
         PhysicalDeviceGroupPropertiesBuilder {
@@ -12385,7 +12385,7 @@ pub struct MemoryAllocateFlagsInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryAllocateFlagsInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryAllocateFlagsInfoBuilder<'a> {
         MemoryAllocateFlagsInfoBuilder {
@@ -12443,7 +12443,7 @@ pub struct BindBufferMemoryInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindBufferMemoryInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindBufferMemoryInfoBuilder<'a> {
         BindBufferMemoryInfoBuilder {
@@ -12503,7 +12503,7 @@ pub struct BindBufferMemoryDeviceGroupInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindBufferMemoryDeviceGroupInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindBufferMemoryDeviceGroupInfoBuilder<'a> {
         BindBufferMemoryDeviceGroupInfoBuilder {
@@ -12557,7 +12557,7 @@ pub struct BindImageMemoryInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindImageMemoryInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindImageMemoryInfoBuilder<'a> {
         BindImageMemoryInfoBuilder {
@@ -12617,7 +12617,7 @@ pub struct BindImageMemoryDeviceGroupInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindImageMemoryDeviceGroupInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindImageMemoryDeviceGroupInfoBuilder<'a> {
         BindImageMemoryDeviceGroupInfoBuilder {
@@ -12677,7 +12677,7 @@ pub struct DeviceGroupRenderPassBeginInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupRenderPassBeginInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupRenderPassBeginInfoBuilder<'a> {
         DeviceGroupRenderPassBeginInfoBuilder {
@@ -12736,7 +12736,7 @@ pub struct DeviceGroupCommandBufferBeginInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupCommandBufferBeginInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupCommandBufferBeginInfoBuilder<'a> {
         DeviceGroupCommandBufferBeginInfoBuilder {
@@ -12789,7 +12789,7 @@ pub struct DeviceGroupSubmitInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupSubmitInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupSubmitInfoBuilder<'a> {
         DeviceGroupSubmitInfoBuilder {
@@ -12855,7 +12855,7 @@ pub struct DeviceGroupBindSparseInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupBindSparseInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupBindSparseInfoBuilder<'a> {
         DeviceGroupBindSparseInfoBuilder {
@@ -12913,7 +12913,7 @@ pub struct DeviceGroupPresentCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupPresentCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupPresentCapabilitiesKHRBuilder<'a> {
         DeviceGroupPresentCapabilitiesKHRBuilder {
@@ -12956,7 +12956,7 @@ pub struct ImageSwapchainCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageSwapchainCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageSwapchainCreateInfoKHRBuilder<'a> {
         ImageSwapchainCreateInfoKHRBuilder {
@@ -13009,7 +13009,7 @@ pub struct BindImageMemorySwapchainInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindImageMemorySwapchainInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindImageMemorySwapchainInfoKHRBuilder<'a> {
         BindImageMemorySwapchainInfoKHRBuilder {
@@ -13067,7 +13067,7 @@ pub struct AcquireNextImageInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AcquireNextImageInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AcquireNextImageInfoKHRBuilder<'a> {
         AcquireNextImageInfoKHRBuilder {
@@ -13140,7 +13140,7 @@ pub struct DeviceGroupPresentInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupPresentInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupPresentInfoKHRBuilder<'a> {
         DeviceGroupPresentInfoKHRBuilder {
@@ -13199,7 +13199,7 @@ pub struct DeviceGroupDeviceCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupDeviceCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupDeviceCreateInfoBuilder<'a> {
         DeviceGroupDeviceCreateInfoBuilder {
@@ -13253,7 +13253,7 @@ pub struct DeviceGroupSwapchainCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceGroupSwapchainCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceGroupSwapchainCreateInfoKHRBuilder<'a> {
         DeviceGroupSwapchainCreateInfoKHRBuilder {
@@ -13306,7 +13306,7 @@ pub struct DescriptorUpdateTemplateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorUpdateTemplateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorUpdateTemplateCreateInfoBuilder<'a> {
         DescriptorUpdateTemplateCreateInfoBuilder {
@@ -13393,7 +13393,7 @@ pub struct PhysicalDevicePresentIdFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentIdFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentIdFeaturesKHRBuilder<'a> {
         PhysicalDevicePresentIdFeaturesKHRBuilder {
@@ -13446,7 +13446,7 @@ pub struct PresentIdKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentIdKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentIdKHRBuilder<'a> {
         PresentIdKHRBuilder {
@@ -13497,7 +13497,7 @@ pub struct PhysicalDevicePresentId2FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentId2FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentId2FeaturesKHRBuilder<'a> {
         PhysicalDevicePresentId2FeaturesKHRBuilder {
@@ -13550,7 +13550,7 @@ pub struct PresentId2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentId2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentId2KHRBuilder<'a> {
         PresentId2KHRBuilder {
@@ -13601,7 +13601,7 @@ pub struct PresentWait2InfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentWait2InfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentWait2InfoKHRBuilder<'a> {
         PresentWait2InfoKHRBuilder {
@@ -13656,7 +13656,7 @@ pub struct PhysicalDevicePresentWaitFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentWaitFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentWaitFeaturesKHRBuilder<'a> {
         PhysicalDevicePresentWaitFeaturesKHRBuilder {
@@ -13709,7 +13709,7 @@ pub struct PhysicalDevicePresentWait2FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentWait2FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentWait2FeaturesKHRBuilder<'a> {
         PhysicalDevicePresentWait2FeaturesKHRBuilder {
@@ -13762,7 +13762,7 @@ pub struct PhysicalDevicePresentTimingFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentTimingFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentTimingFeaturesEXTBuilder<'a> {
         PhysicalDevicePresentTimingFeaturesEXTBuilder {
@@ -13825,7 +13825,7 @@ pub struct PresentTimingSurfaceCapabilitiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentTimingSurfaceCapabilitiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentTimingSurfaceCapabilitiesEXTBuilder<'a> {
         PresentTimingSurfaceCapabilitiesEXTBuilder {
@@ -13878,7 +13878,7 @@ pub struct SwapchainTimingPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainTimingPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainTimingPropertiesEXTBuilder<'a> {
         SwapchainTimingPropertiesEXTBuilder {
@@ -13921,7 +13921,7 @@ pub struct SwapchainTimeDomainPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainTimeDomainPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainTimeDomainPropertiesEXTBuilder<'a> {
         SwapchainTimeDomainPropertiesEXTBuilder {
@@ -13966,7 +13966,7 @@ pub struct PastPresentationTimingInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PastPresentationTimingInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PastPresentationTimingInfoEXTBuilder<'a> {
         PastPresentationTimingInfoEXTBuilder {
@@ -14024,7 +14024,7 @@ pub struct PastPresentationTimingPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PastPresentationTimingPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PastPresentationTimingPropertiesEXTBuilder<'a> {
         PastPresentationTimingPropertiesEXTBuilder {
@@ -14076,7 +14076,7 @@ pub struct PastPresentationTimingEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PastPresentationTimingEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PastPresentationTimingEXTBuilder<'a> {
         PastPresentationTimingEXTBuilder {
@@ -14140,7 +14140,7 @@ pub struct PresentTimingsInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentTimingsInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentTimingsInfoEXTBuilder<'a> {
         PresentTimingsInfoEXTBuilder {
@@ -14194,7 +14194,7 @@ pub struct PresentTimingInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentTimingInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentTimingInfoEXTBuilder<'a> {
         PresentTimingInfoEXTBuilder {
@@ -14267,7 +14267,7 @@ pub struct SwapchainCalibratedTimestampInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainCalibratedTimestampInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainCalibratedTimestampInfoEXTBuilder<'a> {
         SwapchainCalibratedTimestampInfoEXTBuilder {
@@ -14330,7 +14330,7 @@ pub struct HdrMetadataEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl HdrMetadataEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> HdrMetadataEXTBuilder<'a> {
         HdrMetadataEXTBuilder {
@@ -14415,7 +14415,7 @@ pub struct HdrVividDynamicMetadataHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl HdrVividDynamicMetadataHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> HdrVividDynamicMetadataHUAWEIBuilder<'a> {
         HdrVividDynamicMetadataHUAWEIBuilder {
@@ -14469,7 +14469,7 @@ pub struct DisplayNativeHdrSurfaceCapabilitiesAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayNativeHdrSurfaceCapabilitiesAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayNativeHdrSurfaceCapabilitiesAMDBuilder<'a> {
         DisplayNativeHdrSurfaceCapabilitiesAMDBuilder {
@@ -14507,7 +14507,7 @@ pub struct SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainDisplayNativeHdrCreateInfoAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'a> {
         SwapchainDisplayNativeHdrCreateInfoAMDBuilder {
@@ -14560,7 +14560,7 @@ pub struct PresentTimesInfoGOOGLEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentTimesInfoGOOGLE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentTimesInfoGOOGLEBuilder<'a> {
         PresentTimesInfoGOOGLEBuilder {
@@ -14614,7 +14614,7 @@ pub struct IOSSurfaceCreateInfoMVKBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IOSSurfaceCreateInfoMVK {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IOSSurfaceCreateInfoMVKBuilder<'a> {
         IOSSurfaceCreateInfoMVKBuilder {
@@ -14672,7 +14672,7 @@ pub struct MacOSSurfaceCreateInfoMVKBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MacOSSurfaceCreateInfoMVK {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MacOSSurfaceCreateInfoMVKBuilder<'a> {
         MacOSSurfaceCreateInfoMVKBuilder {
@@ -14730,7 +14730,7 @@ pub struct MetalSurfaceCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MetalSurfaceCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MetalSurfaceCreateInfoEXTBuilder<'a> {
         MetalSurfaceCreateInfoEXTBuilder {
@@ -14788,7 +14788,7 @@ pub struct PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportWScalingStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
         PipelineViewportWScalingStateCreateInfoNVBuilder {
@@ -14847,7 +14847,7 @@ pub struct PipelineViewportSwizzleStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportSwizzleStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportSwizzleStateCreateInfoNVBuilder<'a> {
         PipelineViewportSwizzleStateCreateInfoNVBuilder {
@@ -14906,7 +14906,7 @@ pub struct PhysicalDeviceDiscardRectanglePropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDiscardRectanglePropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDiscardRectanglePropertiesEXTBuilder<'a> {
         PhysicalDeviceDiscardRectanglePropertiesEXTBuilder {
@@ -14944,7 +14944,7 @@ pub struct PipelineDiscardRectangleStateCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineDiscardRectangleStateCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineDiscardRectangleStateCreateInfoEXTBuilder<'a> {
         PipelineDiscardRectangleStateCreateInfoEXTBuilder {
@@ -15008,7 +15008,7 @@ pub struct PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder<
         'a,
@@ -15050,7 +15050,7 @@ pub struct RenderPassInputAttachmentAspectCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassInputAttachmentAspectCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassInputAttachmentAspectCreateInfoBuilder<'a> {
         RenderPassInputAttachmentAspectCreateInfoBuilder {
@@ -15107,7 +15107,7 @@ pub struct PhysicalDeviceSurfaceInfo2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSurfaceInfo2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSurfaceInfo2KHRBuilder<'a> {
         PhysicalDeviceSurfaceInfo2KHRBuilder {
@@ -15160,7 +15160,7 @@ pub struct SurfaceCapabilities2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceCapabilities2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceCapabilities2KHRBuilder<'a> {
         SurfaceCapabilities2KHRBuilder {
@@ -15198,7 +15198,7 @@ pub struct SurfaceFormat2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceFormat2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceFormat2KHRBuilder<'a> {
         SurfaceFormat2KHRBuilder {
@@ -15236,7 +15236,7 @@ pub struct DisplayProperties2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayProperties2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayProperties2KHRBuilder<'a> {
         DisplayProperties2KHRBuilder {
@@ -15274,7 +15274,7 @@ pub struct DisplayPlaneProperties2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayPlaneProperties2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayPlaneProperties2KHRBuilder<'a> {
         DisplayPlaneProperties2KHRBuilder {
@@ -15312,7 +15312,7 @@ pub struct DisplayModeProperties2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayModeProperties2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayModeProperties2KHRBuilder<'a> {
         DisplayModeProperties2KHRBuilder {
@@ -15350,7 +15350,7 @@ pub struct DisplayModeStereoPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayModeStereoPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayModeStereoPropertiesNVBuilder<'a> {
         DisplayModeStereoPropertiesNVBuilder {
@@ -15388,7 +15388,7 @@ pub struct DisplayPlaneInfo2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayPlaneInfo2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayPlaneInfo2KHRBuilder<'a> {
         DisplayPlaneInfo2KHRBuilder {
@@ -15443,7 +15443,7 @@ pub struct DisplayPlaneCapabilities2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DisplayPlaneCapabilities2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DisplayPlaneCapabilities2KHRBuilder<'a> {
         DisplayPlaneCapabilities2KHRBuilder {
@@ -15481,7 +15481,7 @@ pub struct SharedPresentSurfaceCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SharedPresentSurfaceCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SharedPresentSurfaceCapabilitiesKHRBuilder<'a> {
         SharedPresentSurfaceCapabilitiesKHRBuilder {
@@ -15522,7 +15522,7 @@ pub struct PhysicalDevice16BitStorageFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevice16BitStorageFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevice16BitStorageFeaturesBuilder<'a> {
         PhysicalDevice16BitStorageFeaturesBuilder {
@@ -15590,7 +15590,7 @@ pub struct PhysicalDeviceSubgroupPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSubgroupProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSubgroupPropertiesBuilder<'a> {
         PhysicalDeviceSubgroupPropertiesBuilder {
@@ -15643,7 +15643,7 @@ pub struct PhysicalDeviceShaderSubgroupExtendedTypesFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderSubgroupExtendedTypesFeaturesBuilder<
         'a,
@@ -15700,7 +15700,7 @@ pub struct BufferMemoryRequirementsInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferMemoryRequirementsInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferMemoryRequirementsInfo2Builder<'a> {
         BufferMemoryRequirementsInfo2Builder {
@@ -15753,7 +15753,7 @@ pub struct DeviceBufferMemoryRequirementsBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceBufferMemoryRequirements {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceBufferMemoryRequirementsBuilder<'a> {
         DeviceBufferMemoryRequirementsBuilder {
@@ -15806,7 +15806,7 @@ pub struct ImageMemoryRequirementsInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageMemoryRequirementsInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageMemoryRequirementsInfo2Builder<'a> {
         ImageMemoryRequirementsInfo2Builder {
@@ -15859,7 +15859,7 @@ pub struct ImageSparseMemoryRequirementsInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageSparseMemoryRequirementsInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageSparseMemoryRequirementsInfo2Builder<'a> {
         ImageSparseMemoryRequirementsInfo2Builder {
@@ -15912,7 +15912,7 @@ pub struct DeviceImageMemoryRequirementsBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceImageMemoryRequirements {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceImageMemoryRequirementsBuilder<'a> {
         DeviceImageMemoryRequirementsBuilder {
@@ -15970,7 +15970,7 @@ pub struct MemoryRequirements2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryRequirements2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryRequirements2Builder<'a> {
         MemoryRequirements2Builder {
@@ -16008,7 +16008,7 @@ pub struct SparseImageMemoryRequirements2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SparseImageMemoryRequirements2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SparseImageMemoryRequirements2Builder<'a> {
         SparseImageMemoryRequirements2Builder {
@@ -16046,7 +16046,7 @@ pub struct PhysicalDevicePointClippingPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePointClippingProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePointClippingPropertiesBuilder<'a> {
         PhysicalDevicePointClippingPropertiesBuilder {
@@ -16084,7 +16084,7 @@ pub struct MemoryDedicatedRequirementsBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryDedicatedRequirements {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryDedicatedRequirementsBuilder<'a> {
         MemoryDedicatedRequirementsBuilder {
@@ -16127,7 +16127,7 @@ pub struct MemoryDedicatedAllocateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryDedicatedAllocateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryDedicatedAllocateInfoBuilder<'a> {
         MemoryDedicatedAllocateInfoBuilder {
@@ -16185,7 +16185,7 @@ pub struct ImageViewUsageCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewUsageCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewUsageCreateInfoBuilder<'a> {
         ImageViewUsageCreateInfoBuilder {
@@ -16238,7 +16238,7 @@ pub struct ImageViewSlicedCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewSlicedCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewSlicedCreateInfoEXTBuilder<'a> {
         ImageViewSlicedCreateInfoEXTBuilder {
@@ -16296,7 +16296,7 @@ pub struct PipelineTessellationDomainOriginStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineTessellationDomainOriginStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineTessellationDomainOriginStateCreateInfoBuilder<'a> {
         PipelineTessellationDomainOriginStateCreateInfoBuilder {
@@ -16351,7 +16351,7 @@ pub struct SamplerYcbcrConversionInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerYcbcrConversionInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerYcbcrConversionInfoBuilder<'a> {
         SamplerYcbcrConversionInfoBuilder {
@@ -16404,7 +16404,7 @@ pub struct SamplerYcbcrConversionCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerYcbcrConversionCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerYcbcrConversionCreateInfoBuilder<'a> {
         SamplerYcbcrConversionCreateInfoBuilder {
@@ -16492,7 +16492,7 @@ pub struct BindImagePlaneMemoryInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindImagePlaneMemoryInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindImagePlaneMemoryInfoBuilder<'a> {
         BindImagePlaneMemoryInfoBuilder {
@@ -16545,7 +16545,7 @@ pub struct ImagePlaneMemoryRequirementsInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImagePlaneMemoryRequirementsInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImagePlaneMemoryRequirementsInfoBuilder<'a> {
         ImagePlaneMemoryRequirementsInfoBuilder {
@@ -16598,7 +16598,7 @@ pub struct PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSamplerYcbcrConversionFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder<'a> {
         PhysicalDeviceSamplerYcbcrConversionFeaturesBuilder {
@@ -16652,7 +16652,7 @@ pub struct SamplerYcbcrConversionImageFormatPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerYcbcrConversionImageFormatProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerYcbcrConversionImageFormatPropertiesBuilder<'a> {
         SamplerYcbcrConversionImageFormatPropertiesBuilder {
@@ -16690,7 +16690,7 @@ pub struct TextureLODGatherFormatPropertiesAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TextureLODGatherFormatPropertiesAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TextureLODGatherFormatPropertiesAMDBuilder<'a> {
         TextureLODGatherFormatPropertiesAMDBuilder {
@@ -16728,7 +16728,7 @@ pub struct ConditionalRenderingBeginInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ConditionalRenderingBeginInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ConditionalRenderingBeginInfoEXTBuilder<'a> {
         ConditionalRenderingBeginInfoEXTBuilder {
@@ -16791,7 +16791,7 @@ pub struct ProtectedSubmitInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ProtectedSubmitInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ProtectedSubmitInfoBuilder<'a> {
         ProtectedSubmitInfoBuilder {
@@ -16841,7 +16841,7 @@ pub struct PhysicalDeviceProtectedMemoryFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceProtectedMemoryFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceProtectedMemoryFeaturesBuilder<'a> {
         PhysicalDeviceProtectedMemoryFeaturesBuilder {
@@ -16894,7 +16894,7 @@ pub struct PhysicalDeviceProtectedMemoryPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceProtectedMemoryProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceProtectedMemoryPropertiesBuilder<'a> {
         PhysicalDeviceProtectedMemoryPropertiesBuilder {
@@ -16932,7 +16932,7 @@ pub struct DeviceQueueInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceQueueInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceQueueInfo2Builder<'a> {
         DeviceQueueInfo2Builder {
@@ -16992,7 +16992,7 @@ pub struct PipelineCoverageToColorStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCoverageToColorStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCoverageToColorStateCreateInfoNVBuilder<'a> {
         PipelineCoverageToColorStateCreateInfoNVBuilder {
@@ -17055,7 +17055,7 @@ pub struct PhysicalDeviceSamplerFilterMinmaxPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSamplerFilterMinmaxProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSamplerFilterMinmaxPropertiesBuilder<'a> {
         PhysicalDeviceSamplerFilterMinmaxPropertiesBuilder {
@@ -17098,7 +17098,7 @@ pub struct SampleLocationsInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SampleLocationsInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SampleLocationsInfoEXTBuilder<'a> {
         SampleLocationsInfoEXTBuilder {
@@ -17162,7 +17162,7 @@ pub struct RenderPassSampleLocationsBeginInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassSampleLocationsBeginInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassSampleLocationsBeginInfoEXTBuilder<'a> {
         RenderPassSampleLocationsBeginInfoEXTBuilder {
@@ -17228,7 +17228,7 @@ pub struct PipelineSampleLocationsStateCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineSampleLocationsStateCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineSampleLocationsStateCreateInfoEXTBuilder<'a> {
         PipelineSampleLocationsStateCreateInfoEXTBuilder {
@@ -17286,7 +17286,7 @@ pub struct PhysicalDeviceSampleLocationsPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSampleLocationsPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSampleLocationsPropertiesEXTBuilder<'a> {
         PhysicalDeviceSampleLocationsPropertiesEXTBuilder {
@@ -17344,7 +17344,7 @@ pub struct MultisamplePropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MultisamplePropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MultisamplePropertiesEXTBuilder<'a> {
         MultisamplePropertiesEXTBuilder {
@@ -17382,7 +17382,7 @@ pub struct SamplerReductionModeCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerReductionModeCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerReductionModeCreateInfoBuilder<'a> {
         SamplerReductionModeCreateInfoBuilder {
@@ -17435,7 +17435,7 @@ pub struct PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder<'a> {
         PhysicalDeviceBlendOperationAdvancedFeaturesEXTBuilder {
@@ -17490,7 +17490,7 @@ pub struct PhysicalDeviceMultiDrawFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultiDrawFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultiDrawFeaturesEXTBuilder<'a> {
         PhysicalDeviceMultiDrawFeaturesEXTBuilder {
@@ -17543,7 +17543,7 @@ pub struct PhysicalDeviceBlendOperationAdvancedPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceBlendOperationAdvancedPropertiesEXTBuilder<
         'a,
@@ -17610,7 +17610,7 @@ pub struct PipelineColorBlendAdvancedStateCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineColorBlendAdvancedStateCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineColorBlendAdvancedStateCreateInfoEXTBuilder<'a> {
         PipelineColorBlendAdvancedStateCreateInfoEXTBuilder {
@@ -17674,7 +17674,7 @@ pub struct PhysicalDeviceInlineUniformBlockFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceInlineUniformBlockFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceInlineUniformBlockFeaturesBuilder<'a> {
         PhysicalDeviceInlineUniformBlockFeaturesBuilder {
@@ -17736,7 +17736,7 @@ pub struct PhysicalDeviceInlineUniformBlockPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceInlineUniformBlockProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceInlineUniformBlockPropertiesBuilder<'a> {
         PhysicalDeviceInlineUniformBlockPropertiesBuilder {
@@ -17800,7 +17800,7 @@ pub struct WriteDescriptorSetInlineUniformBlockBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteDescriptorSetInlineUniformBlock {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteDescriptorSetInlineUniformBlockBuilder<'a> {
         WriteDescriptorSetInlineUniformBlockBuilder {
@@ -17854,7 +17854,7 @@ pub struct DescriptorPoolInlineUniformBlockCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorPoolInlineUniformBlockCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorPoolInlineUniformBlockCreateInfoBuilder<'a> {
         DescriptorPoolInlineUniformBlockCreateInfoBuilder {
@@ -17907,7 +17907,7 @@ pub struct PipelineCoverageModulationStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCoverageModulationStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCoverageModulationStateCreateInfoNVBuilder<'a> {
         PipelineCoverageModulationStateCreateInfoNVBuilder {
@@ -17976,7 +17976,7 @@ pub struct ImageFormatListCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageFormatListCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageFormatListCreateInfoBuilder<'a> {
         ImageFormatListCreateInfoBuilder {
@@ -18030,7 +18030,7 @@ pub struct ValidationCacheCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ValidationCacheCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ValidationCacheCreateInfoEXTBuilder<'a> {
         ValidationCacheCreateInfoEXTBuilder {
@@ -18089,7 +18089,7 @@ pub struct ShaderModuleValidationCacheCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ShaderModuleValidationCacheCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ShaderModuleValidationCacheCreateInfoEXTBuilder<'a> {
         ShaderModuleValidationCacheCreateInfoEXTBuilder {
@@ -18142,7 +18142,7 @@ pub struct PhysicalDeviceMaintenance3PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance3Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance3PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance3PropertiesBuilder {
@@ -18185,7 +18185,7 @@ pub struct PhysicalDeviceMaintenance4FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance4Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance4FeaturesBuilder<'a> {
         PhysicalDeviceMaintenance4FeaturesBuilder {
@@ -18238,7 +18238,7 @@ pub struct PhysicalDeviceMaintenance4PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance4Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance4PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance4PropertiesBuilder {
@@ -18276,7 +18276,7 @@ pub struct PhysicalDeviceMaintenance5FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance5Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance5FeaturesBuilder<'a> {
         PhysicalDeviceMaintenance5FeaturesBuilder {
@@ -18329,7 +18329,7 @@ pub struct PhysicalDeviceMaintenance5PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance5Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance5PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance5PropertiesBuilder {
@@ -18402,7 +18402,7 @@ pub struct PhysicalDeviceMaintenance6FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance6Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance6FeaturesBuilder<'a> {
         PhysicalDeviceMaintenance6FeaturesBuilder {
@@ -18455,7 +18455,7 @@ pub struct PhysicalDeviceMaintenance6PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance6Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance6PropertiesBuilder<'a> {
         PhysicalDeviceMaintenance6PropertiesBuilder {
@@ -18503,7 +18503,7 @@ pub struct PhysicalDeviceMaintenance7FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance7FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance7FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance7FeaturesKHRBuilder {
@@ -18556,7 +18556,7 @@ pub struct PhysicalDeviceMaintenance7PropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance7PropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance7PropertiesKHRBuilder<'a> {
         PhysicalDeviceMaintenance7PropertiesKHRBuilder {
@@ -18647,7 +18647,7 @@ pub struct PhysicalDeviceLayeredApiPropertiesListKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLayeredApiPropertiesListKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLayeredApiPropertiesListKHRBuilder<'a> {
         PhysicalDeviceLayeredApiPropertiesListKHRBuilder {
@@ -18704,7 +18704,7 @@ pub struct PhysicalDeviceLayeredApiPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLayeredApiPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLayeredApiPropertiesKHRBuilder<'a> {
         PhysicalDeviceLayeredApiPropertiesKHRBuilder {
@@ -18760,7 +18760,7 @@ pub struct PhysicalDeviceLayeredApiVulkanPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLayeredApiVulkanPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLayeredApiVulkanPropertiesKHRBuilder<'a> {
         PhysicalDeviceLayeredApiVulkanPropertiesKHRBuilder {
@@ -18798,7 +18798,7 @@ pub struct PhysicalDeviceMaintenance8FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance8FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance8FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance8FeaturesKHRBuilder {
@@ -18851,7 +18851,7 @@ pub struct PhysicalDeviceMaintenance9FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance9FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance9FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance9FeaturesKHRBuilder {
@@ -18904,7 +18904,7 @@ pub struct PhysicalDeviceMaintenance9PropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance9PropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance9PropertiesKHRBuilder<'a> {
         PhysicalDeviceMaintenance9PropertiesKHRBuilder {
@@ -18950,7 +18950,7 @@ pub struct PhysicalDeviceMaintenance10PropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance10PropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance10PropertiesKHRBuilder<'a> {
         PhysicalDeviceMaintenance10PropertiesKHRBuilder {
@@ -19001,7 +19001,7 @@ pub struct PhysicalDeviceMaintenance10FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMaintenance10FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMaintenance10FeaturesKHRBuilder<'a> {
         PhysicalDeviceMaintenance10FeaturesKHRBuilder {
@@ -19054,7 +19054,7 @@ pub struct QueueFamilyOwnershipTransferPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyOwnershipTransferPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyOwnershipTransferPropertiesKHRBuilder<'a> {
         QueueFamilyOwnershipTransferPropertiesKHRBuilder {
@@ -19092,7 +19092,7 @@ pub struct RenderingAreaInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingAreaInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingAreaInfoBuilder<'a> {
         RenderingAreaInfoBuilder {
@@ -19158,7 +19158,7 @@ pub struct DescriptorSetLayoutSupportBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetLayoutSupport {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetLayoutSupportBuilder<'a> {
         DescriptorSetLayoutSupportBuilder {
@@ -19196,7 +19196,7 @@ pub struct PhysicalDeviceShaderDrawParametersFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderDrawParametersFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderDrawParametersFeaturesBuilder<'a> {
         PhysicalDeviceShaderDrawParametersFeaturesBuilder {
@@ -19249,7 +19249,7 @@ pub struct PhysicalDeviceShaderFloat16Int8FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderFloat16Int8Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderFloat16Int8FeaturesBuilder<'a> {
         PhysicalDeviceShaderFloat16Int8FeaturesBuilder {
@@ -19307,7 +19307,7 @@ pub struct PhysicalDeviceFloatControlsPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFloatControlsProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFloatControlsPropertiesBuilder<'a> {
         PhysicalDeviceFloatControlsPropertiesBuilder {
@@ -19431,7 +19431,7 @@ pub struct PhysicalDeviceHostQueryResetFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceHostQueryResetFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceHostQueryResetFeaturesBuilder<'a> {
         PhysicalDeviceHostQueryResetFeaturesBuilder {
@@ -19484,7 +19484,7 @@ pub struct NativeBufferANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl NativeBufferANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> NativeBufferANDROIDBuilder<'a> {
         NativeBufferANDROIDBuilder {
@@ -19554,7 +19554,7 @@ pub struct SwapchainImageCreateInfoANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainImageCreateInfoANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainImageCreateInfoANDROIDBuilder<'a> {
         SwapchainImageCreateInfoANDROIDBuilder {
@@ -19607,7 +19607,7 @@ pub struct PhysicalDevicePresentationPropertiesANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentationPropertiesANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentationPropertiesANDROIDBuilder<'a> {
         PhysicalDevicePresentationPropertiesANDROIDBuilder {
@@ -19645,7 +19645,7 @@ pub struct DeviceQueueGlobalPriorityCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceQueueGlobalPriorityCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceQueueGlobalPriorityCreateInfoBuilder<'a> {
         DeviceQueueGlobalPriorityCreateInfoBuilder {
@@ -19698,7 +19698,7 @@ pub struct PhysicalDeviceGlobalPriorityQueryFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceGlobalPriorityQueryFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceGlobalPriorityQueryFeaturesBuilder<'a> {
         PhysicalDeviceGlobalPriorityQueryFeaturesBuilder {
@@ -19751,7 +19751,7 @@ pub struct QueueFamilyGlobalPriorityPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyGlobalPriorityProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyGlobalPriorityPropertiesBuilder<'a> {
         QueueFamilyGlobalPriorityPropertiesBuilder {
@@ -19797,7 +19797,7 @@ pub struct DebugUtilsObjectNameInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugUtilsObjectNameInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugUtilsObjectNameInfoEXTBuilder<'a> {
         DebugUtilsObjectNameInfoEXTBuilder {
@@ -19860,7 +19860,7 @@ pub struct DebugUtilsObjectTagInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugUtilsObjectTagInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugUtilsObjectTagInfoEXTBuilder<'a> {
         DebugUtilsObjectTagInfoEXTBuilder {
@@ -19929,7 +19929,7 @@ pub struct DebugUtilsLabelEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugUtilsLabelEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugUtilsLabelEXTBuilder<'a> {
         DebugUtilsLabelEXTBuilder {
@@ -19984,7 +19984,7 @@ pub struct DebugUtilsMessengerCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugUtilsMessengerCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugUtilsMessengerCreateInfoEXTBuilder<'a> {
         DebugUtilsMessengerCreateInfoEXTBuilder {
@@ -20060,7 +20060,7 @@ pub struct DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DebugUtilsMessengerCallbackDataEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         DebugUtilsMessengerCallbackDataEXTBuilder {
@@ -20146,7 +20146,7 @@ pub struct PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDeviceMemoryReportFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder<'a> {
         PhysicalDeviceDeviceMemoryReportFeaturesEXTBuilder {
@@ -20199,7 +20199,7 @@ pub struct DeviceDeviceMemoryReportCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceDeviceMemoryReportCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceDeviceMemoryReportCreateInfoEXTBuilder<'a> {
         DeviceDeviceMemoryReportCreateInfoEXTBuilder {
@@ -20265,7 +20265,7 @@ pub struct DeviceMemoryReportCallbackDataEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceMemoryReportCallbackDataEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceMemoryReportCallbackDataEXTBuilder<'a> {
         DeviceMemoryReportCallbackDataEXTBuilder {
@@ -20333,7 +20333,7 @@ pub struct ImportMemoryHostPointerInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemoryHostPointerInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemoryHostPointerInfoEXTBuilder<'a> {
         ImportMemoryHostPointerInfoEXTBuilder {
@@ -20391,7 +20391,7 @@ pub struct MemoryHostPointerPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryHostPointerPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryHostPointerPropertiesEXTBuilder<'a> {
         MemoryHostPointerPropertiesEXTBuilder {
@@ -20429,7 +20429,7 @@ pub struct PhysicalDeviceExternalMemoryHostPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalMemoryHostPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalMemoryHostPropertiesEXTBuilder<'a> {
         PhysicalDeviceExternalMemoryHostPropertiesEXTBuilder {
@@ -20468,7 +20468,7 @@ pub struct PhysicalDeviceConservativeRasterizationPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceConservativeRasterizationPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceConservativeRasterizationPropertiesEXTBuilder<
         'a,
@@ -20556,7 +20556,7 @@ pub struct CalibratedTimestampInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CalibratedTimestampInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CalibratedTimestampInfoKHRBuilder<'a> {
         CalibratedTimestampInfoKHRBuilder {
@@ -20609,7 +20609,7 @@ pub struct PhysicalDeviceShaderCorePropertiesAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderCorePropertiesAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderCorePropertiesAMDBuilder<'a> {
         PhysicalDeviceShaderCorePropertiesAMDBuilder {
@@ -20712,7 +20712,7 @@ pub struct PhysicalDeviceShaderCoreProperties2AMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderCoreProperties2AMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderCoreProperties2AMDBuilder<'a> {
         PhysicalDeviceShaderCoreProperties2AMDBuilder {
@@ -20755,7 +20755,7 @@ pub struct PipelineRasterizationConservativeStateCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRasterizationConservativeStateCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRasterizationConservativeStateCreateInfoEXTBuilder<
         'a,
@@ -20828,7 +20828,7 @@ pub struct PhysicalDeviceDescriptorIndexingFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorIndexingFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorIndexingFeaturesBuilder<'a> {
         PhysicalDeviceDescriptorIndexingFeaturesBuilder {
@@ -21029,7 +21029,7 @@ pub struct PhysicalDeviceDescriptorIndexingPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorIndexingProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorIndexingPropertiesBuilder<'a> {
         PhysicalDeviceDescriptorIndexingPropertiesBuilder {
@@ -21234,7 +21234,7 @@ pub struct DescriptorSetLayoutBindingFlagsCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetLayoutBindingFlagsCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetLayoutBindingFlagsCreateInfoBuilder<'a> {
         DescriptorSetLayoutBindingFlagsCreateInfoBuilder {
@@ -21288,7 +21288,7 @@ pub struct DescriptorSetVariableDescriptorCountAllocateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetVariableDescriptorCountAllocateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetVariableDescriptorCountAllocateInfoBuilder<'a> {
         DescriptorSetVariableDescriptorCountAllocateInfoBuilder {
@@ -21344,7 +21344,7 @@ pub struct DescriptorSetVariableDescriptorCountLayoutSupportBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetVariableDescriptorCountLayoutSupport {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetVariableDescriptorCountLayoutSupportBuilder<
         'a,
@@ -21386,7 +21386,7 @@ pub struct AttachmentDescription2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AttachmentDescription2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AttachmentDescription2Builder<'a> {
         AttachmentDescription2Builder {
@@ -21479,7 +21479,7 @@ pub struct AttachmentReference2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AttachmentReference2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AttachmentReference2Builder<'a> {
         AttachmentReference2Builder {
@@ -21539,7 +21539,7 @@ pub struct SubpassDescription2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubpassDescription2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubpassDescription2Builder<'a> {
         SubpassDescription2Builder {
@@ -21631,7 +21631,7 @@ pub struct SubpassDependency2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubpassDependency2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubpassDependency2Builder<'a> {
         SubpassDependency2Builder {
@@ -21716,7 +21716,7 @@ pub struct RenderPassCreateInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassCreateInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassCreateInfo2Builder<'a> {
         RenderPassCreateInfo2Builder {
@@ -21793,7 +21793,7 @@ pub struct SubpassBeginInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubpassBeginInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubpassBeginInfoBuilder<'a> {
         SubpassBeginInfoBuilder {
@@ -21843,7 +21843,7 @@ pub struct SubpassEndInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubpassEndInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubpassEndInfoBuilder<'a> {
         SubpassEndInfoBuilder {
@@ -21888,7 +21888,7 @@ pub struct PhysicalDeviceTimelineSemaphoreFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTimelineSemaphoreFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTimelineSemaphoreFeaturesBuilder<'a> {
         PhysicalDeviceTimelineSemaphoreFeaturesBuilder {
@@ -21941,7 +21941,7 @@ pub struct PhysicalDeviceTimelineSemaphorePropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTimelineSemaphoreProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTimelineSemaphorePropertiesBuilder<'a> {
         PhysicalDeviceTimelineSemaphorePropertiesBuilder {
@@ -21979,7 +21979,7 @@ pub struct SemaphoreTypeCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreTypeCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreTypeCreateInfoBuilder<'a> {
         SemaphoreTypeCreateInfoBuilder {
@@ -22037,7 +22037,7 @@ pub struct TimelineSemaphoreSubmitInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TimelineSemaphoreSubmitInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TimelineSemaphoreSubmitInfoBuilder<'a> {
         TimelineSemaphoreSubmitInfoBuilder {
@@ -22097,7 +22097,7 @@ pub struct SemaphoreWaitInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreWaitInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreWaitInfoBuilder<'a> {
         SemaphoreWaitInfoBuilder {
@@ -22159,7 +22159,7 @@ pub struct SemaphoreSignalInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreSignalInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreSignalInfoBuilder<'a> {
         SemaphoreSignalInfoBuilder {
@@ -22214,7 +22214,7 @@ pub struct PipelineVertexInputDivisorStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineVertexInputDivisorStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineVertexInputDivisorStateCreateInfoBuilder<'a> {
         PipelineVertexInputDivisorStateCreateInfoBuilder {
@@ -22271,7 +22271,7 @@ pub struct PhysicalDeviceVertexAttributeDivisorPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVertexAttributeDivisorPropertiesEXTBuilder<
         'a,
@@ -22313,7 +22313,7 @@ pub struct PhysicalDeviceVertexAttributeDivisorPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVertexAttributeDivisorProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVertexAttributeDivisorPropertiesBuilder<'a> {
         PhysicalDeviceVertexAttributeDivisorPropertiesBuilder {
@@ -22357,7 +22357,7 @@ pub struct PhysicalDevicePCIBusInfoPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePCIBusInfoPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePCIBusInfoPropertiesEXTBuilder<'a> {
         PhysicalDevicePCIBusInfoPropertiesEXTBuilder {
@@ -22410,7 +22410,7 @@ pub struct ImportAndroidHardwareBufferInfoANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportAndroidHardwareBufferInfoANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportAndroidHardwareBufferInfoANDROIDBuilder<'a> {
         ImportAndroidHardwareBufferInfoANDROIDBuilder {
@@ -22463,7 +22463,7 @@ pub struct AndroidHardwareBufferUsageANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AndroidHardwareBufferUsageANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AndroidHardwareBufferUsageANDROIDBuilder<'a> {
         AndroidHardwareBufferUsageANDROIDBuilder {
@@ -22501,7 +22501,7 @@ pub struct AndroidHardwareBufferPropertiesANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AndroidHardwareBufferPropertiesANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AndroidHardwareBufferPropertiesANDROIDBuilder<'a> {
         AndroidHardwareBufferPropertiesANDROIDBuilder {
@@ -22544,7 +22544,7 @@ pub struct MemoryGetAndroidHardwareBufferInfoANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetAndroidHardwareBufferInfoANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetAndroidHardwareBufferInfoANDROIDBuilder<'a> {
         MemoryGetAndroidHardwareBufferInfoANDROIDBuilder {
@@ -22597,7 +22597,7 @@ pub struct AndroidHardwareBufferFormatPropertiesANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AndroidHardwareBufferFormatPropertiesANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AndroidHardwareBufferFormatPropertiesANDROIDBuilder<'a> {
         AndroidHardwareBufferFormatPropertiesANDROIDBuilder {
@@ -22674,7 +22674,7 @@ pub struct CommandBufferInheritanceConditionalRenderingInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferInheritanceConditionalRenderingInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferInheritanceConditionalRenderingInfoEXTBuilder<
         'a,
@@ -22731,7 +22731,7 @@ pub struct ExternalFormatANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalFormatANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalFormatANDROIDBuilder<'a> {
         ExternalFormatANDROIDBuilder {
@@ -22784,7 +22784,7 @@ pub struct PhysicalDevice8BitStorageFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevice8BitStorageFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevice8BitStorageFeaturesBuilder<'a> {
         PhysicalDevice8BitStorageFeaturesBuilder {
@@ -22847,7 +22847,7 @@ pub struct PhysicalDeviceConditionalRenderingFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceConditionalRenderingFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceConditionalRenderingFeaturesEXTBuilder<'a> {
         PhysicalDeviceConditionalRenderingFeaturesEXTBuilder {
@@ -22906,7 +22906,7 @@ pub struct PhysicalDeviceVulkanMemoryModelFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkanMemoryModelFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkanMemoryModelFeaturesBuilder<'a> {
         PhysicalDeviceVulkanMemoryModelFeaturesBuilder {
@@ -22972,7 +22972,7 @@ pub struct PhysicalDeviceShaderAtomicInt64FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderAtomicInt64Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderAtomicInt64FeaturesBuilder<'a> {
         PhysicalDeviceShaderAtomicInt64FeaturesBuilder {
@@ -23030,7 +23030,7 @@ pub struct PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderAtomicFloatFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderAtomicFloatFeaturesEXTBuilder {
@@ -23138,7 +23138,7 @@ pub struct PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderAtomicFloat2FeaturesEXTBuilder {
@@ -23246,7 +23246,7 @@ pub struct PhysicalDeviceVertexAttributeDivisorFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVertexAttributeDivisorFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVertexAttributeDivisorFeaturesBuilder<'a> {
         PhysicalDeviceVertexAttributeDivisorFeaturesBuilder {
@@ -23305,7 +23305,7 @@ pub struct QueueFamilyCheckpointPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyCheckpointPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyCheckpointPropertiesNVBuilder<'a> {
         QueueFamilyCheckpointPropertiesNVBuilder {
@@ -23343,7 +23343,7 @@ pub struct CheckpointDataNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CheckpointDataNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CheckpointDataNVBuilder<'a> {
         CheckpointDataNVBuilder {
@@ -23386,7 +23386,7 @@ pub struct PhysicalDeviceDepthStencilResolvePropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDepthStencilResolveProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDepthStencilResolvePropertiesBuilder<'a> {
         PhysicalDeviceDepthStencilResolvePropertiesBuilder {
@@ -23439,7 +23439,7 @@ pub struct SubpassDescriptionDepthStencilResolveBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubpassDescriptionDepthStencilResolve {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubpassDescriptionDepthStencilResolveBuilder<'a> {
         SubpassDescriptionDepthStencilResolveBuilder {
@@ -23505,7 +23505,7 @@ pub struct ImageViewASTCDecodeModeEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewASTCDecodeModeEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewASTCDecodeModeEXTBuilder<'a> {
         ImageViewASTCDecodeModeEXTBuilder {
@@ -23558,7 +23558,7 @@ pub struct PhysicalDeviceASTCDecodeFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceASTCDecodeFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceASTCDecodeFeaturesEXTBuilder<'a> {
         PhysicalDeviceASTCDecodeFeaturesEXTBuilder {
@@ -23611,7 +23611,7 @@ pub struct PhysicalDeviceTransformFeedbackFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTransformFeedbackFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTransformFeedbackFeaturesEXTBuilder<'a> {
         PhysicalDeviceTransformFeedbackFeaturesEXTBuilder {
@@ -23669,7 +23669,7 @@ pub struct PhysicalDeviceTransformFeedbackPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTransformFeedbackPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTransformFeedbackPropertiesEXTBuilder<'a> {
         PhysicalDeviceTransformFeedbackPropertiesEXTBuilder {
@@ -23756,7 +23756,7 @@ pub struct PipelineRasterizationStateStreamCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRasterizationStateStreamCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRasterizationStateStreamCreateInfoEXTBuilder<'a> {
         PipelineRasterizationStateStreamCreateInfoEXTBuilder {
@@ -23818,7 +23818,7 @@ pub struct PhysicalDeviceRepresentativeFragmentTestFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRepresentativeFragmentTestFeaturesNVBuilder<
         'a,
@@ -23875,7 +23875,7 @@ pub struct PipelineRepresentativeFragmentTestStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRepresentativeFragmentTestStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRepresentativeFragmentTestStateCreateInfoNVBuilder<
         'a,
@@ -23932,7 +23932,7 @@ pub struct PhysicalDeviceExclusiveScissorFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExclusiveScissorFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExclusiveScissorFeaturesNVBuilder<'a> {
         PhysicalDeviceExclusiveScissorFeaturesNVBuilder {
@@ -23985,7 +23985,7 @@ pub struct PipelineViewportExclusiveScissorStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportExclusiveScissorStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportExclusiveScissorStateCreateInfoNVBuilder<
         'a,
@@ -24043,7 +24043,7 @@ pub struct PhysicalDeviceCornerSampledImageFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCornerSampledImageFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCornerSampledImageFeaturesNVBuilder<'a> {
         PhysicalDeviceCornerSampledImageFeaturesNVBuilder {
@@ -24096,7 +24096,7 @@ pub struct PhysicalDeviceComputeShaderDerivativesFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceComputeShaderDerivativesFeaturesKHRBuilder<
         'a,
@@ -24158,7 +24158,7 @@ pub struct PhysicalDeviceComputeShaderDerivativesPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceComputeShaderDerivativesPropertiesKHRBuilder<
         'a,
@@ -24200,7 +24200,7 @@ pub struct PhysicalDeviceShaderImageFootprintFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderImageFootprintFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderImageFootprintFeaturesNVBuilder<'a> {
         PhysicalDeviceShaderImageFootprintFeaturesNVBuilder {
@@ -24254,7 +24254,7 @@ pub struct PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNVBuilder<
         'a,
@@ -24311,7 +24311,7 @@ pub struct PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder<'a> {
         PhysicalDeviceCopyMemoryIndirectFeaturesKHRBuilder {
@@ -24369,7 +24369,7 @@ pub struct PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCopyMemoryIndirectFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder<'a> {
         PhysicalDeviceCopyMemoryIndirectFeaturesNVBuilder {
@@ -24422,7 +24422,7 @@ pub struct PhysicalDeviceCopyMemoryIndirectPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCopyMemoryIndirectPropertiesKHRBuilder<'a> {
         PhysicalDeviceCopyMemoryIndirectPropertiesKHRBuilder {
@@ -24461,7 +24461,7 @@ pub struct PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMemoryDecompressionFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder<'a> {
         PhysicalDeviceMemoryDecompressionFeaturesEXTBuilder {
@@ -24515,7 +24515,7 @@ pub struct PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMemoryDecompressionPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder<'a> {
         PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder {
@@ -24562,7 +24562,7 @@ pub struct PipelineViewportShadingRateImageStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportShadingRateImageStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportShadingRateImageStateCreateInfoNVBuilder<
         'a,
@@ -24625,7 +24625,7 @@ pub struct PhysicalDeviceShadingRateImageFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShadingRateImageFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShadingRateImageFeaturesNVBuilder<'a> {
         PhysicalDeviceShadingRateImageFeaturesNVBuilder {
@@ -24683,7 +24683,7 @@ pub struct PhysicalDeviceShadingRateImagePropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShadingRateImagePropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShadingRateImagePropertiesNVBuilder<'a> {
         PhysicalDeviceShadingRateImagePropertiesNVBuilder {
@@ -24731,7 +24731,7 @@ pub struct PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceInvocationMaskFeaturesHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceInvocationMaskFeaturesHUAWEIBuilder {
@@ -24784,7 +24784,7 @@ pub struct PipelineViewportCoarseSampleOrderStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportCoarseSampleOrderStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportCoarseSampleOrderStateCreateInfoNVBuilder<
         'a,
@@ -24850,7 +24850,7 @@ pub struct PhysicalDeviceMeshShaderFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMeshShaderFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderFeaturesNVBuilder<'a> {
         PhysicalDeviceMeshShaderFeaturesNVBuilder {
@@ -24908,7 +24908,7 @@ pub struct PhysicalDeviceMeshShaderPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMeshShaderPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderPropertiesNVBuilder<'a> {
         PhysicalDeviceMeshShaderPropertiesNVBuilder {
@@ -25006,7 +25006,7 @@ pub struct PhysicalDeviceMeshShaderFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMeshShaderFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderFeaturesEXTBuilder<'a> {
         PhysicalDeviceMeshShaderFeaturesEXTBuilder {
@@ -25079,7 +25079,7 @@ pub struct PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMeshShaderPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a> {
         PhysicalDeviceMeshShaderPropertiesEXTBuilder {
@@ -25252,7 +25252,7 @@ pub struct RayTracingShaderGroupCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RayTracingShaderGroupCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RayTracingShaderGroupCreateInfoNVBuilder<'a> {
         RayTracingShaderGroupCreateInfoNVBuilder {
@@ -25325,7 +25325,7 @@ pub struct RayTracingShaderGroupCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RayTracingShaderGroupCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RayTracingShaderGroupCreateInfoKHRBuilder<'a> {
         RayTracingShaderGroupCreateInfoKHRBuilder {
@@ -25406,7 +25406,7 @@ pub struct RayTracingPipelineCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RayTracingPipelineCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RayTracingPipelineCreateInfoNVBuilder<'a> {
         RayTracingPipelineCreateInfoNVBuilder {
@@ -25491,7 +25491,7 @@ pub struct RayTracingPipelineCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RayTracingPipelineCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RayTracingPipelineCreateInfoKHRBuilder<'a> {
         RayTracingPipelineCreateInfoKHRBuilder {
@@ -25594,7 +25594,7 @@ pub struct GeometryTrianglesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeometryTrianglesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeometryTrianglesNVBuilder<'a> {
         GeometryTrianglesNVBuilder {
@@ -25694,7 +25694,7 @@ pub struct GeometryAABBNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeometryAABBNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeometryAABBNVBuilder<'a> {
         GeometryAABBNVBuilder {
@@ -25759,7 +25759,7 @@ pub struct GeometryNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeometryNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeometryNVBuilder<'a> {
         GeometryNVBuilder {
@@ -25819,7 +25819,7 @@ pub struct AccelerationStructureInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureInfoNVBuilder<'a> {
         AccelerationStructureInfoNVBuilder {
@@ -25888,7 +25888,7 @@ pub struct AccelerationStructureCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureCreateInfoNVBuilder<'a> {
         AccelerationStructureCreateInfoNVBuilder {
@@ -25946,7 +25946,7 @@ pub struct BindAccelerationStructureMemoryInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindAccelerationStructureMemoryInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindAccelerationStructureMemoryInfoNVBuilder<'a> {
         BindAccelerationStructureMemoryInfoNVBuilder {
@@ -26015,7 +26015,7 @@ pub struct WriteDescriptorSetAccelerationStructureKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteDescriptorSetAccelerationStructureKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteDescriptorSetAccelerationStructureKHRBuilder<'a> {
         WriteDescriptorSetAccelerationStructureKHRBuilder {
@@ -26072,7 +26072,7 @@ pub struct WriteDescriptorSetAccelerationStructureNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteDescriptorSetAccelerationStructureNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteDescriptorSetAccelerationStructureNVBuilder<'a> {
         WriteDescriptorSetAccelerationStructureNVBuilder {
@@ -26129,7 +26129,7 @@ pub struct AccelerationStructureMemoryRequirementsInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureMemoryRequirementsInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureMemoryRequirementsInfoNVBuilder<'a> {
         AccelerationStructureMemoryRequirementsInfoNVBuilder {
@@ -26191,7 +26191,7 @@ pub struct PhysicalDeviceAccelerationStructureFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceAccelerationStructureFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceAccelerationStructureFeaturesKHRBuilder<'a> {
         PhysicalDeviceAccelerationStructureFeaturesKHRBuilder {
@@ -26269,7 +26269,7 @@ pub struct PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingPipelineFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder<'a> {
         PhysicalDeviceRayTracingPipelineFeaturesKHRBuilder {
@@ -26350,7 +26350,7 @@ pub struct PhysicalDeviceRayQueryFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayQueryFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayQueryFeaturesKHRBuilder<'a> {
         PhysicalDeviceRayQueryFeaturesKHRBuilder {
@@ -26403,7 +26403,7 @@ pub struct PhysicalDeviceAccelerationStructurePropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceAccelerationStructurePropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceAccelerationStructurePropertiesKHRBuilder<'a> {
         PhysicalDeviceAccelerationStructurePropertiesKHRBuilder {
@@ -26490,7 +26490,7 @@ pub struct PhysicalDeviceRayTracingPipelinePropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingPipelinePropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPipelinePropertiesKHRBuilder<'a> {
         PhysicalDeviceRayTracingPipelinePropertiesKHRBuilder {
@@ -26564,7 +26564,7 @@ pub struct PhysicalDeviceRayTracingPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPropertiesNVBuilder<'a> {
         PhysicalDeviceRayTracingPropertiesNVBuilder {
@@ -26637,7 +26637,7 @@ pub struct PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
         PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder {
@@ -26697,7 +26697,7 @@ pub struct DrmFormatModifierPropertiesListEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DrmFormatModifierPropertiesListEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DrmFormatModifierPropertiesListEXTBuilder<'a> {
         DrmFormatModifierPropertiesListEXTBuilder {
@@ -26739,7 +26739,7 @@ pub struct PhysicalDeviceImageDrmFormatModifierInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageDrmFormatModifierInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageDrmFormatModifierInfoEXTBuilder<'a> {
         PhysicalDeviceImageDrmFormatModifierInfoEXTBuilder {
@@ -26803,7 +26803,7 @@ pub struct ImageDrmFormatModifierListCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageDrmFormatModifierListCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageDrmFormatModifierListCreateInfoEXTBuilder<'a> {
         ImageDrmFormatModifierListCreateInfoEXTBuilder {
@@ -26857,7 +26857,7 @@ pub struct ImageDrmFormatModifierExplicitCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageDrmFormatModifierExplicitCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageDrmFormatModifierExplicitCreateInfoEXTBuilder<'a> {
         ImageDrmFormatModifierExplicitCreateInfoEXTBuilder {
@@ -26916,7 +26916,7 @@ pub struct ImageDrmFormatModifierPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageDrmFormatModifierPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageDrmFormatModifierPropertiesEXTBuilder<'a> {
         ImageDrmFormatModifierPropertiesEXTBuilder {
@@ -26954,7 +26954,7 @@ pub struct ImageStencilUsageCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageStencilUsageCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageStencilUsageCreateInfoBuilder<'a> {
         ImageStencilUsageCreateInfoBuilder {
@@ -27007,7 +27007,7 @@ pub struct DeviceMemoryOverallocationCreateInfoAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceMemoryOverallocationCreateInfoAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceMemoryOverallocationCreateInfoAMDBuilder<'a> {
         DeviceMemoryOverallocationCreateInfoAMDBuilder {
@@ -27063,7 +27063,7 @@ pub struct PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMapFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMapFeaturesEXTBuilder {
@@ -27126,7 +27126,7 @@ pub struct PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMap2FeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMap2FeaturesEXTBuilder {
@@ -27180,7 +27180,7 @@ pub struct PhysicalDeviceFragmentDensityMapOffsetFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapOffsetFeaturesEXTBuilder<
         'a,
@@ -27237,7 +27237,7 @@ pub struct PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMapPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMapPropertiesEXTBuilder {
@@ -27286,7 +27286,7 @@ pub struct PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMap2PropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder<'a> {
         PhysicalDeviceFragmentDensityMap2PropertiesEXTBuilder {
@@ -27340,7 +27340,7 @@ pub struct PhysicalDeviceFragmentDensityMapOffsetPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapOffsetPropertiesEXTBuilder<
         'a,
@@ -27382,7 +27382,7 @@ pub struct RenderPassFragmentDensityMapCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassFragmentDensityMapCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassFragmentDensityMapCreateInfoEXTBuilder<'a> {
         RenderPassFragmentDensityMapCreateInfoEXTBuilder {
@@ -27438,7 +27438,7 @@ pub struct RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassFragmentDensityMapOffsetEndInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder<'a> {
         RenderPassFragmentDensityMapOffsetEndInfoEXTBuilder {
@@ -27493,7 +27493,7 @@ pub struct PhysicalDeviceScalarBlockLayoutFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceScalarBlockLayoutFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceScalarBlockLayoutFeaturesBuilder<'a> {
         PhysicalDeviceScalarBlockLayoutFeaturesBuilder {
@@ -27546,7 +27546,7 @@ pub struct SurfaceProtectedCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceProtectedCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceProtectedCapabilitiesKHRBuilder<'a> {
         SurfaceProtectedCapabilitiesKHRBuilder {
@@ -27584,7 +27584,7 @@ pub struct PhysicalDeviceUniformBufferStandardLayoutFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceUniformBufferStandardLayoutFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceUniformBufferStandardLayoutFeaturesBuilder<
         'a,
@@ -27641,7 +27641,7 @@ pub struct PhysicalDeviceDepthClipEnableFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDepthClipEnableFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDepthClipEnableFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthClipEnableFeaturesEXTBuilder {
@@ -27694,7 +27694,7 @@ pub struct PipelineRasterizationDepthClipStateCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRasterizationDepthClipStateCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRasterizationDepthClipStateCreateInfoEXTBuilder<'a> {
         PipelineRasterizationDepthClipStateCreateInfoEXTBuilder {
@@ -27757,7 +27757,7 @@ pub struct PhysicalDeviceMemoryBudgetPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMemoryBudgetPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMemoryBudgetPropertiesEXTBuilder<'a> {
         PhysicalDeviceMemoryBudgetPropertiesEXTBuilder {
@@ -27800,7 +27800,7 @@ pub struct PhysicalDeviceMemoryPriorityFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMemoryPriorityFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMemoryPriorityFeaturesEXTBuilder<'a> {
         PhysicalDeviceMemoryPriorityFeaturesEXTBuilder {
@@ -27853,7 +27853,7 @@ pub struct MemoryPriorityAllocateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryPriorityAllocateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryPriorityAllocateInfoEXTBuilder<'a> {
         MemoryPriorityAllocateInfoEXTBuilder {
@@ -27906,7 +27906,7 @@ pub struct PhysicalDevicePageableDeviceLocalMemoryFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePageableDeviceLocalMemoryFeaturesEXTBuilder<
         'a,
@@ -27963,7 +27963,7 @@ pub struct PhysicalDeviceBufferDeviceAddressFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceBufferDeviceAddressFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceBufferDeviceAddressFeaturesBuilder<'a> {
         PhysicalDeviceBufferDeviceAddressFeaturesBuilder {
@@ -28026,7 +28026,7 @@ pub struct PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceBufferDeviceAddressFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder<'a> {
         PhysicalDeviceBufferDeviceAddressFeaturesEXTBuilder {
@@ -28090,7 +28090,7 @@ pub struct BufferDeviceAddressInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferDeviceAddressInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferDeviceAddressInfoBuilder<'a> {
         BufferDeviceAddressInfoBuilder {
@@ -28143,7 +28143,7 @@ pub struct BufferOpaqueCaptureAddressCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferOpaqueCaptureAddressCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferOpaqueCaptureAddressCreateInfoBuilder<'a> {
         BufferOpaqueCaptureAddressCreateInfoBuilder {
@@ -28196,7 +28196,7 @@ pub struct BufferDeviceAddressCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferDeviceAddressCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferDeviceAddressCreateInfoEXTBuilder<'a> {
         BufferDeviceAddressCreateInfoEXTBuilder {
@@ -28249,7 +28249,7 @@ pub struct PhysicalDeviceImageViewImageFormatInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageViewImageFormatInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageViewImageFormatInfoEXTBuilder<'a> {
         PhysicalDeviceImageViewImageFormatInfoEXTBuilder {
@@ -28302,7 +28302,7 @@ pub struct FilterCubicImageViewImageFormatPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FilterCubicImageViewImageFormatPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FilterCubicImageViewImageFormatPropertiesEXTBuilder<'a> {
         FilterCubicImageViewImageFormatPropertiesEXTBuilder {
@@ -28346,7 +28346,7 @@ pub struct PhysicalDeviceImagelessFramebufferFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImagelessFramebufferFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImagelessFramebufferFeaturesBuilder<'a> {
         PhysicalDeviceImagelessFramebufferFeaturesBuilder {
@@ -28399,7 +28399,7 @@ pub struct FramebufferAttachmentsCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FramebufferAttachmentsCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FramebufferAttachmentsCreateInfoBuilder<'a> {
         FramebufferAttachmentsCreateInfoBuilder {
@@ -28456,7 +28456,7 @@ pub struct FramebufferAttachmentImageInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FramebufferAttachmentImageInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FramebufferAttachmentImageInfoBuilder<'a> {
         FramebufferAttachmentImageInfoBuilder {
@@ -28535,7 +28535,7 @@ pub struct RenderPassAttachmentBeginInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassAttachmentBeginInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassAttachmentBeginInfoBuilder<'a> {
         RenderPassAttachmentBeginInfoBuilder {
@@ -28589,7 +28589,7 @@ pub struct PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTextureCompressionASTCHDRFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder<'a> {
         PhysicalDeviceTextureCompressionASTCHDRFeaturesBuilder {
@@ -28644,7 +28644,7 @@ pub struct PhysicalDeviceCooperativeMatrixFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeMatrixFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixFeaturesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrixFeaturesNVBuilder {
@@ -28702,7 +28702,7 @@ pub struct PhysicalDeviceCooperativeMatrixPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeMatrixPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixPropertiesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrixPropertiesNVBuilder {
@@ -28743,7 +28743,7 @@ pub struct CooperativeMatrixPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CooperativeMatrixPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CooperativeMatrixPropertiesNVBuilder<'a> {
         CooperativeMatrixPropertiesNVBuilder {
@@ -28816,7 +28816,7 @@ pub struct PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceYcbcrImageArraysFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder<'a> {
         PhysicalDeviceYcbcrImageArraysFeaturesEXTBuilder {
@@ -28869,7 +28869,7 @@ pub struct ImageViewHandleInfoNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewHandleInfoNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewHandleInfoNVXBuilder<'a> {
         ImageViewHandleInfoNVXBuilder {
@@ -28932,7 +28932,7 @@ pub struct ImageViewAddressPropertiesNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewAddressPropertiesNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewAddressPropertiesNVXBuilder<'a> {
         ImageViewAddressPropertiesNVXBuilder {
@@ -28975,7 +28975,7 @@ pub struct PresentFrameTokenGGPBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PresentFrameTokenGGP {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PresentFrameTokenGGPBuilder<'a> {
         PresentFrameTokenGGPBuilder {
@@ -29025,7 +29025,7 @@ pub struct PipelineCreationFeedbackCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCreationFeedbackCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCreationFeedbackCreateInfoBuilder<'a> {
         PipelineCreationFeedbackCreateInfoBuilder {
@@ -29090,7 +29090,7 @@ pub struct SurfaceFullScreenExclusiveInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceFullScreenExclusiveInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceFullScreenExclusiveInfoEXTBuilder<'a> {
         SurfaceFullScreenExclusiveInfoEXTBuilder {
@@ -29143,7 +29143,7 @@ pub struct SurfaceFullScreenExclusiveWin32InfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceFullScreenExclusiveWin32InfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceFullScreenExclusiveWin32InfoEXTBuilder<'a> {
         SurfaceFullScreenExclusiveWin32InfoEXTBuilder {
@@ -29196,7 +29196,7 @@ pub struct SurfaceCapabilitiesFullScreenExclusiveEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceCapabilitiesFullScreenExclusiveEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceCapabilitiesFullScreenExclusiveEXTBuilder<'a> {
         SurfaceCapabilitiesFullScreenExclusiveEXTBuilder {
@@ -29234,7 +29234,7 @@ pub struct PhysicalDevicePresentBarrierFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentBarrierFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentBarrierFeaturesNVBuilder<'a> {
         PhysicalDevicePresentBarrierFeaturesNVBuilder {
@@ -29287,7 +29287,7 @@ pub struct SurfaceCapabilitiesPresentBarrierNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceCapabilitiesPresentBarrierNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceCapabilitiesPresentBarrierNVBuilder<'a> {
         SurfaceCapabilitiesPresentBarrierNVBuilder {
@@ -29325,7 +29325,7 @@ pub struct SwapchainPresentBarrierCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainPresentBarrierCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainPresentBarrierCreateInfoNVBuilder<'a> {
         SwapchainPresentBarrierCreateInfoNVBuilder {
@@ -29378,7 +29378,7 @@ pub struct PhysicalDevicePerformanceQueryFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePerformanceQueryFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePerformanceQueryFeaturesKHRBuilder<'a> {
         PhysicalDevicePerformanceQueryFeaturesKHRBuilder {
@@ -29436,7 +29436,7 @@ pub struct PhysicalDevicePerformanceQueryPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePerformanceQueryPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePerformanceQueryPropertiesKHRBuilder<'a> {
         PhysicalDevicePerformanceQueryPropertiesKHRBuilder {
@@ -29474,7 +29474,7 @@ pub struct PerformanceCounterKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceCounterKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceCounterKHRBuilder<'a> {
         PerformanceCounterKHRBuilder {
@@ -29527,7 +29527,7 @@ pub struct PerformanceCounterDescriptionKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceCounterDescriptionKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceCounterDescriptionKHRBuilder<'a> {
         PerformanceCounterDescriptionKHRBuilder {
@@ -29589,7 +29589,7 @@ pub struct QueryPoolPerformanceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueryPoolPerformanceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueryPoolPerformanceCreateInfoKHRBuilder<'a> {
         QueryPoolPerformanceCreateInfoKHRBuilder {
@@ -29648,7 +29648,7 @@ pub struct AcquireProfilingLockInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AcquireProfilingLockInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AcquireProfilingLockInfoKHRBuilder<'a> {
         AcquireProfilingLockInfoKHRBuilder {
@@ -29706,7 +29706,7 @@ pub struct PerformanceQuerySubmitInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceQuerySubmitInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceQuerySubmitInfoKHRBuilder<'a> {
         PerformanceQuerySubmitInfoKHRBuilder {
@@ -29759,7 +29759,7 @@ pub struct PerformanceQueryReservationInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceQueryReservationInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceQueryReservationInfoKHRBuilder<'a> {
         PerformanceQueryReservationInfoKHRBuilder {
@@ -29812,7 +29812,7 @@ pub struct HeadlessSurfaceCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl HeadlessSurfaceCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> HeadlessSurfaceCreateInfoEXTBuilder<'a> {
         HeadlessSurfaceCreateInfoEXTBuilder {
@@ -29865,7 +29865,7 @@ pub struct PhysicalDeviceCoverageReductionModeFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCoverageReductionModeFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCoverageReductionModeFeaturesNVBuilder<'a> {
         PhysicalDeviceCoverageReductionModeFeaturesNVBuilder {
@@ -29919,7 +29919,7 @@ pub struct PipelineCoverageReductionStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCoverageReductionStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCoverageReductionStateCreateInfoNVBuilder<'a> {
         PipelineCoverageReductionStateCreateInfoNVBuilder {
@@ -29977,7 +29977,7 @@ pub struct FramebufferMixedSamplesCombinationNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FramebufferMixedSamplesCombinationNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FramebufferMixedSamplesCombinationNVBuilder<'a> {
         FramebufferMixedSamplesCombinationNVBuilder {
@@ -30030,7 +30030,7 @@ pub struct PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<
         'a,
@@ -30087,7 +30087,7 @@ pub struct InitializePerformanceApiInfoINTELBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl InitializePerformanceApiInfoINTEL {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> InitializePerformanceApiInfoINTELBuilder<'a> {
         InitializePerformanceApiInfoINTELBuilder {
@@ -30140,7 +30140,7 @@ pub struct QueryPoolPerformanceQueryCreateInfoINTELBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueryPoolPerformanceQueryCreateInfoINTEL {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueryPoolPerformanceQueryCreateInfoINTELBuilder<'a> {
         QueryPoolPerformanceQueryCreateInfoINTELBuilder {
@@ -30196,7 +30196,7 @@ pub struct PerformanceMarkerInfoINTELBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceMarkerInfoINTEL {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceMarkerInfoINTELBuilder<'a> {
         PerformanceMarkerInfoINTELBuilder {
@@ -30249,7 +30249,7 @@ pub struct PerformanceStreamMarkerInfoINTELBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceStreamMarkerInfoINTEL {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceStreamMarkerInfoINTELBuilder<'a> {
         PerformanceStreamMarkerInfoINTELBuilder {
@@ -30302,7 +30302,7 @@ pub struct PerformanceOverrideInfoINTELBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceOverrideInfoINTEL {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceOverrideInfoINTELBuilder<'a> {
         PerformanceOverrideInfoINTELBuilder {
@@ -30365,7 +30365,7 @@ pub struct PerformanceConfigurationAcquireInfoINTELBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceConfigurationAcquireInfoINTEL {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceConfigurationAcquireInfoINTELBuilder<'a> {
         PerformanceConfigurationAcquireInfoINTELBuilder {
@@ -30418,7 +30418,7 @@ pub struct PhysicalDeviceShaderClockFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderClockFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderClockFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderClockFeaturesKHRBuilder {
@@ -30476,7 +30476,7 @@ pub struct PhysicalDeviceIndexTypeUint8FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceIndexTypeUint8Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceIndexTypeUint8FeaturesBuilder<'a> {
         PhysicalDeviceIndexTypeUint8FeaturesBuilder {
@@ -30529,7 +30529,7 @@ pub struct PhysicalDeviceShaderSMBuiltinsPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderSMBuiltinsPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderSMBuiltinsPropertiesNVBuilder<'a> {
         PhysicalDeviceShaderSMBuiltinsPropertiesNVBuilder {
@@ -30572,7 +30572,7 @@ pub struct PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderSMBuiltinsFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder<'a> {
         PhysicalDeviceShaderSMBuiltinsFeaturesNVBuilder {
@@ -30625,7 +30625,7 @@ pub struct PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder<'a> {
         PhysicalDeviceFragmentShaderInterlockFeaturesEXTBuilder {
@@ -30690,7 +30690,7 @@ pub struct PhysicalDeviceSeparateDepthStencilLayoutsFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSeparateDepthStencilLayoutsFeaturesBuilder<
         'a,
@@ -30747,7 +30747,7 @@ pub struct AttachmentReferenceStencilLayoutBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AttachmentReferenceStencilLayout {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AttachmentReferenceStencilLayoutBuilder<'a> {
         AttachmentReferenceStencilLayoutBuilder {
@@ -30800,7 +30800,7 @@ pub struct PhysicalDevicePrimitiveTopologyListRestartFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePrimitiveTopologyListRestartFeaturesEXTBuilder<
         'a,
@@ -30862,7 +30862,7 @@ pub struct AttachmentDescriptionStencilLayoutBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AttachmentDescriptionStencilLayout {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AttachmentDescriptionStencilLayoutBuilder<'a> {
         AttachmentDescriptionStencilLayoutBuilder {
@@ -30920,7 +30920,7 @@ pub struct PhysicalDevicePipelineExecutablePropertiesFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineExecutablePropertiesFeaturesKHRBuilder<
         'a,
@@ -30977,7 +30977,7 @@ pub struct PipelineInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineInfoKHRBuilder<'a> {
         PipelineInfoKHRBuilder {
@@ -31027,7 +31027,7 @@ pub struct PipelineExecutablePropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineExecutablePropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineExecutablePropertiesKHRBuilder<'a> {
         PipelineExecutablePropertiesKHRBuilder {
@@ -31086,7 +31086,7 @@ pub struct PipelineExecutableInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineExecutableInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineExecutableInfoKHRBuilder<'a> {
         PipelineExecutableInfoKHRBuilder {
@@ -31144,7 +31144,7 @@ pub struct PipelineExecutableStatisticKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineExecutableStatisticKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineExecutableStatisticKHRBuilder<'a> {
         PipelineExecutableStatisticKHRBuilder {
@@ -31203,7 +31203,7 @@ pub struct PipelineExecutableInternalRepresentationKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineExecutableInternalRepresentationKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineExecutableInternalRepresentationKHRBuilder<'a> {
         PipelineExecutableInternalRepresentationKHRBuilder {
@@ -31263,7 +31263,7 @@ pub struct PhysicalDeviceShaderDemoteToHelperInvocationFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderDemoteToHelperInvocationFeaturesBuilder<
         'a,
@@ -31320,7 +31320,7 @@ pub struct PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder<'a> {
         PhysicalDeviceTexelBufferAlignmentFeaturesEXTBuilder {
@@ -31374,7 +31374,7 @@ pub struct PhysicalDeviceTexelBufferAlignmentPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTexelBufferAlignmentProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTexelBufferAlignmentPropertiesBuilder<'a> {
         PhysicalDeviceTexelBufferAlignmentPropertiesBuilder {
@@ -31434,7 +31434,7 @@ pub struct PhysicalDeviceSubgroupSizeControlFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSubgroupSizeControlFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSubgroupSizeControlFeaturesBuilder<'a> {
         PhysicalDeviceSubgroupSizeControlFeaturesBuilder {
@@ -31492,7 +31492,7 @@ pub struct PhysicalDeviceSubgroupSizeControlPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSubgroupSizeControlProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSubgroupSizeControlPropertiesBuilder<'a> {
         PhysicalDeviceSubgroupSizeControlPropertiesBuilder {
@@ -31545,7 +31545,7 @@ pub struct PipelineShaderStageRequiredSubgroupSizeCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineShaderStageRequiredSubgroupSizeCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineShaderStageRequiredSubgroupSizeCreateInfoBuilder<
         'a,
@@ -31602,7 +31602,7 @@ pub struct SubpassShadingPipelineCreateInfoHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubpassShadingPipelineCreateInfoHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubpassShadingPipelineCreateInfoHUAWEIBuilder<'a> {
         SubpassShadingPipelineCreateInfoHUAWEIBuilder {
@@ -31660,7 +31660,7 @@ pub struct PhysicalDeviceSubpassShadingPropertiesHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSubpassShadingPropertiesHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSubpassShadingPropertiesHUAWEIBuilder<'a> {
         PhysicalDeviceSubpassShadingPropertiesHUAWEIBuilder {
@@ -31702,7 +31702,7 @@ pub struct PhysicalDeviceClusterCullingShaderPropertiesHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceClusterCullingShaderPropertiesHUAWEIBuilder<
         'a,
@@ -31759,7 +31759,7 @@ pub struct MemoryOpaqueCaptureAddressAllocateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryOpaqueCaptureAddressAllocateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryOpaqueCaptureAddressAllocateInfoBuilder<'a> {
         MemoryOpaqueCaptureAddressAllocateInfoBuilder {
@@ -31812,7 +31812,7 @@ pub struct DeviceMemoryOpaqueCaptureAddressInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceMemoryOpaqueCaptureAddressInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceMemoryOpaqueCaptureAddressInfoBuilder<'a> {
         DeviceMemoryOpaqueCaptureAddressInfoBuilder {
@@ -31865,7 +31865,7 @@ pub struct PhysicalDeviceLineRasterizationFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLineRasterizationFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLineRasterizationFeaturesBuilder<'a> {
         PhysicalDeviceLineRasterizationFeaturesBuilder {
@@ -31943,7 +31943,7 @@ pub struct PhysicalDeviceLineRasterizationPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLineRasterizationProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLineRasterizationPropertiesBuilder<'a> {
         PhysicalDeviceLineRasterizationPropertiesBuilder {
@@ -31981,7 +31981,7 @@ pub struct PipelineRasterizationLineStateCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRasterizationLineStateCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRasterizationLineStateCreateInfoBuilder<'a> {
         PipelineRasterizationLineStateCreateInfoBuilder {
@@ -32049,7 +32049,7 @@ pub struct PhysicalDevicePipelineCreationCacheControlFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineCreationCacheControlFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineCreationCacheControlFeaturesBuilder<
         'a,
@@ -32106,7 +32106,7 @@ pub struct PhysicalDeviceVulkan11FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan11Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan11FeaturesBuilder<'a> {
         PhysicalDeviceVulkan11FeaturesBuilder {
@@ -32214,7 +32214,7 @@ pub struct PhysicalDeviceVulkan11PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan11Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan11PropertiesBuilder<'a> {
         PhysicalDeviceVulkan11PropertiesBuilder {
@@ -32322,7 +32322,7 @@ pub struct PhysicalDeviceVulkan12FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan12Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan12FeaturesBuilder<'a> {
         PhysicalDeviceVulkan12FeaturesBuilder {
@@ -32661,7 +32661,7 @@ pub struct PhysicalDeviceVulkan12PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan12Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan12PropertiesBuilder<'a> {
         PhysicalDeviceVulkan12PropertiesBuilder {
@@ -33026,7 +33026,7 @@ pub struct PhysicalDeviceVulkan13FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan13Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan13FeaturesBuilder<'a> {
         PhysicalDeviceVulkan13FeaturesBuilder {
@@ -33153,7 +33153,7 @@ pub struct PhysicalDeviceVulkan13PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan13Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan13PropertiesBuilder<'a> {
         PhysicalDeviceVulkan13PropertiesBuilder {
@@ -33542,7 +33542,7 @@ pub struct PhysicalDeviceVulkan14FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan14Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan14FeaturesBuilder<'a> {
         PhysicalDeviceVulkan14FeaturesBuilder {
@@ -33695,7 +33695,7 @@ pub struct PhysicalDeviceVulkan14PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkan14Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkan14PropertiesBuilder<'a> {
         PhysicalDeviceVulkan14PropertiesBuilder {
@@ -33876,7 +33876,7 @@ pub struct PipelineCompilerControlCreateInfoAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineCompilerControlCreateInfoAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineCompilerControlCreateInfoAMDBuilder<'a> {
         PipelineCompilerControlCreateInfoAMDBuilder {
@@ -33932,7 +33932,7 @@ pub struct PhysicalDeviceCoherentMemoryFeaturesAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCoherentMemoryFeaturesAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCoherentMemoryFeaturesAMDBuilder<'a> {
         PhysicalDeviceCoherentMemoryFeaturesAMDBuilder {
@@ -33985,7 +33985,7 @@ pub struct FaultDataBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FaultData {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FaultDataBuilder<'a> {
         FaultDataBuilder {
@@ -34028,7 +34028,7 @@ pub struct FaultCallbackInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FaultCallbackInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FaultCallbackInfoBuilder<'a> {
         FaultCallbackInfoBuilder {
@@ -34084,7 +34084,7 @@ pub struct PhysicalDeviceToolPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceToolProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceToolPropertiesBuilder<'a> {
         PhysicalDeviceToolPropertiesBuilder {
@@ -34154,7 +34154,7 @@ pub struct SamplerCustomBorderColorCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerCustomBorderColorCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerCustomBorderColorCreateInfoEXTBuilder<'a> {
         SamplerCustomBorderColorCreateInfoEXTBuilder {
@@ -34212,7 +34212,7 @@ pub struct PhysicalDeviceCustomBorderColorPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCustomBorderColorPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCustomBorderColorPropertiesEXTBuilder<'a> {
         PhysicalDeviceCustomBorderColorPropertiesEXTBuilder {
@@ -34251,7 +34251,7 @@ pub struct PhysicalDeviceCustomBorderColorFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCustomBorderColorFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCustomBorderColorFeaturesEXTBuilder<'a> {
         PhysicalDeviceCustomBorderColorFeaturesEXTBuilder {
@@ -34309,7 +34309,7 @@ pub struct SamplerBorderColorComponentMappingCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerBorderColorComponentMappingCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerBorderColorComponentMappingCreateInfoEXTBuilder<'a> {
         SamplerBorderColorComponentMappingCreateInfoEXTBuilder {
@@ -34369,7 +34369,7 @@ pub struct PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceBorderColorSwizzleFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder<'a> {
         PhysicalDeviceBorderColorSwizzleFeaturesEXTBuilder {
@@ -34427,7 +34427,7 @@ pub struct AccelerationStructureGeometryTrianglesDataKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureGeometryTrianglesDataKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureGeometryTrianglesDataKHRBuilder<'a> {
         AccelerationStructureGeometryTrianglesDataKHRBuilder {
@@ -34511,7 +34511,7 @@ pub struct AccelerationStructureGeometryAabbsDataKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureGeometryAabbsDataKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureGeometryAabbsDataKHRBuilder<'a> {
         AccelerationStructureGeometryAabbsDataKHRBuilder {
@@ -34569,7 +34569,7 @@ pub struct AccelerationStructureGeometryInstancesDataKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureGeometryInstancesDataKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureGeometryInstancesDataKHRBuilder<'a> {
         AccelerationStructureGeometryInstancesDataKHRBuilder {
@@ -34628,7 +34628,7 @@ pub struct AccelerationStructureGeometryLinearSweptSpheresDataNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureGeometryLinearSweptSpheresDataNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureGeometryLinearSweptSpheresDataNVBuilder<
         'a,
@@ -34735,7 +34735,7 @@ pub struct AccelerationStructureGeometrySpheresDataNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureGeometrySpheresDataNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureGeometrySpheresDataNVBuilder<'a> {
         AccelerationStructureGeometrySpheresDataNVBuilder {
@@ -34828,7 +34828,7 @@ pub struct AccelerationStructureGeometryKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureGeometryKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureGeometryKHRBuilder<'a> {
         AccelerationStructureGeometryKHRBuilder {
@@ -34891,7 +34891,7 @@ pub struct AccelerationStructureBuildGeometryInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureBuildGeometryInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureBuildGeometryInfoKHRBuilder<'a> {
         AccelerationStructureBuildGeometryInfoKHRBuilder {
@@ -34989,7 +34989,7 @@ pub struct AccelerationStructureCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureCreateInfoKHRBuilder<'a> {
         AccelerationStructureCreateInfoKHRBuilder {
@@ -35067,7 +35067,7 @@ pub struct AccelerationStructureDeviceAddressInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureDeviceAddressInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureDeviceAddressInfoKHRBuilder<'a> {
         AccelerationStructureDeviceAddressInfoKHRBuilder {
@@ -35120,7 +35120,7 @@ pub struct AccelerationStructureVersionInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureVersionInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureVersionInfoKHRBuilder<'a> {
         AccelerationStructureVersionInfoKHRBuilder {
@@ -35173,7 +35173,7 @@ pub struct CopyAccelerationStructureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyAccelerationStructureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyAccelerationStructureInfoKHRBuilder<'a> {
         CopyAccelerationStructureInfoKHRBuilder {
@@ -35236,7 +35236,7 @@ pub struct CopyAccelerationStructureToMemoryInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyAccelerationStructureToMemoryInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyAccelerationStructureToMemoryInfoKHRBuilder<'a> {
         CopyAccelerationStructureToMemoryInfoKHRBuilder {
@@ -35299,7 +35299,7 @@ pub struct CopyMemoryToAccelerationStructureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyMemoryToAccelerationStructureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyMemoryToAccelerationStructureInfoKHRBuilder<'a> {
         CopyMemoryToAccelerationStructureInfoKHRBuilder {
@@ -35362,7 +35362,7 @@ pub struct RayTracingPipelineInterfaceCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RayTracingPipelineInterfaceCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RayTracingPipelineInterfaceCreateInfoKHRBuilder<'a> {
         RayTracingPipelineInterfaceCreateInfoKHRBuilder {
@@ -35420,7 +35420,7 @@ pub struct PipelineLibraryCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineLibraryCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineLibraryCreateInfoKHRBuilder<'a> {
         PipelineLibraryCreateInfoKHRBuilder {
@@ -35474,7 +35474,7 @@ pub struct RefreshObjectListKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RefreshObjectListKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RefreshObjectListKHRBuilder<'a> {
         RefreshObjectListKHRBuilder {
@@ -35525,7 +35525,7 @@ pub struct PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExtendedDynamicStateFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicStateFeaturesEXTBuilder {
@@ -35579,7 +35579,7 @@ pub struct PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExtendedDynamicState2FeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicState2FeaturesEXTBuilder {
@@ -35643,7 +35643,7 @@ pub struct PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExtendedDynamicState3FeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicState3FeaturesEXTBuilder {
@@ -35899,7 +35899,7 @@ pub struct PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExtendedDynamicState3PropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder<'a> {
         PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder {
@@ -35939,7 +35939,7 @@ pub struct RenderPassTransformBeginInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassTransformBeginInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassTransformBeginInfoQCOMBuilder<'a> {
         RenderPassTransformBeginInfoQCOMBuilder {
@@ -35992,7 +35992,7 @@ pub struct CopyCommandTransformInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyCommandTransformInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyCommandTransformInfoQCOMBuilder<'a> {
         CopyCommandTransformInfoQCOMBuilder {
@@ -36045,7 +36045,7 @@ pub struct CommandBufferInheritanceRenderPassTransformInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferInheritanceRenderPassTransformInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferInheritanceRenderPassTransformInfoQCOMBuilder<
         'a,
@@ -36107,7 +36107,7 @@ pub struct PhysicalDevicePartitionedAccelerationStructureFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePartitionedAccelerationStructureFeaturesNVBuilder<
         'a,
@@ -36164,7 +36164,7 @@ pub struct PhysicalDevicePartitionedAccelerationStructurePropertiesNVBuilder<'a>
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePartitionedAccelerationStructurePropertiesNVBuilder<
         'a,
@@ -36206,7 +36206,7 @@ pub struct PartitionedAccelerationStructureFlagsNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PartitionedAccelerationStructureFlagsNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PartitionedAccelerationStructureFlagsNVBuilder<'a> {
         PartitionedAccelerationStructureFlagsNVBuilder {
@@ -36259,7 +36259,7 @@ pub struct WriteDescriptorSetPartitionedAccelerationStructureNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteDescriptorSetPartitionedAccelerationStructureNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteDescriptorSetPartitionedAccelerationStructureNVBuilder<
         'a,
@@ -36317,7 +36317,7 @@ pub struct PartitionedAccelerationStructureInstancesInputNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PartitionedAccelerationStructureInstancesInputNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PartitionedAccelerationStructureInstancesInputNVBuilder<'a> {
         PartitionedAccelerationStructureInstancesInputNVBuilder {
@@ -36392,7 +36392,7 @@ pub struct BuildPartitionedAccelerationStructureInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BuildPartitionedAccelerationStructureInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BuildPartitionedAccelerationStructureInfoNVBuilder<'a> {
         BuildPartitionedAccelerationStructureInfoNVBuilder {
@@ -36473,7 +36473,7 @@ pub struct PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDiagnosticsConfigFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder<'a> {
         PhysicalDeviceDiagnosticsConfigFeaturesNVBuilder {
@@ -36526,7 +36526,7 @@ pub struct DeviceDiagnosticsConfigCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceDiagnosticsConfigCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceDiagnosticsConfigCreateInfoNVBuilder<'a> {
         DeviceDiagnosticsConfigCreateInfoNVBuilder {
@@ -36579,7 +36579,7 @@ pub struct PipelineOfflineCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineOfflineCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineOfflineCreateInfoBuilder<'a> {
         PipelineOfflineCreateInfoBuilder {
@@ -36642,7 +36642,7 @@ pub struct PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesBuilder<
         'a,
@@ -36699,7 +36699,7 @@ pub struct PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHRBuilder<'a> 
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHRBuilder<
         'a,
@@ -36755,7 +36755,7 @@ pub struct PhysicalDeviceRobustness2FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRobustness2FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRobustness2FeaturesKHRBuilder<'a> {
         PhysicalDeviceRobustness2FeaturesKHRBuilder {
@@ -36818,7 +36818,7 @@ pub struct PhysicalDeviceRobustness2PropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRobustness2PropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRobustness2PropertiesKHRBuilder<'a> {
         PhysicalDeviceRobustness2PropertiesKHRBuilder {
@@ -36861,7 +36861,7 @@ pub struct PhysicalDeviceImageRobustnessFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageRobustnessFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageRobustnessFeaturesBuilder<'a> {
         PhysicalDeviceImageRobustnessFeaturesBuilder {
@@ -36914,7 +36914,7 @@ pub struct PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRBuilder<
         'a,
@@ -36989,7 +36989,7 @@ pub struct PhysicalDevicePortabilitySubsetFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePortabilitySubsetFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePortabilitySubsetFeaturesKHRBuilder<'a> {
         PhysicalDevicePortabilitySubsetFeaturesKHRBuilder {
@@ -37112,7 +37112,7 @@ pub struct PhysicalDevicePortabilitySubsetPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePortabilitySubsetPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePortabilitySubsetPropertiesKHRBuilder<'a> {
         PhysicalDevicePortabilitySubsetPropertiesKHRBuilder {
@@ -37151,7 +37151,7 @@ pub struct PhysicalDevice4444FormatsFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevice4444FormatsFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevice4444FormatsFeaturesEXTBuilder<'a> {
         PhysicalDevice4444FormatsFeaturesEXTBuilder {
@@ -37209,7 +37209,7 @@ pub struct PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSubpassShadingFeaturesHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceSubpassShadingFeaturesHUAWEIBuilder {
@@ -37262,7 +37262,7 @@ pub struct PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceClusterCullingShaderFeaturesHUAWEIBuilder {
@@ -37322,7 +37322,7 @@ pub struct PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEIBuilder<
         'a,
@@ -37379,7 +37379,7 @@ pub struct BufferCopy2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCopy2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCopy2Builder<'a> {
         BufferCopy2Builder {
@@ -37439,7 +37439,7 @@ pub struct ImageCopy2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageCopy2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageCopy2Builder<'a> {
         ImageCopy2Builder {
@@ -37509,7 +37509,7 @@ pub struct ImageBlit2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageBlit2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageBlit2Builder<'a> {
         ImageBlit2Builder {
@@ -37574,7 +37574,7 @@ pub struct BufferImageCopy2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferImageCopy2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferImageCopy2Builder<'a> {
         BufferImageCopy2Builder {
@@ -37649,7 +37649,7 @@ pub struct ImageResolve2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageResolve2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageResolve2Builder<'a> {
         ImageResolve2Builder {
@@ -37719,7 +37719,7 @@ pub struct CopyBufferInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyBufferInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyBufferInfo2Builder<'a> {
         CopyBufferInfo2Builder {
@@ -37780,7 +37780,7 @@ pub struct CopyImageInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyImageInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyImageInfo2Builder<'a> {
         CopyImageInfo2Builder {
@@ -37851,7 +37851,7 @@ pub struct BlitImageInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BlitImageInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BlitImageInfo2Builder<'a> {
         BlitImageInfo2Builder {
@@ -37927,7 +37927,7 @@ pub struct CopyBufferToImageInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyBufferToImageInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyBufferToImageInfo2Builder<'a> {
         CopyBufferToImageInfo2Builder {
@@ -37996,7 +37996,7 @@ pub struct CopyImageToBufferInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyImageToBufferInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyImageToBufferInfo2Builder<'a> {
         CopyImageToBufferInfo2Builder {
@@ -38065,7 +38065,7 @@ pub struct ResolveImageInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ResolveImageInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ResolveImageInfo2Builder<'a> {
         ResolveImageInfo2Builder {
@@ -38136,7 +38136,7 @@ pub struct PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderImageAtomicInt64FeaturesEXTBuilder {
@@ -38196,7 +38196,7 @@ pub struct FragmentShadingRateAttachmentInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FragmentShadingRateAttachmentInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FragmentShadingRateAttachmentInfoKHRBuilder<'a> {
         FragmentShadingRateAttachmentInfoKHRBuilder {
@@ -38257,7 +38257,7 @@ pub struct PipelineFragmentShadingRateStateCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineFragmentShadingRateStateCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineFragmentShadingRateStateCreateInfoKHRBuilder<'a> {
         PipelineFragmentShadingRateStateCreateInfoKHRBuilder {
@@ -38319,7 +38319,7 @@ pub struct PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShadingRateFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder<'a> {
         PhysicalDeviceFragmentShadingRateFeaturesKHRBuilder {
@@ -38383,7 +38383,7 @@ pub struct PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShadingRatePropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder<'a> {
         PhysicalDeviceFragmentShadingRatePropertiesKHRBuilder {
@@ -38536,7 +38536,7 @@ pub struct PhysicalDeviceFragmentShadingRateKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShadingRateKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRateKHRBuilder<'a> {
         PhysicalDeviceFragmentShadingRateKHRBuilder {
@@ -38579,7 +38579,7 @@ pub struct PhysicalDeviceShaderTerminateInvocationFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderTerminateInvocationFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderTerminateInvocationFeaturesBuilder<'a> {
         PhysicalDeviceShaderTerminateInvocationFeaturesBuilder {
@@ -38634,7 +38634,7 @@ pub struct PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder<'a> {
         PhysicalDeviceFragmentShadingRateEnumsFeaturesNVBuilder {
@@ -38699,7 +38699,7 @@ pub struct PhysicalDeviceFragmentShadingRateEnumsPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShadingRateEnumsPropertiesNVBuilder<
         'a,
@@ -38744,7 +38744,7 @@ pub struct PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineFragmentShadingRateEnumStateCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder<'a> {
         PipelineFragmentShadingRateEnumStateCreateInfoNVBuilder {
@@ -38812,7 +38812,7 @@ pub struct AccelerationStructureBuildSizesInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureBuildSizesInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureBuildSizesInfoKHRBuilder<'a> {
         AccelerationStructureBuildSizesInfoKHRBuilder {
@@ -38860,7 +38860,7 @@ pub struct PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImage2DViewOf3DFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder<'a> {
         PhysicalDeviceImage2DViewOf3DFeaturesEXTBuilder {
@@ -38918,7 +38918,7 @@ pub struct PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder<'a> {
         PhysicalDeviceImageSlicedViewOf3DFeaturesEXTBuilder {
@@ -38972,7 +38972,7 @@ pub struct PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXTBuilder<'a
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXTBuilder<
         'a,
@@ -39028,7 +39028,7 @@ pub struct PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder<'a> {
         PhysicalDeviceLegacyVertexAttributesFeaturesEXTBuilder {
@@ -39083,7 +39083,7 @@ pub struct PhysicalDeviceLegacyVertexAttributesPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLegacyVertexAttributesPropertiesEXTBuilder<
         'a,
@@ -39125,7 +39125,7 @@ pub struct PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
         PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder {
@@ -39179,7 +39179,7 @@ pub struct MutableDescriptorTypeCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MutableDescriptorTypeCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MutableDescriptorTypeCreateInfoEXTBuilder<'a> {
         MutableDescriptorTypeCreateInfoEXTBuilder {
@@ -39236,7 +39236,7 @@ pub struct PhysicalDeviceDepthClipControlFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDepthClipControlFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDepthClipControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthClipControlFeaturesEXTBuilder {
@@ -39289,7 +39289,7 @@ pub struct PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXTBuilder<
         'a,
@@ -39346,7 +39346,7 @@ pub struct BeginCustomResolveInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BeginCustomResolveInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BeginCustomResolveInfoEXTBuilder<'a> {
         BeginCustomResolveInfoEXTBuilder {
@@ -39394,7 +39394,7 @@ pub struct PhysicalDeviceCustomResolveFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCustomResolveFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCustomResolveFeaturesEXTBuilder<'a> {
         PhysicalDeviceCustomResolveFeaturesEXTBuilder {
@@ -39447,7 +39447,7 @@ pub struct CustomResolveCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CustomResolveCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CustomResolveCreateInfoEXTBuilder<'a> {
         CustomResolveCreateInfoEXTBuilder {
@@ -39516,7 +39516,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder<'a> {
         PhysicalDeviceDeviceGeneratedCommandsFeaturesEXTBuilder {
@@ -39576,7 +39576,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDeviceGeneratedCommandsPropertiesEXTBuilder<
         'a,
@@ -39688,7 +39688,7 @@ pub struct GeneratedCommandsPipelineInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeneratedCommandsPipelineInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeneratedCommandsPipelineInfoEXTBuilder<'a> {
         GeneratedCommandsPipelineInfoEXTBuilder {
@@ -39741,7 +39741,7 @@ pub struct GeneratedCommandsShaderInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeneratedCommandsShaderInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeneratedCommandsShaderInfoEXTBuilder<'a> {
         GeneratedCommandsShaderInfoEXTBuilder {
@@ -39795,7 +39795,7 @@ pub struct GeneratedCommandsMemoryRequirementsInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeneratedCommandsMemoryRequirementsInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeneratedCommandsMemoryRequirementsInfoEXTBuilder<'a> {
         GeneratedCommandsMemoryRequirementsInfoEXTBuilder {
@@ -39863,7 +39863,7 @@ pub struct IndirectExecutionSetPipelineInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectExecutionSetPipelineInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectExecutionSetPipelineInfoEXTBuilder<'a> {
         IndirectExecutionSetPipelineInfoEXTBuilder {
@@ -39921,7 +39921,7 @@ pub struct IndirectExecutionSetShaderLayoutInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectExecutionSetShaderLayoutInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectExecutionSetShaderLayoutInfoEXTBuilder<'a> {
         IndirectExecutionSetShaderLayoutInfoEXTBuilder {
@@ -39975,7 +39975,7 @@ pub struct IndirectExecutionSetShaderInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectExecutionSetShaderInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectExecutionSetShaderInfoEXTBuilder<'a> {
         IndirectExecutionSetShaderInfoEXTBuilder {
@@ -40049,7 +40049,7 @@ pub struct IndirectExecutionSetCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectExecutionSetCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectExecutionSetCreateInfoEXTBuilder<'a> {
         IndirectExecutionSetCreateInfoEXTBuilder {
@@ -40107,7 +40107,7 @@ pub struct GeneratedCommandsInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GeneratedCommandsInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GeneratedCommandsInfoEXTBuilder<'a> {
         GeneratedCommandsInfoEXTBuilder {
@@ -40205,7 +40205,7 @@ pub struct WriteIndirectExecutionSetPipelineEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteIndirectExecutionSetPipelineEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteIndirectExecutionSetPipelineEXTBuilder<'a> {
         WriteIndirectExecutionSetPipelineEXTBuilder {
@@ -40263,7 +40263,7 @@ pub struct WriteIndirectExecutionSetShaderEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteIndirectExecutionSetShaderEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteIndirectExecutionSetShaderEXTBuilder<'a> {
         WriteIndirectExecutionSetShaderEXTBuilder {
@@ -40321,7 +40321,7 @@ pub struct IndirectCommandsLayoutCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectCommandsLayoutCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectCommandsLayoutCreateInfoEXTBuilder<'a> {
         IndirectCommandsLayoutCreateInfoEXTBuilder {
@@ -40395,7 +40395,7 @@ pub struct IndirectCommandsLayoutTokenEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectCommandsLayoutTokenEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectCommandsLayoutTokenEXTBuilder<'a> {
         IndirectCommandsLayoutTokenEXTBuilder {
@@ -40458,7 +40458,7 @@ pub struct PipelineViewportDepthClipControlCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportDepthClipControlCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportDepthClipControlCreateInfoEXTBuilder<'a> {
         PipelineViewportDepthClipControlCreateInfoEXTBuilder {
@@ -40512,7 +40512,7 @@ pub struct PhysicalDeviceDepthClampControlFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDepthClampControlFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDepthClampControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthClampControlFeaturesEXTBuilder {
@@ -40565,7 +40565,7 @@ pub struct PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineViewportDepthClampControlCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
         PipelineViewportDepthClampControlCreateInfoEXTBuilder {
@@ -40624,7 +40624,7 @@ pub struct PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder<'a> {
         PhysicalDeviceVertexInputDynamicStateFeaturesEXTBuilder {
@@ -40679,7 +40679,7 @@ pub struct PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalMemoryRDMAFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder<'a> {
         PhysicalDeviceExternalMemoryRDMAFeaturesNVBuilder {
@@ -40732,7 +40732,7 @@ pub struct PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHRBuilder<'a> 
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHRBuilder<
         'a,
@@ -40788,7 +40788,7 @@ pub struct VertexInputBindingDescription2EXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VertexInputBindingDescription2EXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VertexInputBindingDescription2EXTBuilder<'a> {
         VertexInputBindingDescription2EXTBuilder {
@@ -40856,7 +40856,7 @@ pub struct VertexInputAttributeDescription2EXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VertexInputAttributeDescription2EXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VertexInputAttributeDescription2EXTBuilder<'a> {
         VertexInputAttributeDescription2EXTBuilder {
@@ -40924,7 +40924,7 @@ pub struct PhysicalDeviceColorWriteEnableFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceColorWriteEnableFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceColorWriteEnableFeaturesEXTBuilder<'a> {
         PhysicalDeviceColorWriteEnableFeaturesEXTBuilder {
@@ -40977,7 +40977,7 @@ pub struct PipelineColorWriteCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineColorWriteCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineColorWriteCreateInfoEXTBuilder<'a> {
         PipelineColorWriteCreateInfoEXTBuilder {
@@ -41031,7 +41031,7 @@ pub struct MemoryBarrier2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryBarrier2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryBarrier2Builder<'a> {
         MemoryBarrier2Builder {
@@ -41096,7 +41096,7 @@ pub struct ImageMemoryBarrier2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageMemoryBarrier2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageMemoryBarrier2Builder<'a> {
         ImageMemoryBarrier2Builder {
@@ -41191,7 +41191,7 @@ pub struct BufferMemoryBarrier2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferMemoryBarrier2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferMemoryBarrier2Builder<'a> {
         BufferMemoryBarrier2Builder {
@@ -41281,7 +41281,7 @@ pub struct MemoryBarrierAccessFlags3KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryBarrierAccessFlags3KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryBarrierAccessFlags3KHRBuilder<'a> {
         MemoryBarrierAccessFlags3KHRBuilder {
@@ -41339,7 +41339,7 @@ pub struct DependencyInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DependencyInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DependencyInfoBuilder<'a> {
         DependencyInfoBuilder {
@@ -41407,7 +41407,7 @@ pub struct SemaphoreSubmitInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SemaphoreSubmitInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SemaphoreSubmitInfoBuilder<'a> {
         SemaphoreSubmitInfoBuilder {
@@ -41472,7 +41472,7 @@ pub struct CommandBufferSubmitInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferSubmitInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferSubmitInfoBuilder<'a> {
         CommandBufferSubmitInfoBuilder {
@@ -41530,7 +41530,7 @@ pub struct SubmitInfo2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubmitInfo2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubmitInfo2Builder<'a> {
         SubmitInfo2Builder {
@@ -41598,7 +41598,7 @@ pub struct QueueFamilyCheckpointProperties2NVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyCheckpointProperties2NV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyCheckpointProperties2NVBuilder<'a> {
         QueueFamilyCheckpointProperties2NVBuilder {
@@ -41639,7 +41639,7 @@ pub struct CheckpointData2NVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CheckpointData2NV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CheckpointData2NVBuilder<'a> {
         CheckpointData2NVBuilder {
@@ -41682,7 +41682,7 @@ pub struct PhysicalDeviceSynchronization2FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSynchronization2Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSynchronization2FeaturesBuilder<'a> {
         PhysicalDeviceSynchronization2FeaturesBuilder {
@@ -41735,7 +41735,7 @@ pub struct PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder<'a> {
         PhysicalDeviceUnifiedImageLayoutsFeaturesKHRBuilder {
@@ -41794,7 +41794,7 @@ pub struct PhysicalDeviceHostImageCopyFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceHostImageCopyFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceHostImageCopyFeaturesBuilder<'a> {
         PhysicalDeviceHostImageCopyFeaturesBuilder {
@@ -41847,7 +41847,7 @@ pub struct PhysicalDeviceHostImageCopyPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceHostImageCopyProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceHostImageCopyPropertiesBuilder<'a> {
         PhysicalDeviceHostImageCopyPropertiesBuilder {
@@ -41920,7 +41920,7 @@ pub struct MemoryToImageCopyBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryToImageCopy {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryToImageCopyBuilder<'a> {
         MemoryToImageCopyBuilder {
@@ -41995,7 +41995,7 @@ pub struct ImageToMemoryCopyBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageToMemoryCopy {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageToMemoryCopyBuilder<'a> {
         ImageToMemoryCopyBuilder {
@@ -42070,7 +42070,7 @@ pub struct CopyMemoryToImageInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyMemoryToImageInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyMemoryToImageInfoBuilder<'a> {
         CopyMemoryToImageInfoBuilder {
@@ -42139,7 +42139,7 @@ pub struct CopyImageToMemoryInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyImageToMemoryInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyImageToMemoryInfoBuilder<'a> {
         CopyImageToMemoryInfoBuilder {
@@ -42208,7 +42208,7 @@ pub struct CopyImageToImageInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyImageToImageInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyImageToImageInfoBuilder<'a> {
         CopyImageToImageInfoBuilder {
@@ -42284,7 +42284,7 @@ pub struct HostImageLayoutTransitionInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl HostImageLayoutTransitionInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> HostImageLayoutTransitionInfoBuilder<'a> {
         HostImageLayoutTransitionInfoBuilder {
@@ -42352,7 +42352,7 @@ pub struct SubresourceHostMemcpySizeBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubresourceHostMemcpySize {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubresourceHostMemcpySizeBuilder<'a> {
         SubresourceHostMemcpySizeBuilder {
@@ -42390,7 +42390,7 @@ pub struct HostImageCopyDevicePerformanceQueryBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl HostImageCopyDevicePerformanceQuery {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> HostImageCopyDevicePerformanceQueryBuilder<'a> {
         HostImageCopyDevicePerformanceQueryBuilder {
@@ -42433,7 +42433,7 @@ pub struct PhysicalDeviceVulkanSC10PropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkanSC10Properties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkanSC10PropertiesBuilder<'a> {
         PhysicalDeviceVulkanSC10PropertiesBuilder {
@@ -42562,7 +42562,7 @@ pub struct PipelinePoolSizeBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelinePoolSize {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelinePoolSizeBuilder<'a> {
         PipelinePoolSizeBuilder {
@@ -42617,7 +42617,7 @@ pub struct DeviceObjectReservationCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceObjectReservationCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceObjectReservationCreateInfoBuilder<'a> {
         DeviceObjectReservationCreateInfoBuilder {
@@ -42868,7 +42868,7 @@ pub struct CommandPoolMemoryReservationCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandPoolMemoryReservationCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandPoolMemoryReservationCreateInfoBuilder<'a> {
         CommandPoolMemoryReservationCreateInfoBuilder {
@@ -42926,7 +42926,7 @@ pub struct CommandPoolMemoryConsumptionBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandPoolMemoryConsumption {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandPoolMemoryConsumptionBuilder<'a> {
         CommandPoolMemoryConsumptionBuilder {
@@ -42974,7 +42974,7 @@ pub struct PhysicalDeviceVulkanSC10FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVulkanSC10Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVulkanSC10FeaturesBuilder<'a> {
         PhysicalDeviceVulkanSC10FeaturesBuilder {
@@ -43027,7 +43027,7 @@ pub struct PhysicalDevicePrimitivesGeneratedQueryFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePrimitivesGeneratedQueryFeaturesEXTBuilder<
         'a,
@@ -43100,7 +43100,7 @@ pub struct PhysicalDeviceLegacyDitheringFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLegacyDitheringFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLegacyDitheringFeaturesEXTBuilder<'a> {
         PhysicalDeviceLegacyDitheringFeaturesEXTBuilder {
@@ -43153,7 +43153,7 @@ pub struct PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXTBuilder<'a>
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXTBuilder<
         'a,
@@ -43209,7 +43209,7 @@ pub struct SurfaceCapabilitiesPresentId2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceCapabilitiesPresentId2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceCapabilitiesPresentId2KHRBuilder<'a> {
         SurfaceCapabilitiesPresentId2KHRBuilder {
@@ -43262,7 +43262,7 @@ pub struct SurfaceCapabilitiesPresentWait2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceCapabilitiesPresentWait2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceCapabilitiesPresentWait2KHRBuilder<'a> {
         SurfaceCapabilitiesPresentWait2KHRBuilder {
@@ -43315,7 +43315,7 @@ pub struct SubpassResolvePerformanceQueryEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubpassResolvePerformanceQueryEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubpassResolvePerformanceQueryEXTBuilder<'a> {
         SubpassResolvePerformanceQueryEXTBuilder {
@@ -43353,7 +43353,7 @@ pub struct MultisampledRenderToSingleSampledInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MultisampledRenderToSingleSampledInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MultisampledRenderToSingleSampledInfoEXTBuilder<'a> {
         MultisampledRenderToSingleSampledInfoEXTBuilder {
@@ -43411,7 +43411,7 @@ pub struct PhysicalDevicePipelineProtectedAccessFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineProtectedAccessFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineProtectedAccessFeaturesBuilder<'a> {
         PhysicalDevicePipelineProtectedAccessFeaturesBuilder {
@@ -43465,7 +43465,7 @@ pub struct QueueFamilyVideoPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyVideoPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyVideoPropertiesKHRBuilder<'a> {
         QueueFamilyVideoPropertiesKHRBuilder {
@@ -43503,7 +43503,7 @@ pub struct QueueFamilyQueryResultStatusPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyQueryResultStatusPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyQueryResultStatusPropertiesKHRBuilder<'a> {
         QueueFamilyQueryResultStatusPropertiesKHRBuilder {
@@ -43541,7 +43541,7 @@ pub struct VideoProfileListInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoProfileListInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoProfileListInfoKHRBuilder<'a> {
         VideoProfileListInfoKHRBuilder {
@@ -43595,7 +43595,7 @@ pub struct PhysicalDeviceVideoFormatInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoFormatInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoFormatInfoKHRBuilder<'a> {
         PhysicalDeviceVideoFormatInfoKHRBuilder {
@@ -43648,7 +43648,7 @@ pub struct VideoFormatPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoFormatPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoFormatPropertiesKHRBuilder<'a> {
         VideoFormatPropertiesKHRBuilder {
@@ -43711,7 +43711,7 @@ pub struct VideoEncodeQuantizationMapCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeQuantizationMapCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeQuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeQuantizationMapCapabilitiesKHRBuilder {
@@ -43749,7 +43749,7 @@ pub struct VideoEncodeH264QuantizationMapCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264QuantizationMapCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264QuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeH264QuantizationMapCapabilitiesKHRBuilder {
@@ -43793,7 +43793,7 @@ pub struct VideoEncodeH265QuantizationMapCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265QuantizationMapCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265QuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeH265QuantizationMapCapabilitiesKHRBuilder {
@@ -43837,7 +43837,7 @@ pub struct VideoEncodeAV1QuantizationMapCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1QuantizationMapCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1QuantizationMapCapabilitiesKHRBuilder<'a> {
         VideoEncodeAV1QuantizationMapCapabilitiesKHRBuilder {
@@ -43881,7 +43881,7 @@ pub struct VideoFormatQuantizationMapPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoFormatQuantizationMapPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoFormatQuantizationMapPropertiesKHRBuilder<'a> {
         VideoFormatQuantizationMapPropertiesKHRBuilder {
@@ -43919,7 +43919,7 @@ pub struct VideoFormatH265QuantizationMapPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoFormatH265QuantizationMapPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoFormatH265QuantizationMapPropertiesKHRBuilder<'a> {
         VideoFormatH265QuantizationMapPropertiesKHRBuilder {
@@ -43960,7 +43960,7 @@ pub struct VideoFormatAV1QuantizationMapPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoFormatAV1QuantizationMapPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoFormatAV1QuantizationMapPropertiesKHRBuilder<'a> {
         VideoFormatAV1QuantizationMapPropertiesKHRBuilder {
@@ -44001,7 +44001,7 @@ pub struct VideoProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoProfileInfoKHRBuilder<'a> {
         VideoProfileInfoKHRBuilder {
@@ -44069,7 +44069,7 @@ pub struct VideoCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoCapabilitiesKHRBuilder<'a> {
         VideoCapabilitiesKHRBuilder {
@@ -44147,7 +44147,7 @@ pub struct VideoSessionMemoryRequirementsKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoSessionMemoryRequirementsKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoSessionMemoryRequirementsKHRBuilder<'a> {
         VideoSessionMemoryRequirementsKHRBuilder {
@@ -44190,7 +44190,7 @@ pub struct BindVideoSessionMemoryInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindVideoSessionMemoryInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindVideoSessionMemoryInfoKHRBuilder<'a> {
         BindVideoSessionMemoryInfoKHRBuilder {
@@ -44258,7 +44258,7 @@ pub struct VideoPictureResourceInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoPictureResourceInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoPictureResourceInfoKHRBuilder<'a> {
         VideoPictureResourceInfoKHRBuilder {
@@ -44326,7 +44326,7 @@ pub struct VideoReferenceSlotInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoReferenceSlotInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoReferenceSlotInfoKHRBuilder<'a> {
         VideoReferenceSlotInfoKHRBuilder {
@@ -44384,7 +44384,7 @@ pub struct VideoDecodeCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeCapabilitiesKHRBuilder<'a> {
         VideoDecodeCapabilitiesKHRBuilder {
@@ -44422,7 +44422,7 @@ pub struct VideoDecodeUsageInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeUsageInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeUsageInfoKHRBuilder<'a> {
         VideoDecodeUsageInfoKHRBuilder {
@@ -44475,7 +44475,7 @@ pub struct VideoDecodeInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeInfoKHRBuilder<'a> {
         VideoDecodeInfoKHRBuilder {
@@ -44559,7 +44559,7 @@ pub struct PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoMaintenance1FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoMaintenance1FeaturesKHRBuilder {
@@ -44612,7 +44612,7 @@ pub struct PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoMaintenance2FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoMaintenance2FeaturesKHRBuilder {
@@ -44665,7 +44665,7 @@ pub struct VideoInlineQueryInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoInlineQueryInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoInlineQueryInfoKHRBuilder<'a> {
         VideoInlineQueryInfoKHRBuilder {
@@ -44728,7 +44728,7 @@ pub struct VideoDecodeH264ProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH264ProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH264ProfileInfoKHRBuilder<'a> {
         VideoDecodeH264ProfileInfoKHRBuilder {
@@ -44789,7 +44789,7 @@ pub struct VideoDecodeH264CapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH264CapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH264CapabilitiesKHRBuilder<'a> {
         VideoDecodeH264CapabilitiesKHRBuilder {
@@ -44832,7 +44832,7 @@ pub struct VideoDecodeH264SessionParametersAddInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH264SessionParametersAddInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH264SessionParametersAddInfoKHRBuilder<'a> {
         VideoDecodeH264SessionParametersAddInfoKHRBuilder {
@@ -44892,7 +44892,7 @@ pub struct VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH264SessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         VideoDecodeH264SessionParametersCreateInfoKHRBuilder {
@@ -44959,7 +44959,7 @@ pub struct VideoDecodeH264InlineSessionParametersInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH264InlineSessionParametersInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH264InlineSessionParametersInfoKHRBuilder<'a> {
         VideoDecodeH264InlineSessionParametersInfoKHRBuilder {
@@ -45018,7 +45018,7 @@ pub struct VideoDecodeH264PictureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH264PictureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH264PictureInfoKHRBuilder<'a> {
         VideoDecodeH264PictureInfoKHRBuilder {
@@ -45080,7 +45080,7 @@ pub struct VideoDecodeH264DpbSlotInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH264DpbSlotInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH264DpbSlotInfoKHRBuilder<'a> {
         VideoDecodeH264DpbSlotInfoKHRBuilder {
@@ -45136,7 +45136,7 @@ pub struct VideoDecodeH265ProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH265ProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH265ProfileInfoKHRBuilder<'a> {
         VideoDecodeH265ProfileInfoKHRBuilder {
@@ -45189,7 +45189,7 @@ pub struct VideoDecodeH265CapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH265CapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH265CapabilitiesKHRBuilder<'a> {
         VideoDecodeH265CapabilitiesKHRBuilder {
@@ -45227,7 +45227,7 @@ pub struct VideoDecodeH265SessionParametersAddInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH265SessionParametersAddInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH265SessionParametersAddInfoKHRBuilder<'a> {
         VideoDecodeH265SessionParametersAddInfoKHRBuilder {
@@ -45293,7 +45293,7 @@ pub struct VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH265SessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         VideoDecodeH265SessionParametersCreateInfoKHRBuilder {
@@ -45365,7 +45365,7 @@ pub struct VideoDecodeH265InlineSessionParametersInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH265InlineSessionParametersInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH265InlineSessionParametersInfoKHRBuilder<'a> {
         VideoDecodeH265InlineSessionParametersInfoKHRBuilder {
@@ -45429,7 +45429,7 @@ pub struct VideoDecodeH265PictureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH265PictureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH265PictureInfoKHRBuilder<'a> {
         VideoDecodeH265PictureInfoKHRBuilder {
@@ -45491,7 +45491,7 @@ pub struct VideoDecodeH265DpbSlotInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeH265DpbSlotInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeH265DpbSlotInfoKHRBuilder<'a> {
         VideoDecodeH265DpbSlotInfoKHRBuilder {
@@ -45547,7 +45547,7 @@ pub struct PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoDecodeVP9FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoDecodeVP9FeaturesKHRBuilder {
@@ -45600,7 +45600,7 @@ pub struct VideoDecodeVP9ProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeVP9ProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeVP9ProfileInfoKHRBuilder<'a> {
         VideoDecodeVP9ProfileInfoKHRBuilder {
@@ -45653,7 +45653,7 @@ pub struct VideoDecodeVP9CapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeVP9CapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeVP9CapabilitiesKHRBuilder<'a> {
         VideoDecodeVP9CapabilitiesKHRBuilder {
@@ -45691,7 +45691,7 @@ pub struct VideoDecodeVP9PictureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeVP9PictureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeVP9PictureInfoKHRBuilder<'a> {
         VideoDecodeVP9PictureInfoKHRBuilder {
@@ -45770,7 +45770,7 @@ pub struct VideoDecodeAV1ProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeAV1ProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeAV1ProfileInfoKHRBuilder<'a> {
         VideoDecodeAV1ProfileInfoKHRBuilder {
@@ -45828,7 +45828,7 @@ pub struct VideoDecodeAV1CapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeAV1CapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeAV1CapabilitiesKHRBuilder<'a> {
         VideoDecodeAV1CapabilitiesKHRBuilder {
@@ -45866,7 +45866,7 @@ pub struct VideoDecodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeAV1SessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         VideoDecodeAV1SessionParametersCreateInfoKHRBuilder {
@@ -45923,7 +45923,7 @@ pub struct VideoDecodeAV1InlineSessionParametersInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeAV1InlineSessionParametersInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeAV1InlineSessionParametersInfoKHRBuilder<'a> {
         VideoDecodeAV1InlineSessionParametersInfoKHRBuilder {
@@ -45980,7 +45980,7 @@ pub struct VideoDecodeAV1PictureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeAV1PictureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeAV1PictureInfoKHRBuilder<'a> {
         VideoDecodeAV1PictureInfoKHRBuilder {
@@ -46061,7 +46061,7 @@ pub struct VideoDecodeAV1DpbSlotInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoDecodeAV1DpbSlotInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoDecodeAV1DpbSlotInfoKHRBuilder<'a> {
         VideoDecodeAV1DpbSlotInfoKHRBuilder {
@@ -46117,7 +46117,7 @@ pub struct VideoSessionCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoSessionCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoSessionCreateInfoKHRBuilder<'a> {
         VideoSessionCreateInfoKHRBuilder {
@@ -46210,7 +46210,7 @@ pub struct VideoSessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoSessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoSessionParametersCreateInfoKHRBuilder<'a> {
         VideoSessionParametersCreateInfoKHRBuilder {
@@ -46276,7 +46276,7 @@ pub struct VideoSessionParametersUpdateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoSessionParametersUpdateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoSessionParametersUpdateInfoKHRBuilder<'a> {
         VideoSessionParametersUpdateInfoKHRBuilder {
@@ -46329,7 +46329,7 @@ pub struct VideoEncodeSessionParametersGetInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeSessionParametersGetInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeSessionParametersGetInfoKHRBuilder<'a> {
         VideoEncodeSessionParametersGetInfoKHRBuilder {
@@ -46382,7 +46382,7 @@ pub struct VideoEncodeSessionParametersFeedbackInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeSessionParametersFeedbackInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeSessionParametersFeedbackInfoKHRBuilder<'a> {
         VideoEncodeSessionParametersFeedbackInfoKHRBuilder {
@@ -46420,7 +46420,7 @@ pub struct VideoBeginCodingInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoBeginCodingInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoBeginCodingInfoKHRBuilder<'a> {
         VideoBeginCodingInfoKHRBuilder {
@@ -46489,7 +46489,7 @@ pub struct VideoEndCodingInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEndCodingInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEndCodingInfoKHRBuilder<'a> {
         VideoEndCodingInfoKHRBuilder {
@@ -46542,7 +46542,7 @@ pub struct VideoCodingControlInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoCodingControlInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoCodingControlInfoKHRBuilder<'a> {
         VideoCodingControlInfoKHRBuilder {
@@ -46595,7 +46595,7 @@ pub struct VideoEncodeUsageInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeUsageInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeUsageInfoKHRBuilder<'a> {
         VideoEncodeUsageInfoKHRBuilder {
@@ -46658,7 +46658,7 @@ pub struct VideoEncodeInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeInfoKHRBuilder<'a> {
         VideoEncodeInfoKHRBuilder {
@@ -46747,7 +46747,7 @@ pub struct VideoEncodeQuantizationMapInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeQuantizationMapInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeQuantizationMapInfoKHRBuilder<'a> {
         VideoEncodeQuantizationMapInfoKHRBuilder {
@@ -46805,7 +46805,7 @@ pub struct VideoEncodeQuantizationMapSessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeQuantizationMapSessionParametersCreateInfoKHRBuilder<
         'a,
@@ -46862,7 +46862,7 @@ pub struct PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHRBuilder<
         'a,
@@ -46919,7 +46919,7 @@ pub struct QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueryPoolVideoEncodeFeedbackCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilder<'a> {
         QueryPoolVideoEncodeFeedbackCreateInfoKHRBuilder {
@@ -46972,7 +46972,7 @@ pub struct VideoEncodeQualityLevelInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeQualityLevelInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeQualityLevelInfoKHRBuilder<'a> {
         VideoEncodeQualityLevelInfoKHRBuilder {
@@ -47025,7 +47025,7 @@ pub struct PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
         PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder {
@@ -47084,7 +47084,7 @@ pub struct VideoEncodeQualityLevelPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeQualityLevelPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeQualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeQualityLevelPropertiesKHRBuilder {
@@ -47130,7 +47130,7 @@ pub struct VideoEncodeRateControlInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeRateControlInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeRateControlInfoKHRBuilder<'a> {
         VideoEncodeRateControlInfoKHRBuilder {
@@ -47207,7 +47207,7 @@ pub struct VideoEncodeRateControlLayerInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeRateControlLayerInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeRateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeRateControlLayerInfoKHRBuilder {
@@ -47275,7 +47275,7 @@ pub struct VideoEncodeCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeCapabilitiesKHRBuilder<'a> {
         VideoEncodeCapabilitiesKHRBuilder {
@@ -47349,7 +47349,7 @@ pub struct VideoEncodeH264CapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264CapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264CapabilitiesKHRBuilder<'a> {
         VideoEncodeH264CapabilitiesKHRBuilder {
@@ -47447,7 +47447,7 @@ pub struct VideoEncodeH264QualityLevelPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264QualityLevelPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264QualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeH264QualityLevelPropertiesKHRBuilder {
@@ -47528,7 +47528,7 @@ pub struct VideoEncodeH264SessionCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264SessionCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264SessionCreateInfoKHRBuilder<'a> {
         VideoEncodeH264SessionCreateInfoKHRBuilder {
@@ -47586,7 +47586,7 @@ pub struct VideoEncodeH264SessionParametersAddInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264SessionParametersAddInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersAddInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersAddInfoKHRBuilder {
@@ -47646,7 +47646,7 @@ pub struct VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264SessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersCreateInfoKHRBuilder {
@@ -47713,7 +47713,7 @@ pub struct VideoEncodeH264SessionParametersGetInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264SessionParametersGetInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersGetInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersGetInfoKHRBuilder {
@@ -47781,7 +47781,7 @@ pub struct VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264SessionParametersFeedbackInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder<'a> {
         VideoEncodeH264SessionParametersFeedbackInfoKHRBuilder {
@@ -47826,7 +47826,7 @@ pub struct VideoEncodeH264DpbSlotInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264DpbSlotInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264DpbSlotInfoKHRBuilder<'a> {
         VideoEncodeH264DpbSlotInfoKHRBuilder {
@@ -47882,7 +47882,7 @@ pub struct VideoEncodeH264PictureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264PictureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264PictureInfoKHRBuilder<'a> {
         VideoEncodeH264PictureInfoKHRBuilder {
@@ -47952,7 +47952,7 @@ pub struct VideoEncodeH264ProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264ProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264ProfileInfoKHRBuilder<'a> {
         VideoEncodeH264ProfileInfoKHRBuilder {
@@ -48005,7 +48005,7 @@ pub struct VideoEncodeH264NaluSliceInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264NaluSliceInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264NaluSliceInfoKHRBuilder<'a> {
         VideoEncodeH264NaluSliceInfoKHRBuilder {
@@ -48066,7 +48066,7 @@ pub struct VideoEncodeH264RateControlInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264RateControlInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264RateControlInfoKHRBuilder<'a> {
         VideoEncodeH264RateControlInfoKHRBuilder {
@@ -48139,7 +48139,7 @@ pub struct VideoEncodeH264GopRemainingFrameInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264GopRemainingFrameInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264GopRemainingFrameInfoKHRBuilder<'a> {
         VideoEncodeH264GopRemainingFrameInfoKHRBuilder {
@@ -48207,7 +48207,7 @@ pub struct VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH264RateControlLayerInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH264RateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeH264RateControlLayerInfoKHRBuilder {
@@ -48285,7 +48285,7 @@ pub struct VideoEncodeH265CapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265CapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265CapabilitiesKHRBuilder<'a> {
         VideoEncodeH265CapabilitiesKHRBuilder {
@@ -48401,7 +48401,7 @@ pub struct VideoEncodeH265QualityLevelPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265QualityLevelPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265QualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeH265QualityLevelPropertiesKHRBuilder {
@@ -48477,7 +48477,7 @@ pub struct VideoEncodeH265SessionCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265SessionCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265SessionCreateInfoKHRBuilder<'a> {
         VideoEncodeH265SessionCreateInfoKHRBuilder {
@@ -48535,7 +48535,7 @@ pub struct VideoEncodeH265SessionParametersAddInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265SessionParametersAddInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersAddInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersAddInfoKHRBuilder {
@@ -48601,7 +48601,7 @@ pub struct VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265SessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersCreateInfoKHRBuilder {
@@ -48673,7 +48673,7 @@ pub struct VideoEncodeH265SessionParametersGetInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265SessionParametersGetInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersGetInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersGetInfoKHRBuilder {
@@ -48751,7 +48751,7 @@ pub struct VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265SessionParametersFeedbackInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder<'a> {
         VideoEncodeH265SessionParametersFeedbackInfoKHRBuilder {
@@ -48801,7 +48801,7 @@ pub struct VideoEncodeH265PictureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265PictureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265PictureInfoKHRBuilder<'a> {
         VideoEncodeH265PictureInfoKHRBuilder {
@@ -48866,7 +48866,7 @@ pub struct VideoEncodeH265NaluSliceSegmentInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265NaluSliceSegmentInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265NaluSliceSegmentInfoKHRBuilder<'a> {
         VideoEncodeH265NaluSliceSegmentInfoKHRBuilder {
@@ -48927,7 +48927,7 @@ pub struct VideoEncodeH265RateControlInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265RateControlInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265RateControlInfoKHRBuilder<'a> {
         VideoEncodeH265RateControlInfoKHRBuilder {
@@ -49000,7 +49000,7 @@ pub struct VideoEncodeH265GopRemainingFrameInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265GopRemainingFrameInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265GopRemainingFrameInfoKHRBuilder<'a> {
         VideoEncodeH265GopRemainingFrameInfoKHRBuilder {
@@ -49068,7 +49068,7 @@ pub struct VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265RateControlLayerInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265RateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeH265RateControlLayerInfoKHRBuilder {
@@ -49146,7 +49146,7 @@ pub struct VideoEncodeH265ProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265ProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265ProfileInfoKHRBuilder<'a> {
         VideoEncodeH265ProfileInfoKHRBuilder {
@@ -49199,7 +49199,7 @@ pub struct VideoEncodeH265DpbSlotInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeH265DpbSlotInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeH265DpbSlotInfoKHRBuilder<'a> {
         VideoEncodeH265DpbSlotInfoKHRBuilder {
@@ -49255,7 +49255,7 @@ pub struct VideoEncodeAV1CapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1CapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1CapabilitiesKHRBuilder<'a> {
         VideoEncodeAV1CapabilitiesKHRBuilder {
@@ -49420,7 +49420,7 @@ pub struct VideoEncodeAV1QualityLevelPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1QualityLevelPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1QualityLevelPropertiesKHRBuilder<'a> {
         VideoEncodeAV1QualityLevelPropertiesKHRBuilder {
@@ -49552,7 +49552,7 @@ pub struct PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoEncodeAV1FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoEncodeAV1FeaturesKHRBuilder {
@@ -49605,7 +49605,7 @@ pub struct VideoEncodeAV1SessionCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1SessionCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1SessionCreateInfoKHRBuilder<'a> {
         VideoEncodeAV1SessionCreateInfoKHRBuilder {
@@ -49663,7 +49663,7 @@ pub struct VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1SessionParametersCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         VideoEncodeAV1SessionParametersCreateInfoKHRBuilder {
@@ -49737,7 +49737,7 @@ pub struct VideoEncodeAV1DpbSlotInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1DpbSlotInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1DpbSlotInfoKHRBuilder<'a> {
         VideoEncodeAV1DpbSlotInfoKHRBuilder {
@@ -49793,7 +49793,7 @@ pub struct VideoEncodeAV1PictureInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1PictureInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1PictureInfoKHRBuilder<'a> {
         VideoEncodeAV1PictureInfoKHRBuilder {
@@ -49885,7 +49885,7 @@ pub struct VideoEncodeAV1ProfileInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1ProfileInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1ProfileInfoKHRBuilder<'a> {
         VideoEncodeAV1ProfileInfoKHRBuilder {
@@ -49938,7 +49938,7 @@ pub struct VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1RateControlInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
         VideoEncodeAV1RateControlInfoKHRBuilder {
@@ -50011,7 +50011,7 @@ pub struct VideoEncodeAV1GopRemainingFrameInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1GopRemainingFrameInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1GopRemainingFrameInfoKHRBuilder<'a> {
         VideoEncodeAV1GopRemainingFrameInfoKHRBuilder {
@@ -50079,7 +50079,7 @@ pub struct VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeAV1RateControlLayerInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeAV1RateControlLayerInfoKHRBuilder<'a> {
         VideoEncodeAV1RateControlLayerInfoKHRBuilder {
@@ -50157,7 +50157,7 @@ pub struct PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceInheritedViewportScissorFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder<'a> {
         PhysicalDeviceInheritedViewportScissorFeaturesNVBuilder {
@@ -50212,7 +50212,7 @@ pub struct CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferInheritanceViewportScissorInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
         CommandBufferInheritanceViewportScissorInfoNVBuilder {
@@ -50276,7 +50276,7 @@ pub struct PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder<'a> {
         PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXTBuilder {
@@ -50330,7 +50330,7 @@ pub struct PhysicalDeviceProvokingVertexFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceProvokingVertexFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceProvokingVertexFeaturesEXTBuilder<'a> {
         PhysicalDeviceProvokingVertexFeaturesEXTBuilder {
@@ -50388,7 +50388,7 @@ pub struct PhysicalDeviceProvokingVertexPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceProvokingVertexPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceProvokingVertexPropertiesEXTBuilder<'a> {
         PhysicalDeviceProvokingVertexPropertiesEXTBuilder {
@@ -50435,7 +50435,7 @@ pub struct PipelineRasterizationProvokingVertexStateCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRasterizationProvokingVertexStateCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRasterizationProvokingVertexStateCreateInfoEXTBuilder<
         'a,
@@ -50492,7 +50492,7 @@ pub struct VideoEncodeIntraRefreshCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeIntraRefreshCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeIntraRefreshCapabilitiesKHRBuilder<'a> {
         VideoEncodeIntraRefreshCapabilitiesKHRBuilder {
@@ -50553,7 +50553,7 @@ pub struct VideoEncodeSessionIntraRefreshCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeSessionIntraRefreshCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeSessionIntraRefreshCreateInfoKHRBuilder<'a> {
         VideoEncodeSessionIntraRefreshCreateInfoKHRBuilder {
@@ -50609,7 +50609,7 @@ pub struct VideoEncodeIntraRefreshInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeIntraRefreshInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeIntraRefreshInfoKHRBuilder<'a> {
         VideoEncodeIntraRefreshInfoKHRBuilder {
@@ -50667,7 +50667,7 @@ pub struct VideoReferenceIntraRefreshInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoReferenceIntraRefreshInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoReferenceIntraRefreshInfoKHRBuilder<'a> {
         VideoReferenceIntraRefreshInfoKHRBuilder {
@@ -50720,7 +50720,7 @@ pub struct PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder<'a> {
         PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHRBuilder {
@@ -50775,7 +50775,7 @@ pub struct CuModuleCreateInfoNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CuModuleCreateInfoNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CuModuleCreateInfoNVXBuilder<'a> {
         CuModuleCreateInfoNVXBuilder {
@@ -50829,7 +50829,7 @@ pub struct CuModuleTexturingModeCreateInfoNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CuModuleTexturingModeCreateInfoNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CuModuleTexturingModeCreateInfoNVXBuilder<'a> {
         CuModuleTexturingModeCreateInfoNVXBuilder {
@@ -50882,7 +50882,7 @@ pub struct CuFunctionCreateInfoNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CuFunctionCreateInfoNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CuFunctionCreateInfoNVXBuilder<'a> {
         CuFunctionCreateInfoNVXBuilder {
@@ -50940,7 +50940,7 @@ pub struct CuLaunchInfoNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CuLaunchInfoNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CuLaunchInfoNVXBuilder<'a> {
         CuLaunchInfoNVXBuilder {
@@ -51045,7 +51045,7 @@ pub struct PhysicalDeviceDescriptorBufferFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorBufferFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferFeaturesEXTBuilder<'a> {
         PhysicalDeviceDescriptorBufferFeaturesEXTBuilder {
@@ -51113,7 +51113,7 @@ pub struct PhysicalDeviceDescriptorBufferPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorBufferPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferPropertiesEXTBuilder<'a> {
         PhysicalDeviceDescriptorBufferPropertiesEXTBuilder {
@@ -51320,7 +51320,7 @@ pub struct PhysicalDeviceDescriptorBufferDensityMapPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferDensityMapPropertiesEXTBuilder<
         'a,
@@ -51365,7 +51365,7 @@ pub struct DescriptorAddressInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorAddressInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorAddressInfoEXTBuilder<'a> {
         DescriptorAddressInfoEXTBuilder {
@@ -51428,7 +51428,7 @@ pub struct DescriptorBufferBindingInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorBufferBindingInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorBufferBindingInfoEXTBuilder<'a> {
         DescriptorBufferBindingInfoEXTBuilder {
@@ -51486,7 +51486,7 @@ pub struct DescriptorBufferBindingPushDescriptorBufferHandleEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorBufferBindingPushDescriptorBufferHandleEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorBufferBindingPushDescriptorBufferHandleEXTBuilder<
         'a,
@@ -51543,7 +51543,7 @@ pub struct DescriptorGetInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorGetInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorGetInfoEXTBuilder<'a> {
         DescriptorGetInfoEXTBuilder {
@@ -51598,7 +51598,7 @@ pub struct BufferCaptureDescriptorDataInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCaptureDescriptorDataInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCaptureDescriptorDataInfoEXTBuilder<'a> {
         BufferCaptureDescriptorDataInfoEXTBuilder {
@@ -51651,7 +51651,7 @@ pub struct ImageCaptureDescriptorDataInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageCaptureDescriptorDataInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageCaptureDescriptorDataInfoEXTBuilder<'a> {
         ImageCaptureDescriptorDataInfoEXTBuilder {
@@ -51704,7 +51704,7 @@ pub struct ImageViewCaptureDescriptorDataInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewCaptureDescriptorDataInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewCaptureDescriptorDataInfoEXTBuilder<'a> {
         ImageViewCaptureDescriptorDataInfoEXTBuilder {
@@ -51757,7 +51757,7 @@ pub struct SamplerCaptureDescriptorDataInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerCaptureDescriptorDataInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerCaptureDescriptorDataInfoEXTBuilder<'a> {
         SamplerCaptureDescriptorDataInfoEXTBuilder {
@@ -51810,7 +51810,7 @@ pub struct AccelerationStructureCaptureDescriptorDataInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureCaptureDescriptorDataInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureCaptureDescriptorDataInfoEXTBuilder<
         'a,
@@ -51872,7 +51872,7 @@ pub struct OpaqueCaptureDescriptorDataCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OpaqueCaptureDescriptorDataCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OpaqueCaptureDescriptorDataCreateInfoEXTBuilder<'a> {
         OpaqueCaptureDescriptorDataCreateInfoEXTBuilder {
@@ -51928,7 +51928,7 @@ pub struct PhysicalDeviceShaderIntegerDotProductFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderIntegerDotProductFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderIntegerDotProductFeaturesBuilder<'a> {
         PhysicalDeviceShaderIntegerDotProductFeaturesBuilder {
@@ -51982,7 +51982,7 @@ pub struct PhysicalDeviceShaderIntegerDotProductPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderIntegerDotProductProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderIntegerDotProductPropertiesBuilder<'a> {
         PhysicalDeviceShaderIntegerDotProductPropertiesBuilder {
@@ -52286,7 +52286,7 @@ pub struct PhysicalDeviceDrmPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDrmPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDrmPropertiesEXTBuilder<'a> {
         PhysicalDeviceDrmPropertiesEXTBuilder {
@@ -52349,7 +52349,7 @@ pub struct PhysicalDeviceFragmentShaderBarycentricFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShaderBarycentricFeaturesKHRBuilder<
         'a,
@@ -52406,7 +52406,7 @@ pub struct PhysicalDeviceFragmentShaderBarycentricPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentShaderBarycentricPropertiesKHRBuilder<
         'a,
@@ -52451,7 +52451,7 @@ pub struct PhysicalDeviceShaderFmaFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderFmaFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderFmaFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderFmaFeaturesKHRBuilder {
@@ -52514,7 +52514,7 @@ pub struct PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingMotionBlurFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder<'a> {
         PhysicalDeviceRayTracingMotionBlurFeaturesNVBuilder {
@@ -52576,7 +52576,7 @@ pub struct PhysicalDeviceRayTracingValidationFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingValidationFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingValidationFeaturesNVBuilder<'a> {
         PhysicalDeviceRayTracingValidationFeaturesNVBuilder {
@@ -52630,7 +52630,7 @@ pub struct PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNVBuilder<
         'a,
@@ -52692,7 +52692,7 @@ pub struct AccelerationStructureGeometryMotionTrianglesDataNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureGeometryMotionTrianglesDataNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureGeometryMotionTrianglesDataNVBuilder<
         'a,
@@ -52749,7 +52749,7 @@ pub struct AccelerationStructureMotionInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureMotionInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureMotionInfoNVBuilder<'a> {
         AccelerationStructureMotionInfoNVBuilder {
@@ -52807,7 +52807,7 @@ pub struct MemoryGetRemoteAddressInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetRemoteAddressInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetRemoteAddressInfoNVBuilder<'a> {
         MemoryGetRemoteAddressInfoNVBuilder {
@@ -52865,7 +52865,7 @@ pub struct ImportMemoryBufferCollectionFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMemoryBufferCollectionFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMemoryBufferCollectionFUCHSIABuilder<'a> {
         ImportMemoryBufferCollectionFUCHSIABuilder {
@@ -52923,7 +52923,7 @@ pub struct BufferCollectionImageCreateInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCollectionImageCreateInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCollectionImageCreateInfoFUCHSIABuilder<'a> {
         BufferCollectionImageCreateInfoFUCHSIABuilder {
@@ -52981,7 +52981,7 @@ pub struct BufferCollectionBufferCreateInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCollectionBufferCreateInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCollectionBufferCreateInfoFUCHSIABuilder<'a> {
         BufferCollectionBufferCreateInfoFUCHSIABuilder {
@@ -53039,7 +53039,7 @@ pub struct BufferCollectionCreateInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCollectionCreateInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCollectionCreateInfoFUCHSIABuilder<'a> {
         BufferCollectionCreateInfoFUCHSIABuilder {
@@ -53092,7 +53092,7 @@ pub struct BufferCollectionPropertiesFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCollectionPropertiesFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCollectionPropertiesFUCHSIABuilder<'a> {
         BufferCollectionPropertiesFUCHSIABuilder {
@@ -53183,7 +53183,7 @@ pub struct BufferConstraintsInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferConstraintsInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferConstraintsInfoFUCHSIABuilder<'a> {
         BufferConstraintsInfoFUCHSIABuilder {
@@ -53249,7 +53249,7 @@ pub struct SysmemColorSpaceFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SysmemColorSpaceFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SysmemColorSpaceFUCHSIABuilder<'a> {
         SysmemColorSpaceFUCHSIABuilder {
@@ -53302,7 +53302,7 @@ pub struct ImageFormatConstraintsInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageFormatConstraintsInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageFormatConstraintsInfoFUCHSIABuilder<'a> {
         ImageFormatConstraintsInfoFUCHSIABuilder {
@@ -53376,7 +53376,7 @@ pub struct ImageConstraintsInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageConstraintsInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageConstraintsInfoFUCHSIABuilder<'a> {
         ImageConstraintsInfoFUCHSIABuilder {
@@ -53446,7 +53446,7 @@ pub struct BufferCollectionConstraintsInfoFUCHSIABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BufferCollectionConstraintsInfoFUCHSIA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BufferCollectionConstraintsInfoFUCHSIABuilder<'a> {
         BufferCollectionConstraintsInfoFUCHSIABuilder {
@@ -53519,7 +53519,7 @@ pub struct CudaModuleCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CudaModuleCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CudaModuleCreateInfoNVBuilder<'a> {
         CudaModuleCreateInfoNVBuilder {
@@ -53573,7 +53573,7 @@ pub struct CudaFunctionCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CudaFunctionCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CudaFunctionCreateInfoNVBuilder<'a> {
         CudaFunctionCreateInfoNVBuilder {
@@ -53631,7 +53631,7 @@ pub struct CudaLaunchInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CudaLaunchInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CudaLaunchInfoNVBuilder<'a> {
         CudaLaunchInfoNVBuilder {
@@ -53736,7 +53736,7 @@ pub struct PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder<'a> {
         PhysicalDeviceRGBA10X6FormatsFeaturesEXTBuilder {
@@ -53789,7 +53789,7 @@ pub struct FormatProperties3Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FormatProperties3 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FormatProperties3Builder<'a> {
         FormatProperties3Builder {
@@ -53837,7 +53837,7 @@ pub struct DrmFormatModifierPropertiesList2EXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DrmFormatModifierPropertiesList2EXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DrmFormatModifierPropertiesList2EXTBuilder<'a> {
         DrmFormatModifierPropertiesList2EXTBuilder {
@@ -53879,7 +53879,7 @@ pub struct AndroidHardwareBufferFormatProperties2ANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AndroidHardwareBufferFormatProperties2ANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AndroidHardwareBufferFormatProperties2ANDROIDBuilder<'a> {
         AndroidHardwareBufferFormatProperties2ANDROIDBuilder {
@@ -53956,7 +53956,7 @@ pub struct PipelineRenderingCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRenderingCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRenderingCreateInfoBuilder<'a> {
         PipelineRenderingCreateInfoBuilder {
@@ -54025,7 +54025,7 @@ pub struct RenderingInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingInfoBuilder<'a> {
         RenderingInfoBuilder {
@@ -54106,7 +54106,7 @@ pub struct RenderingEndInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingEndInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingEndInfoKHRBuilder<'a> {
         RenderingEndInfoKHRBuilder {
@@ -54151,7 +54151,7 @@ pub struct RenderingAttachmentInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingAttachmentInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingAttachmentInfoBuilder<'a> {
         RenderingAttachmentInfoBuilder {
@@ -54239,7 +54239,7 @@ pub struct RenderingFragmentShadingRateAttachmentInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingFragmentShadingRateAttachmentInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingFragmentShadingRateAttachmentInfoKHRBuilder<'a> {
         RenderingFragmentShadingRateAttachmentInfoKHRBuilder {
@@ -54303,7 +54303,7 @@ pub struct RenderingFragmentDensityMapAttachmentInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingFragmentDensityMapAttachmentInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingFragmentDensityMapAttachmentInfoEXTBuilder<'a> {
         RenderingFragmentDensityMapAttachmentInfoEXTBuilder {
@@ -54362,7 +54362,7 @@ pub struct PhysicalDeviceDynamicRenderingFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDynamicRenderingFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDynamicRenderingFeaturesBuilder<'a> {
         PhysicalDeviceDynamicRenderingFeaturesBuilder {
@@ -54415,7 +54415,7 @@ pub struct CommandBufferInheritanceRenderingInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferInheritanceRenderingInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferInheritanceRenderingInfoBuilder<'a> {
         CommandBufferInheritanceRenderingInfoBuilder {
@@ -54494,7 +54494,7 @@ pub struct AttachmentSampleCountInfoAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AttachmentSampleCountInfoAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AttachmentSampleCountInfoAMDBuilder<'a> {
         AttachmentSampleCountInfoAMDBuilder {
@@ -54556,7 +54556,7 @@ pub struct MultiviewPerViewAttributesInfoNVXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MultiviewPerViewAttributesInfoNVX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MultiviewPerViewAttributesInfoNVXBuilder<'a> {
         MultiviewPerViewAttributesInfoNVXBuilder {
@@ -54614,7 +54614,7 @@ pub struct PhysicalDeviceImageViewMinLodFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageViewMinLodFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageViewMinLodFeaturesEXTBuilder<'a> {
         PhysicalDeviceImageViewMinLodFeaturesEXTBuilder {
@@ -54667,7 +54667,7 @@ pub struct ImageViewMinLodCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewMinLodCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewMinLodCreateInfoEXTBuilder<'a> {
         ImageViewMinLodCreateInfoEXTBuilder {
@@ -54720,7 +54720,7 @@ pub struct PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTBuilder<'a
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTBuilder<
         'a,
@@ -54786,7 +54786,7 @@ pub struct PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLinearColorAttachmentFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder<'a> {
         PhysicalDeviceLinearColorAttachmentFeaturesNVBuilder {
@@ -54840,7 +54840,7 @@ pub struct PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder<'a> {
         PhysicalDeviceGraphicsPipelineLibraryFeaturesEXTBuilder {
@@ -54895,7 +54895,7 @@ pub struct PhysicalDevicePipelineBinaryFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineBinaryFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineBinaryFeaturesKHRBuilder<'a> {
         PhysicalDevicePipelineBinaryFeaturesKHRBuilder {
@@ -54948,7 +54948,7 @@ pub struct DevicePipelineBinaryInternalCacheControlKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DevicePipelineBinaryInternalCacheControlKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DevicePipelineBinaryInternalCacheControlKHRBuilder<'a> {
         DevicePipelineBinaryInternalCacheControlKHRBuilder {
@@ -55001,7 +55001,7 @@ pub struct PhysicalDevicePipelineBinaryPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineBinaryPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineBinaryPropertiesKHRBuilder<'a> {
         PhysicalDevicePipelineBinaryPropertiesKHRBuilder {
@@ -55059,7 +55059,7 @@ pub struct PhysicalDeviceGraphicsPipelineLibraryPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceGraphicsPipelineLibraryPropertiesEXTBuilder<
         'a,
@@ -55110,7 +55110,7 @@ pub struct GraphicsPipelineLibraryCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GraphicsPipelineLibraryCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GraphicsPipelineLibraryCreateInfoEXTBuilder<'a> {
         GraphicsPipelineLibraryCreateInfoEXTBuilder {
@@ -55163,7 +55163,7 @@ pub struct PhysicalDeviceDescriptorSetHostMappingFeaturesVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorSetHostMappingFeaturesVALVEBuilder<
         'a,
@@ -55220,7 +55220,7 @@ pub struct DescriptorSetBindingReferenceVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetBindingReferenceVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetBindingReferenceVALVEBuilder<'a> {
         DescriptorSetBindingReferenceVALVEBuilder {
@@ -55278,7 +55278,7 @@ pub struct DescriptorSetLayoutHostMappingInfoVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetLayoutHostMappingInfoVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetLayoutHostMappingInfoVALVEBuilder<'a> {
         DescriptorSetLayoutHostMappingInfoVALVEBuilder {
@@ -55336,7 +55336,7 @@ pub struct PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceNestedCommandBufferFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder<'a> {
         PhysicalDeviceNestedCommandBufferFeaturesEXTBuilder {
@@ -55400,7 +55400,7 @@ pub struct PhysicalDeviceNestedCommandBufferPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceNestedCommandBufferPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceNestedCommandBufferPropertiesEXTBuilder<'a> {
         PhysicalDeviceNestedCommandBufferPropertiesEXTBuilder {
@@ -55439,7 +55439,7 @@ pub struct PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderModuleIdentifierFeaturesEXTBuilder {
@@ -55494,7 +55494,7 @@ pub struct PhysicalDeviceShaderModuleIdentifierPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderModuleIdentifierPropertiesEXTBuilder<
         'a,
@@ -55539,7 +55539,7 @@ pub struct PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineShaderStageModuleIdentifierCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder<'a> {
         PipelineShaderStageModuleIdentifierCreateInfoEXTBuilder {
@@ -55595,7 +55595,7 @@ pub struct ShaderModuleIdentifierEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ShaderModuleIdentifierEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ShaderModuleIdentifierEXTBuilder<'a> {
         ShaderModuleIdentifierEXTBuilder {
@@ -55641,7 +55641,7 @@ pub struct ImageCompressionControlEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageCompressionControlEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageCompressionControlEXTBuilder<'a> {
         ImageCompressionControlEXTBuilder {
@@ -55703,7 +55703,7 @@ pub struct PhysicalDeviceImageCompressionControlFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageCompressionControlFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageCompressionControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceImageCompressionControlFeaturesEXTBuilder {
@@ -55758,7 +55758,7 @@ pub struct ImageCompressionPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageCompressionPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageCompressionPropertiesEXTBuilder<'a> {
         ImageCompressionPropertiesEXTBuilder {
@@ -55804,7 +55804,7 @@ pub struct PhysicalDeviceImageCompressionControlSwapchainFeaturesEXTBuilder<'a> 
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageCompressionControlSwapchainFeaturesEXTBuilder<
         'a,
@@ -55860,7 +55860,7 @@ pub struct ImageSubresource2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageSubresource2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageSubresource2Builder<'a> {
         ImageSubresource2Builder {
@@ -55910,7 +55910,7 @@ pub struct SubresourceLayout2Builder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubresourceLayout2 {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubresourceLayout2Builder<'a> {
         SubresourceLayout2Builder {
@@ -55948,7 +55948,7 @@ pub struct RenderPassCreationControlEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassCreationControlEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassCreationControlEXTBuilder<'a> {
         RenderPassCreationControlEXTBuilder {
@@ -56001,7 +56001,7 @@ pub struct RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassCreationFeedbackCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
         RenderPassCreationFeedbackCreateInfoEXTBuilder {
@@ -56057,7 +56057,7 @@ pub struct RenderPassSubpassFeedbackCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassSubpassFeedbackCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassSubpassFeedbackCreateInfoEXTBuilder<'a> {
         RenderPassSubpassFeedbackCreateInfoEXTBuilder {
@@ -56113,7 +56113,7 @@ pub struct PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder<'a> {
         PhysicalDeviceSubpassMergeFeedbackFeaturesEXTBuilder {
@@ -56167,7 +56167,7 @@ pub struct MicromapBuildInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MicromapBuildInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MicromapBuildInfoEXTBuilder<'a> {
         MicromapBuildInfoEXTBuilder {
@@ -56263,7 +56263,7 @@ pub struct MicromapCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MicromapCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MicromapCreateInfoEXTBuilder<'a> {
         MicromapCreateInfoEXTBuilder {
@@ -56341,7 +56341,7 @@ pub struct MicromapVersionInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MicromapVersionInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MicromapVersionInfoEXTBuilder<'a> {
         MicromapVersionInfoEXTBuilder {
@@ -56394,7 +56394,7 @@ pub struct CopyMicromapInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyMicromapInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyMicromapInfoEXTBuilder<'a> {
         CopyMicromapInfoEXTBuilder {
@@ -56454,7 +56454,7 @@ pub struct CopyMicromapToMemoryInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyMicromapToMemoryInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyMicromapToMemoryInfoEXTBuilder<'a> {
         CopyMicromapToMemoryInfoEXTBuilder {
@@ -56517,7 +56517,7 @@ pub struct CopyMemoryToMicromapInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyMemoryToMicromapInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyMemoryToMicromapInfoEXTBuilder<'a> {
         CopyMemoryToMicromapInfoEXTBuilder {
@@ -56580,7 +56580,7 @@ pub struct MicromapBuildSizesInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MicromapBuildSizesInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MicromapBuildSizesInfoEXTBuilder<'a> {
         MicromapBuildSizesInfoEXTBuilder {
@@ -56643,7 +56643,7 @@ pub struct PhysicalDeviceOpacityMicromapFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceOpacityMicromapFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceOpacityMicromapFeaturesEXTBuilder<'a> {
         PhysicalDeviceOpacityMicromapFeaturesEXTBuilder {
@@ -56706,7 +56706,7 @@ pub struct PhysicalDeviceOpacityMicromapPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceOpacityMicromapPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceOpacityMicromapPropertiesEXTBuilder<'a> {
         PhysicalDeviceOpacityMicromapPropertiesEXTBuilder {
@@ -56749,7 +56749,7 @@ pub struct AccelerationStructureTrianglesOpacityMicromapEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureTrianglesOpacityMicromapEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureTrianglesOpacityMicromapEXTBuilder<'a> {
         AccelerationStructureTrianglesOpacityMicromapEXTBuilder {
@@ -56835,7 +56835,7 @@ pub struct PhysicalDeviceDisplacementMicromapFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDisplacementMicromapFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDisplacementMicromapFeaturesNVBuilder<'a> {
         PhysicalDeviceDisplacementMicromapFeaturesNVBuilder {
@@ -56889,7 +56889,7 @@ pub struct PhysicalDeviceDisplacementMicromapPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDisplacementMicromapPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDisplacementMicromapPropertiesNVBuilder<'a> {
         PhysicalDeviceDisplacementMicromapPropertiesNVBuilder {
@@ -56928,7 +56928,7 @@ pub struct AccelerationStructureTrianglesDisplacementMicromapNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureTrianglesDisplacementMicromapNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureTrianglesDisplacementMicromapNVBuilder<
         'a,
@@ -57065,7 +57065,7 @@ pub struct PipelinePropertiesIdentifierEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelinePropertiesIdentifierEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelinePropertiesIdentifierEXTBuilder<'a> {
         PipelinePropertiesIdentifierEXTBuilder {
@@ -57103,7 +57103,7 @@ pub struct PhysicalDevicePipelinePropertiesFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelinePropertiesFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelinePropertiesFeaturesEXTBuilder<'a> {
         PhysicalDevicePipelinePropertiesFeaturesEXTBuilder {
@@ -57156,7 +57156,7 @@ pub struct PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMDBuilder<
         'a,
@@ -57213,7 +57213,7 @@ pub struct ExternalMemoryAcquireUnmodifiedEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalMemoryAcquireUnmodifiedEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalMemoryAcquireUnmodifiedEXTBuilder<'a> {
         ExternalMemoryAcquireUnmodifiedEXTBuilder {
@@ -57266,7 +57266,7 @@ pub struct ExportMetalObjectCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalObjectCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalObjectCreateInfoEXTBuilder<'a> {
         ExportMetalObjectCreateInfoEXTBuilder {
@@ -57322,7 +57322,7 @@ pub struct ExportMetalObjectsInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalObjectsInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalObjectsInfoEXTBuilder<'a> {
         ExportMetalObjectsInfoEXTBuilder {
@@ -57370,7 +57370,7 @@ pub struct ExportMetalDeviceInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalDeviceInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalDeviceInfoEXTBuilder<'a> {
         ExportMetalDeviceInfoEXTBuilder {
@@ -57423,7 +57423,7 @@ pub struct ExportMetalCommandQueueInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalCommandQueueInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalCommandQueueInfoEXTBuilder<'a> {
         ExportMetalCommandQueueInfoEXTBuilder {
@@ -57481,7 +57481,7 @@ pub struct ExportMetalBufferInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalBufferInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalBufferInfoEXTBuilder<'a> {
         ExportMetalBufferInfoEXTBuilder {
@@ -57539,7 +57539,7 @@ pub struct ImportMetalBufferInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMetalBufferInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMetalBufferInfoEXTBuilder<'a> {
         ImportMetalBufferInfoEXTBuilder {
@@ -57592,7 +57592,7 @@ pub struct ExportMetalTextureInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalTextureInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalTextureInfoEXTBuilder<'a> {
         ExportMetalTextureInfoEXTBuilder {
@@ -57665,7 +57665,7 @@ pub struct ImportMetalTextureInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMetalTextureInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMetalTextureInfoEXTBuilder<'a> {
         ImportMetalTextureInfoEXTBuilder {
@@ -57723,7 +57723,7 @@ pub struct ExportMetalIOSurfaceInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalIOSurfaceInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalIOSurfaceInfoEXTBuilder<'a> {
         ExportMetalIOSurfaceInfoEXTBuilder {
@@ -57781,7 +57781,7 @@ pub struct ImportMetalIOSurfaceInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMetalIOSurfaceInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMetalIOSurfaceInfoEXTBuilder<'a> {
         ImportMetalIOSurfaceInfoEXTBuilder {
@@ -57834,7 +57834,7 @@ pub struct ExportMetalSharedEventInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExportMetalSharedEventInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExportMetalSharedEventInfoEXTBuilder<'a> {
         ExportMetalSharedEventInfoEXTBuilder {
@@ -57897,7 +57897,7 @@ pub struct ImportMetalSharedEventInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportMetalSharedEventInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportMetalSharedEventInfoEXTBuilder<'a> {
         ImportMetalSharedEventInfoEXTBuilder {
@@ -57950,7 +57950,7 @@ pub struct PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder<'a> {
         PhysicalDeviceNonSeamlessCubeMapFeaturesEXTBuilder {
@@ -58003,7 +58003,7 @@ pub struct PhysicalDevicePipelineRobustnessFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineRobustnessFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineRobustnessFeaturesBuilder<'a> {
         PhysicalDevicePipelineRobustnessFeaturesBuilder {
@@ -58056,7 +58056,7 @@ pub struct PipelineRobustnessCreateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineRobustnessCreateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineRobustnessCreateInfoBuilder<'a> {
         PipelineRobustnessCreateInfoBuilder {
@@ -58124,7 +58124,7 @@ pub struct PhysicalDevicePipelineRobustnessPropertiesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineRobustnessProperties {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineRobustnessPropertiesBuilder<'a> {
         PhysicalDevicePipelineRobustnessPropertiesBuilder {
@@ -58189,7 +58189,7 @@ pub struct ImageViewSampleWeightCreateInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageViewSampleWeightCreateInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageViewSampleWeightCreateInfoQCOMBuilder<'a> {
         ImageViewSampleWeightCreateInfoQCOMBuilder {
@@ -58252,7 +58252,7 @@ pub struct PhysicalDeviceImageProcessingFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageProcessingFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageProcessingFeaturesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessingFeaturesQCOMBuilder {
@@ -58315,7 +58315,7 @@ pub struct PhysicalDeviceImageProcessingPropertiesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageProcessingPropertiesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageProcessingPropertiesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessingPropertiesQCOMBuilder {
@@ -58368,7 +58368,7 @@ pub struct PhysicalDeviceTilePropertiesFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTilePropertiesFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTilePropertiesFeaturesQCOMBuilder<'a> {
         PhysicalDeviceTilePropertiesFeaturesQCOMBuilder {
@@ -58421,7 +58421,7 @@ pub struct TilePropertiesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TilePropertiesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TilePropertiesQCOMBuilder<'a> {
         TilePropertiesQCOMBuilder {
@@ -58481,7 +58481,7 @@ pub struct TileMemoryBindInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TileMemoryBindInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TileMemoryBindInfoQCOMBuilder<'a> {
         TileMemoryBindInfoQCOMBuilder {
@@ -58534,7 +58534,7 @@ pub struct PhysicalDeviceAmigoProfilingFeaturesSECBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceAmigoProfilingFeaturesSEC {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceAmigoProfilingFeaturesSECBuilder<'a> {
         PhysicalDeviceAmigoProfilingFeaturesSECBuilder {
@@ -58587,7 +58587,7 @@ pub struct AmigoProfilingSubmitInfoSECBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AmigoProfilingSubmitInfoSEC {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AmigoProfilingSubmitInfoSECBuilder<'a> {
         AmigoProfilingSubmitInfoSECBuilder {
@@ -58645,7 +58645,7 @@ pub struct PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXTBuilder<
         'a,
@@ -58702,7 +58702,7 @@ pub struct AttachmentFeedbackLoopInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AttachmentFeedbackLoopInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AttachmentFeedbackLoopInfoEXTBuilder<'a> {
         AttachmentFeedbackLoopInfoEXTBuilder {
@@ -58755,7 +58755,7 @@ pub struct PhysicalDeviceAddressBindingReportFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceAddressBindingReportFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceAddressBindingReportFeaturesEXTBuilder<'a> {
         PhysicalDeviceAddressBindingReportFeaturesEXTBuilder {
@@ -58809,7 +58809,7 @@ pub struct RenderingAttachmentFlagsInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingAttachmentFlagsInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingAttachmentFlagsInfoKHRBuilder<'a> {
         RenderingAttachmentFlagsInfoKHRBuilder {
@@ -58862,7 +58862,7 @@ pub struct ResolveImageModeInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ResolveImageModeInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ResolveImageModeInfoKHRBuilder<'a> {
         ResolveImageModeInfoKHRBuilder {
@@ -58925,7 +58925,7 @@ pub struct DeviceAddressBindingCallbackDataEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceAddressBindingCallbackDataEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceAddressBindingCallbackDataEXTBuilder<'a> {
         DeviceAddressBindingCallbackDataEXTBuilder {
@@ -58993,7 +58993,7 @@ pub struct PhysicalDeviceOpticalFlowFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceOpticalFlowFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceOpticalFlowFeaturesNVBuilder<'a> {
         PhysicalDeviceOpticalFlowFeaturesNVBuilder {
@@ -59046,7 +59046,7 @@ pub struct PhysicalDeviceOpticalFlowPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceOpticalFlowPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceOpticalFlowPropertiesNVBuilder<'a> {
         PhysicalDeviceOpticalFlowPropertiesNVBuilder {
@@ -59140,7 +59140,7 @@ pub struct OpticalFlowImageFormatInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OpticalFlowImageFormatInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OpticalFlowImageFormatInfoNVBuilder<'a> {
         OpticalFlowImageFormatInfoNVBuilder {
@@ -59193,7 +59193,7 @@ pub struct OpticalFlowImageFormatPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OpticalFlowImageFormatPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OpticalFlowImageFormatPropertiesNVBuilder<'a> {
         OpticalFlowImageFormatPropertiesNVBuilder {
@@ -59231,7 +59231,7 @@ pub struct OpticalFlowSessionCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OpticalFlowSessionCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OpticalFlowSessionCreateInfoNVBuilder<'a> {
         OpticalFlowSessionCreateInfoNVBuilder {
@@ -59324,7 +59324,7 @@ pub struct OpticalFlowSessionCreatePrivateDataInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OpticalFlowSessionCreatePrivateDataInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OpticalFlowSessionCreatePrivateDataInfoNVBuilder<'a> {
         OpticalFlowSessionCreatePrivateDataInfoNVBuilder {
@@ -59387,7 +59387,7 @@ pub struct OpticalFlowExecuteInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OpticalFlowExecuteInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OpticalFlowExecuteInfoNVBuilder<'a> {
         OpticalFlowExecuteInfoNVBuilder {
@@ -59446,7 +59446,7 @@ pub struct PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFaultFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
         PhysicalDeviceFaultFeaturesEXTBuilder {
@@ -59504,7 +59504,7 @@ pub struct DeviceFaultInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceFaultInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceFaultInfoKHRBuilder<'a> {
         DeviceFaultInfoKHRBuilder {
@@ -59570,7 +59570,7 @@ pub struct DeviceFaultDebugInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceFaultDebugInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceFaultDebugInfoKHRBuilder<'a> {
         DeviceFaultDebugInfoKHRBuilder {
@@ -59609,7 +59609,7 @@ pub struct DeviceFaultCountsEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceFaultCountsEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceFaultCountsEXTBuilder<'a> {
         DeviceFaultCountsEXTBuilder {
@@ -59669,7 +59669,7 @@ pub struct DeviceFaultInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceFaultInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceFaultInfoEXTBuilder<'a> {
         DeviceFaultInfoEXTBuilder {
@@ -59725,7 +59725,7 @@ pub struct PhysicalDeviceFaultFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFaultFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFaultFeaturesKHRBuilder<'a> {
         PhysicalDeviceFaultFeaturesKHRBuilder {
@@ -59793,7 +59793,7 @@ pub struct PhysicalDeviceFaultPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFaultPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFaultPropertiesKHRBuilder<'a> {
         PhysicalDeviceFaultPropertiesKHRBuilder {
@@ -59831,7 +59831,7 @@ pub struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXTBuilder<
         'a,
@@ -59888,7 +59888,7 @@ pub struct DepthBiasInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DepthBiasInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DepthBiasInfoEXTBuilder<'a> {
         DepthBiasInfoEXTBuilder {
@@ -59948,7 +59948,7 @@ pub struct DepthBiasRepresentationInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DepthBiasRepresentationInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DepthBiasRepresentationInfoEXTBuilder<'a> {
         DepthBiasRepresentationInfoEXTBuilder {
@@ -60009,7 +60009,7 @@ pub struct DecompressMemoryInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DecompressMemoryInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DecompressMemoryInfoEXTBuilder<'a> {
         DecompressMemoryInfoEXTBuilder {
@@ -60071,7 +60071,7 @@ pub struct PhysicalDeviceShaderCoreBuiltinsPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderCoreBuiltinsPropertiesARMBuilder<'a> {
         PhysicalDeviceShaderCoreBuiltinsPropertiesARMBuilder {
@@ -60120,7 +60120,7 @@ pub struct PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder<'a> {
         PhysicalDeviceShaderCoreBuiltinsFeaturesARMBuilder {
@@ -60173,7 +60173,7 @@ pub struct FrameBoundaryEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FrameBoundaryEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FrameBoundaryEXTBuilder<'a> {
         FrameBoundaryEXTBuilder {
@@ -60251,7 +60251,7 @@ pub struct PhysicalDeviceFrameBoundaryFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFrameBoundaryFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFrameBoundaryFeaturesEXTBuilder<'a> {
         PhysicalDeviceFrameBoundaryFeaturesEXTBuilder {
@@ -60304,7 +60304,7 @@ pub struct PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXTBuilder<'a>
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXTBuilder<
         'a,
@@ -60360,7 +60360,7 @@ pub struct PhysicalDeviceInternallySynchronizedQueuesFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceInternallySynchronizedQueuesFeaturesKHRBuilder<
         'a,
@@ -60417,7 +60417,7 @@ pub struct SurfacePresentModeKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfacePresentModeKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfacePresentModeKHRBuilder<'a> {
         SurfacePresentModeKHRBuilder {
@@ -60470,7 +60470,7 @@ pub struct SurfacePresentScalingCapabilitiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfacePresentScalingCapabilitiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfacePresentScalingCapabilitiesKHRBuilder<'a> {
         SurfacePresentScalingCapabilitiesKHRBuilder {
@@ -60543,7 +60543,7 @@ pub struct SurfacePresentModeCompatibilityKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfacePresentModeCompatibilityKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfacePresentModeCompatibilityKHRBuilder<'a> {
         SurfacePresentModeCompatibilityKHRBuilder {
@@ -60597,7 +60597,7 @@ pub struct PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder<'a> {
         PhysicalDeviceSwapchainMaintenance1FeaturesKHRBuilder {
@@ -60651,7 +60651,7 @@ pub struct SwapchainPresentFenceInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainPresentFenceInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainPresentFenceInfoKHRBuilder<'a> {
         SwapchainPresentFenceInfoKHRBuilder {
@@ -60705,7 +60705,7 @@ pub struct SwapchainPresentModesCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainPresentModesCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainPresentModesCreateInfoKHRBuilder<'a> {
         SwapchainPresentModesCreateInfoKHRBuilder {
@@ -60759,7 +60759,7 @@ pub struct SwapchainPresentModeInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainPresentModeInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainPresentModeInfoKHRBuilder<'a> {
         SwapchainPresentModeInfoKHRBuilder {
@@ -60813,7 +60813,7 @@ pub struct SwapchainPresentScalingCreateInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainPresentScalingCreateInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainPresentScalingCreateInfoKHRBuilder<'a> {
         SwapchainPresentScalingCreateInfoKHRBuilder {
@@ -60876,7 +60876,7 @@ pub struct ReleaseSwapchainImagesInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ReleaseSwapchainImagesInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ReleaseSwapchainImagesInfoKHRBuilder<'a> {
         ReleaseSwapchainImagesInfoKHRBuilder {
@@ -60935,7 +60935,7 @@ pub struct PhysicalDeviceDepthBiasControlFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDepthBiasControlFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDepthBiasControlFeaturesEXTBuilder<'a> {
         PhysicalDeviceDepthBiasControlFeaturesEXTBuilder {
@@ -61006,7 +61006,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingInvocationReorderFeaturesEXTBuilder<
         'a,
@@ -61063,7 +61063,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingInvocationReorderFeaturesNVBuilder<
         'a,
@@ -61120,7 +61120,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingInvocationReorderPropertiesEXTBuilder<
         'a,
@@ -61170,7 +61170,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingInvocationReorderPropertiesNVBuilder<
         'a,
@@ -61215,7 +61215,7 @@ pub struct PhysicalDeviceExtendedSparseAddressSpaceFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExtendedSparseAddressSpaceFeaturesNVBuilder<
         'a,
@@ -61272,7 +61272,7 @@ pub struct PhysicalDeviceExtendedSparseAddressSpacePropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExtendedSparseAddressSpacePropertiesNVBuilder<
         'a,
@@ -61327,7 +61327,7 @@ pub struct DirectDriverLoadingInfoLUNARGBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DirectDriverLoadingInfoLUNARG {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DirectDriverLoadingInfoLUNARGBuilder<'a> {
         DirectDriverLoadingInfoLUNARGBuilder {
@@ -61388,7 +61388,7 @@ pub struct DirectDriverLoadingListLUNARGBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DirectDriverLoadingListLUNARG {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DirectDriverLoadingListLUNARGBuilder<'a> {
         DirectDriverLoadingListLUNARGBuilder {
@@ -61447,7 +61447,7 @@ pub struct PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOMBuilder<
         'a,
@@ -61504,7 +61504,7 @@ pub struct PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder<'a> {
         PhysicalDeviceRayTracingPositionFetchFeaturesKHRBuilder {
@@ -61559,7 +61559,7 @@ pub struct DeviceImageSubresourceInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceImageSubresourceInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceImageSubresourceInfoBuilder<'a> {
         DeviceImageSubresourceInfoBuilder {
@@ -61617,7 +61617,7 @@ pub struct PhysicalDeviceShaderCorePropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderCorePropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderCorePropertiesARMBuilder<'a> {
         PhysicalDeviceShaderCorePropertiesARMBuilder {
@@ -61665,7 +61665,7 @@ pub struct PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOMBuilder<
         'a,
@@ -61722,7 +61722,7 @@ pub struct MultiviewPerViewRenderAreasRenderPassBeginInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MultiviewPerViewRenderAreasRenderPassBeginInfoQCOMBuilder<
         'a,
@@ -61780,7 +61780,7 @@ pub struct QueryLowLatencySupportNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueryLowLatencySupportNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueryLowLatencySupportNVBuilder<'a> {
         QueryLowLatencySupportNVBuilder {
@@ -61833,7 +61833,7 @@ pub struct MemoryMapInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryMapInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryMapInfoBuilder<'a> {
         MemoryMapInfoBuilder {
@@ -61898,7 +61898,7 @@ pub struct MemoryUnmapInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryUnmapInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryUnmapInfoBuilder<'a> {
         MemoryUnmapInfoBuilder {
@@ -61953,7 +61953,7 @@ pub struct PhysicalDeviceShaderObjectFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderObjectFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderObjectFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderObjectFeaturesEXTBuilder {
@@ -62006,7 +62006,7 @@ pub struct PhysicalDeviceShaderObjectPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderObjectPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderObjectPropertiesEXTBuilder<'a> {
         PhysicalDeviceShaderObjectPropertiesEXTBuilder {
@@ -62049,7 +62049,7 @@ pub struct ShaderCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ShaderCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ShaderCreateInfoEXTBuilder<'a> {
         ShaderCreateInfoEXTBuilder {
@@ -62142,7 +62142,7 @@ pub struct PhysicalDeviceShaderTileImageFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderTileImageFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderTileImageFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderTileImageFeaturesEXTBuilder {
@@ -62205,7 +62205,7 @@ pub struct PhysicalDeviceShaderTileImagePropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderTileImagePropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderTileImagePropertiesEXTBuilder<'a> {
         PhysicalDeviceShaderTileImagePropertiesEXTBuilder {
@@ -62257,7 +62257,7 @@ pub struct ImportScreenBufferInfoQNXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportScreenBufferInfoQNX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportScreenBufferInfoQNXBuilder<'a> {
         ImportScreenBufferInfoQNXBuilder {
@@ -62310,7 +62310,7 @@ pub struct ScreenBufferPropertiesQNXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ScreenBufferPropertiesQNX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ScreenBufferPropertiesQNXBuilder<'a> {
         ScreenBufferPropertiesQNXBuilder {
@@ -62353,7 +62353,7 @@ pub struct ScreenBufferFormatPropertiesQNXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ScreenBufferFormatPropertiesQNX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ScreenBufferFormatPropertiesQNXBuilder<'a> {
         ScreenBufferFormatPropertiesQNXBuilder {
@@ -62434,7 +62434,7 @@ pub struct ExternalFormatQNXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalFormatQNX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalFormatQNXBuilder<'a> {
         ExternalFormatQNXBuilder {
@@ -62484,7 +62484,7 @@ pub struct PhysicalDeviceExternalMemoryScreenBufferFeaturesQNXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalMemoryScreenBufferFeaturesQNXBuilder<
         'a,
@@ -62541,7 +62541,7 @@ pub struct PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeMatrixFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder<'a> {
         PhysicalDeviceCooperativeMatrixFeaturesKHRBuilder {
@@ -62599,7 +62599,7 @@ pub struct CooperativeMatrixPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CooperativeMatrixPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CooperativeMatrixPropertiesKHRBuilder<'a> {
         CooperativeMatrixPropertiesKHRBuilder {
@@ -62677,7 +62677,7 @@ pub struct PhysicalDeviceCooperativeMatrixPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeMatrixPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixPropertiesKHRBuilder<'a> {
         PhysicalDeviceCooperativeMatrixPropertiesKHRBuilder {
@@ -62719,7 +62719,7 @@ pub struct PhysicalDeviceCooperativeMatrixConversionFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrixConversionFeaturesQCOMBuilder<
         'a,
@@ -62776,7 +62776,7 @@ pub struct PhysicalDeviceShaderEnqueuePropertiesAMDXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderEnqueuePropertiesAMDX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderEnqueuePropertiesAMDXBuilder<'a> {
         PhysicalDeviceShaderEnqueuePropertiesAMDXBuilder {
@@ -62844,7 +62844,7 @@ pub struct PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderEnqueueFeaturesAMDX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder<'a> {
         PhysicalDeviceShaderEnqueueFeaturesAMDXBuilder {
@@ -62902,7 +62902,7 @@ pub struct ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExecutionGraphPipelineCreateInfoAMDX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
         ExecutionGraphPipelineCreateInfoAMDXBuilder {
@@ -62981,7 +62981,7 @@ pub struct PipelineShaderStageNodeCreateInfoAMDXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineShaderStageNodeCreateInfoAMDX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineShaderStageNodeCreateInfoAMDXBuilder<'a> {
         PipelineShaderStageNodeCreateInfoAMDXBuilder {
@@ -63039,7 +63039,7 @@ pub struct ExecutionGraphPipelineScratchSizeAMDXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExecutionGraphPipelineScratchSizeAMDX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExecutionGraphPipelineScratchSizeAMDXBuilder<'a> {
         ExecutionGraphPipelineScratchSizeAMDXBuilder {
@@ -63102,7 +63102,7 @@ pub struct PhysicalDeviceAntiLagFeaturesAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceAntiLagFeaturesAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceAntiLagFeaturesAMDBuilder<'a> {
         PhysicalDeviceAntiLagFeaturesAMDBuilder {
@@ -63155,7 +63155,7 @@ pub struct AntiLagDataAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AntiLagDataAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AntiLagDataAMDBuilder<'a> {
         AntiLagDataAMDBuilder {
@@ -63215,7 +63215,7 @@ pub struct AntiLagPresentationInfoAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AntiLagPresentationInfoAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AntiLagPresentationInfoAMDBuilder<'a> {
         AntiLagPresentationInfoAMDBuilder {
@@ -63273,7 +63273,7 @@ pub struct BindMemoryStatusBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindMemoryStatus {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindMemoryStatusBuilder<'a> {
         BindMemoryStatusBuilder {
@@ -63323,7 +63323,7 @@ pub struct PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTileMemoryHeapFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder<'a> {
         PhysicalDeviceTileMemoryHeapFeaturesQCOMBuilder {
@@ -63376,7 +63376,7 @@ pub struct PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTileMemoryHeapPropertiesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder<'a> {
         PhysicalDeviceTileMemoryHeapPropertiesQCOMBuilder {
@@ -63434,7 +63434,7 @@ pub struct TileMemorySizeInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TileMemorySizeInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TileMemorySizeInfoQCOMBuilder<'a> {
         TileMemorySizeInfoQCOMBuilder {
@@ -63487,7 +63487,7 @@ pub struct TileMemoryRequirementsQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TileMemoryRequirementsQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TileMemoryRequirementsQCOMBuilder<'a> {
         TileMemoryRequirementsQCOMBuilder {
@@ -63545,7 +63545,7 @@ pub struct BindDescriptorSetsInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindDescriptorSetsInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindDescriptorSetsInfoBuilder<'a> {
         BindDescriptorSetsInfoBuilder {
@@ -63620,7 +63620,7 @@ pub struct PushConstantsInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PushConstantsInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PushConstantsInfoBuilder<'a> {
         PushConstantsInfoBuilder {
@@ -63686,7 +63686,7 @@ pub struct PushDescriptorSetInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PushDescriptorSetInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PushDescriptorSetInfoBuilder<'a> {
         PushDescriptorSetInfoBuilder {
@@ -63755,7 +63755,7 @@ pub struct PushDescriptorSetWithTemplateInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PushDescriptorSetWithTemplateInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PushDescriptorSetWithTemplateInfoBuilder<'a> {
         PushDescriptorSetWithTemplateInfoBuilder {
@@ -63826,7 +63826,7 @@ pub struct SetDescriptorBufferOffsetsInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SetDescriptorBufferOffsetsInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SetDescriptorBufferOffsetsInfoEXTBuilder<'a> {
         SetDescriptorBufferOffsetsInfoEXTBuilder {
@@ -63901,7 +63901,7 @@ pub struct BindDescriptorBufferEmbeddedSamplersInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindDescriptorBufferEmbeddedSamplersInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindDescriptorBufferEmbeddedSamplersInfoEXTBuilder<'a> {
         BindDescriptorBufferEmbeddedSamplersInfoEXTBuilder {
@@ -63964,7 +63964,7 @@ pub struct PhysicalDeviceCubicClampFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCubicClampFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCubicClampFeaturesQCOMBuilder<'a> {
         PhysicalDeviceCubicClampFeaturesQCOMBuilder {
@@ -64017,7 +64017,7 @@ pub struct PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceYcbcrDegammaFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder<'a> {
         PhysicalDeviceYcbcrDegammaFeaturesQCOMBuilder {
@@ -64070,7 +64070,7 @@ pub struct SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder<'a> {
         SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOMBuilder {
@@ -64130,7 +64130,7 @@ pub struct PhysicalDeviceCubicWeightsFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCubicWeightsFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCubicWeightsFeaturesQCOMBuilder<'a> {
         PhysicalDeviceCubicWeightsFeaturesQCOMBuilder {
@@ -64183,7 +64183,7 @@ pub struct SamplerCubicWeightsCreateInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerCubicWeightsCreateInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerCubicWeightsCreateInfoQCOMBuilder<'a> {
         SamplerCubicWeightsCreateInfoQCOMBuilder {
@@ -64236,7 +64236,7 @@ pub struct BlitImageCubicWeightsInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BlitImageCubicWeightsInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BlitImageCubicWeightsInfoQCOMBuilder<'a> {
         BlitImageCubicWeightsInfoQCOMBuilder {
@@ -64289,7 +64289,7 @@ pub struct PhysicalDeviceImageProcessing2FeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageProcessing2FeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageProcessing2FeaturesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessing2FeaturesQCOMBuilder {
@@ -64342,7 +64342,7 @@ pub struct PhysicalDeviceImageProcessing2PropertiesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageProcessing2PropertiesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageProcessing2PropertiesQCOMBuilder<'a> {
         PhysicalDeviceImageProcessing2PropertiesQCOMBuilder {
@@ -64381,7 +64381,7 @@ pub struct SamplerBlockMatchWindowCreateInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerBlockMatchWindowCreateInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerBlockMatchWindowCreateInfoQCOMBuilder<'a> {
         SamplerBlockMatchWindowCreateInfoQCOMBuilder {
@@ -64442,7 +64442,7 @@ pub struct PhysicalDeviceDescriptorPoolOverallocationFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorPoolOverallocationFeaturesNVBuilder<
         'a,
@@ -64499,7 +64499,7 @@ pub struct PhysicalDeviceLayeredDriverPropertiesMSFTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceLayeredDriverPropertiesMSFT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceLayeredDriverPropertiesMSFTBuilder<'a> {
         PhysicalDeviceLayeredDriverPropertiesMSFTBuilder {
@@ -64537,7 +64537,7 @@ pub struct PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePerStageDescriptorSetFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder<'a> {
         PhysicalDevicePerStageDescriptorSetFeaturesNVBuilder {
@@ -64596,7 +64596,7 @@ pub struct PhysicalDeviceExternalFormatResolveFeaturesANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalFormatResolveFeaturesANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalFormatResolveFeaturesANDROIDBuilder<
         'a,
@@ -64653,7 +64653,7 @@ pub struct PhysicalDeviceExternalFormatResolvePropertiesANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalFormatResolvePropertiesANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalFormatResolvePropertiesANDROIDBuilder<
         'a,
@@ -64714,7 +64714,7 @@ pub struct AndroidHardwareBufferFormatResolvePropertiesANDROIDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AndroidHardwareBufferFormatResolvePropertiesANDROID {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AndroidHardwareBufferFormatResolvePropertiesANDROIDBuilder<
         'a,
@@ -64756,7 +64756,7 @@ pub struct LatencySleepModeInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl LatencySleepModeInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> LatencySleepModeInfoNVBuilder<'a> {
         LatencySleepModeInfoNVBuilder {
@@ -64819,7 +64819,7 @@ pub struct LatencySleepInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl LatencySleepInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> LatencySleepInfoNVBuilder<'a> {
         LatencySleepInfoNVBuilder {
@@ -64874,7 +64874,7 @@ pub struct SetLatencyMarkerInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SetLatencyMarkerInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SetLatencyMarkerInfoNVBuilder<'a> {
         SetLatencyMarkerInfoNVBuilder {
@@ -64932,7 +64932,7 @@ pub struct GetLatencyMarkerInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl GetLatencyMarkerInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> GetLatencyMarkerInfoNVBuilder<'a> {
         GetLatencyMarkerInfoNVBuilder {
@@ -64986,7 +64986,7 @@ pub struct LatencyTimingsFrameReportNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl LatencyTimingsFrameReportNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> LatencyTimingsFrameReportNVBuilder<'a> {
         LatencyTimingsFrameReportNVBuilder {
@@ -65089,7 +65089,7 @@ pub struct OutOfBandQueueTypeInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OutOfBandQueueTypeInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OutOfBandQueueTypeInfoNVBuilder<'a> {
         OutOfBandQueueTypeInfoNVBuilder {
@@ -65142,7 +65142,7 @@ pub struct LatencySubmissionPresentIdNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl LatencySubmissionPresentIdNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> LatencySubmissionPresentIdNVBuilder<'a> {
         LatencySubmissionPresentIdNVBuilder {
@@ -65195,7 +65195,7 @@ pub struct SwapchainLatencyCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainLatencyCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainLatencyCreateInfoNVBuilder<'a> {
         SwapchainLatencyCreateInfoNVBuilder {
@@ -65248,7 +65248,7 @@ pub struct LatencySurfaceCapabilitiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl LatencySurfaceCapabilitiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> LatencySurfaceCapabilitiesNVBuilder<'a> {
         LatencySurfaceCapabilitiesNVBuilder {
@@ -65302,7 +65302,7 @@ pub struct PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCudaKernelLaunchFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder<'a> {
         PhysicalDeviceCudaKernelLaunchFeaturesNVBuilder {
@@ -65355,7 +65355,7 @@ pub struct PhysicalDeviceCudaKernelLaunchPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCudaKernelLaunchPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCudaKernelLaunchPropertiesNVBuilder<'a> {
         PhysicalDeviceCudaKernelLaunchPropertiesNVBuilder {
@@ -65398,7 +65398,7 @@ pub struct DeviceQueueShaderCoreControlCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceQueueShaderCoreControlCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceQueueShaderCoreControlCreateInfoARMBuilder<'a> {
         DeviceQueueShaderCoreControlCreateInfoARMBuilder {
@@ -65451,7 +65451,7 @@ pub struct PhysicalDeviceSchedulingControlsFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSchedulingControlsFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSchedulingControlsFeaturesARMBuilder<'a> {
         PhysicalDeviceSchedulingControlsFeaturesARMBuilder {
@@ -65504,7 +65504,7 @@ pub struct PhysicalDeviceSchedulingControlsPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceSchedulingControlsPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceSchedulingControlsPropertiesARMBuilder<'a> {
         PhysicalDeviceSchedulingControlsPropertiesARMBuilder {
@@ -65546,7 +65546,7 @@ pub struct PhysicalDeviceRelaxedLineRasterizationFeaturesIMGBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRelaxedLineRasterizationFeaturesIMGBuilder<
         'a,
@@ -65603,7 +65603,7 @@ pub struct PhysicalDeviceRenderPassStripedFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRenderPassStripedFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRenderPassStripedFeaturesARMBuilder<'a> {
         PhysicalDeviceRenderPassStripedFeaturesARMBuilder {
@@ -65656,7 +65656,7 @@ pub struct PhysicalDeviceRenderPassStripedPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRenderPassStripedPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRenderPassStripedPropertiesARMBuilder<'a> {
         PhysicalDeviceRenderPassStripedPropertiesARMBuilder {
@@ -65700,7 +65700,7 @@ pub struct RenderPassStripeInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassStripeInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassStripeInfoARMBuilder<'a> {
         RenderPassStripeInfoARMBuilder {
@@ -65753,7 +65753,7 @@ pub struct RenderPassStripeBeginInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassStripeBeginInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassStripeBeginInfoARMBuilder<'a> {
         RenderPassStripeBeginInfoARMBuilder {
@@ -65807,7 +65807,7 @@ pub struct RenderPassStripeSubmitInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassStripeSubmitInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassStripeSubmitInfoARMBuilder<'a> {
         RenderPassStripeSubmitInfoARMBuilder {
@@ -65861,7 +65861,7 @@ pub struct PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineOpacityMicromapFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder<'a> {
         PhysicalDevicePipelineOpacityMicromapFeaturesARMBuilder {
@@ -65916,7 +65916,7 @@ pub struct PhysicalDeviceShaderMaximalReconvergenceFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderMaximalReconvergenceFeaturesKHRBuilder<
         'a,
@@ -65973,7 +65973,7 @@ pub struct PhysicalDeviceShaderSubgroupRotateFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderSubgroupRotateFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderSubgroupRotateFeaturesBuilder<'a> {
         PhysicalDeviceShaderSubgroupRotateFeaturesBuilder {
@@ -66031,7 +66031,7 @@ pub struct PhysicalDeviceShaderExpectAssumeFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderExpectAssumeFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderExpectAssumeFeaturesBuilder<'a> {
         PhysicalDeviceShaderExpectAssumeFeaturesBuilder {
@@ -66084,7 +66084,7 @@ pub struct PhysicalDeviceShaderFloatControls2FeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderFloatControls2Features {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderFloatControls2FeaturesBuilder<'a> {
         PhysicalDeviceShaderFloatControls2FeaturesBuilder {
@@ -66137,7 +66137,7 @@ pub struct PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDynamicRenderingLocalReadFeatures {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder<'a> {
         PhysicalDeviceDynamicRenderingLocalReadFeaturesBuilder {
@@ -66192,7 +66192,7 @@ pub struct RenderingAttachmentLocationInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingAttachmentLocationInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingAttachmentLocationInfoBuilder<'a> {
         RenderingAttachmentLocationInfoBuilder {
@@ -66246,7 +66246,7 @@ pub struct RenderingInputAttachmentIndexInfoBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderingInputAttachmentIndexInfo {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderingInputAttachmentIndexInfoBuilder<'a> {
         RenderingInputAttachmentIndexInfoBuilder {
@@ -66310,7 +66310,7 @@ pub struct PhysicalDeviceShaderQuadControlFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderQuadControlFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderQuadControlFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderQuadControlFeaturesKHRBuilder {
@@ -66363,7 +66363,7 @@ pub struct PhysicalDeviceShaderAtomicFloat16VectorFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderAtomicFloat16VectorFeaturesNVBuilder<
         'a,
@@ -66420,7 +66420,7 @@ pub struct PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMapMemoryPlacedFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder<'a> {
         PhysicalDeviceMapMemoryPlacedFeaturesEXTBuilder {
@@ -66483,7 +66483,7 @@ pub struct PhysicalDeviceMapMemoryPlacedPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceMapMemoryPlacedPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceMapMemoryPlacedPropertiesEXTBuilder<'a> {
         PhysicalDeviceMapMemoryPlacedPropertiesEXTBuilder {
@@ -66521,7 +66521,7 @@ pub struct MemoryMapPlacedInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryMapPlacedInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryMapPlacedInfoEXTBuilder<'a> {
         MemoryMapPlacedInfoEXTBuilder {
@@ -66574,7 +66574,7 @@ pub struct PhysicalDeviceShaderBfloat16FeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderBfloat16FeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderBfloat16FeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderBfloat16FeaturesKHRBuilder {
@@ -66637,7 +66637,7 @@ pub struct PhysicalDeviceRawAccessChainsFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceRawAccessChainsFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceRawAccessChainsFeaturesNVBuilder<'a> {
         PhysicalDeviceRawAccessChainsFeaturesNVBuilder {
@@ -66690,7 +66690,7 @@ pub struct PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCommandBufferInheritanceFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder<'a> {
         PhysicalDeviceCommandBufferInheritanceFeaturesNVBuilder {
@@ -66745,7 +66745,7 @@ pub struct PhysicalDeviceImageAlignmentControlFeaturesMESABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageAlignmentControlFeaturesMESA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageAlignmentControlFeaturesMESABuilder<'a> {
         PhysicalDeviceImageAlignmentControlFeaturesMESABuilder {
@@ -66800,7 +66800,7 @@ pub struct PhysicalDeviceImageAlignmentControlPropertiesMESABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceImageAlignmentControlPropertiesMESA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceImageAlignmentControlPropertiesMESABuilder<
         'a,
@@ -66842,7 +66842,7 @@ pub struct ImageAlignmentControlCreateInfoMESABuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageAlignmentControlCreateInfoMESA {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageAlignmentControlCreateInfoMESABuilder<'a> {
         ImageAlignmentControlCreateInfoMESABuilder {
@@ -66895,7 +66895,7 @@ pub struct PhysicalDeviceShaderReplicatedCompositesFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderReplicatedCompositesFeaturesEXTBuilder<
         'a,
@@ -66952,7 +66952,7 @@ pub struct PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<
         'a,
@@ -67009,7 +67009,7 @@ pub struct PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeMatrix2FeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrix2FeaturesNVBuilder {
@@ -67092,7 +67092,7 @@ pub struct PhysicalDeviceCooperativeMatrix2PropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeMatrix2PropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeMatrix2PropertiesNVBuilder<'a> {
         PhysicalDeviceCooperativeMatrix2PropertiesNVBuilder {
@@ -67150,7 +67150,7 @@ pub struct CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CooperativeMatrixFlexibleDimensionsPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder<'a> {
         CooperativeMatrixFlexibleDimensionsPropertiesNVBuilder {
@@ -67235,7 +67235,7 @@ pub struct PhysicalDeviceHdrVividFeaturesHUAWEIBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceHdrVividFeaturesHUAWEI {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceHdrVividFeaturesHUAWEIBuilder<'a> {
         PhysicalDeviceHdrVividFeaturesHUAWEIBuilder {
@@ -67288,7 +67288,7 @@ pub struct PhysicalDeviceVertexAttributeRobustnessFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVertexAttributeRobustnessFeaturesEXTBuilder<
         'a,
@@ -67345,7 +67345,7 @@ pub struct PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder<'a> {
         PhysicalDeviceDenseGeometryFormatFeaturesAMDXBuilder {
@@ -67399,7 +67399,7 @@ pub struct AccelerationStructureDenseGeometryFormatTrianglesDataAMDXBuilder<'a> 
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureDenseGeometryFormatTrianglesDataAMDXBuilder<
         'a,
@@ -67485,7 +67485,7 @@ pub struct PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDepthClampZeroOneFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder<'a> {
         PhysicalDeviceDepthClampZeroOneFeaturesKHRBuilder {
@@ -67538,7 +67538,7 @@ pub struct PhysicalDeviceCooperativeVectorFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeVectorFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeVectorFeaturesNVBuilder<'a> {
         PhysicalDeviceCooperativeVectorFeaturesNVBuilder {
@@ -67596,7 +67596,7 @@ pub struct CooperativeVectorPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CooperativeVectorPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CooperativeVectorPropertiesNVBuilder<'a> {
         CooperativeVectorPropertiesNVBuilder {
@@ -67674,7 +67674,7 @@ pub struct PhysicalDeviceCooperativeVectorPropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceCooperativeVectorPropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceCooperativeVectorPropertiesNVBuilder<'a> {
         PhysicalDeviceCooperativeVectorPropertiesNVBuilder {
@@ -67736,7 +67736,7 @@ pub struct ConvertCooperativeVectorMatrixInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ConvertCooperativeVectorMatrixInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ConvertCooperativeVectorMatrixInfoNVBuilder<'a> {
         ConvertCooperativeVectorMatrixInfoNVBuilder {
@@ -67844,7 +67844,7 @@ pub struct PhysicalDeviceTileShadingFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTileShadingFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTileShadingFeaturesQCOMBuilder<'a> {
         PhysicalDeviceTileShadingFeaturesQCOMBuilder {
@@ -67962,7 +67962,7 @@ pub struct PhysicalDeviceTileShadingPropertiesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTileShadingPropertiesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTileShadingPropertiesQCOMBuilder<'a> {
         PhysicalDeviceTileShadingPropertiesQCOMBuilder {
@@ -68015,7 +68015,7 @@ pub struct RenderPassTileShadingCreateInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassTileShadingCreateInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassTileShadingCreateInfoQCOMBuilder<'a> {
         RenderPassTileShadingCreateInfoQCOMBuilder {
@@ -68073,7 +68073,7 @@ pub struct PerTileBeginInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerTileBeginInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerTileBeginInfoQCOMBuilder<'a> {
         PerTileBeginInfoQCOMBuilder {
@@ -68118,7 +68118,7 @@ pub struct PerTileEndInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerTileEndInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerTileEndInfoQCOMBuilder<'a> {
         PerTileEndInfoQCOMBuilder {
@@ -68163,7 +68163,7 @@ pub struct DispatchTileInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DispatchTileInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DispatchTileInfoQCOMBuilder<'a> {
         DispatchTileInfoQCOMBuilder {
@@ -68208,7 +68208,7 @@ pub struct PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVEBuilder<
         'a,
@@ -68250,7 +68250,7 @@ pub struct PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVEBuilder<
         'a,
@@ -68307,7 +68307,7 @@ pub struct PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PipelineFragmentDensityMapLayeredCreateInfoVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder<'a> {
         PipelineFragmentDensityMapLayeredCreateInfoVALVEBuilder {
@@ -68362,7 +68362,7 @@ pub struct SetPresentConfigNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SetPresentConfigNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SetPresentConfigNVBuilder<'a> {
         SetPresentConfigNVBuilder {
@@ -68417,7 +68417,7 @@ pub struct PhysicalDevicePresentMeteringFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentMeteringFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentMeteringFeaturesNVBuilder<'a> {
         PhysicalDevicePresentMeteringFeaturesNVBuilder {
@@ -68470,7 +68470,7 @@ pub struct ExternalComputeQueueDeviceCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalComputeQueueDeviceCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalComputeQueueDeviceCreateInfoNVBuilder<'a> {
         ExternalComputeQueueDeviceCreateInfoNVBuilder {
@@ -68523,7 +68523,7 @@ pub struct ExternalComputeQueueCreateInfoNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalComputeQueueCreateInfoNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalComputeQueueCreateInfoNVBuilder<'a> {
         ExternalComputeQueueCreateInfoNVBuilder {
@@ -68576,7 +68576,7 @@ pub struct ExternalComputeQueueDataParamsNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalComputeQueueDataParamsNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalComputeQueueDataParamsNVBuilder<'a> {
         ExternalComputeQueueDataParamsNVBuilder {
@@ -68629,7 +68629,7 @@ pub struct PhysicalDeviceExternalComputeQueuePropertiesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalComputeQueuePropertiesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalComputeQueuePropertiesNVBuilder<'a> {
         PhysicalDeviceExternalComputeQueuePropertiesNVBuilder {
@@ -68673,7 +68673,7 @@ pub struct PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXTBuilder<
         'a,
@@ -68730,7 +68730,7 @@ pub struct PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEBuilder<
         'a,
@@ -68811,7 +68811,7 @@ pub struct PhysicalDeviceFormatPackFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceFormatPackFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceFormatPackFeaturesARMBuilder<'a> {
         PhysicalDeviceFormatPackFeaturesARMBuilder {
@@ -68864,7 +68864,7 @@ pub struct TensorDescriptionARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorDescriptionARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorDescriptionARMBuilder<'a> {
         TensorDescriptionARMBuilder {
@@ -68936,7 +68936,7 @@ pub struct TensorCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorCreateInfoARMBuilder<'a> {
         TensorCreateInfoARMBuilder {
@@ -69002,7 +69002,7 @@ pub struct TensorViewCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorViewCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorViewCreateInfoARMBuilder<'a> {
         TensorViewCreateInfoARMBuilder {
@@ -69065,7 +69065,7 @@ pub struct TensorMemoryRequirementsInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorMemoryRequirementsInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorMemoryRequirementsInfoARMBuilder<'a> {
         TensorMemoryRequirementsInfoARMBuilder {
@@ -69118,7 +69118,7 @@ pub struct BindTensorMemoryInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindTensorMemoryInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindTensorMemoryInfoARMBuilder<'a> {
         BindTensorMemoryInfoARMBuilder {
@@ -69181,7 +69181,7 @@ pub struct WriteDescriptorSetTensorARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl WriteDescriptorSetTensorARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> WriteDescriptorSetTensorARMBuilder<'a> {
         WriteDescriptorSetTensorARMBuilder {
@@ -69235,7 +69235,7 @@ pub struct TensorFormatPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorFormatPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorFormatPropertiesARMBuilder<'a> {
         TensorFormatPropertiesARMBuilder {
@@ -69278,7 +69278,7 @@ pub struct PhysicalDeviceTensorPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTensorPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTensorPropertiesARMBuilder<'a> {
         PhysicalDeviceTensorPropertiesARMBuilder {
@@ -69386,7 +69386,7 @@ pub struct TensorMemoryBarrierARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorMemoryBarrierARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorMemoryBarrierARMBuilder<'a> {
         TensorMemoryBarrierARMBuilder {
@@ -69469,7 +69469,7 @@ pub struct TensorDependencyInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorDependencyInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorDependencyInfoARMBuilder<'a> {
         TensorDependencyInfoARMBuilder {
@@ -69530,7 +69530,7 @@ pub struct PhysicalDeviceTensorFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTensorFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTensorFeaturesARMBuilder<'a> {
         PhysicalDeviceTensorFeaturesARMBuilder {
@@ -69614,7 +69614,7 @@ pub struct DeviceTensorMemoryRequirementsARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceTensorMemoryRequirementsARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceTensorMemoryRequirementsARMBuilder<'a> {
         DeviceTensorMemoryRequirementsARMBuilder {
@@ -69667,7 +69667,7 @@ pub struct CopyTensorInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyTensorInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyTensorInfoARMBuilder<'a> {
         CopyTensorInfoARMBuilder {
@@ -69728,7 +69728,7 @@ pub struct TensorCopyARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorCopyARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorCopyARMBuilder<'a> {
         TensorCopyARMBuilder {
@@ -69791,7 +69791,7 @@ pub struct MemoryDedicatedAllocateInfoTensorARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryDedicatedAllocateInfoTensorARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryDedicatedAllocateInfoTensorARMBuilder<'a> {
         MemoryDedicatedAllocateInfoTensorARMBuilder {
@@ -69844,7 +69844,7 @@ pub struct PhysicalDeviceDescriptorBufferTensorPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorBufferTensorPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferTensorPropertiesARMBuilder<
         'a,
@@ -69914,7 +69914,7 @@ pub struct PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorBufferTensorFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder<'a> {
         PhysicalDeviceDescriptorBufferTensorFeaturesARMBuilder {
@@ -69969,7 +69969,7 @@ pub struct TensorCaptureDescriptorDataInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorCaptureDescriptorDataInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorCaptureDescriptorDataInfoARMBuilder<'a> {
         TensorCaptureDescriptorDataInfoARMBuilder {
@@ -70022,7 +70022,7 @@ pub struct TensorViewCaptureDescriptorDataInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TensorViewCaptureDescriptorDataInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TensorViewCaptureDescriptorDataInfoARMBuilder<'a> {
         TensorViewCaptureDescriptorDataInfoARMBuilder {
@@ -70075,7 +70075,7 @@ pub struct DescriptorGetTensorInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorGetTensorInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorGetTensorInfoARMBuilder<'a> {
         DescriptorGetTensorInfoARMBuilder {
@@ -70128,7 +70128,7 @@ pub struct FrameBoundaryTensorsARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl FrameBoundaryTensorsARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> FrameBoundaryTensorsARMBuilder<'a> {
         FrameBoundaryTensorsARMBuilder {
@@ -70182,7 +70182,7 @@ pub struct PhysicalDeviceExternalTensorInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceExternalTensorInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceExternalTensorInfoARMBuilder<'a> {
         PhysicalDeviceExternalTensorInfoARMBuilder {
@@ -70245,7 +70245,7 @@ pub struct ExternalTensorPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalTensorPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalTensorPropertiesARMBuilder<'a> {
         ExternalTensorPropertiesARMBuilder {
@@ -70301,7 +70301,7 @@ pub struct ExternalMemoryTensorCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalMemoryTensorCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalMemoryTensorCreateInfoARMBuilder<'a> {
         ExternalMemoryTensorCreateInfoARMBuilder {
@@ -70354,7 +70354,7 @@ pub struct PhysicalDeviceShaderFloat8FeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderFloat8FeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderFloat8FeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderFloat8FeaturesEXTBuilder {
@@ -70412,7 +70412,7 @@ pub struct SurfaceCreateInfoOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SurfaceCreateInfoOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SurfaceCreateInfoOHOSBuilder<'a> {
         SurfaceCreateInfoOHOSBuilder {
@@ -70470,7 +70470,7 @@ pub struct PhysicalDeviceDataGraphFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDataGraphFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDataGraphFeaturesARMBuilder<'a> {
         PhysicalDeviceDataGraphFeaturesARMBuilder {
@@ -70543,7 +70543,7 @@ pub struct DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARMBuilder<'
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARMBuilder<
         'a,
@@ -70609,7 +70609,7 @@ pub struct DataGraphPipelineConstantARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineConstantARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineConstantARMBuilder<'a> {
         DataGraphPipelineConstantARMBuilder {
@@ -70667,7 +70667,7 @@ pub struct DataGraphPipelineResourceInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineResourceInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineResourceInfoARMBuilder<'a> {
         DataGraphPipelineResourceInfoARMBuilder {
@@ -70730,7 +70730,7 @@ pub struct DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineCompilerControlCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
         DataGraphPipelineCompilerControlCreateInfoARMBuilder {
@@ -70784,7 +70784,7 @@ pub struct DataGraphPipelineCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineCreateInfoARMBuilder<'a> {
         DataGraphPipelineCreateInfoARMBuilder {
@@ -70851,7 +70851,7 @@ pub struct DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineShaderModuleCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
         DataGraphPipelineShaderModuleCreateInfoARMBuilder {
@@ -70920,7 +70920,7 @@ pub struct DataGraphPipelineSessionCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineSessionCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineSessionCreateInfoARMBuilder<'a> {
         DataGraphPipelineSessionCreateInfoARMBuilder {
@@ -70978,7 +70978,7 @@ pub struct DataGraphPipelineSessionBindPointRequirementsInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineSessionBindPointRequirementsInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineSessionBindPointRequirementsInfoARMBuilder<
         'a,
@@ -71035,7 +71035,7 @@ pub struct DataGraphPipelineSessionBindPointRequirementARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineSessionBindPointRequirementARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineSessionBindPointRequirementARMBuilder<'a> {
         DataGraphPipelineSessionBindPointRequirementARMBuilder {
@@ -71088,7 +71088,7 @@ pub struct DataGraphPipelineSessionMemoryRequirementsInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineSessionMemoryRequirementsInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineSessionMemoryRequirementsInfoARMBuilder<
         'a,
@@ -71155,7 +71155,7 @@ pub struct BindDataGraphPipelineSessionMemoryInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindDataGraphPipelineSessionMemoryInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindDataGraphPipelineSessionMemoryInfoARMBuilder<'a> {
         BindDataGraphPipelineSessionMemoryInfoARMBuilder {
@@ -71228,7 +71228,7 @@ pub struct DataGraphPipelineInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineInfoARMBuilder<'a> {
         DataGraphPipelineInfoARMBuilder {
@@ -71281,7 +71281,7 @@ pub struct DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelinePropertyQueryResultARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelinePropertyQueryResultARMBuilder<'a> {
         DataGraphPipelinePropertyQueryResultARMBuilder {
@@ -71345,7 +71345,7 @@ pub struct DataGraphPipelineIdentifierCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineIdentifierCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineIdentifierCreateInfoARMBuilder<'a> {
         DataGraphPipelineIdentifierCreateInfoARMBuilder {
@@ -71399,7 +71399,7 @@ pub struct DataGraphPipelineDispatchInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineDispatchInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineDispatchInfoARMBuilder<'a> {
         DataGraphPipelineDispatchInfoARMBuilder {
@@ -71452,7 +71452,7 @@ pub struct QueueFamilyDataGraphPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyDataGraphPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyDataGraphPropertiesARMBuilder<'a> {
         QueueFamilyDataGraphPropertiesARMBuilder {
@@ -71498,7 +71498,7 @@ pub struct PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARMBuilder<'a> 
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARMBuilder<
         'a,
@@ -71562,7 +71562,7 @@ pub struct QueueFamilyDataGraphProcessingEnginePropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl QueueFamilyDataGraphProcessingEnginePropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> QueueFamilyDataGraphProcessingEnginePropertiesARMBuilder<
         'a,
@@ -71615,7 +71615,7 @@ pub struct DataGraphProcessingEngineCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphProcessingEngineCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphProcessingEngineCreateInfoARMBuilder<'a> {
         DataGraphProcessingEngineCreateInfoARMBuilder {
@@ -71672,7 +71672,7 @@ pub struct PhysicalDevicePipelineCacheIncrementalModeFeaturesSECBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePipelineCacheIncrementalModeFeaturesSECBuilder<
         'a,
@@ -71729,7 +71729,7 @@ pub struct DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DataGraphPipelineBuiltinModelCreateInfoQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder<'a> {
         DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder {
@@ -71785,7 +71785,7 @@ pub struct PhysicalDeviceDataGraphModelFeaturesQCOMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDataGraphModelFeaturesQCOM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDataGraphModelFeaturesQCOMBuilder<'a> {
         PhysicalDeviceDataGraphModelFeaturesQCOMBuilder {
@@ -71838,7 +71838,7 @@ pub struct PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderUntypedPointersFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderUntypedPointersFeaturesKHRBuilder {
@@ -71892,7 +71892,7 @@ pub struct NativeBufferOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl NativeBufferOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> NativeBufferOHOSBuilder<'a> {
         NativeBufferOHOSBuilder {
@@ -71942,7 +71942,7 @@ pub struct SwapchainImageCreateInfoOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SwapchainImageCreateInfoOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SwapchainImageCreateInfoOHOSBuilder<'a> {
         SwapchainImageCreateInfoOHOSBuilder {
@@ -71995,7 +71995,7 @@ pub struct PhysicalDevicePresentationPropertiesOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePresentationPropertiesOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePresentationPropertiesOHOSBuilder<'a> {
         PhysicalDevicePresentationPropertiesOHOSBuilder {
@@ -72033,7 +72033,7 @@ pub struct PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVEBuilder<
         'a,
@@ -72090,7 +72090,7 @@ pub struct VideoEncodeRgbConversionCapabilitiesVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeRgbConversionCapabilitiesVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeRgbConversionCapabilitiesVALVEBuilder<'a> {
         VideoEncodeRgbConversionCapabilitiesVALVEBuilder {
@@ -72152,7 +72152,7 @@ pub struct VideoEncodeProfileRgbConversionInfoVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeProfileRgbConversionInfoVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeProfileRgbConversionInfoVALVEBuilder<'a> {
         VideoEncodeProfileRgbConversionInfoVALVEBuilder {
@@ -72205,7 +72205,7 @@ pub struct VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl VideoEncodeSessionRgbConversionCreateInfoVALVE {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder<'a> {
         VideoEncodeSessionRgbConversionCreateInfoVALVEBuilder {
@@ -72286,7 +72286,7 @@ pub struct PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShader64BitIndexingFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder<'a> {
         PhysicalDeviceShader64BitIndexingFeaturesEXTBuilder {
@@ -72340,7 +72340,7 @@ pub struct NativeBufferUsageOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl NativeBufferUsageOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> NativeBufferUsageOHOSBuilder<'a> {
         NativeBufferUsageOHOSBuilder {
@@ -72378,7 +72378,7 @@ pub struct NativeBufferPropertiesOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl NativeBufferPropertiesOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> NativeBufferPropertiesOHOSBuilder<'a> {
         NativeBufferPropertiesOHOSBuilder {
@@ -72421,7 +72421,7 @@ pub struct NativeBufferFormatPropertiesOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl NativeBufferFormatPropertiesOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> NativeBufferFormatPropertiesOHOSBuilder<'a> {
         NativeBufferFormatPropertiesOHOSBuilder {
@@ -72497,7 +72497,7 @@ pub struct ImportNativeBufferInfoOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImportNativeBufferInfoOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImportNativeBufferInfoOHOSBuilder<'a> {
         ImportNativeBufferInfoOHOSBuilder {
@@ -72550,7 +72550,7 @@ pub struct MemoryGetNativeBufferInfoOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryGetNativeBufferInfoOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryGetNativeBufferInfoOHOSBuilder<'a> {
         MemoryGetNativeBufferInfoOHOSBuilder {
@@ -72603,7 +72603,7 @@ pub struct ExternalFormatOHOSBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ExternalFormatOHOS {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ExternalFormatOHOSBuilder<'a> {
         ExternalFormatOHOSBuilder {
@@ -72653,7 +72653,7 @@ pub struct PhysicalDevicePerformanceCountersByRegionFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePerformanceCountersByRegionFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePerformanceCountersByRegionFeaturesARMBuilder<
         'a,
@@ -72710,7 +72710,7 @@ pub struct PhysicalDevicePerformanceCountersByRegionPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDevicePerformanceCountersByRegionPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDevicePerformanceCountersByRegionPropertiesARMBuilder<
         'a,
@@ -72772,7 +72772,7 @@ pub struct PerformanceCounterARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceCounterARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceCounterARMBuilder<'a> {
         PerformanceCounterARMBuilder {
@@ -72810,7 +72810,7 @@ pub struct PerformanceCounterDescriptionARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PerformanceCounterDescriptionARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PerformanceCounterDescriptionARMBuilder<'a> {
         PerformanceCounterDescriptionARMBuilder {
@@ -72856,7 +72856,7 @@ pub struct RenderPassPerformanceCountersByRegionBeginInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl RenderPassPerformanceCountersByRegionBeginInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> RenderPassPerformanceCountersByRegionBeginInfoARMBuilder<
         'a,
@@ -72925,7 +72925,7 @@ pub struct ComputeOccupancyPriorityParametersNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ComputeOccupancyPriorityParametersNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ComputeOccupancyPriorityParametersNVBuilder<'a> {
         ComputeOccupancyPriorityParametersNVBuilder {
@@ -72983,7 +72983,7 @@ pub struct PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder<'a> {
         PhysicalDeviceComputeOccupancyPriorityFeaturesNVBuilder {
@@ -73038,7 +73038,7 @@ pub struct PhysicalDeviceShaderLongVectorFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderLongVectorFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderLongVectorFeaturesEXTBuilder<'a> {
         PhysicalDeviceShaderLongVectorFeaturesEXTBuilder {
@@ -73091,7 +73091,7 @@ pub struct PhysicalDeviceShaderLongVectorPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderLongVectorPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderLongVectorPropertiesEXTBuilder<'a> {
         PhysicalDeviceShaderLongVectorPropertiesEXTBuilder {
@@ -73129,7 +73129,7 @@ pub struct PhysicalDeviceTextureCompressionASTC3DFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceTextureCompressionASTC3DFeaturesEXTBuilder<
         'a,
@@ -73186,7 +73186,7 @@ pub struct PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder<
         'a,
@@ -73243,7 +73243,7 @@ pub struct TexelBufferDescriptorInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl TexelBufferDescriptorInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> TexelBufferDescriptorInfoEXTBuilder<'a> {
         TexelBufferDescriptorInfoEXTBuilder {
@@ -73301,7 +73301,7 @@ pub struct ImageDescriptorInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ImageDescriptorInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ImageDescriptorInfoEXTBuilder<'a> {
         ImageDescriptorInfoEXTBuilder {
@@ -73359,7 +73359,7 @@ pub struct ResourceDescriptorInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ResourceDescriptorInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ResourceDescriptorInfoEXTBuilder<'a> {
         ResourceDescriptorInfoEXTBuilder {
@@ -73417,7 +73417,7 @@ pub struct BindHeapInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindHeapInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindHeapInfoEXTBuilder<'a> {
         BindHeapInfoEXTBuilder {
@@ -73477,7 +73477,7 @@ pub struct PushDataInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PushDataInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PushDataInfoEXTBuilder<'a> {
         PushDataInfoEXTBuilder {
@@ -73532,7 +73532,7 @@ pub struct DescriptorSetAndBindingMappingEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DescriptorSetAndBindingMappingEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DescriptorSetAndBindingMappingEXTBuilder<'a> {
         DescriptorSetAndBindingMappingEXTBuilder {
@@ -73610,7 +73610,7 @@ pub struct ShaderDescriptorSetAndBindingMappingInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ShaderDescriptorSetAndBindingMappingInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ShaderDescriptorSetAndBindingMappingInfoEXTBuilder<'a> {
         ShaderDescriptorSetAndBindingMappingInfoEXTBuilder {
@@ -73664,7 +73664,7 @@ pub struct SamplerCustomBorderColorIndexCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SamplerCustomBorderColorIndexCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SamplerCustomBorderColorIndexCreateInfoEXTBuilder<'a> {
         SamplerCustomBorderColorIndexCreateInfoEXTBuilder {
@@ -73717,7 +73717,7 @@ pub struct OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl OpaqueCaptureDataCreateInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
         OpaqueCaptureDataCreateInfoEXTBuilder {
@@ -73770,7 +73770,7 @@ pub struct IndirectCommandsLayoutPushDataTokenNVBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl IndirectCommandsLayoutPushDataTokenNV {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> IndirectCommandsLayoutPushDataTokenNVBuilder<'a> {
         IndirectCommandsLayoutPushDataTokenNVBuilder {
@@ -73828,7 +73828,7 @@ pub struct SubsampledImageFormatPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl SubsampledImageFormatPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> SubsampledImageFormatPropertiesEXTBuilder<'a> {
         SubsampledImageFormatPropertiesEXTBuilder {
@@ -73881,7 +73881,7 @@ pub struct PhysicalDeviceDescriptorHeapFeaturesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorHeapFeaturesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorHeapFeaturesEXTBuilder<'a> {
         PhysicalDeviceDescriptorHeapFeaturesEXTBuilder {
@@ -73939,7 +73939,7 @@ pub struct PhysicalDeviceDescriptorHeapPropertiesEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorHeapPropertiesEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorHeapPropertiesEXTBuilder<'a> {
         PhysicalDeviceDescriptorHeapPropertiesEXTBuilder {
@@ -74067,7 +74067,7 @@ pub struct CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CommandBufferInheritanceDescriptorHeapInfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
         CommandBufferInheritanceDescriptorHeapInfoEXTBuilder {
@@ -74126,7 +74126,7 @@ pub struct PhysicalDeviceDescriptorHeapTensorPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDescriptorHeapTensorPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDescriptorHeapTensorPropertiesARMBuilder<'a> {
         PhysicalDeviceDescriptorHeapTensorPropertiesARMBuilder {
@@ -74176,7 +74176,7 @@ pub struct PhysicalDeviceShaderInstrumentationFeaturesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderInstrumentationFeaturesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderInstrumentationFeaturesARMBuilder<'a> {
         PhysicalDeviceShaderInstrumentationFeaturesARMBuilder {
@@ -74230,7 +74230,7 @@ pub struct PhysicalDeviceShaderInstrumentationPropertiesARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderInstrumentationPropertiesARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderInstrumentationPropertiesARMBuilder<'a> {
         PhysicalDeviceShaderInstrumentationPropertiesARMBuilder {
@@ -74275,7 +74275,7 @@ pub struct ShaderInstrumentationCreateInfoARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ShaderInstrumentationCreateInfoARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ShaderInstrumentationCreateInfoARMBuilder<'a> {
         ShaderInstrumentationCreateInfoARMBuilder {
@@ -74323,7 +74323,7 @@ pub struct ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ShaderInstrumentationMetricDescriptionARM {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
         ShaderInstrumentationMetricDescriptionARMBuilder {
@@ -74387,7 +74387,7 @@ pub struct DeviceMemoryCopyKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceMemoryCopyKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceMemoryCopyKHRBuilder<'a> {
         DeviceMemoryCopyKHRBuilder {
@@ -74452,7 +74452,7 @@ pub struct CopyDeviceMemoryInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyDeviceMemoryInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyDeviceMemoryInfoKHRBuilder<'a> {
         CopyDeviceMemoryInfoKHRBuilder {
@@ -74506,7 +74506,7 @@ pub struct DeviceMemoryImageCopyKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceMemoryImageCopyKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceMemoryImageCopyKHRBuilder<'a> {
         DeviceMemoryImageCopyKHRBuilder {
@@ -74594,7 +74594,7 @@ pub struct CopyDeviceMemoryImageInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl CopyDeviceMemoryImageInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> CopyDeviceMemoryImageInfoKHRBuilder<'a> {
         CopyDeviceMemoryImageInfoKHRBuilder {
@@ -74653,7 +74653,7 @@ pub struct MemoryRangeBarriersInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryRangeBarriersInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryRangeBarriersInfoKHRBuilder<'a> {
         MemoryRangeBarriersInfoKHRBuilder {
@@ -74707,7 +74707,7 @@ pub struct MemoryRangeBarrierKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryRangeBarrierKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryRangeBarrierKHRBuilder<'a> {
         MemoryRangeBarrierKHRBuilder {
@@ -74795,7 +74795,7 @@ pub struct PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder<'a> {
         PhysicalDeviceDeviceAddressCommandsFeaturesKHRBuilder {
@@ -74849,7 +74849,7 @@ pub struct ConditionalRenderingBeginInfo2EXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl ConditionalRenderingBeginInfo2EXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> ConditionalRenderingBeginInfo2EXTBuilder<'a> {
         ConditionalRenderingBeginInfo2EXTBuilder {
@@ -74912,7 +74912,7 @@ pub struct AccelerationStructureCreateInfo2KHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl AccelerationStructureCreateInfo2KHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> AccelerationStructureCreateInfo2KHRBuilder<'a> {
         AccelerationStructureCreateInfo2KHRBuilder {
@@ -74980,7 +74980,7 @@ pub struct BindIndexBuffer3InfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindIndexBuffer3InfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindIndexBuffer3InfoKHRBuilder<'a> {
         BindIndexBuffer3InfoKHRBuilder {
@@ -75043,7 +75043,7 @@ pub struct BindVertexBuffer3InfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindVertexBuffer3InfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindVertexBuffer3InfoKHRBuilder<'a> {
         BindVertexBuffer3InfoKHRBuilder {
@@ -75106,7 +75106,7 @@ pub struct DrawIndirect2InfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DrawIndirect2InfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DrawIndirect2InfoKHRBuilder<'a> {
         DrawIndirect2InfoKHRBuilder {
@@ -75166,7 +75166,7 @@ pub struct DrawIndirectCount2InfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DrawIndirectCount2InfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DrawIndirectCount2InfoKHRBuilder<'a> {
         DrawIndirectCount2InfoKHRBuilder {
@@ -75239,7 +75239,7 @@ pub struct DispatchIndirect2InfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DispatchIndirect2InfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DispatchIndirect2InfoKHRBuilder<'a> {
         DispatchIndirect2InfoKHRBuilder {
@@ -75297,7 +75297,7 @@ pub struct BindTransformFeedbackBuffer2InfoEXTBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl BindTransformFeedbackBuffer2InfoEXT {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> BindTransformFeedbackBuffer2InfoEXTBuilder<'a> {
         BindTransformFeedbackBuffer2InfoEXTBuilder {
@@ -75355,7 +75355,7 @@ pub struct MemoryMarkerInfoAMDBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl MemoryMarkerInfoAMD {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> MemoryMarkerInfoAMDBuilder<'a> {
         MemoryMarkerInfoAMDBuilder {
@@ -75420,7 +75420,7 @@ pub struct PhysicalDeviceShaderConstantDataFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderConstantDataFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderConstantDataFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderConstantDataFeaturesKHRBuilder {
@@ -75473,7 +75473,7 @@ pub struct PhysicalDeviceShaderAbortFeaturesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderAbortFeaturesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderAbortFeaturesKHRBuilder<'a> {
         PhysicalDeviceShaderAbortFeaturesKHRBuilder {
@@ -75526,7 +75526,7 @@ pub struct PhysicalDeviceShaderAbortPropertiesKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl PhysicalDeviceShaderAbortPropertiesKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> PhysicalDeviceShaderAbortPropertiesKHRBuilder<'a> {
         PhysicalDeviceShaderAbortPropertiesKHRBuilder {
@@ -75579,7 +75579,7 @@ pub struct DeviceFaultShaderAbortMessageInfoKHRBuilder<'a> {
     _marker: core::marker::PhantomData<&'a ()>,
 }
 impl DeviceFaultShaderAbortMessageInfoKHR {
-    /// Returns a builder for this struct with sType pre-filled.
+    /// Start building this struct; `s_type` is already set to the correct variant.
     #[inline]
     pub fn builder<'a>() -> DeviceFaultShaderAbortMessageInfoKHRBuilder<'a> {
         DeviceFaultShaderAbortMessageInfoKHRBuilder {

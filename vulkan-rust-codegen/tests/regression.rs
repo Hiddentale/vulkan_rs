@@ -95,7 +95,7 @@ fn two_call_commands_have_output_pairs() {
     let mut false_positives = Vec::new();
 
     for cmd in &registry.commands {
-        let roles = vulkan_rust_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let roles = vulkan_rust_codegen::wrapper_utils::assign_param_roles(cmd, &pnext);
         let pattern = vulkan_rust_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         if matches!(
@@ -136,7 +136,7 @@ fn two_call_return_type_consistency() {
     let mut mismatches = Vec::new();
 
     for cmd in &registry.commands {
-        let roles = vulkan_rust_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let roles = vulkan_rust_codegen::wrapper_utils::assign_param_roles(cmd, &pnext);
         let pattern = vulkan_rust_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         match pattern {
@@ -764,7 +764,7 @@ fn wrapper_return_types_match_patterns() {
         if exclusions.contains(&cmd.name) {
             continue;
         }
-        let roles = vulkan_rust_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let roles = vulkan_rust_codegen::wrapper_utils::assign_param_roles(cmd, &pnext);
         let pattern = vulkan_rust_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);
@@ -1029,7 +1029,7 @@ fn two_call_wrappers_use_correct_helper() {
         if exclusions.contains(&cmd.name) {
             continue;
         }
-        let roles = vulkan_rust_codegen::wrapper_utils::classify_params(cmd, &pnext);
+        let roles = vulkan_rust_codegen::wrapper_utils::assign_param_roles(cmd, &pnext);
         let pattern = vulkan_rust_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         let stripped = cmd.name.strip_prefix("vk").unwrap_or(&cmd.name);

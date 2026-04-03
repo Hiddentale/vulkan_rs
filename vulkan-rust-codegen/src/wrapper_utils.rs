@@ -116,7 +116,7 @@ fn self_handle_type(level: DispatchLevel) -> Option<&'static str> {
 /// `pnext_structs` is the set returned by [`build_pnext_struct_set`], struct
 /// names (Vk-prefix stripped) whose instances have `sType`/`pNext` and therefore
 /// cannot be used as simple output values.
-pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec<ParamRole> {
+pub fn assign_param_roles(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec<ParamRole> {
     let params = &cmd.params;
     let mut roles = vec![ParamRole::Regular; params.len()];
 
@@ -507,7 +507,7 @@ mod tests {
         names.iter().map(|s| s.to_string()).collect()
     }
 
-    // -- classify_params tests ----------------------------------------------
+    // -- assign_param_roles tests ----------------------------------------------
 
     #[test]
     fn create_buffer_roles() {
@@ -524,7 +524,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(
             roles,
             vec![
@@ -549,7 +549,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(
             roles,
             vec![
@@ -577,7 +577,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(
             roles,
             vec![
@@ -606,7 +606,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         // VkPhysicalDevice is NOT the self-handle for Instance (only VkInstance is).
         assert_eq!(
             roles,
@@ -631,7 +631,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(roles, vec![ParamRole::Regular, ParamRole::Output,]);
     }
 
@@ -644,7 +644,7 @@ mod tests {
             vec![param("device", "VkDevice")],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(roles, vec![ParamRole::SelfHandle]);
     }
 
@@ -663,7 +663,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         // VkCommandBuffer is NOT the self-handle for Device (only VkDevice is).
         assert_eq!(
             roles,
@@ -691,7 +691,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(
             roles,
             vec![
@@ -720,7 +720,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         // Double pointer stays Regular,not classified as Output.
         assert_eq!(
             roles,
@@ -754,7 +754,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(
             roles,
             vec![
@@ -793,7 +793,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(
             roles,
             vec![
@@ -824,7 +824,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &pnext);
+        let roles = assign_param_roles(&c, &pnext);
         assert_eq!(roles, vec![ParamRole::Regular, ParamRole::PNextOutput]);
     }
 
@@ -842,7 +842,7 @@ mod tests {
             ],
             DispatchLevel::Entry,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         // Entry level: no self-handle. First param stays Regular.
         assert_eq!(
             roles,
@@ -869,7 +869,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(
             roles,
             vec![
@@ -896,7 +896,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::Create);
     }
 
@@ -912,7 +912,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::Destroy);
     }
 
@@ -932,7 +932,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::Enumerate);
     }
 
@@ -952,7 +952,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::Fill);
     }
 
@@ -967,7 +967,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::Query);
     }
 
@@ -979,7 +979,7 @@ mod tests {
             vec![param("device", "VkDevice")],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::ResultOnly);
     }
 
@@ -997,7 +997,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::VoidForward);
     }
 
@@ -1017,7 +1017,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::ResultOnly);
     }
 
@@ -1036,7 +1036,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         // Contains "Free" → Destroy pattern.
         assert_eq!(classify_command(&c, &roles), CommandPattern::Destroy);
     }
@@ -1055,7 +1055,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &pnext);
+        let roles = assign_param_roles(&c, &pnext);
         assert_eq!(classify_command(&c, &roles), CommandPattern::VoidForward);
     }
 
@@ -1078,7 +1078,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::AllocateArray);
     }
 
@@ -1098,7 +1098,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::AllocateArray);
     }
 

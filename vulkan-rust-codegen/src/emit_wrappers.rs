@@ -13,8 +13,8 @@ use quote::{format_ident, quote};
 use crate::parse::{CommandDef, DispatchLevel, ParamDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, resolve_base_type, resolve_param_type};
 use crate::wrapper_utils::{
-    CommandPattern, CountSource, ParamRole, build_pnext_struct_set, classify_command,
-    classify_params,
+    CommandPattern, CountSource, ParamRole, assign_param_roles, build_pnext_struct_set,
+    classify_command,
 };
 
 // ---------------------------------------------------------------------------
@@ -157,7 +157,7 @@ fn emit_methods(
             continue;
         }
 
-        let roles = classify_params(cmd, pnext);
+        let roles = assign_param_roles(cmd, pnext);
         let pattern = classify_command(cmd, &roles);
         methods.extend(emit_method(cmd, &roles, pattern));
         count += 1;
@@ -734,7 +734,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let sig = stringify(emit_signature_params(&c, &roles));
 
         assert!(sig.contains("create_info : & BufferCreateInfo"));
@@ -759,7 +759,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let sig = stringify(emit_signature_params(&c, &roles));
 
         // VkCommandBuffer is NOT the device self-handle, so it appears
@@ -784,7 +784,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let sig = stringify(emit_signature_params(&c, &roles));
 
         // Self-handle and output pair all elided,no params
@@ -804,7 +804,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let sig = stringify(emit_signature_params(&c, &roles));
 
         // Count param suppressed, array becomes slice
@@ -829,7 +829,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
@@ -852,7 +852,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
@@ -870,7 +870,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
@@ -892,7 +892,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -915,7 +915,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -940,7 +940,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -965,7 +965,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -984,7 +984,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -1003,7 +1003,7 @@ mod tests {
             vec![param("device", "VkDevice")],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -1024,7 +1024,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -1046,7 +1046,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -1111,7 +1111,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let method = stringify(emit_method(&c, &roles, pattern));
 
@@ -1136,7 +1136,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let method = stringify(emit_method(&c, &roles, pattern));
 
@@ -1166,7 +1166,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let method = stringify(emit_method(&c, &roles, pattern));
 
@@ -1218,7 +1218,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let docs = stringify(emit_wrapper_docs(&c, &roles));
 
         assert!(docs.contains("registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDraw.html"));
@@ -1239,7 +1239,7 @@ mod tests {
         );
         c.provided_by = Some("VK_EXT_mesh_shader".to_string());
 
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let docs = stringify(emit_wrapper_docs(&c, &roles));
 
         assert!(docs.contains("VK_EXT_mesh_shader"));
@@ -1263,7 +1263,7 @@ mod tests {
             "VK_ERROR_OUT_OF_DEVICE_MEMORY".to_string(),
         ];
 
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let docs = stringify(emit_wrapper_docs(&c, &roles));
 
         assert!(docs.contains("# Errors"));
@@ -1286,7 +1286,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let docs = stringify(emit_wrapper_docs(&c, &roles));
 
         assert!(docs.contains("# Safety"));
@@ -1338,7 +1338,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
@@ -1360,7 +1360,7 @@ mod tests {
             ],
             DispatchLevel::Instance,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
@@ -1377,7 +1377,7 @@ mod tests {
             vec![param("device", "VkDevice")],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
@@ -1396,7 +1396,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
@@ -1419,7 +1419,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let sig = stringify(emit_signature_params(&c, &roles));
 
         // Optional Vk const ptr that isn't the allocator
@@ -1440,7 +1440,7 @@ mod tests {
             ],
             DispatchLevel::Device,
         );
-        let roles = classify_params(&c, &empty_pnext());
+        let roles = assign_param_roles(&c, &empty_pnext());
         let pattern = classify_command(&c, &roles);
         let body = stringify(emit_body(&c, &roles, pattern));
 
@@ -1575,7 +1575,7 @@ mod tests {
 
             for cmd in &cmds {
                 let excluded = exclusions.contains(&cmd.name);
-                let roles = classify_params(cmd, &pnext);
+                let roles = assign_param_roles(cmd, &pnext);
                 let pattern = classify_command(cmd, &roles);
                 let pattern_name = match pattern {
                     CommandPattern::AllocateArray => "AllocateArray",
