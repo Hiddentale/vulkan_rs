@@ -1,46 +1,12 @@
+mod common;
+
 use vk::handles::Handle;
-use vulkan_rust::{Entry, LibloadingLoader, vk};
-
-fn create_entry() -> Entry {
-    let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
-    unsafe { Entry::new(loader) }.expect("failed to create Entry")
-}
-
-fn minimal_instance_create_info(
-    app_info: &vk::structs::ApplicationInfo,
-) -> vk::structs::InstanceCreateInfo {
-    vk::structs::InstanceCreateInfo {
-        s_type: vk::enums::StructureType::INSTANCE_CREATE_INFO,
-        p_next: std::ptr::null(),
-        flags: vk::bitmasks::InstanceCreateFlagBits::empty(),
-        p_application_info: app_info,
-        enabled_layer_count: 0,
-        pp_enabled_layer_names: std::ptr::null(),
-        enabled_extension_count: 0,
-        pp_enabled_extension_names: std::ptr::null(),
-    }
-}
-
-fn minimal_app_info() -> vk::structs::ApplicationInfo {
-    vk::structs::ApplicationInfo {
-        s_type: vk::enums::StructureType::APPLICATION_INFO,
-        p_next: std::ptr::null(),
-        p_application_name: std::ptr::null(),
-        application_version: 0,
-        p_engine_name: std::ptr::null(),
-        engine_version: 0,
-        api_version: vulkan_rust::Version::new(1, 0, 0).to_raw(),
-    }
-}
+use vulkan_rust::vk;
 
 #[test]
 #[ignore] // requires Vulkan runtime
 fn enumerate_physical_devices_returns_at_least_one() {
-    let entry = create_entry();
-    let app_info = minimal_app_info();
-    let create_info = minimal_instance_create_info(&app_info);
-    let instance =
-        unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance");
+    let (_entry, instance) = common::create_instance();
 
     let devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");
@@ -52,11 +18,7 @@ fn enumerate_physical_devices_returns_at_least_one() {
 #[test]
 #[ignore] // requires Vulkan runtime
 fn get_physical_device_properties_reports_device_name() {
-    let entry = create_entry();
-    let app_info = minimal_app_info();
-    let create_info = minimal_instance_create_info(&app_info);
-    let instance =
-        unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance");
+    let (_entry, instance) = common::create_instance();
 
     let devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");
@@ -78,11 +40,7 @@ fn get_physical_device_properties_reports_device_name() {
 #[test]
 #[ignore] // requires Vulkan runtime
 fn get_physical_device_queue_family_properties_returns_at_least_one() {
-    let entry = create_entry();
-    let app_info = minimal_app_info();
-    let create_info = minimal_instance_create_info(&app_info);
-    let instance =
-        unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance");
+    let (_entry, instance) = common::create_instance();
 
     let devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");
@@ -95,11 +53,7 @@ fn get_physical_device_queue_family_properties_returns_at_least_one() {
 #[test]
 #[ignore] // requires Vulkan runtime
 fn full_lifecycle() {
-    let entry = create_entry();
-    let app_info = minimal_app_info();
-    let create_info = minimal_instance_create_info(&app_info);
-    let instance =
-        unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance");
+    let (_entry, instance) = common::create_instance();
 
     let physical_devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");

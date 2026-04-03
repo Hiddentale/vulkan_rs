@@ -6,43 +6,10 @@
 //!
 //! Run with: `cargo test -p vulkan-rust --test generated_wrappers_integration -- --ignored`
 
+mod common;
+
 use vk::handles::Handle;
-use vulkan_rust::{Entry, Instance, LibloadingLoader, vk};
-
-// ---------------------------------------------------------------------------
-// Shared helpers
-// ---------------------------------------------------------------------------
-
-fn create_entry() -> Entry {
-    let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
-    unsafe { Entry::new(loader) }.expect("failed to create Entry")
-}
-
-fn create_instance() -> (Entry, Instance) {
-    let entry = create_entry();
-    let app_info = vk::structs::ApplicationInfo {
-        s_type: vk::enums::StructureType::APPLICATION_INFO,
-        p_next: std::ptr::null(),
-        p_application_name: std::ptr::null(),
-        application_version: 0,
-        p_engine_name: std::ptr::null(),
-        engine_version: 0,
-        api_version: vulkan_rust::Version::new(1, 0, 0).to_raw(),
-    };
-    let create_info = vk::structs::InstanceCreateInfo {
-        s_type: vk::enums::StructureType::INSTANCE_CREATE_INFO,
-        p_next: std::ptr::null(),
-        flags: vk::bitmasks::InstanceCreateFlagBits::empty(),
-        p_application_info: &app_info,
-        enabled_layer_count: 0,
-        pp_enabled_layer_names: std::ptr::null(),
-        enabled_extension_count: 0,
-        pp_enabled_extension_names: std::ptr::null(),
-    };
-    let instance =
-        unsafe { entry.create_instance(&create_info, None) }.expect("failed to create instance");
-    (entry, instance)
-}
+use vulkan_rust::{Entry, Instance, vk};
 
 struct TestDevice {
     _entry: Entry,
@@ -54,7 +21,7 @@ struct TestDevice {
 
 impl TestDevice {
     fn new() -> Self {
-        let (entry, instance) = create_instance();
+        let (entry, instance) = common::create_instance();
 
         let physical_devices = unsafe { instance.enumerate_physical_devices() }
             .expect("failed to enumerate physical devices");
@@ -121,7 +88,7 @@ impl Drop for TestDevice {
 #[test]
 #[ignore]
 fn enumerate_device_extension_properties() {
-    let (_entry, instance) = create_instance();
+    let (_entry, instance) = common::create_instance();
     let devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");
 
@@ -141,7 +108,7 @@ fn enumerate_device_extension_properties() {
 #[test]
 #[ignore]
 fn get_physical_device_memory_properties() {
-    let (_entry, instance) = create_instance();
+    let (_entry, instance) = common::create_instance();
     let devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");
 
@@ -166,7 +133,7 @@ fn get_physical_device_memory_properties() {
 #[test]
 #[ignore]
 fn get_physical_device_features() {
-    let (_entry, instance) = create_instance();
+    let (_entry, instance) = common::create_instance();
     let devices = unsafe { instance.enumerate_physical_devices() }
         .expect("enumerate_physical_devices failed");
 
