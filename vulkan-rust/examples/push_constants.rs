@@ -546,7 +546,7 @@ unsafe fn record_commands(
             ShaderStageFlags::VERTEX,
             0,
             std::slice::from_raw_parts(
-                push_data as *const PushConstants as *const core::ffi::c_void,
+                push_data as *const PushConstants as *const u8,
                 std::mem::size_of::<PushConstants>(),
             ),
         );

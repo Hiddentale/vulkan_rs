@@ -154,7 +154,7 @@ unsafe {
         ShaderStageFlags::VERTEX,
         0, // offset in bytes
         std::slice::from_raw_parts(
-            &push_data as *const PushConstants as *const core::ffi::c_void,
+            &push_data as *const PushConstants as *const u8,
             std::mem::size_of::<PushConstants>(),
         ),
     );
@@ -182,7 +182,7 @@ for entity in &scene.entities {
             ShaderStageFlags::VERTEX,
             0,
             std::slice::from_raw_parts(
-                &push_data as *const PushConstants as *const core::ffi::c_void,
+                &push_data as *const PushConstants as *const u8,
                 std::mem::size_of::<PushConstants>(),
             ),
         );
@@ -203,15 +203,15 @@ helper makes it clearer:
 use vulkan_rust::vk;
 use vk::*;
 
-/// Reinterpret a reference to a `Copy` type as a `&[c_void]` slice
+/// Reinterpret a reference to a `Copy` type as a `&[u8]` slice
 /// suitable for `cmd_push_constants`.
 ///
 /// # Safety
 /// The type must be `#[repr(C)]` with no padding that contains
 /// uninitialized bytes.
-unsafe fn as_push_bytes<T: Copy>(data: &T) -> &[core::ffi::c_void] {
+unsafe fn as_push_bytes<T: Copy>(data: &T) -> &[u8] {
     std::slice::from_raw_parts(
-        data as *const T as *const core::ffi::c_void,
+        data as *const T as *const u8,
         std::mem::size_of::<T>(),
     )
 }

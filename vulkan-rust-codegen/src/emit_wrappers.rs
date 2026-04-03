@@ -284,7 +284,11 @@ fn emit_signature_param(param: &ParamDef, role: &ParamRole) -> Option<TokenStrea
 
         ParamRole::InputArray { .. } => {
             let name = param_ident(&param.name);
-            let elem = resolve_base_type(&param.type_name);
+            let elem = if param.type_name == "void" {
+                quote! { u8 }
+            } else {
+                resolve_base_type(&param.type_name)
+            };
             Some(quote! { #name: &[#elem] })
         }
 
@@ -612,7 +616,11 @@ fn emit_call_arg(
 
         ParamRole::InputArray { .. } => {
             let name = param_ident(&param.name);
-            quote! { #name.as_ptr() }
+            if param.type_name == "void" {
+                quote! { #name.as_ptr().cast() }
+            } else {
+                quote! { #name.as_ptr() }
+            }
         }
 
         ParamRole::Allocator => quote! { alloc_ptr },

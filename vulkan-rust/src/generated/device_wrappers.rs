@@ -5950,7 +5950,7 @@ impl crate::Device {
         layout: PipelineLayout,
         stage_flags: ShaderStageFlags,
         offset: u32,
-        p_values: &[core::ffi::c_void],
+        p_values: &[u8],
     ) {
         let fp = self
             .commands()
@@ -5963,7 +5963,7 @@ impl crate::Device {
                 stage_flags,
                 offset,
                 p_values.len() as u32,
-                p_values.as_ptr(),
+                p_values.as_ptr().cast(),
             )
         };
     }
