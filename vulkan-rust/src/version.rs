@@ -1,5 +1,14 @@
 use core::fmt;
 
+/// Bit offset for the major version component (bits 31-22).
+const MAJOR_SHIFT: u32 = 22;
+/// Bit offset for the minor version component (bits 21-12).
+const MINOR_SHIFT: u32 = 12;
+/// Bitmask for the minor version component (10 bits).
+const MINOR_MASK: u32 = 0x3FF;
+/// Bitmask for the patch version component (12 bits).
+const PATCH_MASK: u32 = 0xFFF;
+
 /// Decoded Vulkan API version (major.minor.patch).
 ///
 /// Vulkan packs versions into a `u32`: major (bits 31-22), minor (21-12),
@@ -54,9 +63,9 @@ impl Version {
     /// ```
     pub const fn from_raw(raw: u32) -> Self {
         Self {
-            major: raw >> 22,
-            minor: (raw >> 12) & 0x3FF,
-            patch: raw & 0xFFF,
+            major: raw >> MAJOR_SHIFT,
+            minor: (raw >> MINOR_SHIFT) & MINOR_MASK,
+            patch: raw & PATCH_MASK,
         }
     }
 
@@ -69,7 +78,7 @@ impl Version {
     /// assert_eq!(v.to_raw(), 0x00403000);
     /// ```
     pub const fn to_raw(self) -> u32 {
-        (self.major << 22) | (self.minor << 12) | self.patch
+        (self.major << MAJOR_SHIFT) | (self.minor << MINOR_SHIFT) | self.patch
     }
 }
 
