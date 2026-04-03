@@ -422,7 +422,7 @@ mod tests {
         let loader = LibloadingLoader::new().expect("failed to load Vulkan");
         let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
 
-        let api_version_1_0 = 1u32 << 22;
+        let api_version_1_0 = crate::Version::new(1, 0, 0).to_raw();
         let app_info = vk::structs::ApplicationInfo {
             s_type: vk::enums::StructureType::APPLICATION_INFO,
             p_next: std::ptr::null(),

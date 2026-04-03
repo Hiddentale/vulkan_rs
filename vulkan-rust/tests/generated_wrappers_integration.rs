@@ -27,7 +27,7 @@ fn create_instance() -> (Entry, Instance) {
         application_version: 0,
         p_engine_name: std::ptr::null(),
         engine_version: 0,
-        api_version: 1u32 << 22,
+        api_version: vulkan_rust::Version::new(1, 0, 0).to_raw(),
     };
     let create_info = vk::structs::InstanceCreateInfo {
         s_type: vk::enums::StructureType::INSTANCE_CREATE_INFO,

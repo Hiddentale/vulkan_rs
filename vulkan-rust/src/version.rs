@@ -105,7 +105,7 @@ mod tests {
     #[test]
     fn from_raw_known_versions() {
         // VK_API_VERSION_1_0 = VK_MAKE_API_VERSION(0, 1, 0, 0)
-        let v10 = Version::from_raw(1 << 22);
+        let v10 = Version::from_raw(Version::new(1, 0, 0).to_raw());
         assert_eq!(
             v10,
             Version {

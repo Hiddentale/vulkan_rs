@@ -29,7 +29,7 @@ fn minimal_app_info() -> vk::structs::ApplicationInfo {
         application_version: 0,
         p_engine_name: std::ptr::null(),
         engine_version: 0,
-        api_version: 1u32 << 22, // VK_MAKE_API_VERSION(0, 1, 0, 0)
+        api_version: vulkan_rust::Version::new(1, 0, 0).to_raw(),
     }
 }
 

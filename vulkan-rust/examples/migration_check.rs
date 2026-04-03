@@ -15,7 +15,8 @@ fn check_entry_creation() {
     let loader = vulkan_rust::LibloadingLoader::new().expect("Failed to load Vulkan");
     let entry = unsafe { vulkan_rust::Entry::new(loader) }.expect("Failed to create entry");
 
-    let app_info = ApplicationInfo::builder().api_version((1 << 22) | (3 << 12)); // Vulkan 1.3
+    let app_info =
+        ApplicationInfo::builder().api_version(vulkan_rust::Version::new(1, 3, 0).to_raw());
     let create_info = InstanceCreateInfo::builder().p_application_info(&app_info);
     let _instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");

@@ -395,8 +395,7 @@ mod tests {
     unsafe extern "system" fn mock_enumerate_instance_version(
         p_api_version: *mut u32,
     ) -> vk::enums::Result {
-        // Return Vulkan 1.3.290
-        unsafe { *p_api_version = (1 << 22) | (3 << 12) | 290 };
+        unsafe { *p_api_version = crate::Version::new(1, 3, 290).to_raw() };
         vk::enums::Result::SUCCESS
     }
 
