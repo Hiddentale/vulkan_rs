@@ -232,10 +232,12 @@ impl Instance {
 
             #[cfg(target_os = "macos")]
             (RawDisplayHandle::AppKit(_), RawWindowHandle::AppKit(w)) => {
-                // The caller's NSView must be backed by a CAMetalLayer
-                // (typically set up by the windowing library).
+                // VK_EXT_metal_surface requires a CAMetalLayer*. raw-window-metal
+                // gets-or-creates the NSView's backing layer and returns a +1 retained
+                // CAMetalLayer* that MoltenVK is expected to own for the surface's lifetime.
+                let layer = unsafe { raw_window_metal::Layer::from_ns_view(w.ns_view) };
                 let info = vk::MetalSurfaceCreateInfoEXT {
-                    p_layer: w.ns_view.as_ptr() as *const _,
+                    p_layer: layer.into_raw().as_ptr() as *const _,
                     ..Default::default()
                 };
                 let fp = self
