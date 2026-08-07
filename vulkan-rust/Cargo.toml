@@ -1,6 +1,6 @@
 [package]
 name = "vulkan-rust"
-version = "0.10.1"
+version = "0.10.2"
 edition = "2024"
 rust-version = "1.85"
 description = "Ergonomic Vulkan bindings for Rust, generated from vk.xml"
@@ -14,12 +14,15 @@ categories = ["api-bindings", "graphics", "rendering::graphics-api"]
 
 [features]
 default = ["surface"]
-surface = ["dep:raw-window-handle"]
+surface = ["dep:raw-window-handle", "dep:raw-window-metal"]
 
 [dependencies]
 vulkan-rust-sys = { version = "0.10.0", path = "../vulkan-rust-sys" }
 libloading = "0.8"
 raw-window-handle = { version = "0.6", optional = true }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+raw-window-metal = { version = "1", optional = true }
 
 [dev-dependencies]
 winit = "0.30"
