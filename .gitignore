@@ -10,3 +10,4 @@ docs/custom_vulkan_bindings.md
 docs/total_audit.md
 rust_out.*
 guide/book
+.DS_Store
